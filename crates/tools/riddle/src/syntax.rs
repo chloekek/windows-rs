@@ -94,7 +94,19 @@ impl ToWriter for Interface {
                 ReturnType::Default => writer::Type::Void,
                 ReturnType::Type(_, ty) => type_to_type(ty)?,
             };
-            methods.push(writer::Method { name: method.sig.ident.to_string(), return_type, params: vec![] });
+            let mut params = vec![];
+            for arg in &method.sig.inputs {
+                let FnArg::Typed(pat_type) = arg else {
+                    continue;
+                };
+
+                let Pat::Ident(pat_ident) = &*pat_type.pat else {
+                    return Err(Error::new(pat_type.pat.span(), "expected parameter name"));
+                };
+
+                params.push(writer::Param { name: pat_ident.ident.to_string(), ty: type_to_type(&pat_type.ty)?, flags: writer::ParamFlags::INPUT });
+            }
+            methods.push(writer::Method { name: method.sig.ident.to_string(), return_type, params });
         }
 
         items.push(writer::Item::Interface(writer::Interface { namespace, name: self.name.to_string(), methods }));

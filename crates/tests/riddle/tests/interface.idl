@@ -1,6 +1,7 @@
 mod TypeNamespace {
     interface TypeName{
-        fn A();
-        fn B() -> i32;
+        fn A(&self);
+        fn B(&self) -> i32;
+        fn C(&self, a: i32, b: i64) -> u32;
     }
 }

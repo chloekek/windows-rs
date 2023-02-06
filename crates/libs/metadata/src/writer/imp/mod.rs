@@ -234,10 +234,10 @@ fn item_value_type(item: &Item) -> bool {
 fn method_blob(method: &Method, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
     let mut blob = vec![0x20]; // HASTHIS
     u32_blob(method.params.len() as _, &mut blob);
+    type_blob(&method.return_type, &mut blob, definitions, references);
     for param in &method.params {
         type_blob(&param.ty, &mut blob, definitions, references);
     }
-    type_blob(&method.return_type, &mut blob, definitions, references);
     blob
 }
 
