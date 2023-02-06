@@ -1,0 +1,6 @@
+mod TypeNamespace {
+    interface TypeName{
+        fn A();
+        fn B() -> i32;
+    }
+}

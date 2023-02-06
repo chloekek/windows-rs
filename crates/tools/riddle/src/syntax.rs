@@ -90,7 +90,11 @@ impl ToWriter for Interface {
         let mut methods = vec![];
 
         for method in &self.methods {
-            methods.push(writer::Method { name: method.sig.ident.to_string(), return_type: writer::Type::Void, params: vec![] });
+            let return_type = match &method.sig.output {
+                ReturnType::Default => writer::Type::Void,
+                ReturnType::Type(_, ty) => type_to_type(ty)?,
+            };
+            methods.push(writer::Method { name: method.sig.ident.to_string(), return_type, params: vec![] });
         }
 
         items.push(writer::Item::Interface(writer::Interface { namespace, name: self.name.to_string(), methods }));

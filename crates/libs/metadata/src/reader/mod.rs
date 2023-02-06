@@ -19,7 +19,7 @@ pub use type_name::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
-        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash)]
+        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
         pub struct $name(pub Row);
     )*)
 }
