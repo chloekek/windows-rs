@@ -1,6 +1,6 @@
 use std::process::Command;
 
-pub fn run_riddle(input: &str) -> String {
+pub fn winrt_riddle(input: &str) -> String {
     let mut command = Command::new("cargo.exe");
     command.arg("install").arg("--path").arg("../../tools/riddle");
 

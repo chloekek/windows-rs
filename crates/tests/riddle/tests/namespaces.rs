@@ -1,9 +1,8 @@
-use test_riddle::run_riddle;
 use windows_metadata::reader::*;
 
 #[test]
 fn riddle_basic() {
-    let output = run_riddle("tests/basic.idl");
+    let output = test_riddle::winrt_riddle("tests/namespaces.idl");
     let files = File::with_default(&[&output]).expect("Failed to open winmd files");
     let reader = &Reader::new(&files);
 

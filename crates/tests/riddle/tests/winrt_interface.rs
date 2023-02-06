@@ -1,9 +1,8 @@
-use test_riddle::run_riddle;
 use windows_metadata::reader::*;
 
 #[test]
 fn riddle_interface() {
-    let output = run_riddle("tests/interface.idl");
+    let output = test_riddle::winrt_riddle("tests/winrt_interface.idl");
     let files = File::with_default(&[&output]).expect("Failed to open winmd files");
     let reader = &Reader::new(&files);
 
