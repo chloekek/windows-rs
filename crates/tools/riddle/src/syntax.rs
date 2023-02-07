@@ -54,17 +54,25 @@ pub enum ModuleMember {
 
 impl Parse for ModuleMember {
     fn parse(input: ParseStream) -> Result<Self> {
+        let attrs: Vec<Attribute> = input.call(Attribute::parse_outer)?;
         let lookahead = input.lookahead1();
         if lookahead.peek(Token![mod]) {
+            if let Some(attr) = attrs.first() {
+                return Err(Error::new(attr.span(), "module attribute are not supported"));
+            }
             Ok(ModuleMember::Module(input.parse()?))
         } else if lookahead.peek(keywords::interface) {
-            Ok(ModuleMember::Interface(input.parse()?))
+            Ok(ModuleMember::Interface(Interface::parse(attrs, input)?))
         } else if lookahead.peek(Token![struct]) {
-            Ok(ModuleMember::Struct(input.parse()?))
+            let mut item: ItemStruct = input.parse()?;
+            item.attrs = attrs;
+            Ok(ModuleMember::Struct(item))
         } else if lookahead.peek(Token![enum]) {
-            Ok(ModuleMember::Enum(input.parse()?))
+            let mut item: ItemEnum = input.parse()?;
+            item.attrs = attrs;
+            Ok(ModuleMember::Enum(item))
         } else if lookahead.peek(keywords::class) {
-            Ok(ModuleMember::Class(input.parse()?))
+            Ok(ModuleMember::Class(Class::parse(attrs, input)?))
         } else {
             Err(lookahead.error())
         }
@@ -72,13 +80,13 @@ impl Parse for ModuleMember {
 }
 
 pub struct Class {
+    pub attrs: Vec<Attribute>,
     pub name: Ident,
     pub extends: Vec<Path>,
-    pub methods: Vec<TraitItemMethod>,
 }
 
-impl Parse for Class {
-    fn parse(input: ParseStream) -> Result<Self> {
+impl Class {
+    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
         input.parse::<keywords::class>()?;
         let name = input.parse::<Ident>()?;
         let mut extends = Vec::new();
@@ -91,13 +99,8 @@ impl Parse for Class {
             }
         }
 
-        let content;
-        braced!(content in input);
-        let mut methods = vec![];
-        while !content.is_empty() {
-            methods.push(content.parse::<TraitItemMethod>()?);
-        }
-        Ok(Self { name, extends, methods })
+        input.parse::<Token![;]>()?;
+        Ok(Self { attrs, name, extends })
     }
 }
 
@@ -109,12 +112,13 @@ impl ToWriter for Class {
 }
 
 pub struct Interface {
+    pub attrs: Vec<Attribute>,
     pub name: Ident,
     pub methods: Vec<TraitItemMethod>,
 }
 
-impl Parse for Interface {
-    fn parse(input: ParseStream) -> Result<Self> {
+impl Interface {
+    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
         input.parse::<keywords::interface>()?;
         let name = input.parse::<Ident>()?;
         let content;
@@ -123,7 +127,7 @@ impl Parse for Interface {
         while !content.is_empty() {
             methods.push(content.parse::<TraitItemMethod>()?);
         }
-        Ok(Self { name, methods })
+        Ok(Self { attrs, name, methods })
     }
 }
 

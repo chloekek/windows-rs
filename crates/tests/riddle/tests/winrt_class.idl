@@ -1,9 +1,9 @@
 mod TypeNamespace {
-    class TypeName : ITypeName {
-        fn TypeName() -> Self;
-        fn TypeName(value: i32) -> Self;
-    }
+    #[activatable]
+    #[activatable(ITypeNameFactory)]
+    class TypeName : ITypeName;
 
+    // #[exclusive(TypeName)]
     // interface ITypeNameFactory {
     //     fn Create(&self) -> TypeName;
     //     fn CreateWithInt32(&self, value: i32) -> TypeName;
@@ -11,5 +11,9 @@ mod TypeNamespace {
 
     interface ITypeName {
         fn GetValue(&self) -> u32;
+    }
+
+    mod Nested {
+
     }
 }
