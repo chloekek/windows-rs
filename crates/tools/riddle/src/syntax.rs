@@ -3,6 +3,7 @@ use syn::{parse::*, spanned::*, *};
 
 mod keywords {
     syn::custom_keyword!(interface);
+    syn::custom_keyword!(class);
 }
 
 pub trait ToWriter {
@@ -36,6 +37,7 @@ impl ToWriter for Module {
                 ModuleMember::Interface(member) => member.to_writer(namespace.clone(), items)?,
                 ModuleMember::Struct(member) => member.to_writer(namespace.clone(), items)?,
                 ModuleMember::Enum(member) => member.to_writer(namespace.clone(), items)?,
+                ModuleMember::Class(member) => member.to_writer(namespace.clone(), items)?,
             }
         }
         Ok(())
@@ -47,6 +49,7 @@ pub enum ModuleMember {
     Interface(Interface),
     Struct(ItemStruct),
     Enum(ItemEnum),
+    Class(Class),
 }
 
 impl Parse for ModuleMember {
@@ -60,9 +63,48 @@ impl Parse for ModuleMember {
             Ok(ModuleMember::Struct(input.parse()?))
         } else if lookahead.peek(Token![enum]) {
             Ok(ModuleMember::Enum(input.parse()?))
+        } else if lookahead.peek(keywords::class) {
+            Ok(ModuleMember::Class(input.parse()?))
         } else {
             Err(lookahead.error())
         }
+    }
+}
+
+pub struct Class {
+    pub name: Ident,
+    pub extends: Vec<Path>,
+    pub methods: Vec<TraitItemMethod>,
+}
+
+impl Parse for Class {
+    fn parse(input: ParseStream) -> Result<Self> {
+        input.parse::<keywords::class>()?;
+        let name = input.parse::<Ident>()?;
+        let mut extends = Vec::new();
+        
+        if input.peek(Token![:]) {
+            input.parse::<Token![:]>()?;
+            while input.peek(Ident) {
+                extends.push(input.parse::<Path>()?);
+                let _ = input.parse::<Token![,]>();
+            }
+        }
+
+        let content;
+        braced!(content in input);
+        let mut methods = vec![];
+        while !content.is_empty() {
+            methods.push(content.parse::<TraitItemMethod>()?);
+        }
+        Ok(Self { name, extends, methods })
+    }
+}
+
+impl ToWriter for Class {
+    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+        items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string() }));
+        Ok(())
     }
 }
 

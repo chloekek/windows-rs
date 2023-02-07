@@ -1,0 +1,15 @@
+mod TypeNamespace {
+    class TypeName : ITypeName {
+        fn TypeName() -> Self;
+        fn TypeName(value: i32) -> Self;
+    }
+
+    // interface ITypeNameFactory {
+    //     fn Create(&self) -> TypeName;
+    //     fn CreateWithInt32(&self, value: i32) -> TypeName;
+    // }
+
+    interface ITypeName {
+        fn GetValue(&self) -> u32;
+    }
+}

@@ -56,6 +56,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         strings.insert("System");
         strings.insert("ValueType");
         strings.insert("Enum");
+        strings.insert("Object");
         strings.insert("value__");
 
         for item in definitions.items() {
@@ -90,6 +91,10 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         });
                     });
                 }
+                Item::Class(ty) => {
+                    strings.insert(&ty.namespace);
+                    strings.insert(&ty.name);
+                }
             }
         }
 
@@ -104,6 +109,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         let mscorlib = tables.AssemblyRef.push2(tables::AssemblyRef { MajorVersion: 4, Name: strings.index("mscorlib"), ..Default::default() });
         let value_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("ValueType"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
         let enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
+        let object_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Object"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
 
         for (_index, item) in definitions.iter() {
             match item {
@@ -179,6 +185,20 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         }
                     }
                 }
+                Item::Class(ty) => {
+                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::SEALED;
+                    if winrt {
+                        flags |= TypeAttributes::WINRT;
+                    }
+                    tables.TypeDef.push(tables::TypeDef {
+                        Flags: flags.0,
+                        TypeName: strings.index(&ty.name),
+                        TypeNamespace: strings.index(&ty.namespace),
+                        Extends: TypeDefOrRef::TypeRef(object_type).encode(),
+                        FieldList: tables.Field.len() as _,
+                        MethodList: tables.MethodDef.len() as _,
+                    });
+                }
             }
         }
 
@@ -221,13 +241,14 @@ fn item_type_name(item: &Item) -> (&str, &str) {
         Item::Struct(ty) => (ty.namespace.as_str(), ty.name.as_str()),
         Item::Enum(ty) => (ty.namespace.as_str(), ty.name.as_str()),
         Item::Interface(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+        Item::Class(ty) => (ty.namespace.as_str(), ty.name.as_str()),
     }
 }
 
 fn item_value_type(item: &Item) -> bool {
     match item {
         Item::Struct(_) | Item::Enum(_) => true,
-        Item::Interface(_) => false,
+        _ => false,
     }
 }
 

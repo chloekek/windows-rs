@@ -10,6 +10,7 @@ pub enum Item {
     Struct(Struct),
     Enum(Enum),
     Interface(Interface),
+    Class(Class)
 }
 
 pub struct Struct {
@@ -28,6 +29,11 @@ pub struct Interface {
     pub namespace: String,
     pub name: String,
     pub methods: Vec<Method>,
+}
+
+pub struct Class {
+    pub namespace: String,
+    pub name: String,
 }
 
 pub struct Field {
