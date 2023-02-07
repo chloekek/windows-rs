@@ -9,3 +9,4 @@ bin
 *.user
 *.filters
 *.bin
+*.winmd
