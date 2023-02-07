@@ -1,7 +1,7 @@
 use windows_metadata::reader::*;
 
 #[test]
-fn riddle_struct() {
+fn test() {
     let output = test_riddle::winrt_riddle("tests/winrt_struct.idl");
     let files = File::with_default(&[&output]).expect("Failed to open winmd files");
     let reader = &Reader::new(&files);

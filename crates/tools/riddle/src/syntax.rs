@@ -100,11 +100,20 @@ impl ToWriter for Interface {
                     continue;
                 };
 
+                let mut flags = writer::ParamFlags::INPUT;
+
+                for attribute in &pat_type.attrs {
+                    match path_to_string(&attribute.path).as_str() {
+                        "out" => flags = writer::ParamFlags::OUTPUT,
+                        _ => return Err(Error::new(attribute.path.span(), "unsupported attribute")),
+                    }
+                }
+
                 let Pat::Ident(pat_ident) = &*pat_type.pat else {
                     return Err(Error::new(pat_type.pat.span(), "expected parameter name"));
                 };
 
-                params.push(writer::Param { name: pat_ident.ident.to_string(), ty: type_to_type(&pat_type.ty)?, flags: writer::ParamFlags::INPUT });
+                params.push(writer::Param { name: pat_ident.ident.to_string(), ty: type_to_type(&pat_type.ty)?, flags });
             }
             methods.push(writer::Method { name: method.sig.ident.to_string(), return_type, params });
         }
@@ -165,14 +174,7 @@ fn type_to_type(ty: &Type) -> Result<writer::Type> {
         return Err(Error::new(ty.span(), "expected type path"));
     };
 
-    let mut name = String::new();
-
-    for segment in &path.path.segments {
-        if !name.is_empty() {
-            name.push('.');
-        }
-        name.push_str(&segment.ident.to_string());
-    }
+    let name = path_to_string(&path.path);
 
     let ty = match name.as_str() {
         "bool" => writer::Type::Bool,
@@ -197,4 +199,17 @@ fn type_to_type(ty: &Type) -> Result<writer::Type> {
     };
 
     Ok(ty)
+}
+
+fn path_to_string(path: &Path) -> String {
+    let mut name = String::new();
+
+    for segment in &path.segments {
+        if !name.is_empty() {
+            name.push('.');
+        }
+        name.push_str(&segment.ident.to_string());
+    }
+
+    name
 }

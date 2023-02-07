@@ -1,6 +1,7 @@
 mod TypeNamespace {
     interface TypeName {
-        fn P1(a: bool, #[out] b: bool) -> bool;
-        // TODO: add exhaustive WinRT parameter tests
+        fn A(a: bool, #[out] b: bool) -> bool;
+        fn B(a: i8, #[out] b: i8) -> i8;
+        fn C(a: u8, #[out] b: u8) -> u8;
     }
 }

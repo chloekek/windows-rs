@@ -73,6 +73,7 @@ fn run() -> ToolResult {
     }
 
     let buffer = writer::write("test", winrt, &items, &[]);
+    std::fs::create_dir_all(std::path::Path::new(&output).parent().unwrap()).map_err(|_| format!("failed to create directory for `{output}`"))?;
     std::fs::write(&output, buffer).map_err(|_| format!("failed to write `{output}`"))
 }
 

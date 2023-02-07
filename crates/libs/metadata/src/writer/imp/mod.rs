@@ -236,6 +236,10 @@ fn method_blob(method: &Method, definitions: &StagedDefinitions, references: &St
     u32_blob(method.params.len() as _, &mut blob);
     type_blob(&method.return_type, &mut blob, definitions, references);
     for param in &method.params {
+        // TODO: this is WinRT-specific and has some ramifications for array parameters
+        if param.flags.contains(ParamFlags::OUTPUT) {
+            blob.push(0x10);
+        }
         type_blob(&param.ty, &mut blob, definitions, references);
     }
     blob
