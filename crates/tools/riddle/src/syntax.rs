@@ -10,6 +10,39 @@ pub trait ToWriter {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()>;
 }
 
+pub struct File {
+    pub references: Vec<ItemUse>,
+    pub modules: Vec<Module>,
+}
+
+impl Parse for File {
+    fn parse(input: ParseStream) -> Result<Self> {
+        let mut references = vec![];
+        let mut modules = vec![];
+        while !input.is_empty() {
+            let lookahead = input.lookahead1();
+            if lookahead.peek(Token![mod]) {
+                modules.push(input.parse()?);
+            } else if lookahead.peek(Token![use]) {
+                references.push(input.parse()?);
+            } else {
+                return Err(lookahead.error());
+            }
+    
+        }
+        Ok(Self{ references, modules })
+    }
+}
+
+impl File {
+    pub fn to_writer(&self, items: &mut Vec<writer::Item>) -> Result<()> {
+        for module in &self.modules {
+            module.to_writer(module.name.to_string(), items)?;
+        }
+        Ok(())
+    }
+}
+
 pub struct Module {
     pub name: Ident,
     pub members: Vec<ModuleMember>,

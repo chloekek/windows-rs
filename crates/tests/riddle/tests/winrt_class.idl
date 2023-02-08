@@ -1,15 +1,17 @@
+use Windows::Foundation::Metadata::{Activatable, ExclusiveTo};
+
 mod TypeNamespace {
-    #[activatable]
-    #[activatable(ITypeNameFactory)]
+    #[Activatable(1)]
+    #[Activatable(ITypeNameFactory, 1)]
     class TypeName : ITypeName;
 
-    #[exclusive(TypeName)]
+    #[ExclusiveTo(TypeName)]
     interface ITypeNameFactory {
         fn CreateWithInt32(&self, value: i32) -> TypeName;
     }
 
-    #[exclusive(TypeName)]
+    #[ExclusiveTo(TypeName)]
     interface ITypeName {
-        fn GetValue(&self) -> u32;
+        fn GetValue(&self) -> i32;
     }
 }

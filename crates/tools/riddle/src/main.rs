@@ -1,8 +1,5 @@
 mod syntax;
-use metadata::writer;
 use std::io::Read;
-use syn::*;
-use syntax::*;
 
 fn main() {
     if let Err(message) = run() {
@@ -65,14 +62,14 @@ fn run() -> ToolResult {
         let mut source = String::new();
         file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
 
-        if let Err(error) = parse_str::<Module>(&source).and_then(|module| module.to_writer(module.name.to_string(), &mut items)) {
+        if let Err(error) = syn::parse_str::<syntax::File>(&source).and_then(|file| file.to_writer(&mut items)) {
             let start = error.span().start();
             let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
             return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));
         }
     }
 
-    let buffer = writer::write("test", winrt, &items, &[]);
+    let buffer = metadata::writer::write("test", winrt, &items, &[]);
     std::fs::create_dir_all(std::path::Path::new(&output).parent().unwrap()).map_err(|_| format!("failed to create directory for `{output}`"))?;
     std::fs::write(&output, buffer).map_err(|_| format!("failed to write `{output}`"))
 }
