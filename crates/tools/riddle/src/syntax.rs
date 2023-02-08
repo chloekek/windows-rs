@@ -138,7 +138,7 @@ impl ToWriter for Interface {
         for method in &self.methods {
             let return_type = match &method.sig.output {
                 ReturnType::Default => writer::Type::Void,
-                ReturnType::Type(_, ty) => type_to_type(ty)?,
+                ReturnType::Type(_, ty) => type_to_type(&namespace, ty)?,
             };
             let mut params = vec![];
             for arg in &method.sig.inputs {
@@ -159,7 +159,7 @@ impl ToWriter for Interface {
                     return Err(Error::new(pat_type.pat.span(), "expected parameter name"));
                 };
 
-                params.push(writer::Param { name: pat_ident.ident.to_string(), ty: type_to_type(&pat_type.ty)?, flags });
+                params.push(writer::Param { name: pat_ident.ident.to_string(), ty: type_to_type(&namespace, &pat_type.ty)?, flags });
             }
             methods.push(writer::Method { name: method.sig.ident.to_string(), return_type, params });
         }
@@ -178,7 +178,7 @@ impl ToWriter for ItemStruct {
         };
 
         for field in &named.named {
-            fields.push(writer::Field { name: field.ident.as_ref().unwrap().to_string(), ty: type_to_type(&field.ty)? });
+            fields.push(writer::Field { name: field.ident.as_ref().unwrap().to_string(), ty: type_to_type(&namespace, &field.ty)? });
         }
 
         items.push(writer::Item::Struct(writer::Struct { namespace, name: self.ident.to_string(), fields }));
@@ -215,7 +215,7 @@ impl ToWriter for ItemEnum {
     }
 }
 
-fn type_to_type(ty: &Type) -> Result<writer::Type> {
+fn type_to_type(namespace: &str, ty: &Type) -> Result<writer::Type> {
     let Type::Path(path) = ty else {
         return Err(Error::new(ty.span(), "expected type path"));
     };
@@ -237,10 +237,11 @@ fn type_to_type(ty: &Type) -> Result<writer::Type> {
         "isize" => writer::Type::ISize,
         "usize" => writer::Type::USize,
         _ => {
-            let Some((namespace, name)) = name.rsplit_once('.') else {
-                return Err(Error::new(path.span(), "expected type"));
-            };
-            writer::Type::Named((namespace.to_string(), name.to_string()))
+            if let Some((namespace, name)) = name.rsplit_once('.') {
+                writer::Type::Named((namespace.to_string(), name.to_string()))
+            } else {
+                writer::Type::Named((namespace.to_string(), name.to_string()))
+            }
         }
     };
 
