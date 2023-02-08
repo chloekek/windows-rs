@@ -41,3 +41,7 @@ impl<'a> StagedDefinitions<'a> {
         self.0.map.values().map(|value| (value.index, value.item))
     }
 }
+
+fn item_value_type(item: &Item) -> bool {
+    matches!(item, Item::Struct(_) | Item::Enum(_))
+}

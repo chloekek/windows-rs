@@ -6,13 +6,9 @@ mod keywords {
     syn::custom_keyword!(class);
 }
 
-pub trait ToWriter {
-    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()>;
-}
-
 pub struct File {
-    pub references: Vec<ItemUse>,
-    pub modules: Vec<Module>,
+    references: Vec<ItemUse>,
+    modules: Vec<Module>,
 }
 
 impl Parse for File {
@@ -28,9 +24,8 @@ impl Parse for File {
             } else {
                 return Err(lookahead.error());
             }
-    
         }
-        Ok(Self{ references, modules })
+        Ok(Self { references, modules })
     }
 }
 
@@ -43,9 +38,9 @@ impl File {
     }
 }
 
-pub struct Module {
-    pub name: Ident,
-    pub members: Vec<ModuleMember>,
+struct Module {
+    name: Ident,
+    members: Vec<ModuleMember>,
 }
 
 impl Parse for Module {
@@ -62,7 +57,7 @@ impl Parse for Module {
     }
 }
 
-impl ToWriter for Module {
+impl Module {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         for member in &self.members {
             match member {
@@ -77,11 +72,11 @@ impl ToWriter for Module {
     }
 }
 
-pub enum ModuleMember {
+enum ModuleMember {
     Module(Module),
     Interface(Interface),
-    Struct(ItemStruct),
-    Enum(ItemEnum),
+    Struct(Struct),
+    Enum(Enum),
     Class(Class),
 }
 
@@ -97,13 +92,9 @@ impl Parse for ModuleMember {
         } else if lookahead.peek(keywords::interface) {
             Ok(ModuleMember::Interface(Interface::parse(attrs, input)?))
         } else if lookahead.peek(Token![struct]) {
-            let mut item: ItemStruct = input.parse()?;
-            item.attrs = attrs;
-            Ok(ModuleMember::Struct(item))
+            Ok(ModuleMember::Struct(Struct::parse(attrs, input)?))
         } else if lookahead.peek(Token![enum]) {
-            let mut item: ItemEnum = input.parse()?;
-            item.attrs = attrs;
-            Ok(ModuleMember::Enum(item))
+            Ok(ModuleMember::Enum(Enum::parse(attrs, input)?))
         } else if lookahead.peek(keywords::class) {
             Ok(ModuleMember::Class(Class::parse(attrs, input)?))
         } else {
@@ -112,10 +103,10 @@ impl Parse for ModuleMember {
     }
 }
 
-pub struct Class {
-    pub attrs: Vec<Attribute>,
-    pub name: Ident,
-    pub extends: Vec<Path>,
+struct Class {
+    attrs: Vec<Attribute>,
+    name: Ident,
+    extends: Vec<Path>,
 }
 
 impl Class {
@@ -123,7 +114,7 @@ impl Class {
         input.parse::<keywords::class>()?;
         let name = input.parse::<Ident>()?;
         let mut extends = Vec::new();
-        
+
         if input.peek(Token![:]) {
             input.parse::<Token![:]>()?;
             while input.peek(Ident) {
@@ -137,17 +128,17 @@ impl Class {
     }
 }
 
-impl ToWriter for Class {
+impl Class {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string() }));
         Ok(())
     }
 }
 
-pub struct Interface {
-    pub attrs: Vec<Attribute>,
-    pub name: Ident,
-    pub methods: Vec<TraitItemMethod>,
+struct Interface {
+    attrs: Vec<Attribute>,
+    name: Ident,
+    methods: Vec<TraitItemMethod>,
 }
 
 impl Interface {
@@ -164,7 +155,7 @@ impl Interface {
     }
 }
 
-impl ToWriter for Interface {
+impl Interface {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut methods = vec![];
 
@@ -202,31 +193,51 @@ impl ToWriter for Interface {
     }
 }
 
-impl ToWriter for ItemStruct {
+struct Struct {
+    item: ItemStruct,
+}
+
+impl Struct {
+    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
+        let mut item: ItemStruct = input.parse()?;
+        item.attrs = attrs;
+        Ok(Self { item })
+    }
+
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut fields = vec![];
 
-        let Fields::Named(named) = &self.fields else {
-            return Err(Error::new(self.fields.span(), "expected named fields"));
+        let Fields::Named(named) = &self.item.fields else {
+            return Err(Error::new(self.item.fields.span(), "expected named fields"));
         };
 
         for field in &named.named {
             fields.push(writer::Field { name: field.ident.as_ref().unwrap().to_string(), ty: type_to_type(&namespace, &field.ty)? });
         }
 
-        items.push(writer::Item::Struct(writer::Struct { namespace, name: self.ident.to_string(), fields }));
+        items.push(writer::Item::Struct(writer::Struct { namespace, name: self.item.ident.to_string(), fields }));
         Ok(())
     }
 }
 
-impl ToWriter for ItemEnum {
+struct Enum {
+    item: ItemEnum,
+}
+
+impl Enum {
+    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
+        let mut item: ItemEnum = input.parse()?;
+        item.attrs = attrs;
+        Ok(Enum { item })
+    }
+
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut constants = vec![];
         let mut value = 0;
 
         // TODO: need to read the `#[repr(u8)]` attribute infer the underlying type
 
-        for variant in &self.variants {
+        for variant in &self.item.variants {
             if let Some((_, discriminant)) = &variant.discriminant {
                 let Expr::Lit(discriminant) = discriminant else {
                     return Err(Error::new(discriminant.span(), "expected literal discriminant"));
@@ -243,7 +254,7 @@ impl ToWriter for ItemEnum {
             value += 1;
         }
 
-        items.push(writer::Item::Enum(writer::Enum { namespace, name: self.ident.to_string(), constants }));
+        items.push(writer::Item::Enum(writer::Enum { namespace, name: self.item.ident.to_string(), constants }));
         Ok(())
     }
 }

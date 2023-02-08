@@ -245,13 +245,6 @@ fn item_type_name(item: &Item) -> (&str, &str) {
     }
 }
 
-fn item_value_type(item: &Item) -> bool {
-    match item {
-        Item::Struct(_) | Item::Enum(_) => true,
-        _ => false,
-    }
-}
-
 fn method_blob(method: &Method, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
     let mut blob = vec![0x20]; // HASTHIS
     u32_blob(method.params.len() as _, &mut blob);
