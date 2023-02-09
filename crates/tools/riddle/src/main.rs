@@ -1,6 +1,9 @@
 mod syntax;
 use std::io::Read;
 
+// TODO: need to do all the linting/type inspection/attribute reflection here and just use windows-metadata for writing the items out
+// where that library does minimal validation since the syntax spans won't be known at that point.
+
 fn main() {
     if let Err(message) = run() {
         eprintln!("error: {message}");
@@ -61,6 +64,10 @@ fn run() -> ToolResult {
         let mut file = std::fs::File::open(filename).map_err(|_| format!("failed to open `{filename}`"))?;
         let mut source = String::new();
         file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
+
+        // TODO: need an "analysis" pass between parsing and writing the items. That's the point at which the syntax tree
+        // is fully-formed and we still have the span information for error reporting but before the low-level items are
+        // pushed to the metadata writer for winmd generation. 
 
         if let Err(error) = syn::parse_str::<syntax::File>(&source).and_then(|file| file.to_writer(&mut items)) {
             let start = error.span().start();

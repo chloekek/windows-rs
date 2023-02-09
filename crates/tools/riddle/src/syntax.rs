@@ -130,7 +130,7 @@ impl Class {
 
 impl Class {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string() }));
+        items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string(), attributes: attributes_to_attributes(&self.attrs)? }));
         Ok(())
     }
 }
@@ -303,4 +303,26 @@ fn path_to_string(path: &Path) -> String {
     }
 
     name
+}
+
+fn attribute_to_attribute(attribute:&Attribute) -> Result<writer::Attribute> {
+    let attribute = attribute.parse_meta()?;
+    let path = match &attribute {
+        Meta::Path(path) => &path,
+        Meta::List(list) => &list.path, // TODO: grab values
+        Meta::NameValue(_) => return Err(Error::new(attribute.span(), "attribute list expected")),
+    };
+    let path = path_to_string(&path);
+    let Some((namespace, name)) = path.rsplit_once('.') else {
+        return Err(Error::new(attribute.span(), "qualified attribute expected"));
+    };
+    Ok(writer::Attribute{ namespace: namespace.to_string(), name: name.to_string(), args: vec![] })    
+}
+
+fn attributes_to_attributes(attributes:&[Attribute]) -> Result<Vec<writer::Attribute>> {
+    let mut result = vec![];
+    for attribute in attributes.iter() {
+        result.push(attribute_to_attribute(attribute)?);
+    }
+    Ok(result)
 }

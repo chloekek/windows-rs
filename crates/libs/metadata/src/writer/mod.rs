@@ -34,6 +34,7 @@ pub struct Interface {
 pub struct Class {
     pub namespace: String,
     pub name: String,
+    pub attributes: Vec<Attribute>,
 }
 
 pub struct Field {
@@ -56,6 +57,12 @@ pub struct Param {
     pub name: String,
     pub ty: Type,
     pub flags: ParamFlags,
+}
+
+pub struct Attribute {
+    pub namespace: String,
+    pub name: String,
+    pub args: Vec<(String, Value)>,
 }
 
 flags!(ParamFlags, u32);
