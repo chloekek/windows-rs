@@ -69,7 +69,10 @@ fn run() -> ToolResult {
         // is fully-formed and we still have the span information for error reporting but before the low-level items are
         // pushed to the metadata writer for winmd generation. 
 
-        if let Err(error) = syn::parse_str::<syntax::File>(&source).and_then(|file| file.to_writer(&mut items)) {
+        // TODO: remove all the to_writer methods frm the syntax module - just gets teh parsed `File` and then do all that here along with resolving names
+        // and analysis. That way we can also do cross-file references e.g. windows.ui.idl refers to windows.foundation.idl
+
+        if let Err(error) = syn::parse_str::<syntax::File>(&source).and_then(|file|file.normalize()).and_then(|file| file.to_writer(&mut items)) {
             let start = error.span().start();
             let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
             return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));

@@ -1,5 +1,6 @@
 use metadata::writer;
 use syn::{parse::*, spanned::*, *};
+use std::collections::*;
 
 mod keywords {
     syn::custom_keyword!(interface);
@@ -30,6 +31,49 @@ impl Parse for File {
 }
 
 impl File {
+    pub fn normalize(self) ->Result<Self> {
+        // 1. fully qualify all paths either those that are relative and those that refer to the use trees.
+        // 2. do any analysis and validation while spans are handy
+
+        fn walk(tree: &UseTree, namespace: &mut String, references: &mut HashMap<String, String>) -> Result<()> {
+            match tree {
+                UseTree::Path(input) => {
+                    if !namespace.is_empty() { namespace.push('.') };
+                    namespace.push_str(&input.ident.to_string());
+                    walk(&input.tree, namespace, references)?;
+                }
+                UseTree::Name(input) => {
+                    match references.entry(input.ident.to_string()) {
+                        hash_map::Entry::Vacant(entry) => {
+                            // TODO: check wether this type exists in the references assemblies
+                            entry.insert(namespace.to_string());
+                        }
+                        _ => return Err(Error::new(input.span(), "ambigious name")),
+                    }
+
+                }
+                UseTree::Group(input) => {
+                    for tree in &input.items {
+                        walk(tree, namespace, references);
+                    }
+                }
+                UseTree::Rename(_) => return Err(Error::new(tree.span(), "rename not supported")),
+                UseTree::Glob(_) => return Err(Error::new(tree.span(), "glob not supported")),
+            }
+            Ok(())
+        }
+
+        let mut references = HashMap::new();
+
+        for item in &self.references {
+            walk(&item.tree,&mut String::new(), &mut references);
+        }
+
+        println!("{:#?}", references);
+
+        Ok(self)
+    }
+
     pub fn to_writer(&self, items: &mut Vec<writer::Item>) -> Result<()> {
         for module in &self.modules {
             module.to_writer(module.name.to_string(), items)?;
@@ -82,21 +126,21 @@ enum ModuleMember {
 
 impl Parse for ModuleMember {
     fn parse(input: ParseStream) -> Result<Self> {
-        let attrs: Vec<Attribute> = input.call(Attribute::parse_outer)?;
+        let attributes: Vec<Attribute> = input.call(Attribute::parse_outer)?;
         let lookahead = input.lookahead1();
         if lookahead.peek(Token![mod]) {
-            if let Some(attr) = attrs.first() {
-                return Err(Error::new(attr.span(), "module attribute are not supported"));
+            if let Some(attribute) = attributes.first() {
+                return Err(Error::new(attribute.span(), "module attribute are not supported"));
             }
             Ok(ModuleMember::Module(input.parse()?))
         } else if lookahead.peek(keywords::interface) {
-            Ok(ModuleMember::Interface(Interface::parse(attrs, input)?))
+            Ok(ModuleMember::Interface(Interface::parse(attributes, input)?))
         } else if lookahead.peek(Token![struct]) {
-            Ok(ModuleMember::Struct(Struct::parse(attrs, input)?))
+            Ok(ModuleMember::Struct(Struct::parse(attributes, input)?))
         } else if lookahead.peek(Token![enum]) {
-            Ok(ModuleMember::Enum(Enum::parse(attrs, input)?))
+            Ok(ModuleMember::Enum(Enum::parse(attributes, input)?))
         } else if lookahead.peek(keywords::class) {
-            Ok(ModuleMember::Class(Class::parse(attrs, input)?))
+            Ok(ModuleMember::Class(Class::parse(attributes, input)?))
         } else {
             Err(lookahead.error())
         }
@@ -104,13 +148,13 @@ impl Parse for ModuleMember {
 }
 
 struct Class {
-    attrs: Vec<Attribute>,
+    attributes: Vec<Attribute>,
     name: Ident,
     extends: Vec<Path>,
 }
 
 impl Class {
-    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
+    fn parse(attributes: Vec<Attribute>, input: ParseStream) -> Result<Self> {
         input.parse::<keywords::class>()?;
         let name = input.parse::<Ident>()?;
         let mut extends = Vec::new();
@@ -124,25 +168,25 @@ impl Class {
         }
 
         input.parse::<Token![;]>()?;
-        Ok(Self { attrs, name, extends })
+        Ok(Self { attributes, name, extends })
     }
 }
 
 impl Class {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string(), attributes: attributes_to_attributes(&self.attrs)? }));
+        items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string(), attributes: attributes_to_attributes(&self.attributes)? }));
         Ok(())
     }
 }
 
 struct Interface {
-    attrs: Vec<Attribute>,
+    attributes: Vec<Attribute>,
     name: Ident,
     methods: Vec<TraitItemMethod>,
 }
 
 impl Interface {
-    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
+    fn parse(attributes: Vec<Attribute>, input: ParseStream) -> Result<Self> {
         input.parse::<keywords::interface>()?;
         let name = input.parse::<Ident>()?;
         let content;
@@ -151,7 +195,7 @@ impl Interface {
         while !content.is_empty() {
             methods.push(content.parse::<TraitItemMethod>()?);
         }
-        Ok(Self { attrs, name, methods })
+        Ok(Self { attributes, name, methods })
     }
 }
 
@@ -198,9 +242,9 @@ struct Struct {
 }
 
 impl Struct {
-    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
+    fn parse(attributes: Vec<Attribute>, input: ParseStream) -> Result<Self> {
         let mut item: ItemStruct = input.parse()?;
-        item.attrs = attrs;
+        item.attrs = attributes;
         Ok(Self { item })
     }
 
@@ -225,9 +269,9 @@ struct Enum {
 }
 
 impl Enum {
-    fn parse(attrs: Vec<Attribute>, input: ParseStream) -> Result<Self> {
+    fn parse(attributes: Vec<Attribute>, input: ParseStream) -> Result<Self> {
         let mut item: ItemEnum = input.parse()?;
-        item.attrs = attrs;
+        item.attrs = attributes;
         Ok(Enum { item })
     }
 
