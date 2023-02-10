@@ -20,5 +20,4 @@ fn test() {
     assert_eq!(signature.params[0].ty, Type::Bool);
     assert_eq!(reader.param_name(signature.params[1].def), "b");
     //assert_eq!(signature.params[1].ty, Type::ByRef(Type::Bool));
-
 }

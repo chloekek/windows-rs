@@ -1,6 +1,6 @@
 use metadata::writer;
-use syn::{parse::*, spanned::*, *};
 use std::collections::*;
+use syn::{parse::*, spanned::*, *};
 
 mod keywords {
     syn::custom_keyword!(interface);
@@ -31,11 +31,13 @@ impl Parse for File {
 }
 
 impl File {
-    pub fn use_names(&self) ->Result<HashMap<String, String>> {
+    fn use_names(&self) -> Result<HashMap<String, String>> {
         fn walk(tree: &UseTree, namespace: &mut String, references: &mut HashMap<String, String>) -> Result<()> {
             match tree {
                 UseTree::Path(input) => {
-                    if !namespace.is_empty() { namespace.push('.') };
+                    if !namespace.is_empty() {
+                        namespace.push('.')
+                    };
                     namespace.push_str(&input.ident.to_string());
                     walk(&input.tree, namespace, references)?;
                 }
@@ -47,7 +49,6 @@ impl File {
                         }
                         _ => return Err(Error::new(input.span(), "ambigious name")),
                     }
-
                 }
                 UseTree::Group(input) => {
                     for tree in &input.items {
@@ -63,15 +64,18 @@ impl File {
         let mut references = HashMap::new();
 
         for item in &self.references {
-            walk(&item.tree,&mut String::new(), &mut references);
+            walk(&item.tree, &mut String::new(), &mut references);
         }
 
         Ok(references)
     }
 
     pub fn to_writer(&self, items: &mut Vec<writer::Item>) -> Result<()> {
+        // TODO: instead of passing this around, pass the File itself?
+        let use_names = self.use_names()?;
+
         for module in &self.modules {
-            module.to_writer(module.name.to_string(), items)?;
+            module.to_writer(&use_names, module.name.to_string(), items)?;
         }
         Ok(())
     }
@@ -97,14 +101,14 @@ impl Parse for Module {
 }
 
 impl Module {
-    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         for member in &self.members {
             match member {
-                ModuleMember::Module(member) => member.to_writer(format!("{namespace}.{}", member.name), items)?,
-                ModuleMember::Interface(member) => member.to_writer(namespace.clone(), items)?,
-                ModuleMember::Struct(member) => member.to_writer(namespace.clone(), items)?,
-                ModuleMember::Enum(member) => member.to_writer(namespace.clone(), items)?,
-                ModuleMember::Class(member) => member.to_writer(namespace.clone(), items)?,
+                ModuleMember::Module(member) => member.to_writer(use_names, format!("{namespace}.{}", member.name), items)?,
+                ModuleMember::Interface(member) => member.to_writer(use_names, namespace.clone(), items)?,
+                ModuleMember::Struct(member) => member.to_writer(use_names, namespace.clone(), items)?,
+                ModuleMember::Enum(member) => member.to_writer(use_names, namespace.clone(), items)?,
+                ModuleMember::Class(member) => member.to_writer(use_names, namespace.clone(), items)?,
             }
         }
         Ok(())
@@ -168,8 +172,8 @@ impl Class {
 }
 
 impl Class {
-    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string(), attributes: attributes_to_attributes(&self.attributes)? }));
+    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+        items.push(writer::Item::Class(writer::Class { namespace, name: self.name.to_string(), attributes: attributes_to_attributes(use_names, &self.attributes)? }));
         Ok(())
     }
 }
@@ -195,7 +199,7 @@ impl Interface {
 }
 
 impl Interface {
-    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut methods = vec![];
 
         for method in &self.methods {
@@ -243,7 +247,7 @@ impl Struct {
         Ok(Self { item })
     }
 
-    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut fields = vec![];
 
         let Fields::Named(named) = &self.item.fields else {
@@ -270,7 +274,7 @@ impl Enum {
         Ok(Enum { item })
     }
 
-    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut constants = vec![];
         let mut value = 0;
 
@@ -344,7 +348,7 @@ fn path_to_string(path: &Path) -> String {
     name
 }
 
-fn attribute_to_attribute(attribute:&Attribute) -> Result<writer::Attribute> {
+fn attribute_to_attribute(use_names: &HashMap<String, String>, attribute: &Attribute) -> Result<writer::Attribute> {
     let attribute = attribute.parse_meta()?;
     let path = match &attribute {
         Meta::Path(path) => &path,
@@ -352,16 +356,21 @@ fn attribute_to_attribute(attribute:&Attribute) -> Result<writer::Attribute> {
         Meta::NameValue(_) => return Err(Error::new(attribute.span(), "attribute list expected")),
     };
     let path = path_to_string(&path);
-    let Some((namespace, name)) = path.rsplit_once('.') else {
+    let (namespace, name) = if let Some((namespace, name)) = path.rsplit_once('.') {
+        (namespace, name)
+    } else if let Some((namespace, name)) = use_names.get_key_value(&path) {
+        (namespace.as_str(), name.as_str())
+    } else {
         return Err(Error::new(attribute.span(), "qualified attribute expected"));
     };
-    Ok(writer::Attribute{ namespace: namespace.to_string(), name: name.to_string(), args: vec![] })    
+
+    Ok(writer::Attribute { namespace: namespace.to_string(), name: name.to_string(), args: vec![] })
 }
 
-fn attributes_to_attributes(attributes:&[Attribute]) -> Result<Vec<writer::Attribute>> {
+fn attributes_to_attributes(use_names: &HashMap<String, String>, attributes: &[Attribute]) -> Result<Vec<writer::Attribute>> {
     let mut result = vec![];
     for attribute in attributes.iter() {
-        result.push(attribute_to_attribute(attribute)?);
+        result.push(attribute_to_attribute(use_names, attribute)?);
     }
     Ok(result)
 }

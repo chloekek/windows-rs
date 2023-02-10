@@ -1,4 +1,5 @@
 mod syntax;
+use metadata::writer;
 use std::io::Read;
 
 // TODO: need to do all the linting/type inspection/attribute reflection here and just use windows-metadata for writing the items out
@@ -11,9 +12,28 @@ fn main() {
     }
 }
 
-type ToolResult = std::result::Result<(), String>;
+struct SyntaxError {
+    filename: String,
+    error: syn::Error,
+}
 
-fn run() -> ToolResult {
+impl SyntaxError {
+    fn new(filename: String, error: syn::Error) -> Self {
+        Self { filename, error }
+    }
+}
+
+type ToolResult<T> = std::result::Result<T, String>;
+type SyntaxResult<T> = std::result::Result<T, SyntaxError>;
+
+impl std::convert::From<SyntaxError> for String {
+    fn from(from: SyntaxError) -> Self {
+        let start = from.error.span().start();
+        format!("{}\n  --> {}:{:?}:{:?} ", from.error.to_string(), from.filename, start.line, start.column)
+    }
+}
+
+fn run() -> ToolResult<()> {
     let mut kind = ArgKind::None;
     let mut merge = Vec::<String>::new();
     let mut input = Vec::<String>::new();
@@ -54,39 +74,57 @@ fn run() -> ToolResult {
         print_help()?;
     }
 
-    let mut items = Vec::new();
-
     // for merge in merge {
     //     // TODO: write the types in the winmd into `items`
     // }
 
-    for filename in &input {
-        let mut file = std::fs::File::open(filename).map_err(|_| format!("failed to open `{filename}`"))?;
-        let mut source = String::new();
-        file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
+    let input = load(input)?;
+    let input = parse(input)?;
+    let items = process(input)?;
 
-        // TODO: need an "analysis" pass between parsing and writing the items. That's the point at which the syntax tree
-        // is fully-formed and we still have the span information for error reporting but before the low-level items are
-        // pushed to the metadata writer for winmd generation. 
-
-        // TODO: remove all the to_writer methods frm the syntax module - just gets teh parsed `File` and then do all that here along with resolving names
-        // and analysis. That way we can also do cross-file references e.g. windows.ui.idl refers to windows.foundation.idl
-
-        // TODO: maybe keep the references here (populated by normalize) and then pass to to_writer?
-
-        if let Err(error) = syn::parse_str::<syntax::File>(&source).and_then(|file| file.to_writer(&mut items)) {
-            let start = error.span().start();
-            let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
-            return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));
-        }
-    }
-
-    let buffer = metadata::writer::write("test", winrt, &items, &[]);
+    let buffer = writer::write("test", winrt, &items, &[]);
     std::fs::create_dir_all(std::path::Path::new(&output).parent().unwrap()).map_err(|_| format!("failed to create directory for `{output}`"))?;
     std::fs::write(&output, buffer).map_err(|_| format!("failed to write `{output}`"))
 }
 
-fn print_help() -> ToolResult {
+fn load(input: Vec<String>) -> ToolResult<Vec<(String, String)>> {
+    let mut result = vec![];
+
+    for filename in input {
+        let mut file = std::fs::File::open(&filename).map_err(|_| format!("failed to open `{filename}`"))?;
+        let filename = std::fs::canonicalize(&filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
+        let filename = filename.to_string_lossy().trim_start_matches(r#"\\?\"#).to_string();
+        let mut source = String::new();
+        file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
+        result.push((filename, source));
+    }
+
+    Ok(result)
+}
+
+fn parse(input: Vec<(String, String)>) -> SyntaxResult<Vec<(String, syntax::File)>> {
+    let mut result = vec![];
+    for (filename, source) in input {
+        match syn::parse_str::<syntax::File>(&source) {
+            Ok(file) => result.push((filename, file)),
+            Err(error) => return Err(SyntaxError::new(filename, error)),
+        }
+    }
+    Ok(result)
+}
+
+fn process(input: Vec<(String, syntax::File)>) -> SyntaxResult<Vec<writer::Item>> {
+    // TODO: need to deal with references across files and from winmd files
+    let mut items = vec![];
+    for (filename, file) in input {
+        file.to_writer(&mut items).map_err(|error| SyntaxError::new(filename, error))?;
+    }
+    Ok(items)
+}
+
+// TODO: remove -merge and just include winmd files from -input.
+
+fn print_help() -> ToolResult<()> {
     Err(r#"riddle.exe [options...]
 
 options:
