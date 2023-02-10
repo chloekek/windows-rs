@@ -72,7 +72,9 @@ fn run() -> ToolResult {
         // TODO: remove all the to_writer methods frm the syntax module - just gets teh parsed `File` and then do all that here along with resolving names
         // and analysis. That way we can also do cross-file references e.g. windows.ui.idl refers to windows.foundation.idl
 
-        if let Err(error) = syn::parse_str::<syntax::File>(&source).and_then(|file|file.normalize()).and_then(|file| file.to_writer(&mut items)) {
+        // TODO: maybe keep the references here (populated by normalize) and then pass to to_writer?
+
+        if let Err(error) = syn::parse_str::<syntax::File>(&source).and_then(|file| file.to_writer(&mut items)) {
             let start = error.span().start();
             let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
             return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));

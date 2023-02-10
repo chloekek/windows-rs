@@ -31,10 +31,7 @@ impl Parse for File {
 }
 
 impl File {
-    pub fn normalize(self) ->Result<Self> {
-        // 1. fully qualify all paths either those that are relative and those that refer to the use trees.
-        // 2. do any analysis and validation while spans are handy
-
+    pub fn use_names(&self) ->Result<HashMap<String, String>> {
         fn walk(tree: &UseTree, namespace: &mut String, references: &mut HashMap<String, String>) -> Result<()> {
             match tree {
                 UseTree::Path(input) => {
@@ -69,9 +66,7 @@ impl File {
             walk(&item.tree,&mut String::new(), &mut references);
         }
 
-        println!("{:#?}", references);
-
-        Ok(self)
+        Ok(references)
     }
 
     pub fn to_writer(&self, items: &mut Vec<writer::Item>) -> Result<()> {
