@@ -52,7 +52,7 @@ impl File {
                 }
                 UseTree::Group(input) => {
                     for tree in &input.items {
-                        walk(tree, namespace, references);
+                        walk(tree, namespace, references)?;
                     }
                 }
                 UseTree::Rename(_) => return Err(Error::new(tree.span(), "rename not supported")),
@@ -64,7 +64,7 @@ impl File {
         let mut references = HashMap::new();
 
         for item in &self.references {
-            walk(&item.tree, &mut String::new(), &mut references);
+            walk(&item.tree, &mut String::new(), &mut references)?;
         }
 
         Ok(references)
@@ -199,7 +199,7 @@ impl Interface {
 }
 
 impl Interface {
-    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, _use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut methods = vec![];
 
         for method in &self.methods {
@@ -247,7 +247,7 @@ impl Struct {
         Ok(Self { item })
     }
 
-    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, _use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut fields = vec![];
 
         let Fields::Named(named) = &self.item.fields else {
@@ -274,7 +274,7 @@ impl Enum {
         Ok(Enum { item })
     }
 
-    fn to_writer(&self, use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, _use_names: &HashMap<String, String>, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut constants = vec![];
         let mut value = 0;
 

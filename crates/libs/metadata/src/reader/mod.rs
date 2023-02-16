@@ -1414,6 +1414,17 @@ impl<'a> Reader<'a> {
     // Other type queries
     //
 
+    pub fn type_def_architecture(&self, def: TypeDef) -> i32 {
+        for attribute in self.type_def_attributes(def) {
+            if self.attribute_name(attribute) == "SupportedArchitectureAttribute" {
+                if let Some((_, Value::Enum(_, Integer::I32(value)))) = self.attribute_args(attribute).get(0) {
+                    return *value;
+                }
+            }
+        }
+        0
+    }
+
     fn cfg_add_attributes(&self, cfg: &mut Cfg, attributes: impl Iterator<Item = Attribute>) {
         for attribute in attributes {
             match self.attribute_name(attribute) {

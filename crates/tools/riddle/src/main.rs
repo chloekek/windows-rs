@@ -1,4 +1,7 @@
+#![allow(dead_code)]
+
 mod syntax;
+mod sqlite;
 use metadata::writer;
 use std::io::Read;
 
@@ -40,6 +43,25 @@ fn run() -> ToolResult<()> {
     let mut reference = Vec::<String>::new();
     let mut output = String::new();
     let mut winrt = true;
+
+    // let start = std::time::Instant::now();
+
+    // let db = sqlite::Database::new().unwrap();
+    // let files = metadata::reader::File::with_default(&[]).unwrap();
+    // let reader = &metadata::reader::Reader::new(&files);
+    // let root = reader.tree("Windows", &[]).unwrap();
+
+    // for tree in root.flatten() {
+    //     for def in reader.namespace_types(tree.namespace) {
+    //         if reader.type_def_kind(def) == metadata::reader::TypeKind::Struct {
+    //             let name = &format!("{}.{}", reader.type_def_namespace(def), reader.type_def_name(def));
+    //             let architecture = reader.type_def_architecture(def);
+    //             db.add_struct(name, architecture).unwrap();
+    //         }
+    //     }
+    // }
+
+    // println!("elapsed {}", start.elapsed().as_millis());
 
     for arg in std::env::args().skip(1) {
         if arg.starts_with('-') {
