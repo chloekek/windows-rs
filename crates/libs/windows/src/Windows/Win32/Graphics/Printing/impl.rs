@@ -1535,16 +1535,16 @@ impl IPrintJob_Vtbl {
         iid == &<IPrintJob as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintJobCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrintJob>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintJobCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintJobCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintJobCollection_Impl, const OFFSET: isize>() -> IPrintJobCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintJobCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT {
@@ -1921,24 +1921,24 @@ impl IPrintPipelineProgressReport_Vtbl {
         iid == &<IPrintPipelineProgressReport as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub trait IPrintPipelinePropertyBag_Impl: Sized {
-    fn AddProperty(&self, pszname: &::windows::core::PCWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetProperty(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn AddProperty(&self, pszname: &::windows::core::PCWSTR, pvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, pszname: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn DeleteProperty(&self, pszname: &::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IPrintPipelinePropertyBag {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl IPrintPipelinePropertyBag_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintPipelinePropertyBag_Impl, const OFFSET: isize>() -> IPrintPipelinePropertyBag_Vtbl {
-        unsafe extern "system" fn AddProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintPipelinePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintPipelinePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddProperty(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&pvar)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintPipelinePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintPipelinePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute(&pszname)) {
@@ -2058,15 +2058,15 @@ impl IPrintReadStreamFactory_Vtbl {
         iid == &<IPrintReadStreamFactory as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaAsyncOperation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaAsyncOperation {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaAsyncOperation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaAsyncOperation_Impl, const OFFSET: isize>() -> IPrintSchemaAsyncOperation_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaAsyncOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2089,14 +2089,14 @@ impl IPrintSchemaAsyncOperation_Vtbl {
         iid == &<IPrintSchemaAsyncOperation as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaAsyncOperationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Completed(&self, pticket: ::core::option::Option<&IPrintSchemaTicket>, hroperation: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaAsyncOperationEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaAsyncOperationEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaAsyncOperationEvent_Impl, const OFFSET: isize>() -> IPrintSchemaAsyncOperationEvent_Vtbl {
         unsafe extern "system" fn Completed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaAsyncOperationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pticket: *mut ::core::ffi::c_void, hroperation: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -2110,8 +2110,8 @@ impl IPrintSchemaAsyncOperationEvent_Vtbl {
         iid == &<IPrintSchemaAsyncOperationEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaCapabilities_Impl: Sized + IPrintSchemaElement_Impl {
     fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
     fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
@@ -2121,9 +2121,9 @@ pub trait IPrintSchemaCapabilities_Impl: Sized + IPrintSchemaElement_Impl {
     fn GetSelectedOptionInPrintTicket(&self, pfeature: ::core::option::Option<&IPrintSchemaFeature>) -> ::windows::core::Result<IPrintSchemaOption>;
     fn GetOptions(&self, pfeature: ::core::option::Option<&IPrintSchemaFeature>) -> ::windows::core::Result<IPrintSchemaOptionCollection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaCapabilities {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaCapabilities_Impl, const OFFSET: isize>() -> IPrintSchemaCapabilities_Vtbl {
         unsafe extern "system" fn GetFeatureByKeyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrkeyname: *mut ::core::ffi::c_void, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2218,14 +2218,14 @@ impl IPrintSchemaCapabilities_Vtbl {
         iid == &<IPrintSchemaCapabilities as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaCapabilities2_Impl: Sized + IPrintSchemaCapabilities_Impl {
     fn GetParameterDefinition(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaParameterDefinition>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaCapabilities2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaCapabilities2_Impl, const OFFSET: isize>() -> IPrintSchemaCapabilities2_Vtbl {
         unsafe extern "system" fn GetParameterDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaCapabilities2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppparameterdefinition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2245,14 +2245,14 @@ impl IPrintSchemaCapabilities2_Vtbl {
         iid == &<IPrintSchemaCapabilities2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaCapabilities as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaDisplayableElement_Impl: Sized + IPrintSchemaElement_Impl {
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaDisplayableElement {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaDisplayableElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaDisplayableElement_Impl, const OFFSET: isize>() -> IPrintSchemaDisplayableElement_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaDisplayableElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdisplayname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2272,16 +2272,16 @@ impl IPrintSchemaDisplayableElement_Vtbl {
         iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaElement_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaElement {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaElement_Impl, const OFFSET: isize>() -> IPrintSchemaElement_Vtbl {
         unsafe extern "system" fn XmlNode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppxmlnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2328,8 +2328,8 @@ impl IPrintSchemaElement_Vtbl {
         iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrintSchemaFeature_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn SelectedOption(&self) -> ::windows::core::Result<IPrintSchemaOption>;
     fn SetSelectedOption(&self, poption: ::core::option::Option<&IPrintSchemaOption>) -> ::windows::core::Result<()>;
@@ -2337,9 +2337,9 @@ pub trait IPrintSchemaFeature_Impl: Sized + IPrintSchemaDisplayableElement_Impl 
     fn GetOption(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaOption>;
     fn DisplayUI(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrintSchemaFeature {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrintSchemaFeature_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaFeature_Impl, const OFFSET: isize>() -> IPrintSchemaFeature_Vtbl {
         unsafe extern "system" fn SelectedOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaFeature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoption: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2404,14 +2404,14 @@ impl IPrintSchemaFeature_Vtbl {
         iid == &<IPrintSchemaFeature as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrintSchemaNUpOption_Impl: Sized + IPrintSchemaOption_Impl {
     fn PagesPerSheet(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrintSchemaNUpOption {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrintSchemaNUpOption_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaNUpOption_Impl, const OFFSET: isize>() -> IPrintSchemaNUpOption_Vtbl {
         unsafe extern "system" fn PagesPerSheet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaNUpOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulpagespersheet: *mut u32) -> ::windows::core::HRESULT {
@@ -2431,16 +2431,16 @@ impl IPrintSchemaNUpOption_Vtbl {
         iid == &<IPrintSchemaNUpOption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaOption as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrintSchemaOption_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn Selected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Constrained(&self) -> ::windows::core::Result<PrintSchemaConstrainedSetting>;
     fn GetPropertyValue(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrintSchemaOption {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrintSchemaOption_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaOption_Impl, const OFFSET: isize>() -> IPrintSchemaOption_Vtbl {
         unsafe extern "system" fn Selected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -2487,16 +2487,16 @@ impl IPrintSchemaOption_Vtbl {
         iid == &<IPrintSchemaOption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaOptionCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrintSchemaOption>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaOptionCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaOptionCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaOptionCollection_Impl, const OFFSET: isize>() -> IPrintSchemaOptionCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaOptionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT {
@@ -2543,8 +2543,8 @@ impl IPrintSchemaOptionCollection_Vtbl {
         iid == &<IPrintSchemaOptionCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaPageImageableSize_Impl: Sized + IPrintSchemaElement_Impl {
     fn ImageableSizeWidthInMicrons(&self) -> ::windows::core::Result<u32>;
     fn ImageableSizeHeightInMicrons(&self) -> ::windows::core::Result<u32>;
@@ -2553,9 +2553,9 @@ pub trait IPrintSchemaPageImageableSize_Impl: Sized + IPrintSchemaElement_Impl {
     fn ExtentWidthInMicrons(&self) -> ::windows::core::Result<u32>;
     fn ExtentHeightInMicrons(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaPageImageableSize {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaPageImageableSize_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaPageImageableSize_Impl, const OFFSET: isize>() -> IPrintSchemaPageImageableSize_Vtbl {
         unsafe extern "system" fn ImageableSizeWidthInMicrons<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaPageImageableSize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulimageablesizewidth: *mut u32) -> ::windows::core::HRESULT {
@@ -2638,15 +2638,15 @@ impl IPrintSchemaPageImageableSize_Vtbl {
         iid == &<IPrintSchemaPageImageableSize as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrintSchemaPageMediaSizeOption_Impl: Sized + IPrintSchemaOption_Impl {
     fn WidthInMicrons(&self) -> ::windows::core::Result<u32>;
     fn HeightInMicrons(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrintSchemaPageMediaSizeOption {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrintSchemaPageMediaSizeOption_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaPageMediaSizeOption_Impl, const OFFSET: isize>() -> IPrintSchemaPageMediaSizeOption_Vtbl {
         unsafe extern "system" fn WidthInMicrons<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaPageMediaSizeOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulwidth: *mut u32) -> ::windows::core::HRESULT {
@@ -2681,8 +2681,8 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
         iid == &<IPrintSchemaPageMediaSizeOption as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaOption as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrintSchemaParameterDefinition_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn UserInputRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn UnitType(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2690,9 +2690,9 @@ pub trait IPrintSchemaParameterDefinition_Impl: Sized + IPrintSchemaDisplayableE
     fn RangeMin(&self) -> ::windows::core::Result<i32>;
     fn RangeMax(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrintSchemaParameterDefinition {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrintSchemaParameterDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaParameterDefinition_Impl, const OFFSET: isize>() -> IPrintSchemaParameterDefinition_Vtbl {
         unsafe extern "system" fn UserInputRequired<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaParameterDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -2763,18 +2763,18 @@ impl IPrintSchemaParameterDefinition_Vtbl {
         iid == &<IPrintSchemaParameterDefinition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaParameterInitializer_Impl: Sized + IPrintSchemaElement_Impl {
-    fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&self, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetValue(&self, pvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaParameterInitializer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaParameterInitializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaParameterInitializer_Impl, const OFFSET: isize>() -> IPrintSchemaParameterInitializer_Vtbl {
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -2785,7 +2785,7 @@ impl IPrintSchemaParameterInitializer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaParameterInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&pvar)).into()
@@ -2800,8 +2800,8 @@ impl IPrintSchemaParameterInitializer_Vtbl {
         iid == &<IPrintSchemaParameterInitializer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaTicket_Impl: Sized + IPrintSchemaElement_Impl {
     fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
     fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature>;
@@ -2812,9 +2812,9 @@ pub trait IPrintSchemaTicket_Impl: Sized + IPrintSchemaElement_Impl {
     fn JobCopiesAllDocuments(&self) -> ::windows::core::Result<u32>;
     fn SetJobCopiesAllDocuments(&self, uljobcopiesalldocuments: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaTicket {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaTicket_Impl, const OFFSET: isize>() -> IPrintSchemaTicket_Vtbl {
         unsafe extern "system" fn GetFeatureByKeyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaTicket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrkeyname: *mut ::core::ffi::c_void, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2909,14 +2909,14 @@ impl IPrintSchemaTicket_Vtbl {
         iid == &<IPrintSchemaTicket as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaTicket2_Impl: Sized + IPrintSchemaTicket_Impl {
     fn GetParameterInitializer(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaParameterInitializer>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintSchemaTicket2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaTicket2_Impl, const OFFSET: isize>() -> IPrintSchemaTicket2_Vtbl {
         unsafe extern "system" fn GetParameterInitializer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintSchemaTicket2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppparameterinitializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3160,17 +3160,17 @@ impl IPrinterExtensionAsyncOperation_Vtbl {
         iid == &<IPrinterExtensionAsyncOperation as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PrinterQueue(&self) -> ::windows::core::Result<IPrinterQueue>;
     fn PrintSchemaTicket(&self) -> ::windows::core::Result<IPrintSchemaTicket>;
     fn DriverProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag>;
     fn UserProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterExtensionContext {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionContext_Impl, const OFFSET: isize>() -> IPrinterExtensionContext_Vtbl {
         unsafe extern "system" fn PrinterQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3229,16 +3229,16 @@ impl IPrinterExtensionContext_Vtbl {
         iid == &<IPrinterExtensionContext as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionContextCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrinterExtensionContext>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterExtensionContextCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionContextCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionContextCollection_Impl, const OFFSET: isize>() -> IPrinterExtensionContextCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionContextCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcount: *mut u32) -> ::windows::core::HRESULT {
@@ -3285,15 +3285,15 @@ impl IPrinterExtensionContextCollection_Vtbl {
         iid == &<IPrinterExtensionContextCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnDriverEvent(&self, peventargs: ::core::option::Option<&IPrinterExtensionEventArgs>) -> ::windows::core::Result<()>;
     fn OnPrinterQueuesEnumerated(&self, pcontextcollection: ::core::option::Option<&IPrinterExtensionContextCollection>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterExtensionEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionEvent_Impl, const OFFSET: isize>() -> IPrinterExtensionEvent_Vtbl {
         unsafe extern "system" fn OnDriverEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventargs: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3316,8 +3316,8 @@ impl IPrinterExtensionEvent_Vtbl {
         iid == &<IPrinterExtensionEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrinterExtensionEventArgs_Impl: Sized + IPrinterExtensionContext_Impl {
     fn BidiNotification(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ReasonId(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -3327,9 +3327,9 @@ pub trait IPrinterExtensionEventArgs_Impl: Sized + IPrinterExtensionContext_Impl
     fn WindowModal(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn WindowParent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrinterExtensionEventArgs {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrinterExtensionEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionEventArgs_Impl, const OFFSET: isize>() -> IPrinterExtensionEventArgs_Vtbl {
         unsafe extern "system" fn BidiNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbidinotification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3452,15 +3452,15 @@ impl IPrinterExtensionManager_Vtbl {
         iid == &<IPrinterExtensionManager as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Cancel(&self, hrstatus: ::windows::core::HRESULT, bstrlogmessage: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Complete(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterExtensionRequest {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionRequest_Impl, const OFFSET: isize>() -> IPrinterExtensionRequest_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterExtensionRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, bstrlogmessage: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3483,8 +3483,8 @@ impl IPrinterExtensionRequest_Vtbl {
         iid == &<IPrinterExtensionRequest as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrinterPropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetBool(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetBool(&self, bstrname: &::windows::core::BSTR, bvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -3497,9 +3497,9 @@ pub trait IPrinterPropertyBag_Impl: Sized + super::super::System::Com::IDispatch
     fn GetReadStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn GetWriteStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrinterPropertyBag {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrinterPropertyBag_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>() -> IPrinterPropertyBag_Vtbl {
         unsafe extern "system" fn GetBool<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -3600,17 +3600,17 @@ impl IPrinterPropertyBag_Vtbl {
         iid == &<IPrinterPropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrinterQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Handle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SendBidiQuery(&self, bstrbidiquery: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrinterQueue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrinterQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueue_Impl, const OFFSET: isize>() -> IPrinterQueue_Vtbl {
         unsafe extern "system" fn Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phprinter: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
@@ -3663,15 +3663,15 @@ impl IPrinterQueue_Vtbl {
         iid == &<IPrinterQueue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrinterQueue2_Impl: Sized + IPrinterQueue_Impl {
     fn SendBidiSetRequestAsync(&self, bstrbidirequest: &::windows::core::BSTR, pcallback: ::core::option::Option<&IPrinterBidiSetRequestCallback>) -> ::windows::core::Result<IPrinterExtensionAsyncOperation>;
     fn GetPrinterQueueView(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<IPrinterQueueView>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrinterQueue2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrinterQueue2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueue2_Impl, const OFFSET: isize>() -> IPrinterQueue2_Vtbl {
         unsafe extern "system" fn SendBidiSetRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueue2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbidirequest: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, ppasyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3706,14 +3706,14 @@ impl IPrinterQueue2_Vtbl {
         iid == &<IPrinterQueue2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrinterQueue as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueueEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnBidiResponseReceived(&self, bstrresponse: &::windows::core::BSTR, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterQueueEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueueEvent_Impl, const OFFSET: isize>() -> IPrinterQueueEvent_Vtbl {
         unsafe extern "system" fn OnBidiResponseReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueueEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrresponse: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -3730,14 +3730,14 @@ impl IPrinterQueueEvent_Vtbl {
         iid == &<IPrinterQueueEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueueView_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetViewRange(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterQueueView {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueueView_Impl, const OFFSET: isize>() -> IPrinterQueueView_Vtbl {
         unsafe extern "system" fn SetViewRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueueView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::HRESULT {
@@ -3751,14 +3751,14 @@ impl IPrinterQueueView_Vtbl {
         iid == &<IPrinterQueueView as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueueViewEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnChanged(&self, pcollection: ::core::option::Option<&IPrintJobCollection>, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterQueueViewEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueViewEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueueViewEvent_Impl, const OFFSET: isize>() -> IPrinterQueueViewEvent_Vtbl {
         unsafe extern "system" fn OnChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterQueueViewEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcollection: *mut ::core::ffi::c_void, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::core::HRESULT {
@@ -3772,16 +3772,16 @@ impl IPrinterQueueViewEvent_Vtbl {
         iid == &<IPrinterQueueViewEvent as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DriverProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
     fn QueueProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
     fn UserProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterScriptContext {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptContext_Impl, const OFFSET: isize>() -> IPrinterScriptContext_Vtbl {
         unsafe extern "system" fn DriverProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropertybag: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3828,8 +3828,8 @@ impl IPrinterScriptContext_Vtbl {
         iid == &<IPrinterScriptContext as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrinterScriptablePropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetBool(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetBool(&self, bstrname: &::windows::core::BSTR, bvalue: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -3842,9 +3842,9 @@ pub trait IPrinterScriptablePropertyBag_Impl: Sized + super::super::System::Com:
     fn GetReadStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<IPrinterScriptableStream>;
     fn GetWriteStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<IPrinterScriptableStream>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrinterScriptablePropertyBag {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrinterScriptablePropertyBag_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>() -> IPrinterScriptablePropertyBag_Vtbl {
         unsafe extern "system" fn GetBool<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptablePropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -3951,14 +3951,14 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         iid == &<IPrinterScriptablePropertyBag as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPrinterScriptablePropertyBag2_Impl: Sized + IPrinterScriptablePropertyBag_Impl {
     fn GetReadStreamAsXML(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IPrinterScriptablePropertyBag2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPrinterScriptablePropertyBag2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptablePropertyBag2_Impl, const OFFSET: isize>() -> IPrinterScriptablePropertyBag2_Vtbl {
         unsafe extern "system" fn GetReadStreamAsXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptablePropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, ppxmlnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3978,15 +3978,15 @@ impl IPrinterScriptablePropertyBag2_Vtbl {
         iid == &<IPrinterScriptablePropertyBag2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IPrinterScriptablePropertyBag as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptableSequentialStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Read(&self, cbread: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Write(&self, parray: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterScriptableSequentialStream {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptableSequentialStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptableSequentialStream_Impl, const OFFSET: isize>() -> IPrinterScriptableSequentialStream_Vtbl {
         unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptableSequentialStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbread: i32, pparray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4021,16 +4021,16 @@ impl IPrinterScriptableSequentialStream_Vtbl {
         iid == &<IPrinterScriptableSequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptableStream_Impl: Sized + IPrinterScriptableSequentialStream_Impl {
     fn Commit(&self) -> ::windows::core::Result<()>;
     fn Seek(&self, loffset: i32, streamseek: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<i32>;
     fn SetSize(&self, lsize: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrinterScriptableStream {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptableStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptableStream_Impl, const OFFSET: isize>() -> IPrinterScriptableStream_Vtbl {
         unsafe extern "system" fn Commit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrinterScriptableStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

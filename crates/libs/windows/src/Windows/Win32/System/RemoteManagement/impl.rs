@@ -1,14 +1,14 @@
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSMan_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateSession(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: ::core::option::Option<&super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
     fn CreateConnectionOptions(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn CommandLine(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSMan {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSMan_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>() -> IWSMan_Vtbl {
         unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: *mut ::core::ffi::c_void, flags: i32, connectionoptions: *mut ::core::ffi::c_void, session: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -67,16 +67,16 @@ impl IWSMan_Vtbl {
         iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManConnectionOptions_Impl: Sized + super::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetUserName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetPassword(&self, password: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManConnectionOptions {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>() -> IWSManConnectionOptions_Vtbl {
         unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -111,15 +111,15 @@ impl IWSManConnectionOptions_Vtbl {
         iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManConnectionOptionsEx_Impl: Sized + IWSManConnectionOptions_Impl {
     fn CertificateThumbprint(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetCertificateThumbprint(&self, thumbprint: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManConnectionOptionsEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptionsEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>() -> IWSManConnectionOptionsEx_Vtbl {
         unsafe extern "system" fn CertificateThumbprint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thumbprint: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -148,8 +148,8 @@ impl IWSManConnectionOptionsEx_Vtbl {
         iid == &<IWSManConnectionOptionsEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManConnectionOptionsEx2_Impl: Sized + IWSManConnectionOptionsEx_Impl {
     fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &::windows::core::BSTR, password: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ProxyIEConfig(&self) -> ::windows::core::Result<i32>;
@@ -160,9 +160,9 @@ pub trait IWSManConnectionOptionsEx2_Impl: Sized + IWSManConnectionOptionsEx_Imp
     fn ProxyAuthenticationUseBasic(&self) -> ::windows::core::Result<i32>;
     fn ProxyAuthenticationUseDigest(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManConnectionOptionsEx2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptionsEx2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>() -> IWSManConnectionOptionsEx2_Vtbl {
         unsafe extern "system" fn SetProxy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManConnectionOptionsEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, accesstype: i32, authenticationmechanism: i32, username: *mut ::core::ffi::c_void, password: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -263,16 +263,16 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         iid == &<IWSManConnectionOptionsEx2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows::core::Interface>::IID || iid == &<IWSManConnectionOptionsEx as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWSManEnumerator_Impl: Sized + super::Com::IDispatch_Impl {
     fn ReadItem(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AtEndOfStream(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IWSManEnumerator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWSManEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>() -> IWSManEnumerator_Vtbl {
         unsafe extern "system" fn ReadItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -319,8 +319,8 @@ impl IWSManEnumerator_Vtbl {
         iid == &<IWSManEnumerator as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManEx_Impl: Sized + IWSMan_Impl {
     fn CreateResourceLocator(&self, strresourcelocator: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
     fn SessionFlagUTF8(&self) -> ::windows::core::Result<i32>;
@@ -343,9 +343,9 @@ pub trait IWSManEx_Impl: Sized + IWSMan_Impl {
     fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> ::windows::core::Result<i32>;
     fn EnumerationFlagReturnObject(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>() -> IWSManEx_Vtbl {
         unsafe extern "system" fn CreateResourceLocator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strresourcelocator: *mut ::core::ffi::c_void, newresourcelocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -596,14 +596,14 @@ impl IWSManEx_Vtbl {
         iid == &<IWSManEx as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManEx2_Impl: Sized + IWSManEx_Impl {
     fn SessionFlagUseClientCertificate(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManEx2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManEx2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx2_Impl, const OFFSET: isize>() -> IWSManEx2_Vtbl {
         unsafe extern "system" fn SessionFlagUseClientCertificate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
@@ -626,8 +626,8 @@ impl IWSManEx2_Vtbl {
         iid == &<IWSManEx2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<IWSManEx as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManEx3_Impl: Sized + IWSManEx2_Impl {
     fn SessionFlagUTF16(&self) -> ::windows::core::Result<i32>;
     fn SessionFlagUseCredSsp(&self) -> ::windows::core::Result<i32>;
@@ -637,9 +637,9 @@ pub trait IWSManEx3_Impl: Sized + IWSManEx2_Impl {
     fn SessionFlagAllowNegotiateImplicitCredentials(&self) -> ::windows::core::Result<i32>;
     fn SessionFlagUseSsl(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManEx3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManEx3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>() -> IWSManEx3_Vtbl {
         unsafe extern "system" fn SessionFlagUTF16<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManEx3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT {
@@ -734,17 +734,17 @@ impl IWSManEx3_Vtbl {
         iid == &<IWSManEx3 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IWSMan as ::windows::core::Interface>::IID || iid == &<IWSManEx as ::windows::core::Interface>::IID || iid == &<IWSManEx2 as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManInternal_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ConfigSDDL(&self, session: ::core::option::Option<&super::Com::IDispatch>, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ConfigSDDL(&self, session: ::core::option::Option<&super::Com::IDispatch>, resourceuri: &::windows::core::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManInternal {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManInternal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>() -> IWSManInternal_Vtbl {
-        unsafe extern "system" fn ConfigSDDL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, flags: i32, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigSDDL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, resourceuri: ::windows::core::VARIANT, flags: i32, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConfigSDDL(::windows::core::from_raw_borrowed(&session), ::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
@@ -761,26 +761,26 @@ impl IWSManInternal_Vtbl {
         iid == &<IWSManInternal as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWSManResourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetResourceURI(&self, uri: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ResourceURI(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn AddSelector(&self, resourceselname: &::windows::core::BSTR, selvalue: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn AddSelector(&self, resourceselname: &::windows::core::BSTR, selvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn ClearSelectors(&self) -> ::windows::core::Result<()>;
     fn FragmentPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetFragmentPath(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn FragmentDialect(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetFragmentDialect(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn AddOption(&self, optionname: &::windows::core::BSTR, optionvalue: &super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn AddOption(&self, optionname: &::windows::core::BSTR, optionvalue: &::windows::core::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetMustUnderstandOptions(&self, mustunderstand: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn MustUnderstandOptions(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn ClearOptions(&self) -> ::windows::core::Result<()>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IWSManResourceLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWSManResourceLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>() -> IWSManResourceLocator_Vtbl {
         unsafe extern "system" fn SetResourceURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -799,7 +799,7 @@ impl IWSManResourceLocator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddSelector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceselname: *mut ::core::ffi::c_void, selvalue: super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSelector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceselname: *mut ::core::ffi::c_void, selvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddSelector(::core::mem::transmute(&resourceselname), ::core::mem::transmute(&selvalue)).into()
@@ -841,7 +841,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             this.SetFragmentDialect(::core::mem::transmute(&text)).into()
         }
-        unsafe extern "system" fn AddOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionname: *mut ::core::ffi::c_void, optionvalue: super::Com::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManResourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionname: *mut ::core::ffi::c_void, optionvalue: ::windows::core::VARIANT, mustcomply: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddOption(::core::mem::transmute(&optionname), ::core::mem::transmute(&optionvalue), ::core::mem::transmute_copy(&mustcomply)).into()
@@ -910,15 +910,15 @@ impl IWSManResourceLocatorInternal_Vtbl {
         iid == &<IWSManResourceLocatorInternal as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Get(&self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn Put(&self, resourceuri: &super::Com::VARIANT, resource: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn Create(&self, resourceuri: &super::Com::VARIANT, resource: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn Delete(&self, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<()>;
-    fn Invoke2(&self, actionuri: &::windows::core::BSTR, resourceuri: &super::Com::VARIANT, parameters: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn Enumerate(&self, resourceuri: &super::Com::VARIANT, filter: &::windows::core::BSTR, dialect: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn Get(&self, resourceuri: &::windows::core::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Put(&self, resourceuri: &::windows::core::VARIANT, resource: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Create(&self, resourceuri: &::windows::core::VARIANT, resource: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Delete(&self, resourceuri: &::windows::core::VARIANT, flags: i32) -> ::windows::core::Result<()>;
+    fn Invoke2(&self, actionuri: &::windows::core::BSTR, resourceuri: &::windows::core::VARIANT, parameters: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn Enumerate(&self, resourceuri: &::windows::core::VARIANT, filter: &::windows::core::BSTR, dialect: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Identify(&self, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BatchItems(&self) -> ::windows::core::Result<i32>;
@@ -926,12 +926,12 @@ pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Timeout(&self) -> ::windows::core::Result<i32>;
     fn SetTimeout(&self, value: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IWSManSession {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWSManSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>() -> IWSManSession_Vtbl {
-        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, flags: i32, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::windows::core::VARIANT, flags: i32, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Get(::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
@@ -942,7 +942,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, resource: *mut ::core::ffi::c_void, flags: i32, resultresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::windows::core::VARIANT, resource: *mut ::core::ffi::c_void, flags: i32, resultresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Put(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
@@ -953,7 +953,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, resource: *mut ::core::ffi::c_void, flags: i32, newuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::windows::core::VARIANT, resource: *mut ::core::ffi::c_void, flags: i32, newuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
@@ -964,12 +964,12 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::windows::core::VARIANT, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Delete(::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn Invoke2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, parameters: *mut ::core::ffi::c_void, flags: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Invoke2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actionuri: *mut ::core::ffi::c_void, resourceuri: ::windows::core::VARIANT, parameters: *mut ::core::ffi::c_void, flags: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Invoke2(::core::mem::transmute(&actionuri), ::core::mem::transmute(&resourceuri), ::core::mem::transmute(&parameters), ::core::mem::transmute_copy(&flags)) {
@@ -980,7 +980,7 @@ impl IWSManSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enumerate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, filter: *mut ::core::ffi::c_void, dialect: *mut ::core::ffi::c_void, flags: i32, resultset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enumerate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceuri: ::windows::core::VARIANT, filter: *mut ::core::ffi::c_void, dialect: *mut ::core::ffi::c_void, flags: i32, resultset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Enumerate(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&filter), ::core::mem::transmute(&dialect), ::core::mem::transmute_copy(&flags)) {

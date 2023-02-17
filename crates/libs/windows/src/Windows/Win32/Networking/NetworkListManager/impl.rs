@@ -1,5 +1,5 @@
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetworkConnections_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetworkConnection>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -7,9 +7,9 @@ pub trait IEnumNetworkConnections_Impl: Sized + super::super::System::Com::IDisp
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumNetworkConnections>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IEnumNetworkConnections {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetworkConnections_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetworkConnections_Impl, const OFFSET: isize>() -> IEnumNetworkConnections_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumvar: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -62,8 +62,8 @@ impl IEnumNetworkConnections_Vtbl {
         iid == &<IEnumNetworkConnections as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEnumNetworks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetwork>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
@@ -71,9 +71,9 @@ pub trait IEnumNetworks_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumNetworks>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IEnumNetworks {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumNetworks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetworks_Impl, const OFFSET: isize>() -> IEnumNetworks_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumvar: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -126,8 +126,8 @@ impl IEnumNetworks_Vtbl {
         iid == &<IEnumNetworks as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait INetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetName(&self, sznetworknewname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -143,9 +143,9 @@ pub trait INetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetCategory(&self) -> ::windows::core::Result<NLM_NETWORK_CATEGORY>;
     fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for INetwork {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl INetwork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>() -> INetwork_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psznetworkname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -288,8 +288,8 @@ impl INetwork_Vtbl {
         iid == &<INetwork as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait INetworkConnection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetNetwork(&self) -> ::windows::core::Result<INetwork>;
     fn IsConnectedToInternet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -299,9 +299,9 @@ pub trait INetworkConnection_Impl: Sized + super::super::System::Com::IDispatch_
     fn GetAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for INetworkConnection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl INetworkConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection_Impl, const OFFSET: isize>() -> INetworkConnection_Vtbl {
         unsafe extern "system" fn GetNetwork<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnetwork: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -597,8 +597,8 @@ impl INetworkEvents_Vtbl {
         iid == &<INetworkEvents as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait INetworkListManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> ::windows::core::Result<IEnumNetworks>;
     fn GetNetwork(&self, gdnetworkid: &::windows::core::GUID) -> ::windows::core::Result<INetwork>;
@@ -610,9 +610,9 @@ pub trait INetworkListManager_Impl: Sized + super::super::System::Com::IDispatch
     fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::core::Result<()>;
     fn ClearSimulatedProfileInfo(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for INetworkListManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl INetworkListManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkListManager_Impl, const OFFSET: isize>() -> INetworkListManager_Vtbl {
         unsafe extern "system" fn GetNetworks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: NLM_ENUM_NETWORK, ppenumnetwork: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

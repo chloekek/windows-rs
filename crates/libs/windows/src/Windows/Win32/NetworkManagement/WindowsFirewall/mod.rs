@@ -322,9 +322,7 @@ pub struct IEnumNetConnection_Vtbl {
 #[repr(transparent)]
 pub struct IEnumNetSharingEveryConnection(::windows::core::IUnknown);
 impl IEnumNetSharingEveryConnection {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Next(&self, rgvar: &mut [super::super::System::Com::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, rgvar: &mut [::windows::core::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgvar.len() as _, ::core::mem::transmute(rgvar.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -365,10 +363,7 @@ unsafe impl ::windows::core::Interface for IEnumNetSharingEveryConnection {
 #[doc(hidden)]
 pub struct IEnumNetSharingEveryConnection_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Next: usize,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::windows::core::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -377,9 +372,7 @@ pub struct IEnumNetSharingEveryConnection_Vtbl {
 #[repr(transparent)]
 pub struct IEnumNetSharingPortMapping(::windows::core::IUnknown);
 impl IEnumNetSharingPortMapping {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Next(&self, rgvar: &mut [super::super::System::Com::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, rgvar: &mut [::windows::core::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgvar.len() as _, ::core::mem::transmute(rgvar.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -420,10 +413,7 @@ unsafe impl ::windows::core::Interface for IEnumNetSharingPortMapping {
 #[doc(hidden)]
 pub struct IEnumNetSharingPortMapping_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Next: usize,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::windows::core::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -432,9 +422,7 @@ pub struct IEnumNetSharingPortMapping_Vtbl {
 #[repr(transparent)]
 pub struct IEnumNetSharingPrivateConnection(::windows::core::IUnknown);
 impl IEnumNetSharingPrivateConnection {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Next(&self, rgvar: &mut [super::super::System::Com::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, rgvar: &mut [::windows::core::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgvar.len() as _, ::core::mem::transmute(rgvar.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -475,10 +463,7 @@ unsafe impl ::windows::core::Interface for IEnumNetSharingPrivateConnection {
 #[doc(hidden)]
 pub struct IEnumNetSharingPrivateConnection_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Next: usize,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::windows::core::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -487,9 +472,7 @@ pub struct IEnumNetSharingPrivateConnection_Vtbl {
 #[repr(transparent)]
 pub struct IEnumNetSharingPublicConnection(::windows::core::IUnknown);
 impl IEnumNetSharingPublicConnection {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Next(&self, rgvar: &mut [super::super::System::Com::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Next(&self, rgvar: &mut [::windows::core::VARIANT], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgvar.len() as _, ::core::mem::transmute(rgvar.as_ptr()), pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
@@ -530,10 +513,7 @@ unsafe impl ::windows::core::Interface for IEnumNetSharingPublicConnection {
 #[doc(hidden)]
 pub struct IEnumNetSharingPublicConnection_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::super::System::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Next: usize,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::windows::core::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1385,15 +1365,11 @@ impl INetFwMgr {
     pub unsafe fn RestoreDefaults(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RestoreDefaults)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsPortAllowed(&self, imagefilename: &::windows::core::BSTR, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: &::windows::core::BSTR, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IsPortAllowed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(imagefilename), ipversion, portnumber, ::core::mem::transmute_copy(localaddress), ipprotocol, allowed, restricted).ok()
+    pub unsafe fn IsPortAllowed(&self, imagefilename: &::windows::core::BSTR, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: &::windows::core::BSTR, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut ::windows::core::VARIANT, restricted: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).IsPortAllowed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(imagefilename), ipversion, portnumber, ::core::mem::transmute_copy(localaddress), ipprotocol, ::core::mem::transmute(allowed), ::core::mem::transmute(restricted)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsIcmpTypeAllowed(&self, ipversion: NET_FW_IP_VERSION, localaddress: &::windows::core::BSTR, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).IsIcmpTypeAllowed)(::windows::core::Vtable::as_raw(self), ipversion, ::core::mem::transmute_copy(localaddress), r#type, allowed, restricted).ok()
+    pub unsafe fn IsIcmpTypeAllowed(&self, ipversion: NET_FW_IP_VERSION, localaddress: &::windows::core::BSTR, r#type: u8, allowed: *mut ::windows::core::VARIANT, restricted: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).IsIcmpTypeAllowed)(::windows::core::Vtable::as_raw(self), ipversion, ::core::mem::transmute_copy(localaddress), r#type, ::core::mem::transmute(allowed), ::core::mem::transmute(restricted)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1437,14 +1413,8 @@ pub struct INetFwMgr_Vtbl {
     LocalPolicy: usize,
     pub CurrentProfileType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: *mut NET_FW_PROFILE_TYPE) -> ::windows::core::HRESULT,
     pub RestoreDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub IsPortAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: *mut ::core::ffi::c_void, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    IsPortAllowed: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub IsIcmpTypeAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: *mut ::core::ffi::c_void, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    IsIcmpTypeAllowed: usize,
+    pub IsPortAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: *mut ::core::ffi::c_void, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut ::windows::core::VARIANT, restricted: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub IsIcmpTypeAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: *mut ::core::ffi::c_void, r#type: u8, allowed: *mut ::windows::core::VARIANT, restricted: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1741,16 +1711,12 @@ impl INetFwPolicy2 {
     {
         (::windows::core::Vtable::vtable(self).put_FirewallEnabled)(::windows::core::Vtable::as_raw(self), profiletype, enabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn get_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_ExcludedInterfaces)(::windows::core::Vtable::as_raw(self), profiletype, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).put_ExcludedInterfaces)(::windows::core::Vtable::as_raw(self), profiletype, ::core::mem::transmute(interfaces)).ok()
+    pub unsafe fn put_ExcludedInterfaces(&self, profiletype: NET_FW_PROFILE_TYPE2, interfaces: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).put_ExcludedInterfaces)(::windows::core::Vtable::as_raw(self), profiletype, ::core::mem::transmute_copy(interfaces)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1892,14 +1858,8 @@ pub struct INetFwPolicy2_Vtbl {
     pub put_FirewallEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     put_FirewallEnabled: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_ExcludedInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_ExcludedInterfaces: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub put_ExcludedInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    put_ExcludedInterfaces: usize,
+    pub get_ExcludedInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub put_ExcludedInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub get_BlockAllInboundTraffic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1957,16 +1917,12 @@ pub struct INetFwPolicy2_Vtbl {
 pub struct INetFwProduct(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProduct {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RuleCategories(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn RuleCategories(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).RuleCategories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetRuleCategories(&self, rulecategories: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRuleCategories)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rulecategories)).ok()
+    pub unsafe fn SetRuleCategories(&self, rulecategories: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetRuleCategories)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(rulecategories)).ok()
     }
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2015,14 +1971,8 @@ unsafe impl ::windows::core::Interface for INetFwProduct {
 #[doc(hidden)]
 pub struct INetFwProduct_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RuleCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulecategories: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    RuleCategories: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetRuleCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulecategories: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetRuleCategories: usize,
+    pub RuleCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulecategories: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetRuleCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulecategories: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PathToSignedProductExe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2464,16 +2414,12 @@ impl INetFwRule {
     pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDirection)(::windows::core::Vtable::as_raw(self), dir).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Interfaces(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Interfaces(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Interfaces)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetInterfaces(&self, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(interfaces)).ok()
+    pub unsafe fn SetInterfaces(&self, interfaces: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(interfaces)).ok()
     }
     pub unsafe fn InterfaceTypes(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2589,14 +2535,8 @@ pub struct INetFwRule_Vtbl {
     pub SetIcmpTypesAndCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icmptypesandcodes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dir: *mut NET_FW_RULE_DIRECTION) -> ::windows::core::HRESULT,
     pub SetDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Interfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaces: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Interfaces: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetInterfaces: usize,
+    pub Interfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaces: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaces: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub InterfaceTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacetypes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetInterfaceTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacetypes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2705,16 +2645,12 @@ impl INetFwRule2 {
     pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetDirection)(::windows::core::Vtable::as_raw(self), dir).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Interfaces(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Interfaces(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Interfaces)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetInterfaces(&self, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(interfaces)).ok()
+    pub unsafe fn SetInterfaces(&self, interfaces: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(interfaces)).ok()
     }
     pub unsafe fn InterfaceTypes(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2901,16 +2837,12 @@ impl INetFwRule3 {
     pub unsafe fn SetDirection(&self, dir: NET_FW_RULE_DIRECTION) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetDirection)(::windows::core::Vtable::as_raw(self), dir).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Interfaces(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Interfaces(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Interfaces)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetInterfaces(&self, interfaces: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(interfaces)).ok()
+    pub unsafe fn SetInterfaces(&self, interfaces: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(interfaces)).ok()
     }
     pub unsafe fn InterfaceTypes(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

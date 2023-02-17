@@ -50,14 +50,10 @@ impl ICallFrame {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetParamInfo)(::windows::core::Vtable::as_raw(self), iparam, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetParam(&self, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParam)(::windows::core::Vtable::as_raw(self), iparam, pvar).ok()
+    pub unsafe fn SetParam(&self, iparam: u32, pvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetParam)(::windows::core::Vtable::as_raw(self), iparam, ::core::mem::transmute(pvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetParam(&self, iparam: u32) -> ::windows::core::Result<super::VARIANT> {
+    pub unsafe fn GetParam(&self, iparam: u32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetParam)(::windows::core::Vtable::as_raw(self), iparam, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -156,14 +152,8 @@ pub struct ICallFrame_Vtbl {
     pub GetParamInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pinfo: *mut CALLFRAMEPARAMINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetParamInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub SetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    SetParam: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub GetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    GetParam: usize,
+    pub SetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copycontrol: CALLFRAME_COPY, pwalker: *mut ::core::ffi::c_void, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Free: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframeargsdest: *mut ::core::ffi::c_void, pwalkerdestfree: *mut ::core::ffi::c_void, pwalkercopy: *mut ::core::ffi::c_void, freeflags: u32, pwalkerfree: *mut ::core::ffi::c_void, nullflags: u32) -> ::windows::core::HRESULT,
     pub FreeParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, freeflags: u32, pwalkerfree: *mut ::core::ffi::c_void, nullflags: u32) -> ::windows::core::HRESULT,

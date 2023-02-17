@@ -48,10 +48,8 @@ impl IDedupChunkLibrary {
     pub unsafe fn Uninitialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Uninitialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetParameter(&self, dwparamtype: u32, vparamvalue: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), dwparamtype, ::core::mem::transmute(vparamvalue)).ok()
+    pub unsafe fn SetParameter(&self, dwparamtype: u32, vparamvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetParameter)(::windows::core::Vtable::as_raw(self), dwparamtype, ::core::mem::transmute_copy(vparamvalue)).ok()
     }
     pub unsafe fn StartChunking(&self, iiditeratorinterfaceid: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -87,10 +85,7 @@ pub struct IDedupChunkLibrary_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub InitializeForPushBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetParameter: usize,
+    pub SetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub StartChunking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iiditeratorinterfaceid: ::windows::core::GUID, ppchunksenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`*"]

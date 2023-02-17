@@ -897,22 +897,18 @@ pub struct IPersistStorage_Vtbl {
 #[repr(transparent)]
 pub struct IPropertyBag(::windows::core::IUnknown);
 impl IPropertyBag {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut super::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
+    pub unsafe fn Read<P0, P1>(&self, pszpropname: P0, pvar: *mut ::windows::core::VARIANT, perrorlog: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar, perrorlog.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), ::core::mem::transmute(pvar), perrorlog.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const super::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn Write<P0>(&self, pszpropname: P0, pvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), pvar).ok()
+        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), pszpropname.into().abi(), ::core::mem::transmute(pvar)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPropertyBag, ::windows::core::IUnknown);
@@ -942,31 +938,21 @@ unsafe impl ::windows::core::Interface for IPropertyBag {
 #[doc(hidden)]
 pub struct IPropertyBag_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *mut super::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    Read: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *const super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    Write: usize,
+    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *mut ::windows::core::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
 pub struct IPropertyBag2(::windows::core::IUnknown);
 impl IPropertyBag2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read<P0>(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: P0, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn Read<P0>(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: P0, pvarvalue: *mut ::windows::core::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::IErrorLog>>,
     {
-        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), cproperties, ppropbag, perrlog.into().abi(), pvarvalue, phrerror).ok()
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), cproperties, ppropbag, perrlog.into().abi(), ::core::mem::transmute(pvarvalue), phrerror).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), cproperties, ppropbag, pvarvalue).ok()
+    pub unsafe fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), cproperties, ppropbag, ::core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn CountProperties(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1011,14 +997,8 @@ unsafe impl ::windows::core::Interface for IPropertyBag2 {
 #[doc(hidden)]
 pub struct IPropertyBag2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    Read: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    Write: usize,
+    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut ::windows::core::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub CountProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcproperties: *mut u32) -> ::windows::core::HRESULT,
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows::core::HRESULT,
     pub LoadObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrname: ::windows::core::PCWSTR, dwhint: u32, punkobject: *mut ::core::ffi::c_void, perrlog: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

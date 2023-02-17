@@ -1,5 +1,5 @@
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISensLogon_Impl: Sized + super::Com::IDispatch_Impl {
     fn Logon(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Logoff(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -9,9 +9,9 @@ pub trait ISensLogon_Impl: Sized + super::Com::IDispatch_Impl {
     fn StartScreenSaver(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn StopScreenSaver(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISensLogon {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISensLogon_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>() -> ISensLogon_Vtbl {
         unsafe extern "system" fn Logon<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -64,8 +64,8 @@ impl ISensLogon_Vtbl {
         iid == &<ISensLogon as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISensLogon2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Logon(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
     fn Logoff(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
@@ -73,9 +73,9 @@ pub trait ISensLogon2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SessionReconnect(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
     fn PostShell(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISensLogon2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISensLogon2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon2_Impl, const OFFSET: isize>() -> ISensLogon2_Vtbl {
         unsafe extern "system" fn Logon<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensLogon2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT {
@@ -116,8 +116,8 @@ impl ISensLogon2_Vtbl {
         iid == &<ISensLogon2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISensNetwork_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectionMade(&self, bstrconnection: &::windows::core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()>;
     fn ConnectionMadeNoQOCInfo(&self, bstrconnection: &::windows::core::BSTR, ultype: u32) -> ::windows::core::Result<()>;
@@ -125,9 +125,9 @@ pub trait ISensNetwork_Impl: Sized + super::Com::IDispatch_Impl {
     fn DestinationReachable(&self, bstrdestination: &::windows::core::BSTR, bstrconnection: &::windows::core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()>;
     fn DestinationReachableNoQOCInfo(&self, bstrdestination: &::windows::core::BSTR, bstrconnection: &::windows::core::BSTR, ultype: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISensNetwork {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISensNetwork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensNetwork_Impl, const OFFSET: isize>() -> ISensNetwork_Vtbl {
         unsafe extern "system" fn ConnectionMade<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT {
@@ -168,16 +168,16 @@ impl ISensNetwork_Vtbl {
         iid == &<ISensNetwork as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISensOnNow_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnACPower(&self) -> ::windows::core::Result<()>;
     fn OnBatteryPower(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()>;
     fn BatteryLow(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISensOnNow {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISensOnNow_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensOnNow_Impl, const OFFSET: isize>() -> ISensOnNow_Vtbl {
         unsafe extern "system" fn OnACPower<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensOnNow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

@@ -1785,23 +1785,30 @@ impl ::core::default::Default for HH_FTS_QUERY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
-    pub var: super::super::System::Com::VARIANT,
+    pub var: ::windows::core::ManuallyDrop<::windows::core::VARIANT>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for HH_GLOBAL_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HH_GLOBAL_PROPERTY").field("id", &self.id).field("var", &self.var).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HH_GLOBAL_PROPERTY {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for HH_GLOBAL_PROPERTY {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id && self.var == other.var
+    }
+}
+impl ::core::cmp::Eq for HH_GLOBAL_PROPERTY {}
 impl ::core::default::Default for HH_GLOBAL_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

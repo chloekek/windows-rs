@@ -324,16 +324,16 @@ impl IEnumMsmString_Vtbl {
         iid == &<IEnumMsmString as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMsmDependencies_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32) -> ::windows::core::Result<IMsmDependency>;
     fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMsmDependencies {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMsmDependencies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependencies_Impl, const OFFSET: isize>() -> IMsmDependencies_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -374,16 +374,16 @@ impl IMsmDependencies_Vtbl {
         iid == &<IMsmDependencies as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMsmDependency_Impl: Sized + super::Com::IDispatch_Impl {
     fn Module(&self, module: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Language(&self, language: *mut i16) -> ::windows::core::Result<()>;
     fn Version(&self, version: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMsmDependency {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMsmDependency_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependency_Impl, const OFFSET: isize>() -> IMsmDependency_Vtbl {
         unsafe extern "system" fn Module<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -412,8 +412,8 @@ impl IMsmDependency_Vtbl {
         iid == &<IMsmDependency as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self, errortype: *mut msmErrorType) -> ::windows::core::Result<()>;
     fn Path(&self, errorpath: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -423,9 +423,9 @@ pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
     fn ModuleTable(&self, errortable: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ModuleKeys(&self) -> ::windows::core::Result<IMsmStrings>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMsmError {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMsmError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>() -> IMsmError_Vtbl {
         unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errortype: *mut msmErrorType) -> ::windows::core::HRESULT {
@@ -490,16 +490,16 @@ impl IMsmError_Vtbl {
         iid == &<IMsmError as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMsmErrors_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32) -> ::windows::core::Result<IMsmError>;
     fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMsmErrors {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMsmErrors_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmErrors_Impl, const OFFSET: isize>() -> IMsmErrors_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmErrors_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -540,14 +540,14 @@ impl IMsmErrors_Vtbl {
         iid == &<IMsmErrors as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMsmGetFiles_Impl: Sized + super::Com::IDispatch_Impl {
     fn ModuleFiles(&self) -> ::windows::core::Result<IMsmStrings>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMsmGetFiles {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMsmGetFiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmGetFiles_Impl, const OFFSET: isize>() -> IMsmGetFiles_Vtbl {
         unsafe extern "system" fn ModuleFiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmGetFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, files: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -567,8 +567,8 @@ impl IMsmGetFiles_Vtbl {
         iid == &<IMsmGetFiles as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
     fn OpenDatabase(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn OpenModule(&self, path: &::windows::core::BSTR, language: i16) -> ::windows::core::Result<()>;
@@ -584,9 +584,9 @@ pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
     fn ExtractCAB(&self, filename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ExtractFiles(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IMsmMerge {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMsmMerge_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>() -> IMsmMerge_Vtbl {
         unsafe extern "system" fn OpenDatabase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -687,16 +687,16 @@ impl IMsmMerge_Vtbl {
         iid == &<IMsmMerge as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMsmStrings_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32, r#return: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IMsmStrings {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMsmStrings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmStrings_Impl, const OFFSET: isize>() -> IMsmStrings_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

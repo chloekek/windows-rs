@@ -305,10 +305,8 @@ pub struct IRichEditOleCallback_Vtbl {
 #[repr(transparent)]
 pub struct IRicheditUiaOverrides(::windows::core::IUnknown);
 impl IRicheditUiaOverrides {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPropertyOverrideValue)(::windows::core::Vtable::as_raw(self), propertyid, pretvalue).ok()
+    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetPropertyOverrideValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(pretvalue)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IRicheditUiaOverrides, ::windows::core::IUnknown);
@@ -338,10 +336,7 @@ unsafe impl ::windows::core::Interface for IRicheditUiaOverrides {
 #[doc(hidden)]
 pub struct IRicheditUiaOverrides_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropertyOverrideValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetPropertyOverrideValue: usize,
+    pub GetPropertyOverrideValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, pretvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -428,15 +423,11 @@ impl ITextDocument {
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).New)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pvar, flags, codepage).ok()
+    pub unsafe fn Open(&self, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self), pvar, flags, codepage).ok()
+    pub unsafe fn Save(&self, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -523,14 +514,8 @@ pub struct ITextDocument_Vtbl {
     pub GetDefaultTabStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut f32) -> ::windows::core::HRESULT,
     pub SetDefaultTabStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
     pub New: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Open: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Save: usize,
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT,
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::HRESULT,
     pub Freeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     pub Unfreeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
     pub BeginEditCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -589,15 +574,11 @@ impl ITextDocument2 {
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.New)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pvar, flags, codepage).ok()
+    pub unsafe fn Open(&self, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Save)(::windows::core::Vtable::as_raw(self), pvar, flags, codepage).ok()
+    pub unsafe fn Save(&self, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -978,15 +959,11 @@ impl ITextDocument2Old {
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.New)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Open(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pvar, flags, codepage).ok()
+    pub unsafe fn Open(&self, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, pvar: *const super::super::super::System::Com::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Save)(::windows::core::Vtable::as_raw(self), pvar, flags, codepage).ok()
+    pub unsafe fn Save(&self, pvar: *const ::windows::core::VARIANT, flags: tomConstants, codepage: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
     pub unsafe fn Freeze(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3410,41 +3387,29 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).MoveEnd)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MoveWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveStartWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MoveStartWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveEndWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MoveEndWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MoveUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveStartUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MoveStartUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MoveEndUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).MoveEndUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3462,28 +3427,20 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Cut(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Cut)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Copy(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Paste)(::windows::core::Vtable::as_raw(self), pvar, format).ok()
+    pub unsafe fn Paste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Paste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn CanPaste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CanPaste)(::windows::core::Vtable::as_raw(self), pvar, format, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CanPaste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3602,50 +3559,20 @@ pub struct ITextRange_Vtbl {
     pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
     pub MoveStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
     pub MoveEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    MoveWhile: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveStartWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    MoveStartWhile: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveEndWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    MoveEndWhile: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    MoveUntil: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveStartUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    MoveStartUntil: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MoveEndUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const super::super::super::System::Com::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    MoveEndUntil: usize,
+    pub MoveWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const ::windows::core::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
+    pub MoveStartWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const ::windows::core::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
+    pub MoveEndWhile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const ::windows::core::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
+    pub MoveUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const ::windows::core::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
+    pub MoveStartUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const ::windows::core::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
+    pub MoveEndUntil: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cset: *const ::windows::core::VARIANT, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
     pub FindText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT,
     pub FindTextStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT,
     pub FindTextEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: i32, count: i32, pdelta: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Cut: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Copy: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Paste: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CanPaste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::System::Com::VARIANT, format: i32, pvalue: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CanPaste: usize,
+    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::HRESULT,
+    pub CanPaste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT, format: i32, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub CanEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub ChangeCase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: tomConstants) -> ::windows::core::HRESULT,
     pub GetPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: tomConstants, px: *mut i32, py: *mut i32) -> ::windows::core::HRESULT,
@@ -3810,41 +3737,29 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.MoveEnd)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.MoveWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.MoveWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.MoveStartWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.MoveStartWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.MoveEndWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.MoveEndWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.MoveUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.MoveUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.MoveStartUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.MoveStartUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.MoveEndUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.MoveEndUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3862,28 +3777,20 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Delete)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Cut(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Cut)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Copy(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Copy)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Paste)(::windows::core::Vtable::as_raw(self), pvar, format).ok()
+    pub unsafe fn Paste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.Paste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn CanPaste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CanPaste)(::windows::core::Vtable::as_raw(self), pvar, format, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CanPaste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4635,41 +4542,29 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.MoveEnd)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MoveWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MoveWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MoveStartWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MoveStartWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MoveEndWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MoveEndWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MoveUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MoveUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MoveStartUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MoveStartUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MoveEndUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.MoveEndUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4687,28 +4582,20 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Delete)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Cut(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Cut)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Copy(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Copy)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Paste)(::windows::core::Vtable::as_raw(self), pvar, format).ok()
+    pub unsafe fn Paste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Paste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn CanPaste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CanPaste)(::windows::core::Vtable::as_raw(self), pvar, format, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.CanPaste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4972,41 +4859,29 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveEnd)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveStartWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveStartWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndWhile(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndWhile(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveEndWhile)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveEndWhile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveStartUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveStartUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveStartUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveStartUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn MoveEndUntil(&self, cset: *const super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn MoveEndUntil(&self, cset: *const ::windows::core::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveEndUntil)(::windows::core::Vtable::as_raw(self), cset, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.MoveEndUntil)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(cset), count, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn FindText(&self, bstr: &::windows::core::BSTR, count: i32, flags: tomConstants) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5024,28 +4899,20 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Delete)(::windows::core::Vtable::as_raw(self), unit, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Cut(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Cut)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Copy(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Copy)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Paste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.Paste)(::windows::core::Vtable::as_raw(self), pvar, format).ok()
+    pub unsafe fn Paste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Paste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CanPaste(&self, pvar: *const super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn CanPaste(&self, pvar: *const ::windows::core::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CanPaste)(::windows::core::Vtable::as_raw(self), pvar, format, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CanPaste)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvar), format, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CanEdit(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

@@ -1,11 +1,11 @@
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 pub trait IAccessibleWinSAT_Impl: Sized + super::super::UI::Accessibility::IAccessible_Impl {
     fn SetAccessiblityData(&self, wsname: &::windows::core::PCWSTR, wsvalue: &::windows::core::PCWSTR, wsdesc: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl ::windows::core::RuntimeName for IAccessibleWinSAT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleWinSAT_Impl, const OFFSET: isize>() -> IAccessibleWinSAT_Vtbl {
         unsafe extern "system" fn SetAccessiblityData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessibleWinSAT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsname: ::windows::core::PCWSTR, wsvalue: ::windows::core::PCWSTR, wsdesc: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -60,16 +60,16 @@ impl IInitiateWinSATAssessment_Vtbl {
         iid == &<IInitiateWinSATAssessment as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IProvideWinSATAssessmentInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Score(&self) -> ::windows::core::Result<f32>;
     fn Title(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IProvideWinSATAssessmentInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATAssessmentInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>() -> IProvideWinSATAssessmentInfo_Vtbl {
         unsafe extern "system" fn Score<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, score: *mut f32) -> ::windows::core::HRESULT {
@@ -116,18 +116,18 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         iid == &<IProvideWinSATAssessmentInfo as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IProvideWinSATResultsInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> ::windows::core::Result<IProvideWinSATAssessmentInfo>;
     fn AssessmentState(&self) -> ::windows::core::Result<WINSAT_ASSESSMENT_STATE>;
-    fn AssessmentDateTime(&self) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn AssessmentDateTime(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn SystemRating(&self) -> ::windows::core::Result<f32>;
     fn RatingStateDesc(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IProvideWinSATResultsInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATResultsInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>() -> IProvideWinSATResultsInfo_Vtbl {
         unsafe extern "system" fn GetAssessmentInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assessment: WINSAT_ASSESSMENT_TYPE, ppinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -152,7 +152,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AssessmentDateTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AssessmentDateTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetime: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AssessmentDateTime() {
@@ -225,14 +225,14 @@ impl IProvideWinSATVisuals_Vtbl {
         iid == &<IProvideWinSATVisuals as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IQueryAllWinSATAssessments_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_AllXML(&self, xpath: &::windows::core::BSTR, namespaces: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
 }
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IQueryAllWinSATAssessments {}
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IQueryAllWinSATAssessments_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>() -> IQueryAllWinSATAssessments_Vtbl {
         unsafe extern "system" fn get_AllXML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: *mut ::core::ffi::c_void, namespaces: *mut ::core::ffi::c_void, ppdomnodelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -276,15 +276,15 @@ impl IQueryOEMWinSATCustomization_Vtbl {
         iid == &<IQueryOEMWinSATCustomization as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IQueryRecentWinSATAssessment_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_XML(&self, xpath: &::windows::core::BSTR, namespaces: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
     fn Info(&self) -> ::windows::core::Result<IProvideWinSATResultsInfo>;
 }
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IQueryRecentWinSATAssessment {}
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IQueryRecentWinSATAssessment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>() -> IQueryRecentWinSATAssessment_Vtbl {
         unsafe extern "system" fn get_XML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: *mut ::core::ffi::c_void, namespaces: *mut ::core::ffi::c_void, ppdomnodelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

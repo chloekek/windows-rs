@@ -763,8 +763,6 @@ impl ISpGrammarBuilder {
     pub unsafe fn CreateNewState(&self, hstate: *mut SPSTATEHANDLE__, phstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateNewState)(::windows::core::Vtable::as_raw(self), hstate, phstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddWordTransition<P0, P1>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, pszseparators: P1, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
@@ -772,8 +770,6 @@ impl ISpGrammarBuilder {
     {
         (::windows::core::Vtable::vtable(self).AddWordTransition)(::windows::core::Vtable::as_raw(self), hfromstate, htostate, psz.into().abi(), pszseparators.into().abi(), ewordtype, weight, ppropinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddRuleTransition(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddRuleTransition)(::windows::core::Vtable::as_raw(self), hfromstate, htostate, hrule, weight, ppropinfo).ok()
     }
@@ -822,14 +818,8 @@ pub struct ISpGrammarBuilder_Vtbl {
     GetRule: usize,
     pub ClearRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hstate: *mut SPSTATEHANDLE__) -> ::windows::core::HRESULT,
     pub CreateNewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hstate: *mut SPSTATEHANDLE__, phstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AddWordTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: ::windows::core::PCWSTR, pszseparators: ::windows::core::PCWSTR, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AddWordTransition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub AddRuleTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AddRuleTransition: usize,
     pub AddResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: ::windows::core::PCWSTR, pszresourcevalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
 }
@@ -2148,8 +2138,6 @@ pub struct ISpPhoneticAlphabetSelection_Vtbl {
 #[repr(transparent)]
 pub struct ISpPhrase(::windows::core::IUnknown);
 impl ISpPhrase {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -2197,10 +2185,7 @@ unsafe impl ::windows::core::Interface for ISpPhrase {
 #[doc(hidden)]
 pub struct ISpPhrase_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcomemphrase: *mut *mut SPPHRASE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetPhrase: usize,
     pub GetSerializedPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcomemphrase: *mut *mut SPSERIALIZEDPHRASE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstart: u32, ulcount: u32, fusetextreplacements: super::super::Foundation::BOOL, ppszcomemtext: *mut ::windows::core::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::HRESULT,
@@ -2212,8 +2197,6 @@ pub struct ISpPhrase_Vtbl {
 #[repr(transparent)]
 pub struct ISpPhrase2(::windows::core::IUnknown);
 impl ISpPhrase2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -2284,8 +2267,6 @@ pub struct ISpPhrase2_Vtbl {
 #[repr(transparent)]
 pub struct ISpPhraseAlt(::windows::core::IUnknown);
 impl ISpPhraseAlt {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -2672,8 +2653,6 @@ impl ISpRecoGrammar {
     pub unsafe fn CreateNewState(&self, hstate: *mut SPSTATEHANDLE__, phstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CreateNewState)(::windows::core::Vtable::as_raw(self), hstate, phstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddWordTransition<P0, P1>(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: P0, pszseparators: P1, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
@@ -2681,8 +2660,6 @@ impl ISpRecoGrammar {
     {
         (::windows::core::Vtable::vtable(self).base__.AddWordTransition)(::windows::core::Vtable::as_raw(self), hfromstate, htostate, psz.into().abi(), pszseparators.into().abi(), ewordtype, weight, ppropinfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AddRuleTransition(&self, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.AddRuleTransition)(::windows::core::Vtable::as_raw(self), hfromstate, htostate, hrule, weight, ppropinfo).ok()
     }
@@ -2934,8 +2911,6 @@ pub struct ISpRecoGrammar2_Vtbl {
 #[repr(transparent)]
 pub struct ISpRecoResult(::windows::core::IUnknown);
 impl ISpRecoResult {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -3033,8 +3008,6 @@ pub struct ISpRecoResult_Vtbl {
 #[repr(transparent)]
 pub struct ISpRecoResult2(::windows::core::IUnknown);
 impl ISpRecoResult2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -4380,8 +4353,6 @@ pub struct ISpVoice_Vtbl {
 #[repr(transparent)]
 pub struct ISpXMLRecoResult(::windows::core::IUnknown);
 impl ISpXMLRecoResult {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows::core::Result<*mut SPPHRASE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetPhrase)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -4487,22 +4458,16 @@ impl ISpeechAudio {
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), buffer, numberofbytes, bytesread).ok()
+    pub unsafe fn Read(&self, buffer: *mut ::windows::core::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), numberofbytes, bytesread).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
+    pub unsafe fn Write(&self, buffer: &::windows::core::VARIANT) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(buffer), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Seek(&self, position: &::windows::core::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(position), origin, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(position), origin, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4769,15 +4734,11 @@ impl ISpeechAudioStatus {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).State)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CurrentSeekPosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn CurrentSeekPosition(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CurrentSeekPosition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CurrentDevicePosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn CurrentDevicePosition(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CurrentDevicePosition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -4820,14 +4781,8 @@ pub struct ISpeechAudioStatus_Vtbl {
     pub FreeBufferSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, freebufferspace: *mut i32) -> ::windows::core::HRESULT,
     pub NonBlockingIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nonblockingio: *mut i32) -> ::windows::core::HRESULT,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut SpeechAudioState) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CurrentSeekPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentseekposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CurrentSeekPosition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CurrentDevicePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentdeviceposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CurrentDevicePosition: usize,
+    pub CurrentSeekPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentseekposition: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub CurrentDevicePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentdeviceposition: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4849,22 +4804,16 @@ impl ISpeechBaseStream {
     {
         (::windows::core::Vtable::vtable(self).putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), buffer, numberofbytes, bytesread).ok()
+    pub unsafe fn Read(&self, buffer: *mut ::windows::core::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), numberofbytes, bytesread).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
+    pub unsafe fn Write(&self, buffer: &::windows::core::VARIANT) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(buffer), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Seek(&self, position: &::windows::core::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(position), origin, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(position), origin, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4910,18 +4859,9 @@ pub struct ISpeechBaseStream_Vtbl {
     pub putref_Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audioformat: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Format: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Read: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: super::super::System::Com::VARIANT, byteswritten: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Write: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType, newposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Seek: usize,
+    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::windows::core::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::HRESULT,
+    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::VARIANT, byteswritten: *mut i32) -> ::windows::core::HRESULT,
+    pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: ::windows::core::VARIANT, origin: SpeechStreamSeekPositionType, newposition: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4943,22 +4883,16 @@ impl ISpeechCustomStream {
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), buffer, numberofbytes, bytesread).ok()
+    pub unsafe fn Read(&self, buffer: *mut ::windows::core::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), numberofbytes, bytesread).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
+    pub unsafe fn Write(&self, buffer: &::windows::core::VARIANT) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(buffer), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Seek(&self, position: &::windows::core::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(position), origin, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(position), origin, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn BaseStream(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5015,14 +4949,10 @@ pub struct ISpeechCustomStream_Vtbl {
 pub struct ISpeechDataKey(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechDataKey {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBinaryValue(&self, valuename: &::windows::core::BSTR, value: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBinaryValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(valuename), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetBinaryValue(&self, valuename: &::windows::core::BSTR, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetBinaryValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(valuename), ::core::mem::transmute_copy(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetBinaryValue(&self, valuename: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetBinaryValue(&self, valuename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBinaryValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(valuename), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5102,14 +5032,8 @@ unsafe impl ::windows::core::Interface for ISpeechDataKey {
 #[doc(hidden)]
 pub struct ISpeechDataKey_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetBinaryValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, value: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetBinaryValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetBinaryValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetBinaryValue: usize,
+    pub SetBinaryValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, value: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetBinaryValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SetStringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetStringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetLongValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuename: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
@@ -5147,22 +5071,16 @@ impl ISpeechFileStream {
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), buffer, numberofbytes, bytesread).ok()
+    pub unsafe fn Read(&self, buffer: *mut ::windows::core::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), numberofbytes, bytesread).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
+    pub unsafe fn Write(&self, buffer: &::windows::core::VARIANT) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(buffer), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Seek(&self, position: &::windows::core::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(position), origin, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(position), origin, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5321,30 +5239,30 @@ impl ISpeechGrammarRuleState {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Transitions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddWordTransition<P0>(&self, deststate: P0, words: &::windows::core::BSTR, separators: &::windows::core::BSTR, r#type: SpeechGrammarWordType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn AddWordTransition<P0>(&self, deststate: P0, words: &::windows::core::BSTR, separators: &::windows::core::BSTR, r#type: SpeechGrammarWordType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const ::windows::core::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRuleState>>,
     {
-        (::windows::core::Vtable::vtable(self).AddWordTransition)(::windows::core::Vtable::as_raw(self), deststate.into().abi(), ::core::mem::transmute_copy(words), ::core::mem::transmute_copy(separators), r#type, ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
+        (::windows::core::Vtable::vtable(self).AddWordTransition)(::windows::core::Vtable::as_raw(self), deststate.into().abi(), ::core::mem::transmute_copy(words), ::core::mem::transmute_copy(separators), r#type, ::core::mem::transmute_copy(propertyname), propertyid, ::core::mem::transmute(propertyvalue), weight).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddRuleTransition<P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn AddRuleTransition<P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const ::windows::core::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRuleState>>,
         P1: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRule>>,
     {
-        (::windows::core::Vtable::vtable(self).AddRuleTransition)(::windows::core::Vtable::as_raw(self), destinationstate.into().abi(), rule.into().abi(), ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
+        (::windows::core::Vtable::vtable(self).AddRuleTransition)(::windows::core::Vtable::as_raw(self), destinationstate.into().abi(), rule.into().abi(), ::core::mem::transmute_copy(propertyname), propertyid, ::core::mem::transmute(propertyvalue), weight).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddSpecialTransition<P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn AddSpecialTransition<P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &::windows::core::BSTR, propertyid: i32, propertyvalue: *const ::windows::core::VARIANT, weight: f32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ISpeechGrammarRuleState>>,
     {
-        (::windows::core::Vtable::vtable(self).AddSpecialTransition)(::windows::core::Vtable::as_raw(self), destinationstate.into().abi(), r#type, ::core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight).ok()
+        (::windows::core::Vtable::vtable(self).AddSpecialTransition)(::windows::core::Vtable::as_raw(self), destinationstate.into().abi(), r#type, ::core::mem::transmute_copy(propertyname), propertyid, ::core::mem::transmute(propertyvalue), weight).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5390,17 +5308,17 @@ pub struct ISpeechGrammarRuleState_Vtbl {
     pub Transitions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transitions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Transitions: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddWordTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deststate: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void, separators: *mut ::core::ffi::c_void, r#type: SpeechGrammarWordType, propertyname: *mut ::core::ffi::c_void, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub AddWordTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deststate: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void, separators: *mut ::core::ffi::c_void, r#type: SpeechGrammarWordType, propertyname: *mut ::core::ffi::c_void, propertyid: i32, propertyvalue: *const ::windows::core::VARIANT, weight: f32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     AddWordTransition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddRuleTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationstate: *mut ::core::ffi::c_void, rule: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub AddRuleTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationstate: *mut ::core::ffi::c_void, rule: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, propertyid: i32, propertyvalue: *const ::windows::core::VARIANT, weight: f32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     AddRuleTransition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddSpecialTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationstate: *mut ::core::ffi::c_void, r#type: SpeechSpecialTransitionType, propertyname: *mut ::core::ffi::c_void, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub AddSpecialTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationstate: *mut ::core::ffi::c_void, r#type: SpeechSpecialTransitionType, propertyname: *mut ::core::ffi::c_void, propertyid: i32, propertyvalue: *const ::windows::core::VARIANT, weight: f32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     AddSpecialTransition: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
@@ -5423,9 +5341,7 @@ impl ISpeechGrammarRuleStateTransition {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Rule)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Weight(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Weight(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Weight)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5437,9 +5353,7 @@ impl ISpeechGrammarRuleStateTransition {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PropertyId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PropertyValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn PropertyValue(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PropertyValue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5491,16 +5405,10 @@ pub struct ISpeechGrammarRuleStateTransition_Vtbl {
     pub Rule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Rule: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Weight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weight: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Weight: usize,
+    pub Weight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weight: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub PropertyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PropertyId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PropertyValue: usize,
+    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub NextState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nextstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5579,11 +5487,11 @@ impl ISpeechGrammarRules {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindRule(&self, rulenameorid: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechGrammarRule> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn FindRule(&self, rulenameorid: &::windows::core::VARIANT) -> ::windows::core::Result<ISpeechGrammarRule> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindRule)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rulenameorid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).FindRule)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(rulenameorid), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5610,10 +5518,8 @@ impl ISpeechGrammarRules {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CommitAndSave(&self, errortext: *mut ::windows::core::BSTR, savestream: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CommitAndSave)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(errortext), savestream).ok()
+    pub unsafe fn CommitAndSave(&self, errortext: *mut ::windows::core::BSTR, savestream: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CommitAndSave)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(errortext), ::core::mem::transmute(savestream)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5652,9 +5558,9 @@ unsafe impl ::windows::core::Interface for ISpeechGrammarRules {
 pub struct ISpeechGrammarRules_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulenameorid: super::super::System::Com::VARIANT, rule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub FindRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulenameorid: ::windows::core::VARIANT, rule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     FindRule: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, rule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5670,10 +5576,7 @@ pub struct ISpeechGrammarRules_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CommitAndSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortext: *mut *mut ::core::ffi::c_void, savestream: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CommitAndSave: usize,
+    pub CommitAndSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortext: *mut *mut ::core::ffi::c_void, savestream: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5693,18 +5596,14 @@ impl ISpeechLexicon {
     pub unsafe fn AddPronunciation(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddPronunciation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, ::core::mem::transmute_copy(bstrpronunciation)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddPronunciationByPhoneIds(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AddPronunciationByPhoneIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids).ok()
+    pub unsafe fn AddPronunciationByPhoneIds(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).AddPronunciationByPhoneIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, ::core::mem::transmute(phoneids)).ok()
     }
     pub unsafe fn RemovePronunciation(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemovePronunciation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, ::core::mem::transmute_copy(bstrpronunciation)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RemovePronunciationByPhoneIds(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemovePronunciationByPhoneIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids).ok()
+    pub unsafe fn RemovePronunciationByPhoneIds(&self, bstrword: &::windows::core::BSTR, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).RemovePronunciationByPhoneIds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrword), langid, partofspeech, ::core::mem::transmute(phoneids)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5759,15 +5658,9 @@ pub struct ISpeechLexicon_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWords: usize,
     pub AddPronunciation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrword: *mut ::core::ffi::c_void, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddPronunciationByPhoneIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrword: *mut ::core::ffi::c_void, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AddPronunciationByPhoneIds: usize,
+    pub AddPronunciationByPhoneIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrword: *mut ::core::ffi::c_void, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub RemovePronunciation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrword: *mut ::core::ffi::c_void, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RemovePronunciationByPhoneIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrword: *mut ::core::ffi::c_void, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    RemovePronunciationByPhoneIds: usize,
+    pub RemovePronunciationByPhoneIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrword: *mut ::core::ffi::c_void, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPronunciations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrword: *mut ::core::ffi::c_void, langid: i32, typeflags: SpeechLexiconType, pppronunciations: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5795,9 +5688,7 @@ impl ISpeechLexiconPronunciation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PartOfSpeech)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PhoneIds(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn PhoneIds(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PhoneIds)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5844,10 +5735,7 @@ pub struct ISpeechLexiconPronunciation_Vtbl {
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lexicontype: *mut SpeechLexiconType) -> ::windows::core::HRESULT,
     pub LangId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: *mut i32) -> ::windows::core::HRESULT,
     pub PartOfSpeech: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partofspeech: *mut SpeechPartOfSpeech) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PhoneIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoneids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PhoneIds: usize,
+    pub PhoneIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoneids: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Symbolic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolic: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
@@ -6064,22 +5952,16 @@ impl ISpeechMMSysAudio {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), buffer, numberofbytes, bytesread).ok()
+    pub unsafe fn Read(&self, buffer: *mut ::windows::core::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), numberofbytes, bytesread).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
+    pub unsafe fn Write(&self, buffer: &::windows::core::VARIANT) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(buffer), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Seek(&self, position: &::windows::core::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(position), origin, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(position), origin, result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6200,31 +6082,21 @@ impl ISpeechMemoryStream {
     {
         (::windows::core::Vtable::vtable(self).base__.putref_Format)(::windows::core::Vtable::as_raw(self), audioformat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Read(&self, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), buffer, numberofbytes, bytesread).ok()
+    pub unsafe fn Read(&self, buffer: *mut ::windows::core::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), numberofbytes, bytesread).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
+    pub unsafe fn Write(&self, buffer: &::windows::core::VARIANT) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(buffer), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(buffer), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Seek(&self, position: &::windows::core::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(position), origin, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(position), origin, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetData(&self, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data)).ok()
+    pub unsafe fn SetData(&self, data: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(data)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetData(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6264,14 +6136,8 @@ unsafe impl ::windows::core::Interface for ISpeechMemoryStream {
 #[doc(hidden)]
 pub struct ISpeechMemoryStream_Vtbl {
     pub base__: ISpeechBaseStream_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetData: usize,
+    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6333,22 +6199,20 @@ impl ISpeechObjectToken {
     {
         (::windows::core::Vtable::vtable(self).RemoveStorageFileName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectstorageclsid), ::core::mem::transmute_copy(keyname), deletefile.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsUISupported<P0>(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsUISupported<P0>(&self, typeofui: &::windows::core::BSTR, extradata: *const ::windows::core::VARIANT, object: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typeofui), extradata, object.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typeofui), ::core::mem::transmute(extradata), object.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DisplayUI<P0>(&self, hwnd: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT, object: P0) -> ::windows::core::Result<()>
+    pub unsafe fn DisplayUI<P0>(&self, hwnd: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const ::windows::core::VARIANT, object: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwnd, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), extradata, object.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwnd, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), ::core::mem::transmute(extradata), object.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6414,14 +6278,11 @@ pub struct ISpeechObjectToken_Vtbl {
     pub RemoveStorageFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectstorageclsid: *mut ::core::ffi::c_void, keyname: *mut ::core::ffi::c_void, deletefile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RemoveStorageFileName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub IsUISupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const super::super::System::Com::VARIANT, object: *mut ::core::ffi::c_void, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsUISupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const ::windows::core::VARIANT, object: *mut ::core::ffi::c_void, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     IsUISupported: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DisplayUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: i32, title: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const super::super::System::Com::VARIANT, object: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    DisplayUI: usize,
+    pub DisplayUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: i32, title: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const ::windows::core::VARIANT, object: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub MatchesAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributes: *mut ::core::ffi::c_void, matches: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6592,17 +6453,13 @@ impl ISpeechPhoneConverter {
     pub unsafe fn SetLanguageId(&self, languageid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLanguageId)(::windows::core::Vtable::as_raw(self), languageid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PhoneToId(&self, phonemes: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn PhoneToId(&self, phonemes: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PhoneToId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(phonemes), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IdToPhone(&self, idarray: super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn IdToPhone(&self, idarray: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IdToPhone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(idarray), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IdToPhone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(idarray), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6642,14 +6499,8 @@ pub struct ISpeechPhoneConverter_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub LanguageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageid: *mut i32) -> ::windows::core::HRESULT,
     pub SetLanguageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageid: i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PhoneToId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonemes: *mut ::core::ffi::c_void, idarray: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PhoneToId: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub IdToPhone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idarray: super::super::System::Com::VARIANT, phonemes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    IdToPhone: usize,
+    pub PhoneToId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonemes: *mut ::core::ffi::c_void, idarray: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub IdToPhone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idarray: ::windows::core::VARIANT, phonemes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6829,9 +6680,7 @@ impl ISpeechPhraseElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).LexicalForm)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Pronunciation(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Pronunciation(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Pronunciation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6895,10 +6744,7 @@ pub struct ISpeechPhraseElement_Vtbl {
     pub RetainedSizeBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retainedsizebytes: *mut i32) -> ::windows::core::HRESULT,
     pub DisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displaytext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub LexicalForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lexicalform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Pronunciation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pronunciation: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Pronunciation: usize,
+    pub Pronunciation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pronunciation: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub DisplayAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayattributes: *mut SpeechDisplayAttributes) -> ::windows::core::HRESULT,
     pub RequiredConfidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requiredconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT,
     pub ActualConfidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actualconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT,
@@ -6977,21 +6823,15 @@ impl ISpeechPhraseInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).LanguageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GrammarId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GrammarId(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GrammarId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn StartTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn StartTime(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).StartTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AudioStreamPosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn AudioStreamPosition(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AudioStreamPosition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7035,15 +6875,11 @@ impl ISpeechPhraseInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EngineId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnginePrivateData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn EnginePrivateData(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnginePrivateData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SaveToMemory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7102,18 +6938,9 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseInfo {
 pub struct ISpeechPhraseInfo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub LanguageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageid: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GrammarId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grammarid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GrammarId: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    StartTime: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AudioStreamPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiostreamposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AudioStreamPosition: usize,
+    pub GrammarId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grammarid: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub AudioStreamPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiostreamposition: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub AudioSizeBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paudiosizebytes: *mut i32) -> ::windows::core::HRESULT,
     pub RetainedSizeBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retainedsizebytes: *mut i32) -> ::windows::core::HRESULT,
     pub AudioSizeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiosizetime: *mut i32) -> ::windows::core::HRESULT,
@@ -7134,14 +6961,8 @@ pub struct ISpeechPhraseInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Replacements: usize,
     pub EngineId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, engineidguid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnginePrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, privatedata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    EnginePrivateData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SaveToMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phraseblock: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SaveToMemory: usize,
+    pub EnginePrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, privatedata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SaveToMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phraseblock: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, usereplacements: super::super::Foundation::VARIANT_BOOL, text: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -7157,11 +6978,11 @@ pub struct ISpeechPhraseInfo_Vtbl {
 pub struct ISpeechPhraseInfoBuilder(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseInfoBuilder {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RestorePhraseFromMemory(&self, phraseinmemory: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechPhraseInfo> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn RestorePhraseFromMemory(&self, phraseinmemory: *const ::windows::core::VARIANT) -> ::windows::core::Result<ISpeechPhraseInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RestorePhraseFromMemory)(::windows::core::Vtable::as_raw(self), phraseinmemory, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RestorePhraseFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phraseinmemory), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7199,9 +7020,9 @@ unsafe impl ::windows::core::Interface for ISpeechPhraseInfoBuilder {
 #[doc(hidden)]
 pub struct ISpeechPhraseInfoBuilder_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RestorePhraseFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phraseinmemory: *const super::super::System::Com::VARIANT, phraseinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub RestorePhraseFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phraseinmemory: *const ::windows::core::VARIANT, phraseinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     RestorePhraseFromMemory: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
@@ -7281,9 +7102,7 @@ impl ISpeechPhraseProperty {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Value(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Value)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7353,10 +7172,7 @@ pub struct ISpeechPhraseProperty_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Value: usize,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub FirstElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, firstelement: *mut i32) -> ::windows::core::HRESULT,
     pub NumberOfElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofelements: *mut i32) -> ::windows::core::HRESULT,
     pub EngineConfidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confidence: *mut f32) -> ::windows::core::HRESULT,
@@ -7755,22 +7571,20 @@ impl ISpeechRecoContext {
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateGrammar(&self, grammarid: super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechRecoGrammar> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateGrammar(&self, grammarid: &::windows::core::VARIANT) -> ::windows::core::Result<ISpeechRecoGrammar> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateGrammar)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(grammarid), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateGrammar)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(grammarid), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateResultFromMemory(&self, resultblock: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<ISpeechRecoResult> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateResultFromMemory(&self, resultblock: *const ::windows::core::VARIANT) -> ::windows::core::Result<ISpeechRecoResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateResultFromMemory)(::windows::core::Vtable::as_raw(self), resultblock, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateResultFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(resultblock), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Bookmark(&self, options: SpeechBookmarkOptions, streampos: super::super::System::Com::VARIANT, bookmarkid: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Bookmark)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute(streampos), ::core::mem::transmute(bookmarkid)).ok()
+    pub unsafe fn Bookmark(&self, options: SpeechBookmarkOptions, streampos: &::windows::core::VARIANT, bookmarkid: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Bookmark)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute_copy(streampos), ::core::mem::transmute_copy(bookmarkid)).ok()
     }
     pub unsafe fn SetAdaptationData(&self, adaptationstring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetAdaptationData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(adaptationstring)).ok()
@@ -7853,18 +7667,15 @@ pub struct ISpeechRecoContext_Vtbl {
     RetainedAudioFormat: usize,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateGrammar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grammarid: super::super::System::Com::VARIANT, grammar: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateGrammar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grammarid: ::windows::core::VARIANT, grammar: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateGrammar: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateResultFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultblock: *const super::super::System::Com::VARIANT, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateResultFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultblock: *const ::windows::core::VARIANT, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateResultFromMemory: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: SpeechBookmarkOptions, streampos: super::super::System::Com::VARIANT, bookmarkid: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Bookmark: usize,
+    pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: SpeechBookmarkOptions, streampos: ::windows::core::VARIANT, bookmarkid: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SetAdaptationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adaptationstring: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
@@ -7873,9 +7684,7 @@ pub struct ISpeechRecoContext_Vtbl {
 pub struct ISpeechRecoGrammar(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoGrammar {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Id(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7907,20 +7716,14 @@ impl ISpeechRecoGrammar {
     pub unsafe fn CmdLoadFromObject(&self, classid: &::windows::core::BSTR, grammarname: &::windows::core::BSTR, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CmdLoadFromObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(classid), ::core::mem::transmute_copy(grammarname), loadoption).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CmdLoadFromResource(&self, hmodule: i32, resourcename: super::super::System::Com::VARIANT, resourcetype: super::super::System::Com::VARIANT, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CmdLoadFromResource)(::windows::core::Vtable::as_raw(self), hmodule, ::core::mem::transmute(resourcename), ::core::mem::transmute(resourcetype), languageid, loadoption).ok()
+    pub unsafe fn CmdLoadFromResource(&self, hmodule: i32, resourcename: &::windows::core::VARIANT, resourcetype: &::windows::core::VARIANT, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CmdLoadFromResource)(::windows::core::Vtable::as_raw(self), hmodule, ::core::mem::transmute_copy(resourcename), ::core::mem::transmute_copy(resourcetype), languageid, loadoption).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CmdLoadFromMemory(&self, grammardata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CmdLoadFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(grammardata), loadoption).ok()
+    pub unsafe fn CmdLoadFromMemory(&self, grammardata: &::windows::core::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CmdLoadFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(grammardata), loadoption).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CmdLoadFromProprietaryGrammar(&self, proprietaryguid: &::windows::core::BSTR, proprietarystring: &::windows::core::BSTR, proprietarydata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CmdLoadFromProprietaryGrammar)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(proprietaryguid), ::core::mem::transmute_copy(proprietarystring), ::core::mem::transmute(proprietarydata), loadoption).ok()
+    pub unsafe fn CmdLoadFromProprietaryGrammar(&self, proprietaryguid: &::windows::core::BSTR, proprietarystring: &::windows::core::BSTR, proprietarydata: &::windows::core::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).CmdLoadFromProprietaryGrammar)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(proprietaryguid), ::core::mem::transmute_copy(proprietarystring), ::core::mem::transmute_copy(proprietarydata), loadoption).ok()
     }
     pub unsafe fn CmdSetRuleState(&self, name: &::windows::core::BSTR, state: SpeechRuleState) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CmdSetRuleState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), state).ok()
@@ -7993,10 +7796,7 @@ unsafe impl ::windows::core::Interface for ISpeechRecoGrammar {
 #[doc(hidden)]
 pub struct ISpeechRecoGrammar_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Id: usize,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub RecoContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recocontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8010,18 +7810,9 @@ pub struct ISpeechRecoGrammar_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newlanguage: i32) -> ::windows::core::HRESULT,
     pub CmdLoadFromFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
     pub CmdLoadFromObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: *mut ::core::ffi::c_void, grammarname: *mut ::core::ffi::c_void, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CmdLoadFromResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmodule: i32, resourcename: super::super::System::Com::VARIANT, resourcetype: super::super::System::Com::VARIANT, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CmdLoadFromResource: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CmdLoadFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grammardata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CmdLoadFromMemory: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CmdLoadFromProprietaryGrammar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proprietaryguid: *mut ::core::ffi::c_void, proprietarystring: *mut ::core::ffi::c_void, proprietarydata: super::super::System::Com::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CmdLoadFromProprietaryGrammar: usize,
+    pub CmdLoadFromResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmodule: i32, resourcename: ::windows::core::VARIANT, resourcetype: ::windows::core::VARIANT, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
+    pub CmdLoadFromMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grammardata: ::windows::core::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
+    pub CmdLoadFromProprietaryGrammar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proprietaryguid: *mut ::core::ffi::c_void, proprietarystring: *mut ::core::ffi::c_void, proprietarydata: ::windows::core::VARIANT, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
     pub CmdSetRuleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, state: SpeechRuleState) -> ::windows::core::HRESULT,
     pub CmdSetRuleIdState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ruleid: i32, state: SpeechRuleState) -> ::windows::core::HRESULT,
     pub DictationLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topicname: *mut ::core::ffi::c_void, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT,
@@ -8091,9 +7882,7 @@ impl ISpeechRecoResult {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SpeakAudio)(::windows::core::Vtable::as_raw(self), startelement, elements, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SaveToMemory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8165,10 +7954,7 @@ pub struct ISpeechRecoResult_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Audio: usize,
     pub SpeakAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SaveToMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultblock: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SaveToMemory: usize,
+    pub SaveToMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultblock: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub DiscardResultInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuetypes: SpeechDiscardType) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
@@ -8225,9 +8011,7 @@ impl ISpeechRecoResult2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.SpeakAudio)(::windows::core::Vtable::as_raw(self), startelement, elements, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.SaveToMemory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8337,9 +8121,7 @@ impl ISpeechRecoResultDispatch {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SpeakAudio)(::windows::core::Vtable::as_raw(self), startelement, elements, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SaveToMemory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8428,10 +8210,7 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Audio: usize,
     pub SpeakAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SaveToMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultblock: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SaveToMemory: usize,
+    pub SaveToMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultblock: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub DiscardResultInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuetypes: SpeechDiscardType) -> ::windows::core::HRESULT,
     pub GetXMLResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -8449,15 +8228,11 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
 pub struct ISpeechRecoResultTimes(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResultTimes {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn StreamTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn StreamTime(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).StreamTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Length(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Length(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Length)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8465,9 +8240,7 @@ impl ISpeechRecoResultTimes {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).TickCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn OffsetFromStart(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn OffsetFromStart(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).OffsetFromStart)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8507,19 +8280,10 @@ unsafe impl ::windows::core::Interface for ISpeechRecoResultTimes {
 #[doc(hidden)]
 pub struct ISpeechRecoResultTimes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub StreamTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    StreamTime: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Length: usize,
+    pub StreamTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub TickCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tickcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OffsetFromStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfromstart: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    OffsetFromStart: usize,
+    pub OffsetFromStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfromstart: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -8616,10 +8380,8 @@ impl ISpeechRecognizer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Profile)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EmulateRecognition(&self, textelements: super::super::System::Com::VARIANT, elementdisplayattributes: *const super::super::System::Com::VARIANT, languageid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EmulateRecognition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(textelements), elementdisplayattributes, languageid).ok()
+    pub unsafe fn EmulateRecognition(&self, textelements: &::windows::core::VARIANT, elementdisplayattributes: *const ::windows::core::VARIANT, languageid: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).EmulateRecognition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(textelements), ::core::mem::transmute(elementdisplayattributes), languageid).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8655,16 +8417,14 @@ impl ISpeechRecognizer {
     pub unsafe fn GetPropertyString(&self, name: &::windows::core::BSTR, value: *mut ::windows::core::BSTR, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPropertyString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value), supported).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsUISupported(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsUISupported(&self, typeofui: &::windows::core::BSTR, extradata: *const ::windows::core::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typeofui), extradata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typeofui), ::core::mem::transmute(extradata), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), extradata).ok()
+    pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), ::core::mem::transmute(extradata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8770,10 +8530,7 @@ pub struct ISpeechRecognizer_Vtbl {
     pub Profile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Profile: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EmulateRecognition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textelements: super::super::System::Com::VARIANT, elementdisplayattributes: *const super::super::System::Com::VARIANT, languageid: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    EmulateRecognition: usize,
+    pub EmulateRecognition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textelements: ::windows::core::VARIANT, elementdisplayattributes: *const ::windows::core::VARIANT, languageid: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateRecoContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8798,14 +8555,11 @@ pub struct ISpeechRecognizer_Vtbl {
     pub GetPropertyString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPropertyString: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub IsUISupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const super::super::System::Com::VARIANT, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsUISupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const ::windows::core::VARIANT, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     IsUISupported: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DisplayUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: i32, title: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    DisplayUI: usize,
+    pub DisplayUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: i32, title: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetRecognizers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requiredattributes: *mut ::core::ffi::c_void, optionalattributes: *mut ::core::ffi::c_void, objecttokens: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8831,9 +8585,7 @@ impl ISpeechRecognizerStatus {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AudioStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CurrentStreamPosition(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn CurrentStreamPosition(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CurrentStreamPosition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8849,9 +8601,7 @@ impl ISpeechRecognizerStatus {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ClsidEngine)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SupportedLanguages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SupportedLanguages(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SupportedLanguages)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8895,17 +8645,11 @@ pub struct ISpeechRecognizerStatus_Vtbl {
     pub AudioStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, audiostatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AudioStatus: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CurrentStreamPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcurrentstreampos: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CurrentStreamPosition: usize,
+    pub CurrentStreamPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcurrentstreampos: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub CurrentStreamNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamnumber: *mut i32) -> ::windows::core::HRESULT,
     pub NumberOfActiveRules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofactiverules: *mut i32) -> ::windows::core::HRESULT,
     pub ClsidEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsidengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SupportedLanguages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedlanguages: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SupportedLanguages: usize,
+    pub SupportedLanguages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedlanguages: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9204,16 +8948,14 @@ impl ISpeechVoice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SpeakCompleteEvent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn IsUISupported(&self, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsUISupported(&self, typeofui: &::windows::core::BSTR, extradata: *const ::windows::core::VARIANT) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typeofui), extradata, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).IsUISupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typeofui), ::core::mem::transmute(extradata), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), extradata).ok()
+    pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &::windows::core::BSTR, typeofui: &::windows::core::BSTR, extradata: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent, ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(typeofui), ::core::mem::transmute(extradata)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9320,14 +9062,11 @@ pub struct ISpeechVoice_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     WaitUntilDone: usize,
     pub SpeakCompleteEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub IsUISupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const super::super::System::Com::VARIANT, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsUISupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const ::windows::core::VARIANT, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     IsUISupported: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DisplayUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: i32, title: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    DisplayUI: usize,
+    pub DisplayUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: i32, title: *mut ::core::ffi::c_void, typeofui: *mut ::core::ffi::c_void, extradata: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9480,16 +9219,12 @@ impl ISpeechWaveFormatEx {
     pub unsafe fn SetBitsPerSample(&self, bitspersample: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBitsPerSample)(::windows::core::Vtable::as_raw(self), bitspersample).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ExtraData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn ExtraData(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ExtraData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtraData(&self, extradata: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetExtraData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(extradata)).ok()
+    pub unsafe fn SetExtraData(&self, extradata: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetExtraData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(extradata)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9539,14 +9274,8 @@ pub struct ISpeechWaveFormatEx_Vtbl {
     pub SetBlockAlign: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blockalign: i16) -> ::windows::core::HRESULT,
     pub BitsPerSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitspersample: *mut i16) -> ::windows::core::HRESULT,
     pub SetBitsPerSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitspersample: i16) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ExtraData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extradata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    ExtraData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetExtraData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extradata: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetExtraData: usize,
+    pub ExtraData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extradata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetExtraData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extradata: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9602,9 +9331,7 @@ impl ISpeechXMLRecoResult {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.SpeakAudio)(::windows::core::Vtable::as_raw(self), startelement, elements, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SaveToMemory(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.SaveToMemory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -15158,40 +14885,32 @@ impl ::core::default::Default for SPNORMALIZATIONLIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPHRASE {
     pub Base: SPPHRASE_50,
     pub pSML: ::windows::core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SPPHRASE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPHRASE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::fmt::Debug for SPPHRASE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPPHRASE").field("Base", &self.Base).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPHRASE {
     fn eq(&self, other: &Self) -> bool {
         self.Base == other.Base && self.pSML == other.pSML && self.pSemanticErrorInfo == other.pSemanticErrorInfo
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::Eq for SPPHRASE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPHRASE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15256,13 +14975,12 @@ impl ::core::default::Default for SPPHRASEELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPHRASEPROPERTY {
     pub pszName: ::windows::core::PCWSTR,
     pub Anonymous: SPPHRASEPROPERTY_0,
     pub pszValue: ::windows::core::PCWSTR,
-    pub vValue: super::super::System::Com::VARIANT,
+    pub vValue: ::windows::core::ManuallyDrop<::windows::core::VARIANT>,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
     pub pNextSibling: *const SPPHRASEPROPERTY,
@@ -15270,82 +14988,66 @@ pub struct SPPHRASEPROPERTY {
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPHRASEPROPERTY {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPHRASEPROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SPPHRASEPROPERTY_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPHRASEPROPERTY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: u8,
     pub bReserved: u8,
     pub usArrayIndex: u16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SPPHRASEPROPERTY_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPHRASEPROPERTY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::fmt::Debug for SPPHRASEPROPERTY_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPPHRASEPROPERTY_0_0").field("bType", &self.bType).field("bReserved", &self.bReserved).field("usArrayIndex", &self.usArrayIndex).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASEPROPERTY_0_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPHRASEPROPERTY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.bType == other.bType && self.bReserved == other.bReserved && self.usArrayIndex == other.usArrayIndex
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::Eq for SPPHRASEPROPERTY_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPHRASEPROPERTY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15422,8 +15124,7 @@ impl ::core::default::Default for SPPHRASERULE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
     pub LangID: u16,
@@ -15443,15 +15144,12 @@ pub struct SPPHRASE_50 {
     pub ulSREnginePrivateDataSize: u32,
     pub pSREnginePrivateData: *const u8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SPPHRASE_50 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPHRASE_50 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::fmt::Debug for SPPHRASE_50 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SPPHRASE_50")
@@ -15475,44 +15173,47 @@ impl ::core::fmt::Debug for SPPHRASE_50 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 unsafe impl ::windows::core::Abi for SPPHRASE_50 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::PartialEq for SPPHRASE_50 {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.LangID == other.LangID && self.wHomophoneGroupId == other.wHomophoneGroupId && self.ullGrammarID == other.ullGrammarID && self.ftStartTime == other.ftStartTime && self.ullAudioStreamPosition == other.ullAudioStreamPosition && self.ulAudioSizeBytes == other.ulAudioSizeBytes && self.ulRetainedSizeBytes == other.ulRetainedSizeBytes && self.ulAudioSizeTime == other.ulAudioSizeTime && self.Rule == other.Rule && self.pProperties == other.pProperties && self.pElements == other.pElements && self.cReplacements == other.cReplacements && self.pReplacements == other.pReplacements && self.SREngineID == other.SREngineID && self.ulSREnginePrivateDataSize == other.ulSREnginePrivateDataSize && self.pSREnginePrivateData == other.pSREnginePrivateData
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::cmp::Eq for SPPHRASE_50 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::default::Default for SPPHRASE_50 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 pub struct SPPROPERTYINFO {
     pub pszName: ::windows::core::PCWSTR,
     pub ulId: u32,
     pub pszValue: ::windows::core::PCWSTR,
-    pub vValue: super::super::System::Com::VARIANT,
+    pub vValue: ::windows::core::ManuallyDrop<::windows::core::VARIANT>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPROPERTYINFO {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for SPPROPERTYINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPPROPERTYINFO").field("pszName", &self.pszName).field("ulId", &self.ulId).field("pszValue", &self.pszValue).field("vValue", &self.vValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for SPPROPERTYINFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for SPPROPERTYINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.pszName == other.pszName && self.ulId == other.ulId && self.pszValue == other.pszValue && self.vValue == other.vValue
+    }
+}
+impl ::core::cmp::Eq for SPPROPERTYINFO {}
 impl ::core::default::Default for SPPROPERTYINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

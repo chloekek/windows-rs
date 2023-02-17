@@ -1,5 +1,5 @@
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub trait ICallFrame_Impl: Sized {
     fn GetInfo(&self, pinfo: *mut CALLFRAMEINFO) -> ::windows::core::Result<()>;
     fn GetIIDAndMethod(&self, piid: *mut ::windows::core::GUID, pimethod: *mut u32) -> ::windows::core::Result<()>;
@@ -9,8 +9,8 @@ pub trait ICallFrame_Impl: Sized {
     fn SetReturnValue(&self, hr: ::windows::core::HRESULT);
     fn GetReturnValue(&self) -> ::windows::core::Result<()>;
     fn GetParamInfo(&self, iparam: u32) -> ::windows::core::Result<CALLFRAMEPARAMINFO>;
-    fn SetParam(&self, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::Result<()>;
-    fn GetParam(&self, iparam: u32) -> ::windows::core::Result<super::VARIANT>;
+    fn SetParam(&self, iparam: u32, pvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn GetParam(&self, iparam: u32) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn Copy(&self, copycontrol: CALLFRAME_COPY, pwalker: ::core::option::Option<&ICallFrameWalker>) -> ::windows::core::Result<ICallFrame>;
     fn Free(&self, pframeargsdest: ::core::option::Option<&ICallFrame>, pwalkerdestfree: ::core::option::Option<&ICallFrameWalker>, pwalkercopy: ::core::option::Option<&ICallFrameWalker>, freeflags: u32, pwalkerfree: ::core::option::Option<&ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
     fn FreeParam(&self, iparam: u32, freeflags: u32, pwalkerfree: ::core::option::Option<&ICallFrameWalker>, nullflags: u32) -> ::windows::core::Result<()>;
@@ -21,9 +21,9 @@ pub trait ICallFrame_Impl: Sized {
     fn ReleaseMarshalData(&self, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<()>;
     fn Invoke(&self, pvreceiver: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ICallFrame {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ICallFrame_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICallFrame_Impl, const OFFSET: isize>() -> ICallFrame_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICallFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut CALLFRAMEINFO) -> ::windows::core::HRESULT {
@@ -72,12 +72,12 @@ impl ICallFrame_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParam<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICallFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParam<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICallFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetParam(::core::mem::transmute_copy(&iparam), ::core::mem::transmute_copy(&pvar)).into()
         }
-        unsafe extern "system" fn GetParam<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICallFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParam<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICallFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetParam(::core::mem::transmute_copy(&iparam)) {

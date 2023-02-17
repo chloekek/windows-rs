@@ -486,9 +486,7 @@ impl IEventObjectCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, objectid: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
+    pub unsafe fn get_Item(&self, objectid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectid), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -500,10 +498,8 @@ impl IEventObjectCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add(&self, item: *const super::VARIANT, objectid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), item, ::core::mem::transmute_copy(objectid)).ok()
+    pub unsafe fn Add(&self, item: *const ::windows::core::VARIANT, objectid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute_copy(objectid)).ok()
     }
     pub unsafe fn Remove(&self, objectid: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(objectid)).ok()
@@ -537,16 +533,10 @@ unsafe impl ::windows::core::Interface for IEventObjectCollection {
 pub struct IEventObjectCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: *mut ::core::ffi::c_void, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: *mut ::core::ffi::c_void, pitem: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *const super::VARIANT, objectid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    Add: usize,
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *const ::windows::core::VARIANT, objectid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
@@ -560,16 +550,12 @@ impl IEventProperty {
     pub unsafe fn SetName(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Value(&self) -> ::windows::core::Result<super::VARIANT> {
+    pub unsafe fn Value(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Value)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue(&self, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), propertyvalue).ok()
+    pub unsafe fn SetValue(&self, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyvalue)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEventProperty, ::windows::core::IUnknown, super::IDispatch);
@@ -601,14 +587,8 @@ pub struct IEventProperty_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    Value: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    SetValue: usize,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
@@ -649,16 +629,12 @@ impl IEventPublisher {
     pub unsafe fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdescription)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
+    pub unsafe fn GetDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDefaultProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PutDefaultProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
+    pub unsafe fn PutDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PutDefaultProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), ::core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn RemoveDefaultProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveDefaultProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
@@ -705,14 +681,8 @@ pub struct IEventPublisher_Vtbl {
     pub SetOwnerSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrownersid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub GetDefaultProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    GetDefaultProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub PutDefaultProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    PutDefaultProperty: usize,
+    pub GetDefaultProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub PutDefaultProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub RemoveDefaultProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDefaultPropertyCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -821,16 +791,12 @@ impl IEventSubscription {
     pub unsafe fn SetMachineName(&self, bstrmachinename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMachineName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmachinename)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
+    pub unsafe fn GetPublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPublisherProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutPublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PutPublisherProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
+    pub unsafe fn PutPublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PutPublisherProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), ::core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn RemovePublisherProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemovePublisherProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
@@ -839,16 +805,12 @@ impl IEventSubscription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPublisherPropertyCollection)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::VARIANT> {
+    pub unsafe fn GetSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSubscriberProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PutSubscriberProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), propertyvalue).ok()
+    pub unsafe fn PutSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PutSubscriberProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), ::core::mem::transmute(propertyvalue)).ok()
     }
     pub unsafe fn RemoveSubscriberProperty(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RemoveSubscriberProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname)).ok()
@@ -928,24 +890,12 @@ pub struct IEventSubscription_Vtbl {
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub MachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmachinename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmachinename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub GetPublisherProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    GetPublisherProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub PutPublisherProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    PutPublisherProperty: usize,
+    pub GetPublisherProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub PutPublisherProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub RemovePublisherProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPublisherPropertyCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub GetSubscriberProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    GetSubscriberProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub PutSubscriberProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    PutSubscriberProperty: usize,
+    pub GetSubscriberProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub PutSubscriberProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, propertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub RemoveSubscriberProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSubscriberPropertyCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub InterfaceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrinterfaceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

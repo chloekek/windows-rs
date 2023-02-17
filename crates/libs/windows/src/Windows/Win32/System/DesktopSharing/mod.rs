@@ -747,11 +747,11 @@ impl IRDPSRAPIInvitationManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, item: super::Com::VARIANT) -> ::windows::core::Result<IRDPSRAPIInvitation> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, item: &::windows::core::VARIANT) -> ::windows::core::Result<IRDPSRAPIInvitation> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(item), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -800,9 +800,9 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIInvitationManager {
 pub struct IRDPSRAPIInvitationManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: super::Com::VARIANT, ppinvitation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: ::windows::core::VARIANT, ppinvitation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -891,16 +891,12 @@ pub struct IRDPSRAPIPerfCounterLoggingManager_Vtbl {
 pub struct IRDPSRAPISessionProperties(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISessionProperties {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Property(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn get_Property(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Property)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_Property(&self, propertyname: &::windows::core::BSTR, newval: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).put_Property)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn put_Property(&self, propertyname: &::windows::core::BSTR, newval: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).put_Property)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname), ::core::mem::transmute_copy(newval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -938,14 +934,8 @@ unsafe impl ::windows::core::Interface for IRDPSRAPISessionProperties {
 #[doc(hidden)]
 pub struct IRDPSRAPISessionProperties_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_Property: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub put_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, newval: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    put_Property: usize,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub put_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, newval: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1699,11 +1689,11 @@ impl IRDPSRAPIVirtualChannelManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, item: super::Com::VARIANT) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, item: &::windows::core::VARIANT) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(item), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(item), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1748,9 +1738,9 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIVirtualChannelManager {
 pub struct IRDPSRAPIVirtualChannelManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: super::Com::VARIANT, pchannel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: ::windows::core::VARIANT, pchannel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateVirtualChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrchannelname: *mut ::core::ffi::c_void, priority: CHANNEL_PRIORITY, channelflags: u32, ppchannel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

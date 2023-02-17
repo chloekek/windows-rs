@@ -414,23 +414,20 @@ impl IPersistStorage_Vtbl {
         iid == &<IPersistStorage as ::windows::core::Interface>::IID || iid == &<super::IPersist as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 pub trait IPropertyBag_Impl: Sized {
-    fn Read(&self, pszpropname: &::windows::core::PCWSTR, pvar: *mut super::VARIANT, perrorlog: ::core::option::Option<&super::IErrorLog>) -> ::windows::core::Result<()>;
-    fn Write(&self, pszpropname: &::windows::core::PCWSTR, pvar: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn Read(&self, pszpropname: &::windows::core::PCWSTR, pvar: *mut ::windows::core::VARIANT, perrorlog: ::core::option::Option<&super::IErrorLog>) -> ::windows::core::Result<()>;
+    fn Write(&self, pszpropname: &::windows::core::PCWSTR, pvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IPropertyBag {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IPropertyBag_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>() -> IPropertyBag_Vtbl {
-        unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *mut super::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *mut ::windows::core::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Read(::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&pvar), ::windows::core::from_raw_borrowed(&perrorlog)).into()
         }
-        unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *const super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Write(::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&pvar)).into()
@@ -441,26 +438,23 @@ impl IPropertyBag_Vtbl {
         iid == &<IPropertyBag as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 pub trait IPropertyBag2_Impl: Sized {
-    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: ::core::option::Option<&super::IErrorLog>, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows::core::Result<()>;
+    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: ::core::option::Option<&super::IErrorLog>, pvarvalue: *mut ::windows::core::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn CountProperties(&self) -> ::windows::core::Result<u32>;
     fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows::core::Result<()>;
     fn LoadObject(&self, pstrname: &::windows::core::PCWSTR, dwhint: u32, punkobject: ::core::option::Option<&::windows::core::IUnknown>, perrlog: ::core::option::Option<&super::IErrorLog>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IPropertyBag2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IPropertyBag2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>() -> IPropertyBag2_Vtbl {
-        unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut ::windows::core::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Read(::core::mem::transmute_copy(&cproperties), ::core::mem::transmute_copy(&ppropbag), ::windows::core::from_raw_borrowed(&perrlog), ::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&phrerror)).into()
         }
-        unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Write(::core::mem::transmute_copy(&cproperties), ::core::mem::transmute_copy(&ppropbag), ::core::mem::transmute_copy(&pvarvalue)).into()

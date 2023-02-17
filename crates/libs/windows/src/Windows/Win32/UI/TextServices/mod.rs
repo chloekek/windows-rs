@@ -110,10 +110,8 @@ impl IAccDictionary {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).LookupMnemonicTerm)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmnemonic), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ConvertValueToString(&self, term: *const ::windows::core::GUID, lcid: u32, varvalue: super::super::System::Com::VARIANT, pbstrresult: *mut ::windows::core::BSTR, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConvertValueToString)(::windows::core::Vtable::as_raw(self), term, lcid, ::core::mem::transmute(varvalue), ::core::mem::transmute(pbstrresult), plcid).ok()
+    pub unsafe fn ConvertValueToString(&self, term: *const ::windows::core::GUID, lcid: u32, varvalue: &::windows::core::VARIANT, pbstrresult: *mut ::windows::core::BSTR, plcid: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).ConvertValueToString)(::windows::core::Vtable::as_raw(self), term, lcid, ::core::mem::transmute_copy(varvalue), ::core::mem::transmute(pbstrresult), plcid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAccDictionary, ::windows::core::IUnknown);
@@ -147,10 +145,7 @@ pub struct IAccDictionary_Vtbl {
     pub GetParentTerm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, pparentterm: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetMnemonicString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub LookupMnemonicTerm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmnemonic: *mut ::core::ffi::c_void, pterm: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ConvertValueToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, varvalue: super::super::System::Com::VARIANT, pbstrresult: *mut *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    ConvertValueToString: usize,
+    pub ConvertValueToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, varvalue: ::windows::core::VARIANT, pbstrresult: *mut *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -448,13 +443,11 @@ pub struct IClonableWrapper_Vtbl {
 #[repr(transparent)]
 pub struct ICoCreateLocally(::windows::core::IUnknown);
 impl ICoCreateLocally {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CoCreateLocally<P0>(&self, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, punk: *mut ::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: P0, varparam: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn CoCreateLocally<P0>(&self, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, punk: *mut ::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: P0, varparam: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).CoCreateLocally)(::windows::core::Vtable::as_raw(self), rclsid, dwclscontext, riid, ::core::mem::transmute(punk), riidparam, punkparam.into().abi(), ::core::mem::transmute(varparam)).ok()
+        (::windows::core::Vtable::vtable(self).CoCreateLocally)(::windows::core::Vtable::as_raw(self), rclsid, dwclscontext, riid, ::core::mem::transmute(punk), riidparam, punkparam.into().abi(), ::core::mem::transmute_copy(varparam)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICoCreateLocally, ::windows::core::IUnknown);
@@ -484,23 +477,18 @@ unsafe impl ::windows::core::Interface for ICoCreateLocally {
 #[doc(hidden)]
 pub struct ICoCreateLocally_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CoCreateLocally: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, punk: *mut *mut ::core::ffi::c_void, riidparam: *const ::windows::core::GUID, punkparam: *mut ::core::ffi::c_void, varparam: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CoCreateLocally: usize,
+    pub CoCreateLocally: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, punk: *mut *mut ::core::ffi::c_void, riidparam: *const ::windows::core::GUID, punkparam: *mut ::core::ffi::c_void, varparam: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ICoCreatedLocally(::windows::core::IUnknown);
 impl ICoCreatedLocally {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LocalInit<P0, P1>(&self, punklocalobject: P0, riidparam: *const ::windows::core::GUID, punkparam: P1, varparam: super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn LocalInit<P0, P1>(&self, punklocalobject: P0, riidparam: *const ::windows::core::GUID, punkparam: P1, varparam: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        (::windows::core::Vtable::vtable(self).LocalInit)(::windows::core::Vtable::as_raw(self), punklocalobject.into().abi(), riidparam, punkparam.into().abi(), ::core::mem::transmute(varparam)).ok()
+        (::windows::core::Vtable::vtable(self).LocalInit)(::windows::core::Vtable::as_raw(self), punklocalobject.into().abi(), riidparam, punkparam.into().abi(), ::core::mem::transmute_copy(varparam)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ICoCreatedLocally, ::windows::core::IUnknown);
@@ -530,10 +518,7 @@ unsafe impl ::windows::core::Interface for ICoCreatedLocally {
 #[doc(hidden)]
 pub struct ICoCreatedLocally_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LocalInit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punklocalobject: *mut ::core::ffi::c_void, riidparam: *const ::windows::core::GUID, punkparam: *mut ::core::ffi::c_void, varparam: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    LocalInit: usize,
+    pub LocalInit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punklocalobject: *mut ::core::ffi::c_void, riidparam: *const ::windows::core::GUID, punkparam: *mut ::core::ffi::c_void, varparam: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -1243,8 +1228,6 @@ impl IEnumTfPropertyValue {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Next(&self, rgvalues: &mut [TF_PROPERTYVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), rgvalues.len() as _, ::core::mem::transmute(rgvalues.as_ptr()), pcfetched).ok()
     }
@@ -1283,10 +1266,7 @@ unsafe impl ::windows::core::Interface for IEnumTfPropertyValue {
 pub struct IEnumTfPropertyValue_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, rgvalues: *mut TF_PROPERTYVAL, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Next: usize,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
@@ -1563,8 +1543,6 @@ impl ITextStoreACP {
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FindNextAttrTransition)(::windows::core::Vtable::as_raw(self), acpstart, acphalt, pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags, pacpnext, pffound, plfoundoffset).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RetrieveRequestedAttrs)(::windows::core::Vtable::as_raw(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), pcfetched).ok()
     }
@@ -1667,10 +1645,7 @@ pub struct ITextStoreACP_Vtbl {
     pub FindNextAttrTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     FindNextAttrTransition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    RetrieveRequestedAttrs: usize,
     pub GetEndACP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pacp: *mut i32) -> ::windows::core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvcview: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -1784,8 +1759,6 @@ impl ITextStoreACP2 {
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FindNextAttrTransition)(::windows::core::Vtable::as_raw(self), acpstart, acphalt, pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags, pacpnext, pffound, plfoundoffset).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RetrieveRequestedAttrs)(::windows::core::Vtable::as_raw(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), pcfetched).ok()
     }
@@ -1882,10 +1855,7 @@ pub struct ITextStoreACP2_Vtbl {
     pub FindNextAttrTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, acpstart: i32, acphalt: i32, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32, pacpnext: *mut i32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     FindNextAttrTransition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    RetrieveRequestedAttrs: usize,
     pub GetEndACP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pacp: *mut i32) -> ::windows::core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvcview: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2251,8 +2221,6 @@ impl ITextStoreAnchor {
     {
         (::windows::core::Vtable::vtable(self).FindNextAttrTransition)(::windows::core::Vtable::as_raw(self), pastart.into().abi(), pahalt.into().abi(), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags, pffound, plfoundoffset).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RetrieveRequestedAttrs)(::windows::core::Vtable::as_raw(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), pcfetched).ok()
     }
@@ -2374,10 +2342,7 @@ pub struct ITextStoreAnchor_Vtbl {
     pub FindNextAttrTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pastart: *mut ::core::ffi::c_void, pahalt: *mut ::core::ffi::c_void, cfilterattrs: u32, pafilterattrs: *const ::windows::core::GUID, dwflags: u32, pffound: *mut super::super::Foundation::BOOL, plfoundoffset: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     FindNextAttrTransition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub RetrieveRequestedAttrs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    RetrieveRequestedAttrs: usize,
     pub GetStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppastart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaend: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetActiveView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvcview: *mut u32) -> ::windows::core::HRESULT,
@@ -3159,14 +3124,10 @@ pub struct ITfClientId_Vtbl {
 #[repr(transparent)]
 pub struct ITfCompartment(::windows::core::IUnknown);
 impl ITfCompartment {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue(&self, tid: u32, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), tid, pvarvalue).ok()
+    pub unsafe fn SetValue(&self, tid: u32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), tid, ::core::mem::transmute(pvarvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetValue(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3198,14 +3159,8 @@ unsafe impl ::windows::core::Interface for ITfCompartment {
 #[doc(hidden)]
 pub struct ITfCompartment_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tid: u32, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetValue: usize,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tid: u32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -3787,9 +3742,7 @@ impl ITfContextOwner {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetWnd)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttribute(&self, rguidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAttribute(&self, rguidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), rguidattribute, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3838,10 +3791,7 @@ pub struct ITfContextOwner_Vtbl {
     pub GetWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetWnd: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidattribute: *const ::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetAttribute: usize,
+    pub GetAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidattribute: *const ::windows::core::GUID, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -7772,9 +7722,7 @@ impl ITfProperty {
     {
         (::windows::core::Vtable::vtable(self).base__.EnumRanges)(::windows::core::Vtable::as_raw(self), ec, ::core::mem::transmute(ppenum), ptargetrange.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue<P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetValue<P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
     {
@@ -7798,13 +7746,11 @@ impl ITfProperty {
     {
         (::windows::core::Vtable::vtable(self).SetValueStore)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi(), ppropstore.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue<P0>(&self, ec: u32, prange: P0, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn SetValue<P0>(&self, ec: u32, prange: P0, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
     {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi(), pvarvalue).ok()
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi(), ::core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn Clear<P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<()>
     where
@@ -7842,10 +7788,7 @@ pub struct ITfProperty_Vtbl {
     pub base__: ITfReadOnlyProperty_Vtbl,
     pub FindRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void, pprange: *mut *mut ::core::ffi::c_void, apos: TfAnchor) -> ::windows::core::HRESULT,
     pub SetValueStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void, ppropstore: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetValue: usize,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -7860,9 +7803,7 @@ impl ITfPropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDataType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetData(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7939,10 +7880,7 @@ pub struct ITfPropertyStore_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetDataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetData: usize,
+    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub OnTextUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, prangenew: *mut ::core::ffi::c_void, pfaccept: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8406,9 +8344,7 @@ impl ITfReadOnlyProperty {
     {
         (::windows::core::Vtable::vtable(self).EnumRanges)(::windows::core::Vtable::as_raw(self), ec, ::core::mem::transmute(ppenum), ptargetrange.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue<P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetValue<P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
     {
@@ -8449,10 +8385,7 @@ pub struct ITfReadOnlyProperty_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub EnumRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, ppenum: *mut *mut ::core::ffi::c_void, ptargetrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetValue: usize,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12498,23 +12431,30 @@ impl ::core::default::Default for TF_PRESERVEDKEY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_PROPERTYVAL {
     pub guidId: ::windows::core::GUID,
-    pub varValue: super::super::System::Com::VARIANT,
+    pub varValue: ::windows::core::ManuallyDrop<::windows::core::VARIANT>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for TF_PROPERTYVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_PROPERTYVAL").field("guidId", &self.guidId).field("varValue", &self.varValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TF_PROPERTYVAL {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for TF_PROPERTYVAL {
+    fn eq(&self, other: &Self) -> bool {
+        self.guidId == other.guidId && self.varValue == other.varValue
+    }
+}
+impl ::core::cmp::Eq for TF_PROPERTYVAL {}
 impl ::core::default::Default for TF_PROPERTYVAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -12597,24 +12537,31 @@ impl ::core::default::Default for TF_SELECTIONSTYLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TS_ATTRVAL {
     pub idAttr: ::windows::core::GUID,
     pub dwOverlapId: u32,
-    pub varValue: super::super::System::Com::VARIANT,
+    pub varValue: ::windows::core::ManuallyDrop<::windows::core::VARIANT>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for TS_ATTRVAL {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for TS_ATTRVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_ATTRVAL").field("idAttr", &self.idAttr).field("dwOverlapId", &self.dwOverlapId).field("varValue", &self.varValue).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for TS_ATTRVAL {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for TS_ATTRVAL {
+    fn eq(&self, other: &Self) -> bool {
+        self.idAttr == other.idAttr && self.dwOverlapId == other.dwOverlapId && self.varValue == other.varValue
+    }
+}
+impl ::core::cmp::Eq for TS_ATTRVAL {}
 impl ::core::default::Default for TS_ATTRVAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

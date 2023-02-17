@@ -1046,8 +1046,8 @@ impl IVssExpressWriter_Vtbl {
         iid == &<IVssExpressWriter as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub trait IVssFileShareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()>;
     fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::Result<()>;
@@ -1056,11 +1056,11 @@ pub trait IVssFileShareSnapshotProvider_Impl: Sized {
     fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn IsPathSupported(&self, pwszsharepath: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsPathSnapshotted(&self, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows::core::Result<()>;
-    fn SetSnapshotProperty(&self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSnapshotProperty(&self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVssFileShareSnapshotProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl IVssFileShareSnapshotProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssFileShareSnapshotProvider_Vtbl {
         unsafe extern "system" fn SetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcontext: i32) -> ::windows::core::HRESULT {
@@ -1110,7 +1110,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             this.IsPathSnapshotted(::core::mem::transmute_copy(&pwszsharepath), ::core::mem::transmute_copy(&pbsnapshotspresent), ::core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()
@@ -1418,8 +1418,8 @@ impl IVssSnapshotMgmt2_Vtbl {
         iid == &<IVssSnapshotMgmt2 as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows::core::Result<()>;
     fn GetSnapshotProperties(&self, snapshotid: &::windows::core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows::core::Result<()>;
@@ -1428,13 +1428,13 @@ pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
     fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows::core::GUID, snapshotid: &::windows::core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows::core::Result<()>;
     fn IsVolumeSupported(&self, pwszvolumename: *const u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsVolumeSnapshotted(&self, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows::core::Result<()>;
-    fn SetSnapshotProperty(&self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSnapshotProperty(&self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn RevertToSnapshot(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn QueryRevertStatus(&self, pwszvolume: *const u16) -> ::windows::core::Result<IVssAsync>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVssSoftwareSnapshotProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl IVssSoftwareSnapshotProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssSoftwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn SetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcontext: i32) -> ::windows::core::HRESULT {
@@ -1484,7 +1484,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             this.IsVolumeSnapshotted(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&pbsnapshotspresent), ::core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()

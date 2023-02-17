@@ -84,10 +84,8 @@ impl IActionCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove(&self, index: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(index)).ok()
+    pub unsafe fn Remove(&self, index: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(index)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -146,10 +144,7 @@ pub struct IActionCollection_Vtbl {
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: TASK_ACTION_TYPE, ppaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Create: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Context: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1922,17 +1917,17 @@ impl IRegisteredTask {
     {
         (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Run(&self, params: super::Com::VARIANT) -> ::windows::core::Result<IRunningTask> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Run(&self, params: &::windows::core::VARIANT) -> ::windows::core::Result<IRunningTask> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Run)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(params), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Run)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(params), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RunEx(&self, params: super::Com::VARIANT, flags: i32, sessionid: i32, user: &::windows::core::BSTR) -> ::windows::core::Result<IRunningTask> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn RunEx(&self, params: &::windows::core::VARIANT, flags: i32, sessionid: i32, user: &::windows::core::BSTR) -> ::windows::core::Result<IRunningTask> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RunEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(params), flags, sessionid, ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RunEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(params), flags, sessionid, ::core::mem::transmute_copy(user), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2028,13 +2023,13 @@ pub struct IRegisteredTask_Vtbl {
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetEnabled: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Run: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, params: super::Com::VARIANT, pprunningtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Run: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, params: ::windows::core::VARIANT, pprunningtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Run: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RunEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, params: super::Com::VARIANT, flags: i32, sessionid: i32, user: *mut ::core::ffi::c_void, pprunningtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub RunEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, params: ::windows::core::VARIANT, flags: i32, sessionid: i32, user: *mut ::core::ffi::c_void, pprunningtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     RunEx: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub GetInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, pprunningtasks: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2067,11 +2062,11 @@ impl IRegisteredTaskCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, index: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, index: &::windows::core::VARIANT) -> ::windows::core::Result<IRegisteredTask> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(index), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(index), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2114,9 +2109,9 @@ unsafe impl ::windows::core::Interface for IRegisteredTaskCollection {
 pub struct IRegisteredTaskCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, ppregisteredtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::windows::core::VARIANT, ppregisteredtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2168,15 +2163,11 @@ impl IRegistrationInfo {
     pub unsafe fn SetURI(&self, uri: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetURI)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(uri)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SecurityDescriptor(&self, psddl: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SecurityDescriptor)(::windows::core::Vtable::as_raw(self), psddl).ok()
+    pub unsafe fn SecurityDescriptor(&self, psddl: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SecurityDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psddl)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurityDescriptor(&self, sddl: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSecurityDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(sddl)).ok()
+    pub unsafe fn SetSecurityDescriptor(&self, sddl: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSecurityDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(sddl)).ok()
     }
     pub unsafe fn Source(&self, psource: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Source)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psource)).ok()
@@ -2234,14 +2225,8 @@ pub struct IRegistrationInfo_Vtbl {
     pub SetXmlText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub URI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SecurityDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psddl: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SecurityDescriptor: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSecurityDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sddl: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSecurityDescriptor: usize,
+    pub SecurityDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psddl: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSecurityDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sddl: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2521,11 +2506,11 @@ impl IRunningTaskCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, index: super::Com::VARIANT) -> ::windows::core::Result<IRunningTask> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, index: &::windows::core::VARIANT) -> ::windows::core::Result<IRunningTask> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(index), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(index), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2568,9 +2553,9 @@ unsafe impl ::windows::core::Interface for IRunningTaskCollection {
 pub struct IRunningTaskCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, pprunningtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::windows::core::VARIANT, pprunningtask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3368,11 +3353,11 @@ impl ITaskFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFolders)(::windows::core::Vtable::as_raw(self), flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateFolder(&self, subfoldername: &::windows::core::BSTR, sddl: super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateFolder(&self, subfoldername: &::windows::core::BSTR, sddl: &::windows::core::VARIANT) -> ::windows::core::Result<ITaskFolder> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(subfoldername), ::core::mem::transmute(sddl), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(subfoldername), ::core::mem::transmute_copy(sddl), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeleteFolder(&self, subfoldername: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteFolder)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(subfoldername), flags).ok()
@@ -3392,20 +3377,20 @@ impl ITaskFolder {
     pub unsafe fn DeleteTask(&self, name: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteTask)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), flags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTask(&self, path: &::windows::core::BSTR, xmltext: &::windows::core::BSTR, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn RegisterTask(&self, path: &::windows::core::BSTR, xmltext: &::windows::core::BSTR, flags: i32, userid: &::windows::core::VARIANT, password: &::windows::core::VARIANT, logontype: TASK_LOGON_TYPE, sddl: &::windows::core::VARIANT) -> ::windows::core::Result<IRegisteredTask> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterTask)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(xmltext), flags, ::core::mem::transmute(userid), ::core::mem::transmute(password), logontype, ::core::mem::transmute(sddl), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterTask)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), ::core::mem::transmute_copy(xmltext), flags, ::core::mem::transmute_copy(userid), ::core::mem::transmute_copy(password), logontype, ::core::mem::transmute_copy(sddl), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterTaskDefinition<P0>(&self, path: &::windows::core::BSTR, pdefinition: P0, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT) -> ::windows::core::Result<IRegisteredTask>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn RegisterTaskDefinition<P0>(&self, path: &::windows::core::BSTR, pdefinition: P0, flags: i32, userid: &::windows::core::VARIANT, password: &::windows::core::VARIANT, logontype: TASK_LOGON_TYPE, sddl: &::windows::core::VARIANT) -> ::windows::core::Result<IRegisteredTask>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITaskDefinition>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterTaskDefinition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), pdefinition.into().abi(), flags, ::core::mem::transmute(userid), ::core::mem::transmute(password), logontype, ::core::mem::transmute(sddl), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).RegisterTaskDefinition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), pdefinition.into().abi(), flags, ::core::mem::transmute_copy(userid), ::core::mem::transmute_copy(password), logontype, ::core::mem::transmute_copy(sddl), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn GetSecurityDescriptor(&self, securityinformation: i32) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3460,9 +3445,9 @@ pub struct ITaskFolder_Vtbl {
     pub GetFolders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32, ppfolders: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetFolders: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subfoldername: *mut ::core::ffi::c_void, sddl: super::Com::VARIANT, ppfolder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subfoldername: *mut ::core::ffi::c_void, sddl: ::windows::core::VARIANT, ppfolder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateFolder: usize,
     pub DeleteFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subfoldername: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -3474,13 +3459,13 @@ pub struct ITaskFolder_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTasks: usize,
     pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RegisterTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, xmltext: *mut ::core::ffi::c_void, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub RegisterTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, xmltext: *mut ::core::ffi::c_void, flags: i32, userid: ::windows::core::VARIANT, password: ::windows::core::VARIANT, logontype: TASK_LOGON_TYPE, sddl: ::windows::core::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     RegisterTask: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RegisterTaskDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, pdefinition: *mut ::core::ffi::c_void, flags: i32, userid: super::Com::VARIANT, password: super::Com::VARIANT, logontype: TASK_LOGON_TYPE, sddl: super::Com::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub RegisterTaskDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, pdefinition: *mut ::core::ffi::c_void, flags: i32, userid: ::windows::core::VARIANT, password: ::windows::core::VARIANT, logontype: TASK_LOGON_TYPE, sddl: ::windows::core::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     RegisterTaskDefinition: usize,
     pub GetSecurityDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityinformation: i32, psddl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSecurityDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sddl: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
@@ -3495,11 +3480,11 @@ impl ITaskFolderCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, index: super::Com::VARIANT) -> ::windows::core::Result<ITaskFolder> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, index: &::windows::core::VARIANT) -> ::windows::core::Result<ITaskFolder> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(index), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(index), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3542,9 +3527,9 @@ unsafe impl ::windows::core::Interface for ITaskFolderCollection {
 pub struct ITaskFolderCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT, ppfolder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::windows::core::VARIANT, ppfolder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -3893,10 +3878,8 @@ impl ITaskService {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).NewTask)(::windows::core::Vtable::as_raw(self), flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Connect(&self, servername: super::Com::VARIANT, user: super::Com::VARIANT, domain: super::Com::VARIANT, password: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(servername), ::core::mem::transmute(user), ::core::mem::transmute(domain), ::core::mem::transmute(password)).ok()
+    pub unsafe fn Connect(&self, servername: &::windows::core::VARIANT, user: &::windows::core::VARIANT, domain: &::windows::core::VARIANT, password: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Connect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(servername), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(domain), ::core::mem::transmute_copy(password)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3968,10 +3951,7 @@ pub struct ITaskService_Vtbl {
     pub NewTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, ppdefinition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     NewTask: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servername: super::Com::VARIANT, user: super::Com::VARIANT, domain: super::Com::VARIANT, password: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Connect: usize,
+    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servername: ::windows::core::VARIANT, user: ::windows::core::VARIANT, domain: ::windows::core::VARIANT, password: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Connected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5116,10 +5096,8 @@ impl ITriggerCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove(&self, index: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(index)).ok()
+    pub unsafe fn Remove(&self, index: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(index)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -5170,10 +5148,7 @@ pub struct ITriggerCollection_Vtbl {
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: TASK_TRIGGER_TYPE2, pptrigger: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Create: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]

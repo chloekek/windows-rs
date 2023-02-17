@@ -13,10 +13,8 @@ impl IChannelCredentials {
     pub unsafe fn SetUserNameCredential(&self, username: &::windows::core::BSTR, password: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetUserNameCredential)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetClientCertificateFromStore(&self, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR, findyype: &::windows::core::BSTR, findvalue: super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetClientCertificateFromStore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findyype), ::core::mem::transmute(findvalue)).ok()
+    pub unsafe fn SetClientCertificateFromStore(&self, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR, findyype: &::windows::core::BSTR, findvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetClientCertificateFromStore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findyype), ::core::mem::transmute_copy(findvalue)).ok()
     }
     pub unsafe fn SetClientCertificateFromStoreByName(&self, subjectname: &::windows::core::BSTR, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetClientCertificateFromStoreByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(subjectname), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename)).ok()
@@ -24,10 +22,8 @@ impl IChannelCredentials {
     pub unsafe fn SetClientCertificateFromFile(&self, filename: &::windows::core::BSTR, password: &::windows::core::BSTR, keystorageflags: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetClientCertificateFromFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filename), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(keystorageflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDefaultServiceCertificateFromStore(&self, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR, findtype: &::windows::core::BSTR, findvalue: super::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDefaultServiceCertificateFromStore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findtype), ::core::mem::transmute(findvalue)).ok()
+    pub unsafe fn SetDefaultServiceCertificateFromStore(&self, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR, findtype: &::windows::core::BSTR, findvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetDefaultServiceCertificateFromStore)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename), ::core::mem::transmute_copy(findtype), ::core::mem::transmute_copy(findvalue)).ok()
     }
     pub unsafe fn SetDefaultServiceCertificateFromStoreByName(&self, subjectname: &::windows::core::BSTR, storelocation: &::windows::core::BSTR, storename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetDefaultServiceCertificateFromStoreByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(subjectname), ::core::mem::transmute_copy(storelocation), ::core::mem::transmute_copy(storename)).ok()
@@ -74,16 +70,10 @@ pub struct IChannelCredentials_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetWindowsCredential: usize,
     pub SetUserNameCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, username: *mut ::core::ffi::c_void, password: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub SetClientCertificateFromStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: *mut ::core::ffi::c_void, storename: *mut ::core::ffi::c_void, findyype: *mut ::core::ffi::c_void, findvalue: super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    SetClientCertificateFromStore: usize,
+    pub SetClientCertificateFromStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: *mut ::core::ffi::c_void, storename: *mut ::core::ffi::c_void, findyype: *mut ::core::ffi::c_void, findvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SetClientCertificateFromStoreByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subjectname: *mut ::core::ffi::c_void, storelocation: *mut ::core::ffi::c_void, storename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetClientCertificateFromFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void, password: *mut ::core::ffi::c_void, keystorageflags: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub SetDefaultServiceCertificateFromStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: *mut ::core::ffi::c_void, storename: *mut ::core::ffi::c_void, findtype: *mut ::core::ffi::c_void, findvalue: super::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
-    SetDefaultServiceCertificateFromStore: usize,
+    pub SetDefaultServiceCertificateFromStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: *mut ::core::ffi::c_void, storename: *mut ::core::ffi::c_void, findtype: *mut ::core::ffi::c_void, findvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SetDefaultServiceCertificateFromStoreByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subjectname: *mut ::core::ffi::c_void, storelocation: *mut ::core::ffi::c_void, storename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDefaultServiceCertificateFromFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::core::ffi::c_void, password: *mut ::core::ffi::c_void, keystorageflags: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetServiceCertificateAuthentication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: *mut ::core::ffi::c_void, revocationmode: *mut ::core::ffi::c_void, certificatevalidationmode: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

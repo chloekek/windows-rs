@@ -106,14 +106,14 @@ impl ICivicAddressReport_Vtbl {
         iid == &<ICivicAddressReport as ::windows::core::Interface>::IID || iid == &<ILocationReport as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ICivicAddressReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn CivicAddressReport(&self) -> ::windows::core::Result<IDispCivicAddressReport>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ICivicAddressReportFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ICivicAddressReportFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReportFactory_Impl, const OFFSET: isize>() -> ICivicAddressReportFactory_Vtbl {
         unsafe extern "system" fn CivicAddressReport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICivicAddressReportFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -167,8 +167,8 @@ impl IDefaultLocation_Vtbl {
         iid == &<IDefaultLocation as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IDispCivicAddressReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddressLine1(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AddressLine2(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -179,9 +179,9 @@ pub trait IDispCivicAddressReport_Impl: Sized + super::super::System::Com::IDisp
     fn DetailLevel(&self) -> ::windows::core::Result<u32>;
     fn Timestamp(&self) -> ::windows::core::Result<f64>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IDispCivicAddressReport {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IDispCivicAddressReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>() -> IDispCivicAddressReport_Vtbl {
         unsafe extern "system" fn AddressLine1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispCivicAddressReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress1: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -288,8 +288,8 @@ impl IDispCivicAddressReport_Vtbl {
         iid == &<IDispCivicAddressReport as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IDispLatLongReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Latitude(&self) -> ::windows::core::Result<f64>;
     fn Longitude(&self) -> ::windows::core::Result<f64>;
@@ -298,9 +298,9 @@ pub trait IDispLatLongReport_Impl: Sized + super::super::System::Com::IDispatch_
     fn AltitudeError(&self) -> ::windows::core::Result<f64>;
     fn Timestamp(&self) -> ::windows::core::Result<f64>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IDispLatLongReport {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IDispLatLongReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispLatLongReport_Impl, const OFFSET: isize>() -> IDispLatLongReport_Vtbl {
         unsafe extern "system" fn Latitude<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDispLatLongReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
@@ -465,14 +465,14 @@ impl ILatLongReport_Vtbl {
         iid == &<ILatLongReport as ::windows::core::Interface>::IID || iid == &<ILocationReport as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ILatLongReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn LatLongReport(&self) -> ::windows::core::Result<IDispLatLongReport>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ILatLongReportFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ILatLongReportFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILatLongReportFactory_Impl, const OFFSET: isize>() -> ILatLongReportFactory_Vtbl {
         unsafe extern "system" fn LatLongReport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILatLongReportFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -708,8 +708,8 @@ impl ILocationReport_Vtbl {
         iid == &<ILocationReport as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ILocationReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()>;
     fn StopListeningForReports(&self) -> ::windows::core::Result<()>;
@@ -720,9 +720,9 @@ pub trait ILocationReportFactory_Impl: Sized + super::super::System::Com::IDispa
     fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()>;
     fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ILocationReportFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ILocationReportFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILocationReportFactory_Impl, const OFFSET: isize>() -> ILocationReportFactory_Vtbl {
         unsafe extern "system" fn ListenForReports<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILocationReportFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedreportinterval: u32) -> ::windows::core::HRESULT {
@@ -799,12 +799,12 @@ impl ILocationReportFactory_Vtbl {
         iid == &<ILocationReportFactory as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait _ICivicAddressReportFactoryEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for _ICivicAddressReportFactoryEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl _ICivicAddressReportFactoryEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _ICivicAddressReportFactoryEvents_Impl, const OFFSET: isize>() -> _ICivicAddressReportFactoryEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -813,12 +813,12 @@ impl _ICivicAddressReportFactoryEvents_Vtbl {
         iid == &<_ICivicAddressReportFactoryEvents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait _ILatLongReportFactoryEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for _ILatLongReportFactoryEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl _ILatLongReportFactoryEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _ILatLongReportFactoryEvents_Impl, const OFFSET: isize>() -> _ILatLongReportFactoryEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }

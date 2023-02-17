@@ -63,8 +63,8 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
         iid == &<AsyncIAssociatedIdentityProvider as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait AsyncIConnectedIdentityProvider_Impl: Sized {
     fn Begin_ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()>;
     fn Finish_ConnectIdentity(&self) -> ::windows::core::Result<()>;
@@ -73,13 +73,13 @@ pub trait AsyncIConnectedIdentityProvider_Impl: Sized {
     fn Begin_IsConnected(&self) -> ::windows::core::Result<()>;
     fn Finish_IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL>;
     fn Begin_GetUrl(&self, identifier: IDENTITY_URL, context: ::core::option::Option<&super::super::super::super::System::Com::IBindCtx>) -> ::windows::core::Result<()>;
-    fn Finish_GetUrl(&self, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn Finish_GetUrl(&self, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn Begin_GetAccountState(&self) -> ::windows::core::Result<()>;
     fn Finish_GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for AsyncIConnectedIdentityProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl AsyncIConnectedIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>() -> AsyncIConnectedIdentityProvider_Vtbl {
         unsafe extern "system" fn Begin_ConnectIdentity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::HRESULT {
@@ -123,7 +123,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             this.Begin_GetUrl(::core::mem::transmute_copy(&identifier), ::windows::core::from_raw_borrowed(&context)).into()
         }
-        unsafe extern "system" fn Finish_GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Finish_GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Finish_GetUrl(::core::mem::transmute_copy(&postdata), ::core::mem::transmute_copy(&url)).into()
@@ -593,18 +593,18 @@ impl IAssociatedIdentityProvider_Vtbl {
         iid == &<IAssociatedIdentityProvider as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IConnectedIdentityProvider_Impl: Sized {
     fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::Result<()>;
     fn DisconnectIdentity(&self) -> ::windows::core::Result<()>;
     fn IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL>;
-    fn GetUrl(&self, identifier: IDENTITY_URL, context: ::core::option::Option<&super::super::super::super::System::Com::IBindCtx>, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn GetUrl(&self, identifier: IDENTITY_URL, context: ::core::option::Option<&super::super::super::super::System::Com::IBindCtx>, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IConnectedIdentityProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IConnectedIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IConnectedIdentityProvider_Impl, const OFFSET: isize>() -> IConnectedIdentityProvider_Vtbl {
         unsafe extern "system" fn ConnectIdentity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> ::windows::core::HRESULT {
@@ -628,7 +628,7 @@ impl IConnectedIdentityProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetUrl(::core::mem::transmute_copy(&identifier), ::windows::core::from_raw_borrowed(&context), ::core::mem::transmute_copy(&postdata), ::core::mem::transmute_copy(&url)).into()

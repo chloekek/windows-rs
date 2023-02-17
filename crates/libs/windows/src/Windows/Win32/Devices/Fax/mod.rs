@@ -1285,11 +1285,11 @@ impl IFaxAccounts {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxAccount> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxAccount> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1332,9 +1332,9 @@ unsafe impl ::windows::core::Interface for IFaxAccounts {
 pub struct IFaxAccounts_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxaccount: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxaccount: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -1907,9 +1907,7 @@ impl IFaxDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SendingNow)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn UsedRoutingMethods(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn UsedRoutingMethods(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).UsedRoutingMethods)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -1968,16 +1966,12 @@ impl IFaxDevice {
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), ::core::mem::transmute(vproperty)).ok()
+    pub unsafe fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), ::core::mem::transmute_copy(vproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2047,10 +2041,7 @@ pub struct IFaxDevice_Vtbl {
     pub SendingNow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsendingnow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SendingNow: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub UsedRoutingMethods: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvusedroutingmethods: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    UsedRoutingMethods: usize,
+    pub UsedRoutingMethods: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvusedroutingmethods: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2071,14 +2062,8 @@ pub struct IFaxDevice_Vtbl {
     pub SetTSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetExtensionProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetExtensionProperty: usize,
+    pub GetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, pvproperty: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, vproperty: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub UseRoutingMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethodguid: *mut ::core::ffi::c_void, buse: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2211,9 +2196,7 @@ impl IFaxDeviceProvider {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).InitErrorCode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DeviceIds(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn DeviceIds(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).DeviceIds)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -2267,10 +2250,7 @@ pub struct IFaxDeviceProvider_Vtbl {
     Debug: usize,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_PROVIDER_STATUS_ENUM) -> ::windows::core::HRESULT,
     pub InitErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pliniterrorcode: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DeviceIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdeviceids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    DeviceIds: usize,
+    pub DeviceIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdeviceids: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2282,11 +2262,11 @@ impl IFaxDeviceProviders {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDeviceProvider> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxDeviceProvider> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2329,9 +2309,9 @@ unsafe impl ::windows::core::Interface for IFaxDeviceProviders {
 pub struct IFaxDeviceProviders_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxdeviceprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxdeviceprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -2345,11 +2325,11 @@ impl IFaxDevices {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDevice> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxDevice> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2398,9 +2378,9 @@ unsafe impl ::windows::core::Interface for IFaxDevices {
 pub struct IFaxDevices_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -2538,15 +2518,13 @@ impl IFaxDocument {
     {
         (::windows::core::Vtable::vtable(self).putref_TapiConnection)(::windows::core::Vtable::as_raw(self), ptapiconnection.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Submit(&self, bstrfaxservername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Submit(&self, bstrfaxservername: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Submit)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfaxservername), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFaxServer>>,
     {
@@ -2651,13 +2629,10 @@ pub struct IFaxDocument_Vtbl {
     pub putref_TapiConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptapiconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_TapiConnection: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfaxservername: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Submit: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ConnectedSubmit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfaxservername: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub ConnectedSubmit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     ConnectedSubmit: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub AttachFaxToReceipt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbattachfax: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
@@ -2798,15 +2773,13 @@ impl IFaxDocument2 {
     {
         (::windows::core::Vtable::vtable(self).base__.putref_TapiConnection)(::windows::core::Vtable::as_raw(self), ptapiconnection.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Submit(&self, bstrfaxservername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Submit(&self, bstrfaxservername: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Submit)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfaxservername), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFaxServer>>,
     {
@@ -2831,29 +2804,23 @@ impl IFaxDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SubmissionId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Bodies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Bodies(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Bodies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBodies(&self, vbodies: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetBodies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vbodies)).ok()
+    pub unsafe fn SetBodies(&self, vbodies: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetBodies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vbodies)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Submit2(&self, bstrfaxservername: &::windows::core::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Submit2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfaxservername), pvfaxoutgoingjobids, plerrorbodyfile).ok()
+    pub unsafe fn Submit2(&self, bstrfaxservername: &::windows::core::BSTR, pvfaxoutgoingjobids: *mut ::windows::core::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Submit2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfaxservername), ::core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ConnectedSubmit2<P0>(&self, pfaxserver: P0, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn ConnectedSubmit2<P0>(&self, pfaxserver: P0, pvfaxoutgoingjobids: *mut ::windows::core::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFaxServer>>,
     {
-        (::windows::core::Vtable::vtable(self).ConnectedSubmit2)(::windows::core::Vtable::as_raw(self), pfaxserver.into().abi(), pvfaxoutgoingjobids, plerrorbodyfile).ok()
+        (::windows::core::Vtable::vtable(self).ConnectedSubmit2)(::windows::core::Vtable::as_raw(self), pfaxserver.into().abi(), ::core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2892,21 +2859,12 @@ unsafe impl ::windows::core::Interface for IFaxDocument2 {
 pub struct IFaxDocument2_Vtbl {
     pub base__: IFaxDocument_Vtbl,
     pub SubmissionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Bodies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbodies: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Bodies: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetBodies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vbodies: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetBodies: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Submit2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfaxservername: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Submit2: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ConnectedSubmit2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    pub Bodies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbodies: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetBodies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vbodies: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Submit2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfaxservername: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut ::windows::core::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub ConnectedSubmit2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut ::windows::core::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     ConnectedSubmit2: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
@@ -3190,9 +3148,7 @@ impl IFaxInboundRoutingExtension {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).InitErrorCode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Methods(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Methods(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Methods)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3245,10 +3201,7 @@ pub struct IFaxInboundRoutingExtension_Vtbl {
     Debug: usize,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_PROVIDER_STATUS_ENUM) -> ::windows::core::HRESULT,
     pub InitErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pliniterrorcode: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Methods: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvmethods: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Methods: usize,
+    pub Methods: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvmethods: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3260,11 +3213,11 @@ impl IFaxInboundRoutingExtensions {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingExtension> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingExtension> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3307,9 +3260,9 @@ unsafe impl ::windows::core::Interface for IFaxInboundRoutingExtensions {
 pub struct IFaxInboundRoutingExtensions_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxinboundroutingextension: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxinboundroutingextension: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -3408,11 +3361,11 @@ impl IFaxInboundRoutingMethods {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingMethod> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingMethod> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3455,9 +3408,9 @@ unsafe impl ::windows::core::Interface for IFaxInboundRoutingMethods {
 pub struct IFaxInboundRoutingMethods_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxinboundroutingmethod: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxinboundroutingmethod: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -3767,11 +3720,11 @@ impl IFaxIncomingJobs {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxIncomingJob> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxIncomingJob> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3814,9 +3767,9 @@ unsafe impl ::windows::core::Interface for IFaxIncomingJobs {
 pub struct IFaxIncomingJobs_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxincomingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxincomingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -4621,11 +4574,11 @@ impl IFaxOutboundRoutingGroups {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutboundRoutingGroup> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxOutboundRoutingGroup> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4637,10 +4590,8 @@ impl IFaxOutboundRoutingGroups {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex)).ok()
+    pub unsafe fn Remove(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4679,19 +4630,16 @@ unsafe impl ::windows::core::Interface for IFaxOutboundRoutingGroups {
 pub struct IFaxOutboundRoutingGroups_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxoutboundroutinggroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxoutboundroutinggroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pfaxoutboundroutinggroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5458,11 +5406,11 @@ impl IFaxOutgoingJobs {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, vindex: super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutgoingJob> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item(&self, vindex: &::windows::core::VARIANT) -> ::windows::core::Result<IFaxOutgoingJob> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vindex), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vindex), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5505,9 +5453,9 @@ unsafe impl ::windows::core::Interface for IFaxOutgoingJobs {
 pub struct IFaxOutgoingJobs_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: super::super::System::Com::VARIANT, pfaxoutgoingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vindex: ::windows::core::VARIANT, pfaxoutgoingjob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
 }
@@ -6414,16 +6362,12 @@ pub struct IFaxRecipients_Vtbl {
 pub struct IFaxSecurity(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxSecurity {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Descriptor(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Descriptor(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Descriptor)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDescriptor(&self, vdescriptor: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vdescriptor)).ok()
+    pub unsafe fn SetDescriptor(&self, vdescriptor: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vdescriptor)).ok()
     }
     pub unsafe fn GrantedRights(&self) -> ::windows::core::Result<FAX_ACCESS_RIGHTS_ENUM> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6478,14 +6422,8 @@ unsafe impl ::windows::core::Interface for IFaxSecurity {
 #[doc(hidden)]
 pub struct IFaxSecurity_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdescriptor: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Descriptor: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdescriptor: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetDescriptor: usize,
+    pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdescriptor: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdescriptor: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GrantedRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgrantedrights: *mut FAX_ACCESS_RIGHTS_ENUM) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6498,16 +6436,12 @@ pub struct IFaxSecurity_Vtbl {
 pub struct IFaxSecurity2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxSecurity2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Descriptor(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Descriptor(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Descriptor)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDescriptor(&self, vdescriptor: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vdescriptor)).ok()
+    pub unsafe fn SetDescriptor(&self, vdescriptor: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetDescriptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vdescriptor)).ok()
     }
     pub unsafe fn GrantedRights(&self) -> ::windows::core::Result<FAX_ACCESS_RIGHTS_ENUM_2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6562,14 +6496,8 @@ unsafe impl ::windows::core::Interface for IFaxSecurity2 {
 #[doc(hidden)]
 pub struct IFaxSecurity2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdescriptor: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Descriptor: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdescriptor: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetDescriptor: usize,
+    pub Descriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdescriptor: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdescriptor: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GrantedRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgrantedrights: *mut FAX_ACCESS_RIGHTS_ENUM_2) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6863,16 +6791,12 @@ impl IFaxServer {
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), ::core::mem::transmute(vproperty)).ok()
+    pub unsafe fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), ::core::mem::transmute_copy(vproperty)).ok()
     }
     pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ListenToServerEvents)(::windows::core::Vtable::as_raw(self), eventtypes).ok()
@@ -6883,10 +6807,8 @@ impl IFaxServer {
     pub unsafe fn UnregisterDeviceProvider(&self, bstruniquename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterDeviceProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstruniquename)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterInboundRoutingExtension(&self, bstrextensionname: &::windows::core::BSTR, bstrfriendlyname: &::windows::core::BSTR, bstrimagename: &::windows::core::BSTR, vmethods: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterInboundRoutingExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrextensionname), ::core::mem::transmute_copy(bstrfriendlyname), ::core::mem::transmute_copy(bstrimagename), ::core::mem::transmute(vmethods)).ok()
+    pub unsafe fn RegisterInboundRoutingExtension(&self, bstrextensionname: &::windows::core::BSTR, bstrfriendlyname: &::windows::core::BSTR, bstrimagename: &::windows::core::BSTR, vmethods: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).RegisterInboundRoutingExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrextensionname), ::core::mem::transmute_copy(bstrfriendlyname), ::core::mem::transmute_copy(bstrimagename), ::core::mem::transmute_copy(vmethods)).ok()
     }
     pub unsafe fn UnregisterInboundRoutingExtension(&self, bstrextensionuniquename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterInboundRoutingExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrextensionuniquename)).ok()
@@ -6982,21 +6904,12 @@ pub struct IFaxServer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Security: usize,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetExtensionProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetExtensionProperty: usize,
+    pub GetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, pvproperty: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetExtensionProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, vproperty: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub ListenToServerEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT,
     pub RegisterDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguid: *mut ::core::ffi::c_void, bstrfriendlyname: *mut ::core::ffi::c_void, bstrimagename: *mut ::core::ffi::c_void, tspname: *mut ::core::ffi::c_void, lfspiversion: i32) -> ::windows::core::HRESULT,
     pub UnregisterDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstruniquename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RegisterInboundRoutingExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrextensionname: *mut ::core::ffi::c_void, bstrfriendlyname: *mut ::core::ffi::c_void, bstrimagename: *mut ::core::ffi::c_void, vmethods: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    RegisterInboundRoutingExtension: usize,
+    pub RegisterInboundRoutingExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrextensionname: *mut ::core::ffi::c_void, bstrfriendlyname: *mut ::core::ffi::c_void, bstrimagename: *mut ::core::ffi::c_void, vmethods: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub UnregisterInboundRoutingExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrextensionuniquename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RegisteredEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtypes: *mut FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT,
     pub APIVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, papiversion: *mut FAX_SERVER_APIVERSION_ENUM) -> ::windows::core::HRESULT,
@@ -7093,16 +7006,12 @@ impl IFaxServer2 {
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Disconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetExtensionProperty(&self, bstrguid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), ::core::mem::transmute(vproperty)).ok()
+    pub unsafe fn SetExtensionProperty(&self, bstrguid: &::windows::core::BSTR, vproperty: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetExtensionProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrguid), ::core::mem::transmute_copy(vproperty)).ok()
     }
     pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ListenToServerEvents)(::windows::core::Vtable::as_raw(self), eventtypes).ok()
@@ -7113,10 +7022,8 @@ impl IFaxServer2 {
     pub unsafe fn UnregisterDeviceProvider(&self, bstruniquename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UnregisterDeviceProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstruniquename)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RegisterInboundRoutingExtension(&self, bstrextensionname: &::windows::core::BSTR, bstrfriendlyname: &::windows::core::BSTR, bstrimagename: &::windows::core::BSTR, vmethods: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RegisterInboundRoutingExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrextensionname), ::core::mem::transmute_copy(bstrfriendlyname), ::core::mem::transmute_copy(bstrimagename), ::core::mem::transmute(vmethods)).ok()
+    pub unsafe fn RegisterInboundRoutingExtension(&self, bstrextensionname: &::windows::core::BSTR, bstrfriendlyname: &::windows::core::BSTR, bstrimagename: &::windows::core::BSTR, vmethods: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.RegisterInboundRoutingExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrextensionname), ::core::mem::transmute_copy(bstrfriendlyname), ::core::mem::transmute_copy(bstrimagename), ::core::mem::transmute_copy(vmethods)).ok()
     }
     pub unsafe fn UnregisterInboundRoutingExtension(&self, bstrextensionuniquename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.UnregisterInboundRoutingExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrextensionuniquename)).ok()

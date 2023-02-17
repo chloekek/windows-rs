@@ -376,15 +376,11 @@ impl IBinaryConverter {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).StringToString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strencodedin), encodingin, encoding, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const ::windows::core::VARIANT, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VariantByteArrayToString)(::windows::core::Vtable::as_raw(self), pvarbytearray, encoding, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).VariantByteArrayToString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarbytearray), encoding, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn StringToVariantByteArray(&self, strencoded: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn StringToVariantByteArray(&self, strencoded: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).StringToVariantByteArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strencoded), encoding, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -425,14 +421,8 @@ unsafe impl ::windows::core::Interface for IBinaryConverter {
 pub struct IBinaryConverter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub StringToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencodedin: *mut ::core::ffi::c_void, encodingin: EncodingType, encoding: EncodingType, pstrencoded: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub VariantByteArrayToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType, pstrencoded: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    VariantByteArrayToString: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub StringToVariantByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoded: *mut ::core::ffi::c_void, encoding: EncodingType, pvarbytearray: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    StringToVariantByteArray: usize,
+    pub VariantByteArrayToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbytearray: *const ::windows::core::VARIANT, encoding: EncodingType, pstrencoded: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StringToVariantByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoded: *mut ::core::ffi::c_void, encoding: EncodingType, pvarbytearray: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -444,29 +434,21 @@ impl IBinaryConverter2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.StringToString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strencodedin), encodingin, encoding, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const ::windows::core::VARIANT, encoding: EncodingType) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.VariantByteArrayToString)(::windows::core::Vtable::as_raw(self), pvarbytearray, encoding, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.VariantByteArrayToString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarbytearray), encoding, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn StringToVariantByteArray(&self, strencoded: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn StringToVariantByteArray(&self, strencoded: &::windows::core::BSTR, encoding: EncodingType) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.StringToVariantByteArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strencoded), encoding, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn StringArrayToVariantArray(&self, pvarstringarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn StringArrayToVariantArray(&self, pvarstringarray: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).StringArrayToVariantArray)(::windows::core::Vtable::as_raw(self), pvarstringarray, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).StringArrayToVariantArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarstringarray), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn VariantArrayToStringArray(&self, pvarvariantarray: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).VariantArrayToStringArray)(::windows::core::Vtable::as_raw(self), pvarvariantarray, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).VariantArrayToStringArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarvariantarray), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -504,14 +486,8 @@ unsafe impl ::windows::core::Interface for IBinaryConverter2 {
 #[doc(hidden)]
 pub struct IBinaryConverter2_Vtbl {
     pub base__: IBinaryConverter_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub StringArrayToVariantArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarstringarray: *const super::super::super::System::Com::VARIANT, pvarvariantarray: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    StringArrayToVariantArray: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub VariantArrayToStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvariantarray: *const super::super::super::System::Com::VARIANT, pvarstringarray: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    VariantArrayToStringArray: usize,
+    pub StringArrayToVariantArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarstringarray: *const ::windows::core::VARIANT, pvarvariantarray: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub VariantArrayToStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvariantarray: *const ::windows::core::VARIANT, pvarstringarray: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1967,9 +1943,7 @@ impl ICEnroll4 {
     pub unsafe fn setPendingRequestInfo(&self, lrequestid: i32, strcadns: &::windows::core::BSTR, strcaname: &::windows::core::BSTR, strfriendlyname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setPendingRequestInfo)(::windows::core::Vtable::as_raw(self), lrequestid, ::core::mem::transmute_copy(strcadns), ::core::mem::transmute_copy(strcaname), ::core::mem::transmute_copy(strfriendlyname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn enumPendingRequest(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn enumPendingRequest(&self, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).enumPendingRequest)(::windows::core::Vtable::as_raw(self), lindex, ldesiredproperty, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -2082,10 +2056,7 @@ pub struct ICEnroll4_Vtbl {
     pub createPFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void, pstrpfx: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub createFilePFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpassword: *mut ::core::ffi::c_void, strpfxfilename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub setPendingRequestInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrequestid: i32, strcadns: *mut ::core::ffi::c_void, strcaname: *mut ::core::ffi::c_void, strfriendlyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub enumPendingRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, pvarproperty: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    enumPendingRequest: usize,
+    pub enumPendingRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, pvarproperty: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub removePendingRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strthumbprint: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetKeyLenEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsizespec: XEKL_KEYSIZE, lkeyspec: XEKL_KEYSPEC, pdwkeysize: *mut i32) -> ::windows::core::HRESULT,
     pub InstallPKCS7Ex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkcs7: *mut ::core::ffi::c_void, plcertinstalled: *mut i32) -> ::windows::core::HRESULT,
@@ -2128,10 +2099,8 @@ impl ICertAdmin {
     pub unsafe fn SetRequestAttributes(&self, strconfig: &::windows::core::BSTR, requestid: i32, strattributes: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetRequestAttributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, ::core::mem::transmute_copy(strattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCertificateExtension(&self, strconfig: &::windows::core::BSTR, requestid: i32, strextensionname: &::windows::core::BSTR, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, ::core::mem::transmute_copy(strextensionname), r#type, flags, pvarvalue).ok()
+    pub unsafe fn SetCertificateExtension(&self, strconfig: &::windows::core::BSTR, requestid: i32, strextensionname: &::windows::core::BSTR, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, ::core::mem::transmute_copy(strextensionname), r#type, flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn DenyRequest(&self, strconfig: &::windows::core::BSTR, requestid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DenyRequest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid).ok()
@@ -2191,10 +2160,7 @@ pub struct ICertAdmin_Vtbl {
     pub GetRevocationReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preason: *mut i32) -> ::windows::core::HRESULT,
     pub RevokeCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strserialnumber: *mut ::core::ffi::c_void, reason: i32, date: f64) -> ::windows::core::HRESULT,
     pub SetRequestAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32, strattributes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32, strextensionname: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetCertificateExtension: usize,
+    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32, strextensionname: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub DenyRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32) -> ::windows::core::HRESULT,
     pub ResubmitRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32, pdisposition: *mut i32) -> ::windows::core::HRESULT,
     pub PublishCRL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, date: f64) -> ::windows::core::HRESULT,
@@ -2221,10 +2187,8 @@ impl ICertAdmin2 {
     pub unsafe fn SetRequestAttributes(&self, strconfig: &::windows::core::BSTR, requestid: i32, strattributes: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetRequestAttributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, ::core::mem::transmute_copy(strattributes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCertificateExtension(&self, strconfig: &::windows::core::BSTR, requestid: i32, strextensionname: &::windows::core::BSTR, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, ::core::mem::transmute_copy(strextensionname), r#type, flags, pvarvalue).ok()
+    pub unsafe fn SetCertificateExtension(&self, strconfig: &::windows::core::BSTR, requestid: i32, strextensionname: &::windows::core::BSTR, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, ::core::mem::transmute_copy(strextensionname), r#type, flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn DenyRequest(&self, strconfig: &::windows::core::BSTR, requestid: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.DenyRequest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid).ok()
@@ -2247,16 +2211,12 @@ impl ICertAdmin2 {
     pub unsafe fn PublishCRLs(&self, strconfig: &::windows::core::BSTR, date: f64, crlflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).PublishCRLs)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), date, crlflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCAProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), propid, propindex, proptype, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCAProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), propid, propindex, proptype, pvarpropertyvalue).ok()
+    pub unsafe fn SetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetCAProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), propid, propindex, proptype, ::core::mem::transmute(pvarpropertyvalue)).ok()
     }
     pub unsafe fn GetCAPropertyFlags(&self, strconfig: &::windows::core::BSTR, propid: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2270,16 +2230,12 @@ impl ICertAdmin2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetArchivedKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetConfigEntry(&self, strconfig: &::windows::core::BSTR, strnodepath: &::windows::core::BSTR, strentryname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetConfigEntry(&self, strconfig: &::windows::core::BSTR, strnodepath: &::windows::core::BSTR, strentryname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetConfigEntry)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), ::core::mem::transmute_copy(strnodepath), ::core::mem::transmute_copy(strentryname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetConfigEntry(&self, strconfig: &::windows::core::BSTR, strnodepath: &::windows::core::BSTR, strentryname: &::windows::core::BSTR, pvarentry: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetConfigEntry)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), ::core::mem::transmute_copy(strnodepath), ::core::mem::transmute_copy(strentryname), pvarentry).ok()
+    pub unsafe fn SetConfigEntry(&self, strconfig: &::windows::core::BSTR, strnodepath: &::windows::core::BSTR, strentryname: &::windows::core::BSTR, pvarentry: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetConfigEntry)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), ::core::mem::transmute_copy(strnodepath), ::core::mem::transmute_copy(strentryname), ::core::mem::transmute(pvarentry)).ok()
     }
     pub unsafe fn ImportKey(&self, strconfig: &::windows::core::BSTR, requestid: i32, strcerthash: &::windows::core::BSTR, flags: CERT_IMPORT_FLAGS, strkey: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ImportKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), requestid, ::core::mem::transmute_copy(strcerthash), flags, ::core::mem::transmute_copy(strkey)).ok()
@@ -2329,25 +2285,13 @@ unsafe impl ::windows::core::Interface for ICertAdmin2 {
 pub struct ICertAdmin2_Vtbl {
     pub base__: ICertAdmin_Vtbl,
     pub PublishCRLs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, date: f64, crlflags: i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCAProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetCAProperty: usize,
+    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GetCAPropertyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, ppropflags: *mut i32) -> ::windows::core::HRESULT,
     pub GetCAPropertyDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, pstrdisplayname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetArchivedKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32, flags: i32, pstrarchivedkey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strnodepath: *mut ::core::ffi::c_void, strentryname: *mut ::core::ffi::c_void, pvarentry: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetConfigEntry: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strnodepath: *mut ::core::ffi::c_void, strentryname: *mut ::core::ffi::c_void, pvarentry: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetConfigEntry: usize,
+    pub GetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strnodepath: *mut ::core::ffi::c_void, strentryname: *mut ::core::ffi::c_void, pvarentry: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strnodepath: *mut ::core::ffi::c_void, strentryname: *mut ::core::ffi::c_void, pvarentry: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub ImportKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32, strcerthash: *mut ::core::ffi::c_void, flags: CERT_IMPORT_FLAGS, strkey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetMyRoles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, proles: *mut CERTADMIN_GET_ROLES_FLAGS) -> ::windows::core::HRESULT,
     pub DeleteRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, flags: CERT_DELETE_ROW_FLAGS, date: f64, table: CVRC_TABLE, rowid: i32, pcdeleted: *mut i32) -> ::windows::core::HRESULT,
@@ -3554,16 +3498,12 @@ pub struct ICertGetConfig_Vtbl {
 pub struct ICertManageModule(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertManageModule {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty(&self, strconfig: &::windows::core::BSTR, strstoragelocation: &::windows::core::BSTR, strpropertyname: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetProperty(&self, strconfig: &::windows::core::BSTR, strstoragelocation: &::windows::core::BSTR, strpropertyname: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), ::core::mem::transmute_copy(strstoragelocation), ::core::mem::transmute_copy(strpropertyname), flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProperty(&self, strconfig: &::windows::core::BSTR, strstoragelocation: &::windows::core::BSTR, strpropertyname: &::windows::core::BSTR, flags: i32, pvarproperty: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), ::core::mem::transmute_copy(strstoragelocation), ::core::mem::transmute_copy(strpropertyname), flags, pvarproperty).ok()
+    pub unsafe fn SetProperty(&self, strconfig: &::windows::core::BSTR, strstoragelocation: &::windows::core::BSTR, strpropertyname: &::windows::core::BSTR, flags: i32, pvarproperty: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), ::core::mem::transmute_copy(strstoragelocation), ::core::mem::transmute_copy(strpropertyname), flags, ::core::mem::transmute(pvarproperty)).ok()
     }
     pub unsafe fn Configure(&self, strconfig: &::windows::core::BSTR, strstoragelocation: &::windows::core::BSTR, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), ::core::mem::transmute_copy(strstoragelocation), flags).ok()
@@ -3604,14 +3544,8 @@ unsafe impl ::windows::core::Interface for ICertManageModule {
 #[doc(hidden)]
 pub struct ICertManageModule_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strstoragelocation: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, flags: i32, pvarproperty: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strstoragelocation: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, flags: i32, pvarproperty: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetProperty: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strstoragelocation: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, flags: i32, pvarproperty: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strstoragelocation: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, flags: i32, pvarproperty: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, strstoragelocation: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
@@ -5256,9 +5190,7 @@ impl ICertRequest2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetErrorMessageText)(::windows::core::Vtable::as_raw(self), hrmessage, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCAProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), propid, propindex, proptype, flags, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5270,9 +5202,7 @@ impl ICertRequest2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCAPropertyDisplayName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), propid, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFullResponseProperty)(::windows::core::Vtable::as_raw(self), propid, propindex, proptype, flags, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5314,16 +5244,10 @@ pub struct ICertRequest2_Vtbl {
     pub base__: ICertRequest_Vtbl,
     pub GetIssuedCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, requestid: i32, strserialnumber: *mut ::core::ffi::c_void, pdisposition: *mut CR_DISP) -> ::windows::core::HRESULT,
     pub GetErrorMessageText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrmessage: i32, flags: i32, pstrerrormessagetext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCAProperty: usize,
+    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GetCAPropertyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, ppropflags: *mut i32) -> ::windows::core::HRESULT,
     pub GetCAPropertyDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: *mut ::core::ffi::c_void, propid: i32, pstrdisplayname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetFullResponseProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetFullResponseProperty: usize,
+    pub GetFullResponseProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE, pvarpropertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5367,9 +5291,7 @@ impl ICertRequest3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetErrorMessageText)(::windows::core::Vtable::as_raw(self), hrmessage, flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCAProperty(&self, strconfig: &::windows::core::BSTR, propid: i32, propindex: i32, proptype: i32, flags: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCAProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), propid, propindex, proptype, flags, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5381,9 +5303,7 @@ impl ICertRequest3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCAPropertyDisplayName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strconfig), propid, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetFullResponseProperty)(::windows::core::Vtable::as_raw(self), propid, propindex, proptype, flags, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5597,9 +5517,7 @@ impl ICertServerExit {
     pub unsafe fn SetContext(&self, context: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), context).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRequestProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetRequestProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRequestProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), propertytype, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5607,15 +5525,11 @@ impl ICertServerExit {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRequestAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strattributename), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCertificateProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), propertytype, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCertificateExtension(&self, strextensionname: &::windows::core::BSTR, r#type: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCertificateExtension(&self, strextensionname: &::windows::core::BSTR, r#type: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strextensionname), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5680,19 +5594,10 @@ unsafe impl ::windows::core::Interface for ICertServerExit {
 pub struct ICertServerExit_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetRequestProperty: usize,
+    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GetRequestAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strattributename: *mut ::core::ffi::c_void, pstrattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCertificateProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: *mut ::core::ffi::c_void, r#type: i32, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCertificateExtension: usize,
+    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: *mut ::core::ffi::c_void, r#type: i32, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GetCertificateExtensionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextflags: *mut i32) -> ::windows::core::HRESULT,
     pub EnumerateExtensionsSetup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
     pub EnumerateExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrextensionname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5710,9 +5615,7 @@ impl ICertServerPolicy {
     pub unsafe fn SetContext(&self, context: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetContext)(::windows::core::Vtable::as_raw(self), context).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRequestProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetRequestProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRequestProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), propertytype, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5720,20 +5623,14 @@ impl ICertServerPolicy {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetRequestAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strattributename), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: CERT_PROPERTY_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCertificateProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: CERT_PROPERTY_TYPE) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCertificateProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), propertytype, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCertificateProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32, pvarpropertyvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCertificateProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), propertytype, pvarpropertyvalue).ok()
+    pub unsafe fn SetCertificateProperty(&self, strpropertyname: &::windows::core::BSTR, propertytype: i32, pvarpropertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetCertificateProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), propertytype, ::core::mem::transmute(pvarpropertyvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCertificateExtension(&self, strextensionname: &::windows::core::BSTR, r#type: CERT_PROPERTY_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCertificateExtension(&self, strextensionname: &::windows::core::BSTR, r#type: CERT_PROPERTY_TYPE) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strextensionname), r#type, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5741,10 +5638,8 @@ impl ICertServerPolicy {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCertificateExtensionFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCertificateExtension(&self, strextensionname: &::windows::core::BSTR, r#type: i32, extflags: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strextensionname), r#type, extflags, pvarvalue).ok()
+    pub unsafe fn SetCertificateExtension(&self, strextensionname: &::windows::core::BSTR, r#type: i32, extflags: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetCertificateExtension)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strextensionname), r#type, extflags, ::core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn EnumerateExtensionsSetup(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumerateExtensionsSetup)(::windows::core::Vtable::as_raw(self), flags).ok()
@@ -5803,28 +5698,13 @@ unsafe impl ::windows::core::Interface for ICertServerPolicy {
 pub struct ICertServerPolicy_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetRequestProperty: usize,
+    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GetRequestAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strattributename: *mut ::core::ffi::c_void, pstrattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCertificateProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetCertificateProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCertificateExtension: usize,
+    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertytype: i32, pvarpropertyvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub GetCertificateExtensionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextflags: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: *mut ::core::ffi::c_void, r#type: i32, extflags: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetCertificateExtension: usize,
+    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: *mut ::core::ffi::c_void, r#type: i32, extflags: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub EnumerateExtensionsSetup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
     pub EnumerateExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrextensionname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumerateExtensionsClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5859,10 +5739,8 @@ impl ICertView {
     pub unsafe fn SetResultColumn(&self, columnindex: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetResultColumn)(::windows::core::Vtable::as_raw(self), columnindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRestriction)(::windows::core::Vtable::as_raw(self), columnindex, seekoperator, sortorder, pvarvalue).ok()
+    pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetRestriction)(::windows::core::Vtable::as_raw(self), columnindex, seekoperator, sortorder, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5915,10 +5793,7 @@ pub struct ICertView_Vtbl {
     pub GetColumnIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fresultcolumn: CVRC_COLUMN, strcolumnname: *mut ::core::ffi::c_void, pcolumnindex: *mut i32) -> ::windows::core::HRESULT,
     pub SetResultColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cresultcolumn: i32) -> ::windows::core::HRESULT,
     pub SetResultColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columnindex: i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetRestriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetRestriction: usize,
+    pub SetRestriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub OpenView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5951,10 +5826,8 @@ impl ICertView2 {
     pub unsafe fn SetResultColumn(&self, columnindex: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetResultColumn)(::windows::core::Vtable::as_raw(self), columnindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetRestriction)(::windows::core::Vtable::as_raw(self), columnindex, seekoperator, sortorder, pvarvalue).ok()
+    pub unsafe fn SetRestriction(&self, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetRestriction)(::windows::core::Vtable::as_raw(self), columnindex, seekoperator, sortorder, ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6383,9 +6256,7 @@ pub struct ICertificationAuthorities_Vtbl {
 pub struct ICertificationAuthority(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificationAuthority {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Property)(::windows::core::Vtable::as_raw(self), property, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6425,10 +6296,7 @@ unsafe impl ::windows::core::Interface for ICertificationAuthority {
 #[doc(hidden)]
 pub struct ICertificationAuthority_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_Property: usize,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9090,10 +8958,8 @@ impl IEnumCERTVIEWCOLUMN {
     pub unsafe fn GetMaxLength(&self, pmaxlength: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMaxLength)(::windows::core::Vtable::as_raw(self), pmaxlength).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue(&self, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), flags, pvarvalue).ok()
+    pub unsafe fn GetValue(&self, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn Skip(&self, celt: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -9149,10 +9015,7 @@ pub struct IEnumCERTVIEWCOLUMN_Vtbl {
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i32) -> ::windows::core::HRESULT,
     pub IsIndexed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindexed: *mut i32) -> ::windows::core::HRESULT,
     pub GetMaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmaxlength: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetValue: usize,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: i32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -9175,10 +9038,8 @@ impl IEnumCERTVIEWEXTENSION {
     pub unsafe fn GetFlags(&self, pflags: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), pflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue(&self, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), r#type, flags, pvarvalue).ok()
+    pub unsafe fn GetValue(&self, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), r#type, flags, ::core::mem::transmute(pvarvalue)).ok()
     }
     pub unsafe fn Skip(&self, celt: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
@@ -9231,10 +9092,7 @@ pub struct IEnumCERTVIEWEXTENSION_Vtbl {
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindex: *mut i32) -> ::windows::core::HRESULT,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetValue: usize,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: i32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -9460,15 +9318,11 @@ impl IOCSPAdmin {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSecurity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrservername), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetSigningCertificates(&self, bstrservername: &::windows::core::BSTR, pcacertvar: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetSigningCertificates(&self, bstrservername: &::windows::core::BSTR, pcacertvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSigningCertificates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrservername), pcacertvar, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetSigningCertificates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrservername), ::core::mem::transmute(pcacertvar), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetHashAlgorithms(&self, bstrservername: &::windows::core::BSTR, bstrcaid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetHashAlgorithms(&self, bstrservername: &::windows::core::BSTR, bstrcaid: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetHashAlgorithms)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrservername), ::core::mem::transmute_copy(bstrcaid), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -9528,14 +9382,8 @@ pub struct IOCSPAdmin_Vtbl {
     pub Ping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetSigningCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: *mut ::core::ffi::c_void, pcacertvar: *const super::super::super::System::Com::VARIANT, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetSigningCertificates: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetHashAlgorithms: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: *mut ::core::ffi::c_void, bstrcaid: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetHashAlgorithms: usize,
+    pub GetSigningCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: *mut ::core::ffi::c_void, pcacertvar: *const ::windows::core::VARIANT, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetHashAlgorithms: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: *mut ::core::ffi::c_void, bstrcaid: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9547,9 +9395,7 @@ impl IOCSPCAConfiguration {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Identifier)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CACertificate(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn CACertificate(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CACertificate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -9567,16 +9413,12 @@ impl IOCSPCAConfiguration {
     pub unsafe fn SetSigningFlags(&self, newval: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetSigningFlags)(::windows::core::Vtable::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SigningCertificate(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn SigningCertificate(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SigningCertificate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSigningCertificate(&self, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSigningCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetSigningCertificate(&self, newval: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSigningCertificate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
     }
     pub unsafe fn ReminderDuration(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9604,16 +9446,12 @@ impl IOCSPCAConfiguration {
     pub unsafe fn SetProviderCLSID(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProviderCLSID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ProviderProperties(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn ProviderProperties(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ProviderProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProviderProperties(&self, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetProviderProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetProviderProperties(&self, newval: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetProviderProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9621,16 +9459,12 @@ impl IOCSPCAConfiguration {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Modified)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LocalRevocationInformation(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn LocalRevocationInformation(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).LocalRevocationInformation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetLocalRevocationInformation(&self, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLocalRevocationInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetLocalRevocationInformation(&self, newval: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetLocalRevocationInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
     }
     pub unsafe fn SigningCertificateTemplate(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9683,22 +9517,13 @@ unsafe impl ::windows::core::Interface for IOCSPCAConfiguration {
 pub struct IOCSPCAConfiguration_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Identifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CACertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    CACertificate: usize,
+    pub CACertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SigningFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
     pub SetSigningFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SigningCertificate: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSigningCertificate: usize,
+    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub ReminderDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
     pub SetReminderDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: u32) -> ::windows::core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
@@ -9706,26 +9531,14 @@ pub struct IOCSPCAConfiguration_Vtbl {
     pub KeySpec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
     pub ProviderCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetProviderCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ProviderProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    ProviderProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetProviderProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetProviderProperties: usize,
+    pub ProviderProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetProviderProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Modified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Modified: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LocalRevocationInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    LocalRevocationInformation: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetLocalRevocationInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetLocalRevocationInformation: usize,
+    pub LocalRevocationInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetLocalRevocationInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SigningCertificateTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSigningCertificateTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CAConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9741,9 +9554,7 @@ impl IOCSPCAConfigurationCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -9751,17 +9562,15 @@ impl IOCSPCAConfigurationCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_ItemByName(&self, bstridentifier: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn get_ItemByName(&self, bstridentifier: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_ItemByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstridentifier), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateCAConfiguration(&self, bstridentifier: &::windows::core::BSTR, varcacert: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IOCSPCAConfiguration> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateCAConfiguration(&self, bstridentifier: &::windows::core::BSTR, varcacert: &::windows::core::VARIANT) -> ::windows::core::Result<IOCSPCAConfiguration> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateCAConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstridentifier), ::core::mem::transmute(varcacert), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateCAConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstridentifier), ::core::mem::transmute_copy(varcacert), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeleteCAConfiguration(&self, bstridentifier: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteCAConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstridentifier)).ok()
@@ -9803,18 +9612,12 @@ unsafe impl ::windows::core::Interface for IOCSPCAConfigurationCollection {
 pub struct IOCSPCAConfigurationCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_ItemByName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateCAConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: *mut ::core::ffi::c_void, varcacert: super::super::super::System::Com::VARIANT, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateCAConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: *mut ::core::ffi::c_void, varcacert: ::windows::core::VARIANT, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateCAConfiguration: usize,
     pub DeleteCAConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -9828,16 +9631,12 @@ impl IOCSPProperty {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Value(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Value)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue(&self, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetValue(&self, newval: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9882,14 +9681,8 @@ unsafe impl ::windows::core::Interface for IOCSPProperty {
 pub struct IOCSPProperty_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Value: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetValue: usize,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Modified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -9905,9 +9698,7 @@ impl IOCSPPropertyCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -9915,29 +9706,23 @@ impl IOCSPPropertyCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_ItemByName(&self, bstrpropname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn get_ItemByName(&self, bstrpropname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_ItemByName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateProperty(&self, bstrpropname: &::windows::core::BSTR, pvarpropvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IOCSPProperty> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateProperty(&self, bstrpropname: &::windows::core::BSTR, pvarpropvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<IOCSPProperty> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropname), pvarpropvalue, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropname), ::core::mem::transmute(pvarpropvalue), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DeleteProperty(&self, bstrpropname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeleteProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InitializeFromProperties(&self, pvarproperties: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeFromProperties)(::windows::core::Vtable::as_raw(self), pvarproperties).ok()
+    pub unsafe fn InitializeFromProperties(&self, pvarproperties: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).InitializeFromProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarproperties)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAllProperties(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAllProperties(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAllProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -9978,28 +9763,16 @@ unsafe impl ::windows::core::Interface for IOCSPPropertyCollection {
 pub struct IOCSPPropertyCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_ItemByName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: *mut ::core::ffi::c_void, pvarpropvalue: *const super::super::super::System::Com::VARIANT, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: *mut ::core::ffi::c_void, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: *mut ::core::ffi::c_void, pvarpropvalue: *const ::windows::core::VARIANT, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateProperty: usize,
     pub DeleteProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InitializeFromProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    InitializeFromProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAllProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetAllProperties: usize,
+    pub InitializeFromProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetAllProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -16003,9 +15776,7 @@ pub struct IX509CertificateRevocationListEntry_Vtbl {
 pub struct IX509CertificateTemplate(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateTemplate {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Property)(::windows::core::Vtable::as_raw(self), property, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -16045,10 +15816,7 @@ unsafe impl ::windows::core::Interface for IX509CertificateTemplate {
 #[doc(hidden)]
 pub struct IX509CertificateTemplate_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_Property: usize,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -16067,16 +15835,12 @@ impl IX509CertificateTemplateWritable {
     pub unsafe fn Commit(&self, commitflags: CommitTemplateFlags, strservercontext: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), commitflags, ::core::mem::transmute_copy(strservercontext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Property)(::windows::core::Vtable::as_raw(self), property, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn put_Property(&self, property: EnrollmentTemplateProperty, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).put_Property)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute(value)).ok()
+    pub unsafe fn put_Property(&self, property: EnrollmentTemplateProperty, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).put_Property)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute_copy(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16125,14 +15889,8 @@ pub struct IX509CertificateTemplateWritable_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Initialize: usize,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commitflags: CommitTemplateFlags, strservercontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_Property: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub put_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, value: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    put_Property: usize,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub put_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, value: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Template: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -16900,14 +16658,10 @@ impl IX509EnrollmentPolicyServer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).QueryChanges)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InitializeImport(&self, val: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeImport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(val)).ok()
+    pub unsafe fn InitializeImport(&self, val: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).InitializeImport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(val)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn Export(&self, exportflags: X509EnrollmentPolicyExportFlags) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Export)(::windows::core::Vtable::as_raw(self), exportflags, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -17001,14 +16755,8 @@ pub struct IX509EnrollmentPolicyServer_Vtbl {
     pub QueryChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     QueryChanges: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InitializeImport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    InitializeImport: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, exportflags: X509EnrollmentPolicyExportFlags, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Export: usize,
+    pub InitializeImport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, exportflags: X509EnrollmentPolicyExportFlags, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Cost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut u32) -> ::windows::core::HRESULT,
     pub SetCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
 }

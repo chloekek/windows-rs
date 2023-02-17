@@ -7,10 +7,8 @@ impl IMXAttributes {
     pub unsafe fn addAttribute(&self, struri: &::windows::core::BSTR, strlocalname: &::windows::core::BSTR, strqname: &::windows::core::BSTR, strtype: &::windows::core::BSTR, strvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).addAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(struri), ::core::mem::transmute_copy(strlocalname), ::core::mem::transmute_copy(strqname), ::core::mem::transmute_copy(strtype), ::core::mem::transmute_copy(strvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn addAttributeFromIndex(&self, varatts: super::super::super::System::Com::VARIANT, nindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).addAttributeFromIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varatts), nindex).ok()
+    pub unsafe fn addAttributeFromIndex(&self, varatts: &::windows::core::VARIANT, nindex: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).addAttributeFromIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varatts), nindex).ok()
     }
     pub unsafe fn clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -21,10 +19,8 @@ impl IMXAttributes {
     pub unsafe fn setAttribute(&self, nindex: i32, struri: &::windows::core::BSTR, strlocalname: &::windows::core::BSTR, strqname: &::windows::core::BSTR, strtype: &::windows::core::BSTR, strvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setAttribute)(::windows::core::Vtable::as_raw(self), nindex, ::core::mem::transmute_copy(struri), ::core::mem::transmute_copy(strlocalname), ::core::mem::transmute_copy(strqname), ::core::mem::transmute_copy(strtype), ::core::mem::transmute_copy(strvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttributes(&self, varatts: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setAttributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varatts)).ok()
+    pub unsafe fn setAttributes(&self, varatts: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setAttributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varatts)).ok()
     }
     pub unsafe fn setLocalName(&self, nindex: i32, strlocalname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setLocalName)(::windows::core::Vtable::as_raw(self), nindex, ::core::mem::transmute_copy(strlocalname)).ok()
@@ -78,17 +74,11 @@ unsafe impl ::windows::core::Interface for IMXAttributes {
 pub struct IMXAttributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub addAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, struri: *mut ::core::ffi::c_void, strlocalname: *mut ::core::ffi::c_void, strqname: *mut ::core::ffi::c_void, strtype: *mut ::core::ffi::c_void, strvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub addAttributeFromIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varatts: super::super::super::System::Com::VARIANT, nindex: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    addAttributeFromIndex: usize,
+    pub addAttributeFromIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varatts: ::windows::core::VARIANT, nindex: i32) -> ::windows::core::HRESULT,
     pub clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32) -> ::windows::core::HRESULT,
     pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, struri: *mut ::core::ffi::c_void, strlocalname: *mut ::core::ffi::c_void, strqname: *mut ::core::ffi::c_void, strtype: *mut ::core::ffi::c_void, strvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varatts: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setAttributes: usize,
+    pub setAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varatts: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub setLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strlocalname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub setQName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strqname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub setType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strtype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -381,14 +371,10 @@ pub struct IMXSchemaDeclHandler_Vtbl {
 pub struct IMXWriter(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXWriter {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setoutput(&self, vardestination: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setoutput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vardestination)).ok()
+    pub unsafe fn Setoutput(&self, vardestination: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Setoutput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vardestination)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn output(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn output(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).output)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -515,14 +501,8 @@ unsafe impl ::windows::core::Interface for IMXWriter {
 #[doc(hidden)]
 pub struct IMXWriter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Setoutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestination: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Setoutput: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestination: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    output: usize,
+    pub Setoutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestination: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardestination: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Setencoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoding: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub encoding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoding: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -589,16 +569,12 @@ impl IMXXMLFilter {
     {
         (::windows::core::Vtable::vtable(self).putFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), fvalue.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty(&self, strname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getProperty(&self, strname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putProperty(&self, strname: &::windows::core::BSTR, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), ::core::mem::transmute(varvalue)).ok()
+    pub unsafe fn putProperty(&self, strname: &::windows::core::BSTR, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), ::core::mem::transmute_copy(varvalue)).ok()
     }
     pub unsafe fn entityResolver(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -684,14 +660,8 @@ pub struct IMXXMLFilter_Vtbl {
     pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     putFeature: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    putProperty: usize,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub entityResolver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub putref_entityResolver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oresolver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub contentHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1046,9 +1016,7 @@ pub struct ISAXDeclHandler_Vtbl {
 #[repr(transparent)]
 pub struct ISAXEntityResolver(::windows::core::IUnknown);
 impl ISAXEntityResolver {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn resolveEntity<P0, P1>(&self, pwchpublicid: P0, pwchsystemid: P1) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
+    pub unsafe fn resolveEntity<P0, P1>(&self, pwchpublicid: P0, pwchsystemid: P1) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
@@ -1084,10 +1052,7 @@ unsafe impl ::windows::core::Interface for ISAXEntityResolver {
 #[doc(hidden)]
 pub struct ISAXEntityResolver_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchpublicid: ::windows::core::PCWSTR, pwchsystemid: ::windows::core::PCWSTR, pvarinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    resolveEntity: usize,
+    pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchpublicid: ::windows::core::PCWSTR, pwchsystemid: ::windows::core::PCWSTR, pvarinput: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
@@ -1296,22 +1261,18 @@ impl ISAXXMLFilter {
     {
         (::windows::core::Vtable::vtable(self).base__.putFeature)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), vfvalue.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
+    pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.getProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), ::core::mem::transmute(varvalue)).ok()
+        (::windows::core::Vtable::vtable(self).base__.putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), ::core::mem::transmute_copy(varvalue)).ok()
     }
     pub unsafe fn getEntityResolver(&self) -> ::windows::core::Result<ISAXEntityResolver> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1373,10 +1334,8 @@ impl ISAXXMLFilter {
     {
         (::windows::core::Vtable::vtable(self).base__.putSecureBaseURL)(::windows::core::Vtable::as_raw(self), pwchsecurebaseurl.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn parse(&self, varinput: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.parse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varinput)).ok()
+    pub unsafe fn parse(&self, varinput: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.parse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varinput)).ok()
     }
     pub unsafe fn parseURL<P0>(&self, pwchurl: P0) -> ::windows::core::Result<()>
     where
@@ -1447,22 +1406,18 @@ impl ISAXXMLReader {
     {
         (::windows::core::Vtable::vtable(self).putFeature)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), vfvalue.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
+    pub unsafe fn getProperty<P0>(&self, pwchname: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn putProperty<P0>(&self, pwchname: P0, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), ::core::mem::transmute(varvalue)).ok()
+        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), pwchname.into().abi(), ::core::mem::transmute_copy(varvalue)).ok()
     }
     pub unsafe fn getEntityResolver(&self) -> ::windows::core::Result<ISAXEntityResolver> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1524,10 +1479,8 @@ impl ISAXXMLReader {
     {
         (::windows::core::Vtable::vtable(self).putSecureBaseURL)(::windows::core::Vtable::as_raw(self), pwchsecurebaseurl.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn parse(&self, varinput: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).parse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varinput)).ok()
+    pub unsafe fn parse(&self, varinput: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).parse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varinput)).ok()
     }
     pub unsafe fn parseURL<P0>(&self, pwchurl: P0) -> ::windows::core::Result<()>
     where
@@ -1571,14 +1524,8 @@ pub struct ISAXXMLReader_Vtbl {
     pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     putFeature: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    putProperty: usize,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: ::windows::core::PCWSTR, varvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub getEntityResolver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub putEntityResolver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presolver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub getContentHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1591,10 +1538,7 @@ pub struct ISAXXMLReader_Vtbl {
     pub putBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchbaseurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub getSecureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwchsecurebaseurl: *mut *mut u16) -> ::windows::core::HRESULT,
     pub putSecureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchsecurebaseurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinput: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    parse: usize,
+    pub parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinput: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub parseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -1800,15 +1744,11 @@ impl ISchemaAny {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.writeAnnotation)(::windows::core::Vtable::as_raw(self), annotationsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.minOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.maxOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -2172,33 +2112,23 @@ impl ISchemaComplexType {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.maxInclusive)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn totalDigits(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn totalDigits(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.totalDigits)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn fractionDigits(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn fractionDigits(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.fractionDigits)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn length(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn length(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.length)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn minLength(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn minLength(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.minLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn maxLength(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn maxLength(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.maxLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -2348,15 +2278,11 @@ impl ISchemaElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.writeAnnotation)(::windows::core::Vtable::as_raw(self), annotationsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.minOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.maxOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -2814,15 +2740,11 @@ impl ISchemaModelGroup {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.writeAnnotation)(::windows::core::Vtable::as_raw(self), annotationsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.minOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.maxOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3006,15 +2928,11 @@ impl ISchemaParticle {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.writeAnnotation)(::windows::core::Vtable::as_raw(self), annotationsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn minOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).minOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn maxOccurs(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).maxOccurs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3054,14 +2972,8 @@ unsafe impl ::windows::core::Interface for ISchemaParticle {
 #[doc(hidden)]
 pub struct ISchemaParticle_Vtbl {
     pub base__: ISchemaItem_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub minOccurs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    minOccurs: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub maxOccurs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    maxOccurs: usize,
+    pub minOccurs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minoccurs: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub maxOccurs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxoccurs: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3204,33 +3116,23 @@ impl ISchemaType {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).maxInclusive)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn totalDigits(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn totalDigits(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).totalDigits)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn fractionDigits(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn fractionDigits(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).fractionDigits)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn length(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn length(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).length)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn minLength(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn minLength(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).minLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn maxLength(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn maxLength(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).maxLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3301,26 +3203,11 @@ pub struct ISchemaType_Vtbl {
     pub minInclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mininclusive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub maxExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxexclusive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub maxInclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxinclusive: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub totalDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, totaldigits: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    totalDigits: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fractionDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fractiondigits: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    fractionDigits: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    length: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub minLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minlength: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    minLength: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub maxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxlength: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    maxLength: usize,
+    pub totalDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, totaldigits: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub fractionDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fractiondigits: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub minLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minlength: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub maxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxlength: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub enumeration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumeration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3337,10 +3224,8 @@ pub struct ISchemaType_Vtbl {
 pub struct IServerXMLHTTPRequest(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IServerXMLHTTPRequest {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute(varasync), ::core::mem::transmute(bstruser), ::core::mem::transmute(bstrpassword)).ok()
+    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: &::windows::core::VARIANT, bstruser: &::windows::core::VARIANT, bstrpassword: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute_copy(varasync), ::core::mem::transmute_copy(bstruser), ::core::mem::transmute_copy(bstrpassword)).ok()
     }
     pub unsafe fn setRequestHeader(&self, bstrheader: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.setRequestHeader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrheader), ::core::mem::transmute_copy(bstrvalue)).ok()
@@ -3353,10 +3238,8 @@ impl IServerXMLHTTPRequest {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.getAllResponseHeaders)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn send(&self, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn send(&self, varbody: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varbody)).ok()
     }
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.abort)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3379,15 +3262,11 @@ impl IServerXMLHTTPRequest {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.responseText)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseBody(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseBody(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.responseBody)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseStream(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseStream(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.responseStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3406,22 +3285,18 @@ impl IServerXMLHTTPRequest {
     pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setTimeouts)(::windows::core::Vtable::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn waitForResponse(&self, timeoutinseconds: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn waitForResponse(&self, timeoutinseconds: &::windows::core::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).waitForResponse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(timeoutinseconds), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).waitForResponse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(timeoutinseconds), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getOption)(::windows::core::Vtable::as_raw(self), option, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setOption)(::windows::core::Vtable::as_raw(self), option, ::core::mem::transmute(value)).ok()
+    pub unsafe fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setOption)(::windows::core::Vtable::as_raw(self), option, ::core::mem::transmute_copy(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3460,18 +3335,12 @@ unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest {
 pub struct IServerXMLHTTPRequest_Vtbl {
     pub base__: IXMLHTTPRequest_Vtbl,
     pub setTimeouts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub waitForResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutinseconds: super::super::super::System::Com::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub waitForResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutinseconds: ::windows::core::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     waitForResponse: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getOption: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setOption: usize,
+    pub getOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub setOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3479,10 +3348,8 @@ pub struct IServerXMLHTTPRequest_Vtbl {
 pub struct IServerXMLHTTPRequest2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IServerXMLHTTPRequest2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute(varasync), ::core::mem::transmute(bstruser), ::core::mem::transmute(bstrpassword)).ok()
+    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: &::windows::core::VARIANT, bstruser: &::windows::core::VARIANT, bstrpassword: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute_copy(varasync), ::core::mem::transmute_copy(bstruser), ::core::mem::transmute_copy(bstrpassword)).ok()
     }
     pub unsafe fn setRequestHeader(&self, bstrheader: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.setRequestHeader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrheader), ::core::mem::transmute_copy(bstrvalue)).ok()
@@ -3495,10 +3362,8 @@ impl IServerXMLHTTPRequest2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.getAllResponseHeaders)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn send(&self, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn send(&self, varbody: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varbody)).ok()
     }
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.abort)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3521,15 +3386,11 @@ impl IServerXMLHTTPRequest2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.responseText)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseBody(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseBody(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.responseBody)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseStream(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseStream(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.responseStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3548,27 +3409,21 @@ impl IServerXMLHTTPRequest2 {
     pub unsafe fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.setTimeouts)(::windows::core::Vtable::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn waitForResponse(&self, timeoutinseconds: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn waitForResponse(&self, timeoutinseconds: &::windows::core::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.waitForResponse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(timeoutinseconds), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.waitForResponse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(timeoutinseconds), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.getOption)(::windows::core::Vtable::as_raw(self), option, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.setOption)(::windows::core::Vtable::as_raw(self), option, ::core::mem::transmute(value)).ok()
+    pub unsafe fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.setOption)(::windows::core::Vtable::as_raw(self), option, ::core::mem::transmute_copy(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setProxy(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::super::super::System::Com::VARIANT, varbypasslist: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setProxy)(::windows::core::Vtable::as_raw(self), proxysetting, ::core::mem::transmute(varproxyserver), ::core::mem::transmute(varbypasslist)).ok()
+    pub unsafe fn setProxy(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: &::windows::core::VARIANT, varbypasslist: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setProxy)(::windows::core::Vtable::as_raw(self), proxysetting, ::core::mem::transmute_copy(varproxyserver), ::core::mem::transmute_copy(varbypasslist)).ok()
     }
     pub unsafe fn setProxyCredentials(&self, bstrusername: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setProxyCredentials)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername), ::core::mem::transmute_copy(bstrpassword)).ok()
@@ -3609,10 +3464,7 @@ unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest2 {
 #[doc(hidden)]
 pub struct IServerXMLHTTPRequest2_Vtbl {
     pub base__: IServerXMLHTTPRequest_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::super::super::System::Com::VARIANT, varbypasslist: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setProxy: usize,
+    pub setProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: ::windows::core::VARIANT, varbypasslist: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub setProxyCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -3668,15 +3520,13 @@ impl IVBMXNamespaceManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getPrefixes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(namespaceuri), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getURI(&self, prefix: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getURI(&self, prefix: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getURI)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(prefix), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getURIFromNode<P0>(&self, strprefix: &::windows::core::BSTR, contextnode: P0) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn getURIFromNode<P0>(&self, strprefix: &::windows::core::BSTR, contextnode: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
@@ -3743,13 +3593,10 @@ pub struct IVBMXNamespaceManager_Vtbl {
     pub getPrefixes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, prefixes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getPrefixes: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: *mut ::core::ffi::c_void, uri: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getURI: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getURIFromNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: *mut ::core::ffi::c_void, contextnode: *mut ::core::ffi::c_void, uri: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    pub getURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: *mut ::core::ffi::c_void, uri: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub getURIFromNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: *mut ::core::ffi::c_void, contextnode: *mut ::core::ffi::c_void, uri: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     getURIFromNode: usize,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -4074,10 +3921,8 @@ pub struct IVBSAXDeclHandler_Vtbl {
 pub struct IVBSAXEntityResolver(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXEntityResolver {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn resolveEntity(&self, strpublicid: *mut ::windows::core::BSTR, strsystemid: *mut ::windows::core::BSTR, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).resolveEntity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(strpublicid), ::core::mem::transmute(strsystemid), varinput).ok()
+    pub unsafe fn resolveEntity(&self, strpublicid: *mut ::windows::core::BSTR, strsystemid: *mut ::windows::core::BSTR, varinput: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).resolveEntity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(strpublicid), ::core::mem::transmute(strsystemid), ::core::mem::transmute(varinput)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4115,10 +3960,7 @@ unsafe impl ::windows::core::Interface for IVBSAXEntityResolver {
 #[doc(hidden)]
 pub struct IVBSAXEntityResolver_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    resolveEntity: usize,
+    pub resolveEntity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut *mut ::core::ffi::c_void, strsystemid: *mut *mut ::core::ffi::c_void, varinput: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4418,16 +4260,12 @@ impl IVBSAXXMLReader {
     {
         (::windows::core::Vtable::vtable(self).putFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), fvalue.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty(&self, strname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getProperty(&self, strname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putProperty(&self, strname: &::windows::core::BSTR, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), ::core::mem::transmute(varvalue)).ok()
+    pub unsafe fn putProperty(&self, strname: &::windows::core::BSTR, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).putProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strname), ::core::mem::transmute_copy(varvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4499,10 +4337,8 @@ impl IVBSAXXMLReader {
     pub unsafe fn SetsecureBaseURL(&self, strsecurebaseurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetsecureBaseURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strsecurebaseurl)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn parse(&self, varinput: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).parse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varinput)).ok()
+    pub unsafe fn parse(&self, varinput: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).parse)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varinput)).ok()
     }
     pub unsafe fn parseURL(&self, strurl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).parseURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strurl)).ok()
@@ -4551,14 +4387,8 @@ pub struct IVBSAXXMLReader_Vtbl {
     pub putFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     putFeature: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    putProperty: usize,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut ::core::ffi::c_void, varvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub entityResolver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oresolver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4595,10 +4425,7 @@ pub struct IVBSAXXMLReader_Vtbl {
     pub SetbaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strbaseurl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub secureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsecurebaseurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetsecureBaseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsecurebaseurl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinput: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    parse: usize,
+    pub parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinput: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub parseURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strurl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -4663,15 +4490,11 @@ impl IXMLDOMAttribute {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -4718,14 +4541,14 @@ impl IXMLDOMAttribute {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4795,20 +4618,14 @@ impl IXMLDOMAttribute {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -4850,26 +4667,22 @@ impl IXMLDOMAttribute {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn name(&self, attributename: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(attributename)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn value(&self, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).value)(::windows::core::Vtable::as_raw(self), attributevalue).ok()
+    pub unsafe fn value(&self, attributevalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).value)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(attributevalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setvalue(&self, attributevalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setvalue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(attributevalue)).ok()
+    pub unsafe fn Setvalue(&self, attributevalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Setvalue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(attributevalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4908,14 +4721,8 @@ unsafe impl ::windows::core::Interface for IXMLDOMAttribute {
 pub struct IXMLDOMAttribute_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributevalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    value: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Setvalue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributevalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Setvalue: usize,
+    pub value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributevalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Setvalue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributevalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4926,15 +4733,11 @@ impl IXMLDOMCDATASection {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -4981,14 +4784,14 @@ impl IXMLDOMCDATASection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5058,20 +4861,14 @@ impl IXMLDOMCDATASection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -5113,13 +4910,13 @@ impl IXMLDOMCDATASection {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn data(&self, data: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.data)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data)).ok()
@@ -5197,15 +4994,11 @@ impl IXMLDOMCharacterData {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -5252,14 +5045,14 @@ impl IXMLDOMCharacterData {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5329,20 +5122,14 @@ impl IXMLDOMCharacterData {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -5384,13 +5171,13 @@ impl IXMLDOMCharacterData {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn data(&self, data: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).data)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data)).ok()
@@ -5470,15 +5257,11 @@ impl IXMLDOMComment {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -5525,14 +5308,14 @@ impl IXMLDOMComment {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5602,20 +5385,14 @@ impl IXMLDOMComment {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -5657,13 +5434,13 @@ impl IXMLDOMComment {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn data(&self, data: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.data)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data)).ok()
@@ -5735,15 +5512,11 @@ impl IXMLDOMDocument {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -5790,14 +5563,14 @@ impl IXMLDOMDocument {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5867,20 +5640,14 @@ impl IXMLDOMDocument {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -5922,13 +5689,13 @@ impl IXMLDOMDocument {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6010,11 +5777,11 @@ impl IXMLDOMDocument {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getElementsByTagName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(tagname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn createNode(&self, r#type: super::super::super::System::Com::VARIANT, name: &::windows::core::BSTR, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IXMLDOMNode> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn createNode(&self, r#type: &::windows::core::VARIANT, name: &::windows::core::BSTR, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).createNode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(namespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).createNode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(namespaceuri), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6022,10 +5789,10 @@ impl IXMLDOMDocument {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).nodeFromID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(idstring), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn load(&self, xmlsource: super::super::super::System::Com::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(xmlsource), issuccessful).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn load(&self, xmlsource: &::windows::core::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(xmlsource), issuccessful).ok()
     }
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).readyState)(::windows::core::Vtable::as_raw(self), value).ok()
@@ -6060,10 +5827,8 @@ impl IXMLDOMDocument {
     pub unsafe fn loadXML(&self, bstrxml: &::windows::core::BSTR, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).loadXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxml), issuccessful).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn save(&self, destination: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(destination)).ok()
+    pub unsafe fn save(&self, destination: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(destination)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6104,20 +5869,14 @@ impl IXMLDOMDocument {
     {
         (::windows::core::Vtable::vtable(self).SetpreserveWhiteSpace)(::windows::core::Vtable::as_raw(self), ispreserving.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setonreadystatechange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(readystatechangesink)).ok()
+    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Setonreadystatechange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(readystatechangesink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setondataavailable(&self, ondataavailablesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setondataavailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ondataavailablesink)).ok()
+    pub unsafe fn Setondataavailable(&self, ondataavailablesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Setondataavailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(ondataavailablesink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setontransformnode(&self, ontransformnodesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setontransformnode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ontransformnodesink)).ok()
+    pub unsafe fn Setontransformnode(&self, ontransformnodesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Setontransformnode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(ontransformnodesink)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6207,17 +5966,17 @@ pub struct IXMLDOMDocument_Vtbl {
     pub getElementsByTagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut ::core::ffi::c_void, resultlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     getElementsByTagName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub createNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: super::super::super::System::Com::VARIANT, name: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, node: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub createNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::windows::core::VARIANT, name: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, node: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     createNode: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub nodeFromID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idstring: *mut ::core::ffi::c_void, node: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     nodeFromID: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlsource: super::super::super::System::Com::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlsource: ::windows::core::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     load: usize,
     pub readyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -6238,10 +5997,7 @@ pub struct IXMLDOMDocument_Vtbl {
     pub loadXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     loadXML: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destination: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    save: usize,
+    pub save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destination: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub validateOnParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isvalidating: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6266,18 +6022,9 @@ pub struct IXMLDOMDocument_Vtbl {
     pub SetpreserveWhiteSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ispreserving: super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetpreserveWhiteSpace: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Setonreadystatechange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, readystatechangesink: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Setonreadystatechange: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Setondataavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ondataavailablesink: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Setondataavailable: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Setontransformnode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ontransformnodesink: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Setontransformnode: usize,
+    pub Setonreadystatechange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, readystatechangesink: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Setondataavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ondataavailablesink: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Setontransformnode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ontransformnodesink: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6288,15 +6035,11 @@ impl IXMLDOMDocument2 {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -6343,14 +6086,14 @@ impl IXMLDOMDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6420,20 +6163,14 @@ impl IXMLDOMDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -6475,13 +6212,13 @@ impl IXMLDOMDocument2 {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6563,11 +6300,11 @@ impl IXMLDOMDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.getElementsByTagName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(tagname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn createNode(&self, r#type: super::super::super::System::Com::VARIANT, name: &::windows::core::BSTR, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IXMLDOMNode> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn createNode(&self, r#type: &::windows::core::VARIANT, name: &::windows::core::BSTR, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.createNode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(namespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.createNode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(namespaceuri), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6575,10 +6312,10 @@ impl IXMLDOMDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.nodeFromID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(idstring), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn load(&self, xmlsource: super::super::super::System::Com::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(xmlsource), issuccessful).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn load(&self, xmlsource: &::windows::core::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(xmlsource), issuccessful).ok()
     }
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.readyState)(::windows::core::Vtable::as_raw(self), value).ok()
@@ -6613,10 +6350,8 @@ impl IXMLDOMDocument2 {
     pub unsafe fn loadXML(&self, bstrxml: &::windows::core::BSTR, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.loadXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxml), issuccessful).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn save(&self, destination: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(destination)).ok()
+    pub unsafe fn save(&self, destination: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(destination)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6657,20 +6392,14 @@ impl IXMLDOMDocument2 {
     {
         (::windows::core::Vtable::vtable(self).base__.SetpreserveWhiteSpace)(::windows::core::Vtable::as_raw(self), ispreserving.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Setonreadystatechange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(readystatechangesink)).ok()
+    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Setonreadystatechange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(readystatechangesink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setondataavailable(&self, ondataavailablesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Setondataavailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ondataavailablesink)).ok()
+    pub unsafe fn Setondataavailable(&self, ondataavailablesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Setondataavailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(ondataavailablesink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setontransformnode(&self, ontransformnodesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Setontransformnode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ontransformnodesink)).ok()
+    pub unsafe fn Setontransformnode(&self, ontransformnodesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Setontransformnode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(ontransformnodesink)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6678,16 +6407,12 @@ impl IXMLDOMDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).namespaces)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn schemas(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn schemas(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).schemas)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_schemas(&self, othercollection: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).putref_schemas)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(othercollection)).ok()
+    pub unsafe fn putref_schemas(&self, othercollection: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).putref_schemas)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(othercollection)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6695,14 +6420,10 @@ impl IXMLDOMDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).validate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setProperty(&self, name: &::windows::core::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn setProperty(&self, name: &::windows::core::BSTR, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getProperty(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6746,26 +6467,14 @@ pub struct IXMLDOMDocument2_Vtbl {
     pub namespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespacecollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     namespaces: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub schemas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, othercollection: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    schemas: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putref_schemas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, othercollection: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    putref_schemas: usize,
+    pub schemas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, othercollection: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub putref_schemas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, othercollection: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     validate: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getProperty: usize,
+    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6776,15 +6485,11 @@ impl IXMLDOMDocument3 {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -6831,14 +6536,14 @@ impl IXMLDOMDocument3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6908,20 +6613,14 @@ impl IXMLDOMDocument3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -6963,13 +6662,13 @@ impl IXMLDOMDocument3 {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7051,11 +6750,11 @@ impl IXMLDOMDocument3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.getElementsByTagName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(tagname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn createNode(&self, r#type: super::super::super::System::Com::VARIANT, name: &::windows::core::BSTR, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IXMLDOMNode> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn createNode(&self, r#type: &::windows::core::VARIANT, name: &::windows::core::BSTR, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IXMLDOMNode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.createNode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(namespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.createNode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(r#type), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(namespaceuri), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7063,10 +6762,10 @@ impl IXMLDOMDocument3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.nodeFromID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(idstring), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn load(&self, xmlsource: super::super::super::System::Com::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(xmlsource), issuccessful).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn load(&self, xmlsource: &::windows::core::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(xmlsource), issuccessful).ok()
     }
     pub unsafe fn readyState(&self, value: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.readyState)(::windows::core::Vtable::as_raw(self), value).ok()
@@ -7101,10 +6800,8 @@ impl IXMLDOMDocument3 {
     pub unsafe fn loadXML(&self, bstrxml: &::windows::core::BSTR, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.loadXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxml), issuccessful).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn save(&self, destination: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(destination)).ok()
+    pub unsafe fn save(&self, destination: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.save)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(destination)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7145,20 +6842,14 @@ impl IXMLDOMDocument3 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetpreserveWhiteSpace)(::windows::core::Vtable::as_raw(self), ispreserving.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Setonreadystatechange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(readystatechangesink)).ok()
+    pub unsafe fn Setonreadystatechange(&self, readystatechangesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.Setonreadystatechange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(readystatechangesink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setondataavailable(&self, ondataavailablesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Setondataavailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ondataavailablesink)).ok()
+    pub unsafe fn Setondataavailable(&self, ondataavailablesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.Setondataavailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(ondataavailablesink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setontransformnode(&self, ontransformnodesink: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.Setontransformnode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ontransformnodesink)).ok()
+    pub unsafe fn Setontransformnode(&self, ontransformnodesink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.Setontransformnode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(ontransformnodesink)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7166,16 +6857,12 @@ impl IXMLDOMDocument3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.namespaces)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn schemas(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn schemas(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.schemas)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_schemas(&self, othercollection: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.putref_schemas)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(othercollection)).ok()
+    pub unsafe fn putref_schemas(&self, othercollection: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.putref_schemas)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(othercollection)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7183,14 +6870,10 @@ impl IXMLDOMDocument3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.validate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setProperty(&self, name: &::windows::core::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.setProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn setProperty(&self, name: &::windows::core::BSTR, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.setProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getProperty(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.getProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7267,15 +6950,11 @@ impl IXMLDOMDocumentFragment {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -7322,14 +7001,14 @@ impl IXMLDOMDocumentFragment {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7399,20 +7078,14 @@ impl IXMLDOMDocumentFragment {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -7454,13 +7127,13 @@ impl IXMLDOMDocumentFragment {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7508,15 +7181,11 @@ impl IXMLDOMDocumentType {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -7563,14 +7232,14 @@ impl IXMLDOMDocumentType {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7640,20 +7309,14 @@ impl IXMLDOMDocumentType {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -7695,13 +7358,13 @@ impl IXMLDOMDocumentType {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn name(&self, rootname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).name)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rootname)).ok()
@@ -7773,15 +7436,11 @@ impl IXMLDOMElement {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -7828,14 +7487,14 @@ impl IXMLDOMElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7905,20 +7564,14 @@ impl IXMLDOMElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -7960,26 +7613,22 @@ impl IXMLDOMElement {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn tagName(&self, tagname: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).tagName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(tagname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getAttribute(&self, name: &::windows::core::BSTR, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), value).ok()
+    pub unsafe fn getAttribute(&self, name: &::windows::core::BSTR, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).getAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttribute(&self, name: &::windows::core::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn setAttribute(&self, name: &::windows::core::BSTR, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn removeAttribute(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).removeAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name)).ok()
@@ -8054,14 +7703,8 @@ unsafe impl ::windows::core::Interface for IXMLDOMElement {
 pub struct IXMLDOMElement_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub tagName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tagname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getAttribute: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setAttribute: usize,
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub getAttributeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, attributenode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -8090,15 +7733,11 @@ impl IXMLDOMEntity {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -8145,14 +7784,14 @@ impl IXMLDOMEntity {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8222,20 +7861,14 @@ impl IXMLDOMEntity {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -8277,23 +7910,19 @@ impl IXMLDOMEntity {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn publicId(&self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).publicId)(::windows::core::Vtable::as_raw(self), publicid).ok()
+    pub unsafe fn publicId(&self, publicid: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).publicId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(publicid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn systemId(&self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).systemId)(::windows::core::Vtable::as_raw(self), systemid).ok()
+    pub unsafe fn systemId(&self, systemid: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).systemId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(systemid)).ok()
     }
     pub unsafe fn notationName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).notationName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
@@ -8334,14 +7963,8 @@ unsafe impl ::windows::core::Interface for IXMLDOMEntity {
 #[doc(hidden)]
 pub struct IXMLDOMEntity_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    publicId: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub systemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    systemId: usize,
+    pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publicid: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub systemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemid: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub notationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -8353,15 +7976,11 @@ impl IXMLDOMEntityReference {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -8408,14 +8027,14 @@ impl IXMLDOMEntityReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8485,20 +8104,14 @@ impl IXMLDOMEntityReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -8540,13 +8153,13 @@ impl IXMLDOMEntityReference {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8775,15 +8388,11 @@ impl IXMLDOMNode {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -8830,14 +8439,14 @@ impl IXMLDOMNode {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8907,20 +8516,14 @@ impl IXMLDOMNode {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -8962,13 +8565,13 @@ impl IXMLDOMNode {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9007,14 +8610,8 @@ unsafe impl ::windows::core::Interface for IXMLDOMNode {
 pub struct IXMLDOMNode_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub nodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub nodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    nodeValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetnodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetnodeValue: usize,
+    pub nodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetnodeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub nodeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut DOMNodeType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub parentNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9044,9 +8641,9 @@ pub struct IXMLDOMNode_Vtbl {
     pub attributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributemap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     attributes: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub insertBefore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, refchild: super::super::super::System::Com::VARIANT, outnewchild: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub insertBefore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, refchild: ::windows::core::VARIANT, outnewchild: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     insertBefore: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub replaceChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, oldchild: *mut ::core::ffi::c_void, outoldchild: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9083,18 +8680,9 @@ pub struct IXMLDOMNode_Vtbl {
     pub definition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, definitionnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     definition: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub nodeTypedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    nodeTypedValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetnodeTypedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetnodeTypedValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub dataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    dataType: usize,
+    pub nodeTypedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetnodeTypedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typedvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub dataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SetdataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datatypename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub xml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -9116,9 +8704,9 @@ pub struct IXMLDOMNode_Vtbl {
     pub namespaceURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub prefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefixstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub baseName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namestring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub transformNodeToObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: *mut ::core::ffi::c_void, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub transformNodeToObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: *mut ::core::ffi::c_void, outputobject: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     transformNodeToObject: usize,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -9206,15 +8794,11 @@ impl IXMLDOMNotation {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -9261,14 +8845,14 @@ impl IXMLDOMNotation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9338,20 +8922,14 @@ impl IXMLDOMNotation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -9393,23 +8971,19 @@ impl IXMLDOMNotation {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn publicId(&self, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).publicId)(::windows::core::Vtable::as_raw(self), publicid).ok()
+    pub unsafe fn publicId(&self, publicid: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).publicId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(publicid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn systemId(&self, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).systemId)(::windows::core::Vtable::as_raw(self), systemid).ok()
+    pub unsafe fn systemId(&self, systemid: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).systemId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(systemid)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9447,14 +9021,8 @@ unsafe impl ::windows::core::Interface for IXMLDOMNotation {
 #[doc(hidden)]
 pub struct IXMLDOMNotation_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publicid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    publicId: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub systemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    systemId: usize,
+    pub publicId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publicid: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub systemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemid: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9702,15 +9270,11 @@ impl IXMLDOMProcessingInstruction {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -9757,14 +9321,14 @@ impl IXMLDOMProcessingInstruction {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9834,20 +9398,14 @@ impl IXMLDOMProcessingInstruction {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -9889,13 +9447,13 @@ impl IXMLDOMProcessingInstruction {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn target(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).target)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
@@ -9952,10 +9510,8 @@ pub struct IXMLDOMProcessingInstruction_Vtbl {
 pub struct IXMLDOMSchemaCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMSchemaCollection {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn add(&self, namespaceuri: &::windows::core::BSTR, var: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(namespaceuri), ::core::mem::transmute(var)).ok()
+    pub unsafe fn add(&self, namespaceuri: &::windows::core::BSTR, var: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(namespaceuri), ::core::mem::transmute_copy(var)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10022,10 +9578,7 @@ unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection {
 #[doc(hidden)]
 pub struct IXMLDOMSchemaCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, var: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    add: usize,
+    pub add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, var: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, schemanode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -10045,10 +9598,8 @@ pub struct IXMLDOMSchemaCollection_Vtbl {
 pub struct IXMLDOMSchemaCollection2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMSchemaCollection2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn add(&self, namespaceuri: &::windows::core::BSTR, var: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(namespaceuri), ::core::mem::transmute(var)).ok()
+    pub unsafe fn add(&self, namespaceuri: &::windows::core::BSTR, var: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(namespaceuri), ::core::mem::transmute_copy(var)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10244,16 +9795,12 @@ impl IXMLDOMSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getProperty(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getProperty(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setProperty(&self, name: &::windows::core::BSTR, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute(value)).ok()
+    pub unsafe fn setProperty(&self, name: &::windows::core::BSTR, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10318,14 +9865,8 @@ pub struct IXMLDOMSelection_Vtbl {
     pub clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     clone: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setProperty: usize,
+    pub getProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub setProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, value: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -10336,15 +9877,11 @@ impl IXMLDOMText {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -10391,14 +9928,14 @@ impl IXMLDOMText {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10468,20 +10005,14 @@ impl IXMLDOMText {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -10523,13 +10054,13 @@ impl IXMLDOMText {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     pub unsafe fn data(&self, data: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.data)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data)).ok()
@@ -10750,11 +10281,11 @@ impl IXMLDocument {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).dtdURL)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn createElement(&self, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLElement> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn createElement(&self, vtype: &::windows::core::VARIANT, var1: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLElement> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).createElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vtype), ::core::mem::transmute(var1), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).createElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vtype), ::core::mem::transmute_copy(var1), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10808,9 +10339,9 @@ pub struct IXMLDocument_Vtbl {
     pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub dtdURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT, ppelem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtype: ::windows::core::VARIANT, var1: ::windows::core::VARIANT, ppelem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     createElement: usize,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -10871,11 +10402,11 @@ impl IXMLDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).dtdURL)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn createElement(&self, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLElement2> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn createElement(&self, vtype: &::windows::core::VARIANT, var1: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLElement2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).createElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vtype), ::core::mem::transmute(var1), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).createElement)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vtype), ::core::mem::transmute_copy(var1), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10943,9 +10474,9 @@ pub struct IXMLDocument2_Vtbl {
     pub version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub doctype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub dtdURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT, ppelem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub createElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtype: ::windows::core::VARIANT, var1: ::windows::core::VARIANT, ppelem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     createElement: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub r#async: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
@@ -10975,14 +10506,10 @@ impl IXMLElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).parent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttribute(&self, strpropertyname: &::windows::core::BSTR, propertyvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), ::core::mem::transmute(propertyvalue)).ok()
+    pub unsafe fn setAttribute(&self, strpropertyname: &::windows::core::BSTR, propertyvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), ::core::mem::transmute_copy(propertyvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getAttribute(&self, strpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getAttribute(&self, strpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -11064,14 +10591,8 @@ pub struct IXMLElement_Vtbl {
     pub parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     parent: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setAttribute: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getAttribute: usize,
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11108,14 +10629,10 @@ impl IXMLElement2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).parent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttribute(&self, strpropertyname: &::windows::core::BSTR, propertyvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).setAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), ::core::mem::transmute(propertyvalue)).ok()
+    pub unsafe fn setAttribute(&self, strpropertyname: &::windows::core::BSTR, propertyvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).setAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), ::core::mem::transmute_copy(propertyvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getAttribute(&self, strpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn getAttribute(&self, strpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getAttribute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strpropertyname), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -11203,14 +10720,8 @@ pub struct IXMLElement2_Vtbl {
     pub parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     parent: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    setAttribute: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getAttribute: usize,
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11249,11 +10760,11 @@ impl IXMLElementCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._newEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn item(&self, var1: super::super::super::System::Com::VARIANT, var2: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::IDispatch> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn item(&self, var1: &::windows::core::VARIANT, var2: &::windows::core::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(var1), ::core::mem::transmute(var2), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(var1), ::core::mem::transmute_copy(var2), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11294,9 +10805,9 @@ pub struct IXMLElementCollection_Vtbl {
     pub Setlength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: i32) -> ::windows::core::HRESULT,
     pub length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut i32) -> ::windows::core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var1: super::super::super::System::Com::VARIANT, var2: super::super::super::System::Com::VARIANT, ppdisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var1: ::windows::core::VARIANT, var2: ::windows::core::VARIANT, ppdisp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     item: usize,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
@@ -11342,10 +10853,8 @@ pub struct IXMLError_Vtbl {
 pub struct IXMLHTTPRequest(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute(varasync), ::core::mem::transmute(bstruser), ::core::mem::transmute(bstrpassword)).ok()
+    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: &::windows::core::VARIANT, bstruser: &::windows::core::VARIANT, bstrpassword: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute_copy(varasync), ::core::mem::transmute_copy(bstruser), ::core::mem::transmute_copy(bstrpassword)).ok()
     }
     pub unsafe fn setRequestHeader(&self, bstrheader: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setRequestHeader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrheader), ::core::mem::transmute_copy(bstrvalue)).ok()
@@ -11358,10 +10867,8 @@ impl IXMLHTTPRequest {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getAllResponseHeaders)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn send(&self, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn send(&self, varbody: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varbody)).ok()
     }
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).abort)(::windows::core::Vtable::as_raw(self)).ok()
@@ -11384,15 +10891,11 @@ impl IXMLHTTPRequest {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).responseText)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseBody(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseBody(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).responseBody)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseStream(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseStream(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).responseStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -11444,17 +10947,11 @@ unsafe impl ::windows::core::Interface for IXMLHTTPRequest {
 #[doc(hidden)]
 pub struct IXMLHTTPRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    open: usize,
+    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, varasync: ::windows::core::VARIANT, bstruser: ::windows::core::VARIANT, bstrpassword: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub setRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub getResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub getAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrheaders: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    send: usize,
+    pub send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT,
     pub statusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11463,14 +10960,8 @@ pub struct IXMLHTTPRequest_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     responseXML: usize,
     pub responseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbody: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub responseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    responseBody: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub responseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    responseStream: usize,
+    pub responseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub responseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub readyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Setonreadystatechange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preadystatesink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -11879,10 +11370,8 @@ pub struct IXMLHTTPRequest3Callback_Vtbl {
 pub struct IXMLHttpRequest(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHttpRequest {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute(varasync), ::core::mem::transmute(bstruser), ::core::mem::transmute(bstrpassword)).ok()
+    pub unsafe fn open(&self, bstrmethod: &::windows::core::BSTR, bstrurl: &::windows::core::BSTR, varasync: &::windows::core::VARIANT, bstruser: &::windows::core::VARIANT, bstrpassword: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).open)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrmethod), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute_copy(varasync), ::core::mem::transmute_copy(bstruser), ::core::mem::transmute_copy(bstrpassword)).ok()
     }
     pub unsafe fn setRequestHeader(&self, bstrheader: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).setRequestHeader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrheader), ::core::mem::transmute_copy(bstrvalue)).ok()
@@ -11895,10 +11384,8 @@ impl IXMLHttpRequest {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).getAllResponseHeaders)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn send(&self, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varbody)).ok()
+    pub unsafe fn send(&self, varbody: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).send)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varbody)).ok()
     }
     pub unsafe fn abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).abort)(::windows::core::Vtable::as_raw(self)).ok()
@@ -11921,15 +11408,11 @@ impl IXMLHttpRequest {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).responseText)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseBody(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseBody(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).responseBody)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn responseStream(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn responseStream(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).responseStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -11981,17 +11464,11 @@ unsafe impl ::windows::core::Interface for IXMLHttpRequest {
 #[doc(hidden)]
 pub struct IXMLHttpRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, varasync: super::super::super::System::Com::VARIANT, bstruser: super::super::super::System::Com::VARIANT, bstrpassword: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    open: usize,
+    pub open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmethod: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, varasync: ::windows::core::VARIANT, bstruser: ::windows::core::VARIANT, bstrpassword: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub setRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub getResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub getAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrheaders: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    send: usize,
+    pub send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varbody: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatus: *mut i32) -> ::windows::core::HRESULT,
     pub statusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12000,14 +11477,8 @@ pub struct IXMLHttpRequest_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     responseXML: usize,
     pub responseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbody: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub responseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    responseBody: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub responseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    responseStream: usize,
+    pub responseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub responseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbody: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub readyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Setonreadystatechange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preadystatesink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12020,14 +11491,10 @@ pub struct IXMLHttpRequest_Vtbl {
 pub struct IXSLProcessor(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXSLProcessor {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setinput(&self, var: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setinput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(var)).ok()
+    pub unsafe fn Setinput(&self, var: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Setinput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(var)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn input(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn input(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).input)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -12048,14 +11515,10 @@ impl IXSLProcessor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).startModeURI)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Setoutput(&self, output: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Setoutput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(output)).ok()
+    pub unsafe fn Setoutput(&self, output: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Setoutput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(output)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn output(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
+    pub unsafe fn output(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).output)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -12072,10 +11535,8 @@ impl IXSLProcessor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).readyState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn addParameter(&self, basename: &::windows::core::BSTR, parameter: super::super::super::System::Com::VARIANT, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).addParameter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(basename), ::core::mem::transmute(parameter), ::core::mem::transmute_copy(namespaceuri)).ok()
+    pub unsafe fn addParameter(&self, basename: &::windows::core::BSTR, parameter: &::windows::core::VARIANT, namespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).addParameter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(basename), ::core::mem::transmute_copy(parameter), ::core::mem::transmute_copy(namespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12127,14 +11588,8 @@ unsafe impl ::windows::core::Interface for IXSLProcessor {
 #[doc(hidden)]
 pub struct IXSLProcessor_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Setinput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Setinput: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub input: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    input: usize,
+    pub Setinput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub input: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub ownerTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptemplate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12142,24 +11597,15 @@ pub struct IXSLProcessor_Vtbl {
     pub setStartMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub startMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub startModeURI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Setoutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, output: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Setoutput: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    output: usize,
+    pub Setoutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, output: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub output: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutput: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub transform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdone: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     transform: usize,
     pub reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub readyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preadystate: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub addParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: *mut ::core::ffi::c_void, parameter: super::super::super::System::Com::VARIANT, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    addParameter: usize,
+    pub addParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basename: *mut ::core::ffi::c_void, parameter: ::windows::core::VARIANT, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub addObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, obj: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -12253,15 +11699,11 @@ impl IXTLRuntime {
     pub unsafe fn nodeName(&self, name: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeValue(&self, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), value).ok()
+    pub unsafe fn nodeValue(&self, value: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeValue(&self, value: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetnodeValue(&self, value: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(value)).ok()
     }
     pub unsafe fn nodeType(&self, r#type: *mut DOMNodeType) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.nodeType)(::windows::core::Vtable::as_raw(self), r#type).ok()
@@ -12308,14 +11750,14 @@ impl IXTLRuntime {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.attributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn insertBefore<P0>(&self, newchild: P0, refchild: &::windows::core::VARIANT) -> ::windows::core::Result<IXMLDOMNode>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute(refchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.insertBefore)(::windows::core::Vtable::as_raw(self), newchild.into().abi(), ::core::mem::transmute_copy(refchild), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12385,20 +11827,14 @@ impl IXTLRuntime {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.definition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), typedvalue).ok()
+    pub unsafe fn nodeTypedValue(&self, typedvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.nodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetnodeTypedValue(&self, typedvalue: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(typedvalue)).ok()
+    pub unsafe fn SetnodeTypedValue(&self, typedvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetnodeTypedValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(typedvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn dataType(&self, datatypename: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), datatypename).ok()
+    pub unsafe fn dataType(&self, datatypename: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.dataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(datatypename)).ok()
     }
     pub unsafe fn SetdataType(&self, datatypename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetdataType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(datatypename)).ok()
@@ -12440,13 +11876,13 @@ impl IXTLRuntime {
     pub unsafe fn baseName(&self, namestring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.baseName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(namestring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn transformNodeToObject<P0>(&self, stylesheet: P0, outputobject: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXMLDOMNode>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute(outputobject)).ok()
+        (::windows::core::Vtable::vtable(self).base__.transformNodeToObject)(::windows::core::Vtable::as_raw(self), stylesheet.into().abi(), ::core::mem::transmute_copy(outputobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12494,15 +11930,11 @@ impl IXTLRuntime {
     pub unsafe fn formatNumber(&self, dblnumber: f64, bstrformat: &::windows::core::BSTR, pbstrformattedstring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).formatNumber)(::windows::core::Vtable::as_raw(self), dblnumber, ::core::mem::transmute_copy(bstrformat), ::core::mem::transmute(pbstrformattedstring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn formatDate(&self, vardate: super::super::super::System::Com::VARIANT, bstrformat: &::windows::core::BSTR, vardestlocale: super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).formatDate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vardate), ::core::mem::transmute_copy(bstrformat), ::core::mem::transmute(vardestlocale), ::core::mem::transmute(pbstrformattedstring)).ok()
+    pub unsafe fn formatDate(&self, vardate: &::windows::core::VARIANT, bstrformat: &::windows::core::BSTR, vardestlocale: &::windows::core::VARIANT, pbstrformattedstring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).formatDate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vardate), ::core::mem::transmute_copy(bstrformat), ::core::mem::transmute_copy(vardestlocale), ::core::mem::transmute(pbstrformattedstring)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn formatTime(&self, vartime: super::super::super::System::Com::VARIANT, bstrformat: &::windows::core::BSTR, vardestlocale: super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).formatTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vartime), ::core::mem::transmute_copy(bstrformat), ::core::mem::transmute(vardestlocale), ::core::mem::transmute(pbstrformattedstring)).ok()
+    pub unsafe fn formatTime(&self, vartime: &::windows::core::VARIANT, bstrformat: &::windows::core::BSTR, vardestlocale: &::windows::core::VARIANT, pbstrformattedstring: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).formatTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(vartime), ::core::mem::transmute_copy(bstrformat), ::core::mem::transmute_copy(vardestlocale), ::core::mem::transmute(pbstrformattedstring)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12562,14 +11994,8 @@ pub struct IXTLRuntime_Vtbl {
     absoluteChildNumber: usize,
     pub formatIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, bstrformat: *mut ::core::ffi::c_void, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub formatNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dblnumber: f64, bstrformat: *mut ::core::ffi::c_void, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub formatDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardate: super::super::super::System::Com::VARIANT, bstrformat: *mut ::core::ffi::c_void, vardestlocale: super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    formatDate: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub formatTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vartime: super::super::super::System::Com::VARIANT, bstrformat: *mut ::core::ffi::c_void, vardestlocale: super::super::super::System::Com::VARIANT, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    formatTime: usize,
+    pub formatDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vardate: ::windows::core::VARIANT, bstrformat: *mut ::core::ffi::c_void, vardestlocale: ::windows::core::VARIANT, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub formatTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vartime: ::windows::core::VARIANT, bstrformat: *mut ::core::ffi::c_void, vardestlocale: ::windows::core::VARIANT, pbstrformattedstring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]

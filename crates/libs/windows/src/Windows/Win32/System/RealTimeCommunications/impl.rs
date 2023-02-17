@@ -215,14 +215,14 @@ impl IRTCBuddy2_Vtbl {
         iid == &<IRTCBuddy2 as ::windows::core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID || iid == &<IRTCBuddy as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Buddy(&self) -> ::windows::core::Result<IRTCBuddy>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCBuddyEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyEvent_Impl, const OFFSET: isize>() -> IRTCBuddyEvent_Vtbl {
         unsafe extern "system" fn Buddy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbuddy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -242,16 +242,16 @@ impl IRTCBuddyEvent_Vtbl {
         iid == &<IRTCBuddyEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyEvent2_Impl: Sized + IRTCBuddyEvent_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_BUDDY_EVENT_TYPE>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCBuddyEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyEvent2_Impl, const OFFSET: isize>() -> IRTCBuddyEvent2_Vtbl {
         unsafe extern "system" fn EventType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_BUDDY_EVENT_TYPE) -> ::windows::core::HRESULT {
@@ -408,17 +408,17 @@ impl IRTCBuddyGroup_Vtbl {
         iid == &<IRTCBuddyGroup as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyGroupEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_GROUP_EVENT_TYPE>;
     fn Group(&self) -> ::windows::core::Result<IRTCBuddyGroup>;
     fn Buddy(&self) -> ::windows::core::Result<IRTCBuddy2>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCBuddyGroupEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyGroupEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroupEvent_Impl, const OFFSET: isize>() -> IRTCBuddyGroupEvent_Vtbl {
         unsafe extern "system" fn EventType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroupEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_GROUP_EVENT_TYPE) -> ::windows::core::HRESULT {
@@ -477,8 +477,8 @@ impl IRTCBuddyGroupEvent_Vtbl {
         iid == &<IRTCBuddyGroupEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 pub trait IRTCClient_Impl: Sized {
     fn Initialize(&self) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
@@ -491,7 +491,7 @@ pub trait IRTCClient_Impl: Sized {
     fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &::windows::core::BSTR, pprofile: ::core::option::Option<&IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCSession>;
     fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
     fn ListenForIncomingSessions(&self) -> ::windows::core::Result<RTC_LISTEN_MODE>;
-    fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
     fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
     fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -523,9 +523,9 @@ pub trait IRTCClient_Impl: Sized {
     fn InvokeTuningWizard(&self, hwndparent: isize) -> ::windows::core::Result<()>;
     fn IsTuned(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IRTCClient {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 impl IRTCClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>() -> IRTCClient_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -613,7 +613,7 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_NetworkAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL, pvaddresses: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_NetworkAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL, pvaddresses: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_NetworkAddresses(::core::mem::transmute_copy(&ftcp), ::core::mem::transmute_copy(&fexternal)) {
@@ -914,8 +914,8 @@ impl IRTCClient_Vtbl {
         iid == &<IRTCClient as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 pub trait IRTCClient2_Impl: Sized + IRTCClient_Impl {
     fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::Result<()>;
     fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> ::windows::core::Result<RTC_ANSWER_MODE>;
@@ -931,9 +931,9 @@ pub trait IRTCClient2_Impl: Sized + IRTCClient_Impl {
     fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
     fn get_AllowedPorts(&self, ltransport: i32) -> ::windows::core::Result<RTC_LISTEN_MODE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IRTCClient2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 impl IRTCClient2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>() -> IRTCClient2_Vtbl {
         unsafe extern "system" fn put_AnswerMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::HRESULT {
@@ -1052,15 +1052,15 @@ impl IRTCClient2_Vtbl {
         iid == &<IRTCClient2 as ::windows::core::Interface>::IID || iid == &<IRTCClient as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_CLIENT_EVENT_TYPE>;
     fn Client(&self) -> ::windows::core::Result<IRTCClient>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCClientEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCClientEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientEvent_Impl, const OFFSET: isize>() -> IRTCClientEvent_Vtbl {
         unsafe extern "system" fn EventType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peneventtype: *mut RTC_CLIENT_EVENT_TYPE) -> ::windows::core::HRESULT {
@@ -1130,12 +1130,12 @@ impl IRTCClientPortManagement_Vtbl {
         iid == &<IRTCClientPortManagement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCClientPresence_Impl: Sized {
-    fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Export(&self, varstorage: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Import(&self, varstorage: &super::Com::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn Export(&self, varstorage: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn Import(&self, varstorage: &::windows::core::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies>;
     fn Buddies(&self) -> ::windows::core::Result<IRTCCollection>;
     fn get_Buddy(&self, bstrpresentityuri: &::windows::core::BSTR) -> ::windows::core::Result<IRTCBuddy>;
@@ -1152,22 +1152,22 @@ pub trait IRTCClientPresence_Impl: Sized {
     fn PrivacyMode(&self) -> ::windows::core::Result<RTC_PRIVACY_MODE>;
     fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IRTCClientPresence {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCClientPresence_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>() -> IRTCClientPresence_Vtbl {
-        unsafe extern "system" fn EnablePresence<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnablePresence<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnablePresence(::core::mem::transmute_copy(&fusestorage), ::core::mem::transmute(&varstorage)).into()
         }
-        unsafe extern "system" fn Export<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varstorage: super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Export<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varstorage: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Export(::core::mem::transmute(&varstorage)).into()
         }
-        unsafe extern "system" fn Import<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varstorage: super::Com::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Import<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varstorage: ::windows::core::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Import(::core::mem::transmute(&varstorage), ::core::mem::transmute_copy(&freplaceall)).into()
@@ -1333,10 +1333,10 @@ impl IRTCClientPresence_Vtbl {
         iid == &<IRTCClientPresence as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCClientPresence2_Impl: Sized + IRTCClientPresence_Impl {
-    fn EnablePresenceEx(&self, pprofile: ::core::option::Option<&IRTCProfile>, varstorage: &super::Com::VARIANT, lflags: i32) -> ::windows::core::Result<()>;
+    fn EnablePresenceEx(&self, pprofile: ::core::option::Option<&IRTCProfile>, varstorage: &::windows::core::VARIANT, lflags: i32) -> ::windows::core::Result<()>;
     fn DisablePresence(&self) -> ::windows::core::Result<()>;
     fn AddGroup(&self, bstrgroupname: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, pprofile: ::core::option::Option<&IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddyGroup>;
     fn RemoveGroup(&self, pgroup: ::core::option::Option<&IRTCBuddyGroup>) -> ::windows::core::Result<()>;
@@ -1352,12 +1352,12 @@ pub trait IRTCClientPresence2_Impl: Sized + IRTCClientPresence_Impl {
     fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AddBuddyEx(&self, bstrpresentityuri: &::windows::core::BSTR, bstrusername: &::windows::core::BSTR, bstrdata: &::windows::core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: ::core::option::Option<&IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddy2>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IRTCClientPresence2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCClientPresence2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>() -> IRTCClientPresence2_Vtbl {
-        unsafe extern "system" fn EnablePresenceEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, varstorage: super::Com::VARIANT, lflags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnablePresenceEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, varstorage: ::windows::core::VARIANT, lflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnablePresenceEx(::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute(&varstorage), ::core::mem::transmute_copy(&lflags)).into()
@@ -1614,16 +1614,16 @@ impl IRTCClientProvisioning2_Vtbl {
         iid == &<IRTCClientProvisioning2 as ::windows::core::Interface>::IID || iid == &<IRTCClientProvisioning as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn get_Item(&self, index: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCCollection_Impl, const OFFSET: isize>() -> IRTCCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1637,7 +1637,7 @@ impl IRTCCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
@@ -1670,12 +1670,12 @@ impl IRTCCollection_Vtbl {
         iid == &<IRTCCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCDispatchEventNotification_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCDispatchEventNotification {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCDispatchEventNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCDispatchEventNotification_Impl, const OFFSET: isize>() -> IRTCDispatchEventNotification_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2041,17 +2041,17 @@ impl IRTCEventNotification_Vtbl {
         iid == &<IRTCEventNotification as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCInfoEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
     fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
     fn Info(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn InfoHeader(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCInfoEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCInfoEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCInfoEvent_Impl, const OFFSET: isize>() -> IRTCInfoEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2110,17 +2110,17 @@ impl IRTCInfoEvent_Vtbl {
         iid == &<IRTCInfoEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCIntensityEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Level(&self) -> ::windows::core::Result<i32>;
     fn Min(&self) -> ::windows::core::Result<i32>;
     fn Max(&self) -> ::windows::core::Result<i32>;
     fn Direction(&self) -> ::windows::core::Result<RTC_AUDIO_DEVICE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCIntensityEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCIntensityEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCIntensityEvent_Impl, const OFFSET: isize>() -> IRTCIntensityEvent_Vtbl {
         unsafe extern "system" fn Level<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCIntensityEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllevel: *mut i32) -> ::windows::core::HRESULT {
@@ -2179,16 +2179,16 @@ impl IRTCIntensityEvent_Vtbl {
         iid == &<IRTCIntensityEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCMediaEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn MediaType(&self) -> ::windows::core::Result<i32>;
     fn EventType(&self) -> ::windows::core::Result<RTC_MEDIA_EVENT_TYPE>;
     fn EventReason(&self) -> ::windows::core::Result<RTC_MEDIA_EVENT_REASON>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCMediaEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCMediaEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMediaEvent_Impl, const OFFSET: isize>() -> IRTCMediaEvent_Vtbl {
         unsafe extern "system" fn MediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmediatype: *mut i32) -> ::windows::core::HRESULT {
@@ -2235,8 +2235,8 @@ impl IRTCMediaEvent_Vtbl {
         iid == &<IRTCMediaEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCMediaRequestEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
     fn ProposedMedia(&self) -> ::windows::core::Result<i32>;
@@ -2246,9 +2246,9 @@ pub trait IRTCMediaRequestEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reject(&self) -> ::windows::core::Result<()>;
     fn State(&self) -> ::windows::core::Result<RTC_REINVITE_STATE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCMediaRequestEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCMediaRequestEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMediaRequestEvent_Impl, const OFFSET: isize>() -> IRTCMediaRequestEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2331,8 +2331,8 @@ impl IRTCMediaRequestEvent_Vtbl {
         iid == &<IRTCMediaRequestEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCMessagingEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession>;
     fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
@@ -2341,9 +2341,9 @@ pub trait IRTCMessagingEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn MessageHeader(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserStatus(&self) -> ::windows::core::Result<RTC_MESSAGING_USER_STATUS>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCMessagingEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCMessagingEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMessagingEvent_Impl, const OFFSET: isize>() -> IRTCMessagingEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2508,16 +2508,16 @@ impl IRTCParticipant_Vtbl {
         iid == &<IRTCParticipant as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCParticipantStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
     fn State(&self) -> ::windows::core::Result<RTC_PARTICIPANT_STATE>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCParticipantStateChangeEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCParticipantStateChangeEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCParticipantStateChangeEvent_Impl, const OFFSET: isize>() -> IRTCParticipantStateChangeEvent_Vtbl {
         unsafe extern "system" fn Participant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCParticipantStateChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparticipant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2696,16 +2696,16 @@ impl IRTCPresenceContact_Vtbl {
         iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCPresenceDataEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetPresenceData(&self, pbstrnamespace: *mut ::windows::core::BSTR, pbstrdata: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCPresenceDataEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCPresenceDataEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDataEvent_Impl, const OFFSET: isize>() -> IRTCPresenceDataEvent_Vtbl {
         unsafe extern "system" fn StatusCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT {
@@ -2806,17 +2806,17 @@ impl IRTCPresenceDevice_Vtbl {
         iid == &<IRTCPresenceDevice as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCPresencePropertyEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn PresenceProperty(&self) -> ::windows::core::Result<RTC_PRESENCE_PROPERTY>;
     fn Value(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCPresencePropertyEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCPresencePropertyEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>() -> IRTCPresencePropertyEvent_Vtbl {
         unsafe extern "system" fn StatusCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT {
@@ -2875,16 +2875,16 @@ impl IRTCPresencePropertyEvent_Vtbl {
         iid == &<IRTCPresencePropertyEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCPresenceStatusEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCPresenceStatusEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCPresenceStatusEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>() -> IRTCPresenceStatusEvent_Vtbl {
         unsafe extern "system" fn StatusCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT {
@@ -3227,16 +3227,16 @@ impl IRTCProfile2_Vtbl {
         iid == &<IRTCProfile2 as ::windows::core::Interface>::IID || iid == &<IRTCProfile as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCProfileEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Profile(&self) -> ::windows::core::Result<IRTCProfile>;
     fn Cookie(&self) -> ::windows::core::Result<isize>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCProfileEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCProfileEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfileEvent_Impl, const OFFSET: isize>() -> IRTCProfileEvent_Vtbl {
         unsafe extern "system" fn Profile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfileEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3283,14 +3283,14 @@ impl IRTCProfileEvent_Vtbl {
         iid == &<IRTCProfileEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCProfileEvent2_Impl: Sized + IRTCProfileEvent_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_PROFILE_EVENT_TYPE>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCProfileEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCProfileEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfileEvent2_Impl, const OFFSET: isize>() -> IRTCProfileEvent2_Vtbl {
         unsafe extern "system" fn EventType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfileEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_PROFILE_EVENT_TYPE) -> ::windows::core::HRESULT {
@@ -3310,8 +3310,8 @@ impl IRTCProfileEvent2_Vtbl {
         iid == &<IRTCProfileEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IRTCProfileEvent as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCReInviteEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
     fn Accept(&self, bstrcontenttype: &::windows::core::BSTR, bstrsessiondescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3319,9 +3319,9 @@ pub trait IRTCReInviteEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn State(&self) -> ::windows::core::Result<RTC_REINVITE_STATE>;
     fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut ::windows::core::BSTR, pbstrsessiondescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCReInviteEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCReInviteEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>() -> IRTCReInviteEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3374,17 +3374,17 @@ impl IRTCReInviteEvent_Vtbl {
         iid == &<IRTCReInviteEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCRegistrationStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Profile(&self) -> ::windows::core::Result<IRTCProfile>;
     fn State(&self) -> ::windows::core::Result<RTC_REGISTRATION_STATE>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCRegistrationStateChangeEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCRegistrationStateChangeEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>() -> IRTCRegistrationStateChangeEvent_Vtbl {
         unsafe extern "system" fn Profile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3443,17 +3443,17 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
         iid == &<IRTCRegistrationStateChangeEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCRoamingEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_ROAMING_EVENT_TYPE>;
     fn Profile(&self) -> ::windows::core::Result<IRTCProfile2>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCRoamingEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCRoamingEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRoamingEvent_Impl, const OFFSET: isize>() -> IRTCRoamingEvent_Vtbl {
         unsafe extern "system" fn EventType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRoamingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_ROAMING_EVENT_TYPE) -> ::windows::core::HRESULT {
@@ -3922,17 +3922,17 @@ impl IRTCSessionDescriptionManager_Vtbl {
         iid == &<IRTCSessionDescriptionManager as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionOperationCompleteEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession>;
     fn Cookie(&self) -> ::windows::core::Result<isize>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCSessionOperationCompleteEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionOperationCompleteEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>() -> IRTCSessionOperationCompleteEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3991,15 +3991,15 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
         iid == &<IRTCSessionOperationCompleteEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionOperationCompleteEvent2_Impl: Sized + IRTCSessionOperationCompleteEvent_Impl {
     fn Participant(&self) -> ::windows::core::Result<IRTCParticipant>;
     fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut ::windows::core::BSTR, pbstrsessiondescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCSessionOperationCompleteEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionOperationCompleteEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent2_Impl, const OFFSET: isize>() -> IRTCSessionOperationCompleteEvent2_Vtbl {
         unsafe extern "system" fn Participant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparticipant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4046,17 +4046,17 @@ impl IRTCSessionPortManagement_Vtbl {
         iid == &<IRTCSessionPortManagement as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionReferStatusEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
     fn ReferStatus(&self) -> ::windows::core::Result<RTC_SESSION_REFER_STATUS>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCSessionReferStatusEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionReferStatusEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>() -> IRTCSessionReferStatusEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4115,8 +4115,8 @@ impl IRTCSessionReferStatusEvent_Vtbl {
         iid == &<IRTCSessionReferStatusEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionReferredEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession2>;
     fn ReferredByURI(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4126,9 +4126,9 @@ pub trait IRTCSessionReferredEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Reject(&self) -> ::windows::core::Result<()>;
     fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCSessionReferredEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionReferredEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>() -> IRTCSessionReferredEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4205,17 +4205,17 @@ impl IRTCSessionReferredEvent_Vtbl {
         iid == &<IRTCSessionReferredEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows::core::Result<IRTCSession>;
     fn State(&self) -> ::windows::core::Result<RTC_SESSION_STATE>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCSessionStateChangeEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionStateChangeEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>() -> IRTCSessionStateChangeEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4274,17 +4274,17 @@ impl IRTCSessionStateChangeEvent_Vtbl {
         iid == &<IRTCSessionStateChangeEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCSessionStateChangeEvent2_Impl: Sized + IRTCSessionStateChangeEvent_Impl {
     fn MediaTypes(&self) -> ::windows::core::Result<i32>;
     fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
     fn IsForked(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut ::windows::core::BSTR, pbstrsessiondescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IRTCSessionStateChangeEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCSessionStateChangeEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>() -> IRTCSessionStateChangeEvent2_Vtbl {
         unsafe extern "system" fn MediaTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmediatypes: *mut i32) -> ::windows::core::HRESULT {
@@ -4482,8 +4482,8 @@ impl IRTCUserSearchResult_Vtbl {
         iid == &<IRTCUserSearchResult as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCUserSearchResultsEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EnumerateResults(&self) -> ::windows::core::Result<IRTCEnumUserSearchResults>;
     fn Results(&self) -> ::windows::core::Result<IRTCCollection>;
@@ -4493,9 +4493,9 @@ pub trait IRTCUserSearchResultsEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
     fn MoreAvailable(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IRTCUserSearchResultsEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCUserSearchResultsEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>() -> IRTCUserSearchResultsEvent_Vtbl {
         unsafe extern "system" fn EnumerateResults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4666,14 +4666,14 @@ impl IRTCWatcher2_Vtbl {
         iid == &<IRTCWatcher2 as ::windows::core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID || iid == &<IRTCWatcher as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCWatcherEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Watcher(&self) -> ::windows::core::Result<IRTCWatcher>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCWatcherEvent {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCWatcherEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCWatcherEvent_Impl, const OFFSET: isize>() -> IRTCWatcherEvent_Vtbl {
         unsafe extern "system" fn Watcher<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCWatcherEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4693,15 +4693,15 @@ impl IRTCWatcherEvent_Vtbl {
         iid == &<IRTCWatcherEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRTCWatcherEvent2_Impl: Sized + IRTCWatcherEvent_Impl {
     fn EventType(&self) -> ::windows::core::Result<RTC_WATCHER_EVENT_TYPE>;
     fn StatusCode(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRTCWatcherEvent2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRTCWatcherEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCWatcherEvent2_Impl, const OFFSET: isize>() -> IRTCWatcherEvent2_Vtbl {
         unsafe extern "system" fn EventType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCWatcherEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_WATCHER_EVENT_TYPE) -> ::windows::core::HRESULT {

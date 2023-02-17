@@ -1,5 +1,5 @@
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Class(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -9,15 +9,15 @@ pub trait IADs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Schema(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetInfo(&self) -> ::windows::core::Result<()>;
     fn SetInfo(&self) -> ::windows::core::Result<()>;
-    fn Get(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Put(&self, bstrname: &::windows::core::BSTR, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetEx(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn PutEx(&self, lncontrolcode: i32, bstrname: &::windows::core::BSTR, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetInfoEx(&self, vproperties: &super::super::System::Com::VARIANT, lnreserved: i32) -> ::windows::core::Result<()>;
+    fn Get(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Put(&self, bstrname: &::windows::core::BSTR, vprop: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn GetEx(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn PutEx(&self, lncontrolcode: i32, bstrname: &::windows::core::BSTR, vprop: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn GetInfoEx(&self, vproperties: &::windows::core::VARIANT, lnreserved: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADs {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>() -> IADs_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -96,7 +96,7 @@ impl IADs_Vtbl {
             let this = (*this).get_impl();
             this.SetInfo().into()
         }
-        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pvprop: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Get(::core::mem::transmute(&bstrname)) {
@@ -107,12 +107,12 @@ impl IADs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, vprop: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, vprop: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Put(::core::mem::transmute(&bstrname), ::core::mem::transmute(&vprop)).into()
         }
-        unsafe extern "system" fn GetEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pvprop: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetEx(::core::mem::transmute(&bstrname)) {
@@ -123,12 +123,12 @@ impl IADs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lncontrolcode: i32, bstrname: *mut ::core::ffi::c_void, vprop: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lncontrolcode: i32, bstrname: *mut ::core::ffi::c_void, vprop: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutEx(::core::mem::transmute_copy(&lncontrolcode), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&vprop)).into()
         }
-        unsafe extern "system" fn GetInfoEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vproperties: super::super::System::Com::VARIANT, lnreserved: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInfoEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vproperties: ::windows::core::VARIANT, lnreserved: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetInfoEx(::core::mem::transmute(&vproperties), ::core::mem::transmute_copy(&lnreserved)).into()
@@ -154,8 +154,8 @@ impl IADs_Vtbl {
         iid == &<IADs as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsADSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ComputerName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -169,11 +169,11 @@ pub trait IADsADSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn GetAnyDCName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetDCSiteName(&self, szserver: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn RefreshSchemaCache(&self) -> ::windows::core::Result<()>;
-    fn GetTrees(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetTrees(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsADSystemInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsADSystemInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsADSystemInfo_Impl, const OFFSET: isize>() -> IADsADSystemInfo_Vtbl {
         unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsADSystemInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -302,7 +302,7 @@ impl IADsADSystemInfo_Vtbl {
             let this = (*this).get_impl();
             this.RefreshSchemaCache().into()
         }
-        unsafe extern "system" fn GetTrees<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsADSystemInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvtrees: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTrees<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsADSystemInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvtrees: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTrees() {
@@ -334,8 +334,8 @@ impl IADsADSystemInfo_Vtbl {
         iid == &<IADsADSystemInfo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsAccessControlEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AccessMask(&self) -> ::windows::core::Result<i32>;
     fn SetAccessMask(&self, lnaccessmask: i32) -> ::windows::core::Result<()>;
@@ -352,9 +352,9 @@ pub trait IADsAccessControlEntry_Impl: Sized + super::super::System::Com::IDispa
     fn Trustee(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetTrustee(&self, bstrtrustee: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsAccessControlEntry {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsAccessControlEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsAccessControlEntry_Impl, const OFFSET: isize>() -> IADsAccessControlEntry_Vtbl {
         unsafe extern "system" fn AccessMask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsAccessControlEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -491,8 +491,8 @@ impl IADsAccessControlEntry_Vtbl {
         iid == &<IADsAccessControlEntry as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsAccessControlList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AclRevision(&self) -> ::windows::core::Result<i32>;
     fn SetAclRevision(&self, lnaclrevision: i32) -> ::windows::core::Result<()>;
@@ -503,9 +503,9 @@ pub trait IADsAccessControlList_Impl: Sized + super::super::System::Com::IDispat
     fn CopyAccessList(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsAccessControlList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsAccessControlList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsAccessControlList_Impl, const OFFSET: isize>() -> IADsAccessControlList_Vtbl {
         unsafe extern "system" fn AclRevision<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsAccessControlList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -588,8 +588,8 @@ impl IADsAccessControlList_Vtbl {
         iid == &<IADsAccessControlList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsAcl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ProtectedAttrName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetProtectedAttrName(&self, bstrprotectedattrname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -599,9 +599,9 @@ pub trait IADsAcl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetPrivileges(&self, lnprivileges: i32) -> ::windows::core::Result<()>;
     fn CopyAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsAcl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsAcl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsAcl_Impl, const OFFSET: isize>() -> IADsAcl_Vtbl {
         unsafe extern "system" fn ProtectedAttrName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsAcl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -748,17 +748,17 @@ impl IADsAggregator_Vtbl {
         iid == &<IADsAggregator as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsBackLink_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RemoteID(&self) -> ::windows::core::Result<i32>;
     fn SetRemoteID(&self, lnremoteid: i32) -> ::windows::core::Result<()>;
     fn ObjectName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetObjectName(&self, bstrobjectname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsBackLink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsBackLink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsBackLink_Impl, const OFFSET: isize>() -> IADsBackLink_Vtbl {
         unsafe extern "system" fn RemoteID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsBackLink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -805,18 +805,18 @@ impl IADsBackLink_Vtbl {
         iid == &<IADsBackLink as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsCaseIgnoreList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn CaseIgnoreList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetCaseIgnoreList(&self, vcaseignorelist: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn CaseIgnoreList(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetCaseIgnoreList(&self, vcaseignorelist: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsCaseIgnoreList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsCaseIgnoreList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCaseIgnoreList_Impl, const OFFSET: isize>() -> IADsCaseIgnoreList_Vtbl {
-        unsafe extern "system" fn CaseIgnoreList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCaseIgnoreList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CaseIgnoreList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCaseIgnoreList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CaseIgnoreList() {
@@ -827,7 +827,7 @@ impl IADsCaseIgnoreList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCaseIgnoreList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCaseIgnoreList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vcaseignorelist: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCaseIgnoreList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCaseIgnoreList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vcaseignorelist: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCaseIgnoreList(::core::mem::transmute(&vcaseignorelist)).into()
@@ -842,8 +842,8 @@ impl IADsCaseIgnoreList_Vtbl {
         iid == &<IADsCaseIgnoreList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn PrimaryInterface(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CLSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -854,20 +854,20 @@ pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn SetAbstract(&self, fabstract: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Auxiliary(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAuxiliary(&self, fauxiliary: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn MandatoryProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetMandatoryProperties(&self, vmandatoryproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn OptionalProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOptionalProperties(&self, voptionalproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn NamingProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetNamingProperties(&self, vnamingproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn DerivedFrom(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDerivedFrom(&self, vderivedfrom: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AuxDerivedFrom(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetAuxDerivedFrom(&self, vauxderivedfrom: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PossibleSuperiors(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPossibleSuperiors(&self, vpossiblesuperiors: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Containment(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetContainment(&self, vcontainment: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn MandatoryProperties(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetMandatoryProperties(&self, vmandatoryproperties: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn OptionalProperties(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetOptionalProperties(&self, voptionalproperties: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn NamingProperties(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetNamingProperties(&self, vnamingproperties: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn DerivedFrom(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetDerivedFrom(&self, vderivedfrom: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn AuxDerivedFrom(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetAuxDerivedFrom(&self, vauxderivedfrom: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn PossibleSuperiors(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetPossibleSuperiors(&self, vpossiblesuperiors: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn Containment(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetContainment(&self, vcontainment: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn Container(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetContainer(&self, fcontainer: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn HelpFileName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -876,9 +876,9 @@ pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn SetHelpFileContext(&self, lnhelpfilecontext: i32) -> ::windows::core::Result<()>;
     fn Qualifiers(&self) -> ::windows::core::Result<IADsCollection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsClass {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsClass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>() -> IADsClass_Vtbl {
         unsafe extern "system" fn PrimaryInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -956,7 +956,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             this.SetAuxiliary(::core::mem::transmute_copy(&fauxiliary)).into()
         }
-        unsafe extern "system" fn MandatoryProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MandatoryProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MandatoryProperties() {
@@ -967,12 +967,12 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMandatoryProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vmandatoryproperties: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMandatoryProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vmandatoryproperties: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMandatoryProperties(::core::mem::transmute(&vmandatoryproperties)).into()
         }
-        unsafe extern "system" fn OptionalProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OptionalProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OptionalProperties() {
@@ -983,12 +983,12 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOptionalProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voptionalproperties: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOptionalProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voptionalproperties: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOptionalProperties(::core::mem::transmute(&voptionalproperties)).into()
         }
-        unsafe extern "system" fn NamingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NamingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NamingProperties() {
@@ -999,12 +999,12 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNamingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vnamingproperties: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNamingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vnamingproperties: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNamingProperties(::core::mem::transmute(&vnamingproperties)).into()
         }
-        unsafe extern "system" fn DerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DerivedFrom() {
@@ -1015,12 +1015,12 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vderivedfrom: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vderivedfrom: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDerivedFrom(::core::mem::transmute(&vderivedfrom)).into()
         }
-        unsafe extern "system" fn AuxDerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AuxDerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AuxDerivedFrom() {
@@ -1031,12 +1031,12 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuxDerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vauxderivedfrom: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuxDerivedFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vauxderivedfrom: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAuxDerivedFrom(::core::mem::transmute(&vauxderivedfrom)).into()
         }
-        unsafe extern "system" fn PossibleSuperiors<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PossibleSuperiors<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PossibleSuperiors() {
@@ -1047,12 +1047,12 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPossibleSuperiors<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpossiblesuperiors: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPossibleSuperiors<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpossiblesuperiors: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPossibleSuperiors(::core::mem::transmute(&vpossiblesuperiors)).into()
         }
-        unsafe extern "system" fn Containment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Containment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Containment() {
@@ -1063,7 +1063,7 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContainment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vcontainment: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContainment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vcontainment: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetContainment(::core::mem::transmute(&vcontainment)).into()
@@ -1165,17 +1165,17 @@ impl IADsClass_Vtbl {
         iid == &<IADsClass as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&self, bstrname: &::windows::core::BSTR, vitem: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Add(&self, bstrname: &::windows::core::BSTR, vitem: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn Remove(&self, bstritemtoberemoved: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn GetObject(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetObject(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCollection_Impl, const OFFSET: isize>() -> IADsCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumerator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1189,7 +1189,7 @@ impl IADsCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, vitem: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, vitem: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&bstrname), ::core::mem::transmute(&vitem)).into()
@@ -1199,7 +1199,7 @@ impl IADsCollection_Vtbl {
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&bstritemtoberemoved)).into()
         }
-        unsafe extern "system" fn GetObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pvitem: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pvitem: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetObject(::core::mem::transmute(&bstrname)) {
@@ -1222,8 +1222,8 @@ impl IADsCollection_Vtbl {
         iid == &<IADsCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsComputer_Impl: Sized + IADs_Impl {
     fn ComputerID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Site(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1255,12 +1255,12 @@ pub trait IADsComputer_Impl: Sized + IADs_Impl {
     fn SetMemorySize(&self, bstrmemorysize: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn StorageCapacity(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetStorageCapacity(&self, bstrstoragecapacity: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn NetAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetNetAddresses(&self, vnetaddresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn NetAddresses(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetNetAddresses(&self, vnetaddresses: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsComputer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsComputer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputer_Impl, const OFFSET: isize>() -> IADsComputer_Vtbl {
         unsafe extern "system" fn ComputerID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1509,7 +1509,7 @@ impl IADsComputer_Vtbl {
             let this = (*this).get_impl();
             this.SetStorageCapacity(::core::mem::transmute(&bstrstoragecapacity)).into()
         }
-        unsafe extern "system" fn NetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NetAddresses() {
@@ -1520,7 +1520,7 @@ impl IADsComputer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vnetaddresses: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vnetaddresses: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNetAddresses(::core::mem::transmute(&vnetaddresses)).into()
@@ -1565,15 +1565,15 @@ impl IADsComputer_Vtbl {
         iid == &<IADsComputer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsComputerOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Shutdown(&self, breboot: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsComputerOperations {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsComputerOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputerOperations_Impl, const OFFSET: isize>() -> IADsComputerOperations_Vtbl {
         unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputerOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1598,24 +1598,24 @@ impl IADsComputerOperations_Vtbl {
         iid == &<IADsComputerOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsContainer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Filter(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetFilter(&self, var: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Hints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetHints(&self, vhints: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Filter(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetFilter(&self, var: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn Hints(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetHints(&self, vhints: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn GetObject(&self, classname: &::windows::core::BSTR, relativename: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Create(&self, classname: &::windows::core::BSTR, relativename: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Delete(&self, bstrclassname: &::windows::core::BSTR, bstrrelativename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn CopyHere(&self, sourcename: &::windows::core::BSTR, newname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn MoveHere(&self, sourcename: &::windows::core::BSTR, newname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsContainer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>() -> IADsContainer_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -1640,7 +1640,7 @@ impl IADsContainer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Filter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Filter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Filter() {
@@ -1651,12 +1651,12 @@ impl IADsContainer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFilter(::core::mem::transmute(&var)).into()
         }
-        unsafe extern "system" fn Hints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfilter: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Hints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfilter: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Hints() {
@@ -1667,7 +1667,7 @@ impl IADsContainer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vhints: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vhints: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHints(::core::mem::transmute(&vhints)).into()
@@ -1740,20 +1740,20 @@ impl IADsContainer_Vtbl {
         iid == &<IADsContainer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsDNWithBinary_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn BinaryValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetBinaryValue(&self, vbinaryvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn BinaryValue(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetBinaryValue(&self, vbinaryvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn DNString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDNString(&self, bstrdnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsDNWithBinary {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsDNWithBinary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDNWithBinary_Impl, const OFFSET: isize>() -> IADsDNWithBinary_Vtbl {
-        unsafe extern "system" fn BinaryValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDNWithBinary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BinaryValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDNWithBinary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BinaryValue() {
@@ -1764,7 +1764,7 @@ impl IADsDNWithBinary_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBinaryValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDNWithBinary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbinaryvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBinaryValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDNWithBinary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbinaryvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBinaryValue(::core::mem::transmute(&vbinaryvalue)).into()
@@ -1797,17 +1797,17 @@ impl IADsDNWithBinary_Vtbl {
         iid == &<IADsDNWithBinary as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsDNWithString_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StringValue(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetStringValue(&self, bstrstringvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn DNString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDNString(&self, bstrdnstring: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsDNWithString {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsDNWithString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDNWithString_Impl, const OFFSET: isize>() -> IADsDNWithString_Vtbl {
         unsafe extern "system" fn StringValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDNWithString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1854,14 +1854,14 @@ impl IADsDNWithString_Vtbl {
         iid == &<IADsDNWithString as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsDeleteOps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeleteObject(&self, lnflags: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsDeleteOps {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsDeleteOps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDeleteOps_Impl, const OFFSET: isize>() -> IADsDeleteOps_Vtbl {
         unsafe extern "system" fn DeleteObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDeleteOps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnflags: i32) -> ::windows::core::HRESULT {
@@ -1875,8 +1875,8 @@ impl IADsDeleteOps_Vtbl {
         iid == &<IADsDeleteOps as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsDomain_Impl: Sized + IADs_Impl {
     fn IsWorkgroup(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MinPasswordLength(&self) -> ::windows::core::Result<i32>;
@@ -1896,9 +1896,9 @@ pub trait IADsDomain_Impl: Sized + IADs_Impl {
     fn LockoutObservationInterval(&self) -> ::windows::core::Result<i32>;
     fn SetLockoutObservationInterval(&self, lnlockoutobservationinterval: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsDomain {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsDomain_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDomain_Impl, const OFFSET: isize>() -> IADsDomain_Vtbl {
         unsafe extern "system" fn IsWorkgroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
@@ -2065,17 +2065,17 @@ impl IADsDomain_Vtbl {
         iid == &<IADsDomain as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsEmail_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows::core::Result<i32>;
     fn SetType(&self, lntype: i32) -> ::windows::core::Result<()>;
     fn Address(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetAddress(&self, bstraddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsEmail {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsEmail_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsEmail_Impl, const OFFSET: isize>() -> IADsEmail_Vtbl {
         unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsEmail_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -2122,19 +2122,19 @@ impl IADsEmail_Vtbl {
         iid == &<IADsEmail as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsExtension_Impl: Sized {
-    fn Operate(&self, dwcode: u32, vardata1: &super::super::System::Com::VARIANT, vardata2: &super::super::System::Com::VARIANT, vardata3: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Operate(&self, dwcode: u32, vardata1: &::windows::core::VARIANT, vardata2: &::windows::core::VARIANT, vardata3: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn PrivateGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32>;
-    fn PrivateInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
+    fn PrivateInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsExtension {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsExtension_Impl, const OFFSET: isize>() -> IADsExtension_Vtbl {
-        unsafe extern "system" fn Operate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcode: u32, vardata1: super::super::System::Com::VARIANT, vardata2: super::super::System::Com::VARIANT, vardata3: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Operate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcode: u32, vardata1: ::windows::core::VARIANT, vardata2: ::windows::core::VARIANT, vardata3: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Operate(::core::mem::transmute_copy(&dwcode), ::core::mem::transmute(&vardata1), ::core::mem::transmute(&vardata2), ::core::mem::transmute(&vardata3)).into()
@@ -2150,7 +2150,7 @@ impl IADsExtension_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PrivateInvoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrivateInvoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrivateInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
@@ -2166,17 +2166,17 @@ impl IADsExtension_Vtbl {
         iid == &<IADsExtension as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsFaxNumber_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TelephoneNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetTelephoneNumber(&self, bstrtelephonenumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Parameters(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetParameters(&self, vparameters: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Parameters(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetParameters(&self, vparameters: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsFaxNumber {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsFaxNumber_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFaxNumber_Impl, const OFFSET: isize>() -> IADsFaxNumber_Vtbl {
         unsafe extern "system" fn TelephoneNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFaxNumber_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2195,7 +2195,7 @@ impl IADsFaxNumber_Vtbl {
             let this = (*this).get_impl();
             this.SetTelephoneNumber(::core::mem::transmute(&bstrtelephonenumber)).into()
         }
-        unsafe extern "system" fn Parameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFaxNumber_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Parameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFaxNumber_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Parameters() {
@@ -2206,7 +2206,7 @@ impl IADsFaxNumber_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFaxNumber_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vparameters: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFaxNumber_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vparameters: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetParameters(::core::mem::transmute(&vparameters)).into()
@@ -2223,17 +2223,17 @@ impl IADsFaxNumber_Vtbl {
         iid == &<IADsFaxNumber as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsFileService_Impl: Sized + IADsService_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MaxUserCount(&self) -> ::windows::core::Result<i32>;
     fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsFileService {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsFileService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFileService_Impl, const OFFSET: isize>() -> IADsFileService_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFileService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2280,15 +2280,15 @@ impl IADsFileService_Vtbl {
         iid == &<IADsFileService as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID || iid == &<IADsService as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsFileServiceOperations_Impl: Sized + IADsServiceOperations_Impl {
     fn Sessions(&self) -> ::windows::core::Result<IADsCollection>;
     fn Resources(&self) -> ::windows::core::Result<IADsCollection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsFileServiceOperations {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsFileServiceOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFileServiceOperations_Impl, const OFFSET: isize>() -> IADsFileServiceOperations_Vtbl {
         unsafe extern "system" fn Sessions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFileServiceOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsessions: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2323,8 +2323,8 @@ impl IADsFileServiceOperations_Vtbl {
         iid == &<IADsFileServiceOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID || iid == &<IADsServiceOperations as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsFileShare_Impl: Sized + IADs_Impl {
     fn CurrentUserCount(&self) -> ::windows::core::Result<i32>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2336,9 +2336,9 @@ pub trait IADsFileShare_Impl: Sized + IADs_Impl {
     fn MaxUserCount(&self) -> ::windows::core::Result<i32>;
     fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsFileShare {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsFileShare_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFileShare_Impl, const OFFSET: isize>() -> IADsFileShare_Vtbl {
         unsafe extern "system" fn CurrentUserCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsFileShare_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -2433,8 +2433,8 @@ impl IADsFileShare_Vtbl {
         iid == &<IADsFileShare as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsGroup_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2443,9 +2443,9 @@ pub trait IADsGroup_Impl: Sized + IADs_Impl {
     fn Add(&self, bstrnewitem: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Remove(&self, bstritemtoberemoved: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsGroup {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsGroup_Impl, const OFFSET: isize>() -> IADsGroup_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2510,17 +2510,17 @@ impl IADsGroup_Vtbl {
         iid == &<IADsGroup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsHold_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetObjectName(&self, bstrobjectname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Amount(&self) -> ::windows::core::Result<i32>;
     fn SetAmount(&self, lnamount: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsHold {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsHold_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsHold_Impl, const OFFSET: isize>() -> IADsHold_Vtbl {
         unsafe extern "system" fn ObjectName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsHold_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2567,17 +2567,17 @@ impl IADsHold_Vtbl {
         iid == &<IADsHold as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsLargeInteger_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn HighPart(&self) -> ::windows::core::Result<i32>;
     fn SetHighPart(&self, lnhighpart: i32) -> ::windows::core::Result<()>;
     fn LowPart(&self) -> ::windows::core::Result<i32>;
     fn SetLowPart(&self, lnlowpart: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsLargeInteger {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsLargeInteger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLargeInteger_Impl, const OFFSET: isize>() -> IADsLargeInteger_Vtbl {
         unsafe extern "system" fn HighPart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLargeInteger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -2624,8 +2624,8 @@ impl IADsLargeInteger_Vtbl {
         iid == &<IADsLargeInteger as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsLocality_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2633,12 +2633,12 @@ pub trait IADsLocality_Impl: Sized + IADs_Impl {
     fn SetLocalityName(&self, bstrlocalityname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn PostalAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetPostalAddress(&self, bstrpostaladdress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsLocality {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsLocality_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLocality_Impl, const OFFSET: isize>() -> IADsLocality_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLocality_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2689,7 +2689,7 @@ impl IADsLocality_Vtbl {
             let this = (*this).get_impl();
             this.SetPostalAddress(::core::mem::transmute(&bstrpostaladdress)).into()
         }
-        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLocality_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLocality_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SeeAlso() {
@@ -2700,7 +2700,7 @@ impl IADsLocality_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLocality_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsLocality_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSeeAlso(::core::mem::transmute(&vseealso)).into()
@@ -2721,17 +2721,17 @@ impl IADsLocality_Vtbl {
         iid == &<IADsLocality as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsMembers_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Filter(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetFilter(&self, pvfilter: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Filter(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetFilter(&self, pvfilter: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsMembers {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsMembers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsMembers_Impl, const OFFSET: isize>() -> IADsMembers_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsMembers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2756,7 +2756,7 @@ impl IADsMembers_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Filter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsMembers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfilter: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Filter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsMembers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfilter: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Filter() {
@@ -2767,7 +2767,7 @@ impl IADsMembers_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsMembers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfilter: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsMembers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfilter: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFilter(::core::mem::transmute(&pvfilter)).into()
@@ -2784,20 +2784,20 @@ impl IADsMembers_Vtbl {
         iid == &<IADsMembers as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsNameTranslate_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetChaseReferral(&self, lnchasereferral: i32) -> ::windows::core::Result<()>;
     fn Init(&self, lnsettype: i32, bstradspath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InitEx(&self, lnsettype: i32, bstradspath: &::windows::core::BSTR, bstruserid: &::windows::core::BSTR, bstrdomain: &::windows::core::BSTR, bstrpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Set(&self, lnsettype: i32, bstradspath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Get(&self, lnformattype: i32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn SetEx(&self, lnformattype: i32, pvar: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetEx(&self, lnformattype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn SetEx(&self, lnformattype: i32, pvar: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn GetEx(&self, lnformattype: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsNameTranslate {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsNameTranslate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNameTranslate_Impl, const OFFSET: isize>() -> IADsNameTranslate_Vtbl {
         unsafe extern "system" fn SetChaseReferral<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNameTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnchasereferral: i32) -> ::windows::core::HRESULT {
@@ -2831,12 +2831,12 @@ impl IADsNameTranslate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNameTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnformattype: i32, pvar: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNameTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnformattype: i32, pvar: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEx(::core::mem::transmute_copy(&lnformattype), ::core::mem::transmute(&pvar)).into()
         }
-        unsafe extern "system" fn GetEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNameTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnformattype: i32, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNameTranslate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnformattype: i32, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetEx(::core::mem::transmute_copy(&lnformattype)) {
@@ -2862,15 +2862,15 @@ impl IADsNameTranslate_Vtbl {
         iid == &<IADsNameTranslate as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsNamespaces_Impl: Sized + IADs_Impl {
     fn DefaultContainer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDefaultContainer(&self, bstrdefaultcontainer: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsNamespaces {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsNamespaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNamespaces_Impl, const OFFSET: isize>() -> IADsNamespaces_Vtbl {
         unsafe extern "system" fn DefaultContainer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNamespaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2899,17 +2899,17 @@ impl IADsNamespaces_Vtbl {
         iid == &<IADsNamespaces as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsNetAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddressType(&self) -> ::windows::core::Result<i32>;
     fn SetAddressType(&self, lnaddresstype: i32) -> ::windows::core::Result<()>;
-    fn Address(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetAddress(&self, vaddress: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Address(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetAddress(&self, vaddress: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsNetAddress {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsNetAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNetAddress_Impl, const OFFSET: isize>() -> IADsNetAddress_Vtbl {
         unsafe extern "system" fn AddressType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNetAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -2928,7 +2928,7 @@ impl IADsNetAddress_Vtbl {
             let this = (*this).get_impl();
             this.SetAddressType(::core::mem::transmute_copy(&lnaddresstype)).into()
         }
-        unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNetAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNetAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Address() {
@@ -2939,7 +2939,7 @@ impl IADsNetAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNetAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vaddress: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsNetAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vaddress: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAddress(::core::mem::transmute(&vaddress)).into()
@@ -2956,8 +2956,8 @@ impl IADsNetAddress_Vtbl {
         iid == &<IADsNetAddress as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsO_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -2969,12 +2969,12 @@ pub trait IADsO_Impl: Sized + IADs_Impl {
     fn SetTelephoneNumber(&self, bstrtelephonenumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn FaxNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetFaxNumber(&self, bstrfaxnumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsO_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsO_Impl, const OFFSET: isize>() -> IADsO_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3057,7 +3057,7 @@ impl IADsO_Vtbl {
             let this = (*this).get_impl();
             this.SetFaxNumber(::core::mem::transmute(&bstrfaxnumber)).into()
         }
-        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SeeAlso() {
@@ -3068,7 +3068,7 @@ impl IADsO_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSeeAlso(::core::mem::transmute(&vseealso)).into()
@@ -3093,8 +3093,8 @@ impl IADsO_Vtbl {
         iid == &<IADsO as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsOU_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3106,14 +3106,14 @@ pub trait IADsOU_Impl: Sized + IADs_Impl {
     fn SetTelephoneNumber(&self, bstrtelephonenumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn FaxNumber(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetFaxNumber(&self, bstrfaxnumber: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn BusinessCategory(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetBusinessCategory(&self, bstrbusinesscategory: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsOU {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsOU_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOU_Impl, const OFFSET: isize>() -> IADsOU_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOU_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3196,7 +3196,7 @@ impl IADsOU_Vtbl {
             let this = (*this).get_impl();
             this.SetFaxNumber(::core::mem::transmute(&bstrfaxnumber)).into()
         }
-        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOU_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOU_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SeeAlso() {
@@ -3207,7 +3207,7 @@ impl IADsOU_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOU_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOU_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSeeAlso(::core::mem::transmute(&vseealso)).into()
@@ -3250,18 +3250,18 @@ impl IADsOU_Vtbl {
         iid == &<IADsOU as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsObjectOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetOption(&self, lnoption: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOption(&self, lnoption: i32, vvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetOption(&self, lnoption: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetOption(&self, lnoption: i32, vvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsObjectOptions {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsObjectOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsObjectOptions_Impl, const OFFSET: isize>() -> IADsObjectOptions_Vtbl {
-        unsafe extern "system" fn GetOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsObjectOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnoption: i32, pvvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsObjectOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnoption: i32, pvvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetOption(::core::mem::transmute_copy(&lnoption)) {
@@ -3272,7 +3272,7 @@ impl IADsObjectOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsObjectOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnoption: i32, vvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsObjectOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnoption: i32, vvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOption(::core::mem::transmute_copy(&lnoption), ::core::mem::transmute(&vvalue)).into()
@@ -3287,18 +3287,18 @@ impl IADsObjectOptions_Vtbl {
         iid == &<IADsObjectOptions as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsOctetList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OctetList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOctetList(&self, voctetlist: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OctetList(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetOctetList(&self, voctetlist: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsOctetList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsOctetList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOctetList_Impl, const OFFSET: isize>() -> IADsOctetList_Vtbl {
-        unsafe extern "system" fn OctetList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOctetList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OctetList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOctetList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OctetList() {
@@ -3309,7 +3309,7 @@ impl IADsOctetList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOctetList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOctetList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voctetlist: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOctetList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOctetList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voctetlist: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOctetList(::core::mem::transmute(&voctetlist)).into()
@@ -3324,14 +3324,14 @@ impl IADsOctetList_Vtbl {
         iid == &<IADsOctetList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsOpenDSObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OpenDSObject(&self, lpszdnname: &::windows::core::BSTR, lpszusername: &::windows::core::BSTR, lpszpassword: &::windows::core::BSTR, lnreserved: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsOpenDSObject {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsOpenDSObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOpenDSObject_Impl, const OFFSET: isize>() -> IADsOpenDSObject_Vtbl {
         unsafe extern "system" fn OpenDSObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsOpenDSObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszdnname: *mut ::core::ffi::c_void, lpszusername: *mut ::core::ffi::c_void, lpszpassword: *mut ::core::ffi::c_void, lnreserved: i32, ppoledsobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3351,8 +3351,8 @@ impl IADsOpenDSObject_Vtbl {
         iid == &<IADsOpenDSObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPath_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows::core::Result<i32>;
     fn SetType(&self, lntype: i32) -> ::windows::core::Result<()>;
@@ -3361,9 +3361,9 @@ pub trait IADsPath_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetPath(&self, bstrpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPath {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPath_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPath_Impl, const OFFSET: isize>() -> IADsPath_Vtbl {
         unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -3428,8 +3428,8 @@ impl IADsPath_Vtbl {
         iid == &<IADsPath as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPathname_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Set(&self, bstradspath: &::windows::core::BSTR, lnsettype: i32) -> ::windows::core::Result<()>;
     fn SetDisplayType(&self, lndisplaytype: i32) -> ::windows::core::Result<()>;
@@ -3443,9 +3443,9 @@ pub trait IADsPathname_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EscapedMode(&self) -> ::windows::core::Result<i32>;
     fn SetEscapedMode(&self, lnescapedmode: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPathname {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPathname_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPathname_Impl, const OFFSET: isize>() -> IADsPathname_Vtbl {
         unsafe extern "system" fn Set<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPathname_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradspath: *mut ::core::ffi::c_void, lnsettype: i32) -> ::windows::core::HRESULT {
@@ -3558,18 +3558,18 @@ impl IADsPathname_Vtbl {
         iid == &<IADsPathname as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPostalAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn PostalAddress(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPostalAddress(&self, vpostaladdress: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PostalAddress(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetPostalAddress(&self, vpostaladdress: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPostalAddress {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPostalAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPostalAddress_Impl, const OFFSET: isize>() -> IADsPostalAddress_Vtbl {
-        unsafe extern "system" fn PostalAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPostalAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPostalAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PostalAddress() {
@@ -3580,7 +3580,7 @@ impl IADsPostalAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPostalAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPostalAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpostaladdress: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostalAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPostalAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpostaladdress: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPostalAddress(::core::mem::transmute(&vpostaladdress)).into()
@@ -3595,8 +3595,8 @@ impl IADsPostalAddress_Vtbl {
         iid == &<IADsPostalAddress as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintJob_Impl: Sized + IADs_Impl {
     fn HostPrintQueue(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3617,9 +3617,9 @@ pub trait IADsPrintJob_Impl: Sized + IADs_Impl {
     fn NotifyPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetNotifyPath(&self, bstrnotifypath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPrintJob {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPrintJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintJob_Impl, const OFFSET: isize>() -> IADsPrintJob_Vtbl {
         unsafe extern "system" fn HostPrintQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3810,8 +3810,8 @@ impl IADsPrintJob_Vtbl {
         iid == &<IADsPrintJob as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintJobOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
     fn TimeElapsed(&self) -> ::windows::core::Result<i32>;
@@ -3821,9 +3821,9 @@ pub trait IADsPrintJobOperations_Impl: Sized + IADs_Impl {
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPrintJobOperations {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPrintJobOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintJobOperations_Impl, const OFFSET: isize>() -> IADsPrintJobOperations_Vtbl {
         unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintJobOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -3900,8 +3900,8 @@ impl IADsPrintJobOperations_Vtbl {
         iid == &<IADsPrintJobOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintQueue_Impl: Sized + IADs_Impl {
     fn PrinterPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetPrinterPath(&self, bstrprinterpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3925,14 +3925,14 @@ pub trait IADsPrintQueue_Impl: Sized + IADs_Impl {
     fn SetPriority(&self, lnpriority: i32) -> ::windows::core::Result<()>;
     fn BannerPage(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetBannerPage(&self, bstrbannerpage: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn PrintDevices(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPrintDevices(&self, vprintdevices: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn NetAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetNetAddresses(&self, vnetaddresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn PrintDevices(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetPrintDevices(&self, vprintdevices: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn NetAddresses(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetNetAddresses(&self, vnetaddresses: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPrintQueue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPrintQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>() -> IADsPrintQueue_Vtbl {
         unsafe extern "system" fn PrinterPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4111,7 +4111,7 @@ impl IADsPrintQueue_Vtbl {
             let this = (*this).get_impl();
             this.SetBannerPage(::core::mem::transmute(&bstrbannerpage)).into()
         }
-        unsafe extern "system" fn PrintDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PrintDevices() {
@@ -4122,12 +4122,12 @@ impl IADsPrintQueue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPrintDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vprintdevices: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPrintDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vprintdevices: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPrintDevices(::core::mem::transmute(&vprintdevices)).into()
         }
-        unsafe extern "system" fn NetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NetAddresses() {
@@ -4138,7 +4138,7 @@ impl IADsPrintQueue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vnetaddresses: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNetAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vnetaddresses: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNetAddresses(::core::mem::transmute(&vnetaddresses)).into()
@@ -4177,8 +4177,8 @@ impl IADsPrintQueue_Vtbl {
         iid == &<IADsPrintQueue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintQueueOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
     fn PrintJobs(&self) -> ::windows::core::Result<IADsCollection>;
@@ -4186,9 +4186,9 @@ pub trait IADsPrintQueueOperations_Impl: Sized + IADs_Impl {
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn Purge(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPrintQueueOperations {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPrintQueueOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueueOperations_Impl, const OFFSET: isize>() -> IADsPrintQueueOperations_Vtbl {
         unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPrintQueueOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -4241,8 +4241,8 @@ impl IADsPrintQueueOperations_Vtbl {
         iid == &<IADsPrintQueueOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsProperty_Impl: Sized + IADs_Impl {
     fn OID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetOID(&self, bstroid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4256,9 +4256,9 @@ pub trait IADsProperty_Impl: Sized + IADs_Impl {
     fn SetMultiValued(&self, fmultivalued: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Qualifiers(&self) -> ::windows::core::Result<IADsCollection>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsProperty_Impl, const OFFSET: isize>() -> IADsProperty_Vtbl {
         unsafe extern "system" fn OID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4371,8 +4371,8 @@ impl IADsProperty_Vtbl {
         iid == &<IADsProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -4381,12 +4381,12 @@ pub trait IADsPropertyEntry_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SetADsType(&self, lnadstype: i32) -> ::windows::core::Result<()>;
     fn ControlCode(&self) -> ::windows::core::Result<i32>;
     fn SetControlCode(&self, lncontrolcode: i32) -> ::windows::core::Result<()>;
-    fn Values(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValues(&self, vvalues: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Values(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetValues(&self, vvalues: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPropertyEntry {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyEntry_Impl, const OFFSET: isize>() -> IADsPropertyEntry_Vtbl {
         unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4442,7 +4442,7 @@ impl IADsPropertyEntry_Vtbl {
             let this = (*this).get_impl();
             this.SetControlCode(::core::mem::transmute_copy(&lncontrolcode)).into()
         }
-        unsafe extern "system" fn Values<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Values<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Values() {
@@ -4453,7 +4453,7 @@ impl IADsPropertyEntry_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vvalues: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vvalues: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValues(::core::mem::transmute(&vvalues)).into()
@@ -4475,22 +4475,22 @@ impl IADsPropertyEntry_Vtbl {
         iid == &<IADsPropertyEntry as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PropertyCount(&self) -> ::windows::core::Result<i32>;
-    fn Next(&self, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+    fn Next(&self, pvariant: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT;
     fn Skip(&self, celements: i32) -> ::windows::core::HRESULT;
     fn Reset(&self) -> ::windows::core::Result<()>;
-    fn Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetPropertyItem(&self, bstrname: &::windows::core::BSTR, lnadstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn PutPropertyItem(&self, vardata: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ResetPropertyItem(&self, varentry: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn GetPropertyItem(&self, bstrname: &::windows::core::BSTR, lnadstype: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn PutPropertyItem(&self, vardata: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn ResetPropertyItem(&self, varentry: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn PurgePropertyList(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPropertyList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>() -> IADsPropertyList_Vtbl {
         unsafe extern "system" fn PropertyCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -4504,7 +4504,7 @@ impl IADsPropertyList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&pvariant))
@@ -4519,7 +4519,7 @@ impl IADsPropertyList_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pvariant: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&varindex)) {
@@ -4530,7 +4530,7 @@ impl IADsPropertyList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, lnadstype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, lnadstype: i32, pvariant: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPropertyItem(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&lnadstype)) {
@@ -4541,12 +4541,12 @@ impl IADsPropertyList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardata: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardata: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutPropertyItem(::core::mem::transmute(&vardata)).into()
         }
-        unsafe extern "system" fn ResetPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varentry: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResetPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varentry: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResetPropertyItem(::core::mem::transmute(&varentry)).into()
@@ -4573,8 +4573,8 @@ impl IADsPropertyList_Vtbl {
         iid == &<IADsPropertyList as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn ADsType(&self) -> ::windows::core::Result<i32>;
@@ -4593,8 +4593,8 @@ pub trait IADsPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SetBoolean(&self, lnboolean: i32) -> ::windows::core::Result<()>;
     fn Integer(&self) -> ::windows::core::Result<i32>;
     fn SetInteger(&self, lninteger: i32) -> ::windows::core::Result<()>;
-    fn OctetString(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOctetString(&self, voctetstring: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn OctetString(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetOctetString(&self, voctetstring: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn SecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn SetSecurityDescriptor(&self, psecuritydescriptor: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn LargeInteger(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
@@ -4602,9 +4602,9 @@ pub trait IADsPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn UTCTime(&self) -> ::windows::core::Result<f64>;
     fn SetUTCTime(&self, dautctime: f64) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPropertyValue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyValue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue_Impl, const OFFSET: isize>() -> IADsPropertyValue_Vtbl {
         unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4740,7 +4740,7 @@ impl IADsPropertyValue_Vtbl {
             let this = (*this).get_impl();
             this.SetInteger(::core::mem::transmute_copy(&lninteger)).into()
         }
-        unsafe extern "system" fn OctetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OctetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OctetString() {
@@ -4751,7 +4751,7 @@ impl IADsPropertyValue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOctetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voctetstring: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOctetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voctetstring: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOctetString(::core::mem::transmute(&voctetstring)).into()
@@ -4837,23 +4837,23 @@ impl IADsPropertyValue_Vtbl {
         iid == &<IADsPropertyValue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyValue2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetObjectProperty(&self, lnadstype: *mut i32, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PutObjectProperty(&self, lnadstype: i32, vprop: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetObjectProperty(&self, lnadstype: *mut i32, pvprop: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn PutObjectProperty(&self, lnadstype: i32, vprop: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsPropertyValue2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyValue2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue2_Impl, const OFFSET: isize>() -> IADsPropertyValue2_Vtbl {
-        unsafe extern "system" fn GetObjectProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnadstype: *mut i32, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetObjectProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnadstype: *mut i32, pvprop: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetObjectProperty(::core::mem::transmute_copy(&lnadstype), ::core::mem::transmute_copy(&pvprop)).into()
         }
-        unsafe extern "system" fn PutObjectProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnadstype: i32, vprop: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutObjectProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsPropertyValue2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnadstype: i32, vprop: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutObjectProperty(::core::mem::transmute_copy(&lnadstype), ::core::mem::transmute(&vprop)).into()
@@ -4868,8 +4868,8 @@ impl IADsPropertyValue2_Vtbl {
         iid == &<IADsPropertyValue2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsReplicaPointer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ServerName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetServerName(&self, bstrservername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -4879,12 +4879,12 @@ pub trait IADsReplicaPointer_Impl: Sized + super::super::System::Com::IDispatch_
     fn SetReplicaNumber(&self, lnreplicanumber: i32) -> ::windows::core::Result<()>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn SetCount(&self, lncount: i32) -> ::windows::core::Result<()>;
-    fn ReplicaAddressHints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetReplicaAddressHints(&self, vreplicaaddresshints: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ReplicaAddressHints(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetReplicaAddressHints(&self, vreplicaaddresshints: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsReplicaPointer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsReplicaPointer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsReplicaPointer_Impl, const OFFSET: isize>() -> IADsReplicaPointer_Vtbl {
         unsafe extern "system" fn ServerName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsReplicaPointer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4951,7 +4951,7 @@ impl IADsReplicaPointer_Vtbl {
             let this = (*this).get_impl();
             this.SetCount(::core::mem::transmute_copy(&lncount)).into()
         }
-        unsafe extern "system" fn ReplicaAddressHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsReplicaPointer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplicaAddressHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsReplicaPointer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReplicaAddressHints() {
@@ -4962,7 +4962,7 @@ impl IADsReplicaPointer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReplicaAddressHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsReplicaPointer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vreplicaaddresshints: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReplicaAddressHints<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsReplicaPointer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vreplicaaddresshints: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetReplicaAddressHints(::core::mem::transmute(&vreplicaaddresshints)).into()
@@ -4985,17 +4985,17 @@ impl IADsReplicaPointer_Vtbl {
         iid == &<IADsReplicaPointer as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsResource_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn LockCount(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsResource {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsResource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsResource_Impl, const OFFSET: isize>() -> IADsResource_Vtbl {
         unsafe extern "system" fn User<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5054,8 +5054,8 @@ impl IADsResource_Vtbl {
         iid == &<IADsResource as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsSecurityDescriptor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Revision(&self) -> ::windows::core::Result<i32>;
     fn SetRevision(&self, lnrevision: i32) -> ::windows::core::Result<()>;
@@ -5079,9 +5079,9 @@ pub trait IADsSecurityDescriptor_Impl: Sized + super::super::System::Com::IDispa
     fn SetSaclDefaulted(&self, fsacldefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn CopySecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsSecurityDescriptor {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsSecurityDescriptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>() -> IADsSecurityDescriptor_Vtbl {
         unsafe extern "system" fn Revision<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -5284,21 +5284,21 @@ impl IADsSecurityDescriptor_Vtbl {
         iid == &<IADsSecurityDescriptor as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsSecurityUtility_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn GetSecurityDescriptor(&self, varpath: &super::super::System::Com::VARIANT, lpathformat: i32, lformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSecurityDescriptor(&self, varpath: &super::super::System::Com::VARIANT, lpathformat: i32, vardata: &super::super::System::Com::VARIANT, ldataformat: i32) -> ::windows::core::Result<()>;
-    fn ConvertSecurityDescriptor(&self, varsd: &super::super::System::Com::VARIANT, ldataformat: i32, loutformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetSecurityDescriptor(&self, varpath: &::windows::core::VARIANT, lpathformat: i32, lformat: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetSecurityDescriptor(&self, varpath: &::windows::core::VARIANT, lpathformat: i32, vardata: &::windows::core::VARIANT, ldataformat: i32) -> ::windows::core::Result<()>;
+    fn ConvertSecurityDescriptor(&self, varsd: &::windows::core::VARIANT, ldataformat: i32, loutformat: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn SecurityMask(&self) -> ::windows::core::Result<i32>;
     fn SetSecurityMask(&self, lnsecuritymask: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsSecurityUtility {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsSecurityUtility_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityUtility_Impl, const OFFSET: isize>() -> IADsSecurityUtility_Vtbl {
-        unsafe extern "system" fn GetSecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityUtility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varpath: super::super::System::Com::VARIANT, lpathformat: i32, lformat: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityUtility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varpath: ::windows::core::VARIANT, lpathformat: i32, lformat: i32, pvariant: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSecurityDescriptor(::core::mem::transmute(&varpath), ::core::mem::transmute_copy(&lpathformat), ::core::mem::transmute_copy(&lformat)) {
@@ -5309,12 +5309,12 @@ impl IADsSecurityUtility_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityUtility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varpath: super::super::System::Com::VARIANT, lpathformat: i32, vardata: super::super::System::Com::VARIANT, ldataformat: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityUtility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varpath: ::windows::core::VARIANT, lpathformat: i32, vardata: ::windows::core::VARIANT, ldataformat: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSecurityDescriptor(::core::mem::transmute(&varpath), ::core::mem::transmute_copy(&lpathformat), ::core::mem::transmute(&vardata), ::core::mem::transmute_copy(&ldataformat)).into()
         }
-        unsafe extern "system" fn ConvertSecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityUtility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varsd: super::super::System::Com::VARIANT, ldataformat: i32, loutformat: i32, presult: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConvertSecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityUtility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varsd: ::windows::core::VARIANT, ldataformat: i32, loutformat: i32, presult: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConvertSecurityDescriptor(::core::mem::transmute(&varsd), ::core::mem::transmute_copy(&ldataformat), ::core::mem::transmute_copy(&loutformat)) {
@@ -5354,8 +5354,8 @@ impl IADsSecurityUtility_Vtbl {
         iid == &<IADsSecurityUtility as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsService_Impl: Sized + IADs_Impl {
     fn HostComputer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetHostComputer(&self, bstrhostcomputer: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -5379,12 +5379,12 @@ pub trait IADsService_Impl: Sized + IADs_Impl {
     fn SetServiceAccountName(&self, bstrserviceaccountname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ServiceAccountPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetServiceAccountPath(&self, bstrserviceaccountpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Dependencies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetDependencies(&self, vdependencies: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Dependencies(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetDependencies(&self, vdependencies: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsService {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsService_Impl, const OFFSET: isize>() -> IADsService_Vtbl {
         unsafe extern "system" fn HostComputer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5563,7 +5563,7 @@ impl IADsService_Vtbl {
             let this = (*this).get_impl();
             this.SetServiceAccountPath(::core::mem::transmute(&bstrserviceaccountpath)).into()
         }
-        unsafe extern "system" fn Dependencies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Dependencies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Dependencies() {
@@ -5574,7 +5574,7 @@ impl IADsService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDependencies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdependencies: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDependencies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdependencies: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDependencies(::core::mem::transmute(&vdependencies)).into()
@@ -5611,8 +5611,8 @@ impl IADsService_Vtbl {
         iid == &<IADsService as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsServiceOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<i32>;
     fn Start(&self) -> ::windows::core::Result<()>;
@@ -5621,9 +5621,9 @@ pub trait IADsServiceOperations_Impl: Sized + IADs_Impl {
     fn Continue(&self) -> ::windows::core::Result<()>;
     fn SetPassword(&self, bstrnewpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsServiceOperations {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsServiceOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsServiceOperations_Impl, const OFFSET: isize>() -> IADsServiceOperations_Vtbl {
         unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsServiceOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -5676,8 +5676,8 @@ impl IADsServiceOperations_Vtbl {
         iid == &<IADsServiceOperations as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsSession_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UserPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -5686,9 +5686,9 @@ pub trait IADsSession_Impl: Sized + IADs_Impl {
     fn ConnectTime(&self) -> ::windows::core::Result<i32>;
     fn IdleTime(&self) -> ::windows::core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsSession {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSession_Impl, const OFFSET: isize>() -> IADsSession_Vtbl {
         unsafe extern "system" fn User<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5771,15 +5771,15 @@ impl IADsSession_Vtbl {
         iid == &<IADsSession as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsSyntax_Impl: Sized + IADs_Impl {
     fn OleAutoDataType(&self) -> ::windows::core::Result<i32>;
     fn SetOleAutoDataType(&self, lnoleautodatatype: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsSyntax {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsSyntax_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSyntax_Impl, const OFFSET: isize>() -> IADsSyntax_Vtbl {
         unsafe extern "system" fn OleAutoDataType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSyntax_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -5808,17 +5808,17 @@ impl IADsSyntax_Vtbl {
         iid == &<IADsSyntax as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsTimestamp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WholeSeconds(&self) -> ::windows::core::Result<i32>;
     fn SetWholeSeconds(&self, lnwholeseconds: i32) -> ::windows::core::Result<()>;
     fn EventID(&self) -> ::windows::core::Result<i32>;
     fn SetEventID(&self, lneventid: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsTimestamp {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsTimestamp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsTimestamp_Impl, const OFFSET: isize>() -> IADsTimestamp_Vtbl {
         unsafe extern "system" fn WholeSeconds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsTimestamp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -5865,8 +5865,8 @@ impl IADsTimestamp_Vtbl {
         iid == &<IADsTimestamp as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsTypedName_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetObjectName(&self, bstrobjectname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -5875,9 +5875,9 @@ pub trait IADsTypedName_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Interval(&self) -> ::windows::core::Result<i32>;
     fn SetInterval(&self, lninterval: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsTypedName {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsTypedName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsTypedName_Impl, const OFFSET: isize>() -> IADsTypedName_Vtbl {
         unsafe extern "system" fn ObjectName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsTypedName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5942,8 +5942,8 @@ impl IADsTypedName_Vtbl {
         iid == &<IADsTypedName as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn BadLoginAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BadLoginCount(&self) -> ::windows::core::Result<i32>;
@@ -5975,24 +5975,24 @@ pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn SetTitle(&self, bstrtitle: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Manager(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetManager(&self, bstrmanager: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn TelephoneHome(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephoneHome(&self, vtelephonehome: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn TelephoneMobile(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephoneMobile(&self, vtelephonemobile: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephoneNumber(&self, vtelephonenumber: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn TelephonePager(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetTelephonePager(&self, vtelephonepager: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn FaxNumber(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetFaxNumber(&self, vfaxnumber: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn OfficeLocations(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetOfficeLocations(&self, vofficelocations: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PostalAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPostalAddresses(&self, vpostaladdresses: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn PostalCodes(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPostalCodes(&self, vpostalcodes: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephoneHome(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetTelephoneHome(&self, vtelephonehome: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephoneMobile(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetTelephoneMobile(&self, vtelephonemobile: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephoneNumber(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetTelephoneNumber(&self, vtelephonenumber: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn TelephonePager(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetTelephonePager(&self, vtelephonepager: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn FaxNumber(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetFaxNumber(&self, vfaxnumber: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn OfficeLocations(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetOfficeLocations(&self, vofficelocations: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn PostalAddresses(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetPostalAddresses(&self, vpostaladdresses: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn PostalCodes(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetPostalCodes(&self, vpostalcodes: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn SeeAlso(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetSeeAlso(&self, vseealso: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn AccountDisabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAccountDisabled(&self, faccountdisabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn AccountExpirationDate(&self) -> ::windows::core::Result<f64>;
@@ -6003,10 +6003,10 @@ pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn SetGraceLoginsRemaining(&self, lngraceloginsremaining: i32) -> ::windows::core::Result<()>;
     fn IsAccountLocked(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetIsAccountLocked(&self, fisaccountlocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn LoginHours(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetLoginHours(&self, vloginhours: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn LoginWorkstations(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetLoginWorkstations(&self, vloginworkstations: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn LoginHours(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetLoginHours(&self, vloginhours: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn LoginWorkstations(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetLoginWorkstations(&self, vloginworkstations: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn MaxLogins(&self) -> ::windows::core::Result<i32>;
     fn SetMaxLogins(&self, lnmaxlogins: i32) -> ::windows::core::Result<()>;
     fn MaxStorage(&self) -> ::windows::core::Result<i32>;
@@ -6023,23 +6023,23 @@ pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn SetEmailAddress(&self, bstremailaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn HomeDirectory(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetHomeDirectory(&self, bstrhomedirectory: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Languages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetLanguages(&self, vlanguages: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Languages(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetLanguages(&self, vlanguages: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn Profile(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetProfile(&self, bstrprofile: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn LoginScript(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetLoginScript(&self, bstrloginscript: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Picture(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetPicture(&self, vpicture: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Picture(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetPicture(&self, vpicture: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn HomePage(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetHomePage(&self, bstrhomepage: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Groups(&self) -> ::windows::core::Result<IADsMembers>;
     fn SetPassword(&self, newpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ChangePassword(&self, bstroldpassword: &::windows::core::BSTR, bstrnewpassword: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IADsUser {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IADsUser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>() -> IADsUser_Vtbl {
         unsafe extern "system" fn BadLoginAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6300,7 +6300,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             this.SetManager(::core::mem::transmute(&bstrmanager)).into()
         }
-        unsafe extern "system" fn TelephoneHome<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TelephoneHome<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TelephoneHome() {
@@ -6311,12 +6311,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTelephoneHome<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonehome: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTelephoneHome<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonehome: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTelephoneHome(::core::mem::transmute(&vtelephonehome)).into()
         }
-        unsafe extern "system" fn TelephoneMobile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TelephoneMobile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TelephoneMobile() {
@@ -6327,12 +6327,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTelephoneMobile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonemobile: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTelephoneMobile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonemobile: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTelephoneMobile(::core::mem::transmute(&vtelephonemobile)).into()
         }
-        unsafe extern "system" fn TelephoneNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TelephoneNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TelephoneNumber() {
@@ -6343,12 +6343,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTelephoneNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonenumber: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTelephoneNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonenumber: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTelephoneNumber(::core::mem::transmute(&vtelephonenumber)).into()
         }
-        unsafe extern "system" fn TelephonePager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TelephonePager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TelephonePager() {
@@ -6359,12 +6359,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTelephonePager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonepager: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTelephonePager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vtelephonepager: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTelephonePager(::core::mem::transmute(&vtelephonepager)).into()
         }
-        unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FaxNumber() {
@@ -6375,12 +6375,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vfaxnumber: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFaxNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vfaxnumber: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFaxNumber(::core::mem::transmute(&vfaxnumber)).into()
         }
-        unsafe extern "system" fn OfficeLocations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OfficeLocations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OfficeLocations() {
@@ -6391,12 +6391,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOfficeLocations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vofficelocations: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOfficeLocations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vofficelocations: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOfficeLocations(::core::mem::transmute(&vofficelocations)).into()
         }
-        unsafe extern "system" fn PostalAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PostalAddresses() {
@@ -6407,12 +6407,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPostalAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpostaladdresses: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostalAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpostaladdresses: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPostalAddresses(::core::mem::transmute(&vpostaladdresses)).into()
         }
-        unsafe extern "system" fn PostalCodes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PostalCodes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PostalCodes() {
@@ -6423,12 +6423,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPostalCodes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpostalcodes: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPostalCodes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpostalcodes: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPostalCodes(::core::mem::transmute(&vpostalcodes)).into()
         }
-        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SeeAlso() {
@@ -6439,7 +6439,7 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSeeAlso<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vseealso: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSeeAlso(::core::mem::transmute(&vseealso)).into()
@@ -6524,7 +6524,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             this.SetIsAccountLocked(::core::mem::transmute_copy(&fisaccountlocked)).into()
         }
-        unsafe extern "system" fn LoginHours<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoginHours<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LoginHours() {
@@ -6535,12 +6535,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLoginHours<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vloginhours: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLoginHours<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vloginhours: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLoginHours(::core::mem::transmute(&vloginhours)).into()
         }
-        unsafe extern "system" fn LoginWorkstations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoginWorkstations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LoginWorkstations() {
@@ -6551,7 +6551,7 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLoginWorkstations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vloginworkstations: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLoginWorkstations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vloginworkstations: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLoginWorkstations(::core::mem::transmute(&vloginworkstations)).into()
@@ -6684,7 +6684,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             this.SetHomeDirectory(::core::mem::transmute(&bstrhomedirectory)).into()
         }
-        unsafe extern "system" fn Languages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Languages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Languages() {
@@ -6695,7 +6695,7 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLanguages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vlanguages: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLanguages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vlanguages: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLanguages(::core::mem::transmute(&vlanguages)).into()
@@ -6732,7 +6732,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             this.SetLoginScript(::core::mem::transmute(&bstrloginscript)).into()
         }
-        unsafe extern "system" fn Picture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Picture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Picture() {
@@ -6743,7 +6743,7 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPicture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpicture: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPicture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpicture: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPicture(::core::mem::transmute(&vpicture)).into()
@@ -6884,17 +6884,17 @@ impl IADsUser_Vtbl {
         iid == &<IADsUser as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IADs as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IADsWinNTSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ComputerName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn DomainName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn PDC(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IADsWinNTSystemInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IADsWinNTSystemInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsWinNTSystemInfo_Impl, const OFFSET: isize>() -> IADsWinNTSystemInfo_Vtbl {
         unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsWinNTSystemInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7680,18 +7680,18 @@ impl IPersistQuery_Vtbl {
         iid == &<IPersistQuery as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPrivateDispatch_Impl: Sized {
     fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows::core::Result<()>;
     fn ADSIGetTypeInfoCount(&self) -> ::windows::core::Result<u32>;
     fn ADSIGetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo>;
     fn ADSIGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32>;
-    fn ADSIInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
+    fn ADSIInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrivateDispatch {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPrivateDispatch_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrivateDispatch_Impl, const OFFSET: isize>() -> IPrivateDispatch_Vtbl {
         unsafe extern "system" fn ADSIInitializeDispatchManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrivateDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwextensionid: i32) -> ::windows::core::HRESULT {
@@ -7732,7 +7732,7 @@ impl IPrivateDispatch_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ADSIInvoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrivateDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ADSIInvoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrivateDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ADSIInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()

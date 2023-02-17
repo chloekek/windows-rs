@@ -167,15 +167,11 @@ pub struct IAutomaticUpdates2_Vtbl {
 pub struct IAutomaticUpdatesResults(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesResults {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LastSearchSuccessDate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn LastSearchSuccessDate(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).LastSearchSuccessDate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn LastInstallationSuccessDate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn LastInstallationSuccessDate(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).LastInstallationSuccessDate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -215,14 +211,8 @@ unsafe impl ::windows::core::Interface for IAutomaticUpdatesResults {
 #[doc(hidden)]
 pub struct IAutomaticUpdatesResults_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LastSearchSuccessDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    LastSearchSuccessDate: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LastInstallationSuccessDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    LastInstallationSuccessDate: usize,
+    pub LastSearchSuccessDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub LastInstallationSuccessDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -847,9 +837,7 @@ pub struct IDownloadCompletedCallbackArgs_Vtbl {
 pub struct IDownloadJob(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadJob {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AsyncState(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn AsyncState(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AsyncState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -913,10 +901,7 @@ unsafe impl ::windows::core::Interface for IDownloadJob {
 #[doc(hidden)]
 pub struct IDownloadJob_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AsyncState: usize,
+    pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1492,9 +1477,7 @@ pub struct IInstallationCompletedCallbackArgs_Vtbl {
 pub struct IInstallationJob(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationJob {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AsyncState(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn AsyncState(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AsyncState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -1558,10 +1541,7 @@ unsafe impl ::windows::core::Interface for IInstallationJob {
 #[doc(hidden)]
 pub struct IInstallationJob_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AsyncState: usize,
+    pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -1971,9 +1951,7 @@ pub struct ISearchCompletedCallbackArgs_Vtbl {
 pub struct ISearchJob(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchJob {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AsyncState(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn AsyncState(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AsyncState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -2025,10 +2003,7 @@ unsafe impl ::windows::core::Interface for ISearchJob {
 #[doc(hidden)]
 pub struct ISearchJob_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AsyncState: usize,
+    pub AsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2305,9 +2280,7 @@ impl IUpdate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -2571,10 +2544,7 @@ pub struct IUpdate_Vtbl {
     pub Categories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Categories: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Deadline: usize,
+    pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub DeltaCompressedContentAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -2721,9 +2691,7 @@ impl IUpdate2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3047,9 +3015,7 @@ impl IUpdate3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3367,9 +3333,7 @@ impl IUpdate4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -3693,9 +3657,7 @@ impl IUpdate5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -4388,15 +4350,15 @@ impl IUpdateDownloader {
     {
         (::windows::core::Vtable::vtable(self).SetUpdates)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginDownload<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IDownloadJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginDownload<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IDownloadJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4469,9 +4431,9 @@ pub struct IUpdateDownloader_Vtbl {
     pub SetUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetUpdates: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BeginDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: super::Com::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub BeginDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: ::windows::core::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     BeginDownload: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5083,25 +5045,25 @@ impl IUpdateInstaller {
     {
         (::windows::core::Vtable::vtable(self).SetUpdates)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5229,13 +5191,13 @@ pub struct IUpdateInstaller_Vtbl {
     pub SetUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetUpdates: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BeginInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: super::Com::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub BeginInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: ::windows::core::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     BeginInstall: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BeginUninstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: super::Com::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub BeginUninstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, onprogresschanged: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: ::windows::core::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     BeginUninstall: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub EndInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5339,25 +5301,25 @@ impl IUpdateInstaller2 {
     {
         (::windows::core::Vtable::vtable(self).base__.SetUpdates)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5545,25 +5507,25 @@ impl IUpdateInstaller3 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.SetUpdates)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5765,25 +5727,25 @@ impl IUpdateInstaller4 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.SetUpdates)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginInstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: super::Com::VARIANT) -> ::windows::core::Result<IInstallationJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &::windows::core::VARIANT) -> ::windows::core::Result<IInstallationJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginUninstall)(::windows::core::Vtable::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6001,14 +5963,14 @@ impl IUpdateSearcher {
     pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetServerSelection)(::windows::core::Vtable::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: &::windows::core::VARIANT) -> ::windows::core::Result<ISearchJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BeginSearch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).BeginSearch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6116,9 +6078,9 @@ pub struct IUpdateSearcher_Vtbl {
     SetIncludePotentiallySupersededUpdates: usize,
     pub ServerSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ServerSelection) -> ::windows::core::HRESULT,
     pub SetServerSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ServerSelection) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BeginSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, criteria: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: super::Com::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub BeginSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, criteria: *mut ::core::ffi::c_void, oncompleted: *mut ::core::ffi::c_void, state: ::windows::core::VARIANT, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     BeginSearch: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub EndSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchjob: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6193,14 +6155,14 @@ impl IUpdateSearcher2 {
     pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetServerSelection)(::windows::core::Vtable::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: &::windows::core::VARIANT) -> ::windows::core::Result<ISearchJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.BeginSearch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.BeginSearch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6359,14 +6321,14 @@ impl IUpdateSearcher3 {
     pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetServerSelection)(::windows::core::Vtable::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: super::Com::VARIANT) -> ::windows::core::Result<ISearchJob>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BeginSearch<P0>(&self, criteria: &::windows::core::BSTR, oncompleted: P0, state: &::windows::core::VARIANT) -> ::windows::core::Result<ISearchJob>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.BeginSearch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into().abi(), ::core::mem::transmute(state), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.BeginSearch)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(criteria), oncompleted.into().abi(), ::core::mem::transmute_copy(state), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6488,9 +6450,7 @@ impl IUpdateService {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ContentValidationCert(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn ContentValidationCert(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ContentValidationCert)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6587,10 +6547,7 @@ unsafe impl ::windows::core::Interface for IUpdateService {
 pub struct IUpdateService_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ContentValidationCert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    ContentValidationCert: usize,
+    pub ContentValidationCert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub ExpirationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsManaged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
@@ -6631,9 +6588,7 @@ impl IUpdateService2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ContentValidationCert(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn ContentValidationCert(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.ContentValidationCert)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6836,10 +6791,8 @@ impl IUpdateServiceManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AddScanPackageService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(servicename), ::core::mem::transmute_copy(scanfilelocation), flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption(&self, optionname: &::windows::core::BSTR, optionvalue: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(optionname), ::core::mem::transmute(optionvalue)).ok()
+    pub unsafe fn SetOption(&self, optionname: &::windows::core::BSTR, optionvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(optionname), ::core::mem::transmute_copy(optionvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6892,10 +6845,7 @@ pub struct IUpdateServiceManager_Vtbl {
     pub AddScanPackageService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: *mut ::core::ffi::c_void, scanfilelocation: *mut ::core::ffi::c_void, flags: i32, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddScanPackageService: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionname: *mut ::core::ffi::c_void, optionvalue: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetOption: usize,
+    pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionname: *mut ::core::ffi::c_void, optionvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6930,10 +6880,8 @@ impl IUpdateServiceManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.AddScanPackageService)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(servicename), ::core::mem::transmute_copy(scanfilelocation), flags, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption(&self, optionname: &::windows::core::BSTR, optionvalue: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(optionname), ::core::mem::transmute(optionvalue)).ok()
+    pub unsafe fn SetOption(&self, optionname: &::windows::core::BSTR, optionvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.SetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(optionname), ::core::mem::transmute_copy(optionvalue)).ok()
     }
     pub unsafe fn ClientApplicationID(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7594,9 +7542,7 @@ impl IWindowsDriverUpdate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7918,9 +7864,7 @@ impl IWindowsDriverUpdate2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8276,9 +8220,7 @@ impl IWindowsDriverUpdate3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8628,9 +8570,7 @@ impl IWindowsDriverUpdate4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -8996,9 +8936,7 @@ impl IWindowsDriverUpdate5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.Categories)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Deadline(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn Deadline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.Deadline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -9484,11 +9422,9 @@ pub struct IWindowsDriverUpdateEntryCollection_Vtbl {
 pub struct IWindowsUpdateAgentInfo(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsUpdateAgentInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfo(&self, varinfoidentifier: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetInfo(&self, varinfoidentifier: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varinfoidentifier), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varinfoidentifier), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9526,10 +9462,7 @@ unsafe impl ::windows::core::Interface for IWindowsUpdateAgentInfo {
 #[doc(hidden)]
 pub struct IWindowsUpdateAgentInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinfoidentifier: super::Com::VARIANT, retval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetInfo: usize,
+    pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinfoidentifier: ::windows::core::VARIANT, retval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const AutomaticUpdates: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfe18e9c_6d87_4450_b37c_e02f0b373803);

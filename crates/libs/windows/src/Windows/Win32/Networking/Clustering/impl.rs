@@ -216,16 +216,16 @@ impl IGetClusterUIInfo_Vtbl {
         iid == &<IGetClusterUIInfo as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DomainNames(&self) -> ::windows::core::Result<ISDomainNames>;
     fn get_ClusterNames(&self, bstrdomainname: &::windows::core::BSTR) -> ::windows::core::Result<ISClusterNames>;
     fn OpenCluster(&self, bstrclustername: &::windows::core::BSTR) -> ::windows::core::Result<ISCluster>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusApplication {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusApplication_Impl, const OFFSET: isize>() -> ISClusApplication_Vtbl {
         unsafe extern "system" fn DomainNames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdomains: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -272,19 +272,19 @@ impl ISClusApplication_Vtbl {
         iid == &<ISClusApplication as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusCryptoKeys_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AddItem(&self, bstrcryptokey: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusCryptoKeys {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusCryptoKeys_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusCryptoKeys_Impl, const OFFSET: isize>() -> ISClusCryptoKeys_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -314,7 +314,7 @@ impl ISClusCryptoKeys_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pbstrcyrptokey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pbstrcyrptokey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -330,7 +330,7 @@ impl ISClusCryptoKeys_Vtbl {
             let this = (*this).get_impl();
             this.AddItem(::core::mem::transmute(&bstrcryptokey)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
@@ -349,17 +349,17 @@ impl ISClusCryptoKeys_Vtbl {
         iid == &<ISClusCryptoKeys as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusDisk_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Signature(&self) -> ::windows::core::Result<i32>;
     fn ScsiAddress(&self) -> ::windows::core::Result<ISClusScsiAddress>;
     fn DiskNumber(&self) -> ::windows::core::Result<i32>;
     fn Partitions(&self) -> ::windows::core::Result<ISClusPartitions>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusDisk {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusDisk_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusDisk_Impl, const OFFSET: isize>() -> ISClusDisk_Vtbl {
         unsafe extern "system" fn Signature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusDisk_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsignature: *mut i32) -> ::windows::core::HRESULT {
@@ -418,16 +418,16 @@ impl ISClusDisk_Vtbl {
         iid == &<ISClusDisk as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusDisks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusDisk>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusDisk>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusDisks {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusDisks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusDisks_Impl, const OFFSET: isize>() -> ISClusDisks_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusDisks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -452,7 +452,7 @@ impl ISClusDisks_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusDisks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppdisk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusDisks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppdisk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -474,8 +474,8 @@ impl ISClusDisks_Vtbl {
         iid == &<ISClusDisks as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNetInterface_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> ::windows::core::Result<ISClusProperties>;
@@ -486,9 +486,9 @@ pub trait ISClusNetInterface_Impl: Sized + super::super::System::Com::IDispatch_
     fn State(&self) -> ::windows::core::Result<CLUSTER_NETINTERFACE_STATE>;
     fn Cluster(&self) -> ::windows::core::Result<ISCluster>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNetInterface {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetInterface_Impl, const OFFSET: isize>() -> ISClusNetInterface_Vtbl {
         unsafe extern "system" fn CommonProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -595,17 +595,17 @@ impl ISClusNetInterface_Vtbl {
         iid == &<ISClusNetInterface as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNetInterfaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNetInterfaces {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterfaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetInterfaces_Impl, const OFFSET: isize>() -> ISClusNetInterfaces_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -635,7 +635,7 @@ impl ISClusNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusnetinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusnetinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -658,8 +658,8 @@ impl ISClusNetInterfaces_Vtbl {
         iid == &<ISClusNetInterfaces as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> ::windows::core::Result<ISClusProperties>;
@@ -673,9 +673,9 @@ pub trait ISClusNetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn NetInterfaces(&self) -> ::windows::core::Result<ISClusNetworkNetInterfaces>;
     fn Cluster(&self) -> ::windows::core::Result<ISCluster>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNetwork {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNetwork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetwork_Impl, const OFFSET: isize>() -> ISClusNetwork_Vtbl {
         unsafe extern "system" fn CommonProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -812,17 +812,17 @@ impl ISClusNetwork_Vtbl {
         iid == &<ISClusNetwork as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNetworkNetInterfaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNetworkNetInterfaces {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworkNetInterfaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>() -> ISClusNetworkNetInterfaces_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -852,7 +852,7 @@ impl ISClusNetworkNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusnetinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusnetinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -875,17 +875,17 @@ impl ISClusNetworkNetInterfaces_Vtbl {
         iid == &<ISClusNetworkNetInterfaces as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNetworks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetwork>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNetwork>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNetworks {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworks_Impl, const OFFSET: isize>() -> ISClusNetworks_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -915,7 +915,7 @@ impl ISClusNetworks_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusnetwork: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNetworks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusnetwork: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -938,8 +938,8 @@ impl ISClusNetworks_Vtbl {
         iid == &<ISClusNetworks as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNode_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> ::windows::core::Result<ISClusProperties>;
@@ -956,9 +956,9 @@ pub trait ISClusNode_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Cluster(&self) -> ::windows::core::Result<ISCluster>;
     fn NetInterfaces(&self) -> ::windows::core::Result<ISClusNodeNetInterfaces>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNode {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNode_Impl, const OFFSET: isize>() -> ISClusNode_Vtbl {
         unsafe extern "system" fn CommonProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1119,17 +1119,17 @@ impl ISClusNode_Vtbl {
         iid == &<ISClusNode as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNodeNetInterfaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNetInterface>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNodeNetInterfaces {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNodeNetInterfaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>() -> ISClusNodeNetInterfaces_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1159,7 +1159,7 @@ impl ISClusNodeNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusnetinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusnetinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -1182,17 +1182,17 @@ impl ISClusNodeNetInterfaces_Vtbl {
         iid == &<ISClusNodeNetInterfaces as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNode>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusNodes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusNodes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodes_Impl, const OFFSET: isize>() -> ISClusNodes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1222,7 +1222,7 @@ impl ISClusNodes_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -1245,8 +1245,8 @@ impl ISClusNodes_Vtbl {
         iid == &<ISClusNodes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusPartition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Flags(&self) -> ::windows::core::Result<i32>;
     fn DeviceName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -1256,9 +1256,9 @@ pub trait ISClusPartition_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn FileSystemFlags(&self) -> ::windows::core::Result<i32>;
     fn FileSystem(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusPartition {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusPartition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartition_Impl, const OFFSET: isize>() -> ISClusPartition_Vtbl {
         unsafe extern "system" fn Flags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows::core::HRESULT {
@@ -1353,8 +1353,8 @@ impl ISClusPartition_Vtbl {
         iid == &<ISClusPartition as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusPartitionEx_Impl: Sized + ISClusPartition_Impl {
     fn TotalSize(&self) -> ::windows::core::Result<i32>;
     fn FreeSpace(&self) -> ::windows::core::Result<i32>;
@@ -1362,9 +1362,9 @@ pub trait ISClusPartitionEx_Impl: Sized + ISClusPartition_Impl {
     fn PartitionNumber(&self) -> ::windows::core::Result<i32>;
     fn VolumeGuid(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusPartitionEx {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitionEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartitionEx_Impl, const OFFSET: isize>() -> ISClusPartitionEx_Vtbl {
         unsafe extern "system" fn TotalSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartitionEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltotalsize: *mut i32) -> ::windows::core::HRESULT {
@@ -1435,16 +1435,16 @@ impl ISClusPartitionEx_Vtbl {
         iid == &<ISClusPartitionEx as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISClusPartition as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusPartitions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPartition>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusPartition>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusPartitions {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartitions_Impl, const OFFSET: isize>() -> ISClusPartitions_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartitions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1469,7 +1469,7 @@ impl ISClusPartitions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartitions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pppartition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPartitions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pppartition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -1491,24 +1491,24 @@ impl ISClusPartitions_Vtbl {
         iid == &<ISClusPartitions as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty>;
-    fn CreateItem(&self, bstrname: &::windows::core::BSTR, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusProperty>;
-    fn UseDefaultValue(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SaveChanges(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn ReadOnly(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Private(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Common(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Modified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusProperty>;
+    fn CreateItem(&self, bstrname: &::windows::core::BSTR, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusProperty>;
+    fn UseDefaultValue(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn SaveChanges(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn ReadOnly(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Private(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Common(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Modified(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>() -> ISClusProperties_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1538,7 +1538,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -1549,7 +1549,7 @@ impl ISClusProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, varvalue: super::super::System::Com::VARIANT, pproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, varvalue: ::windows::core::VARIANT, pproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrname), ::core::mem::transmute(&varvalue)) {
@@ -1560,12 +1560,12 @@ impl ISClusProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UseDefaultValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UseDefaultValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UseDefaultValue(::core::mem::transmute(&varindex)).into()
         }
-        unsafe extern "system" fn SaveChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarstatuscode: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarstatuscode: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SaveChanges() {
@@ -1576,7 +1576,7 @@ impl ISClusProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadOnly<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreadonly: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadOnly<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreadonly: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReadOnly() {
@@ -1587,7 +1587,7 @@ impl ISClusProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Private<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprivate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Private<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprivate: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Private() {
@@ -1598,7 +1598,7 @@ impl ISClusProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Common<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarcommon: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Common<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarcommon: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Common() {
@@ -1609,7 +1609,7 @@ impl ISClusProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Modified() {
@@ -1639,28 +1639,28 @@ impl ISClusProperties_Vtbl {
         iid == &<ISClusProperties as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Length(&self) -> ::windows::core::Result<i32>;
     fn ValueCount(&self) -> ::windows::core::Result<i32>;
     fn Values(&self) -> ::windows::core::Result<ISClusPropertyValues>;
-    fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetValue(&self, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn Type(&self) -> ::windows::core::Result<CLUSTER_PROPERTY_TYPE>;
     fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> ::windows::core::Result<()>;
     fn Format(&self) -> ::windows::core::Result<CLUSTER_PROPERTY_FORMAT>;
     fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> ::windows::core::Result<()>;
-    fn ReadOnly(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Private(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Common(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Modified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn ReadOnly(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Private(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Common(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Modified(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn UseDefaultValue(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>() -> ISClusProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1707,7 +1707,7 @@ impl ISClusProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -1718,7 +1718,7 @@ impl ISClusProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute(&varvalue)).into()
@@ -1755,7 +1755,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             this.SetFormat(::core::mem::transmute_copy(&format)).into()
         }
-        unsafe extern "system" fn ReadOnly<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreadonly: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadOnly<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreadonly: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReadOnly() {
@@ -1766,7 +1766,7 @@ impl ISClusProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Private<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprivate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Private<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprivate: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Private() {
@@ -1777,7 +1777,7 @@ impl ISClusProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Common<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarcommon: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Common<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarcommon: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Common() {
@@ -1788,7 +1788,7 @@ impl ISClusProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Modified() {
@@ -1827,11 +1827,11 @@ impl ISClusProperty_Vtbl {
         iid == &<ISClusProperty as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn Value(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetValue(&self, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn Type(&self) -> ::windows::core::Result<CLUSTER_PROPERTY_TYPE>;
     fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> ::windows::core::Result<()>;
     fn Format(&self) -> ::windows::core::Result<CLUSTER_PROPERTY_FORMAT>;
@@ -1840,12 +1840,12 @@ pub trait ISClusPropertyValue_Impl: Sized + super::super::System::Com::IDispatch
     fn DataCount(&self) -> ::windows::core::Result<i32>;
     fn Data(&self) -> ::windows::core::Result<ISClusPropertyValueData>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusPropertyValue {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValue_Impl, const OFFSET: isize>() -> ISClusPropertyValue_Vtbl {
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -1856,7 +1856,7 @@ impl ISClusPropertyValue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute(&varvalue)).into()
@@ -1943,18 +1943,18 @@ impl ISClusPropertyValue_Vtbl {
         iid == &<ISClusPropertyValue as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusPropertyValueData_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn CreateItem(&self, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn CreateItem(&self, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusPropertyValueData {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValueData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>() -> ISClusPropertyValueData_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1979,7 +1979,7 @@ impl ISClusPropertyValueData_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -1990,7 +1990,7 @@ impl ISClusPropertyValueData_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: super::super::System::Com::VARIANT, pvardata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: ::windows::core::VARIANT, pvardata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&varvalue)) {
@@ -2001,7 +2001,7 @@ impl ISClusPropertyValueData_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
@@ -2019,18 +2019,18 @@ impl ISClusPropertyValueData_Vtbl {
         iid == &<ISClusPropertyValueData as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusPropertyValues_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
-    fn CreateItem(&self, bstrname: &::windows::core::BSTR, varvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
+    fn CreateItem(&self, bstrname: &::windows::core::BSTR, varvalue: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusPropertyValue>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusPropertyValues {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValues_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>() -> ISClusPropertyValues_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2055,7 +2055,7 @@ impl ISClusPropertyValues_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pppropertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pppropertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2066,7 +2066,7 @@ impl ISClusPropertyValues_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, varvalue: super::super::System::Com::VARIANT, pppropertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, varvalue: ::windows::core::VARIANT, pppropertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrname), ::core::mem::transmute(&varvalue)) {
@@ -2077,7 +2077,7 @@ impl ISClusPropertyValues_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
@@ -2095,14 +2095,14 @@ impl ISClusPropertyValues_Vtbl {
         iid == &<ISClusPropertyValues as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusRefObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Handle(&self) -> ::windows::core::Result<usize>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusRefObject {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusRefObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRefObject_Impl, const OFFSET: isize>() -> ISClusRefObject_Vtbl {
         unsafe extern "system" fn Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRefObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandle: *mut usize) -> ::windows::core::HRESULT {
@@ -2122,19 +2122,19 @@ impl ISClusRefObject_Vtbl {
         iid == &<ISClusRefObject as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusRegistryKeys_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
     fn AddItem(&self, bstrregistrykey: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusRegistryKeys {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusRegistryKeys_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRegistryKeys_Impl, const OFFSET: isize>() -> ISClusRegistryKeys_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2164,7 +2164,7 @@ impl ISClusRegistryKeys_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pbstrregistrykey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pbstrregistrykey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2180,7 +2180,7 @@ impl ISClusRegistryKeys_Vtbl {
             let this = (*this).get_impl();
             this.AddItem(::core::mem::transmute(&bstrregistrykey)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
@@ -2199,21 +2199,21 @@ impl ISClusRegistryKeys_Vtbl {
         iid == &<ISClusRegistryKeys as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResDependencies_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn AddItem(&self, presource: ::core::option::Option<&ISClusResource>) -> ::windows::core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResDependencies {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependencies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>() -> ISClusResDependencies_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2243,7 +2243,7 @@ impl ISClusResDependencies_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2265,7 +2265,7 @@ impl ISClusResDependencies_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteItem(::core::mem::transmute(&varindex)).into()
@@ -2275,7 +2275,7 @@ impl ISClusResDependencies_Vtbl {
             let this = (*this).get_impl();
             this.AddItem(::windows::core::from_raw_borrowed(&presource)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
@@ -2296,21 +2296,21 @@ impl ISClusResDependencies_Vtbl {
         iid == &<ISClusResDependencies as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResDependents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn AddItem(&self, presource: ::core::option::Option<&ISClusResource>) -> ::windows::core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResDependents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>() -> ISClusResDependents_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2340,7 +2340,7 @@ impl ISClusResDependents_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2362,7 +2362,7 @@ impl ISClusResDependents_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteItem(::core::mem::transmute(&varindex)).into()
@@ -2372,7 +2372,7 @@ impl ISClusResDependents_Vtbl {
             let this = (*this).get_impl();
             this.AddItem(::windows::core::from_raw_borrowed(&presource)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
@@ -2393,8 +2393,8 @@ impl ISClusResDependents_Vtbl {
         iid == &<ISClusResDependents as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> ::windows::core::Result<ISClusProperties>;
@@ -2408,14 +2408,14 @@ pub trait ISClusResGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Resources(&self) -> ::windows::core::Result<ISClusResGroupResources>;
     fn PreferredOwnerNodes(&self) -> ::windows::core::Result<ISClusResGroupPreferredOwnerNodes>;
     fn Delete(&self) -> ::windows::core::Result<()>;
-    fn Online(&self, vartimeout: &super::super::System::Com::VARIANT, varnode: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Move(&self, vartimeout: &super::super::System::Com::VARIANT, varnode: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Offline(&self, vartimeout: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Online(&self, vartimeout: &::windows::core::VARIANT, varnode: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Move(&self, vartimeout: &::windows::core::VARIANT, varnode: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Offline(&self, vartimeout: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn Cluster(&self) -> ::windows::core::Result<ISCluster>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResGroup {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>() -> ISClusResGroup_Vtbl {
         unsafe extern "system" fn CommonProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2538,7 +2538,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             this.Delete().into()
         }
-        unsafe extern "system" fn Online<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartimeout: super::super::System::Com::VARIANT, varnode: super::super::System::Com::VARIANT, pvarpending: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Online<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartimeout: ::windows::core::VARIANT, varnode: ::windows::core::VARIANT, pvarpending: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Online(::core::mem::transmute(&vartimeout), ::core::mem::transmute(&varnode)) {
@@ -2549,7 +2549,7 @@ impl ISClusResGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartimeout: super::super::System::Com::VARIANT, varnode: super::super::System::Com::VARIANT, pvarpending: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Move<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartimeout: ::windows::core::VARIANT, varnode: ::windows::core::VARIANT, pvarpending: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Move(::core::mem::transmute(&vartimeout), ::core::mem::transmute(&varnode)) {
@@ -2560,7 +2560,7 @@ impl ISClusResGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Offline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartimeout: super::super::System::Com::VARIANT, pvarpending: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartimeout: ::windows::core::VARIANT, pvarpending: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Offline(::core::mem::transmute(&vartimeout)) {
@@ -2606,22 +2606,22 @@ impl ISClusResGroup_Vtbl {
         iid == &<ISClusResGroup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResGroupPreferredOwnerNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNode>;
     fn InsertItem(&self, pnode: ::core::option::Option<&ISClusNode>, nposition: i32) -> ::windows::core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Modified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn Modified(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn SaveChanges(&self) -> ::windows::core::Result<()>;
     fn AddItem(&self, pnode: ::core::option::Option<&ISClusNode>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResGroupPreferredOwnerNodes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupPreferredOwnerNodes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>() -> ISClusResGroupPreferredOwnerNodes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2651,7 +2651,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2667,12 +2667,12 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             this.InsertItem(::windows::core::from_raw_borrowed(&pnode), ::core::mem::transmute_copy(&nposition)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
         }
-        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Modified() {
@@ -2710,19 +2710,19 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
         iid == &<ISClusResGroupPreferredOwnerNodes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResGroupResources_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResGroupResources {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupResources_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupResources_Impl, const OFFSET: isize>() -> ISClusResGroupResources_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2752,7 +2752,7 @@ impl ISClusResGroupResources_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2774,7 +2774,7 @@ impl ISClusResGroupResources_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteItem(::core::mem::transmute(&varindex)).into()
@@ -2793,19 +2793,19 @@ impl ISClusResGroupResources_Vtbl {
         iid == &<ISClusResGroupResources as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResGroups_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResGroup>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusResGroup>;
     fn CreateItem(&self, bstrresourcegroupname: &::windows::core::BSTR) -> ::windows::core::Result<ISClusResGroup>;
-    fn DeleteItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResGroups {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroups_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroups_Impl, const OFFSET: isize>() -> ISClusResGroups_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2835,7 +2835,7 @@ impl ISClusResGroups_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusresgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusresgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2857,7 +2857,7 @@ impl ISClusResGroups_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteItem(::core::mem::transmute(&varindex)).into()
@@ -2876,20 +2876,20 @@ impl ISClusResGroups_Vtbl {
         iid == &<ISClusResGroups as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResPossibleOwnerNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNode>;
     fn AddItem(&self, pnode: ::core::option::Option<&ISClusNode>) -> ::windows::core::Result<()>;
-    fn RemoveItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Modified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn RemoveItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn Modified(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResPossibleOwnerNodes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResPossibleOwnerNodes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>() -> ISClusResPossibleOwnerNodes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2919,7 +2919,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -2935,12 +2935,12 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             this.AddItem(::windows::core::from_raw_borrowed(&pnode)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveItem(::core::mem::transmute(&varindex)).into()
         }
-        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmodified: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Modified() {
@@ -2966,8 +2966,8 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
         iid == &<ISClusResPossibleOwnerNodes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResType_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> ::windows::core::Result<ISClusProperties>;
@@ -2980,9 +2980,9 @@ pub trait ISClusResType_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn PossibleOwnerNodes(&self) -> ::windows::core::Result<ISClusResTypePossibleOwnerNodes>;
     fn AvailableDisks(&self) -> ::windows::core::Result<ISClusDisks>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResType_Impl, const OFFSET: isize>() -> ISClusResType_Vtbl {
         unsafe extern "system" fn CommonProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3107,17 +3107,17 @@ impl ISClusResType_Vtbl {
         iid == &<ISClusResType as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResTypePossibleOwnerNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusNode>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusNode>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResTypePossibleOwnerNodes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypePossibleOwnerNodes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>() -> ISClusResTypePossibleOwnerNodes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -3147,7 +3147,7 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -3170,19 +3170,19 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
         iid == &<ISClusResTypePossibleOwnerNodes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResTypeResources_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrgroupname: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResTypeResources {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypeResources_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypeResources_Impl, const OFFSET: isize>() -> ISClusResTypeResources_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -3212,7 +3212,7 @@ impl ISClusResTypeResources_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -3234,7 +3234,7 @@ impl ISClusResTypeResources_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteItem(::core::mem::transmute(&varindex)).into()
@@ -3253,19 +3253,19 @@ impl ISClusResTypeResources_Vtbl {
         iid == &<ISClusResTypeResources as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResTypes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResType>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusResType>;
     fn CreateItem(&self, bstrresourcetypename: &::windows::core::BSTR, bstrdisplayname: &::windows::core::BSTR, bstrresourcetypedll: &::windows::core::BSTR, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> ::windows::core::Result<ISClusResType>;
-    fn DeleteItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResTypes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypes_Impl, const OFFSET: isize>() -> ISClusResTypes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -3295,7 +3295,7 @@ impl ISClusResTypes_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusrestype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusrestype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -3317,7 +3317,7 @@ impl ISClusResTypes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteItem(::core::mem::transmute(&varindex)).into()
@@ -3336,8 +3336,8 @@ impl ISClusResTypes_Vtbl {
         iid == &<ISClusResTypes as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISClusResource_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> ::windows::core::Result<ISClusProperties>;
@@ -3351,12 +3351,12 @@ pub trait ISClusResource_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn BecomeQuorumResource(&self, bstrdevicepath: &::windows::core::BSTR, lmaxlogsize: i32) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
     fn Fail(&self) -> ::windows::core::Result<()>;
-    fn Online(&self, ntimeout: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Offline(&self, ntimeout: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn Online(&self, ntimeout: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Offline(&self, ntimeout: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn ChangeResourceGroup(&self, presourcegroup: ::core::option::Option<&ISClusResGroup>) -> ::windows::core::Result<()>;
     fn AddResourceNode(&self, pnode: ::core::option::Option<&ISClusNode>) -> ::windows::core::Result<()>;
     fn RemoveResourceNode(&self, pnode: ::core::option::Option<&ISClusNode>) -> ::windows::core::Result<()>;
-    fn CanResourceBeDependent(&self, presource: ::core::option::Option<&ISClusResource>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn CanResourceBeDependent(&self, presource: ::core::option::Option<&ISClusResource>) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn PossibleOwnerNodes(&self) -> ::windows::core::Result<ISClusResPossibleOwnerNodes>;
     fn Dependencies(&self) -> ::windows::core::Result<ISClusResDependencies>;
     fn Dependents(&self) -> ::windows::core::Result<ISClusResDependents>;
@@ -3372,9 +3372,9 @@ pub trait ISClusResource_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn MaintenanceMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetMaintenanceMode(&self, bmaintenancemode: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for ISClusResource {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISClusResource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>() -> ISClusResource_Vtbl {
         unsafe extern "system" fn CommonProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3485,7 +3485,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             this.Fail().into()
         }
-        unsafe extern "system" fn Online<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ntimeout: i32, pvarpending: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Online<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ntimeout: i32, pvarpending: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Online(::core::mem::transmute_copy(&ntimeout)) {
@@ -3496,7 +3496,7 @@ impl ISClusResource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Offline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ntimeout: i32, pvarpending: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ntimeout: i32, pvarpending: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Offline(::core::mem::transmute_copy(&ntimeout)) {
@@ -3522,7 +3522,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             this.RemoveResourceNode(::windows::core::from_raw_borrowed(&pnode)).into()
         }
-        unsafe extern "system" fn CanResourceBeDependent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pvardependent: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanResourceBeDependent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pvardependent: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CanResourceBeDependent(::windows::core::from_raw_borrowed(&presource)) {
@@ -3721,19 +3721,19 @@ impl ISClusResource_Vtbl {
         iid == &<ISClusResource as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusResources_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ISClusResource>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<ISClusResource>;
     fn CreateItem(&self, bstrresourcename: &::windows::core::BSTR, bstrresourcetype: &::windows::core::BSTR, bstrgroupname: &::windows::core::BSTR, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows::core::Result<ISClusResource>;
-    fn DeleteItem(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn DeleteItem(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusResources {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusResources_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResources_Impl, const OFFSET: isize>() -> ISClusResources_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -3763,7 +3763,7 @@ impl ISClusResources_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, ppclusresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -3785,7 +3785,7 @@ impl ISClusResources_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusResources_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeleteItem(::core::mem::transmute(&varindex)).into()
@@ -3804,20 +3804,20 @@ impl ISClusResources_Vtbl {
         iid == &<ISClusResources as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusScsiAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn PortNumber(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn PathId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn TargetId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn Lun(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn PortNumber(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn PathId(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn TargetId(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn Lun(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusScsiAddress {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusScsiAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>() -> ISClusScsiAddress_Vtbl {
-        unsafe extern "system" fn PortNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarportnumber: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PortNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarportnumber: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PortNumber() {
@@ -3828,7 +3828,7 @@ impl ISClusScsiAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PathId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarpathid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PathId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarpathid: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PathId() {
@@ -3839,7 +3839,7 @@ impl ISClusScsiAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TargetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvartargetid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TargetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvartargetid: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TargetId() {
@@ -3850,7 +3850,7 @@ impl ISClusScsiAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Lun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarlun: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Lun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarlun: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Lun() {
@@ -3873,8 +3873,8 @@ impl ISClusScsiAddress_Vtbl {
         iid == &<ISClusScsiAddress as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusVersion_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn MajorVersion(&self) -> ::windows::core::Result<i32>;
@@ -3885,11 +3885,11 @@ pub trait ISClusVersion_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn ClusterHighestVersion(&self) -> ::windows::core::Result<i32>;
     fn ClusterLowestVersion(&self) -> ::windows::core::Result<i32>;
     fn Flags(&self) -> ::windows::core::Result<i32>;
-    fn MixedVersion(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn MixedVersion(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusVersion {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusVersion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusVersion_Impl, const OFFSET: isize>() -> ISClusVersion_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusVersion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrclustername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3991,7 +3991,7 @@ impl ISClusVersion_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MixedVersion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusVersion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmixedversion: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MixedVersion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusVersion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarmixedversion: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MixedVersion() {
@@ -4020,8 +4020,8 @@ impl ISClusVersion_Vtbl {
         iid == &<ISClusVersion as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISCluster_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> ::windows::core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> ::windows::core::Result<ISClusProperties>;
@@ -4045,9 +4045,9 @@ pub trait ISCluster_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Networks(&self) -> ::windows::core::Result<ISClusNetworks>;
     fn NetInterfaces(&self) -> ::windows::core::Result<ISClusNetInterfaces>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISCluster {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISCluster_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISCluster_Impl, const OFFSET: isize>() -> ISCluster_Vtbl {
         unsafe extern "system" fn CommonProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISCluster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4280,18 +4280,18 @@ impl ISCluster_Vtbl {
         iid == &<ISCluster as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISClusterNames_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
     fn DomainName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISClusterNames {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISClusterNames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusterNames_Impl, const OFFSET: isize>() -> ISClusterNames_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusterNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -4321,7 +4321,7 @@ impl ISClusterNames_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusterNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pbstrclustername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISClusterNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pbstrclustername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
@@ -4356,17 +4356,17 @@ impl ISClusterNames_Vtbl {
         iid == &<ISClusterNames as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISDomainNames_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
-    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn get_Item(&self, varindex: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISDomainNames {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISDomainNames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISDomainNames_Impl, const OFFSET: isize>() -> ISDomainNames_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISDomainNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -4396,7 +4396,7 @@ impl ISDomainNames_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISDomainNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: super::super::System::Com::VARIANT, pbstrdomainname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISDomainNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::windows::core::VARIANT, pbstrdomainname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {

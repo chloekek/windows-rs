@@ -8,16 +8,12 @@ impl ISdo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty(&self, id: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetProperty(&self, id: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PutProperty)(::windows::core::Vtable::as_raw(self), id, pvalue).ok()
+    pub unsafe fn PutProperty(&self, id: i32, pvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PutProperty)(::windows::core::Vtable::as_raw(self), id, ::core::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn ResetProperty(&self, id: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ResetProperty)(::windows::core::Vtable::as_raw(self), id).ok()
@@ -69,14 +65,8 @@ unsafe impl ::windows::core::Interface for ISdo {
 pub struct ISdo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pppropertyinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PutProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PutProperty: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub PutProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, pvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub ResetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -117,11 +107,11 @@ impl ISdoCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsNameUnique)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item(&self, name: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Item(&self, name: *const ::windows::core::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), name, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(name), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -178,9 +168,9 @@ pub struct ISdoCollection_Vtbl {
     pub IsNameUnique: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsNameUnique: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const super::super::System::Com::VARIANT, pitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *const ::windows::core::VARIANT, pitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -190,21 +180,15 @@ pub struct ISdoCollection_Vtbl {
 pub struct ISdoDictionaryOld(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoDictionaryOld {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnumAttributes(&self, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumAttributes)(::windows::core::Vtable::as_raw(self), id, pvalues).ok()
+    pub unsafe fn EnumAttributes(&self, id: *mut ::windows::core::VARIANT, pvalues: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).EnumAttributes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalues)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributeInfo)(::windows::core::Vtable::as_raw(self), id, pinfoids, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetAttributeInfo)(::windows::core::Vtable::as_raw(self), id, ::core::mem::transmute(pinfoids), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumAttributeValues)(::windows::core::Vtable::as_raw(self), id, pvalueids, pvaluesdesc).ok()
+    pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut ::windows::core::VARIANT, pvaluesdesc: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).EnumAttributeValues)(::windows::core::Vtable::as_raw(self), id, ::core::mem::transmute(pvalueids), ::core::mem::transmute(pvaluesdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -252,18 +236,9 @@ unsafe impl ::windows::core::Interface for ISdoDictionaryOld {
 #[doc(hidden)]
 pub struct ISdoDictionaryOld_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnumAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    EnumAttributes: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT, pinfovalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetAttributeInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnumAttributeValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    EnumAttributeValues: usize,
+    pub EnumAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::VARIANT, pvalues: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const ::windows::core::VARIANT, pinfovalues: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub EnumAttributeValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut ::windows::core::VARIANT, pvaluesdesc: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, ppattributeobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -544,16 +519,12 @@ impl ITemplateSdo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPropertyInfo)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty(&self, id: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetProperty(&self, id: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetProperty)(::windows::core::Vtable::as_raw(self), id, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.PutProperty)(::windows::core::Vtable::as_raw(self), id, pvalue).ok()
+    pub unsafe fn PutProperty(&self, id: i32, pvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.PutProperty)(::windows::core::Vtable::as_raw(self), id, ::core::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn ResetProperty(&self, id: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.ResetProperty)(::windows::core::Vtable::as_raw(self), id).ok()

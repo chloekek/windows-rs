@@ -692,16 +692,16 @@ impl IActiveScriptHostEncode_Vtbl {
         iid == &<IActiveScriptHostEncode as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParse32_Impl: Sized {
     fn InitNew(&self) -> ::windows::core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &::windows::core::PCWSTR, pstrcode: &::windows::core::PCWSTR, pstritemname: &::windows::core::PCWSTR, pstrsubitemname: &::windows::core::PCWSTR, pstreventname: &::windows::core::PCWSTR, pstrdelimiter: &::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::windows::core::BSTR, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &::windows::core::PCWSTR, pstritemname: &::windows::core::PCWSTR, punkcontext: ::core::option::Option<&::windows::core::IUnknown>, pstrdelimiter: &::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &::windows::core::PCWSTR, pstritemname: &::windows::core::PCWSTR, punkcontext: ::core::option::Option<&::windows::core::IUnknown>, pstrdelimiter: &::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IActiveScriptParse32 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParse32_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse32_Impl, const OFFSET: isize>() -> IActiveScriptParse32_Vtbl {
         unsafe extern "system" fn InitNew<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -715,7 +715,7 @@ impl IActiveScriptParse32_Vtbl {
             this.AddScriptlet(::core::mem::transmute(&pstrdefaultname), ::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&pstrsubitemname), ::core::mem::transmute(&pstreventname), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pexcepinfo))
                 .into()
         }
-        unsafe extern "system" fn ParseScriptText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseScriptText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ParseScriptText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstritemname), ::windows::core::from_raw_borrowed(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo)).into()
@@ -731,16 +731,16 @@ impl IActiveScriptParse32_Vtbl {
         iid == &<IActiveScriptParse32 as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParse64_Impl: Sized {
     fn InitNew(&self) -> ::windows::core::Result<()>;
     fn AddScriptlet(&self, pstrdefaultname: &::windows::core::PCWSTR, pstrcode: &::windows::core::PCWSTR, pstritemname: &::windows::core::PCWSTR, pstrsubitemname: &::windows::core::PCWSTR, pstreventname: &::windows::core::PCWSTR, pstrdelimiter: &::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::windows::core::BSTR, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
-    fn ParseScriptText(&self, pstrcode: &::windows::core::PCWSTR, pstritemname: &::windows::core::PCWSTR, punkcontext: ::core::option::Option<&::windows::core::IUnknown>, pstrdelimiter: &::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
+    fn ParseScriptText(&self, pstrcode: &::windows::core::PCWSTR, pstritemname: &::windows::core::PCWSTR, punkcontext: ::core::option::Option<&::windows::core::IUnknown>, pstrdelimiter: &::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IActiveScriptParse64 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptParse64_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse64_Impl, const OFFSET: isize>() -> IActiveScriptParse64_Vtbl {
         unsafe extern "system" fn InitNew<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -754,7 +754,7 @@ impl IActiveScriptParse64_Vtbl {
             this.AddScriptlet(::core::mem::transmute(&pstrdefaultname), ::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&pstrsubitemname), ::core::mem::transmute(&pstreventname), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pbstrname), ::core::mem::transmute_copy(&pexcepinfo))
                 .into()
         }
-        unsafe extern "system" fn ParseScriptText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ParseScriptText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptParse64_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, pstritemname: ::windows::core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows::core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::windows::core::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ParseScriptText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstritemname), ::windows::core::from_raw_borrowed(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo)).into()
@@ -1179,18 +1179,15 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
         iid == &<IActiveScriptProfilerHeapEnum as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
 pub trait IActiveScriptProperty_Impl: Sized {
-    fn GetProperty(&self, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT) -> ::windows::core::Result<super::super::Com::VARIANT>;
-    fn SetProperty(&self, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *const super::super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, dwproperty: u32, pvarindex: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetProperty(&self, dwproperty: u32, pvarindex: *const ::windows::core::VARIANT, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IActiveScriptProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IActiveScriptProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProperty_Impl, const OFFSET: isize>() -> IActiveScriptProperty_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const ::windows::core::VARIANT, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&dwproperty), ::core::mem::transmute_copy(&pvarindex)) {
@@ -1201,7 +1198,7 @@ impl IActiveScriptProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *const super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const ::windows::core::VARIANT, pvarvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&dwproperty), ::core::mem::transmute_copy(&pvarindex), ::core::mem::transmute_copy(&pvarvalue)).into()
@@ -1240,21 +1237,21 @@ impl IActiveScriptSIPInfo_Vtbl {
         iid == &<IActiveScriptSIPInfo as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptSite_Impl: Sized {
     fn GetLCID(&self) -> ::windows::core::Result<u32>;
     fn GetItemInfo(&self, pstrname: &::windows::core::PCWSTR, dwreturnmask: u32, ppiunkitem: *mut ::core::option::Option<::windows::core::IUnknown>, ppti: *mut ::core::option::Option<super::super::Com::ITypeInfo>) -> ::windows::core::Result<()>;
     fn GetDocVersionString(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn OnScriptTerminate(&self, pvarresult: *const super::super::Com::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
+    fn OnScriptTerminate(&self, pvarresult: *const ::windows::core::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
     fn OnStateChange(&self, ssscriptstate: SCRIPTSTATE) -> ::windows::core::Result<()>;
     fn OnScriptError(&self, pscripterror: ::core::option::Option<&IActiveScriptError>) -> ::windows::core::Result<()>;
     fn OnEnterScript(&self) -> ::windows::core::Result<()>;
     fn OnLeaveScript(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IActiveScriptSite {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IActiveScriptSite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSite_Impl, const OFFSET: isize>() -> IActiveScriptSite_Vtbl {
         unsafe extern "system" fn GetLCID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT {
@@ -1284,7 +1281,7 @@ impl IActiveScriptSite_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnScriptTerminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarresult: *const super::super::Com::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnScriptTerminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarresult: *const ::windows::core::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnScriptTerminate(::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo)).into()
@@ -1914,8 +1911,7 @@ impl IDataModelConcept_Vtbl {
         iid == &<IDataModelConcept as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
 pub trait IDataModelManager_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn CreateNoValue(&self) -> ::windows::core::Result<IModelObject>;
@@ -1924,8 +1920,8 @@ pub trait IDataModelManager_Impl: Sized {
     fn CreateTypedObjectReference(&self, context: ::core::option::Option<&IDebugHostContext>, objectlocation: &Location, objecttype: ::core::option::Option<&IDebugHostType>) -> ::windows::core::Result<IModelObject>;
     fn CreateSyntheticObject(&self, context: ::core::option::Option<&IDebugHostContext>) -> ::windows::core::Result<IModelObject>;
     fn CreateDataModelObject(&self, datamodel: ::core::option::Option<&IDataModelConcept>) -> ::windows::core::Result<IModelObject>;
-    fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::Com::VARIANT) -> ::windows::core::Result<IModelObject>;
-    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *const super::super::Com::VARIANT, r#type: ::core::option::Option<&IDebugHostType>) -> ::windows::core::Result<IModelObject>;
+    fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const ::windows::core::VARIANT) -> ::windows::core::Result<IModelObject>;
+    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *const ::windows::core::VARIANT, r#type: ::core::option::Option<&IDebugHostType>) -> ::windows::core::Result<IModelObject>;
     fn GetModelForTypeSignature(&self, typesignature: ::core::option::Option<&IDebugHostTypeSignature>) -> ::windows::core::Result<IModelObject>;
     fn GetModelForType(&self, r#type: ::core::option::Option<&IDebugHostType>, datamodel: *mut ::core::option::Option<IModelObject>, typesignature: *mut ::core::option::Option<IDebugHostTypeSignature>, wildcardmatches: *mut ::core::option::Option<IDebugHostSymbolEnumerator>) -> ::windows::core::Result<()>;
     fn RegisterModelForTypeSignature(&self, typesignature: ::core::option::Option<&IDebugHostTypeSignature>, datamodel: ::core::option::Option<&IModelObject>) -> ::windows::core::Result<()>;
@@ -1938,9 +1934,7 @@ pub trait IDataModelManager_Impl: Sized {
     fn UnregisterNamedModel(&self, modelname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn AcquireNamedModel(&self, modelname: &::windows::core::PCWSTR) -> ::windows::core::Result<IModelObject>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDataModelManager {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataModelManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>() -> IDataModelManager_Vtbl {
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2014,7 +2008,7 @@ impl IDataModelManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateIntrinsicObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const super::super::Com::VARIANT, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateIntrinsicObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const ::windows::core::VARIANT, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateIntrinsicObject(::core::mem::transmute_copy(&objectkind), ::core::mem::transmute_copy(&intrinsicdata)) {
@@ -2025,7 +2019,7 @@ impl IDataModelManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::Com::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intrinsicdata: *const ::windows::core::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTypedIntrinsicObject(::core::mem::transmute_copy(&intrinsicdata), ::windows::core::from_raw_borrowed(&r#type)) {
@@ -2143,15 +2137,12 @@ impl IDataModelManager_Vtbl {
         iid == &<IDataModelManager as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
 pub trait IDataModelManager2_Impl: Sized + IDataModelManager_Impl {
     fn AcquireSubNamespace(&self, modelname: &::windows::core::PCWSTR, subnamespacemodelname: &::windows::core::PCWSTR, accessname: &::windows::core::PCWSTR, metadata: ::core::option::Option<&IKeyStore>) -> ::windows::core::Result<IModelObject>;
-    fn CreateTypedIntrinsicObjectEx(&self, context: ::core::option::Option<&IDebugHostContext>, intrinsicdata: *const super::super::Com::VARIANT, r#type: ::core::option::Option<&IDebugHostType>) -> ::windows::core::Result<IModelObject>;
+    fn CreateTypedIntrinsicObjectEx(&self, context: ::core::option::Option<&IDebugHostContext>, intrinsicdata: *const ::windows::core::VARIANT, r#type: ::core::option::Option<&IDebugHostType>) -> ::windows::core::Result<IModelObject>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDataModelManager2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataModelManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager2_Impl, const OFFSET: isize>() -> IDataModelManager2_Vtbl {
         unsafe extern "system" fn AcquireSubNamespace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, modelname: ::windows::core::PCWSTR, subnamespacemodelname: ::windows::core::PCWSTR, accessname: ::windows::core::PCWSTR, metadata: *mut ::core::ffi::c_void, namespacemodelobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2165,7 +2156,7 @@ impl IDataModelManager2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::Com::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateTypedIntrinsicObjectEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataModelManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, intrinsicdata: *const ::windows::core::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateTypedIntrinsicObjectEx(::windows::core::from_raw_borrowed(&context), ::core::mem::transmute_copy(&intrinsicdata), ::windows::core::from_raw_borrowed(&r#type)) {
@@ -20811,15 +20802,15 @@ impl IDebugExpressionContext_Vtbl {
         iid == &<IDebugExpressionContext as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IDebugExtendedProperty_Impl: Sized + IDebugProperty_Impl {
     fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows::core::Result<()>;
     fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> ::windows::core::Result<IEnumDebugExtendedPropertyInfo>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for IDebugExtendedProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IDebugExtendedProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugExtendedProperty_Impl, const OFFSET: isize>() -> IDebugExtendedProperty_Vtbl {
         unsafe extern "system" fn GetExtendedPropertyInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows::core::HRESULT {
@@ -20848,19 +20839,19 @@ impl IDebugExtendedProperty_Vtbl {
         iid == &<IDebugExtendedProperty as ::windows::core::Interface>::IID || iid == &<IDebugProperty as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDebugFormatter_Impl: Sized {
-    fn GetStringForVariant(&self, pvar: *const super::super::Com::VARIANT, nradix: u32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn GetVariantForString(&self, pwstrvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Com::VARIANT>;
+    fn GetStringForVariant(&self, pvar: *const ::windows::core::VARIANT, nradix: u32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn GetVariantForString(&self, pwstrvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn GetStringForVarType(&self, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC) -> ::windows::core::Result<::windows::core::BSTR>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDebugFormatter {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDebugFormatter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>() -> IDebugFormatter_Vtbl {
-        unsafe extern "system" fn GetStringForVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, nradix: u32, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringForVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT, nradix: u32, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStringForVariant(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&nradix)) {
@@ -20871,7 +20862,7 @@ impl IDebugFormatter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVariantForString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrvalue: ::windows::core::PCWSTR, pvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVariantForString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrvalue: ::windows::core::PCWSTR, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetVariantForString(::core::mem::transmute(&pwstrvalue)) {
@@ -20904,19 +20895,19 @@ impl IDebugFormatter_Vtbl {
         iid == &<IDebugFormatter as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IDebugHelper_Impl: Sized {
-    fn CreatePropertyBrowser(&self, pvar: *const super::super::Com::VARIANT, bstrname: &::windows::core::PCWSTR, pdat: ::core::option::Option<&IDebugApplicationThread>) -> ::windows::core::Result<IDebugProperty>;
-    fn CreatePropertyBrowserEx(&self, pvar: *const super::super::Com::VARIANT, bstrname: &::windows::core::PCWSTR, pdat: ::core::option::Option<&IDebugApplicationThread>, pdf: ::core::option::Option<&IDebugFormatter>) -> ::windows::core::Result<IDebugProperty>;
+    fn CreatePropertyBrowser(&self, pvar: *const ::windows::core::VARIANT, bstrname: &::windows::core::PCWSTR, pdat: ::core::option::Option<&IDebugApplicationThread>) -> ::windows::core::Result<IDebugProperty>;
+    fn CreatePropertyBrowserEx(&self, pvar: *const ::windows::core::VARIANT, bstrname: &::windows::core::PCWSTR, pdat: ::core::option::Option<&IDebugApplicationThread>, pdf: ::core::option::Option<&IDebugFormatter>) -> ::windows::core::Result<IDebugProperty>;
     fn CreateSimpleConnectionPoint(&self, pdisp: ::core::option::Option<&super::super::Com::IDispatch>) -> ::windows::core::Result<ISimpleConnectionPoint>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IDebugHelper {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IDebugHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHelper_Impl, const OFFSET: isize>() -> IDebugHelper_Vtbl {
-        unsafe extern "system" fn CreatePropertyBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePropertyBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreatePropertyBrowser(::core::mem::transmute_copy(&pvar), ::core::mem::transmute(&bstrname), ::windows::core::from_raw_borrowed(&pdat)) {
@@ -20927,7 +20918,7 @@ impl IDebugHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePropertyBrowserEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, pdf: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePropertyBrowserEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *const ::windows::core::VARIANT, bstrname: ::windows::core::PCWSTR, pdat: *mut ::core::ffi::c_void, pdf: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreatePropertyBrowserEx(::core::mem::transmute_copy(&pvar), ::core::mem::transmute(&bstrname), ::windows::core::from_raw_borrowed(&pdat), ::windows::core::from_raw_borrowed(&pdf)) {
@@ -21037,17 +21028,14 @@ impl IDebugHostBaseClass_Vtbl {
         iid == &<IDebugHostBaseClass as ::windows::core::Interface>::IID || iid == &<IDebugHostSymbol as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
 pub trait IDebugHostConstant_Impl: Sized + IDebugHostSymbol_Impl {
-    fn GetValue(&self) -> ::windows::core::Result<super::super::Com::VARIANT>;
+    fn GetValue(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDebugHostConstant {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDebugHostConstant_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostConstant_Impl, const OFFSET: isize>() -> IDebugHostConstant_Vtbl {
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostConstant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostConstant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue() {
@@ -21088,16 +21076,13 @@ impl IDebugHostContext_Vtbl {
         iid == &<IDebugHostContext as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
 pub trait IDebugHostData_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> ::windows::core::Result<LocationKind>;
     fn GetLocation(&self) -> ::windows::core::Result<Location>;
-    fn GetValue(&self) -> ::windows::core::Result<super::super::Com::VARIANT>;
+    fn GetValue(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDebugHostData {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDebugHostData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostData_Impl, const OFFSET: isize>() -> IDebugHostData_Vtbl {
         unsafe extern "system" fn GetLocationKind<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows::core::HRESULT {
@@ -21122,7 +21107,7 @@ impl IDebugHostData_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue() {
@@ -21236,17 +21221,14 @@ impl IDebugHostExtensibility_Vtbl {
         iid == &<IDebugHostExtensibility as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
 pub trait IDebugHostField_Impl: Sized + IDebugHostSymbol_Impl {
     fn GetLocationKind(&self) -> ::windows::core::Result<LocationKind>;
     fn GetOffset(&self) -> ::windows::core::Result<u64>;
     fn GetLocation(&self) -> ::windows::core::Result<Location>;
-    fn GetValue(&self) -> ::windows::core::Result<super::super::Com::VARIANT>;
+    fn GetValue(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDebugHostField {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDebugHostField_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostField_Impl, const OFFSET: isize>() -> IDebugHostField_Vtbl {
         unsafe extern "system" fn GetLocationKind<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostField_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows::core::HRESULT {
@@ -21282,7 +21264,7 @@ impl IDebugHostField_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostField_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugHostField_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue() {
@@ -22494,18 +22476,15 @@ impl IDebugPlmClient3_Vtbl {
         iid == &<IDebugPlmClient3 as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"implement\"`*"]
 pub trait IDebugProperty_Impl: Sized {
     fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::Result<()>;
-    fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn SetValueAsString(&self, pszvalue: &::windows::core::PCWSTR, nradix: u32) -> ::windows::core::Result<()>;
     fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDebugPropertyInfo>;
     fn GetParent(&self) -> ::windows::core::Result<IDebugProperty>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDebugProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDebugProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>() -> IDebugProperty_Vtbl {
         unsafe extern "system" fn GetPropertyInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::HRESULT {
@@ -22513,7 +22492,7 @@ impl IDebugProperty_Vtbl {
             let this = (*this).get_impl();
             this.GetPropertyInfo(::core::mem::transmute_copy(&dwfieldspec), ::core::mem::transmute_copy(&nradix), ::core::mem::transmute_copy(&ppropertyinfo)).into()
         }
-        unsafe extern "system" fn GetExtendedInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExtendedInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtendedInfo(::core::mem::transmute_copy(&cinfos), ::core::mem::transmute_copy(&rgguidextendedinfo), ::core::mem::transmute_copy(&rgvar)).into()
@@ -29772,8 +29751,8 @@ impl IEnumDebugExpressionContexts_Vtbl {
         iid == &<IEnumDebugExpressionContexts as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IEnumDebugExtendedPropertyInfo_Impl: Sized {
     fn Next(&self, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -29781,9 +29760,9 @@ pub trait IEnumDebugExtendedPropertyInfo_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumDebugExtendedPropertyInfo>;
     fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for IEnumDebugExtendedPropertyInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IEnumDebugExtendedPropertyInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>() -> IEnumDebugExtendedPropertyInfo_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -30981,13 +30960,13 @@ impl IModelMethod_Vtbl {
         iid == &<IModelMethod as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IModelObject_Impl: Sized {
     fn GetContext(&self) -> ::windows::core::Result<IDebugHostContext>;
     fn GetKind(&self) -> ::windows::core::Result<ModelObjectKind>;
-    fn GetIntrinsicValue(&self) -> ::windows::core::Result<super::super::Com::VARIANT>;
-    fn GetIntrinsicValueAs(&self, vt: super::super::Com::VARENUM) -> ::windows::core::Result<super::super::Com::VARIANT>;
+    fn GetIntrinsicValue(&self) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn GetIntrinsicValueAs(&self, vt: super::super::Com::VARENUM) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn GetKeyValue(&self, key: &::windows::core::PCWSTR, object: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows::core::Result<()>;
     fn SetKeyValue(&self, key: &::windows::core::PCWSTR, object: ::core::option::Option<&IModelObject>) -> ::windows::core::Result<()>;
     fn EnumerateKeyValues(&self) -> ::windows::core::Result<IKeyEnumerator>;
@@ -31018,9 +30997,9 @@ pub trait IModelObject_Impl: Sized {
     fn Compare(&self, other: ::core::option::Option<&IModelObject>, ppresult: *mut ::core::option::Option<IModelObject>) -> ::windows::core::Result<()>;
     fn IsEqualTo(&self, other: ::core::option::Option<&IModelObject>) -> ::windows::core::Result<bool>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IModelObject {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IModelObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>() -> IModelObject_Vtbl {
         unsafe extern "system" fn GetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -31045,7 +31024,7 @@ impl IModelObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntrinsicValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIntrinsicValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intrinsicdata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetIntrinsicValue() {
@@ -31056,7 +31035,7 @@ impl IModelObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntrinsicValueAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIntrinsicValueAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, intrinsicdata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetIntrinsicValueAs(::core::mem::transmute_copy(&vt)) {
@@ -32558,17 +32537,17 @@ impl IStringDisplayableConcept_Vtbl {
         iid == &<IStringDisplayableConcept as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ITridentEventSink_Impl: Sized {
-    fn FireEvent(&self, pstrevent: &::windows::core::PCWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
+    fn FireEvent(&self, pstrevent: &::windows::core::PCWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut ::windows::core::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ITridentEventSink {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ITridentEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITridentEventSink_Impl, const OFFSET: isize>() -> ITridentEventSink_Vtbl {
-        unsafe extern "system" fn FireEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITridentEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrevent: ::windows::core::PCWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FireEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITridentEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrevent: ::windows::core::PCWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut ::windows::core::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FireEvent(::core::mem::transmute(&pstrevent), ::core::mem::transmute_copy(&pdp), ::core::mem::transmute_copy(&pvarres), ::core::mem::transmute_copy(&pei)).into()

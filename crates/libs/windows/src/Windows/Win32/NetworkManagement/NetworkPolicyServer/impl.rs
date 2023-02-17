@@ -1,17 +1,17 @@
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISdo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetPropertyInfo(&self, id: i32) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetProperty(&self, id: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, id: i32) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn PutProperty(&self, id: i32, pvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn ResetProperty(&self, id: i32) -> ::windows::core::Result<()>;
     fn Apply(&self) -> ::windows::core::Result<()>;
     fn Restore(&self) -> ::windows::core::Result<()>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISdo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISdo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>() -> ISdo_Vtbl {
         unsafe extern "system" fn GetPropertyInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: i32, pppropertyinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -25,7 +25,7 @@ impl ISdo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: i32, pvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&id)) {
@@ -36,7 +36,7 @@ impl ISdo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: i32, pvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutProperty(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pvalue)).into()
@@ -82,8 +82,8 @@ impl ISdo_Vtbl {
         iid == &<ISdo as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn Add(&self, bstrname: &::windows::core::BSTR, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
@@ -91,12 +91,12 @@ pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn RemoveAll(&self) -> ::windows::core::Result<()>;
     fn Reload(&self) -> ::windows::core::Result<()>;
     fn IsNameUnique(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Item(&self, name: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn Item(&self, name: *const ::windows::core::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for ISdoCollection {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISdoCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>() -> ISdoCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
@@ -141,7 +141,7 @@ impl ISdoCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *const super::super::System::Com::VARIANT, pitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *const ::windows::core::VARIANT, pitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&name)) {
@@ -179,26 +179,26 @@ impl ISdoCollection_Vtbl {
         iid == &<ISdoCollection as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn EnumAttributes(&self, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn EnumAttributes(&self, id: *mut ::windows::core::VARIANT, pvalues: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut ::windows::core::VARIANT, pvaluesdesc: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn CreateAttribute(&self, id: ATTRIBUTEID) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn GetAttributeID(&self, bstrattributename: &::windows::core::BSTR) -> ::windows::core::Result<ATTRIBUTEID>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISdoDictionaryOld {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISdoDictionaryOld_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>() -> ISdoDictionaryOld_Vtbl {
-        unsafe extern "system" fn EnumAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut ::windows::core::VARIANT, pvalues: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumAttributes(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pvalues)).into()
         }
-        unsafe extern "system" fn GetAttributeInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT, pinfovalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetAttributeInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const ::windows::core::VARIANT, pinfovalues: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAttributeInfo(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pinfoids)) {
@@ -209,7 +209,7 @@ impl ISdoDictionaryOld_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumAttributeValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnumAttributeValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut ::windows::core::VARIANT, pvaluesdesc: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnumAttributeValues(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pvalueids), ::core::mem::transmute_copy(&pvaluesdesc)).into()
@@ -249,8 +249,8 @@ impl ISdoDictionaryOld_Vtbl {
         iid == &<ISdoDictionaryOld as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Attach(&self, bstrcomputername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetDictionarySDO(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -262,9 +262,9 @@ pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetAttachedComputer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetSDOSchema(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for ISdoMachine {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISdoMachine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>() -> ISdoMachine_Vtbl {
         unsafe extern "system" fn Attach<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcomputername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -377,8 +377,8 @@ impl ISdoMachine_Vtbl {
         iid == &<ISdoMachine as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn EnableTemplates(&self) -> ::windows::core::Result<()>;
@@ -386,9 +386,9 @@ pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn ImportRemoteTemplates(&self, plocaltemplatesroot: ::core::option::Option<&::windows::core::IUnknown>, bstrremotemachinename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Reload(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for ISdoMachine2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISdoMachine2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>() -> ISdoMachine2_Vtbl {
         unsafe extern "system" fn GetTemplatesSDO<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservicename: *mut ::core::ffi::c_void, pptemplatessdo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -435,17 +435,17 @@ impl ISdoMachine2_Vtbl {
         iid == &<ISdoMachine2 as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ISdoMachine as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISdoServiceControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartService(&self) -> ::windows::core::Result<()>;
     fn StopService(&self) -> ::windows::core::Result<()>;
     fn GetServiceStatus(&self) -> ::windows::core::Result<i32>;
     fn ResetService(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISdoServiceControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISdoServiceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoServiceControl_Impl, const OFFSET: isize>() -> ISdoServiceControl_Vtbl {
         unsafe extern "system" fn StartService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISdoServiceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -486,16 +486,16 @@ impl ISdoServiceControl_Vtbl {
         iid == &<ISdoServiceControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ITemplateSdo_Impl: Sized + ISdo_Impl {
     fn AddToCollection(&self, bstrname: &::windows::core::BSTR, pcollection: ::core::option::Option<&super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn AddToSdo(&self, bstrname: &::windows::core::BSTR, psdotarget: ::core::option::Option<&super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn AddToSdoAsProperty(&self, psdotarget: ::core::option::Option<&super::super::System::Com::IDispatch>, id: i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ITemplateSdo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ITemplateSdo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITemplateSdo_Impl, const OFFSET: isize>() -> ITemplateSdo_Vtbl {
         unsafe extern "system" fn AddToCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pcollection: *mut ::core::ffi::c_void, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

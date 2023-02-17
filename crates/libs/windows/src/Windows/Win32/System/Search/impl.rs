@@ -100,12 +100,12 @@ impl DataSourceListener_Vtbl {
         iid == &<DataSourceListener as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait DataSourceObject_Impl: Sized + super::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for DataSourceObject {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl DataSourceObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DataSourceObject_Impl, const OFFSET: isize>() -> DataSourceObject_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -159,14 +159,14 @@ impl IAccessor_Vtbl {
         iid == &<IAccessor as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IAlterIndex_Impl: Sized {
     fn AlterIndex(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IAlterIndex {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IAlterIndex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlterIndex_Impl, const OFFSET: isize>() -> IAlterIndex_Vtbl {
         unsafe extern "system" fn AlterIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlterIndex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
@@ -180,15 +180,15 @@ impl IAlterIndex_Vtbl {
         iid == &<IAlterIndex as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IAlterTable_Impl: Sized {
     fn AlterColumn(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pcolumnid: *mut super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *mut DBCOLUMNDESC) -> ::windows::core::Result<()>;
     fn AlterTable(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IAlterTable {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IAlterTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlterTable_Impl, const OFFSET: isize>() -> IAlterTable_Vtbl {
         unsafe extern "system" fn AlterColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAlterTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pcolumnid: *mut super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *mut DBCOLUMNDESC) -> ::windows::core::HRESULT {
@@ -381,15 +381,15 @@ impl IColumnsInfo2_Vtbl {
         iid == &<IColumnsInfo2 as ::windows::core::Interface>::IID || iid == &<IColumnsInfo as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IColumnsRowset_Impl: Sized {
     fn GetAvailableColumns(&self, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn GetColumnsRowset(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, coptcolumns: usize, rgoptcolumns: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IColumnsRowset {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IColumnsRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsRowset_Impl, const OFFSET: isize>() -> IColumnsRowset_Vtbl {
         unsafe extern "system" fn GetAvailableColumns<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IColumnsRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
@@ -582,15 +582,15 @@ impl ICommandPrepare_Vtbl {
         iid == &<ICommandPrepare as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait ICommandProperties_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
     fn SetProperties(&self, cpropertysets: u32, rgpropertysets: *const DBPROPSET) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for ICommandProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ICommandProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommandProperties_Impl, const OFFSET: isize>() -> ICommandProperties_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommandProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
@@ -1173,14 +1173,14 @@ impl IDBAsynchStatus_Vtbl {
         iid == &<IDBAsynchStatus as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IDBBinderProperties_Impl: Sized + IDBProperties_Impl {
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IDBBinderProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IDBBinderProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBBinderProperties_Impl, const OFFSET: isize>() -> IDBBinderProperties_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBBinderProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1242,17 +1242,17 @@ impl IDBCreateSession_Vtbl {
         iid == &<IDBCreateSession as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IDBDataSourceAdmin_Impl: Sized {
     fn CreateDataSource(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: ::core::option::Option<&::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppdbsession: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DestroyDataSource(&self) -> ::windows::core::Result<()>;
     fn GetCreationProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn ModifyDataSource(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IDBDataSourceAdmin {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IDBDataSourceAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBDataSourceAdmin_Impl, const OFFSET: isize>() -> IDBDataSourceAdmin_Vtbl {
         unsafe extern "system" fn CreateDataSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBDataSourceAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdbsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1389,16 +1389,16 @@ impl IDBPromptInitialize_Vtbl {
         iid == &<IDBPromptInitialize as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IDBProperties_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
     fn GetPropertyInfo(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn SetProperties(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IDBProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IDBProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBProperties_Impl, const OFFSET: isize>() -> IDBProperties_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
@@ -1461,18 +1461,18 @@ impl IDBSchemaCommand_Vtbl {
         iid == &<IDBSchemaCommand as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IDBSchemaRowset_Impl: Sized {
-    fn GetRowset(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const super::Com::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn GetRowset(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const ::windows::core::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID, prgrestrictionsupport: *mut *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IDBSchemaRowset {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IDBSchemaRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBSchemaRowset_Impl, const OFFSET: isize>() -> IDBSchemaRowset_Vtbl {
-        unsafe extern "system" fn GetRowset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const super::Com::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRowset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDBSchemaRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const ::windows::core::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRowset(::windows::core::from_raw_borrowed(&punkouter), ::core::mem::transmute_copy(&rguidschema), ::core::mem::transmute_copy(&crestrictions), ::core::mem::transmute_copy(&rgrestrictions), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&cpropertysets), ::core::mem::transmute_copy(&rgpropertysets), ::core::mem::transmute_copy(&pprowset)).into()
@@ -1492,15 +1492,12 @@ impl IDBSchemaRowset_Vtbl {
         iid == &<IDBSchemaRowset as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDCInfo_Impl: Sized {
     fn GetInfo(&self, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows::core::Result<()>;
     fn SetInfo(&self, cinfo: u32, rginfo: *const DCINFO) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDCInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDCInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCInfo_Impl, const OFFSET: isize>() -> IDCInfo_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows::core::HRESULT {
@@ -1649,17 +1646,17 @@ impl IDataInitialize_Vtbl {
         iid == &<IDataInitialize as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDataSourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn SethWnd(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn PromptNew(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn PromptEdit(&self, ppadoconnection: *mut ::core::option::Option<super::Com::IDispatch>, pbsuccess: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IDataSourceLocator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDataSourceLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>() -> IDataSourceLocator_Vtbl {
         unsafe extern "system" fn hWnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwndparent: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
@@ -1794,8 +1791,7 @@ impl IEntity_Vtbl {
         iid == &<IEntity as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IEnumItemProperties_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ITEMPROP, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
@@ -1803,9 +1799,7 @@ pub trait IEnumItemProperties_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumItemProperties>;
     fn GetCount(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IEnumItemProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumItemProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumItemProperties_Impl, const OFFSET: isize>() -> IEnumItemProperties_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumItemProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ITEMPROP, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -2015,16 +2009,16 @@ impl IEnumSubscription_Vtbl {
         iid == &<IEnumSubscription as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IErrorLookup_Impl: Sized {
     fn GetErrorDescription(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut ::windows::core::BSTR, pbstrdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetHelpInfo(&self, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut ::windows::core::BSTR, pdwhelpcontext: *mut u32) -> ::windows::core::Result<()>;
     fn ReleaseErrors(&self, dwdynamicerrorid: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IErrorLookup {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IErrorLookup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorLookup_Impl, const OFFSET: isize>() -> IErrorLookup_Vtbl {
         unsafe extern "system" fn GetErrorDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorLookup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2053,8 +2047,8 @@ impl IErrorLookup_Vtbl {
         iid == &<IErrorLookup as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IErrorRecords_Impl: Sized {
     fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: ::core::option::Option<&::windows::core::IUnknown>, dwdynamicerrorid: u32) -> ::windows::core::Result<()>;
     fn GetBasicErrorInfo(&self, ulrecordnum: u32, perrorinfo: *mut ERRORINFO) -> ::windows::core::Result<()>;
@@ -2063,9 +2057,9 @@ pub trait IErrorRecords_Impl: Sized {
     fn GetErrorParameters(&self, ulrecordnum: u32) -> ::windows::core::Result<super::Com::DISPPARAMS>;
     fn GetRecordCount(&self) -> ::windows::core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IErrorRecords {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IErrorRecords_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorRecords_Impl, const OFFSET: isize>() -> IErrorRecords_Vtbl {
         unsafe extern "system" fn AddErrorRecord<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorRecords_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows::core::HRESULT {
@@ -2248,15 +2242,15 @@ impl IGetSourceRow_Vtbl {
         iid == &<IGetSourceRow as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IIndexDefinition_Impl: Sized {
     fn CreateIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, cindexcolumndescs: usize, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn DropIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IIndexDefinition {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IIndexDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexDefinition_Impl, const OFFSET: isize>() -> IIndexDefinition_Vtbl {
         unsafe extern "system" fn CreateIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, cindexcolumndescs: usize, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
@@ -2362,8 +2356,8 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
         iid == &<ILoadFilterWithPrivateComActivation as ::windows::core::Interface>::IID || iid == &<ILoadFilter as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IMDDataset_Impl: Sized {
     fn FreeAxisInfo(&self, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows::core::Result<()>;
     fn GetAxisInfo(&self, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows::core::Result<()>;
@@ -2371,9 +2365,9 @@ pub trait IMDDataset_Impl: Sized {
     fn GetCellData(&self, haccessor: HACCESSOR, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IMDDataset {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IMDDataset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDDataset_Impl, const OFFSET: isize>() -> IMDDataset_Vtbl {
         unsafe extern "system" fn FreeAxisInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDDataset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows::core::HRESULT {
@@ -2448,14 +2442,14 @@ impl IMDFind_Vtbl {
         iid == &<IMDFind as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IMDRangeRowset_Impl: Sized {
     fn GetRangeRowset(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, ulstartcell: usize, ulendcell: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IMDRangeRowset {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IMDRangeRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDRangeRowset_Impl, const OFFSET: isize>() -> IMDRangeRowset_Vtbl {
         unsafe extern "system" fn GetRangeRowset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMDRangeRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ulstartcell: usize, ulendcell: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2665,14 +2659,14 @@ impl IOpLockStatus_Vtbl {
         iid == &<IOpLockStatus as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IOpenRowset_Impl: Sized {
     fn OpenRowset(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IOpenRowset {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IOpenRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpenRowset_Impl, const OFFSET: isize>() -> IOpenRowset_Vtbl {
         unsafe extern "system" fn OpenRowset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpenRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3478,15 +3472,15 @@ impl IRowsetCopyRows_Vtbl {
         iid == &<IRowsetCopyRows as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IRowsetCurrentIndex_Impl: Sized + IRowsetIndex_Impl {
     fn GetIndex(&self, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn SetIndex(&self, pindexid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IRowsetCurrentIndex {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IRowsetCurrentIndex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetCurrentIndex_Impl, const OFFSET: isize>() -> IRowsetCurrentIndex_Vtbl {
         unsafe extern "system" fn GetIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetCurrentIndex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
@@ -3621,16 +3615,16 @@ impl IRowsetIdentity_Vtbl {
         iid == &<IRowsetIdentity as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IRowsetIndex_Impl: Sized {
     fn GetIndexInfo(&self, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
     fn Seek(&self, haccessor: HACCESSOR, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::Result<()>;
     fn SetRange(&self, haccessor: HACCESSOR, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IRowsetIndex {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IRowsetIndex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetIndex_Impl, const OFFSET: isize>() -> IRowsetIndex_Vtbl {
         unsafe extern "system" fn GetIndexInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetIndex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
@@ -3659,16 +3653,16 @@ impl IRowsetIndex_Vtbl {
         iid == &<IRowsetIndex as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IRowsetInfo_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
     fn GetReferencedRowset(&self, iordinal: usize, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetSpecification(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for IRowsetInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl IRowsetInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetInfo_Impl, const OFFSET: isize>() -> IRowsetInfo_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRowsetInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
@@ -4240,14 +4234,11 @@ impl ISQLErrorInfo_Vtbl {
         iid == &<ISQLErrorInfo as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISQLGetDiagField_Impl: Sized {
     fn GetDiagField(&self, pdiaginfo: *mut KAGGETDIAG) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ISQLGetDiagField {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISQLGetDiagField_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLGetDiagField_Impl, const OFFSET: isize>() -> ISQLGetDiagField_Vtbl {
         unsafe extern "system" fn GetDiagField<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLGetDiagField_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdiaginfo: *mut KAGGETDIAG) -> ::windows::core::HRESULT {
@@ -4430,17 +4421,17 @@ impl ISchemaProvider_Vtbl {
         iid == &<ISchemaProvider as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IScopedOperations_Impl: Sized + IBindResource_Impl {
     fn Copy(&self, crows: usize, rgpwszsourceurls: *const ::windows::core::PCWSTR, rgpwszdesturls: *const ::windows::core::PCWSTR, dwcopyflags: u32, pauthenticate: ::core::option::Option<&super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn Move(&self, crows: usize, rgpwszsourceurls: *const ::windows::core::PCWSTR, rgpwszdesturls: *const ::windows::core::PCWSTR, dwmoveflags: u32, pauthenticate: ::core::option::Option<&super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
     fn Delete(&self, crows: usize, rgpwszurls: *const ::windows::core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::Result<()>;
     fn OpenRowset(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IScopedOperations {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl IScopedOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScopedOperations_Impl, const OFFSET: isize>() -> IScopedOperations_Vtbl {
         unsafe extern "system" fn Copy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScopedOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszsourceurls: *const ::windows::core::PCWSTR, rgpwszdesturls: *const ::windows::core::PCWSTR, dwcopyflags: u32, pauthenticate: *mut ::core::ffi::c_void, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows::core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -6075,15 +6066,15 @@ impl IService_Vtbl {
         iid == &<IService as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait ISessionProperties_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
     fn SetProperties(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for ISessionProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ISessionProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISessionProperties_Impl, const OFFSET: isize>() -> ISessionProperties_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISessionProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
@@ -6141,14 +6132,14 @@ impl ISimpleCommandCreator_Vtbl {
         iid == &<ISimpleCommandCreator as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait ISourcesRowset_Impl: Sized {
     fn GetSourcesRowset(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, riid: *const ::windows::core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ::windows::core::RuntimeName for ISourcesRowset {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Storage_IndexServer")]
 impl ISourcesRowset_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISourcesRowset_Impl, const OFFSET: isize>() -> ISourcesRowset_Vtbl {
         unsafe extern "system" fn GetSourcesRowset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISourcesRowset_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6200,20 +6191,17 @@ impl IStemmer_Vtbl {
         iid == &<IStemmer as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISubscriptionItem_Impl: Sized {
     fn GetCookie(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetSubscriptionItemInfo(&self, psubscriptioniteminfo: *mut SUBSCRIPTIONITEMINFO) -> ::windows::core::Result<()>;
     fn SetSubscriptionItemInfo(&self, psubscriptioniteminfo: *const SUBSCRIPTIONITEMINFO) -> ::windows::core::Result<()>;
-    fn ReadProperties(&self, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn WriteProperties(&self, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ReadProperties(&self, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn WriteProperties(&self, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn EnumProperties(&self) -> ::windows::core::Result<IEnumItemProperties>;
     fn NotifyChanged(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ISubscriptionItem {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISubscriptionItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISubscriptionItem_Impl, const OFFSET: isize>() -> ISubscriptionItem_Vtbl {
         unsafe extern "system" fn GetCookie<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcookie: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -6237,12 +6225,12 @@ impl ISubscriptionItem_Vtbl {
             let this = (*this).get_impl();
             this.SetSubscriptionItemInfo(::core::mem::transmute_copy(&psubscriptioniteminfo)).into()
         }
-        unsafe extern "system" fn ReadProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReadProperties(::core::mem::transmute_copy(&ncount), ::core::mem::transmute_copy(&rgwszname), ::core::mem::transmute_copy(&rgvalue)).into()
         }
-        unsafe extern "system" fn WriteProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISubscriptionItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const ::windows::core::PCWSTR, rgvalue: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.WriteProperties(::core::mem::transmute_copy(&ncount), ::core::mem::transmute_copy(&rgwszname), ::core::mem::transmute_copy(&rgvalue)).into()
@@ -6441,14 +6429,14 @@ impl ISubscriptionMgr2_Vtbl {
         iid == &<ISubscriptionMgr2 as ::windows::core::Interface>::IID || iid == &<ISubscriptionMgr as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait ITableCreation_Impl: Sized + ITableDefinition_Impl {
     fn GetTableDefinition(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for ITableCreation {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ITableCreation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableCreation_Impl, const OFFSET: isize>() -> ITableCreation_Vtbl {
         unsafe extern "system" fn GetTableDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableCreation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -6462,17 +6450,17 @@ impl ITableCreation_Vtbl {
         iid == &<ITableCreation as ::windows::core::Interface>::IID || iid == &<ITableDefinition as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait ITableDefinition_Impl: Sized {
     fn CreateTable(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DropTable(&self, ptableid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
     fn DropColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for ITableDefinition {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ITableDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableDefinition_Impl, const OFFSET: isize>() -> ITableDefinition_Vtbl {
         unsafe extern "system" fn CreateTable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6507,16 +6495,16 @@ impl ITableDefinition_Vtbl {
         iid == &<ITableDefinition as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait ITableDefinitionWithConstraints_Impl: Sized + ITableCreation_Impl {
     fn AddConstraint(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows::core::Result<()>;
     fn CreateTableWithConstraints(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, ptableid: *mut super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *mut DBCONSTRAINTDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn DropConstraint(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for ITableDefinitionWithConstraints {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 impl ITableDefinitionWithConstraints_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>() -> ITableDefinitionWithConstraints_Vtbl {
         unsafe extern "system" fn AddConstraint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITableDefinitionWithConstraints_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows::core::HRESULT {
@@ -6706,8 +6694,8 @@ impl ITransactionObject_Vtbl {
         iid == &<ITransactionObject as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
 pub trait ITrusteeAdmin_Impl: Sized {
     fn CompareTrustees(&self, ptrustee1: *mut super::super::Security::Authorization::TRUSTEE_W, ptrustee2: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::Result<()>;
     fn CreateTrustee(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
@@ -6715,9 +6703,9 @@ pub trait ITrusteeAdmin_Impl: Sized {
     fn SetTrusteeProperties(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::Result<()>;
     fn GetTrusteeProperties(&self, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
 impl ::windows::core::RuntimeName for ITrusteeAdmin {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
 impl ITrusteeAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITrusteeAdmin_Impl, const OFFSET: isize>() -> ITrusteeAdmin_Vtbl {
         unsafe extern "system" fn CompareTrustees<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITrusteeAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrustee1: *mut super::super::Security::Authorization::TRUSTEE_W, ptrustee2: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
@@ -7400,27 +7388,27 @@ impl IWordSink_Vtbl {
         iid == &<IWordSink as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub trait OLEDBSimpleProvider_Impl: Sized {
     fn getRowCount(&self) -> ::windows::core::Result<isize>;
     fn getColumnCount(&self) -> ::windows::core::Result<isize>;
     fn getRWStatus(&self, irow: isize, icolumn: isize) -> ::windows::core::Result<OSPRW>;
-    fn getVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn setVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT, var: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn getVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn setVariant(&self, irow: isize, icolumn: isize, format: OSPFORMAT, var: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn getLocale(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn deleteRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<isize>;
     fn insertRows(&self, irow: isize, crows: isize) -> ::windows::core::Result<isize>;
-    fn find(&self, irowstart: isize, icolumn: isize, val: &super::Com::VARIANT, findflags: OSPFIND, comptype: OSPCOMP) -> ::windows::core::Result<isize>;
+    fn find(&self, irowstart: isize, icolumn: isize, val: &::windows::core::VARIANT, findflags: OSPFIND, comptype: OSPCOMP) -> ::windows::core::Result<isize>;
     fn addOLEDBSimpleProviderListener(&self, pospilistener: ::core::option::Option<&OLEDBSimpleProviderListener>) -> ::windows::core::Result<()>;
     fn removeOLEDBSimpleProviderListener(&self, pospilistener: ::core::option::Option<&OLEDBSimpleProviderListener>) -> ::windows::core::Result<()>;
     fn isAsync(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn getEstimatedRows(&self) -> ::windows::core::Result<isize>;
     fn stopTransfer(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for OLEDBSimpleProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_Foundation")]
 impl OLEDBSimpleProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>() -> OLEDBSimpleProvider_Vtbl {
         unsafe extern "system" fn getRowCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcrows: *mut isize) -> ::windows::core::HRESULT {
@@ -7456,7 +7444,7 @@ impl OLEDBSimpleProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, pvar: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, pvar: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.getVariant(::core::mem::transmute_copy(&irow), ::core::mem::transmute_copy(&icolumn), ::core::mem::transmute_copy(&format)) {
@@ -7467,7 +7455,7 @@ impl OLEDBSimpleProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, var: super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, var: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.setVariant(::core::mem::transmute_copy(&irow), ::core::mem::transmute_copy(&icolumn), ::core::mem::transmute_copy(&format), ::core::mem::transmute(&var)).into()
@@ -7505,7 +7493,7 @@ impl OLEDBSimpleProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn find<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irowstart: isize, icolumn: isize, val: super::Com::VARIANT, findflags: OSPFIND, comptype: OSPCOMP, pirowfound: *mut isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn find<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: OLEDBSimpleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irowstart: isize, icolumn: isize, val: ::windows::core::VARIANT, findflags: OSPFIND, comptype: OSPCOMP, pirowfound: *mut isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.find(::core::mem::transmute_copy(&irowstart), ::core::mem::transmute_copy(&icolumn), ::core::mem::transmute(&val), ::core::mem::transmute_copy(&findflags), ::core::mem::transmute_copy(&comptype)) {

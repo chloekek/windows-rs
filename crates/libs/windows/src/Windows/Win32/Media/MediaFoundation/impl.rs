@@ -119,28 +119,28 @@ impl IClusterDetector_Vtbl {
         iid == &<IClusterDetector as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ICodecAPI_Impl: Sized {
     fn IsSupported(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn IsModifiable(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn GetParameterRange(&self, api: *const ::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn GetParameterValues(&self, api: *const ::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetDefaultValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetValue(&self, api: *const ::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetParameterRange(&self, api: *const ::windows::core::GUID, valuemin: *mut ::windows::core::VARIANT, valuemax: *mut ::windows::core::VARIANT, steppingdelta: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()>;
+    fn GetParameterValues(&self, api: *const ::windows::core::GUID, values: *mut *mut ::windows::core::VARIANT, valuescount: *mut u32) -> ::windows::core::Result<()>;
+    fn GetDefaultValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn GetValue(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetValue(&self, api: *const ::windows::core::GUID, value: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn RegisterForEvent(&self, api: *const ::windows::core::GUID, userdata: isize) -> ::windows::core::Result<()>;
     fn UnregisterForEvent(&self, api: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn SetAllDefaults(&self) -> ::windows::core::Result<()>;
-    fn SetValueWithNotify(&self, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()>;
+    fn SetValueWithNotify(&self, api: *const ::windows::core::GUID, value: *mut ::windows::core::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()>;
     fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()>;
     fn GetAllSettings(&self, __midl__icodecapi0000: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetAllSettings(&self, __midl__icodecapi0001: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: ::core::option::Option<&super::super::System::Com::IStream>, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ICodecAPI {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ICodecAPI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>() -> ICodecAPI_Vtbl {
         unsafe extern "system" fn IsSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -153,17 +153,17 @@ impl ICodecAPI_Vtbl {
             let this = (*this).get_impl();
             this.IsModifiable(::core::mem::transmute_copy(&api)).into()
         }
-        unsafe extern "system" fn GetParameterRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, valuemin: *mut ::windows::core::VARIANT, valuemax: *mut ::windows::core::VARIANT, steppingdelta: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterRange(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&valuemin), ::core::mem::transmute_copy(&valuemax), ::core::mem::transmute_copy(&steppingdelta)).into()
         }
-        unsafe extern "system" fn GetParameterValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetParameterValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, values: *mut *mut ::windows::core::VARIANT, valuescount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetParameterValues(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&valuescount)).into()
         }
-        unsafe extern "system" fn GetDefaultValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefaultValue(::core::mem::transmute_copy(&api)) {
@@ -174,7 +174,7 @@ impl ICodecAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&api)) {
@@ -185,7 +185,7 @@ impl ICodecAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&value)).into()
@@ -205,7 +205,7 @@ impl ICodecAPI_Vtbl {
             let this = (*this).get_impl();
             this.SetAllDefaults().into()
         }
-        unsafe extern "system" fn SetValueWithNotify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetValueWithNotify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut ::windows::core::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValueWithNotify(::core::mem::transmute_copy(&api), ::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&changedparam), ::core::mem::transmute_copy(&changedparamcount)).into()

@@ -5,11 +5,10 @@ pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::super::super::System
     ::windows::core::link ! ( "propsys.dll""system" fn ClearPropVariantArray ( rgpropvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT , cvars : u32 ) -> ( ) );
     ClearPropVariantArray(::core::mem::transmute(rgpropvar.as_ptr()), rgpropvar.len() as _)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::VARIANT]) {
-    ::windows::core::link ! ( "propsys.dll""system" fn ClearVariantArray ( pvars : *mut super::super::super::System::Com:: VARIANT , cvars : u32 ) -> ( ) );
+pub unsafe fn ClearVariantArray(pvars: &mut [::windows::core::VARIANT]) {
+    ::windows::core::link ! ( "propsys.dll""system" fn ClearVariantArray ( pvars : *mut :: windows::core::VARIANT , cvars : u32 ) -> ( ) );
     ClearVariantArray(::core::mem::transmute(pvars.as_ptr()), pvars.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -169,136 +168,125 @@ pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantVectorFromPropVariant(propvarsingle, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundation::BOOL]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromBooleanArray ( prgf : *const super::super::super::Foundation:: BOOL , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundation::BOOL]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromBooleanArray ( prgf : *const super::super::super::Foundation:: BOOL , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromBooleanArray(::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromBuffer ( pv : *const ::core::ffi::c_void , cb : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromBuffer ( pv : *const ::core::ffi::c_void , cb : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromBuffer(pv, cb, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromDoubleArray ( prgn : *const f64 , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromDoubleArray ( prgn : *const f64 , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromDoubleArray(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromFileTime ( pft : *const super::super::super::Foundation:: FILETIME , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromFileTime ( pft : *const super::super::super::Foundation:: FILETIME , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromFileTime(pft, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitVariantFromFileTimeArray(prgft: ::core::option::Option<&[super::super::super::Foundation::FILETIME]>) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromFileTimeArray ( prgft : *const super::super::super::Foundation:: FILETIME , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromFileTimeArray(prgft: ::core::option::Option<&[super::super::super::Foundation::FILETIME]>) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromFileTimeArray ( prgft : *const super::super::super::Foundation:: FILETIME , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromFileTimeArray(::core::mem::transmute(prgft.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len() as _), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromGUIDAsString ( guid : *const :: windows::core::GUID , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromGUIDAsString ( guid : *const :: windows::core::GUID , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromGUIDAsString(guid, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromInt16Array ( prgn : *const i16 , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromInt16Array ( prgn : *const i16 , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromInt32Array ( prgn : *const i32 , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromInt32Array ( prgn : *const i32 , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromInt64Array ( prgn : *const i64 , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromInt64Array ( prgn : *const i64 , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitVariantFromResource<P0>(hinst: P0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
+pub unsafe fn InitVariantFromResource<P0>(hinst: P0, id: u32) -> ::windows::core::Result<::windows::core::VARIANT>
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromResource ( hinst : super::super::super::Foundation:: HINSTANCE , id : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromResource ( hinst : super::super::super::Foundation:: HINSTANCE , id : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromResource(hinst.into(), id, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_UI_Shell_Common\"`*"]
+#[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
-pub unsafe fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromStrRet ( pstrret : *const super::Common:: STRRET , pidl : *const super::Common:: ITEMIDLIST , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromStrRet ( pstrret : *const super::Common:: STRRET , pidl : *const super::Common:: ITEMIDLIST , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromStrRet(pstrret, pidl, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PCWSTR]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromStringArray ( prgsz : *const :: windows::core::PCWSTR , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PCWSTR]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromStringArray ( prgsz : *const :: windows::core::PCWSTR , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromStringArray(::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromUInt16Array ( prgn : *const u16 , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromUInt16Array ( prgn : *const u16 , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromUInt32Array ( prgn : *const u32 , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromUInt32Array ( prgn : *const u32 , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromUInt64Array ( prgn : *const u64 , celems : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromUInt64Array ( prgn : *const u64 , celems : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromVariantArrayElem ( varin : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn InitVariantFromVariantArrayElem(varin: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn InitVariantFromVariantArrayElem ( varin : *const :: windows::core::VARIANT , ielem : u32 , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    InitVariantFromVariantArrayElem(varin, ielem, result__.as_mut_ptr()).from_abi(result__)
+    InitVariantFromVariantArrayElem(::core::mem::transmute(varin), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -697,16 +685,16 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadStream(propbag.into().abi(), propname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadType<P0, P1>(propbag: P0, propname: P1, var: *mut super::super::super::System::Com::VARIANT, r#type: super::super::super::System::Com::VARENUM) -> ::windows::core::Result<()>
+pub unsafe fn PSPropertyBag_ReadType<P0, P1>(propbag: P0, propname: P1, var: *mut ::windows::core::VARIANT, r#type: super::super::super::System::Com::VARENUM) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::StructuredStorage::IPropertyBag>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "propsys.dll""system" fn PSPropertyBag_ReadType ( propbag : * mut::core::ffi::c_void , propname : :: windows::core::PCWSTR , var : *mut super::super::super::System::Com:: VARIANT , r#type : super::super::super::System::Com:: VARENUM ) -> :: windows::core::HRESULT );
-    PSPropertyBag_ReadType(propbag.into().abi(), propname.into().abi(), var, r#type).ok()
+    ::windows::core::link ! ( "propsys.dll""system" fn PSPropertyBag_ReadType ( propbag : * mut::core::ffi::c_void , propname : :: windows::core::PCWSTR , var : *mut :: windows::core::VARIANT , r#type : super::super::super::System::Com:: VARENUM ) -> :: windows::core::HRESULT );
+    PSPropertyBag_ReadType(propbag.into().abi(), propname.into().abi(), ::core::mem::transmute(var), r#type).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1420,11 +1408,11 @@ pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::super::sup
     ::windows::core::link ! ( "propsys.dll""system" fn PropVariantToUInt64WithDefault ( propvarin : *const super::super::super::System::Com::StructuredStorage:: PROPVARIANT , ulldefault : u64 ) -> u64 );
     PropVariantToUInt64WithDefault(propvarin, ulldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn PropVariantToVariant ( ppropvar : *const super::super::super::System::Com::StructuredStorage:: PROPVARIANT , pvar : *mut super::super::super::System::Com:: VARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn PropVariantToVariant ( ppropvar : *const super::super::super::System::Com::StructuredStorage:: PROPVARIANT , pvar : *mut :: windows::core::VARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToVariant(ppropvar, result__.as_mut_ptr()).from_abi(result__)
 }
@@ -1509,410 +1497,364 @@ where
     ::windows::core::link ! ( "shell32.dll""system" fn SHPropStgWriteMultiple ( pps : * mut::core::ffi::c_void , pucodepage : *mut u32 , cpspec : u32 , rgpspec : *const super::super::super::System::Com::StructuredStorage:: PROPSPEC , rgvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT , propidnamefirst : u32 ) -> :: windows::core::HRESULT );
     SHPropStgWriteMultiple(pps.into().abi(), ::core::mem::transmute(pucodepage.unwrap_or(::std::ptr::null_mut())), cpspec, rgpspec, rgvar, propidnamefirst).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantCompare ( var1 : *const super::super::super::System::Com:: VARIANT , var2 : *const super::super::super::System::Com:: VARIANT ) -> i32 );
-    VariantCompare(var1, var2)
+pub unsafe fn VariantCompare(var1: *const ::windows::core::VARIANT, var2: *const ::windows::core::VARIANT) -> i32 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantCompare ( var1 : *const :: windows::core::VARIANT , var2 : *const :: windows::core::VARIANT ) -> i32 );
+    VariantCompare(::core::mem::transmute(var1), ::core::mem::transmute(var2))
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetBooleanElem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pfval : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetBooleanElem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetBooleanElem ( var : *const :: windows::core::VARIANT , ielem : u32 , pfval : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetBooleanElem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetBooleanElem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<f64> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetDoubleElem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pnval : *mut f64 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetDoubleElem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<f64> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetDoubleElem ( var : *const :: windows::core::VARIANT , ielem : u32 , pnval : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetDoubleElem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetDoubleElem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetElementCount ( varin : *const super::super::super::System::Com:: VARIANT ) -> u32 );
-    VariantGetElementCount(varin)
+pub unsafe fn VariantGetElementCount(varin: *const ::windows::core::VARIANT) -> u32 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetElementCount ( varin : *const :: windows::core::VARIANT ) -> u32 );
+    VariantGetElementCount(::core::mem::transmute(varin))
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i16> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetInt16Elem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pnval : *mut i16 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetInt16Elem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<i16> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetInt16Elem ( var : *const :: windows::core::VARIANT , ielem : u32 , pnval : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetInt16Elem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetInt16Elem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i32> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetInt32Elem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pnval : *mut i32 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetInt32Elem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<i32> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetInt32Elem ( var : *const :: windows::core::VARIANT , ielem : u32 , pnval : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetInt32Elem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetInt32Elem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i64> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetInt64Elem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pnval : *mut i64 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetInt64Elem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<i64> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetInt64Elem ( var : *const :: windows::core::VARIANT , ielem : u32 , pnval : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetInt64Elem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetInt64Elem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetStringElem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , ppszval : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetStringElem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetStringElem ( var : *const :: windows::core::VARIANT , ielem : u32 , ppszval : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetStringElem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetStringElem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u16> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetUInt16Elem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pnval : *mut u16 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetUInt16Elem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<u16> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetUInt16Elem ( var : *const :: windows::core::VARIANT , ielem : u32 , pnval : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetUInt16Elem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetUInt16Elem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetUInt32Elem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pnval : *mut u32 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetUInt32Elem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<u32> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetUInt32Elem ( var : *const :: windows::core::VARIANT , ielem : u32 , pnval : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetUInt32Elem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetUInt32Elem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u64> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetUInt64Elem ( var : *const super::super::super::System::Com:: VARIANT , ielem : u32 , pnval : *mut u64 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantGetUInt64Elem(var: *const ::windows::core::VARIANT, ielem: u32) -> ::windows::core::Result<u64> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantGetUInt64Elem ( var : *const :: windows::core::VARIANT , ielem : u32 , pnval : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantGetUInt64Elem(var, ielem, result__.as_mut_ptr()).from_abi(result__)
+    VariantGetUInt64Elem(::core::mem::transmute(var), ielem, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBoolean ( varin : *const super::super::super::System::Com:: VARIANT , pfret : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToBoolean(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBoolean ( varin : *const :: windows::core::VARIANT , pfret : *mut super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToBoolean(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToBoolean(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBooleanArray ( var : *const super::super::super::System::Com:: VARIANT , prgf : *mut super::super::super::Foundation:: BOOL , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToBooleanArray(var, ::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, pcelem).ok()
+pub unsafe fn VariantToBooleanArray(var: *const ::windows::core::VARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBooleanArray ( var : *const :: windows::core::VARIANT , prgf : *mut super::super::super::Foundation:: BOOL , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToBooleanArray(::core::mem::transmute(var), ::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBooleanArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgf : *mut *mut super::super::super::Foundation:: BOOL , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToBooleanArrayAlloc(var, pprgf, pcelem).ok()
+pub unsafe fn VariantToBooleanArrayAlloc(var: *const ::windows::core::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBooleanArrayAlloc ( var : *const :: windows::core::VARIANT , pprgf : *mut *mut super::super::super::Foundation:: BOOL , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToBooleanArrayAlloc(::core::mem::transmute(var), pprgf, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VariantToBooleanWithDefault<P0>(varin: *const super::super::super::System::Com::VARIANT, fdefault: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn VariantToBooleanWithDefault<P0>(varin: *const ::windows::core::VARIANT, fdefault: P0) -> super::super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBooleanWithDefault ( varin : *const super::super::super::System::Com:: VARIANT , fdefault : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
-    VariantToBooleanWithDefault(varin, fdefault.into())
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBooleanWithDefault ( varin : *const :: windows::core::VARIANT , fdefault : super::super::super::Foundation:: BOOL ) -> super::super::super::Foundation:: BOOL );
+    VariantToBooleanWithDefault(::core::mem::transmute(varin), fdefault.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBuffer ( varin : *const super::super::super::System::Com:: VARIANT , pv : *mut ::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
-    VariantToBuffer(varin, pv, cb).ok()
+pub unsafe fn VariantToBuffer(varin: *const ::windows::core::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToBuffer ( varin : *const :: windows::core::VARIANT , pv : *mut ::core::ffi::c_void , cb : u32 ) -> :: windows::core::HRESULT );
+    VariantToBuffer(::core::mem::transmute(varin), pv, cb).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDosDateTime ( varin : *const super::super::super::System::Com:: VARIANT , pwdate : *mut u16 , pwtime : *mut u16 ) -> :: windows::core::HRESULT );
-    VariantToDosDateTime(varin, pwdate, pwtime).ok()
+pub unsafe fn VariantToDosDateTime(varin: *const ::windows::core::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDosDateTime ( varin : *const :: windows::core::VARIANT , pwdate : *mut u16 , pwtime : *mut u16 ) -> :: windows::core::HRESULT );
+    VariantToDosDateTime(::core::mem::transmute(varin), pwdate, pwtime).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<f64> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDouble ( varin : *const super::super::super::System::Com:: VARIANT , pdblret : *mut f64 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToDouble(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<f64> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDouble ( varin : *const :: windows::core::VARIANT , pdblret : *mut f64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToDouble(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToDouble(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [f64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDoubleArray ( var : *const super::super::super::System::Com:: VARIANT , prgn : *mut f64 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToDoubleArray(var, ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
+pub unsafe fn VariantToDoubleArray(var: *const ::windows::core::VARIANT, prgn: &mut [f64], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDoubleArray ( var : *const :: windows::core::VARIANT , prgn : *mut f64 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToDoubleArray(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDoubleArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgn : *mut *mut f64 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToDoubleArrayAlloc(var, pprgn, pcelem).ok()
+pub unsafe fn VariantToDoubleArrayAlloc(var: *const ::windows::core::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDoubleArrayAlloc ( var : *const :: windows::core::VARIANT , pprgn : *mut *mut f64 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToDoubleArrayAlloc(::core::mem::transmute(var), pprgn, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDoubleWithDefault ( varin : *const super::super::super::System::Com:: VARIANT , dbldefault : f64 ) -> f64 );
-    VariantToDoubleWithDefault(varin, dbldefault)
+pub unsafe fn VariantToDoubleWithDefault(varin: *const ::windows::core::VARIANT, dbldefault: f64) -> f64 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToDoubleWithDefault ( varin : *const :: windows::core::VARIANT , dbldefault : f64 ) -> f64 );
+    VariantToDoubleWithDefault(::core::mem::transmute(varin), dbldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToFileTime ( varin : *const super::super::super::System::Com:: VARIANT , stfout : PSTIME_FLAGS , pftout : *mut super::super::super::Foundation:: FILETIME ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToFileTime(varin: *const ::windows::core::VARIANT, stfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToFileTime ( varin : *const :: windows::core::VARIANT , stfout : PSTIME_FLAGS , pftout : *mut super::super::super::Foundation:: FILETIME ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToFileTime(varin, stfout, result__.as_mut_ptr()).from_abi(result__)
+    VariantToFileTime(::core::mem::transmute(varin), stfout, result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToGUID ( varin : *const super::super::super::System::Com:: VARIANT , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToGUID(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::GUID> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToGUID ( varin : *const :: windows::core::VARIANT , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToGUID(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToGUID(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16 ( varin : *const super::super::super::System::Com:: VARIANT , piret : *mut i16 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToInt16(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<i16> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16 ( varin : *const :: windows::core::VARIANT , piret : *mut i16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToInt16(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToInt16(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i16], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16Array ( var : *const super::super::super::System::Com:: VARIANT , prgn : *mut i16 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToInt16Array(var, ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
+pub unsafe fn VariantToInt16Array(var: *const ::windows::core::VARIANT, prgn: &mut [i16], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16Array ( var : *const :: windows::core::VARIANT , prgn : *mut i16 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16ArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgn : *mut *mut i16 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToInt16ArrayAlloc(var, pprgn, pcelem).ok()
+pub unsafe fn VariantToInt16ArrayAlloc(var: *const ::windows::core::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16ArrayAlloc ( var : *const :: windows::core::VARIANT , pprgn : *mut *mut i16 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToInt16ArrayAlloc(::core::mem::transmute(var), pprgn, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16WithDefault ( varin : *const super::super::super::System::Com:: VARIANT , idefault : i16 ) -> i16 );
-    VariantToInt16WithDefault(varin, idefault)
+pub unsafe fn VariantToInt16WithDefault(varin: *const ::windows::core::VARIANT, idefault: i16) -> i16 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt16WithDefault ( varin : *const :: windows::core::VARIANT , idefault : i16 ) -> i16 );
+    VariantToInt16WithDefault(::core::mem::transmute(varin), idefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32 ( varin : *const super::super::super::System::Com:: VARIANT , plret : *mut i32 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToInt32(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<i32> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32 ( varin : *const :: windows::core::VARIANT , plret : *mut i32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToInt32(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToInt32(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i32], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32Array ( var : *const super::super::super::System::Com:: VARIANT , prgn : *mut i32 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToInt32Array(var, ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
+pub unsafe fn VariantToInt32Array(var: *const ::windows::core::VARIANT, prgn: &mut [i32], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32Array ( var : *const :: windows::core::VARIANT , prgn : *mut i32 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32ArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgn : *mut *mut i32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToInt32ArrayAlloc(var, pprgn, pcelem).ok()
+pub unsafe fn VariantToInt32ArrayAlloc(var: *const ::windows::core::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32ArrayAlloc ( var : *const :: windows::core::VARIANT , pprgn : *mut *mut i32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToInt32ArrayAlloc(::core::mem::transmute(var), pprgn, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32WithDefault ( varin : *const super::super::super::System::Com:: VARIANT , ldefault : i32 ) -> i32 );
-    VariantToInt32WithDefault(varin, ldefault)
+pub unsafe fn VariantToInt32WithDefault(varin: *const ::windows::core::VARIANT, ldefault: i32) -> i32 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt32WithDefault ( varin : *const :: windows::core::VARIANT , ldefault : i32 ) -> i32 );
+    VariantToInt32WithDefault(::core::mem::transmute(varin), ldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i64> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64 ( varin : *const super::super::super::System::Com:: VARIANT , pllret : *mut i64 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToInt64(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<i64> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64 ( varin : *const :: windows::core::VARIANT , pllret : *mut i64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToInt64(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToInt64(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64Array ( var : *const super::super::super::System::Com:: VARIANT , prgn : *mut i64 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToInt64Array(var, ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
+pub unsafe fn VariantToInt64Array(var: *const ::windows::core::VARIANT, prgn: &mut [i64], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64Array ( var : *const :: windows::core::VARIANT , prgn : *mut i64 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64ArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgn : *mut *mut i64 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToInt64ArrayAlloc(var, pprgn, pcelem).ok()
+pub unsafe fn VariantToInt64ArrayAlloc(var: *const ::windows::core::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64ArrayAlloc ( var : *const :: windows::core::VARIANT , pprgn : *mut *mut i64 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToInt64ArrayAlloc(::core::mem::transmute(var), pprgn, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64WithDefault ( varin : *const super::super::super::System::Com:: VARIANT , lldefault : i64 ) -> i64 );
-    VariantToInt64WithDefault(varin, lldefault)
+pub unsafe fn VariantToInt64WithDefault(varin: *const ::windows::core::VARIANT, lldefault: i64) -> i64 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToInt64WithDefault ( varin : *const :: windows::core::VARIANT , lldefault : i64 ) -> i64 );
+    VariantToInt64WithDefault(::core::mem::transmute(varin), lldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToPropVariant ( pvar : *const super::super::super::System::Com:: VARIANT , ppropvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToPropVariant(pvar: *const ::windows::core::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToPropVariant ( pvar : *const :: windows::core::VARIANT , ppropvar : *mut super::super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToPropVariant(pvar, result__.as_mut_ptr()).from_abi(result__)
+    VariantToPropVariant(::core::mem::transmute(pvar), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_UI_Shell_Common\"`*"]
+#[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
-pub unsafe fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStrRet ( varin : *const super::super::super::System::Com:: VARIANT , pstrret : *mut super::Common:: STRRET ) -> :: windows::core::HRESULT );
-    VariantToStrRet(varin, pstrret).ok()
+pub unsafe fn VariantToStrRet(varin: *const ::windows::core::VARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStrRet ( varin : *const :: windows::core::VARIANT , pstrret : *mut super::Common:: STRRET ) -> :: windows::core::HRESULT );
+    VariantToStrRet(::core::mem::transmute(varin), pstrret).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: &mut [u16]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToString ( varin : *const super::super::super::System::Com:: VARIANT , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
-    VariantToString(varin, ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _).ok()
+pub unsafe fn VariantToString(varin: *const ::windows::core::VARIANT, pszbuf: &mut [u16]) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToString ( varin : *const :: windows::core::VARIANT , pszbuf : :: windows::core::PWSTR , cchbuf : u32 ) -> :: windows::core::HRESULT );
+    VariantToString(::core::mem::transmute(varin), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringAlloc ( varin : *const super::super::super::System::Com:: VARIANT , ppszbuf : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToStringAlloc(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringAlloc ( varin : *const :: windows::core::VARIANT , ppszbuf : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToStringAlloc(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToStringAlloc(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringArray ( var : *const super::super::super::System::Com:: VARIANT , prgsz : *mut :: windows::core::PWSTR , crgsz : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToStringArray(var, ::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, pcelem).ok()
+pub unsafe fn VariantToStringArray(var: *const ::windows::core::VARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringArray ( var : *const :: windows::core::VARIANT , prgsz : *mut :: windows::core::PWSTR , crgsz : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToStringArray(::core::mem::transmute(var), ::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgsz : *mut *mut :: windows::core::PWSTR , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToStringArrayAlloc(var, pprgsz, pcelem).ok()
+pub unsafe fn VariantToStringArrayAlloc(var: *const ::windows::core::VARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringArrayAlloc ( var : *const :: windows::core::VARIANT , pprgsz : *mut *mut :: windows::core::PWSTR , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToStringArrayAlloc(::core::mem::transmute(var), pprgsz, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToStringWithDefault<P0>(varin: *const super::super::super::System::Com::VARIANT, pszdefault: P0) -> ::windows::core::PWSTR
+pub unsafe fn VariantToStringWithDefault<P0>(varin: *const ::windows::core::VARIANT, pszdefault: P0) -> ::windows::core::PWSTR
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringWithDefault ( varin : *const super::super::super::System::Com:: VARIANT , pszdefault : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
-    VariantToStringWithDefault(varin, pszdefault.into().abi())
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToStringWithDefault ( varin : *const :: windows::core::VARIANT , pszdefault : :: windows::core::PCWSTR ) -> :: windows::core::PWSTR );
+    VariantToStringWithDefault(::core::mem::transmute(varin), pszdefault.into().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u16> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16 ( varin : *const super::super::super::System::Com:: VARIANT , puiret : *mut u16 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToUInt16(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<u16> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16 ( varin : *const :: windows::core::VARIANT , puiret : *mut u16 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToUInt16(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToUInt16(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u16], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16Array ( var : *const super::super::super::System::Com:: VARIANT , prgn : *mut u16 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToUInt16Array(var, ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
+pub unsafe fn VariantToUInt16Array(var: *const ::windows::core::VARIANT, prgn: &mut [u16], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16Array ( var : *const :: windows::core::VARIANT , prgn : *mut u16 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToUInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16ArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgn : *mut *mut u16 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToUInt16ArrayAlloc(var, pprgn, pcelem).ok()
+pub unsafe fn VariantToUInt16ArrayAlloc(var: *const ::windows::core::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16ArrayAlloc ( var : *const :: windows::core::VARIANT , pprgn : *mut *mut u16 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToUInt16ArrayAlloc(::core::mem::transmute(var), pprgn, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16WithDefault ( varin : *const super::super::super::System::Com:: VARIANT , uidefault : u16 ) -> u16 );
-    VariantToUInt16WithDefault(varin, uidefault)
+pub unsafe fn VariantToUInt16WithDefault(varin: *const ::windows::core::VARIANT, uidefault: u16) -> u16 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt16WithDefault ( varin : *const :: windows::core::VARIANT , uidefault : u16 ) -> u16 );
+    VariantToUInt16WithDefault(::core::mem::transmute(varin), uidefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32 ( varin : *const super::super::super::System::Com:: VARIANT , pulret : *mut u32 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToUInt32(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<u32> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32 ( varin : *const :: windows::core::VARIANT , pulret : *mut u32 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToUInt32(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToUInt32(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u32], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32Array ( var : *const super::super::super::System::Com:: VARIANT , prgn : *mut u32 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToUInt32Array(var, ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
+pub unsafe fn VariantToUInt32Array(var: *const ::windows::core::VARIANT, prgn: &mut [u32], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32Array ( var : *const :: windows::core::VARIANT , prgn : *mut u32 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToUInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32ArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgn : *mut *mut u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToUInt32ArrayAlloc(var, pprgn, pcelem).ok()
+pub unsafe fn VariantToUInt32ArrayAlloc(var: *const ::windows::core::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32ArrayAlloc ( var : *const :: windows::core::VARIANT , pprgn : *mut *mut u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToUInt32ArrayAlloc(::core::mem::transmute(var), pprgn, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32WithDefault ( varin : *const super::super::super::System::Com:: VARIANT , uldefault : u32 ) -> u32 );
-    VariantToUInt32WithDefault(varin, uldefault)
+pub unsafe fn VariantToUInt32WithDefault(varin: *const ::windows::core::VARIANT, uldefault: u32) -> u32 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt32WithDefault ( varin : *const :: windows::core::VARIANT , uldefault : u32 ) -> u32 );
+    VariantToUInt32WithDefault(::core::mem::transmute(varin), uldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u64> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64 ( varin : *const super::super::super::System::Com:: VARIANT , pullret : *mut u64 ) -> :: windows::core::HRESULT );
+pub unsafe fn VariantToUInt64(varin: *const ::windows::core::VARIANT) -> ::windows::core::Result<u64> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64 ( varin : *const :: windows::core::VARIANT , pullret : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VariantToUInt64(varin, result__.as_mut_ptr()).from_abi(result__)
+    VariantToUInt64(::core::mem::transmute(varin), result__.as_mut_ptr()).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u64], pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64Array ( var : *const super::super::super::System::Com:: VARIANT , prgn : *mut u64 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToUInt64Array(var, ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
+pub unsafe fn VariantToUInt64Array(var: *const ::windows::core::VARIANT, prgn: &mut [u64], pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64Array ( var : *const :: windows::core::VARIANT , prgn : *mut u64 , crgn : u32 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToUInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64ArrayAlloc ( var : *const super::super::super::System::Com:: VARIANT , pprgn : *mut *mut u64 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
-    VariantToUInt64ArrayAlloc(var, pprgn, pcelem).ok()
+pub unsafe fn VariantToUInt64ArrayAlloc(var: *const ::windows::core::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64ArrayAlloc ( var : *const :: windows::core::VARIANT , pprgn : *mut *mut u64 , pcelem : *mut u32 ) -> :: windows::core::HRESULT );
+    VariantToUInt64ArrayAlloc(::core::mem::transmute(var), pprgn, pcelem).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64 {
-    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64WithDefault ( varin : *const super::super::super::System::Com:: VARIANT , ulldefault : u64 ) -> u64 );
-    VariantToUInt64WithDefault(varin, ulldefault)
+pub unsafe fn VariantToUInt64WithDefault(varin: *const ::windows::core::VARIANT, ulldefault: u64) -> u64 {
+    ::windows::core::link ! ( "propsys.dll""system" fn VariantToUInt64WithDefault ( varin : *const :: windows::core::VARIANT , ulldefault : u64 ) -> u64 );
+    VariantToUInt64WithDefault(::core::mem::transmute(varin), ulldefault)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]

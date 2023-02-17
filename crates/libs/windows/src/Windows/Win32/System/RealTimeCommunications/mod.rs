@@ -601,9 +601,9 @@ impl IRTCClient {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ListenForIncomingSessions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> ::windows::core::Result<super::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
         P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
@@ -783,9 +783,9 @@ pub struct IRTCClient_Vtbl {
     pub CreateSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetListenForIncomingSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enlisten: RTC_LISTEN_MODE) -> ::windows::core::HRESULT,
     pub ListenForIncomingSessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penlisten: *mut RTC_LISTEN_MODE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_NetworkAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL, pvaddresses: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub get_NetworkAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL, pvaddresses: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     get_NetworkAddresses: usize,
     pub put_Volume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::HRESULT,
     pub get_Volume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> ::windows::core::HRESULT,
@@ -892,9 +892,9 @@ impl IRTCClient2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.ListenForIncomingSessions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> ::windows::core::Result<super::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn get_NetworkAddresses<P0, P1>(&self, ftcp: P0, fexternal: P1) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
         P1: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
@@ -1235,26 +1235,24 @@ pub struct IRTCClientPortManagement_Vtbl {
 #[repr(transparent)]
 pub struct IRTCClientPresence(::windows::core::IUnknown);
 impl IRTCClientPresence {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence<P0>(&self, fusestorage: P0, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn EnablePresence<P0>(&self, fusestorage: P0, varstorage: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage.into(), ::core::mem::transmute(varstorage)).ok()
+        (::windows::core::Vtable::vtable(self).EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage.into(), ::core::mem::transmute_copy(varstorage)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Export(&self, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Export)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage)).ok()
+    pub unsafe fn Export(&self, varstorage: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Export)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varstorage)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import<P0>(&self, varstorage: super::Com::VARIANT, freplaceall: P0) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Import<P0>(&self, varstorage: &::windows::core::VARIANT, freplaceall: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage), freplaceall.into()).ok()
+        (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varstorage), freplaceall.into()).ok()
     }
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1361,17 +1359,14 @@ unsafe impl ::windows::core::Interface for IRTCClientPresence {
 #[doc(hidden)]
 pub struct IRTCClientPresence_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnablePresence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub EnablePresence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     EnablePresence: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varstorage: super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Export: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varstorage: super::Com::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varstorage: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varstorage: ::windows::core::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     Import: usize,
     pub EnumerateBuddies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -1405,26 +1400,24 @@ pub struct IRTCClientPresence_Vtbl {
 #[repr(transparent)]
 pub struct IRTCClientPresence2(::windows::core::IUnknown);
 impl IRTCClientPresence2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresence<P0>(&self, fusestorage: P0, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn EnablePresence<P0>(&self, fusestorage: P0, varstorage: &::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage.into(), ::core::mem::transmute(varstorage)).ok()
+        (::windows::core::Vtable::vtable(self).base__.EnablePresence)(::windows::core::Vtable::as_raw(self), fusestorage.into(), ::core::mem::transmute_copy(varstorage)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Export(&self, varstorage: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Export)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage)).ok()
+    pub unsafe fn Export(&self, varstorage: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.Export)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varstorage)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Import<P0>(&self, varstorage: super::Com::VARIANT, freplaceall: P0) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Import<P0>(&self, varstorage: &::windows::core::VARIANT, freplaceall: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varstorage), freplaceall.into()).ok()
+        (::windows::core::Vtable::vtable(self).base__.Import)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varstorage), freplaceall.into()).ok()
     }
     pub unsafe fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1503,13 +1496,11 @@ impl IRTCClientPresence2 {
     pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPrivacyMode)(::windows::core::Vtable::as_raw(self), enmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnablePresenceEx<P0>(&self, pprofile: P0, varstorage: super::Com::VARIANT, lflags: i32) -> ::windows::core::Result<()>
+    pub unsafe fn EnablePresenceEx<P0>(&self, pprofile: P0, varstorage: &::windows::core::VARIANT, lflags: i32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IRTCProfile>>,
     {
-        (::windows::core::Vtable::vtable(self).EnablePresenceEx)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), ::core::mem::transmute(varstorage), lflags).ok()
+        (::windows::core::Vtable::vtable(self).EnablePresenceEx)(::windows::core::Vtable::as_raw(self), pprofile.into().abi(), ::core::mem::transmute_copy(varstorage), lflags).ok()
     }
     pub unsafe fn DisablePresence(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DisablePresence)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1609,10 +1600,7 @@ unsafe impl ::windows::core::Interface for IRTCClientPresence2 {
 #[doc(hidden)]
 pub struct IRTCClientPresence2_Vtbl {
     pub base__: IRTCClientPresence_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnablePresenceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, varstorage: super::Com::VARIANT, lflags: i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    EnablePresenceEx: usize,
+    pub EnablePresenceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, varstorage: ::windows::core::VARIANT, lflags: i32) -> ::windows::core::HRESULT,
     pub DisablePresence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroup: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -1796,9 +1784,7 @@ impl IRTCCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -1843,10 +1829,7 @@ unsafe impl ::windows::core::Interface for IRTCCollection {
 pub struct IRTCCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`*"]

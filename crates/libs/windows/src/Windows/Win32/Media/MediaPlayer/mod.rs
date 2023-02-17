@@ -2122,32 +2122,22 @@ impl IWMPContentPartner {
     {
         (::windows::core::Vtable::vtable(self).SetCallback)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), r#type, pcontext).ok()
+    pub unsafe fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pcontext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetItemInfo(&self, bstrinfoname: &::windows::core::BSTR, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetItemInfo(&self, bstrinfoname: &::windows::core::BSTR, pcontext: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinfoname), pcontext, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetItemInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinfoname), ::core::mem::transmute(pcontext), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetContentPartnerInfo(&self, bstrinfoname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetContentPartnerInfo(&self, bstrinfoname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetContentPartnerInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrinfoname), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCommands(&self, location: &::windows::core::BSTR, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: &::windows::core::BSTR, prgitemids: &[u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCommands)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(location), plocationcontext, ::core::mem::transmute_copy(itemlocation), prgitemids.len() as _, ::core::mem::transmute(prgitemids.as_ptr()), pcitemids, pprgitems).ok()
+    pub unsafe fn GetCommands(&self, location: &::windows::core::BSTR, plocationcontext: *const ::windows::core::VARIANT, itemlocation: &::windows::core::BSTR, prgitemids: &[u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCommands)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(location), ::core::mem::transmute(plocationcontext), ::core::mem::transmute_copy(itemlocation), prgitemids.len() as _, ::core::mem::transmute(prgitemids.as_ptr()), pcitemids, pprgitems).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InvokeCommand(&self, dwcommandid: u32, location: &::windows::core::BSTR, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: &::windows::core::BSTR, rgitemids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InvokeCommand)(::windows::core::Vtable::as_raw(self), dwcommandid, ::core::mem::transmute_copy(location), plocationcontext, ::core::mem::transmute_copy(itemlocation), rgitemids.len() as _, ::core::mem::transmute(rgitemids.as_ptr())).ok()
+    pub unsafe fn InvokeCommand(&self, dwcommandid: u32, location: &::windows::core::BSTR, plocationcontext: *const ::windows::core::VARIANT, itemlocation: &::windows::core::BSTR, rgitemids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).InvokeCommand)(::windows::core::Vtable::as_raw(self), dwcommandid, ::core::mem::transmute_copy(location), ::core::mem::transmute(plocationcontext), ::core::mem::transmute_copy(itemlocation), rgitemids.len() as _, ::core::mem::transmute(rgitemids.as_ptr())).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2163,11 +2153,9 @@ impl IWMPContentPartner {
     {
         (::windows::core::Vtable::vtable(self).Buy)(::windows::core::Vtable::as_raw(self), pinfo.into().abi(), cookie).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const ::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStreamingURL)(::windows::core::Vtable::as_raw(self), st, pstreamcontext, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).GetStreamingURL)(::windows::core::Vtable::as_raw(self), st, ::core::mem::transmute(pstreamcontext), result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn Download<P0>(&self, pinfo: P0, cookie: u32) -> ::windows::core::Result<()>
     where
@@ -2178,31 +2166,25 @@ impl IWMPContentPartner {
     pub unsafe fn DownloadTrackComplete(&self, hrresult: ::windows::core::HRESULT, contentid: u32, downloadtrackparam: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DownloadTrackComplete)(::windows::core::Vtable::as_raw(self), hrresult, contentid, ::core::mem::transmute_copy(downloadtrackparam)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RefreshLicense<P0>(&self, dwcookie: u32, flocal: P0, bstrurl: &::windows::core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &::windows::core::BSTR, preasoncontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RefreshLicense<P0>(&self, dwcookie: u32, flocal: P0, bstrurl: &::windows::core::BSTR, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: &::windows::core::BSTR, preasoncontext: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).RefreshLicense)(::windows::core::Vtable::as_raw(self), dwcookie, flocal.into(), ::core::mem::transmute_copy(bstrurl), r#type, contentid, ::core::mem::transmute_copy(bstrrefreshreason), preasoncontext).ok()
+        (::windows::core::Vtable::vtable(self).RefreshLicense)(::windows::core::Vtable::as_raw(self), dwcookie, flocal.into(), ::core::mem::transmute_copy(bstrurl), r#type, contentid, ::core::mem::transmute_copy(bstrrefreshreason), ::core::mem::transmute(preasoncontext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut ::windows::core::BSTR, pexpirationdate: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCatalogURL)(::windows::core::Vtable::as_raw(self), dwcatalogversion, dwcatalogschemaversion, cataloglcid, pdwnewcatalogversion, ::core::mem::transmute(pbstrcatalogurl), pexpirationdate).ok()
+    pub unsafe fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut ::windows::core::BSTR, pexpirationdate: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetCatalogURL)(::windows::core::Vtable::as_raw(self), dwcatalogversion, dwcatalogschemaversion, cataloglcid, pdwnewcatalogversion, ::core::mem::transmute(pbstrcatalogurl), ::core::mem::transmute(pexpirationdate)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetTemplate(&self, task: WMPTaskType, location: &::windows::core::BSTR, pcontext: *const super::super::System::Com::VARIANT, clicklocation: &::windows::core::BSTR, pclickcontext: *const super::super::System::Com::VARIANT, bstrfilter: &::windows::core::BSTR, bstrviewparams: &::windows::core::BSTR, pbstrtemplateurl: *mut ::windows::core::BSTR, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTemplate)(::windows::core::Vtable::as_raw(self), task, ::core::mem::transmute_copy(location), pcontext, ::core::mem::transmute_copy(clicklocation), pclickcontext, ::core::mem::transmute_copy(bstrfilter), ::core::mem::transmute_copy(bstrviewparams), ::core::mem::transmute(pbstrtemplateurl), ptemplatesize).ok()
+    pub unsafe fn GetTemplate(&self, task: WMPTaskType, location: &::windows::core::BSTR, pcontext: *const ::windows::core::VARIANT, clicklocation: &::windows::core::BSTR, pclickcontext: *const ::windows::core::VARIANT, bstrfilter: &::windows::core::BSTR, bstrviewparams: &::windows::core::BSTR, pbstrtemplateurl: *mut ::windows::core::BSTR, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetTemplate)(::windows::core::Vtable::as_raw(self), task, ::core::mem::transmute_copy(location), ::core::mem::transmute(pcontext), ::core::mem::transmute_copy(clicklocation), ::core::mem::transmute(pclickcontext), ::core::mem::transmute_copy(bstrfilter), ::core::mem::transmute_copy(bstrviewparams), ::core::mem::transmute(pbstrtemplateurl), ptemplatesize).ok()
     }
     pub unsafe fn UpdateDevice(&self, bstrdevicename: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdevicename)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetListContents(&self, location: &::windows::core::BSTR, pcontext: *const super::super::System::Com::VARIANT, bstrlisttype: &::windows::core::BSTR, bstrparams: &::windows::core::BSTR, dwlistcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetListContents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(location), pcontext, ::core::mem::transmute_copy(bstrlisttype), ::core::mem::transmute_copy(bstrparams), dwlistcookie).ok()
+    pub unsafe fn GetListContents(&self, location: &::windows::core::BSTR, pcontext: *const ::windows::core::VARIANT, bstrlisttype: &::windows::core::BSTR, bstrparams: &::windows::core::BSTR, dwlistcookie: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetListContents)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(location), ::core::mem::transmute(pcontext), ::core::mem::transmute_copy(bstrlisttype), ::core::mem::transmute_copy(bstrparams), dwlistcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -2235,10 +2217,8 @@ impl IWMPContentPartner {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CompareContainerListPrices)(::windows::core::Vtable::as_raw(self), plistbase.into().abi(), plistcompare.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VerifyPermission(&self, bstrpermission: &::windows::core::BSTR, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).VerifyPermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpermission), pcontext).ok()
+    pub unsafe fn VerifyPermission(&self, bstrpermission: &::windows::core::BSTR, pcontext: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).VerifyPermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpermission), ::core::mem::transmute(pcontext)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPContentPartner, ::windows::core::IUnknown);
@@ -2269,54 +2249,27 @@ unsafe impl ::windows::core::Interface for IWMPContentPartner {
 pub struct IWMPContentPartner_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Notify: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfoname: *mut ::core::ffi::c_void, pcontext: *const super::super::System::Com::VARIANT, pdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetItemInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetContentPartnerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfoname: *mut ::core::ffi::c_void, pdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetContentPartnerInfo: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut ::core::ffi::c_void, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: *mut ::core::ffi::c_void, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCommands: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InvokeCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcommandid: u32, location: *mut ::core::ffi::c_void, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: *mut ::core::ffi::c_void, citemids: u32, rgitemids: *const u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    InvokeCommand: usize,
+    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfoname: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::VARIANT, pdata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetContentPartnerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfoname: *mut ::core::ffi::c_void, pdata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut ::core::ffi::c_void, plocationcontext: *const ::windows::core::VARIANT, itemlocation: *mut ::core::ffi::c_void, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::HRESULT,
+    pub InvokeCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcommandid: u32, location: *mut ::core::ffi::c_void, plocationcontext: *const ::windows::core::VARIANT, itemlocation: *mut ::core::ffi::c_void, citemids: u32, rgitemids: *const u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CanBuySilent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut ::core::ffi::c_void, pbstrtotalprice: *mut *mut ::core::ffi::c_void, psilentok: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     CanBuySilent: usize,
     pub Buy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetStreamingURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, st: WMPStreamingType, pstreamcontext: *const super::super::System::Com::VARIANT, pbstrurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetStreamingURL: usize,
+    pub GetStreamingURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, st: WMPStreamingType, pstreamcontext: *const ::windows::core::VARIANT, pbstrurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
     pub DownloadTrackComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrresult: ::windows::core::HRESULT, contentid: u32, downloadtrackparam: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RefreshLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: *mut ::core::ffi::c_void, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: *mut ::core::ffi::c_void, preasoncontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_Foundation")]
+    pub RefreshLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32, flocal: super::super::Foundation::VARIANT_BOOL, bstrurl: *mut ::core::ffi::c_void, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: *mut ::core::ffi::c_void, preasoncontext: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
     RefreshLicense: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCatalogURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut *mut ::core::ffi::c_void, pexpirationdate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetCatalogURL: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, task: WMPTaskType, location: *mut ::core::ffi::c_void, pcontext: *const super::super::System::Com::VARIANT, clicklocation: *mut ::core::ffi::c_void, pclickcontext: *const super::super::System::Com::VARIANT, bstrfilter: *mut ::core::ffi::c_void, bstrviewparams: *mut ::core::ffi::c_void, pbstrtemplateurl: *mut *mut ::core::ffi::c_void, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetTemplate: usize,
+    pub GetCatalogURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut *mut ::core::ffi::c_void, pexpirationdate: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetTemplate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, task: WMPTaskType, location: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::VARIANT, clicklocation: *mut ::core::ffi::c_void, pclickcontext: *const ::windows::core::VARIANT, bstrfilter: *mut ::core::ffi::c_void, bstrviewparams: *mut ::core::ffi::c_void, pbstrtemplateurl: *mut *mut ::core::ffi::c_void, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::HRESULT,
     pub UpdateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdevicename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetListContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut ::core::ffi::c_void, pcontext: *const super::super::System::Com::VARIANT, bstrlisttype: *mut ::core::ffi::c_void, bstrparams: *mut ::core::ffi::c_void, dwlistcookie: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetListContents: usize,
+    pub GetListContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::VARIANT, bstrlisttype: *mut ::core::ffi::c_void, bstrparams: *mut ::core::ffi::c_void, dwlistcookie: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Login: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userinfo: super::super::System::Com::BLOB, pwdinfo: super::super::System::Com::BLOB, fusedcachedcreds: super::super::Foundation::VARIANT_BOOL, foktocache: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -2329,19 +2282,14 @@ pub struct IWMPContentPartner_Vtbl {
     pub SendMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrmsg: *mut ::core::ffi::c_void, bstrparam: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrstationeventtype: *mut ::core::ffi::c_void, stationid: u32, playlistindex: u32, trackid: u32, trackdata: *mut ::core::ffi::c_void, dwsecondsplayed: u32) -> ::windows::core::HRESULT,
     pub CompareContainerListPrices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plistbase: *mut ::core::ffi::c_void, plistcompare: *mut ::core::ffi::c_void, presult: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub VerifyPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpermission: *mut ::core::ffi::c_void, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    VerifyPermission: usize,
+    pub VerifyPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpermission: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]
 pub struct IWMPContentPartnerCallback(::windows::core::IUnknown);
 impl IWMPContentPartnerCallback {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Notify(&self, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), r#type, pcontext).ok()
+    pub unsafe fn Notify(&self, r#type: WMPCallbackNotification, pcontext: *const ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pcontext)).ok()
     }
     pub unsafe fn BuyComplete(&self, hrresult: ::windows::core::HRESULT, dwbuycookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).BuyComplete)(::windows::core::Vtable::as_raw(self), hrresult, dwbuycookie).ok()
@@ -2376,10 +2324,8 @@ impl IWMPContentPartnerCallback {
     pub unsafe fn ShowPopup(&self, lindex: i32, bstrparameters: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ShowPopup)(::windows::core::Vtable::as_raw(self), lindex, ::core::mem::transmute_copy(bstrparameters)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VerifyPermissionComplete(&self, bstrpermission: &::windows::core::BSTR, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).VerifyPermissionComplete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpermission), pcontext, hrpermission).ok()
+    pub unsafe fn VerifyPermissionComplete(&self, bstrpermission: &::windows::core::BSTR, pcontext: *const ::windows::core::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).VerifyPermissionComplete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpermission), ::core::mem::transmute(pcontext), hrpermission).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWMPContentPartnerCallback, ::windows::core::IUnknown);
@@ -2409,10 +2355,7 @@ unsafe impl ::windows::core::Interface for IWMPContentPartnerCallback {
 #[doc(hidden)]
 pub struct IWMPContentPartnerCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Notify: usize,
+    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub BuyComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrresult: ::windows::core::HRESULT, dwbuycookie: u32) -> ::windows::core::HRESULT,
     pub DownloadTrack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32, bstrtrackurl: *mut ::core::ffi::c_void, dwservicetrackid: u32, bstrdownloadparams: *mut ::core::ffi::c_void, hrdownload: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub GetCatalogVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut u32, pdwschemaversion: *mut u32, plcid: *mut u32) -> ::windows::core::HRESULT,
@@ -2424,10 +2367,7 @@ pub struct IWMPContentPartnerCallback_Vtbl {
     pub GetContentIDsInLibrary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccontentids: *mut u32, pprgids: *mut *mut u32) -> ::windows::core::HRESULT,
     pub RefreshLicenseComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32, contentid: u32, hrrefresh: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub ShowPopup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, bstrparameters: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub VerifyPermissionComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpermission: *mut ::core::ffi::c_void, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    VerifyPermissionComplete: usize,
+    pub VerifyPermissionComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpermission: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4087,10 +4027,8 @@ impl IWMPErrorItem {
     pub unsafe fn errorDescription(&self, pbstrdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).errorDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn errorContext(&self, pvarcontext: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).errorContext)(::windows::core::Vtable::as_raw(self), pvarcontext).ok()
+    pub unsafe fn errorContext(&self, pvarcontext: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).errorContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarcontext)).ok()
     }
     pub unsafe fn remedy(&self, plremedy: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).remedy)(::windows::core::Vtable::as_raw(self), plremedy).ok()
@@ -4136,10 +4074,7 @@ pub struct IWMPErrorItem_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub errorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut i32) -> ::windows::core::HRESULT,
     pub errorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub errorContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcontext: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    errorContext: usize,
+    pub errorContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcontext: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub remedy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plremedy: *mut i32) -> ::windows::core::HRESULT,
     pub customUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcustomurl: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -4155,10 +4090,8 @@ impl IWMPErrorItem2 {
     pub unsafe fn errorDescription(&self, pbstrdescription: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.errorDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn errorContext(&self, pvarcontext: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.errorContext)(::windows::core::Vtable::as_raw(self), pvarcontext).ok()
+    pub unsafe fn errorContext(&self, pvarcontext: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.errorContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarcontext)).ok()
     }
     pub unsafe fn remedy(&self, plremedy: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.remedy)(::windows::core::Vtable::as_raw(self), plremedy).ok()
@@ -6099,10 +6032,8 @@ impl IWMPMedia3 {
     pub unsafe fn getAttributeCountByType(&self, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, plcount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getAttributeCountByType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), plcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getItemInfoByType(&self, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getItemInfoByType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), lindex, pvarvalue).ok()
+    pub unsafe fn getItemInfoByType(&self, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, lindex: i32, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).getItemInfoByType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), lindex, ::core::mem::transmute(pvarvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6141,10 +6072,7 @@ unsafe impl ::windows::core::Interface for IWMPMedia3 {
 pub struct IWMPMedia3_Vtbl {
     pub base__: IWMPMedia2_Vtbl,
     pub getAttributeCountByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtype: *mut ::core::ffi::c_void, bstrlanguage: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getItemInfoByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtype: *mut ::core::ffi::c_void, bstrlanguage: *mut ::core::ffi::c_void, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getItemInfoByType: usize,
+    pub getItemInfoByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtype: *mut ::core::ffi::c_void, bstrlanguage: *mut ::core::ffi::c_void, lindex: i32, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -8813,21 +8741,17 @@ impl IWMPPluginUI {
     {
         (::windows::core::Vtable::vtable(self).DisplayPropertyPage)(::windows::core::Vtable::as_raw(self), hwndparent.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty<P0>(&self, pwszname: P0, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn GetProperty<P0>(&self, pwszname: P0, pvarproperty: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), pvarproperty).ok()
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), ::core::mem::transmute(pvarproperty)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProperty<P0>(&self, pwszname: P0, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+    pub unsafe fn SetProperty<P0>(&self, pwszname: P0, pvarproperty: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), pvarproperty).ok()
+        (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), pwszname.into().abi(), ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -8875,14 +8799,8 @@ pub struct IWMPPluginUI_Vtbl {
     pub DisplayPropertyPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DisplayPropertyPage: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetProperty: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub TranslateAccelerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
@@ -9573,10 +9491,8 @@ impl IWMPStringCollection2 {
     pub unsafe fn getAttributeCountByType(&self, lcollectionindex: i32, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, plcount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).getAttributeCountByType)(::windows::core::Vtable::as_raw(self), lcollectionindex, ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), plcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getItemInfoByType(&self, lcollectionindex: i32, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).getItemInfoByType)(::windows::core::Vtable::as_raw(self), lcollectionindex, ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), lattributeindex, pvarvalue).ok()
+    pub unsafe fn getItemInfoByType(&self, lcollectionindex: i32, bstrtype: &::windows::core::BSTR, bstrlanguage: &::windows::core::BSTR, lattributeindex: i32, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).getItemInfoByType)(::windows::core::Vtable::as_raw(self), lcollectionindex, ::core::mem::transmute_copy(bstrtype), ::core::mem::transmute_copy(bstrlanguage), lattributeindex, ::core::mem::transmute(pvarvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9620,10 +9536,7 @@ pub struct IWMPStringCollection2_Vtbl {
     isIdentical: usize,
     pub getItemInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstritemname: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub getAttributeCountByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstrtype: *mut ::core::ffi::c_void, bstrlanguage: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getItemInfoByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstrtype: *mut ::core::ffi::c_void, bstrlanguage: *mut ::core::ffi::c_void, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    getItemInfoByType: usize,
+    pub getItemInfoByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstrtype: *mut ::core::ffi::c_void, bstrlanguage: *mut ::core::ffi::c_void, lattributeindex: i32, pvarvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
 #[repr(transparent)]

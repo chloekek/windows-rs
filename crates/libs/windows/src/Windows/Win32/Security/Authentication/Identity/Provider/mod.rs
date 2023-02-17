@@ -120,10 +120,8 @@ impl AsyncIConnectedIdentityProvider {
     {
         (::windows::core::Vtable::vtable(self).Begin_GetUrl)(::windows::core::Vtable::as_raw(self), identifier, context.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Finish_GetUrl(&self, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Finish_GetUrl)(::windows::core::Vtable::as_raw(self), postdata, url).ok()
+    pub unsafe fn Finish_GetUrl(&self, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Finish_GetUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(postdata), url).ok()
     }
     pub unsafe fn Begin_GetAccountState(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Begin_GetAccountState)(::windows::core::Vtable::as_raw(self)).ok()
@@ -173,10 +171,7 @@ pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub Begin_GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Begin_GetUrl: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Finish_GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Finish_GetUrl: usize,
+    pub Finish_GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Begin_GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Finish_GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 }
@@ -683,13 +678,13 @@ impl IConnectedIdentityProvider {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsConnected)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetUrl<P0>(&self, identifier: IDENTITY_URL, context: P0, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetUrl<P0>(&self, identifier: IDENTITY_URL, context: P0, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::super::System::Com::IBindCtx>>,
     {
-        (::windows::core::Vtable::vtable(self).GetUrl)(::windows::core::Vtable::as_raw(self), identifier, context.into().abi(), postdata, url).ok()
+        (::windows::core::Vtable::vtable(self).GetUrl)(::windows::core::Vtable::as_raw(self), identifier, context.into().abi(), ::core::mem::transmute(postdata), url).ok()
     }
     pub unsafe fn GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -729,9 +724,9 @@ pub struct IConnectedIdentityProvider_Vtbl {
     pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connected: *mut super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     IsConnected: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void, postdata: *mut ::windows::core::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     GetUrl: usize,
     pub GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 }

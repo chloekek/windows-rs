@@ -54,17 +54,17 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         iid == &<AsyncIBackgroundCopyCallback as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnableBITSUploads(&self) -> ::windows::core::Result<()>;
     fn DisableBITSUploads(&self) -> ::windows::core::Result<()>;
     fn GetCleanupTaskName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetCleanupTask(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IBITSExtensionSetup {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IBITSExtensionSetup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetup_Impl, const OFFSET: isize>() -> IBITSExtensionSetup_Vtbl {
         unsafe extern "system" fn EnableBITSUploads<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -111,14 +111,14 @@ impl IBITSExtensionSetup_Vtbl {
         iid == &<IBITSExtensionSetup as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObject(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<IBITSExtensionSetup>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IBITSExtensionSetupFactory {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IBITSExtensionSetupFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>() -> IBITSExtensionSetupFactory_Vtbl {
         unsafe extern "system" fn GetObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBITSExtensionSetupFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, ppextensionsetup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -557,11 +557,10 @@ impl IBackgroundCopyFile6_Vtbl {
         iid == &<IBackgroundCopyFile6 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile2 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile3 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile4 as ::windows::core::Interface>::IID || iid == &<IBackgroundCopyFile5 as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"implement\"`*"]
 pub trait IBackgroundCopyGroup_Impl: Sized {
-    fn GetProp(&self, propid: GROUPPROP) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn GetProp(&self, propid: GROUPPROP) -> ::windows::core::Result<::windows::core::VARIANT>;
+    fn SetProp(&self, propid: GROUPPROP, pvarval: *const ::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn GetProgress(&self, dwflags: u32) -> ::windows::core::Result<u32>;
     fn GetStatus(&self, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> ::windows::core::Result<()>;
     fn GetJob(&self, jobid: &::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1>;
@@ -576,12 +575,10 @@ pub trait IBackgroundCopyGroup_Impl: Sized {
     fn QueryNewJobInterface(&self, iid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn SetNotificationPointer(&self, iid: *const ::windows::core::GUID, punk: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IBackgroundCopyGroup {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBackgroundCopyGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>() -> IBackgroundCopyGroup_Vtbl {
-        unsafe extern "system" fn GetProp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProp(::core::mem::transmute_copy(&propid)) {
@@ -592,7 +589,7 @@ impl IBackgroundCopyGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundCopyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *const ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProp(::core::mem::transmute_copy(&propid), ::core::mem::transmute_copy(&pvarval)).into()

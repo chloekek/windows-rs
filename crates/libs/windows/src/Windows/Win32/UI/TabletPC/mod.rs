@@ -705,16 +705,12 @@ impl IInkCollector {
     {
         (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).DesiredPacketDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDesiredPacketDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(packetguids)).ok()
+    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetDesiredPacketDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(packetguids)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -934,14 +930,8 @@ pub struct IInkCollector_Vtbl {
     pub SetDynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDynamicRendering: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    DesiredPacketDescription: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetDesiredPacketDescription: usize,
+    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -1186,11 +1176,11 @@ impl IInkCursorButtons {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item(&self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkCursorButton> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Item(&self, identifier: &::windows::core::VARIANT) -> ::windows::core::Result<IInkCursorButton> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(identifier), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(identifier), result__.as_mut_ptr()).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1230,9 +1220,9 @@ pub struct IInkCursorButtons_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT, button: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::windows::core::VARIANT, button: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
@@ -1312,11 +1302,11 @@ impl IInkCustomStrokes {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item(&self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokes> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Item(&self, identifier: &::windows::core::VARIANT) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(identifier), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(identifier), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1326,10 +1316,8 @@ impl IInkCustomStrokes {
     {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(name), strokes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove(&self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(identifier)).ok()
+    pub unsafe fn Remove(&self, identifier: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(identifier)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1372,18 +1360,15 @@ pub struct IInkCustomStrokes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::windows::core::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
@@ -1493,21 +1478,21 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).HitTestWithRectangle)(::windows::core::Vtable::as_raw(self), selectionrectangle.into().abi(), intersectpercent, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn HitTestWithLasso(&self, points: super::super::System::Com::VARIANT, intersectpercent: f32, lassopoints: ::core::option::Option<*mut super::super::System::Com::VARIANT>, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HitTestWithLasso)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(points), intersectpercent, ::core::mem::transmute(lassopoints.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(strokes)).ok()
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn HitTestWithLasso(&self, points: &::windows::core::VARIANT, intersectpercent: f32, lassopoints: ::core::option::Option<*mut ::windows::core::VARIANT>, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).HitTestWithLasso)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(points), intersectpercent, ::core::mem::transmute(lassopoints.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(strokes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NearestPoint)(::windows::core::Vtable::as_raw(self), x, y, pointonstroke, distancefrompacket, ::core::mem::transmute(stroke)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateStrokes(&self, strokeids: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokes> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateStrokes(&self, strokeids: &::windows::core::VARIANT) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStrokes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(strokeids), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateStrokes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(strokeids), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1518,22 +1503,18 @@ impl IInkDisp {
     {
         (::windows::core::Vtable::vtable(self).AddStrokesAtRectangle)(::windows::core::Vtable::as_raw(self), sourcestrokes.into().abi(), targetrectangle.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Save)(::windows::core::Vtable::as_raw(self), persistenceformat, compressionmode, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Load(&self, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data)).ok()
+    pub unsafe fn Load(&self, data: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Load)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(data)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateStroke(&self, packetdata: super::super::System::Com::VARIANT, packetdescription: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkStrokeDisp> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateStroke(&self, packetdata: &::windows::core::VARIANT, packetdescription: &::windows::core::VARIANT) -> ::windows::core::Result<IInkStrokeDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStroke)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(packetdata), ::core::mem::transmute(packetdescription), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).CreateStroke)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(packetdata), ::core::mem::transmute_copy(packetdescription), result__.as_mut_ptr()).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1663,33 +1644,27 @@ pub struct IInkDisp_Vtbl {
     pub HitTestWithRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionrectangle: *mut ::core::ffi::c_void, intersectpercent: f32, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HitTestWithRectangle: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub HitTestWithLasso: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: super::super::System::Com::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Com::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub HitTestWithLasso: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: ::windows::core::VARIANT, intersectpercent: f32, lassopoints: *mut ::windows::core::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     HitTestWithLasso: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub NearestPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     NearestPoint: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeids: super::super::System::Com::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeids: ::windows::core::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub AddStrokesAtRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestrokes: *mut ::core::ffi::c_void, targetrectangle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddStrokesAtRectangle: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode, data: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Save: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Load: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetdata: super::super::System::Com::VARIANT, packetdescription: super::super::System::Com::VARIANT, stroke: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode, data: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetdata: ::windows::core::VARIANT, packetdescription: ::windows::core::VARIANT, stroke: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateStroke: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub ClipboardCopyWithRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes, dataobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2276,16 +2251,12 @@ impl IInkEdit {
     pub unsafe fn SetFactoid(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFactoid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(newval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelInks(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelInks(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelInks)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelInks(&self, selink: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelInks)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(selink)).ok()
+    pub unsafe fn SetSelInks(&self, selink: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelInks)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(selink)).ok()
     }
     pub unsafe fn SelInksDisplayMode(&self) -> ::windows::core::Result<InkDisplayMode> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2458,93 +2429,61 @@ impl IInkEdit {
     {
         (::windows::core::Vtable::vtable(self).SetDisableNoScroll)(::windows::core::Vtable::as_raw(self), newval.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelAlignment(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelAlignment(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelAlignment)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelAlignment(&self, pvarselalignment: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelAlignment)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselalignment)).ok()
+    pub unsafe fn SetSelAlignment(&self, pvarselalignment: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelAlignment)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselalignment)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelBold(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelBold(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelBold)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelBold(&self, pvarselbold: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelBold)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselbold)).ok()
+    pub unsafe fn SetSelBold(&self, pvarselbold: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelBold)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselbold)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelItalic(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelItalic(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelItalic)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelItalic(&self, pvarselitalic: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelItalic)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselitalic)).ok()
+    pub unsafe fn SetSelItalic(&self, pvarselitalic: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelItalic)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselitalic)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelUnderline(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelUnderline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelUnderline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelUnderline(&self, pvarselunderline: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelUnderline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselunderline)).ok()
+    pub unsafe fn SetSelUnderline(&self, pvarselunderline: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelUnderline)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselunderline)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelColor(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelColor(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelColor)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelColor(&self, pvarselcolor: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelColor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselcolor)).ok()
+    pub unsafe fn SetSelColor(&self, pvarselcolor: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelColor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselcolor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelFontName(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelFontName(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelFontName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelFontName(&self, pvarselfontname: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelFontName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselfontname)).ok()
+    pub unsafe fn SetSelFontName(&self, pvarselfontname: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelFontName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselfontname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelFontSize(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelFontSize(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelFontSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelFontSize(&self, pvarselfontsize: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelFontSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselfontsize)).ok()
+    pub unsafe fn SetSelFontSize(&self, pvarselfontsize: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelFontSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselfontsize)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelCharOffset(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelCharOffset(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelCharOffset)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelCharOffset(&self, pvarselcharoffset: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSelCharOffset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvarselcharoffset)).ok()
+    pub unsafe fn SetSelCharOffset(&self, pvarselcharoffset: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetSelCharOffset)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pvarselcharoffset)).ok()
     }
     pub unsafe fn TextRTF(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2653,14 +2592,8 @@ pub struct IInkEdit_Vtbl {
     putref_Recognizer: usize,
     pub Factoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetFactoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelInks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pselink: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelInks: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelInks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selink: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelInks: usize,
+    pub SelInks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pselink: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelInks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selink: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SelInksDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinkdisplaymode: *mut InkDisplayMode) -> ::windows::core::HRESULT,
     pub SetSelInksDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkdisplaymode: InkDisplayMode) -> ::windows::core::HRESULT,
     pub Recognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -2742,70 +2675,22 @@ pub struct IInkEdit_Vtbl {
     pub SetDisableNoScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDisableNoScroll: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselalignment: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelAlignment: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselalignment: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelAlignment: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelBold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselbold: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelBold: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelBold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselbold: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelBold: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelItalic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselitalic: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelItalic: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelItalic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselitalic: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelItalic: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelUnderline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselunderline: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelUnderline: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelUnderline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselunderline: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelUnderline: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcolor: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelColor: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcolor: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelColor: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontname: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelFontName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontname: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelFontName: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelFontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontsize: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelFontSize: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelFontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontsize: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelFontSize: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelCharOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcharoffset: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelCharOffset: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSelCharOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcharoffset: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetSelCharOffset: usize,
+    pub SelAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselalignment: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselalignment: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelBold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselbold: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelBold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselbold: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelItalic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselitalic: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelItalic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselitalic: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelUnderline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselunderline: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelUnderline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselunderline: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcolor: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcolor: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontname: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontname: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelFontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontsize: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelFontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontsize: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelCharOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcharoffset: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSelCharOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcharoffset: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub TextRTF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtextrtf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetTextRTF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtextrtf: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SelStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plselstart: *mut i32) -> ::windows::core::HRESULT,
@@ -2832,22 +2717,20 @@ impl IInkExtendedProperties {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item(&self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Item(&self, identifier: &::windows::core::VARIANT) -> ::windows::core::Result<IInkExtendedProperty> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(identifier), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(identifier), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add(&self, guid: &::windows::core::BSTR, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<IInkExtendedProperty> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Add(&self, guid: &::windows::core::BSTR, data: &::windows::core::VARIANT) -> ::windows::core::Result<IInkExtendedProperty> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(guid), ::core::mem::transmute(data), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(guid), ::core::mem::transmute_copy(data), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove(&self, identifier: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(identifier)).ok()
+    pub unsafe fn Remove(&self, identifier: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(identifier)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
@@ -2896,18 +2779,15 @@ pub struct IInkExtendedProperties_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::windows::core::VARIANT, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::ffi::c_void, data: super::super::System::Com::VARIANT, inkextendedproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::ffi::c_void, data: ::windows::core::VARIANT, inkextendedproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub DoesPropertyExist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::core::ffi::c_void, doespropertyexist: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
@@ -2924,16 +2804,12 @@ impl IInkExtendedProperty {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Guid)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Data(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Data(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Data)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetData(&self, data: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(data)).ok()
+    pub unsafe fn SetData(&self, data: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(data)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2972,14 +2848,8 @@ unsafe impl ::windows::core::Interface for IInkExtendedProperty {
 pub struct IInkExtendedProperty_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Guid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Data: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetData: usize,
+    pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3226,16 +3096,12 @@ impl IInkOverlay {
     {
         (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).DesiredPacketDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDesiredPacketDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(packetguids)).ok()
+    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetDesiredPacketDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(packetguids)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3523,14 +3389,8 @@ pub struct IInkOverlay_Vtbl {
     pub SetDynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDynamicRendering: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    DesiredPacketDescription: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetDesiredPacketDescription: usize,
+    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3720,16 +3580,12 @@ impl IInkPicture {
     {
         (::windows::core::Vtable::vtable(self).SetDynamicRendering)(::windows::core::Vtable::as_raw(self), enabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).DesiredPacketDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetDesiredPacketDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(packetguids)).ok()
+    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetDesiredPacketDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(packetguids)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4057,14 +3913,8 @@ pub struct IInkPicture_Vtbl {
     pub SetDynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDynamicRendering: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    DesiredPacketDescription: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetDesiredPacketDescription: usize,
+    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -4201,27 +4051,19 @@ impl IInkRecognitionAlternate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Confidence)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Baseline(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Baseline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Baseline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Midline(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Midline(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Midline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Ascender(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Ascender(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Ascender)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Descender(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Descender(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Descender)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -4275,9 +4117,7 @@ impl IInkRecognitionAlternate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AlternatesWithConstantPropertyValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertytype), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue(&self, propertytype: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPropertyValue(&self, propertytype: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPropertyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertytype), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -4319,22 +4159,10 @@ pub struct IInkRecognitionAlternate_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recostring: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Confidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Baseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseline: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Baseline: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Midline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, midline: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Midline: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Ascender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ascender: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Ascender: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Descender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descender: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Descender: usize,
+    pub Baseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseline: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Midline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, midline: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Ascender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ascender: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub Descender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descender: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub LineNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linenumber: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4364,10 +4192,7 @@ pub struct IInkRecognitionAlternate_Vtbl {
     pub AlternatesWithConstantPropertyValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: *mut ::core::ffi::c_void, alternateswithconstantpropertyvalues: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AlternatesWithConstantPropertyValues: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetPropertyValue: usize,
+    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: *mut ::core::ffi::c_void, propertyvalue: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4559,21 +4384,15 @@ impl IInkRecognizer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Capabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Languages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Languages(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Languages)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SupportedProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SupportedProperties(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SupportedProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PreferredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn PreferredPacketDescription(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PreferredPacketDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -4622,18 +4441,9 @@ pub struct IInkRecognizer_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitiesflags: *mut InkRecognizerCapabilities) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Languages: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SupportedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedproperties: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SupportedProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PreferredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preferredpacketdescription: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PreferredPacketDescription: usize,
+    pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SupportedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedproperties: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub PreferredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preferredpacketdescription: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateRecognizerContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4649,9 +4459,7 @@ impl IInkRecognizer2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn UnicodeRanges(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn UnicodeRanges(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).UnicodeRanges)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -4692,10 +4500,7 @@ unsafe impl ::windows::core::Interface for IInkRecognizer2 {
 pub struct IInkRecognizer2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub UnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    UnicodeRanges: usize,
+    pub UnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -4797,15 +4602,11 @@ impl IInkRecognizerContext {
     pub unsafe fn EndInkInput(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EndInkInput)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BackgroundRecognize(&self, customdata: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackgroundRecognize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(customdata)).ok()
+    pub unsafe fn BackgroundRecognize(&self, customdata: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).BackgroundRecognize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(customdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BackgroundRecognizeWithAlternates(&self, customdata: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackgroundRecognizeWithAlternates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(customdata)).ok()
+    pub unsafe fn BackgroundRecognizeWithAlternates(&self, customdata: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).BackgroundRecognizeWithAlternates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(customdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4899,14 +4700,8 @@ pub struct IInkRecognizerContext_Vtbl {
     Recognize: usize,
     pub StopBackgroundRecognition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndInkInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BackgroundRecognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customdata: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    BackgroundRecognize: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BackgroundRecognizeWithAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customdata: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    BackgroundRecognizeWithAlternates: usize,
+    pub BackgroundRecognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customdata: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub BackgroundRecognizeWithAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customdata: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recocontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4922,16 +4717,12 @@ pub struct IInkRecognizerContext_Vtbl {
 pub struct IInkRecognizerContext2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerContext2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnabledUnicodeRanges(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn EnabledUnicodeRanges(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).EnabledUnicodeRanges)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetEnabledUnicodeRanges(&self, unicoderanges: super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEnabledUnicodeRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(unicoderanges)).ok()
+    pub unsafe fn SetEnabledUnicodeRanges(&self, unicoderanges: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).SetEnabledUnicodeRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(unicoderanges)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4969,14 +4760,8 @@ unsafe impl ::windows::core::Interface for IInkRecognizerContext2 {
 #[doc(hidden)]
 pub struct IInkRecognizerContext2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub EnabledUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    EnabledUnicodeRanges: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetEnabledUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetEnabledUnicodeRanges: usize,
+    pub EnabledUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetEnabledUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: ::windows::core::VARIANT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5350,15 +5135,11 @@ impl IInkRenderer {
     pub unsafe fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InkSpaceToPixel)(::windows::core::Vtable::as_raw(self), hdcdisplay, x, y).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PixelToInkSpaceFromPoints)(::windows::core::Vtable::as_raw(self), hdc, points).ok()
+    pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).PixelToInkSpaceFromPoints)(::windows::core::Vtable::as_raw(self), hdc, ::core::mem::transmute(points)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InkSpaceToPixelFromPoints)(::windows::core::Vtable::as_raw(self), hdc, points).ok()
+    pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut ::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).InkSpaceToPixelFromPoints)(::windows::core::Vtable::as_raw(self), hdc, ::core::mem::transmute(points)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5455,14 +5236,8 @@ pub struct IInkRenderer_Vtbl {
     DrawStroke: usize,
     pub PixelToInkSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, x: *mut i32, y: *mut i32) -> ::windows::core::HRESULT,
     pub InkSpaceToPixel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PixelToInkSpaceFromPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PixelToInkSpaceFromPoints: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InkSpaceToPixelFromPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    InkSpaceToPixelFromPoints: usize,
+    pub PixelToInkSpaceFromPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub InkSpaceToPixelFromPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Measure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5488,9 +5263,7 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BezierPoints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn BezierPoints(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).BezierPoints)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5520,21 +5293,15 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ExtendedProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PolylineCusps(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn PolylineCusps(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PolylineCusps)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BezierCusps(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn BezierCusps(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).BezierCusps)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SelfIntersections(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn SelfIntersections(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).SelfIntersections)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5546,9 +5313,7 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PacketSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn PacketDescription(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).PacketDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5564,18 +5329,18 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetBoundingBox)(::windows::core::Vtable::as_raw(self), boundingboxmode, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindIntersections<P0>(&self, strokes: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn FindIntersections<P0>(&self, strokes: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IInkStrokes>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).FindIntersections)(::windows::core::Vtable::as_raw(self), strokes.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRectangleIntersections<P0>(&self, rectangle: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetRectangleIntersections<P0>(&self, rectangle: P0) -> ::windows::core::Result<::windows::core::VARIANT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IInkRectangle>>,
     {
@@ -5608,39 +5373,27 @@ impl IInkStrokeDisp {
     pub unsafe fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &::windows::core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPacketDescriptionPropertyMetrics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname), minimum, maximum, units, resolution).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPoints(&self, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPoints(&self, index: i32, count: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPoints)(::windows::core::Vtable::as_raw(self), index, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPoints(&self, points: super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn SetPoints(&self, points: &::windows::core::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetPoints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(points), index, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SetPoints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(points), index, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPacketData(&self, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPacketData(&self, index: i32, count: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPacketData)(::windows::core::Vtable::as_raw(self), index, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPacketValuesByProperty(&self, propertyname: &::windows::core::BSTR, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPacketValuesByProperty(&self, propertyname: &::windows::core::BSTR, index: i32, count: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPacketValuesByProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(propertyname), index, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPacketValuesByProperty(&self, bstrpropertyname: &::windows::core::BSTR, packetvalues: super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn SetPacketValuesByProperty(&self, bstrpropertyname: &::windows::core::BSTR, packetvalues: &::windows::core::VARIANT, index: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetPacketValuesByProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), ::core::mem::transmute(packetvalues), index, count, result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).SetPacketValuesByProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrpropertyname), ::core::mem::transmute_copy(packetvalues), index, count, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetFlattenedBezierPoints)(::windows::core::Vtable::as_raw(self), fittingerror, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5710,10 +5463,7 @@ unsafe impl ::windows::core::Interface for IInkStrokeDisp {
 pub struct IInkStrokeDisp_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BezierPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    BezierPoints: usize,
+    pub BezierPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawattrs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5730,24 +5480,12 @@ pub struct IInkStrokeDisp_Vtbl {
     pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, properties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ExtendedProperties: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PolylineCusps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusps: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PolylineCusps: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub BezierCusps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusps: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    BezierCusps: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelfIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SelfIntersections: usize,
+    pub PolylineCusps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusps: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub BezierCusps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusps: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SelfIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intersections: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub PacketCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub PacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetdescription: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    PacketDescription: usize,
+    pub PacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetdescription: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Deleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5756,13 +5494,13 @@ pub struct IInkStrokeDisp_Vtbl {
     pub GetBoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundingboxmode: InkBoundingBoxMode, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBoundingBox: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub FindIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, intersections: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     FindIntersections: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetRectangleIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub GetRectangleIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, intersections: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     GetRectangleIntersections: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Clip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5778,30 +5516,12 @@ pub struct IInkStrokeDisp_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Split: usize,
     pub GetPacketDescriptionPropertyMetrics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, count: i32, points: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetPoints: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: super::super::System::Com::VARIANT, index: i32, count: i32, numberofpointsset: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetPoints: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPacketData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, count: i32, packetdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetPacketData: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPacketValuesByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, index: i32, count: i32, packetvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetPacketValuesByProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetPacketValuesByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, packetvalues: super::super::System::Com::VARIANT, index: i32, count: i32, numberofpacketsset: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    SetPacketValuesByProperty: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetFlattenedBezierPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fittingerror: i32, flattenedbezierpoints: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    GetFlattenedBezierPoints: usize,
+    pub GetPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, count: i32, points: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: ::windows::core::VARIANT, index: i32, count: i32, numberofpointsset: *mut i32) -> ::windows::core::HRESULT,
+    pub GetPacketData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, count: i32, packetdata: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub GetPacketValuesByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, index: i32, count: i32, packetvalues: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
+    pub SetPacketValuesByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: *mut ::core::ffi::c_void, packetvalues: ::windows::core::VARIANT, index: i32, count: i32, numberofpacketsset: *mut i32) -> ::windows::core::HRESULT,
+    pub GetFlattenedBezierPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fittingerror: i32, flattenedbezierpoints: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub Transform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::core::ffi::c_void, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
@@ -14121,25 +13841,39 @@ unsafe impl ::windows::core::Abi for HRECOWORDLIST {
     type Abi = Self;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Controls\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: ::windows::core::ManuallyDrop<IInkCursor>,
     pub Strokes: ::windows::core::ManuallyDrop<IInkStrokes>,
-    pub Gestures: super::super::System::Com::VARIANT,
+    pub Gestures: ::windows::core::ManuallyDrop<::windows::core::VARIANT>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::clone::Clone for IEC_GESTUREINFO {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+impl ::core::fmt::Debug for IEC_GESTUREINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IEC_GESTUREINFO").field("nmhdr", &self.nmhdr).field("Cursor", &self.Cursor).field("Strokes", &self.Strokes).field("Gestures", &self.Gestures).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::core::Abi for IEC_GESTUREINFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+impl ::core::cmp::PartialEq for IEC_GESTUREINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.nmhdr == other.nmhdr && self.Cursor == other.Cursor && self.Strokes == other.Strokes && self.Gestures == other.Gestures
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+impl ::core::cmp::Eq for IEC_GESTUREINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 impl ::core::default::Default for IEC_GESTUREINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

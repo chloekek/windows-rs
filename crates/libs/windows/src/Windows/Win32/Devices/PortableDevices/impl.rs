@@ -2129,15 +2129,15 @@ impl IPortableDeviceValuesCollection_Vtbl {
         iid == &<IPortableDeviceValuesCollection as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPortableDeviceWebControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetDeviceFromId(&self, deviceid: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn GetDeviceFromIdAsync(&self, deviceid: &::windows::core::BSTR, pcompletionhandler: ::core::option::Option<&super::super::System::Com::IDispatch>, perrorhandler: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPortableDeviceWebControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceWebControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>() -> IPortableDeviceWebControl_Vtbl {
         unsafe extern "system" fn GetDeviceFromId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

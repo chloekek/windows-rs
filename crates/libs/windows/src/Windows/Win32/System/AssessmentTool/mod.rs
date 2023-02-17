@@ -16,113 +16,113 @@ impl IAccessibleWinSAT {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.accChildCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accChild(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch> {
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
+    pub unsafe fn get_accChild(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accChild)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accChild)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accName(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accName(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accValue(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accValue(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accDescription(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accDescription(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accDescription)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accRole(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accRole(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accRole)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accRole)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accState(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accState(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accHelp(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accHelp(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accHelp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accHelp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accHelpTopic(&self, pszhelpfile: *mut ::windows::core::BSTR, varchild: super::Com::VARIANT, pidtopic: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.get_accHelpTopic)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszhelpfile), ::core::mem::transmute(varchild), pidtopic).ok()
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accHelpTopic(&self, pszhelpfile: *mut ::windows::core::BSTR, varchild: &::windows::core::VARIANT, pidtopic: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.get_accHelpTopic)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszhelpfile), ::core::mem::transmute_copy(varchild), pidtopic).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accKeyboardShortcut(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accKeyboardShortcut(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accKeyboardShortcut)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accKeyboardShortcut)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accFocus(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn accFocus(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.accFocus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accSelection(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn accSelection(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.accSelection)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn get_accDefaultAction(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn get_accDefaultAction(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.get_accDefaultAction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.get_accDefaultAction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accSelect(&self, flagsselect: i32, varchild: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.accSelect)(::windows::core::Vtable::as_raw(self), flagsselect, ::core::mem::transmute(varchild)).ok()
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn accSelect(&self, flagsselect: i32, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.accSelect)(::windows::core::Vtable::as_raw(self), flagsselect, ::core::mem::transmute_copy(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.accLocation)(::windows::core::Vtable::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, ::core::mem::transmute(varchild)).ok()
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.accLocation)(::windows::core::Vtable::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, ::core::mem::transmute_copy(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accNavigate(&self, navdir: i32, varstart: super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn accNavigate(&self, navdir: i32, varstart: &::windows::core::VARIANT) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.accNavigate)(::windows::core::Vtable::as_raw(self), navdir, ::core::mem::transmute(varstart), result__.as_mut_ptr()).from_abi(result__)
+        (::windows::core::Vtable::vtable(self).base__.accNavigate)(::windows::core::Vtable::as_raw(self), navdir, ::core::mem::transmute_copy(varstart), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> ::windows::core::Result<super::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.accHitTest)(::windows::core::Vtable::as_raw(self), xleft, ytop, result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn accDoDefaultAction(&self, varchild: super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.accDoDefaultAction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild)).ok()
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn accDoDefaultAction(&self, varchild: &::windows::core::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.accDoDefaultAction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn put_accName(&self, varchild: super::Com::VARIANT, szname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.put_accName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), ::core::mem::transmute_copy(szname)).ok()
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn put_accName(&self, varchild: &::windows::core::VARIANT, szname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.put_accName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), ::core::mem::transmute_copy(szname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Accessibility\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
-    pub unsafe fn put_accValue(&self, varchild: super::Com::VARIANT, szvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.put_accValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(varchild), ::core::mem::transmute_copy(szvalue)).ok()
+    #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+    #[cfg(feature = "Win32_UI_Accessibility")]
+    pub unsafe fn put_accValue(&self, varchild: &::windows::core::VARIANT, szvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.put_accValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(varchild), ::core::mem::transmute_copy(szvalue)).ok()
     }
     pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> ::windows::core::Result<()>
     where
@@ -308,9 +308,7 @@ impl IProvideWinSATResultsInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AssessmentState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AssessmentDateTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn AssessmentDateTime(&self) -> ::windows::core::Result<::windows::core::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).AssessmentDateTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
@@ -363,10 +361,7 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetAssessmentInfo: usize,
     pub AssessmentState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut WINSAT_ASSESSMENT_STATE) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AssessmentDateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    AssessmentDateTime: usize,
+    pub AssessmentDateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetime: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT,
     pub SystemRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: *mut f32) -> ::windows::core::HRESULT,
     pub RatingStateDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }

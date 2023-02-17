@@ -1,18 +1,15 @@
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait INSNetSourceCreator_Impl: Sized {
     fn Initialize(&self) -> ::windows::core::Result<()>;
     fn CreateNetSource(&self, pszstreamname: &::windows::core::PCWSTR, pmonitor: ::core::option::Option<&::windows::core::IUnknown>, pdata: *const u8, pusercontext: ::core::option::Option<&::windows::core::IUnknown>, pcallback: ::core::option::Option<&::windows::core::IUnknown>, qwcontext: u64) -> ::windows::core::Result<()>;
     fn GetNetSourceProperties(&self, pszstreamname: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetNetSourceSharedNamespace(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn GetNetSourceAdminInterface(&self, pszstreamname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn GetNetSourceAdminInterface(&self, pszstreamname: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::VARIANT>;
     fn GetNumProtocolsSupported(&self) -> ::windows::core::Result<u32>;
     fn GetProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: ::windows::core::PWSTR, pcchprotocolname: *mut u16) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for INSNetSourceCreator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INSNetSourceCreator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INSNetSourceCreator_Impl, const OFFSET: isize>() -> INSNetSourceCreator_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INSNetSourceCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -47,7 +44,7 @@ impl INSNetSourceCreator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNetSourceAdminInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INSNetSourceCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstreamname: ::windows::core::PCWSTR, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNetSourceAdminInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INSNetSourceCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszstreamname: ::windows::core::PCWSTR, pval: *mut ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetNetSourceAdminInterface(::core::mem::transmute(&pszstreamname)) {

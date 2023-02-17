@@ -16,17 +16,14 @@ impl IDedupBackupSupport_Vtbl {
         iid == &<IDedupBackupSupport as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Storage_DataDeduplication\"`, `\"implement\"`*"]
 pub trait IDedupChunkLibrary_Impl: Sized {
     fn InitializeForPushBuffers(&self) -> ::windows::core::Result<()>;
     fn Uninitialize(&self) -> ::windows::core::Result<()>;
-    fn SetParameter(&self, dwparamtype: u32, vparamvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetParameter(&self, dwparamtype: u32, vparamvalue: &::windows::core::VARIANT) -> ::windows::core::Result<()>;
     fn StartChunking(&self, iiditeratorinterfaceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDedupChunkLibrary {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDedupChunkLibrary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>() -> IDedupChunkLibrary_Vtbl {
         unsafe extern "system" fn InitializeForPushBuffers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -39,7 +36,7 @@ impl IDedupChunkLibrary_Vtbl {
             let this = (*this).get_impl();
             this.Uninitialize().into()
         }
-        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: ::windows::core::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetParameter(::core::mem::transmute_copy(&dwparamtype), ::core::mem::transmute(&vparamvalue)).into()

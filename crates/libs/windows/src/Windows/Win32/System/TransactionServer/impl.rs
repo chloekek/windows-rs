@@ -1,14 +1,14 @@
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ICatalog_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetCollection(&self, bstrcollname: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Connect(&self, bstrconnectstring: &::windows::core::BSTR) -> ::windows::core::Result<super::Com::IDispatch>;
     fn MajorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()>;
     fn MinorVersion(&self, retval: *mut i32) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ICatalog {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ICatalog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICatalog_Impl, const OFFSET: isize>() -> ICatalog_Vtbl {
         unsafe extern "system" fn GetCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICatalog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcollname: *mut ::core::ffi::c_void, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -55,17 +55,17 @@ impl ICatalog_Vtbl {
         iid == &<ICatalog as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IComponentUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn InstallComponent(&self, bstrdllfile: &::windows::core::BSTR, bstrtypelibfile: &::windows::core::BSTR, bstrproxystubdllfile: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ImportComponent(&self, bstrclsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ImportComponentByName(&self, bstrprogid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetCLSIDs(&self, bstrdllfile: &::windows::core::BSTR, bstrtypelibfile: &::windows::core::BSTR, aclsids: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IComponentUtil {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IComponentUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>() -> IComponentUtil_Vtbl {
         unsafe extern "system" fn InstallComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdllfile: *mut ::core::ffi::c_void, bstrtypelibfile: *mut ::core::ffi::c_void, bstrproxystubdllfile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -100,16 +100,16 @@ impl IComponentUtil_Vtbl {
         iid == &<IComponentUtil as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IPackageUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn InstallPackage(&self, bstrpackagefile: &::windows::core::BSTR, bstrinstallpath: &::windows::core::BSTR, loptions: i32) -> ::windows::core::Result<()>;
     fn ExportPackage(&self, bstrpackageid: &::windows::core::BSTR, bstrpackagefile: &::windows::core::BSTR, loptions: i32) -> ::windows::core::Result<()>;
     fn ShutdownPackage(&self, bstrpackageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPackageUtil {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IPackageUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>() -> IPackageUtil_Vtbl {
         unsafe extern "system" fn InstallPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpackagefile: *mut ::core::ffi::c_void, bstrinstallpath: *mut ::core::ffi::c_void, loptions: i32) -> ::windows::core::HRESULT {
@@ -138,15 +138,15 @@ impl IPackageUtil_Vtbl {
         iid == &<IPackageUtil as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRemoteComponentUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn InstallRemoteComponent(&self, bstrserver: &::windows::core::BSTR, bstrpackageid: &::windows::core::BSTR, bstrclsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn InstallRemoteComponentByName(&self, bstrserver: &::windows::core::BSTR, bstrpackagename: &::windows::core::BSTR, bstrprogid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRemoteComponentUtil {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRemoteComponentUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteComponentUtil_Impl, const OFFSET: isize>() -> IRemoteComponentUtil_Vtbl {
         unsafe extern "system" fn InstallRemoteComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteComponentUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrserver: *mut ::core::ffi::c_void, bstrpackageid: *mut ::core::ffi::c_void, bstrclsid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -169,15 +169,15 @@ impl IRemoteComponentUtil_Vtbl {
         iid == &<IRemoteComponentUtil as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IRoleAssociationUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn AssociateRole(&self, bstrroleid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AssociateRoleByName(&self, bstrrolename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IRoleAssociationUtil {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IRoleAssociationUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRoleAssociationUtil_Impl, const OFFSET: isize>() -> IRoleAssociationUtil_Vtbl {
         unsafe extern "system" fn AssociateRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRoleAssociationUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
