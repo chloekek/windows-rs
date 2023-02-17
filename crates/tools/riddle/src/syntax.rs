@@ -351,11 +351,11 @@ fn path_to_string(path: &Path) -> String {
 fn attribute_to_attribute(use_names: &HashMap<String, String>, attribute: &Attribute) -> Result<writer::Attribute> {
     let attribute = attribute.parse_meta()?;
     let path = match &attribute {
-        Meta::Path(path) => &path,
+        Meta::Path(path) => path,
         Meta::List(list) => &list.path, // TODO: grab values
         Meta::NameValue(_) => return Err(Error::new(attribute.span(), "attribute list expected")),
     };
-    let path = path_to_string(&path);
+    let path = path_to_string(path);
     let (namespace, name) = if let Some((namespace, name)) = path.rsplit_once('.') {
         (namespace, name)
     } else if let Some((namespace, name)) = use_names.get_key_value(&path) {

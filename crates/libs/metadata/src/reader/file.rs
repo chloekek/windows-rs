@@ -59,17 +59,15 @@ impl File {
         files.push(Self::from_buffer(std::include_bytes!("../../default/Windows.Win32.Interop.winmd").to_vec(), "Windows.Win32.Interop.winmd".to_string())?);
 
         for path in paths {
-            files.push(Self::new(path)?);
+            files.push(Self::new(std::path::Path::new(path))?);
         }
 
         Ok(files)
     }
 
-    pub fn new(path: &str) -> Result<Self> {
-        let path = std::path::Path::new(path);
-
-        let buffer = std::fs::read(path)?;
-        let name = path.file_name().unwrap().to_string_lossy().into_owned();
+    pub fn new<P: AsRef<std::path::Path>>(path: P) -> Result<Self> {
+        let buffer = std::fs::read(&path)?;
+        let name = path.as_ref().file_name().unwrap().to_string_lossy().into_owned();
 
         Self::from_buffer(buffer, name)
     }
