@@ -95,6 +95,10 @@ impl<'a> Gen<'a> {
                 let crate_name = self.crate_name();
                 quote! { ::#crate_name::core::BSTR }
             }
+            Type::VARIANT => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::VARIANT }
+            }
             Type::IInspectable => {
                 let crate_name = self.crate_name();
                 quote! { ::#crate_name::core::IInspectable }

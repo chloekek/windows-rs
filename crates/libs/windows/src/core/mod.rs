@@ -26,6 +26,7 @@ mod vtable;
 mod waiter;
 mod weak;
 mod weak_ref_count;
+mod variant;
 
 #[doc(hidden)]
 pub use abi::*;
@@ -63,6 +64,7 @@ pub use waiter::*;
 pub use weak::*;
 #[doc(hidden)]
 pub use weak_ref_count::*;
+pub use variant::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = std::result::Result<T, Error>;

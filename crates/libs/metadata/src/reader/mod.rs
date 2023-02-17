@@ -1535,7 +1535,7 @@ impl<'a> Reader<'a> {
     pub fn type_is_blittable(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_blittable(*row),
-            Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
+            Type::String | Type::BSTR | Type::VARIANT | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
             Type::Win32Array((kind, _)) => self.type_is_blittable(kind),
             Type::WinrtArray(kind) => self.type_is_blittable(kind),
             _ => true,
@@ -1544,7 +1544,7 @@ impl<'a> Reader<'a> {
     pub fn type_is_copyable(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_copyable(*row),
-            Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
+            Type::String | Type::BSTR | Type::VARIANT | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
             Type::Win32Array((kind, _)) => self.type_is_copyable(kind),
             Type::WinrtArray(kind) => self.type_is_copyable(kind),
             _ => true,
@@ -1765,4 +1765,4 @@ impl<'a> Reader<'a> {
 
 pub const REMAP_TYPES: [(TypeName, TypeName); 2] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4)];
 
-pub const CORE_TYPES: [(TypeName, Type); 12] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];
+pub const CORE_TYPES: [(TypeName, Type); 13] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName), (TypeName::VARIANT, Type::VARIANT)];

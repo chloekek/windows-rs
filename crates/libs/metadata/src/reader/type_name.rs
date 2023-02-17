@@ -54,6 +54,7 @@ impl<'a> TypeName<'a> {
     pub const ULARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "ULARGE_INTEGER");
     pub const IRestrictedErrorInfo: Self = Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
     pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Com", "IDispatch");
+    pub const VARIANT: Self = Self::from_const("Windows.Win32.System.Com", "VARIANT");
 
     pub const IN_ADDR: Self = Self::from_const("Windows.Win32.Networking.WinSock", "IN_ADDR");
     pub const IN6_ADDR: Self = Self::from_const("Windows.Win32.Networking.WinSock", "IN6_ADDR");

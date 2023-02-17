@@ -30,6 +30,11 @@ impl HRESULT {
     pub fn unwrap(self) {
         assert!(self.is_ok(), "HRESULT 0x{:X}", self.0);
     }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
 
     /// Converts the [`HRESULT`] to [`Result<()>`][Result<_>].
     #[inline]

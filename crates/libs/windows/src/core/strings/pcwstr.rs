@@ -32,6 +32,7 @@ impl PCWSTR {
     ///
     /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn as_wide(&self) -> &[u16] {
+        // tODO: reutrn empty slice for null
         let len = super::wcslen(*self);
         std::slice::from_raw_parts(self.0, len)
     }

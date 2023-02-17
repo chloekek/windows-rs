@@ -23,6 +23,10 @@ link!("oleaut32.dll" "system" fn SetErrorInfo(reserved: u32, info: *const c_void
 link!("oleaut32.dll" "system" fn SysAllocStringLen(input: *const u16, len: u32) -> *const u16);
 link!("oleaut32.dll" "system" fn SysFreeString(bstr: *const u16) -> ());
 link!("oleaut32.dll" "system" fn SysStringLen(bstr: *const u16) -> u32);
+link!("oleaut32.dll" "system" fn VarCmp(left: *const VARIANT, right: *const VARIANT, locale: u32, flags: u32) -> u32);
+link!("propsys.dll" "system" fn VariantToStringAlloc(varin: *const VARIANT, ppszbuf: *mut PWSTR) -> HRESULT);
+link!("oleaut32.dll" "system" fn VariantClear(pvarg: *mut VARIANT) -> HRESULT);
+link!("oleaut32.dll" "system" fn VariantCopy(pvargdest: *mut VARIANT, pvargsrc: *const VARIANT) -> HRESULT);
 
 pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 256;
 pub const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 4096;

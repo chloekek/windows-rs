@@ -1,7 +1,4 @@
-use windows::{
-    core::*, Win32::Security::*, Win32::System::Com::*, Win32::System::Ole::*,
-    Win32::System::Wmi::*,
-};
+use windows::{core::*, Win32::Security::*, Win32::System::Com::*, Win32::System::Wmi::*};
 
 fn main() -> Result<()> {
     unsafe {
@@ -52,19 +49,7 @@ fn main() -> Result<()> {
                     std::ptr::null_mut(),
                     std::ptr::null_mut(),
                 )?;
-                println!(
-                    "{}",
-                    VarFormat(
-                        &value,
-                        None,
-                        VARFORMAT_FIRST_DAY_SYSTEMDEFAULT,
-                        VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT,
-                        0
-                    )?
-                );
-
-                // TODO: workaround for https://github.com/microsoft/windows-rs/issues/539
-                VariantClear(&mut value)?;
+                println!("{}", value);
             } else {
                 break;
             }
