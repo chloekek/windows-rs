@@ -113,9 +113,9 @@ examples:
         return Err("no output".to_string());
     }
 
-    if verbose {
-        for input in &input {
-            println!("in: {}", input);
+    for input in &input {
+        if verbose {
+            println!("  Reading {}", input);
         }
     }
 
@@ -135,19 +135,22 @@ examples:
     let buffer = writer::write("test", true, &[], &[]);
     std::fs::write(&output_path, buffer).map_err(|_| format!("failed to write `{output}`"))?;
 
-    if verbose {
-        println!("Finished {} in {:.2}s", output_path.file_name().unwrap().to_string_lossy(), start.elapsed().as_secs_f32());
-    }
+    let output_path = if verbose { canonicalize(&output_path)? } else { output_path.file_name().unwrap().to_string_lossy().to_string() };
 
+    println!(" Finished {} in {:.2}s", output_path, start.elapsed().as_secs_f32());
     Ok(())
 }
 
+fn canonicalize(path: &std::path::Path) -> ToolResult<String> {
+    let path = std::fs::canonicalize(path).map_err(|_| format!("failed to find `{}`", path.display()))?;
+    Ok(path.to_string_lossy().trim_start_matches(r#"\\?\"#).to_string())
+}
+
 fn filter_input(input: Vec<String>, filter: &[&str]) -> ToolResult<Vec<String>> {
-    fn canonicalize(path: &std::path::Path, filter: &[&str], results: &mut Vec<String>) -> ToolResult<()> {
+    fn try_push(path: &std::path::Path, filter: &[&str], results: &mut Vec<String>) -> ToolResult<()> {
         if let Some(extension) = path.extension() {
             if filter.contains(&extension.to_string_lossy().to_lowercase().as_str()) {
-                let path = std::fs::canonicalize(path).map_err(|_| format!("failed to find `{}`", path.display()))?;
-                results.push(path.to_string_lossy().trim_start_matches(r#"\\?\"#).to_string());
+                results.push(canonicalize(path)?);
             }
         }
         Ok(())
@@ -162,11 +165,11 @@ fn filter_input(input: Vec<String>, filter: &[&str]) -> ToolResult<Vec<String>> 
             for entry in path.read_dir().map_err(|_| format!("failed to read directory `{input}`"))?.flatten() {
                 let path = entry.path();
                 if path.is_file() {
-                    canonicalize(&path, filter, &mut results)?;
+                    try_push(&path, filter, &mut results)?;
                 }
             }
         } else {
-            canonicalize(path, filter, &mut results)?;
+            try_push(path, filter, &mut results)?;
         }
     }
 
