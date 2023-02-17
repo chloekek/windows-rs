@@ -113,44 +113,41 @@ examples:
         return Err("no output".to_string());
     }
 
-    for input in &input {
-        if verbose {
-            println!("  Reading {}", input);
-        }
-    }
-
-    // let input = load(input)?;
-    // let input = parse(input)?;
-    // let items = process(input)?;
-
     let mut output_path = std::path::Path::new(&output).to_path_buf();
     if output_path.extension().is_none() {
         output_path = output_path.with_extension("winmd");
     }
     std::fs::create_dir_all(output_path.parent().unwrap()).map_err(|_| format!("failed to create directory for `{output}`"))?;
 
-    // TODO: always set the winrt bit on the assembly but only set the winrt bit on the TypeDef if its a WinRT type
-    // Also, use an file-level attribute in the IDL file to indicate whether it contains WinRT or Win32 types
-    //  e.g. #![win32|winrt] - with default being winrt
+    let files = load_input(input, reference, verbose)?;
+    let _reader = reader::Reader::new(&files);
+
+    // TODO: now read each typedef in the reader (that has the include bit set) and build the set of output records
+    // to pass to the writer, using the reader to perform validation on each type.
+
     let buffer = writer::write("test", true, &[], &[]);
     std::fs::write(&output_path, buffer).map_err(|_| format!("failed to write `{output}`"))?;
-
-    let output_path = if verbose { canonicalize(&output_path)? } else { output_path.file_name().unwrap().to_string_lossy().to_string() };
-
-    println!(" Finished {} in {:.2}s", output_path, start.elapsed().as_secs_f32());
+    
+    let output_path = if verbose { canonicalize(&output_path, "winmd")? } else { output_path.file_name().unwrap().to_string_lossy().to_string() };
+    println!("  Finished {} in {:.2}s", display_path(&output_path), start.elapsed().as_secs_f32());
     Ok(())
 }
 
-fn canonicalize(path: &std::path::Path) -> ToolResult<String> {
+fn canonicalize(path: &std::path::Path, extension: &str) -> ToolResult<String> {
     let path = std::fs::canonicalize(path).map_err(|_| format!("failed to find `{}`", path.display()))?;
-    Ok(path.to_string_lossy().trim_start_matches(r#"\\?\"#).to_string())
+    Ok(path.with_extension(extension).to_string_lossy().to_string())
+}
+
+fn display_path(path: &str) -> String {
+    path.trim_start_matches(r#"\\?\"#).to_string()
 }
 
 fn filter_input(input: Vec<String>, filter: &[&str]) -> ToolResult<Vec<String>> {
     fn try_push(path: &std::path::Path, filter: &[&str], results: &mut Vec<String>) -> ToolResult<()> {
         if let Some(extension) = path.extension() {
-            if filter.contains(&extension.to_string_lossy().to_lowercase().as_str()) {
-                results.push(canonicalize(path)?);
+            let extension = extension.to_string_lossy().to_lowercase();
+            if filter.contains(&extension.as_str()) {
+                results.push(canonicalize(&path, &extension)?);
             }
         }
         Ok(())
@@ -176,20 +173,27 @@ fn filter_input(input: Vec<String>, filter: &[&str]) -> ToolResult<Vec<String>> 
     Ok(results)
 }
 
-fn load_input(input: Vec<String>) -> ToolResult<Vec<reader::File>> {
-    fn load_file(input: &std::path::Path) -> std::io::Result<reader::File> {
-        reader::File::new(input)
-    }
-
+fn load_input(input: Vec<String>, reference: Vec<String>, verbose: bool) -> ToolResult<Vec<reader::File>> {
     let mut results = vec![];
 
     for input in &input {
-        let path = std::path::Path::new(input);
-
-        if path.metadata().map_err(|_| format!("failed to read `{input}`"))?.is_dir() {
-        } else {
-            results.push(load_file(path).map_err(|_| format!("failed to read `{input}`"))?);
+            if input.ends_with("winmd") {
+                if verbose {
+                    println!("   Include {}", display_path(input));
+                }
+                results.push(reader::File::new(input).map_err(|_| format!("failed to read `{}`", display_path(input)))?);
+            } else {
+                if verbose {
+                    println!("   Convert {}", display_path(input));
+                }
+            }
         }
+
+    for reference in &reference {
+        if verbose {
+            println!(" Reference {}", display_path(reference));
+        }
+        results.push(reader::File::new(reference).map_err(|_| format!("failed to read `{}`", display_path(reference)))?);
     }
 
     Ok(results)

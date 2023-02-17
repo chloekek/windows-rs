@@ -2,6 +2,10 @@ use metadata::writer;
 use std::collections::*;
 use syn::{parse::*, spanned::*, *};
 
+    // TODO: always set the winrt bit on the assembly but only set the winrt bit on the TypeDef if its a WinRT type
+    // Also, use an file-level attribute in the IDL file to indicate whether it contains WinRT or Win32 types
+    //  e.g. #![win32|winrt] - with default being winrt
+
 mod keywords {
     syn::custom_keyword!(interface);
     syn::custom_keyword!(class);
