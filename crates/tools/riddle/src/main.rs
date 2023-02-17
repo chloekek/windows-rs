@@ -186,6 +186,7 @@ fn load_input(input: Vec<String>, reference: Vec<String>, verbose: bool) -> Tool
                 if verbose {
                     println!("   Convert {}", display_path(input));
                 }
+                results.push(convert_input(input)?);
             }
         }
 
@@ -197,6 +198,12 @@ fn load_input(input: Vec<String>, reference: Vec<String>, verbose: bool) -> Tool
     }
 
     Ok(results)
+}
+
+fn convert_input(_input: &str) -> ToolResult<reader::File> {
+    // TODO: parse without chasing references and form a single winmd per IDL
+    let buffer = writer::write("test", true, &[], &[]);
+    Ok(reader::File::from_buffer(buffer).expect("writer produced invalid winmd"))
 }
 
 // fn load(input: Vec<String>) -> ToolResult<Vec<(String, String)>> {
