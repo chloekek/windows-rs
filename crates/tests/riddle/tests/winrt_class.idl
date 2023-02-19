@@ -1,3 +1,5 @@
+#![winrt] // optional, since the winrt dialect is the default
+
 use Windows::Foundation::Metadata::{Activatable, ExclusiveTo};
 
 mod TypeNamespace {

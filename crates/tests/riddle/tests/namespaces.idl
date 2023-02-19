@@ -1,3 +1,5 @@
+#![win32]
+
 mod Root {
     interface IRoot {
         fn RootMethod(&self) -> f32;
