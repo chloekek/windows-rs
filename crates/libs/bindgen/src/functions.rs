@@ -16,7 +16,10 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let features = gen.cfg_features(&cfg);
     let return_type = gen.return_sig(&signature);
     let abi = gen.reader.method_def_extern_abi(def);
-    let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
+    let impl_map = gen
+        .reader
+        .method_def_impl_map(def)
+        .expect("ImplMap not found");
     let scope = gen.reader.impl_map_scope(impl_map);
     let link = gen.reader.module_ref_name(scope).to_lowercase();
 
@@ -63,13 +66,16 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
     } else {
-        let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
+        let impl_map = gen
+            .reader
+            .method_def_impl_map(def)
+            .expect("ImplMap not found");
         let scope = gen.reader.impl_map_scope(impl_map);
         let link = gen.reader.module_ref_name(scope).to_lowercase();
 
         if gen.namespace.starts_with("Windows.") {
             quote! {
-                ::windows::core::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
+                ::windows::imp::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
             }
         } else {
             let link = link.trim_end_matches(".dll");
@@ -92,7 +98,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
@@ -100,7 +107,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<T> #where_clause {
                     #link
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    let mut result__ = ::std::ptr::null_mut();
                     #name(#args).from_abi(result__)
                 }
             }
@@ -109,7 +116,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
@@ -133,7 +141,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                     #link
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                    let mut result__ = ::windows::core::zeroed::<#return_type>();
                     #name(#args).from_abi(result__)
                 }
             }
@@ -166,9 +174,9 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                         #link
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
                         #name(#args);
-                        <#return_type as ::windows::core::Abi>::from_abi(result__.assume_init())
+                        ::windows::core::from_abi(result__.assume_init())
                     }
                 }
             } else {
@@ -178,9 +186,9 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                         #link
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
                         #name(#args);
-                        result__.assume_init()
+                        ::std::mem::transmute(result__)
                     }
                 }
             }
@@ -198,7 +206,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                         #link
                         let result__ = #name(#args);
-                        ::windows::core::then(!result__.is_invalid(), ||result__).ok_or_else(::windows::core::Error::from_win32)
+                        ::windows::imp::then(!result__.is_invalid(), ||result__).ok_or_else(::windows::core::Error::from_win32)
                     }
                 }
             } else {
@@ -244,10 +252,18 @@ fn does_not_return(gen: &Gen, def: MethodDef) -> TokenStream {
 
 fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
     if let Some(map) = gen.reader.method_def_impl_map(def) {
-        if gen.reader.impl_map_flags(map).contains(PInvokeAttributes::LAST_ERROR) {
+        if gen
+            .reader
+            .impl_map_flags(map)
+            .contains(PInvokeAttributes::LAST_ERROR)
+        {
             if let Some(Type::TypeDef((return_type, _))) = &signature.return_type {
                 if gen.reader.type_def_is_handle(*return_type) {
-                    if gen.reader.type_def_underlying_type(*return_type).is_pointer() {
+                    if gen
+                        .reader
+                        .type_def_underlying_type(*return_type)
+                        .is_pointer()
+                    {
                         return true;
                     }
                     if !gen.reader.type_def_invalid_values(*return_type).is_empty() {

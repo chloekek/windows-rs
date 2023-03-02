@@ -1,10 +1,15 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProviderSpiConnectionSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IProviderSpiConnectionSettings {
+unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettings {
     type Vtable = IProviderSpiConnectionSettings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettings {
+impl ::core::clone::Clone for IProviderSpiConnectionSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IProviderSpiConnectionSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 }
 #[repr(C)]
@@ -25,10 +30,15 @@ pub struct IProviderSpiConnectionSettings_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IProviderSpiConnectionSettingsFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IProviderSpiConnectionSettingsFactory {
+unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettingsFactory {
     type Vtable = IProviderSpiConnectionSettingsFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IProviderSpiConnectionSettingsFactory {
+impl ::core::clone::Clone for IProviderSpiConnectionSettingsFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IProviderSpiConnectionSettingsFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
 }
 #[repr(C)]
@@ -44,17 +54,12 @@ impl ISpiControllerProvider {
     pub fn GetDeviceProvider(&self, settings: &ProviderSpiConnectionSettings) -> ::windows::core::Result<ISpiDeviceProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeviceProvider)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(settings), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ISpiDeviceProvider>();
+            (::windows::core::Interface::vtable(this).GetDeviceProvider)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
         }
     }
 }
-::windows::core::interface_hierarchy!(ISpiControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ISpiControllerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISpiControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISpiControllerProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -66,17 +71,18 @@ impl ::core::fmt::Debug for ISpiControllerProvider {
         f.debug_tuple("ISpiControllerProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ISpiControllerProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c1686504-02ce-4226-a385-4f11fb04b41b}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Vtable for ISpiControllerProvider {
-    type Vtable = ISpiControllerProvider_Vtbl;
+impl ::windows::core::RuntimeType for ISpiControllerProvider {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{c1686504-02ce-4226-a385-4f11fb04b41b}");
 }
 unsafe impl ::windows::core::Interface for ISpiControllerProvider {
+    type Vtable = ISpiControllerProvider_Vtbl;
+}
+impl ::core::clone::Clone for ISpiControllerProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISpiControllerProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1686504_02ce_4226_a385_4f11fb04b41b);
 }
 #[repr(C)]
@@ -92,68 +98,43 @@ impl ISpiDeviceProvider {
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionSettings(&self) -> ::windows::core::Result<ProviderSpiConnectionSettings> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ConnectionSettings)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderSpiConnectionSettings>();
+            (::windows::core::Interface::vtable(this).ConnectionSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Write(&self, buffer: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Write)(::windows::core::Vtable::as_raw(this), buffer.len() as u32, buffer.as_ptr()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Write)(::windows::core::Interface::as_raw(this), buffer.len() as u32, buffer.as_ptr()).ok() }
     }
     pub fn Read(&self, buffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Read)(::windows::core::Vtable::as_raw(this), buffer.len() as u32, buffer.as_mut_ptr()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Read)(::windows::core::Interface::as_raw(this), buffer.len() as u32, buffer.as_mut_ptr()).ok() }
     }
     pub fn TransferSequential(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferSequential)(::windows::core::Vtable::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).TransferSequential)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr()).ok() }
     }
     pub fn TransferFullDuplex(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).TransferFullDuplex)(::windows::core::Vtable::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).TransferFullDuplex)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
+        let this = &::windows::core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
-::windows::core::interface_hierarchy!(ISpiDeviceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ISpiDeviceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<ISpiDeviceProvider> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ISpiDeviceProvider) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ISpiDeviceProvider> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ISpiDeviceProvider) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ISpiDeviceProvider> for ::windows::core::InParam<super::super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ISpiDeviceProvider) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::clone::Clone for ISpiDeviceProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+impl windows::core::CanTryInto<super::super::super::Foundation::IClosable> for ISpiDeviceProvider {}
 impl ::core::cmp::PartialEq for ISpiDeviceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -165,24 +146,25 @@ impl ::core::fmt::Debug for ISpiDeviceProvider {
         f.debug_tuple("ISpiDeviceProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ISpiDeviceProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0d1c3443-304b-405c-b4f7-f5ab1074461e}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Vtable for ISpiDeviceProvider {
-    type Vtable = ISpiDeviceProvider_Vtbl;
+impl ::windows::core::RuntimeType for ISpiDeviceProvider {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{0d1c3443-304b-405c-b4f7-f5ab1074461e}");
 }
 unsafe impl ::windows::core::Interface for ISpiDeviceProvider {
+    type Vtable = ISpiDeviceProvider_Vtbl;
+}
+impl ::core::clone::Clone for ISpiDeviceProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISpiDeviceProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpiDeviceProvider_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ConnectionSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows::core::HRESULT,
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows::core::HRESULT,
@@ -198,17 +180,12 @@ impl ISpiProvider {
     pub fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetControllersAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>();
+            (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
 }
-::windows::core::interface_hierarchy!(ISpiProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ISpiProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISpiProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::cmp::PartialEq for ISpiProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -220,17 +197,18 @@ impl ::core::fmt::Debug for ISpiProvider {
         f.debug_tuple("ISpiProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ISpiProvider {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96b461e2-77d4-48ce-aaa0-75715a8362cf}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Vtable for ISpiProvider {
-    type Vtable = ISpiProvider_Vtbl;
+impl ::windows::core::RuntimeType for ISpiProvider {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{96b461e2-77d4-48ce-aaa0-75715a8362cf}");
 }
 unsafe impl ::windows::core::Interface for ISpiProvider {
+    type Vtable = ISpiProvider_Vtbl;
+}
+impl ::core::clone::Clone for ISpiProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISpiProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
 }
 #[repr(C)]
@@ -249,73 +227,68 @@ impl ProviderSpiConnectionSettings {
     pub fn ChipSelectLine(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ChipSelectLine)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Interface::vtable(this).ChipSelectLine)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetChipSelectLine(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetChipSelectLine)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChipSelectLine)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Mode(&self) -> ::windows::core::Result<ProviderSpiMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Mode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderSpiMode>();
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMode(&self, value: ProviderSpiMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn DataBitLength(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DataBitLength)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Interface::vtable(this).DataBitLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDataBitLength(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetDataBitLength)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDataBitLength)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn ClockFrequency(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ClockFrequency)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Interface::vtable(this).ClockFrequency)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetClockFrequency(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetClockFrequency)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClockFrequency)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn SharingMode(&self) -> ::windows::core::Result<ProviderSpiSharingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SharingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderSpiSharingMode>();
+            (::windows::core::Interface::vtable(this).SharingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetSharingMode(&self, value: ProviderSpiSharingMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).SetSharingMode)(::windows::core::Vtable::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     pub fn Create(chipselectline: i32) -> ::windows::core::Result<ProviderSpiConnectionSettings> {
         Self::IProviderSpiConnectionSettingsFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), chipselectline, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ProviderSpiConnectionSettings>();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), chipselectline, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IProviderSpiConnectionSettingsFactory<R, F: FnOnce(&IProviderSpiConnectionSettingsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ProviderSpiConnectionSettings, IProviderSpiConnectionSettingsFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<ProviderSpiConnectionSettings, IProviderSpiConnectionSettingsFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ProviderSpiConnectionSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for ProviderSpiConnectionSettings {
@@ -329,23 +302,24 @@ impl ::core::fmt::Debug for ProviderSpiConnectionSettings {
         f.debug_tuple("ProviderSpiConnectionSettings").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ProviderSpiConnectionSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings;{f6034550-a542-4ec0-9601-a4dd68f8697b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+impl ::windows::core::RuntimeType for ProviderSpiConnectionSettings {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings;{f6034550-a542-4ec0-9601-a4dd68f8697b})");
+}
+impl ::core::clone::Clone for ProviderSpiConnectionSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for ProviderSpiConnectionSettings {
+unsafe impl ::windows::core::Interface for ProviderSpiConnectionSettings {
     type Vtable = IProviderSpiConnectionSettings_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ProviderSpiConnectionSettings {
-    const IID: ::windows::core::GUID = <IProviderSpiConnectionSettings as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for ProviderSpiConnectionSettings {
+    const IID: ::windows::core::GUID = <IProviderSpiConnectionSettings as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
 }
-::windows::core::interface_hierarchy!(ProviderSpiConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(ProviderSpiConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
@@ -369,20 +343,16 @@ impl ::core::default::Default for ProviderSpiMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ProviderSpiMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ProviderSpiMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ProviderSpiMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderSpiMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ProviderSpiMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+impl ::windows::core::RuntimeType for ProviderSpiMode {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
@@ -403,20 +373,16 @@ impl ::core::default::Default for ProviderSpiSharingMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ProviderSpiSharingMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ProviderSpiSharingMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ProviderSpiSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderSpiSharingMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ProviderSpiSharingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiSharingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+impl ::windows::core::RuntimeType for ProviderSpiSharingMode {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiSharingMode;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

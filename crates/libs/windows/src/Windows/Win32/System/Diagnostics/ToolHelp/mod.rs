@@ -2,15 +2,15 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CreateToolhelp32Snapshot ( dwflags : CREATE_TOOLHELP_SNAPSHOT_FLAGS , th32processid : u32 ) -> super::super::super::Foundation:: HANDLE );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn CreateToolhelp32Snapshot ( dwflags : CREATE_TOOLHELP_SNAPSHOT_FLAGS , th32processid : u32 ) -> super::super::super::Foundation:: HANDLE );
     let result__ = CreateToolhelp32Snapshot(dwflags, th32processid);
-    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Heap32First ( lphe : *mut HEAPENTRY32 , th32processid : u32 , th32heapid : usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Heap32First ( lphe : *mut HEAPENTRY32 , th32processid : u32 , th32heapid : usize ) -> super::super::super::Foundation:: BOOL );
     Heap32First(lphe, th32processid, th32heapid)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
@@ -18,26 +18,26 @@ pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid
 #[inline]
 pub unsafe fn Heap32ListFirst<P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Heap32ListFirst ( hsnapshot : super::super::super::Foundation:: HANDLE , lphl : *mut HEAPLIST32 ) -> super::super::super::Foundation:: BOOL );
-    Heap32ListFirst(hsnapshot.into(), lphl)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Heap32ListFirst ( hsnapshot : super::super::super::Foundation:: HANDLE , lphl : *mut HEAPLIST32 ) -> super::super::super::Foundation:: BOOL );
+    Heap32ListFirst(hsnapshot.into_param().abi(), lphl)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32ListNext<P0>(hsnapshot: P0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Heap32ListNext ( hsnapshot : super::super::super::Foundation:: HANDLE , lphl : *mut HEAPLIST32 ) -> super::super::super::Foundation:: BOOL );
-    Heap32ListNext(hsnapshot.into(), lphl)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Heap32ListNext ( hsnapshot : super::super::super::Foundation:: HANDLE , lphl : *mut HEAPLIST32 ) -> super::super::super::Foundation:: BOOL );
+    Heap32ListNext(hsnapshot.into_param().abi(), lphl)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Heap32Next ( lphe : *mut HEAPENTRY32 ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Heap32Next ( lphe : *mut HEAPENTRY32 ) -> super::super::super::Foundation:: BOOL );
     Heap32Next(lphe)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
@@ -45,106 +45,106 @@ pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundat
 #[inline]
 pub unsafe fn Module32First<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Module32First ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32 ) -> super::super::super::Foundation:: BOOL );
-    Module32First(hsnapshot.into(), lpme)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Module32First ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32 ) -> super::super::super::Foundation:: BOOL );
+    Module32First(hsnapshot.into_param().abi(), lpme)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32FirstW<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Module32FirstW ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32W ) -> super::super::super::Foundation:: BOOL );
-    Module32FirstW(hsnapshot.into(), lpme)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Module32FirstW ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32W ) -> super::super::super::Foundation:: BOOL );
+    Module32FirstW(hsnapshot.into_param().abi(), lpme)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32Next<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Module32Next ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32 ) -> super::super::super::Foundation:: BOOL );
-    Module32Next(hsnapshot.into(), lpme)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Module32Next ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32 ) -> super::super::super::Foundation:: BOOL );
+    Module32Next(hsnapshot.into_param().abi(), lpme)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32NextW<P0>(hsnapshot: P0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Module32NextW ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32W ) -> super::super::super::Foundation:: BOOL );
-    Module32NextW(hsnapshot.into(), lpme)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Module32NextW ( hsnapshot : super::super::super::Foundation:: HANDLE , lpme : *mut MODULEENTRY32W ) -> super::super::super::Foundation:: BOOL );
+    Module32NextW(hsnapshot.into_param().abi(), lpme)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32First<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Process32First ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32 ) -> super::super::super::Foundation:: BOOL );
-    Process32First(hsnapshot.into(), lppe)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Process32First ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32 ) -> super::super::super::Foundation:: BOOL );
+    Process32First(hsnapshot.into_param().abi(), lppe)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32FirstW<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Process32FirstW ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32W ) -> super::super::super::Foundation:: BOOL );
-    Process32FirstW(hsnapshot.into(), lppe)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Process32FirstW ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32W ) -> super::super::super::Foundation:: BOOL );
+    Process32FirstW(hsnapshot.into_param().abi(), lppe)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32Next<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Process32Next ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32 ) -> super::super::super::Foundation:: BOOL );
-    Process32Next(hsnapshot.into(), lppe)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Process32Next ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32 ) -> super::super::super::Foundation:: BOOL );
+    Process32Next(hsnapshot.into_param().abi(), lppe)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32NextW<P0>(hsnapshot: P0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Process32NextW ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32W ) -> super::super::super::Foundation:: BOOL );
-    Process32NextW(hsnapshot.into(), lppe)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Process32NextW ( hsnapshot : super::super::super::Foundation:: HANDLE , lppe : *mut PROCESSENTRY32W ) -> super::super::super::Foundation:: BOOL );
+    Process32NextW(hsnapshot.into_param().abi(), lppe)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Thread32First<P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Thread32First ( hsnapshot : super::super::super::Foundation:: HANDLE , lpte : *mut THREADENTRY32 ) -> super::super::super::Foundation:: BOOL );
-    Thread32First(hsnapshot.into(), lpte)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Thread32First ( hsnapshot : super::super::super::Foundation:: HANDLE , lpte : *mut THREADENTRY32 ) -> super::super::super::Foundation:: BOOL );
+    Thread32First(hsnapshot.into_param().abi(), lpte)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Thread32Next<P0>(hsnapshot: P0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Thread32Next ( hsnapshot : super::super::super::Foundation:: HANDLE , lpte : *mut THREADENTRY32 ) -> super::super::super::Foundation:: BOOL );
-    Thread32Next(hsnapshot.into(), lpte)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Thread32Next ( hsnapshot : super::super::super::Foundation:: HANDLE , lpte : *mut THREADENTRY32 ) -> super::super::super::Foundation:: BOOL );
+    Thread32Next(hsnapshot.into_param().abi(), lpte)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "kernel32.dll""system" fn Toolhelp32ReadProcessMemory ( th32processid : u32 , lpbaseaddress : *const ::core::ffi::c_void , lpbuffer : *mut ::core::ffi::c_void , cbread : usize , lpnumberofbytesread : *mut usize ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn Toolhelp32ReadProcessMemory ( th32processid : u32 , lpbaseaddress : *const ::core::ffi::c_void , lpbuffer : *mut ::core::ffi::c_void , cbread : usize , lpnumberofbytesread : *mut usize ) -> super::super::super::Foundation:: BOOL );
     Toolhelp32ReadProcessMemory(th32processid, lpbaseaddress, lpbuffer, cbread, lpnumberofbytesread)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
@@ -182,8 +182,8 @@ impl ::core::default::Default for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -244,8 +244,8 @@ impl ::core::default::Default for HEAPENTRY32_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HEAPENTRY32_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPENTRY32_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HEAPENTRY32_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -281,8 +281,8 @@ impl ::core::fmt::Debug for HEAPENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HEAPENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HEAPENTRY32 {
@@ -317,8 +317,8 @@ impl ::core::fmt::Debug for HEAPLIST32 {
         f.debug_struct("HEAPLIST32").field("dwSize", &self.dwSize).field("th32ProcessID", &self.th32ProcessID).field("th32HeapID", &self.th32HeapID).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HEAPLIST32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPLIST32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HEAPLIST32 {
     fn eq(&self, other: &Self) -> bool {
@@ -361,8 +361,8 @@ impl ::core::fmt::Debug for MODULEENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MODULEENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODULEENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MODULEENTRY32 {
@@ -408,8 +408,8 @@ impl ::core::fmt::Debug for MODULEENTRY32W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MODULEENTRY32W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODULEENTRY32W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MODULEENTRY32W {
@@ -455,8 +455,8 @@ impl ::core::fmt::Debug for PROCESSENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROCESSENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESSENTRY32 {
@@ -497,8 +497,8 @@ impl ::core::fmt::Debug for PROCESSENTRY32W {
         f.debug_struct("PROCESSENTRY32W").field("dwSize", &self.dwSize).field("cntUsage", &self.cntUsage).field("th32ProcessID", &self.th32ProcessID).field("th32DefaultHeapID", &self.th32DefaultHeapID).field("th32ModuleID", &self.th32ModuleID).field("cntThreads", &self.cntThreads).field("th32ParentProcessID", &self.th32ParentProcessID).field("pcPriClassBase", &self.pcPriClassBase).field("dwFlags", &self.dwFlags).field("szExeFile", &self.szExeFile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSENTRY32W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSENTRY32W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSENTRY32W {
     fn eq(&self, other: &Self) -> bool {
@@ -533,8 +533,8 @@ impl ::core::fmt::Debug for THREADENTRY32 {
         f.debug_struct("THREADENTRY32").field("dwSize", &self.dwSize).field("cntUsage", &self.cntUsage).field("th32ThreadID", &self.th32ThreadID).field("th32OwnerProcessID", &self.th32OwnerProcessID).field("tpBasePri", &self.tpBasePri).field("tpDeltaPri", &self.tpDeltaPri).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for THREADENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for THREADENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for THREADENTRY32 {
     fn eq(&self, other: &Self) -> bool {

@@ -25,7 +25,7 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICashDrawerEventSourceEventArgs as ::windows::core::Interface>::IID
+        iid == &<ICashDrawerEventSourceEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"implement\"`*"]
@@ -236,7 +236,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ValidateData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ValidateData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICommonClaimedPosPrinterStation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ValidateData(::core::mem::transmute(&data)) {
@@ -272,7 +272,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommonClaimedPosPrinterStation as ::windows::core::Interface>::IID
+        iid == &<ICommonClaimedPosPrinterStation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -473,7 +473,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommonPosPrintStationCapabilities as ::windows::core::Interface>::IID
+        iid == &<ICommonPosPrintStationCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -618,7 +618,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommonReceiptSlipCapabilities as ::windows::core::Interface>::IID
+        iid == &<ICommonReceiptSlipCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -636,12 +636,12 @@ impl ::windows::core::RuntimeName for IPosPrinterJob {
 #[cfg(feature = "Foundation")]
 impl IPosPrinterJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>() -> IPosPrinterJob_Vtbl {
-        unsafe extern "system" fn Print<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Print<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Print(::core::mem::transmute(&data)).into()
         }
-        unsafe extern "system" fn PrintLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPosPrinterJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrintLine(::core::mem::transmute(&data)).into()
@@ -672,7 +672,7 @@ impl IPosPrinterJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPosPrinterJob as ::windows::core::Interface>::IID
+        iid == &<IPosPrinterJob as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"implement\"`*"]
@@ -741,17 +741,17 @@ impl IReceiptOrSlipJob_Vtbl {
             let this = (*this).get_impl();
             this.PrintSavedBitmap(bitmapnumber).into()
         }
-        unsafe extern "system" fn DrawRuledLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positionlist: *mut ::core::ffi::c_void, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DrawRuledLine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, positionlist: ::std::mem::MaybeUninit<::windows::core::HSTRING>, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DrawRuledLine(::core::mem::transmute(&positionlist), linedirection, linewidth, linestyle, linecolor).into()
         }
-        unsafe extern "system" fn PrintBarcode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBarcode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows::core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrintBarcode(::core::mem::transmute(&data), symbology, height, width, textposition, alignment).into()
         }
-        unsafe extern "system" fn PrintBarcodeCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrintBarcodeCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows::core::HSTRING>, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrintBarcodeCustomAlign(::core::mem::transmute(&data), symbology, height, width, textposition, alignmentdistance).into()
@@ -796,6 +796,6 @@ impl IReceiptOrSlipJob_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReceiptOrSlipJob as ::windows::core::Interface>::IID
+        iid == &<IReceiptOrSlipJob as ::windows::core::ComInterface>::IID
     }
 }

@@ -3,94 +3,94 @@
 #[inline]
 pub unsafe fn PssCaptureSnapshot<P0>(processhandle: P0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssCaptureSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , captureflags : PSS_CAPTURE_FLAGS , threadcontextflags : u32 , snapshothandle : *mut HPSS ) -> u32 );
-    PssCaptureSnapshot(processhandle.into(), captureflags, threadcontextflags, snapshothandle)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssCaptureSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , captureflags : PSS_CAPTURE_FLAGS , threadcontextflags : u32 , snapshothandle : *mut HPSS ) -> u32 );
+    PssCaptureSnapshot(processhandle.into_param().abi(), captureflags, threadcontextflags, snapshothandle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssDuplicateSnapshot<P0, P1, P2>(sourceprocesshandle: P0, snapshothandle: P1, targetprocesshandle: P2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<HPSS>,
-    P2: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<HPSS>,
+    P2: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssDuplicateSnapshot ( sourceprocesshandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS , targetprocesshandle : super::super::super::Foundation:: HANDLE , targetsnapshothandle : *mut HPSS , flags : PSS_DUPLICATE_FLAGS ) -> u32 );
-    PssDuplicateSnapshot(sourceprocesshandle.into(), snapshothandle.into(), targetprocesshandle.into(), targetsnapshothandle, flags)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssDuplicateSnapshot ( sourceprocesshandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS , targetprocesshandle : super::super::super::Foundation:: HANDLE , targetsnapshothandle : *mut HPSS , flags : PSS_DUPLICATE_FLAGS ) -> u32 );
+    PssDuplicateSnapshot(sourceprocesshandle.into_param().abi(), snapshothandle.into_param().abi(), targetprocesshandle.into_param().abi(), targetsnapshothandle, flags)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PssFreeSnapshot<P0, P1>(processhandle: P0, snapshothandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<HPSS>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<HPSS>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssFreeSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS ) -> u32 );
-    PssFreeSnapshot(processhandle.into(), snapshothandle.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssFreeSnapshot ( processhandle : super::super::super::Foundation:: HANDLE , snapshothandle : HPSS ) -> u32 );
+    PssFreeSnapshot(processhandle.into_param().abi(), snapshothandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssQuerySnapshot<P0>(snapshothandle: P0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32
 where
-    P0: ::std::convert::Into<HPSS>,
+    P0: ::windows::core::IntoParam<HPSS>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssQuerySnapshot ( snapshothandle : HPSS , informationclass : PSS_QUERY_INFORMATION_CLASS , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
-    PssQuerySnapshot(snapshothandle.into(), informationclass, buffer, bufferlength)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssQuerySnapshot ( snapshothandle : HPSS , informationclass : PSS_QUERY_INFORMATION_CLASS , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
+    PssQuerySnapshot(snapshothandle.into_param().abi(), informationclass, buffer, bufferlength)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: ::core::option::Option<*const PSS_ALLOCATOR>, walkmarkerhandle: *mut HPSSWALK) -> u32 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerCreate ( allocator : *const PSS_ALLOCATOR , walkmarkerhandle : *mut HPSSWALK ) -> u32 );
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerCreate ( allocator : *const PSS_ALLOCATOR , walkmarkerhandle : *mut HPSSWALK ) -> u32 );
     PssWalkMarkerCreate(::core::mem::transmute(allocator.unwrap_or(::std::ptr::null())), walkmarkerhandle)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerFree<P0>(walkmarkerhandle: P0) -> u32
 where
-    P0: ::std::convert::Into<HPSSWALK>,
+    P0: ::windows::core::IntoParam<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerFree ( walkmarkerhandle : HPSSWALK ) -> u32 );
-    PssWalkMarkerFree(walkmarkerhandle.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerFree ( walkmarkerhandle : HPSSWALK ) -> u32 );
+    PssWalkMarkerFree(walkmarkerhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerGetPosition<P0>(walkmarkerhandle: P0, position: *mut usize) -> u32
 where
-    P0: ::std::convert::Into<HPSSWALK>,
+    P0: ::windows::core::IntoParam<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerGetPosition ( walkmarkerhandle : HPSSWALK , position : *mut usize ) -> u32 );
-    PssWalkMarkerGetPosition(walkmarkerhandle.into(), position)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerGetPosition ( walkmarkerhandle : HPSSWALK , position : *mut usize ) -> u32 );
+    PssWalkMarkerGetPosition(walkmarkerhandle.into_param().abi(), position)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSeekToBeginning<P0>(walkmarkerhandle: P0) -> u32
 where
-    P0: ::std::convert::Into<HPSSWALK>,
+    P0: ::windows::core::IntoParam<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerSeekToBeginning ( walkmarkerhandle : HPSSWALK ) -> u32 );
-    PssWalkMarkerSeekToBeginning(walkmarkerhandle.into())
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerSeekToBeginning ( walkmarkerhandle : HPSSWALK ) -> u32 );
+    PssWalkMarkerSeekToBeginning(walkmarkerhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkMarkerSetPosition<P0>(walkmarkerhandle: P0, position: usize) -> u32
 where
-    P0: ::std::convert::Into<HPSSWALK>,
+    P0: ::windows::core::IntoParam<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkMarkerSetPosition ( walkmarkerhandle : HPSSWALK , position : usize ) -> u32 );
-    PssWalkMarkerSetPosition(walkmarkerhandle.into(), position)
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkMarkerSetPosition ( walkmarkerhandle : HPSSWALK , position : usize ) -> u32 );
+    PssWalkMarkerSetPosition(walkmarkerhandle.into_param().abi(), position)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 #[inline]
 pub unsafe fn PssWalkSnapshot<P0, P1>(snapshothandle: P0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: P1, buffer: ::core::option::Option<&mut [u8]>) -> u32
 where
-    P0: ::std::convert::Into<HPSS>,
-    P1: ::std::convert::Into<HPSSWALK>,
+    P0: ::windows::core::IntoParam<HPSS>,
+    P1: ::windows::core::IntoParam<HPSSWALK>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn PssWalkSnapshot ( snapshothandle : HPSS , informationclass : PSS_WALK_INFORMATION_CLASS , walkmarkerhandle : HPSSWALK , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
-    PssWalkSnapshot(snapshothandle.into(), informationclass, walkmarkerhandle.into(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
+    ::windows::imp::link ! ( "kernel32.dll""system" fn PssWalkSnapshot ( snapshothandle : HPSS , informationclass : PSS_WALK_INFORMATION_CLASS , walkmarkerhandle : HPSSWALK , buffer : *mut ::core::ffi::c_void , bufferlength : u32 ) -> u32 );
+    PssWalkSnapshot(snapshothandle.into_param().abi(), informationclass, walkmarkerhandle.into_param().abi(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
@@ -153,8 +153,8 @@ impl ::core::default::Default for PSS_CAPTURE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_CAPTURE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_CAPTURE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_CAPTURE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -213,8 +213,8 @@ impl ::core::default::Default for PSS_DUPLICATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_DUPLICATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_DUPLICATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_DUPLICATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -279,8 +279,8 @@ impl ::core::default::Default for PSS_HANDLE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_HANDLE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_HANDLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -349,8 +349,8 @@ impl ::core::default::Default for PSS_OBJECT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_OBJECT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_OBJECT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -384,8 +384,8 @@ impl ::core::default::Default for PSS_PROCESS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_PROCESS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_PROCESS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_PROCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -456,8 +456,8 @@ impl ::core::default::Default for PSS_QUERY_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_QUERY_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_QUERY_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_QUERY_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -483,8 +483,8 @@ impl ::core::default::Default for PSS_THREAD_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_THREAD_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_THREAD_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_THREAD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -547,8 +547,8 @@ impl ::core::default::Default for PSS_WALK_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_WALK_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_WALK_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_WALK_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -579,13 +579,8 @@ impl ::core::fmt::Debug for HPSS {
         f.debug_tuple("HPSS").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HPSS>> for HPSS {
-    fn from(optional: ::core::option::Option<HPSS>) -> HPSS {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HPSS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPSS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -611,13 +606,8 @@ impl ::core::fmt::Debug for HPSSWALK {
         f.debug_tuple("HPSSWALK").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HPSSWALK>> for HPSSWALK {
-    fn from(optional: ::core::option::Option<HPSSWALK>) -> HPSSWALK {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HPSSWALK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPSSWALK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -637,8 +627,8 @@ impl ::core::fmt::Debug for PSS_ALLOCATOR {
         f.debug_struct("PSS_ALLOCATOR").field("Context", &self.Context).field("AllocRoutine", &self.AllocRoutine).field("FreeRoutine", &self.FreeRoutine).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_ALLOCATOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_ALLOCATOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_ALLOCATOR {
     fn eq(&self, other: &Self) -> bool {
@@ -667,8 +657,8 @@ impl ::core::fmt::Debug for PSS_AUXILIARY_PAGES_INFORMATION {
         f.debug_struct("PSS_AUXILIARY_PAGES_INFORMATION").field("AuxPagesCaptured", &self.AuxPagesCaptured).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_AUXILIARY_PAGES_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -706,8 +696,8 @@ impl ::core::fmt::Debug for PSS_AUXILIARY_PAGE_ENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
-unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_AUXILIARY_PAGE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGE_ENTRY {
@@ -753,8 +743,8 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSS_HANDLE_ENTRY {
@@ -782,8 +772,8 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSS_HANDLE_ENTRY_0 {
@@ -813,8 +803,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_0 {
@@ -854,8 +844,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_1 {
@@ -898,8 +888,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_2 {
@@ -938,8 +928,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_3 {
@@ -977,8 +967,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_4 {
@@ -1022,8 +1012,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_5 {
@@ -1055,8 +1045,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_INFORMATION {
         f.debug_struct("PSS_HANDLE_INFORMATION").field("HandlesCaptured", &self.HandlesCaptured).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_HANDLE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_HANDLE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1091,8 +1081,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_TRACE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_TRACE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_TRACE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_TRACE_INFORMATION {
@@ -1148,8 +1138,8 @@ impl ::core::fmt::Debug for PSS_PERFORMANCE_COUNTERS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_PERFORMANCE_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_PERFORMANCE_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_PERFORMANCE_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -1235,8 +1225,8 @@ impl ::core::fmt::Debug for PSS_PROCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_PROCESS_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_PROCESS_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_PROCESS_INFORMATION {
@@ -1336,8 +1326,8 @@ impl ::core::fmt::Debug for PSS_THREAD_ENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for PSS_THREAD_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_THREAD_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for PSS_THREAD_ENTRY {
@@ -1388,8 +1378,8 @@ impl ::core::fmt::Debug for PSS_THREAD_INFORMATION {
         f.debug_struct("PSS_THREAD_INFORMATION").field("ThreadsCaptured", &self.ThreadsCaptured).field("ContextLength", &self.ContextLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_THREAD_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_THREAD_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_THREAD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1423,8 +1413,8 @@ impl ::core::fmt::Debug for PSS_VA_CLONE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_VA_CLONE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_VA_CLONE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_VA_CLONE_INFORMATION {
@@ -1482,8 +1472,8 @@ impl ::core::fmt::Debug for PSS_VA_SPACE_ENTRY {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_VA_SPACE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_VA_SPACE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -1512,8 +1502,8 @@ impl ::core::fmt::Debug for PSS_VA_SPACE_INFORMATION {
         f.debug_struct("PSS_VA_SPACE_INFORMATION").field("RegionCount", &self.RegionCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_VA_SPACE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_VA_SPACE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {

@@ -35,7 +35,7 @@ impl ISysStorageProviderEventSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISysStorageProviderEventSource as ::windows::core::Interface>::IID
+        iid == &<ISysStorageProviderEventSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"implement\"`*"]
@@ -48,7 +48,7 @@ impl ::windows::core::RuntimeName for ISysStorageProviderHandlerFactory {
 }
 impl ISysStorageProviderHandlerFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>() -> ISysStorageProviderHandlerFactory_Vtbl {
-        unsafe extern "system" fn GetHttpRequestProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetHttpRequestProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetHttpRequestProvider(::core::mem::transmute(&syncrootid)) {
@@ -60,7 +60,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEventSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: *mut ::core::ffi::c_void, eventname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEventSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, eventname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetEventSource(::core::mem::transmute(&syncrootid), ::core::mem::transmute(&eventname)) {
@@ -79,7 +79,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISysStorageProviderHandlerFactory as ::windows::core::Interface>::IID
+        iid == &<ISysStorageProviderHandlerFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"Web_Http\"`, `\"implement\"`*"]
@@ -112,6 +112,6 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISysStorageProviderHttpRequestProvider as ::windows::core::Interface>::IID
+        iid == &<ISysStorageProviderHttpRequestProvider as ::windows::core::ComInterface>::IID
     }
 }

@@ -16,7 +16,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusAttachmentFactoryInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -43,7 +43,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusAttachmentInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -64,7 +64,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusObjectFactoryInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`, `\"implement\"`*"]
@@ -76,12 +76,12 @@ pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectInterop {}
 impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
-        unsafe extern "system" fn AddPropertyGetHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: *mut ::core::ffi::c_void, callback: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPropertyGetHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::std::mem::MaybeUninit<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddPropertyGetHandler(::core::mem::transmute_copy(&context), ::core::mem::transmute(&interfacename), ::core::mem::transmute_copy(&callback)).into()
         }
-        unsafe extern "system" fn AddPropertySetHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: *mut ::core::ffi::c_void, callback: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddPropertySetHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::std::mem::MaybeUninit<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddPropertySetHandler(::core::mem::transmute_copy(&context), ::core::mem::transmute(&interfacename), ::core::mem::transmute_copy(&callback)).into()
@@ -105,6 +105,6 @@ impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows::core::Interface>::IID
+        iid == &<IWindowsDevicesAllJoynBusObjectInterop as ::windows::core::ComInterface>::IID
     }
 }

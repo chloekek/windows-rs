@@ -1,6 +1,6 @@
 mod bindings;
 use std::sync::*;
-use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
+use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};
 
 #[implement(bindings::Class)]
 struct Class(RwLock<i32>);
@@ -32,6 +32,18 @@ impl bindings::IClass_Impl for Class {
         *c = Array::from_slice(a);
         Ok(Array::from_slice(a))
     }
+    fn Input(&self, a: Option<&IInspectable>, b: Option<&bindings::Class>, c: Option<&IStringable>) -> Result<()> {
+        let a = a.unwrap();
+        let b = b.unwrap();
+        let c = c.unwrap();
+
+        let a: IUnknown = a.can_clone_into();
+        let b: IUnknown = b.can_clone_into();
+        assert_eq!(a, b);
+
+        assert_eq!(c.ToString()?, "client");
+        Ok(())
+    }
 }
 
 #[implement(IActivationFactory)]
@@ -44,8 +56,8 @@ impl IActivationFactory_Impl for ClassFactory {
 }
 
 #[no_mangle]
-unsafe extern "system" fn DllGetActivationFactory(name: ManuallyDrop<HSTRING>, result: *mut *mut std::ffi::c_void) -> HRESULT {
-    let factory: Option<IActivationFactory> = match name.unwrap().to_string().as_str() {
+unsafe extern "system" fn DllGetActivationFactory(name: std::mem::ManuallyDrop<HSTRING>, result: *mut *mut std::ffi::c_void) -> HRESULT {
+    let factory: Option<IActivationFactory> = match (*name).to_string().as_str() {
         "test_component.Class" => Some(ClassFactory.into()),
         _ => None,
     };

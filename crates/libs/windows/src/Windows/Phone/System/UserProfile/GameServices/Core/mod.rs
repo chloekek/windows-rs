@@ -1,10 +1,15 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameService(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameService {
+unsafe impl ::windows::core::Interface for IGameService {
     type Vtable = IGameService_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IGameService {
+impl ::core::clone::Clone for IGameService {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IGameService {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
 }
 #[repr(C)]
@@ -41,10 +46,15 @@ pub struct IGameService_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameService2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameService2 {
+unsafe impl ::windows::core::Interface for IGameService2 {
     type Vtable = IGameService2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IGameService2 {
+impl ::core::clone::Clone for IGameService2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IGameService2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
 }
 #[repr(C)]
@@ -60,10 +70,15 @@ pub struct IGameService2_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IGameServicePropertyCollection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IGameServicePropertyCollection {
+unsafe impl ::windows::core::Interface for IGameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IGameServicePropertyCollection {
+impl ::core::clone::Clone for IGameServicePropertyCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IGameServicePropertyCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
 }
 #[repr(C)]
@@ -71,7 +86,7 @@ unsafe impl ::windows::core::Interface for IGameServicePropertyCollection {
 pub struct IGameServicePropertyCollection_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation")]
-    pub GetPropertyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPropertyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     GetPropertyAsync: usize,
 }
@@ -82,76 +97,75 @@ impl GameService {
     #[cfg(feature = "Foundation")]
     pub fn ServiceUri() -> ::windows::core::Result<super::super::super::super::super::Foundation::Uri> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ServiceUri)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Foundation::Uri>();
+            (::windows::core::Interface::vtable(this).ServiceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetGamerProfileAsync() -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetGamerProfileAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>();
+            (::windows::core::Interface::vtable(this).GetGamerProfileAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetInstalledGameItemsAsync() -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetInstalledGameItemsAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Foundation::IAsyncOperation<GameServicePropertyCollection>>();
+            (::windows::core::Interface::vtable(this).GetInstalledGameItemsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPartnerTokenAsync(audienceuri: &super::super::super::super::super::Foundation::Uri) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPartnerTokenAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(audienceuri), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
+            (::windows::core::Interface::vtable(this).GetPartnerTokenAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(audienceuri), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPrivilegesAsync() -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IGameService(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPrivilegesAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>();
+            (::windows::core::Interface::vtable(this).GetPrivilegesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GrantAchievement(achievementid: u32) -> ::windows::core::Result<()> {
-        Self::IGameService(|this| unsafe { (::windows::core::Vtable::vtable(this).GrantAchievement)(::windows::core::Vtable::as_raw(this), achievementid).ok() })
+        Self::IGameService(|this| unsafe { (::windows::core::Interface::vtable(this).GrantAchievement)(::windows::core::Interface::as_raw(this), achievementid).ok() })
     }
     pub fn GrantAvatarAward(avatarawardid: u32) -> ::windows::core::Result<()> {
-        Self::IGameService(|this| unsafe { (::windows::core::Vtable::vtable(this).GrantAvatarAward)(::windows::core::Vtable::as_raw(this), avatarawardid).ok() })
+        Self::IGameService(|this| unsafe { (::windows::core::Interface::vtable(this).GrantAvatarAward)(::windows::core::Interface::as_raw(this), avatarawardid).ok() })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PostResult<P0, E0>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P0) -> ::windows::core::Result<()>
+    pub fn PostResult<P0>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::TryInto<::windows::core::InParam<super::super::super::super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
+        P0: ::windows::core::TryIntoParam<super::super::super::super::super::Storage::Streams::IBuffer>,
     {
-        Self::IGameService(|this| unsafe { (::windows::core::Vtable::vtable(this).PostResult)(::windows::core::Vtable::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.try_into().map_err(|e| e.into())?.abi()).ok() })
+        Self::IGameService(|this| unsafe { (::windows::core::Interface::vtable(this).PostResult)(::windows::core::Interface::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.try_into_param()?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyPartnerTokenExpired(audienceuri: &super::super::super::super::super::Foundation::Uri) -> ::windows::core::Result<()> {
-        Self::IGameService2(|this| unsafe { (::windows::core::Vtable::vtable(this).NotifyPartnerTokenExpired)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(audienceuri)).ok() })
+        Self::IGameService2(|this| unsafe { (::windows::core::Interface::vtable(this).NotifyPartnerTokenExpired)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(audienceuri)).ok() })
     }
     pub fn GetAuthenticationStatus() -> ::windows::core::Result<u32> {
         Self::IGameService2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetAuthenticationStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Interface::vtable(this).GetAuthenticationStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IGameService<R, F: FnOnce(&IGameService) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameService, IGameService> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameService, IGameService> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[doc(hidden)]
     pub fn IGameService2<R, F: FnOnce(&IGameService2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<GameService, IGameService2> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<GameService, IGameService2> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -167,14 +181,9 @@ impl GameServicePropertyCollection {
     pub fn GetPropertyAsync(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPropertyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>();
+            (::windows::core::Interface::vtable(this).GetPropertyAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for GameServicePropertyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for GameServicePropertyCollection {
@@ -188,23 +197,24 @@ impl ::core::fmt::Debug for GameServicePropertyCollection {
         f.debug_tuple("GameServicePropertyCollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for GameServicePropertyCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+impl ::windows::core::RuntimeType for GameServicePropertyCollection {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
+}
+impl ::core::clone::Clone for GameServicePropertyCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for GameServicePropertyCollection {
+unsafe impl ::windows::core::Interface for GameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for GameServicePropertyCollection {
-    const IID: ::windows::core::GUID = <IGameServicePropertyCollection as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for GameServicePropertyCollection {
+    const IID: ::windows::core::GUID = <IGameServicePropertyCollection as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";
 }
-::windows::core::interface_hierarchy!(GameServicePropertyCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(GameServicePropertyCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
@@ -228,20 +238,16 @@ impl ::core::default::Default for GameServiceGameOutcome {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GameServiceGameOutcome {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GameServiceGameOutcome {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GameServiceGameOutcome {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameServiceGameOutcome").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for GameServiceGameOutcome {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+impl ::windows::core::RuntimeType for GameServiceGameOutcome {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
 }
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
 #[repr(transparent)]
@@ -262,20 +268,16 @@ impl ::core::default::Default for GameServiceScoreKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GameServiceScoreKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GameServiceScoreKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GameServiceScoreKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameServiceScoreKind").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for GameServiceScoreKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+impl ::windows::core::RuntimeType for GameServiceScoreKind {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

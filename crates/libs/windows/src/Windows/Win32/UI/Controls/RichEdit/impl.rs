@@ -130,7 +130,7 @@ impl IRichEditOle_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRichEditOle as ::windows::core::Interface>::IID
+        iid == &<IRichEditOle as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_SystemServices\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -223,7 +223,7 @@ impl IRichEditOleCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRichEditOleCallback as ::windows::core::Interface>::IID
+        iid == &<IRichEditOleCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -244,7 +244,7 @@ impl IRicheditUiaOverrides_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRicheditUiaOverrides as ::windows::core::Interface>::IID
+        iid == &<IRicheditUiaOverrides as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -258,7 +258,7 @@ impl ITextDisplays_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDisplays as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextDisplays as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -289,7 +289,7 @@ impl ::windows::core::RuntimeName for ITextDocument {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextDocument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>() -> ITextDocument_Vtbl {
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetName() {
@@ -480,7 +480,7 @@ impl ITextDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDocument as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextDocument as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -606,7 +606,7 @@ impl ITextDocument2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetGenerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGenerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetGenerator() {
@@ -741,7 +741,7 @@ impl ITextDocument2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPreferredFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut *mut ::core::ffi::c_void, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreferredFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPreferredFont(::core::mem::transmute_copy(&cp), ::core::mem::transmute_copy(&charrep), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&curcharrep), ::core::mem::transmute_copy(&curfontsize), ::core::mem::transmute_copy(&pbstr), ::core::mem::transmute_copy(&ppitchandfamily), ::core::mem::transmute_copy(&pnewfontsize)).into()
@@ -949,7 +949,7 @@ impl ITextDocument2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDocument2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextDocument as ::windows::core::Interface>::IID
+        iid == &<ITextDocument2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1038,7 +1038,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             this.ReleaseImmContext(::core::mem::transmute_copy(&context)).into()
         }
-        unsafe extern "system" fn GetPreferredFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut *mut ::core::ffi::c_void, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreferredFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, ppitchandfamily: *mut i32, pnewfontsize: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPreferredFont(::core::mem::transmute_copy(&cp), ::core::mem::transmute_copy(&charrep), ::core::mem::transmute_copy(&option), ::core::mem::transmute_copy(&charrepcur), ::core::mem::transmute_copy(&curfontsize), ::core::mem::transmute_copy(&pbstr), ::core::mem::transmute_copy(&ppitchandfamily), ::core::mem::transmute_copy(&pnewfontsize)).into()
@@ -1194,7 +1194,7 @@ impl ITextDocument2Old_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextDocument2Old as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextDocument as ::windows::core::Interface>::IID
+        iid == &<ITextDocument2Old as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextDocument as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1496,7 +1496,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             this.SetLanguageID(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetName() {
@@ -1507,7 +1507,7 @@ impl ITextFont_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstr)).into()
@@ -1764,7 +1764,7 @@ impl ITextFont_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextFont as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextFont as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2235,7 +2235,7 @@ impl ITextFont2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextFont2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextFont as ::windows::core::Interface>::IID
+        iid == &<ITextFont2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextFont as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -2254,7 +2254,7 @@ pub trait ITextHost_Impl: Sized {
     fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL;
     fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL;
     fn TxKillTimer(&self, idtimer: u32);
-    fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD);
+    fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS);
     fn TxSetCapture(&self, fcapture: super::super::super::Foundation::BOOL);
     fn TxSetFocus(&self);
     fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: super::super::super::Foundation::BOOL);
@@ -2351,7 +2351,7 @@ impl ITextHost_Vtbl {
             let this = (*this).get_impl();
             this.TxKillTimer(::core::mem::transmute_copy(&idtimer))
         }
-        unsafe extern "system" fn TxScrollWindowEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD) {
+        unsafe extern "system" fn TxScrollWindowEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TxScrollWindowEx(::core::mem::transmute_copy(&dx), ::core::mem::transmute_copy(&dy), ::core::mem::transmute_copy(&lprcscroll), ::core::mem::transmute_copy(&lprcclip), ::core::mem::transmute_copy(&hrgnupdate), ::core::mem::transmute_copy(&lprcupdate), ::core::mem::transmute_copy(&fuscroll))
@@ -2531,7 +2531,7 @@ impl ITextHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextHost as ::windows::core::Interface>::IID
+        iid == &<ITextHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -2632,7 +2632,7 @@ impl ITextHost2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextHost2 as ::windows::core::Interface>::IID || iid == &<ITextHost as ::windows::core::Interface>::IID
+        iid == &<ITextHost2 as ::windows::core::ComInterface>::IID || iid == &<ITextHost as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3129,7 +3129,7 @@ impl ITextPara_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextPara as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextPara as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3306,7 +3306,7 @@ impl ITextPara2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextPara2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextPara as ::windows::core::Interface>::IID
+        iid == &<ITextPara2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextPara as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3369,7 +3369,7 @@ impl ::windows::core::RuntimeName for ITextRange {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextRange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>() -> ITextRange_Vtbl {
-        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetText() {
@@ -3380,7 +3380,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetText(::core::mem::transmute(&bstr)).into()
@@ -3710,7 +3710,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindText(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
@@ -3721,7 +3721,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindTextStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindTextStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindTextStart(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
@@ -3732,7 +3732,7 @@ impl ITextRange_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindTextEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FindTextEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>, count: i32, flags: tomConstants, plength: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindTextEnd(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
@@ -3890,7 +3890,7 @@ impl ITextRange_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextRange as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextRange as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4094,7 +4094,7 @@ impl ITextRange2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetURL() {
@@ -4105,7 +4105,7 @@ impl ITextRange2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetURL(::core::mem::transmute(&bstr)).into()
@@ -4172,7 +4172,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             this.GetSubrange(::core::mem::transmute_copy(&isubrange), ::core::mem::transmute_copy(&pcpfirst), ::core::mem::transmute_copy(&pcplim)).into()
         }
-        unsafe extern "system" fn GetText2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetText2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetText2(::core::mem::transmute_copy(&flags)) {
@@ -4213,7 +4213,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetText2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetText2(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&bstr)).into()
@@ -4228,7 +4228,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             this.SetInlineObject(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&align), ::core::mem::transmute_copy(&char), ::core::mem::transmute_copy(&char1), ::core::mem::transmute_copy(&char2), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&texstyle), ::core::mem::transmute_copy(&ccol)).into()
         }
-        unsafe extern "system" fn GetMathFunctionType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMathFunctionType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMathFunctionType(::core::mem::transmute(&bstr)) {
@@ -4239,7 +4239,7 @@ impl ITextRange2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InsertImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InsertImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: ::std::mem::MaybeUninit<::windows::core::BSTR>, pstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InsertImage(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&ascent), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&bstralttext), ::windows::core::from_raw_borrowed(&pstream)).into()
@@ -4289,7 +4289,7 @@ impl ITextRange2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextRange2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextRange as ::windows::core::Interface>::IID || iid == &<ITextSelection as ::windows::core::Interface>::IID
+        iid == &<ITextRange2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextRange as ::windows::core::ComInterface>::IID || iid == &<ITextSelection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4754,7 +4754,7 @@ impl ITextRow_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextRow as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextRow as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4869,7 +4869,7 @@ impl ITextSelection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TypeText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TypeText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextSelection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TypeText(::core::mem::transmute(&bstr)).into()
@@ -4889,7 +4889,7 @@ impl ITextSelection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextSelection as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextRange as ::windows::core::Interface>::IID
+        iid == &<ITextSelection as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextRange as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4903,7 +4903,7 @@ impl ITextSelection2_Vtbl {
         Self { base__: ITextRange2_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextSelection2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextRange as ::windows::core::Interface>::IID || iid == &<ITextSelection as ::windows::core::Interface>::IID || iid == &<ITextRange2 as ::windows::core::Interface>::IID
+        iid == &<ITextSelection2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextRange as ::windows::core::ComInterface>::IID || iid == &<ITextSelection as ::windows::core::ComInterface>::IID || iid == &<ITextRange2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4997,7 +4997,7 @@ impl ITextServices_Vtbl {
             let this = (*this).get_impl();
             this.OnTxUIDeactivate().into()
         }
-        unsafe extern "system" fn TxGetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TxGetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TxGetText(::core::mem::transmute_copy(&pbstrtext)).into()
@@ -5066,7 +5066,7 @@ impl ITextServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextServices as ::windows::core::Interface>::IID
+        iid == &<ITextServices as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5097,7 +5097,7 @@ impl ITextServices2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextServices2 as ::windows::core::Interface>::IID || iid == &<ITextServices as ::windows::core::Interface>::IID
+        iid == &<ITextServices2 as ::windows::core::ComInterface>::IID || iid == &<ITextServices as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5197,7 +5197,7 @@ impl ITextStory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, pbstr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, pbstr: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetText(::core::mem::transmute_copy(&flags)) {
@@ -5218,7 +5218,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: i32, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetText(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&bstr)).into()
@@ -5240,7 +5240,7 @@ impl ITextStory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStory as ::windows::core::Interface>::IID
+        iid == &<ITextStory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5296,7 +5296,7 @@ impl ITextStoryRanges_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoryRanges as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextStoryRanges as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5323,7 +5323,7 @@ impl ITextStoryRanges2_Vtbl {
         Self { base__: ITextStoryRanges_Vtbl::new::<Identity, Impl, OFFSET>(), Item2: Item2::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStoryRanges2 as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<ITextStoryRanges as ::windows::core::Interface>::IID
+        iid == &<ITextStoryRanges2 as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<ITextStoryRanges as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -5374,7 +5374,7 @@ impl ITextStrings_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&bstr)).into()
@@ -5389,7 +5389,7 @@ impl ITextStrings_Vtbl {
             let this = (*this).get_impl();
             this.Cat2(::core::mem::transmute_copy(&istring)).into()
         }
-        unsafe extern "system" fn CatTop2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CatTop2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CatTop2(::core::mem::transmute(&bstr)).into()
@@ -5425,7 +5425,7 @@ impl ITextStrings_Vtbl {
             let this = (*this).get_impl();
             this.MoveBoundary(::core::mem::transmute_copy(&istring), ::core::mem::transmute_copy(&cch)).into()
         }
-        unsafe extern "system" fn PrefixTop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PrefixTop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PrefixTop(::core::mem::transmute(&bstr)).into()
@@ -5445,7 +5445,7 @@ impl ITextStrings_Vtbl {
             let this = (*this).get_impl();
             this.SetOpCp(::core::mem::transmute_copy(&istring), ::core::mem::transmute_copy(&cp)).into()
         }
-        unsafe extern "system" fn SuffixTop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SuffixTop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows::core::BSTR>, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SuffixTop(::core::mem::transmute(&bstr), ::windows::core::from_raw_borrowed(&prange)).into()
@@ -5477,6 +5477,6 @@ impl ITextStrings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITextStrings as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<ITextStrings as ::windows::core::ComInterface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }

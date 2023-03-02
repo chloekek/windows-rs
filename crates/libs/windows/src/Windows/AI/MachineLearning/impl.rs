@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for ILearningModelFeatureDescriptor {
 }
 impl ILearningModelFeatureDescriptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>() -> ILearningModelFeatureDescriptor_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -22,7 +22,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Description() {
@@ -67,7 +67,7 @@ impl ILearningModelFeatureDescriptor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelFeatureDescriptor as ::windows::core::Interface>::IID
+        iid == &<ILearningModelFeatureDescriptor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
@@ -94,7 +94,7 @@ impl ILearningModelFeatureValue_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ILearningModelFeatureValue, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelFeatureValue as ::windows::core::Interface>::IID
+        iid == &<ILearningModelFeatureValue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
@@ -107,7 +107,7 @@ impl ILearningModelOperatorProvider_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILearningModelOperatorProvider as ::windows::core::Interface>::IID
+        iid == &<ILearningModelOperatorProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -154,6 +154,6 @@ impl ITensor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITensor as ::windows::core::Interface>::IID
+        iid == &<ITensor as ::windows::core::ComInterface>::IID
     }
 }

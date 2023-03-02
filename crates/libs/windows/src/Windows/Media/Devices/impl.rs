@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IDefaultAudioDeviceChangedEventArgs {
 }
 impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>() -> IDefaultAudioDeviceChangedEventArgs_Vtbl {
-        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDefaultAudioDeviceChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Id() {
@@ -39,7 +39,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID
+        iid == &<IDefaultAudioDeviceChangedEventArgs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -100,6 +100,6 @@ impl IMediaDeviceController_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaDeviceController as ::windows::core::Interface>::IID
+        iid == &<IMediaDeviceController as ::windows::core::ComInterface>::IID
     }
 }

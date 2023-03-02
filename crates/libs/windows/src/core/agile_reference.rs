@@ -1,5 +1,5 @@
 use super::*;
-use bindings::*;
+use imp::*;
 use std::marker::PhantomData;
 
 /// A type representing an agile reference to a COM/WinRT object.
@@ -7,11 +7,11 @@ use std::marker::PhantomData;
 #[derive(Clone, PartialEq, Eq)]
 pub struct AgileReference<T>(IAgileReference, PhantomData<T>);
 
-impl<T: Interface> AgileReference<T> {
+impl<T: ComInterface> AgileReference<T> {
     /// Creates an agile reference to the object.
     pub fn new(object: &T) -> Result<Self> {
-        let mut reference = std::mem::MaybeUninit::zeroed();
-        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, object.as_raw(), reference.as_mut_ptr()).from_abi(reference).map(|reference| Self(reference, Default::default())) }
+        let mut reference = std::ptr::null_mut();
+        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, object.as_raw(), &mut reference).from_abi(reference).map(|reference| Self(reference, Default::default())) }
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.
@@ -20,8 +20,8 @@ impl<T: Interface> AgileReference<T> {
     }
 }
 
-unsafe impl<T: Interface> Send for AgileReference<T> {}
-unsafe impl<T: Interface> Sync for AgileReference<T> {}
+unsafe impl<T: ComInterface> Send for AgileReference<T> {}
+unsafe impl<T: ComInterface> Sync for AgileReference<T> {}
 
 impl<T> std::fmt::Debug for AgileReference<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

@@ -3,41 +3,41 @@
 #[inline]
 pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::StructuredStorage::IStorage>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P0: ::windows::core::IntoParam<super::super::System::Com::StructuredStorage::IStorage>,
+    P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    BindIFilterFromStorage(pstg.into().abi(), punkouter.into().abi(), ppiunk).ok()
+    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+    P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    BindIFilterFromStream(pstm.into().abi(), punkouter.into().abi(), ppiunk).ok()
+    ::windows::imp::link ! ( "query.dll""system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[inline]
 pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::IUnknown>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    LoadIFilter(pwcspath.into().abi(), punkouter.into().abi(), ppiunk).ok()
+    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[inline]
 pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const ::windows::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    LoadIFilterEx(pwcspath.into().abi(), dwflags, riid, ppiunk).ok()
+    ::windows::imp::link ! ( "query.dll""system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    LoadIFilterEx(pwcspath.into_param().abi(), dwflags, riid, ppiunk).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -46,31 +46,26 @@ impl IFilter {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
-        (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(aattributes.as_ptr()), pflags)
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), grfflags, aattributes.len() as _, ::core::mem::transmute(aattributes.as_ptr()), pflags)
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        (::windows::core::Vtable::vtable(self).GetChunk)(::windows::core::Vtable::as_raw(self), pstat)
+        (::windows::core::Interface::vtable(self).GetChunk)(::windows::core::Interface::as_raw(self), pstat)
     }
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: ::windows::core::PWSTR) -> i32 {
-        (::windows::core::Vtable::vtable(self).GetText)(::windows::core::Vtable::as_raw(self), pcwcbuffer, ::core::mem::transmute(awcbuffer))
+        (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), pcwcbuffer, ::core::mem::transmute(awcbuffer))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pppropvalue)
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), pppropvalue)
     }
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32 {
-        (::windows::core::Vtable::vtable(self).BindRegion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(origpos), riid, ppunk)
+        (::windows::core::Interface::vtable(self).BindRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(origpos), riid, ppunk)
     }
 }
-::windows::core::interface_hierarchy!(IFilter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IFilter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -82,10 +77,15 @@ impl ::core::fmt::Debug for IFilter {
         f.debug_tuple("IFilter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IFilter {
+unsafe impl ::windows::core::Interface for IFilter {
     type Vtable = IFilter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IFilter {
+impl ::core::clone::Clone for IFilter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
 }
 #[repr(C)]
@@ -113,24 +113,19 @@ pub struct IPhraseSink(::windows::core::IUnknown);
 impl IPhraseSink {
     pub unsafe fn PutSmallPhrase<P0, P1>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).PutSmallPhrase)(::windows::core::Vtable::as_raw(self), pwcnoun.into().abi(), cwcnoun, pwcmodifier.into().abi(), cwcmodifier, ulattachmenttype).ok()
+        (::windows::core::Interface::vtable(self).PutSmallPhrase)(::windows::core::Interface::as_raw(self), pwcnoun.into_param().abi(), cwcnoun, pwcmodifier.into_param().abi(), cwcmodifier, ulattachmenttype).ok()
     }
     pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).PutPhrase)(::windows::core::Vtable::as_raw(self), pwcphrase.into().abi(), cwcphrase).ok()
+        (::windows::core::Interface::vtable(self).PutPhrase)(::windows::core::Interface::as_raw(self), pwcphrase.into_param().abi(), cwcphrase).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPhraseSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPhraseSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IPhraseSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPhraseSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -142,10 +137,15 @@ impl ::core::fmt::Debug for IPhraseSink {
         f.debug_tuple("IPhraseSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPhraseSink {
+unsafe impl ::windows::core::Interface for IPhraseSink {
     type Vtable = IPhraseSink_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IPhraseSink {
+impl ::core::clone::Clone for IPhraseSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IPhraseSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);
 }
 #[repr(C)]
@@ -454,8 +454,8 @@ impl ::core::default::Default for CHUNKSTATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CHUNKSTATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CHUNKSTATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CHUNKSTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -487,8 +487,8 @@ impl ::core::default::Default for CHUNK_BREAKTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CHUNK_BREAKTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CHUNK_BREAKTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CHUNK_BREAKTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -524,8 +524,8 @@ impl ::core::default::Default for DBKINDENUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DBKINDENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBKINDENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DBKINDENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -549,8 +549,8 @@ impl ::core::default::Default for IFILTER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IFILTER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IFILTER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IFILTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -598,8 +598,8 @@ impl ::core::default::Default for IFILTER_INIT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IFILTER_INIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IFILTER_INIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IFILTER_INIT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -629,8 +629,8 @@ impl ::core::default::Default for WORDREP_BREAK_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WORDREP_BREAK_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WORDREP_BREAK_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WORDREP_BREAK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -683,8 +683,8 @@ impl ::core::fmt::Debug for CI_STATE {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CI_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CI_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CI_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -714,8 +714,8 @@ impl ::core::clone::Clone for DBID {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DBID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBID {
@@ -739,8 +739,8 @@ impl ::core::clone::Clone for DBID_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DBID_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBID_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBID_0 {
@@ -764,8 +764,8 @@ impl ::core::clone::Clone for DBID_1 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DBID_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBID_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DBID_1 {
@@ -790,8 +790,8 @@ impl ::core::clone::Clone for DBID {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for DBID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBID {
@@ -815,8 +815,8 @@ impl ::core::clone::Clone for DBID_0 {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for DBID_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBID_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBID_0 {
@@ -840,8 +840,8 @@ impl ::core::clone::Clone for DBID_1 {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for DBID_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBID_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DBID_1 {
@@ -867,8 +867,8 @@ impl ::core::fmt::Debug for FILTERREGION {
         f.debug_struct("FILTERREGION").field("idChunk", &self.idChunk).field("cwcStart", &self.cwcStart).field("cwcExtent", &self.cwcExtent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILTERREGION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILTERREGION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILTERREGION {
     fn eq(&self, other: &Self) -> bool {
@@ -897,8 +897,8 @@ impl ::core::clone::Clone for FULLPROPSPEC {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-unsafe impl ::windows::core::Abi for FULLPROPSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FULLPROPSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::default::Default for FULLPROPSPEC {
@@ -928,8 +928,8 @@ impl ::core::clone::Clone for STAT_CHUNK {
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-unsafe impl ::windows::core::Abi for STAT_CHUNK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STAT_CHUNK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::default::Default for STAT_CHUNK {

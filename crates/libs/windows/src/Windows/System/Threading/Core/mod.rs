@@ -1,10 +1,15 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPreallocatedWorkItem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPreallocatedWorkItem {
+unsafe impl ::windows::core::Interface for IPreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IPreallocatedWorkItem {
+impl ::core::clone::Clone for IPreallocatedWorkItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IPreallocatedWorkItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
 }
 #[repr(C)]
@@ -19,10 +24,15 @@ pub struct IPreallocatedWorkItem_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPreallocatedWorkItemFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for IPreallocatedWorkItemFactory {
+unsafe impl ::windows::core::Interface for IPreallocatedWorkItemFactory {
     type Vtable = IPreallocatedWorkItemFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IPreallocatedWorkItemFactory {
+impl ::core::clone::Clone for IPreallocatedWorkItemFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IPreallocatedWorkItemFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb);
 }
 #[repr(C)]
@@ -45,10 +55,15 @@ pub struct IPreallocatedWorkItemFactory_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISignalNotifier(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISignalNotifier {
+unsafe impl ::windows::core::Interface for ISignalNotifier {
     type Vtable = ISignalNotifier_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISignalNotifier {
+impl ::core::clone::Clone for ISignalNotifier {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISignalNotifier {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
 }
 #[repr(C)]
@@ -61,24 +76,29 @@ pub struct ISignalNotifier_Vtbl {
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISignalNotifierStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Vtable for ISignalNotifierStatics {
+unsafe impl ::windows::core::Interface for ISignalNotifierStatics {
     type Vtable = ISignalNotifierStatics_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISignalNotifierStatics {
+impl ::core::clone::Clone for ISignalNotifierStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISignalNotifierStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignalNotifierStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub AttachToEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AttachToEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub AttachToEventWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, timeout: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AttachToEventWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, handler: *mut ::core::ffi::c_void, timeout: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     AttachToEventWithTimeout: usize,
-    pub AttachToSemaphore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AttachToSemaphore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub AttachToSemaphoreWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, timeout: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AttachToSemaphoreWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, handler: *mut ::core::ffi::c_void, timeout: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     AttachToSemaphoreWithTimeout: usize,
 }
@@ -91,43 +111,38 @@ impl PreallocatedWorkItem {
     pub fn RunAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RunAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            (::windows::core::Interface::vtable(this).RunAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItem(handler: &super::WorkItemHandler) -> ::windows::core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWorkItem)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<PreallocatedWorkItem>();
+            (::windows::core::Interface::vtable(this).CreateWorkItem)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriority(handler: &super::WorkItemHandler, priority: super::WorkItemPriority) -> ::windows::core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWorkItemWithPriority)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), priority, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<PreallocatedWorkItem>();
+            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriorityAndOptions(handler: &super::WorkItemHandler, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows::core::Result<PreallocatedWorkItem> {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), priority, options, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<PreallocatedWorkItem>();
+            (::windows::core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, options, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPreallocatedWorkItemFactory<R, F: FnOnce(&IPreallocatedWorkItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<PreallocatedWorkItem, IPreallocatedWorkItemFactory> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<PreallocatedWorkItem, IPreallocatedWorkItemFactory> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for PreallocatedWorkItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for PreallocatedWorkItem {
@@ -141,23 +156,24 @@ impl ::core::fmt::Debug for PreallocatedWorkItem {
         f.debug_tuple("PreallocatedWorkItem").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for PreallocatedWorkItem {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.PreallocatedWorkItem;{b6daa9fc-bc5b-401a-a8b2-6e754d14daa6})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+impl ::windows::core::RuntimeType for PreallocatedWorkItem {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.PreallocatedWorkItem;{b6daa9fc-bc5b-401a-a8b2-6e754d14daa6})");
+}
+impl ::core::clone::Clone for PreallocatedWorkItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for PreallocatedWorkItem {
+unsafe impl ::windows::core::Interface for PreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_Vtbl;
 }
-unsafe impl ::windows::core::Interface for PreallocatedWorkItem {
-    const IID: ::windows::core::GUID = <IPreallocatedWorkItem as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for PreallocatedWorkItem {
+    const IID: ::windows::core::GUID = <IPreallocatedWorkItem as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
 }
-::windows::core::interface_hierarchy!(PreallocatedWorkItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(PreallocatedWorkItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PreallocatedWorkItem {}
 unsafe impl ::core::marker::Sync for PreallocatedWorkItem {}
 #[doc = "*Required features: `\"System_Threading_Core\"`*"]
@@ -166,49 +182,44 @@ pub struct SignalNotifier(::windows::core::IUnknown);
 impl SignalNotifier {
     pub fn Enable(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Enable)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Enable)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn Terminate(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Terminate)(::windows::core::Vtable::as_raw(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Terminate)(::windows::core::Interface::as_raw(this)).ok() }
     }
     pub fn AttachToEvent(name: &::windows::core::HSTRING, handler: &SignalHandler) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AttachToEvent)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<SignalNotifier>();
+            (::windows::core::Interface::vtable(this).AttachToEvent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachToEventWithTimeout(name: &::windows::core::HSTRING, handler: &SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AttachToEventWithTimeout)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<SignalNotifier>();
+            (::windows::core::Interface::vtable(this).AttachToEventWithTimeout)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, &mut result__).from_abi(result__)
         })
     }
     pub fn AttachToSemaphore(name: &::windows::core::HSTRING, handler: &SignalHandler) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AttachToSemaphore)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<SignalNotifier>();
+            (::windows::core::Interface::vtable(this).AttachToSemaphore)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachToSemaphoreWithTimeout(name: &::windows::core::HSTRING, handler: &SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<SignalNotifier> {
         Self::ISignalNotifierStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AttachToSemaphoreWithTimeout)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<SignalNotifier>();
+            (::windows::core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn ISignalNotifierStatics<R, F: FnOnce(&ISignalNotifierStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<SignalNotifier, ISignalNotifierStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<SignalNotifier, ISignalNotifierStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for SignalNotifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for SignalNotifier {
@@ -222,23 +233,24 @@ impl ::core::fmt::Debug for SignalNotifier {
         f.debug_tuple("SignalNotifier").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for SignalNotifier {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.SignalNotifier;{14285e06-63a7-4713-b6d9-62f64b56fb8b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+impl ::windows::core::RuntimeType for SignalNotifier {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.SignalNotifier;{14285e06-63a7-4713-b6d9-62f64b56fb8b})");
+}
+impl ::core::clone::Clone for SignalNotifier {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
-unsafe impl ::windows::core::Vtable for SignalNotifier {
+unsafe impl ::windows::core::Interface for SignalNotifier {
     type Vtable = ISignalNotifier_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SignalNotifier {
-    const IID: ::windows::core::GUID = <ISignalNotifier as ::windows::core::Interface>::IID;
+unsafe impl ::windows::core::ComInterface for SignalNotifier {
+    const IID: ::windows::core::GUID = <ISignalNotifier as ::windows::core::ComInterface>::IID;
 }
 impl ::windows::core::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";
 }
-::windows::core::interface_hierarchy!(SignalNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
+::windows::imp::interface_hierarchy!(SignalNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SignalNotifier {}
 unsafe impl ::core::marker::Sync for SignalNotifier {}
 #[doc = "*Required features: `\"System_Threading_Core\"`*"]
@@ -246,19 +258,19 @@ unsafe impl ::core::marker::Sync for SignalNotifier {}
 pub struct SignalHandler(pub ::windows::core::IUnknown);
 impl SignalHandler {
     pub fn new<F: FnMut(::core::option::Option<&SignalNotifier>, bool) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = SignalHandlerBox::<F> { vtable: &SignalHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+        let com = SignalHandlerBox::<F> { vtable: &SignalHandlerBox::<F>::VTABLE, count: ::windows::imp::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, signalnotifier: &SignalNotifier, timedout: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(signalnotifier), timedout).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(signalnotifier), timedout).ok() }
     }
 }
 #[repr(C)]
 struct SignalHandlerBox<F: FnMut(::core::option::Option<&SignalNotifier>, bool) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const SignalHandler_Vtbl,
     invoke: F,
-    count: ::windows::core::RefCount,
+    count: ::windows::imp::RefCount,
 }
 impl<F: FnMut(::core::option::Option<&SignalNotifier>, bool) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SignalHandlerBox<F> {
     const VTABLE: SignalHandler_Vtbl = SignalHandler_Vtbl {
@@ -267,7 +279,7 @@ impl<F: FnMut(::core::option::Option<&SignalNotifier>, bool) -> ::windows::core:
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<SignalHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        *interface = if iid == &<SignalHandler as ::windows::core::ComInterface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID || iid == &<::windows::imp::IAgileObject as ::windows::core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -283,18 +295,13 @@ impl<F: FnMut(::core::option::Option<&SignalNotifier>, bool) -> ::windows::core:
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         let remaining = (*this).count.release();
         if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+            let _ = ::std::boxed::Box::from_raw(this);
         }
         remaining
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, signalnotifier: *mut ::core::ffi::c_void, timedout: bool) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
         ((*this).invoke)(::windows::core::from_raw_borrowed(&signalnotifier), timedout).into()
-    }
-}
-impl ::core::clone::Clone for SignalHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for SignalHandler {
@@ -308,18 +315,19 @@ impl ::core::fmt::Debug for SignalHandler {
         f.debug_tuple("SignalHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for SignalHandler {
+unsafe impl ::windows::core::Interface for SignalHandler {
     type Vtable = SignalHandler_Vtbl;
 }
-unsafe impl ::windows::core::Interface for SignalHandler {
+impl ::core::clone::Clone for SignalHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for SignalHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923c402e_4721_440e_9dda_55b6f2e07710);
 }
-unsafe impl ::windows::core::RuntimeType for SignalHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{923c402e-4721-440e-9dda-55b6f2e07710}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
+impl ::windows::core::RuntimeType for SignalHandler {
+    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(b"{923c402e-4721-440e-9dda-55b6f2e07710}");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for IDisplayDeviceInterop {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IDisplayDeviceInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>() -> IDisplayDeviceInterop_Vtbl {
-        unsafe extern "system" fn CreateSharedHandle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: *mut ::core::ffi::c_void, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSharedHandle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSharedHandle(::windows::core::from_raw_borrowed(&pobject), ::core::mem::transmute_copy(&psecurityattributes), ::core::mem::transmute_copy(&access), ::core::mem::transmute(&name)) {
@@ -38,7 +38,7 @@ impl IDisplayDeviceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDisplayDeviceInterop as ::windows::core::Interface>::IID
+        iid == &<IDisplayDeviceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -81,6 +81,6 @@ impl IDisplayPathInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDisplayPathInterop as ::windows::core::Interface>::IID
+        iid == &<IDisplayPathInterop as ::windows::core::ComInterface>::IID
     }
 }

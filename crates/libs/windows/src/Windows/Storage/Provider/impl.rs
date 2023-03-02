@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IStorageProviderItemPropertySource {
 #[cfg(feature = "Foundation_Collections")]
 impl IStorageProviderItemPropertySource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>() -> IStorageProviderItemPropertySource_Vtbl {
-        unsafe extern "system" fn GetItemProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itempath: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itempath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemProperties(::core::mem::transmute(&itempath)) {
@@ -28,7 +28,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderItemPropertySource as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderItemPropertySource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -40,7 +40,7 @@ impl ::windows::core::RuntimeName for IStorageProviderPropertyCapabilities {
 }
 impl IStorageProviderPropertyCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderPropertyCapabilities_Impl, const OFFSET: isize>() -> IStorageProviderPropertyCapabilities_Vtbl {
-        unsafe extern "system" fn IsPropertySupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderPropertyCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertycanonicalname: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsPropertySupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderPropertyCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertycanonicalname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsPropertySupported(::core::mem::transmute(&propertycanonicalname)) {
@@ -58,7 +58,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderPropertyCapabilities as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderPropertyCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -112,7 +112,7 @@ impl IStorageProviderStatusUISource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISource as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderStatusUISource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -124,7 +124,7 @@ impl ::windows::core::RuntimeName for IStorageProviderStatusUISourceFactory {
 }
 impl IStorageProviderStatusUISourceFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISourceFactory_Impl, const OFFSET: isize>() -> IStorageProviderStatusUISourceFactory_Vtbl {
-        unsafe extern "system" fn GetStatusUISource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISourceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStatusUISource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISourceFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStatusUISource(::core::mem::transmute(&syncrootid)) {
@@ -142,7 +142,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISourceFactory as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderStatusUISourceFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -161,7 +161,7 @@ impl ::windows::core::RuntimeName for IStorageProviderUICommand {
 #[cfg(feature = "Foundation")]
 impl IStorageProviderUICommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>() -> IStorageProviderUICommand_Vtbl {
-        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Label<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Label() {
@@ -173,7 +173,7 @@ impl IStorageProviderUICommand_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Description() {
@@ -224,7 +224,7 @@ impl IStorageProviderUICommand_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderUICommand as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderUICommand as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -237,12 +237,12 @@ impl ::windows::core::RuntimeName for IStorageProviderUriSource {
 }
 impl IStorageProviderUriSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>() -> IStorageProviderUriSource_Vtbl {
-        unsafe extern "system" fn GetPathForContentUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenturi: *mut ::core::ffi::c_void, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPathForContentUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenturi: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPathForContentUri(::core::mem::transmute(&contenturi), ::windows::core::from_raw_borrowed(&result)).into()
         }
-        unsafe extern "system" fn GetContentInfoForPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContentInfoForPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetContentInfoForPath(::core::mem::transmute(&path), ::windows::core::from_raw_borrowed(&result)).into()
@@ -254,6 +254,6 @@ impl IStorageProviderUriSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageProviderUriSource as ::windows::core::Interface>::IID
+        iid == &<IStorageProviderUriSource as ::windows::core::ComInterface>::IID
     }
 }

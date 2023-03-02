@@ -22,13 +22,8 @@ impl ::core::fmt::Debug for HCS_CALLBACK {
         f.debug_tuple("HCS_CALLBACK").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<HCS_CALLBACK>> for HCS_CALLBACK {
-    fn from(optional: ::core::option::Option<HCS_CALLBACK>) -> HCS_CALLBACK {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_CALLBACK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_CALLBACK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

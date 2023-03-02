@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IGameExplorer {}
 #[cfg(feature = "Win32_Foundation")]
 impl IGameExplorer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>() -> IGameExplorer_Vtbl {
-        unsafe extern "system" fn AddGame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: *mut ::core::ffi::c_void, bstrgameinstalldirectory: *mut ::core::ffi::c_void, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrgameinstalldirectory: ::std::mem::MaybeUninit<::windows::core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddGame(::core::mem::transmute(&bstrgdfbinarypath), ::core::mem::transmute(&bstrgameinstalldirectory), ::core::mem::transmute_copy(&installscope), ::core::mem::transmute_copy(&pguidinstanceid)).into()
@@ -26,7 +26,7 @@ impl IGameExplorer_Vtbl {
             let this = (*this).get_impl();
             this.UpdateGame(::core::mem::transmute(&guidinstanceid)).into()
         }
-        unsafe extern "system" fn VerifyAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: *mut ::core::ffi::c_void, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifyAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameExplorer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::std::mem::MaybeUninit<::windows::core::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.VerifyAccess(::core::mem::transmute(&bstrgdfbinarypath)) {
@@ -46,7 +46,7 @@ impl IGameExplorer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameExplorer as ::windows::core::Interface>::IID
+        iid == &<IGameExplorer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -90,7 +90,7 @@ impl IGameExplorer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameExplorer2 as ::windows::core::Interface>::IID
+        iid == &<IGameExplorer2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -233,7 +233,7 @@ impl IGameStatistics_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameStatistics as ::windows::core::Interface>::IID
+        iid == &<IGameStatistics as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -261,7 +261,7 @@ impl IGameStatisticsMgr_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGameStatisticsMgr as ::windows::core::Interface>::IID
+        iid == &<IGameStatisticsMgr as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -338,7 +338,7 @@ impl IXblIdpAuthManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXblIdpAuthManager as ::windows::core::Interface>::IID
+        iid == &<IXblIdpAuthManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -612,7 +612,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult as ::windows::core::Interface>::IID
+        iid == &<IXblIdpAuthTokenResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -665,6 +665,6 @@ impl IXblIdpAuthTokenResult2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult2 as ::windows::core::Interface>::IID
+        iid == &<IXblIdpAuthTokenResult2 as ::windows::core::ComInterface>::IID
     }
 }

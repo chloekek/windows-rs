@@ -39,7 +39,7 @@ impl IAsyncAction_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncAction as ::windows::core::Interface>::IID
+        iid == &<IAsyncAction as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -108,7 +108,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncActionWithProgress<TProgress> as ::windows::core::Interface>::IID
+        iid == &<IAsyncActionWithProgress<TProgress> as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -180,7 +180,7 @@ impl IAsyncInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncInfo as ::windows::core::Interface>::IID
+        iid == &<IAsyncInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -214,7 +214,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResu
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResults<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <TResult as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResults<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::AbiType<TResult>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetResults() {
@@ -235,7 +235,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResu
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncOperation<TResult> as ::windows::core::Interface>::IID
+        iid == &<IAsyncOperation<TResult> as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -289,7 +289,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetResults<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperationWithProgress_Impl<TResult, TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <TResult as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResults<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperationWithProgress_Impl<TResult, TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::AbiType<TResult>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetResults() {
@@ -313,7 +313,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::Interface>::IID
+        iid == &<IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -333,7 +333,7 @@ impl IClosable_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IClosable, OFFSET>(), Close: Close::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IClosable as ::windows::core::Interface>::IID
+        iid == &<IClosable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -345,7 +345,7 @@ impl ::windows::core::RuntimeName for IGetActivationFactory {
 }
 impl IGetActivationFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGetActivationFactory_Impl, const OFFSET: isize>() -> IGetActivationFactory_Vtbl {
-        unsafe extern "system" fn GetActivationFactory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGetActivationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActivationFactory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGetActivationFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetActivationFactory(::core::mem::transmute(&activatableclassid)) {
@@ -363,7 +363,7 @@ impl IGetActivationFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGetActivationFactory as ::windows::core::Interface>::IID
+        iid == &<IGetActivationFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -390,7 +390,7 @@ impl IMemoryBuffer_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMemoryBuffer, OFFSET>(), CreateReference: CreateReference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemoryBuffer as ::windows::core::Interface>::IID
+        iid == &<IMemoryBuffer as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -441,7 +441,7 @@ impl IMemoryBufferReference_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemoryBufferReference as ::windows::core::Interface>::IID
+        iid == &<IMemoryBufferReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -647,7 +647,7 @@ impl IPropertyValue_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetString() {
@@ -786,7 +786,7 @@ impl IPropertyValue_Vtbl {
             let this = (*this).get_impl();
             this.GetBooleanArray(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size).as_array()).into()
         }
-        unsafe extern "system" fn GetStringArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetStringArray(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size).as_array()).into()
@@ -870,7 +870,7 @@ impl IPropertyValue_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPropertyValue as ::windows::core::Interface>::IID
+        iid == &<IPropertyValue as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -885,7 +885,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
 }
 impl<T: ::windows::core::RuntimeType + 'static> IReference_Vtbl<T> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReference_Impl<T>, const OFFSET: isize>() -> IReference_Vtbl<T> {
-        unsafe extern "system" fn Value<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReference_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReference_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -904,7 +904,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference_Vtbl<T> {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReference<T> as ::windows::core::Interface>::IID
+        iid == &<IReference<T> as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -919,7 +919,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for
 }
 impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceArray_Impl<T>, const OFFSET: isize>() -> IReferenceArray_Vtbl<T> {
-        unsafe extern "system" fn Value<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceArray_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceArray_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows::core::AbiType<T>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -939,7 +939,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReferenceArray<T> as ::windows::core::Interface>::IID
+        iid == &<IReferenceArray<T> as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -951,7 +951,7 @@ impl ::windows::core::RuntimeName for IStringable {
 }
 impl IStringable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStringable_Impl, const OFFSET: isize>() -> IStringable_Vtbl {
-        unsafe extern "system" fn ToString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStringable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStringable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ToString() {
@@ -966,7 +966,7 @@ impl IStringable_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStringable, OFFSET>(), ToString: ToString::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStringable as ::windows::core::Interface>::IID
+        iid == &<IStringable as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
@@ -979,7 +979,7 @@ impl ::windows::core::RuntimeName for IWwwFormUrlDecoderEntry {
 }
 impl IWwwFormUrlDecoderEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWwwFormUrlDecoderEntry_Impl, const OFFSET: isize>() -> IWwwFormUrlDecoderEntry_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWwwFormUrlDecoderEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWwwFormUrlDecoderEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -991,7 +991,7 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWwwFormUrlDecoderEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWwwFormUrlDecoderEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -1010,6 +1010,6 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWwwFormUrlDecoderEntry as ::windows::core::Interface>::IID
+        iid == &<IWwwFormUrlDecoderEntry as ::windows::core::ComInterface>::IID
     }
 }

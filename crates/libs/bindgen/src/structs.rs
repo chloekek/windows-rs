@@ -38,17 +38,23 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
 
         if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
             quote! {}
-        } else if !gen.sys && flags.contains(TypeAttributes::EXPLICIT_LAYOUT) && !gen.reader.field_is_copyable(f, def) {
+        } else if !gen.sys
+            && flags.contains(TypeAttributes::EXPLICIT_LAYOUT)
+            && !gen.reader.field_is_copyable(f, def)
+        {
             // Rust can't tell that the type is copyable and won't accept windows::core::ManuallyDrop
             let ty = gen.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
-        } else if !gen.sys && !flags.contains(TypeAttributes::WINRT) && !gen.reader.field_is_blittable(f, def) {
+        } else if !gen.sys
+            && !flags.contains(TypeAttributes::WINRT)
+            && !gen.reader.field_is_blittable(f, def)
+        {
             if let Type::Win32Array((ty, len)) = ty {
-                let ty = gen.type_name(&ty);
-                quote! { pub #name: [::windows::core::ManuallyDrop<#ty>; #len], }
+                let ty = gen.type_default_name(&ty);
+                quote! { pub #name: [::std::mem::ManuallyDrop<#ty>; #len], }
             } else {
-                let ty = gen.type_name(&ty);
-                quote! { pub #name: ::windows::core::ManuallyDrop<#ty>, }
+                let ty = gen.type_default_name(&ty);
+                quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
             }
         } else {
             let ty = gen.type_default_name(&ty);
@@ -87,8 +93,6 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
                 }
             }
         });
-
-        tokens.combine(&extensions::gen(gen.reader.type_def_type_name(def)));
     }
 
     for (index, nested_type) in gen.reader.nested_types(def).enumerate() {
@@ -103,38 +107,34 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
     if gen.sys {
         quote! {}
     } else {
-        let abi = if gen.reader.type_def_is_blittable(def) {
-            quote! { Self }
-        } else {
-            quote! { ::std::mem::ManuallyDrop<Self> }
-        };
-
         let features = gen.cfg_features(cfg);
+        let is_copy = gen.reader.type_def_is_blittable(def);
+
+        let type_kind = if is_copy {
+            quote! { CopyType }
+        } else {
+            quote! { ValueType }
+        };
 
         let mut tokens = quote! {
             #features
-            unsafe impl ::windows::core::Abi for #name {
-                type Abi = #abi;
+            impl ::windows::core::TypeKind for #name {
+                type TypeKind = ::windows::core::#type_kind;
             }
         };
 
-        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
-            let signature = Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
-
-            let clone = if gen.reader.type_def_is_blittable(def) {
-                quote! { *from }
-            } else {
-                quote! { from.clone() }
-            };
+        if gen
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT)
+        {
+            let signature =
+                Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
                 #features
-                unsafe impl ::windows::core::RuntimeType for #name {
-                    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                    type DefaultType = Self;
-                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                        Ok(#clone)
-                    }
+                impl ::windows::core::RuntimeType for #name {
+                    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(#signature);
                 }
             });
         }
@@ -146,7 +146,11 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
 fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = gen.cfg_features(cfg);
 
-    if gen.sys || gen.reader.type_def_has_explicit_layout(def) || gen.reader.type_def_has_packing(def) || gen.reader.type_def_has_callback(def) {
+    if gen.sys
+        || gen.reader.type_def_has_explicit_layout(def)
+        || gen.reader.type_def_has_packing(def)
+        || gen.reader.type_def_has_callback(def)
+    {
         quote! {}
     } else {
         let fields = gen.reader.type_def_fields(def).filter_map(|f| {
@@ -172,7 +176,10 @@ fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
 }
 
 fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStream {
-    if gen.sys || gen.reader.type_def_has_explicit_layout(def) || gen.reader.type_def_has_packing(def) {
+    if gen.sys
+        || gen.reader.type_def_has_explicit_layout(def)
+        || gen.reader.type_def_has_packing(def)
+    {
         quote! {}
     } else {
         let name = ident.as_str();
@@ -221,7 +228,11 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
     } else if gen.reader.type_def_class_layout(def).is_some() {
         // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
         quote! {}
-    } else if !gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+    } else if !gen
+        .reader
+        .type_def_flags(def)
+        .contains(TypeAttributes::WINRT)
+    {
         quote! {
             #features
             impl ::core::clone::Clone for #name {
@@ -253,7 +264,12 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
     }
 }
 
-fn gen_struct_constants(gen: &Gen, def: TypeDef, struct_name: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_struct_constants(
+    gen: &Gen,
+    def: TypeDef,
+    struct_name: &TokenStream,
+    cfg: &Cfg,
+) -> TokenStream {
     let features = gen.cfg_features(cfg);
 
     let constants = gen.reader.type_def_fields(def).filter_map(|f| {

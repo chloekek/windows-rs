@@ -409,7 +409,7 @@ mod d3d12_hello_triangle {
                 populate_command_list(resources).unwrap();
 
                 // Execute the command list.
-                let command_list = Some(ID3D12CommandList::from(&resources.command_list));
+                let command_list = Some(resources.command_list.can_clone_into());
                 unsafe { resources.command_queue.ExecuteCommandLists(&[command_list]) };
 
                 // Present the frame.
@@ -465,7 +465,7 @@ mod d3d12_hello_triangle {
             command_list.ClearRenderTargetView(
                 rtv_handle,
                 &*[0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32].as_ptr(),
-                &[],
+                None,
             );
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
             command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
@@ -492,7 +492,7 @@ mod d3d12_hello_triangle {
             Flags: D3D12_RESOURCE_BARRIER_FLAG_NONE,
             Anonymous: D3D12_RESOURCE_BARRIER_0 {
                 Transition: std::mem::ManuallyDrop::new(D3D12_RESOURCE_TRANSITION_BARRIER {
-                    pResource: ManuallyDrop::new(resource),
+                    pResource: unsafe { std::mem::transmute_copy(resource) },
                     StateBefore: state_before,
                     StateAfter: state_after,
                     Subresource: D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES,
@@ -628,7 +628,7 @@ mod d3d12_hello_triangle {
                 pInputElementDescs: input_element_descs.as_mut_ptr(),
                 NumElements: input_element_descs.len() as u32,
             },
-            pRootSignature: ManuallyDrop::new(root_signature),
+            pRootSignature: unsafe { std::mem::transmute_copy(root_signature) },
             VS: D3D12_SHADER_BYTECODE {
                 pShaderBytecode: unsafe { vertex_shader.GetBufferPointer() },
                 BytecodeLength: unsafe { vertex_shader.GetBufferSize() },

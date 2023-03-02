@@ -13,7 +13,7 @@ impl IConnectionRequestCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IConnectionRequestCallback as ::windows::core::Interface>::IID
+        iid == &<IConnectionRequestCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -61,7 +61,7 @@ impl IEnumPortableDeviceConnectors_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumPortableDeviceConnectors as ::windows::core::Interface>::IID
+        iid == &<IEnumPortableDeviceConnectors as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -116,7 +116,7 @@ impl IEnumPortableDeviceObjectIDs_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEnumPortableDeviceObjectIDs as ::windows::core::Interface>::IID
+        iid == &<IEnumPortableDeviceObjectIDs as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -150,7 +150,7 @@ impl IMediaRadioManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaRadioManager as ::windows::core::Interface>::IID
+        iid == &<IMediaRadioManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -167,12 +167,12 @@ impl IMediaRadioManagerNotifySink_Vtbl {
             let this = (*this).get_impl();
             this.OnInstanceAdd(::windows::core::from_raw_borrowed(&pradioinstance)).into()
         }
-        unsafe extern "system" fn OnInstanceRemove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrradioinstanceid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInstanceRemove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrradioinstanceid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnInstanceRemove(::core::mem::transmute(&bstrradioinstanceid)).into()
         }
-        unsafe extern "system" fn OnInstanceRadioChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrradioinstanceid: *mut ::core::ffi::c_void, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInstanceRadioChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrradioinstanceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnInstanceRadioChange(::core::mem::transmute(&bstrradioinstanceid), ::core::mem::transmute_copy(&radiostate)).into()
@@ -185,7 +185,7 @@ impl IMediaRadioManagerNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaRadioManagerNotifySink as ::windows::core::Interface>::IID
+        iid == &<IMediaRadioManagerNotifySink as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -292,7 +292,7 @@ impl IPortableDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDevice as ::windows::core::Interface>::IID
+        iid == &<IPortableDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -446,7 +446,7 @@ impl IPortableDeviceCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceCapabilities as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Devices_Properties\"`, `\"implement\"`*"]
@@ -455,8 +455,8 @@ pub trait IPortableDeviceConnector_Impl: Sized {
     fn Connect(&self, pcallback: ::core::option::Option<&IConnectionRequestCallback>) -> ::windows::core::Result<()>;
     fn Disconnect(&self, pcallback: ::core::option::Option<&IConnectionRequestCallback>) -> ::windows::core::Result<()>;
     fn Cancel(&self, pcallback: ::core::option::Option<&IConnectionRequestCallback>) -> ::windows::core::Result<()>;
-    fn GetProperty(&self, ppropertykey: *const super::Properties::DEVPROPKEY, ppropertytype: *mut u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::Result<()>;
-    fn SetProperty(&self, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
+    fn GetProperty(&self, ppropertykey: *const super::Properties::DEVPROPKEY, ppropertytype: *mut super::Properties::DEVPROPTYPE, ppdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::Result<()>;
+    fn SetProperty(&self, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
     fn GetPnPID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -479,12 +479,12 @@ impl IPortableDeviceConnector_Vtbl {
             let this = (*this).get_impl();
             this.Cancel(::windows::core::from_raw_borrowed(&pcallback)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropertykey: *const super::Properties::DEVPROPKEY, ppropertytype: *mut u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropertykey: *const super::Properties::DEVPROPKEY, ppropertytype: *mut super::Properties::DEVPROPTYPE, ppdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetProperty(::core::mem::transmute_copy(&ppropertykey), ::core::mem::transmute_copy(&ppropertytype), ::core::mem::transmute_copy(&ppdata), ::core::mem::transmute_copy(&pcbdata)).into()
         }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, pdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&ppropertykey), ::core::mem::transmute_copy(&propertytype), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&cbdata)).into()
@@ -511,7 +511,7 @@ impl IPortableDeviceConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceConnector as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceConnector as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -622,7 +622,7 @@ impl IPortableDeviceContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceContent as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -646,7 +646,7 @@ impl IPortableDeviceContent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceContent2 as ::windows::core::Interface>::IID || iid == &<IPortableDeviceContent as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceContent2 as ::windows::core::ComInterface>::IID || iid == &<IPortableDeviceContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -683,7 +683,7 @@ impl IPortableDeviceDataStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceDataStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceDataStream as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -710,7 +710,7 @@ impl IPortableDeviceDispatchFactory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceDispatch: GetDeviceDispatch::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceDispatchFactory as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceDispatchFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -728,7 +728,7 @@ impl IPortableDeviceEventCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnEvent: OnEvent::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceEventCallback as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceEventCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -780,7 +780,7 @@ impl IPortableDeviceKeyCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceKeyCollection as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceKeyCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -843,7 +843,7 @@ impl IPortableDeviceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceManager as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -915,7 +915,7 @@ impl IPortableDevicePropVariantCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDevicePropVariantCollection as ::windows::core::Interface>::IID
+        iid == &<IPortableDevicePropVariantCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -998,7 +998,7 @@ impl IPortableDeviceProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceProperties as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1065,7 +1065,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDevicePropertiesBulk as ::windows::core::Interface>::IID
+        iid == &<IPortableDevicePropertiesBulk as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1100,7 +1100,7 @@ impl IPortableDevicePropertiesBulkCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDevicePropertiesBulkCallback as ::windows::core::Interface>::IID
+        iid == &<IPortableDevicePropertiesBulkCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -1171,7 +1171,7 @@ impl IPortableDeviceResources_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceResources as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceResources as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1304,7 +1304,7 @@ impl IPortableDeviceService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceService as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1332,7 +1332,7 @@ impl IPortableDeviceServiceActivation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceServiceActivation as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceServiceActivation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -1551,7 +1551,7 @@ impl IPortableDeviceServiceCapabilities_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceServiceCapabilities as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceServiceCapabilities as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1585,7 +1585,7 @@ impl IPortableDeviceServiceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceServiceManager as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceServiceManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1603,7 +1603,7 @@ impl IPortableDeviceServiceMethodCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceServiceMethodCallback as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceServiceMethodCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1638,7 +1638,7 @@ impl IPortableDeviceServiceMethods_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceServiceMethods as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceServiceMethods as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1656,7 +1656,7 @@ impl IPortableDeviceServiceOpenCallback_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnComplete: OnComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceServiceOpenCallback as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceServiceOpenCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -1684,7 +1684,7 @@ impl IPortableDeviceUnitsStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceUnitsStream as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceUnitsStream as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -2071,7 +2071,7 @@ impl IPortableDeviceValues_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceValues as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceValues as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -2126,7 +2126,7 @@ impl IPortableDeviceValuesCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceValuesCollection as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceValuesCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2140,7 +2140,7 @@ impl ::windows::core::RuntimeName for IPortableDeviceWebControl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPortableDeviceWebControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>() -> IPortableDeviceWebControl_Vtbl {
-        unsafe extern "system" fn GetDeviceFromId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceFromId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceFromId(::core::mem::transmute(&deviceid)) {
@@ -2151,7 +2151,7 @@ impl IPortableDeviceWebControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceFromIdAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: *mut ::core::ffi::c_void, pcompletionhandler: *mut ::core::ffi::c_void, perrorhandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceFromIdAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, pcompletionhandler: *mut ::core::ffi::c_void, perrorhandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDeviceFromIdAsync(::core::mem::transmute(&deviceid), ::windows::core::from_raw_borrowed(&pcompletionhandler), ::windows::core::from_raw_borrowed(&perrorhandler)).into()
@@ -2163,7 +2163,7 @@ impl IPortableDeviceWebControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPortableDeviceWebControl as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IPortableDeviceWebControl as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2193,7 +2193,7 @@ impl IRadioInstance_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInstanceSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetInstanceSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetInstanceSignature() {
@@ -2204,7 +2204,7 @@ impl IRadioInstance_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: u32, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRadioInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: u32, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFriendlyName(::core::mem::transmute_copy(&lcid)) {
@@ -2253,7 +2253,7 @@ impl IRadioInstance_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRadioInstance as ::windows::core::Interface>::IID
+        iid == &<IRadioInstance as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -2293,7 +2293,7 @@ impl IRadioInstanceCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRadioInstanceCollection as ::windows::core::Interface>::IID
+        iid == &<IRadioInstanceCollection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
@@ -2347,6 +2347,6 @@ impl IWpdSerializer_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWpdSerializer as ::windows::core::Interface>::IID
+        iid == &<IWpdSerializer as ::windows::core::ComInterface>::IID
     }
 }

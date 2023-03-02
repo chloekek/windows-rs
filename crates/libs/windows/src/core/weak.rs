@@ -1,12 +1,12 @@
 use super::*;
-use bindings::*;
+use imp::*;
 use std::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
 #[derive(Clone, PartialEq, Eq, Default)]
-pub struct Weak<I: Interface>(Option<IWeakReference>, PhantomData<I>);
+pub struct Weak<I: ComInterface>(Option<IWeakReference>, PhantomData<I>);
 
-impl<I: Interface> Weak<I> {
+impl<I: ComInterface> Weak<I> {
     /// Creates a new `Weak` object without any backing object.
     pub fn new() -> Self {
         Self(None, PhantomData)

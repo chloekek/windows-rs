@@ -14,7 +14,11 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         .reader
         .type_def_fields(def)
         .filter_map(|field| {
-            if gen.reader.field_flags(field).contains(FieldAttributes::LITERAL) {
+            if gen
+                .reader
+                .field_flags(field)
+                .contains(FieldAttributes::LITERAL)
+            {
                 let field_name = to_ident(gen.reader.field_name(field));
                 let constant = gen.reader.field_constant(field).unwrap();
                 let value = gen.value(&gen.reader.constant_value(constant));
@@ -118,8 +122,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         let name = type_name.name;
         tokens.combine(&quote! {
             #features
-            unsafe impl ::windows::core::Abi for #ident {
-                type Abi = Self;
+            impl ::windows::core::TypeKind for #ident {
+                type TypeKind = ::windows::core::CopyType;
             }
             #features
             impl ::core::fmt::Debug for #ident {
@@ -176,22 +180,21 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             });
         }
 
-        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
-            let signature = Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
+        if gen
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT)
+        {
+            let signature =
+                Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
                 #features
-                unsafe impl ::windows::core::RuntimeType for #ident {
-                    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                    type DefaultType = Self;
-                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                        Ok(*from)
-                    }
+                impl ::windows::core::RuntimeType for #ident {
+                    const SIGNATURE: ::windows::imp::ConstBuffer = ::windows::imp::ConstBuffer::from_slice(#signature);
                 }
             });
         }
-
-        tokens.combine(&extensions::gen(type_name));
     }
 
     tokens

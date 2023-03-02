@@ -25,7 +25,7 @@ impl ISpiControllerProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpiControllerProvider as ::windows::core::Interface>::IID
+        iid == &<ISpiControllerProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -45,7 +45,7 @@ impl ::windows::core::RuntimeName for ISpiDeviceProvider {
 #[cfg(feature = "Foundation")]
 impl ISpiDeviceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>() -> ISpiDeviceProvider_Vtbl {
-        unsafe extern "system" fn DeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceId() {
@@ -100,7 +100,7 @@ impl ISpiDeviceProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpiDeviceProvider as ::windows::core::Interface>::IID
+        iid == &<ISpiDeviceProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -133,6 +133,6 @@ impl ISpiProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpiProvider as ::windows::core::Interface>::IID
+        iid == &<ISpiProvider as ::windows::core::ComInterface>::IID
     }
 }

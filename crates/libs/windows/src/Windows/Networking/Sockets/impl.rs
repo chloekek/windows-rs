@@ -25,7 +25,7 @@ impl IControlChannelTriggerEventDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IControlChannelTriggerEventDetails as ::windows::core::Interface>::IID
+        iid == &<IControlChannelTriggerEventDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"implement\"`*"]
@@ -83,7 +83,7 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IControlChannelTriggerResetEventDetails as ::windows::core::Interface>::IID
+        iid == &<IControlChannelTriggerResetEventDetails as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -127,7 +127,7 @@ impl IWebSocket_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequestHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: *mut ::core::ffi::c_void, headervalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headername: ::std::mem::MaybeUninit<::windows::core::HSTRING>, headervalue: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRequestHeader(::core::mem::transmute(&headername), ::core::mem::transmute(&headervalue)).into()
@@ -149,7 +149,7 @@ impl IWebSocket_Vtbl {
             let this = (*this).get_impl();
             this.RemoveClosed(::core::mem::transmute(&eventcookie)).into()
         }
-        unsafe extern "system" fn CloseWithStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseWithStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: u16, reason: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CloseWithStatus(code, ::core::mem::transmute(&reason)).into()
@@ -165,7 +165,7 @@ impl IWebSocket_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocket as ::windows::core::Interface>::IID
+        iid == &<IWebSocket as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"implement\"`*"]
@@ -261,7 +261,7 @@ impl IWebSocketControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketControl as ::windows::core::Interface>::IID
+        iid == &<IWebSocketControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`, `\"Security_Cryptography_Certificates\"`, `\"implement\"`*"]
@@ -294,7 +294,7 @@ impl IWebSocketControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketControl2 as ::windows::core::Interface>::IID
+        iid == &<IWebSocketControl2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"implement\"`*"]
@@ -332,7 +332,7 @@ impl IWebSocketInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Protocol<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Protocol<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Protocol() {
@@ -352,7 +352,7 @@ impl IWebSocketInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketInformation as ::windows::core::Interface>::IID
+        iid == &<IWebSocketInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`, `\"implement\"`*"]
@@ -427,6 +427,6 @@ impl IWebSocketInformation2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebSocketInformation2 as ::windows::core::Interface>::IID
+        iid == &<IWebSocketInformation2 as ::windows::core::ComInterface>::IID
     }
 }

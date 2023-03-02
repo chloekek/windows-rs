@@ -52,7 +52,7 @@ impl ICameraUIControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetActiveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetActiveItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetActiveItem(::core::mem::transmute_copy(&pbstractiveitempath)).into()
@@ -86,7 +86,7 @@ impl ICameraUIControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICameraUIControl as ::windows::core::Interface>::IID
+        iid == &<ICameraUIControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
@@ -135,7 +135,7 @@ impl ICameraUIControlEventCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICameraUIControlEventCallback as ::windows::core::Interface>::IID
+        iid == &<ICameraUIControlEventCallback as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
@@ -145,7 +145,7 @@ pub trait IClipServiceNotificationHelper_Impl: Sized {
 impl ::windows::core::RuntimeName for IClipServiceNotificationHelper {}
 impl IClipServiceNotificationHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>() -> IClipServiceNotificationHelper_Vtbl {
-        unsafe extern "system" fn ShowToast<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titletext: *mut ::core::ffi::c_void, bodytext: *mut ::core::ffi::c_void, packagename: *mut ::core::ffi::c_void, appid: *mut ::core::ffi::c_void, launchcommand: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowToast<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titletext: ::std::mem::MaybeUninit<::windows::core::BSTR>, bodytext: ::std::mem::MaybeUninit<::windows::core::BSTR>, packagename: ::std::mem::MaybeUninit<::windows::core::BSTR>, appid: ::std::mem::MaybeUninit<::windows::core::BSTR>, launchcommand: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ShowToast(::core::mem::transmute(&titletext), ::core::mem::transmute(&bodytext), ::core::mem::transmute(&packagename), ::core::mem::transmute(&appid), ::core::mem::transmute(&launchcommand)).into()
@@ -153,7 +153,7 @@ impl IClipServiceNotificationHelper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ShowToast: ShowToast::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IClipServiceNotificationHelper as ::windows::core::Interface>::IID
+        iid == &<IClipServiceNotificationHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -180,7 +180,7 @@ impl IContainerActivationHelper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CanActivateClientVM: CanActivateClientVM::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IContainerActivationHelper as ::windows::core::Interface>::IID
+        iid == &<IContainerActivationHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -201,7 +201,7 @@ impl IDefaultBrowserSyncSettings_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsEnabled: IsEnabled::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDefaultBrowserSyncSettings as ::windows::core::Interface>::IID
+        iid == &<IDefaultBrowserSyncSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"implement\"`*"]
@@ -219,7 +219,7 @@ impl IDeleteBrowsingHistory_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeleteBrowsingHistory: DeleteBrowsingHistory::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDeleteBrowsingHistory as ::windows::core::Interface>::IID
+        iid == &<IDeleteBrowsingHistory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -240,7 +240,7 @@ impl IEditionUpgradeBroker_Vtbl {
             let this = (*this).get_impl();
             this.InitializeParentWindow(::core::mem::transmute_copy(&parenthandle)).into()
         }
-        unsafe extern "system" fn UpdateOperatingSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateOperatingSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameter: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateOperatingSystem(::core::mem::transmute(&parameter)).into()
@@ -264,7 +264,7 @@ impl IEditionUpgradeBroker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEditionUpgradeBroker as ::windows::core::Interface>::IID
+        iid == &<IEditionUpgradeBroker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -334,7 +334,7 @@ impl IEditionUpgradeHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IEditionUpgradeHelper as ::windows::core::Interface>::IID
+        iid == &<IEditionUpgradeHelper as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -361,6 +361,6 @@ impl IWindowsLockModeHelper_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSMode: GetSMode::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWindowsLockModeHelper as ::windows::core::Interface>::IID
+        iid == &<IWindowsLockModeHelper as ::windows::core::ComInterface>::IID
     }
 }

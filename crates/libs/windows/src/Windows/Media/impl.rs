@@ -18,7 +18,7 @@ impl IMediaExtension_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMediaExtension, OFFSET>(), SetProperties: SetProperties::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaExtension as ::windows::core::Interface>::IID
+        iid == &<IMediaExtension as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -43,7 +43,7 @@ impl ::windows::core::RuntimeName for IMediaFrame {
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaFrame_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>() -> IMediaFrame_Vtbl {
-        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Type() {
@@ -163,7 +163,7 @@ impl IMediaFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaFrame as ::windows::core::Interface>::IID
+        iid == &<IMediaFrame as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -192,7 +192,7 @@ impl IMediaMarker_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MediaMarkerType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MediaMarkerType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MediaMarkerType() {
@@ -204,7 +204,7 @@ impl IMediaMarker_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Text<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Text<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaMarker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Text() {
@@ -224,7 +224,7 @@ impl IMediaMarker_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaMarker as ::windows::core::Interface>::IID
+        iid == &<IMediaMarker as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -254,6 +254,6 @@ impl IMediaMarkers_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMediaMarkers, OFFSET>(), Markers: Markers::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMediaMarkers as ::windows::core::Interface>::IID
+        iid == &<IMediaMarkers as ::windows::core::ComInterface>::IID
     }
 }

@@ -21,7 +21,9 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 
     let name = to_ident(gen.reader.type_def_name(def));
-    let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, Vec::new())));
+    let interfaces = gen
+        .reader
+        .type_interfaces(&Type::TypeDef((def, Vec::new())));
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
@@ -34,7 +36,15 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             let mut virtual_names = MethodNames::new();
 
             for method in gen.reader.type_def_methods(*def) {
-                methods.combine(&winrt_methods::gen(gen, *def, generics, interface.kind, method, &mut method_names, &mut virtual_names));
+                methods.combine(&winrt_methods::gen(
+                    gen,
+                    *def,
+                    generics,
+                    interface.kind,
+                    method,
+                    &mut method_names,
+                    &mut virtual_names,
+                ));
             }
         }
     }
@@ -58,8 +68,8 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                         pub fn #interface_type<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
                             callback: F,
                         ) -> ::windows::core::Result<R> {
-                            static SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
-                                ::windows::core::FactoryCache::new();
+                            static SHARED: ::windows::imp::FactoryCache<#name, #interface_type> =
+                                ::windows::imp::FactoryCache::new();
                             SHARED.call(callback)
                         }
                     });
@@ -76,11 +86,11 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                 pub fn new() -> ::windows::core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
-                fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(
+                fn IActivationFactory<R, F: FnOnce(&::windows::imp::IGenericFactory) -> ::windows::core::Result<R>>(
                     callback: F,
                 ) -> ::windows::core::Result<R> {
-                    static SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IGenericFactory> =
-                        ::windows::core::FactoryCache::new();
+                    static SHARED: ::windows::imp::FactoryCache<#name, ::windows::imp::IGenericFactory> =
+                        ::windows::imp::FactoryCache::new();
                     SHARED.call(callback)
                 }
             }
@@ -101,12 +111,41 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         };
 
-        tokens.combine(&gen.interface_core_traits(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&gen.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&gen.interface_core_traits(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
+        tokens.combine(&gen.interface_winrt_trait(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
         tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(), &features, true));
         tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
-        tokens.combine(&gen.async_get(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&iterators::gen(gen, def, &[], &name, &TokenStream::new(), &TokenStream::new(), &cfg));
+        tokens.combine(&gen.async_get(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
+        tokens.combine(&iterators::gen(
+            gen,
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &cfg,
+        ));
         tokens.combine(&gen_conversions(gen, def, &name, &interfaces, &cfg));
         tokens.combine(&gen.agile(def, &name, &TokenStream::new(), &features));
         tokens
@@ -127,11 +166,17 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 }
 
-fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
+fn gen_conversions(
+    gen: &Gen,
+    def: TypeDef,
+    name: &TokenStream,
+    interfaces: &[Interface],
+    cfg: &Cfg,
+) -> TokenStream {
     let features = gen.cfg_features(cfg);
     let mut tokens = quote! {
         #features
-        ::windows::core::interface_hierarchy!(#name, ::windows::core::IUnknown, ::windows::core::IInspectable);
+        ::windows::imp::interface_hierarchy!(#name, ::windows::core::IUnknown, ::windows::core::IInspectable);
     };
 
     for interface in interfaces {
@@ -139,7 +184,10 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
             continue;
         }
 
-        if interface.kind != InterfaceKind::Default && interface.kind != InterfaceKind::None && interface.kind != InterfaceKind::Base {
+        if interface.kind != InterfaceKind::Default
+            && interface.kind != InterfaceKind::None
+            && interface.kind != InterfaceKind::Base
+        {
             continue;
         }
 
@@ -149,27 +197,7 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
 
         tokens.combine(&quote! {
             #features
-            impl ::core::convert::TryFrom<#name> for #into {
-                type Error = ::windows::core::Error;
-                fn try_from(value: #name) -> ::windows::core::Result<Self> {
-                    ::core::convert::TryFrom::try_from(&value)
-                }
-            }
-            #features
-            impl ::core::convert::TryFrom<&#name> for #into {
-                type Error = ::windows::core::Error;
-                fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-                    ::windows::core::Interface::cast(value)
-                }
-            }
-            #features
-            impl ::core::convert::TryFrom<&#name> for ::windows::core::InParam<#into> {
-                type Error = ::windows::core::Error;
-                fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-                    let item = ::std::convert::TryInto::try_into(value)?;
-                    Ok(::windows::core::InParam::owned(item))
-                }
-            }
+            impl ::windows::core::CanTryInto<#into> for #name {}
         });
     }
 
@@ -179,25 +207,7 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
 
         tokens.combine(&quote! {
             #features
-            impl ::core::convert::From<#name> for #into {
-                fn from(value: #name) -> Self {
-                    ::core::convert::From::from(&value)
-                }
-            }
-            #features
-            impl ::core::convert::From<&#name> for #into {
-                fn from(value: &#name) -> Self {
-                    // This unwrap is legitimate because conversion to base can never fail because
-                    // the base can never change across versions.
-                    ::windows::core::Interface::cast(value).unwrap()
-                }
-            }
-            #features
-            impl ::core::convert::From<&#name> for ::windows::core::InParam<#into> {
-                fn from(value: &#name) -> Self {
-                    ::windows::core::InParam::owned(value.into())
-                }
-            }
+            impl ::windows::core::CanTryInto<#into> for #name {}
         });
     }
 

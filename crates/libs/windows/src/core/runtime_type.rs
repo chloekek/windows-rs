@@ -1,27 +1,21 @@
 use super::*;
 
-#[doc(hidden)]
-pub unsafe trait RuntimeType: Abi + Clone + PartialEq {
-    const SIGNATURE: ConstBuffer;
-    type DefaultType: Clone + PartialEq;
-    fn from_default(from: &Self::DefaultType) -> Result<Self>;
+pub trait RuntimeType: Type<Self> {
+    // TODO: hidden?
+    const SIGNATURE: imp::ConstBuffer;
 }
 
-macro_rules! primitive_runtime_types {
+macro_rules! primitives {
     ($(($t:ty, $s:literal)),+) => {
         $(
-            unsafe impl RuntimeType for $t {
-                const SIGNATURE: ConstBuffer = ConstBuffer::from_slice($s);
-                type DefaultType = Self;
-                fn from_default(from: &Self::DefaultType) -> Result<Self> {
-                    Ok(*from)
-                }
+            impl RuntimeType for $t {
+                const SIGNATURE: imp::ConstBuffer = imp::ConstBuffer::from_slice($s);
             }
         )*
     };
 }
 
-primitive_runtime_types! {
+primitives! {
     (bool, b"b1"),
     (i8, b"i1"),
     (u8, b"u1"),

@@ -2,211 +2,211 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListAllocateBufferAndSerialize(sourcecollection: *const SENSOR_COLLECTION_LIST, ptargetbuffersizeinbytes: *mut u32, ptargetbuffer: *mut *mut u8) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListAllocateBufferAndSerialize ( sourcecollection : *const SENSOR_COLLECTION_LIST , ptargetbuffersizeinbytes : *mut u32 , ptargetbuffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListAllocateBufferAndSerialize ( sourcecollection : *const SENSOR_COLLECTION_LIST , ptargetbuffersizeinbytes : *mut u32 , ptargetbuffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
     CollectionsListAllocateBufferAndSerialize(sourcecollection, ptargetbuffersizeinbytes, ptargetbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListCopyAndMarshall(target: *mut SENSOR_COLLECTION_LIST, source: *const SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListCopyAndMarshall ( target : *mut SENSOR_COLLECTION_LIST , source : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListCopyAndMarshall ( target : *mut SENSOR_COLLECTION_LIST , source : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
     CollectionsListCopyAndMarshall(target, source).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListDeserializeFromBuffer(sourcebuffer: &[u8], targetcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListDeserializeFromBuffer ( sourcebuffersizeinbytes : u32 , sourcebuffer : *const u8 , targetcollection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListDeserializeFromBuffer ( sourcebuffersizeinbytes : u32 , sourcebuffer : *const u8 , targetcollection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
     CollectionsListDeserializeFromBuffer(sourcebuffer.len() as _, ::core::mem::transmute(sourcebuffer.as_ptr()), targetcollection).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[inline]
 pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetFillableCount ( buffersizebytes : u32 ) -> u32 );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetFillableCount ( buffersizebytes : u32 ) -> u32 );
     CollectionsListGetFillableCount(buffersizebytes)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetMarshalledSize ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetMarshalledSize ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
     CollectionsListGetMarshalledSize(collection)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetMarshalledSizeWithoutSerialization ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetMarshalledSizeWithoutSerialization ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
     CollectionsListGetMarshalledSizeWithoutSerialization(collection)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetSerializedSize ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListGetSerializedSize ( collection : *const SENSOR_COLLECTION_LIST ) -> u32 );
     CollectionsListGetSerializedSize(collection)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListMarshall(target: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListMarshall ( target : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListMarshall ( target : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
     CollectionsListMarshall(target).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListSerializeToBuffer(sourcecollection: *const SENSOR_COLLECTION_LIST, targetbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListSerializeToBuffer ( sourcecollection : *const SENSOR_COLLECTION_LIST , targetbuffersizeinbytes : u32 , targetbuffer : *mut u8 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListSerializeToBuffer ( sourcecollection : *const SENSOR_COLLECTION_LIST , targetbuffersizeinbytes : u32 , targetbuffer : *mut u8 ) -> super::super::Foundation:: NTSTATUS );
     CollectionsListSerializeToBuffer(sourcecollection, targetbuffer.len() as _, ::core::mem::transmute(targetbuffer.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListSortSubscribedActivitiesByConfidence(thresholds: *const SENSOR_COLLECTION_LIST, pcollection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListSortSubscribedActivitiesByConfidence ( thresholds : *const SENSOR_COLLECTION_LIST , pcollection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListSortSubscribedActivitiesByConfidence ( thresholds : *const SENSOR_COLLECTION_LIST , pcollection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
     CollectionsListSortSubscribedActivitiesByConfidence(thresholds, pcollection).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COLLECTION_LIST) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListUpdateMarshalledPointer ( collection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn CollectionsListUpdateMarshalledPointer ( collection : *mut SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: NTSTATUS );
     CollectionsListUpdateMarshalledPointer(collection).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn EvaluateActivityThresholds(newsample: *const SENSOR_COLLECTION_LIST, oldsample: *const SENSOR_COLLECTION_LIST, thresholds: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn EvaluateActivityThresholds ( newsample : *const SENSOR_COLLECTION_LIST , oldsample : *const SENSOR_COLLECTION_LIST , thresholds : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn EvaluateActivityThresholds ( newsample : *const SENSOR_COLLECTION_LIST , oldsample : *const SENSOR_COLLECTION_LIST , thresholds : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: BOOLEAN );
     EvaluateActivityThresholds(newsample, oldsample, thresholds)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn GetPerformanceTime ( timems : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn GetPerformanceTime ( timems : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
     GetPerformanceTime(timems).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSIDArray(members: &[::windows::core::GUID]) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromCLSIDArray ( members : *const :: windows::core::GUID , size : u32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromCLSIDArray ( members : *const :: windows::core::GUID , size : u32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+    InitPropVariantFromCLSIDArray(::core::mem::transmute(members.as_ptr()), members.len() as _, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFloat(fltval: f32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromFloat ( fltval : f32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    InitPropVariantFromFloat(fltval, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn InitPropVariantFromFloat ( fltval : f32 , ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+    InitPropVariantFromFloat(fltval, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsCollectionListSame(lista: *const SENSOR_COLLECTION_LIST, listb: *const SENSOR_COLLECTION_LIST) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn IsCollectionListSame ( lista : *const SENSOR_COLLECTION_LIST , listb : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsCollectionListSame ( lista : *const SENSOR_COLLECTION_LIST , listb : *const SENSOR_COLLECTION_LIST ) -> super::super::Foundation:: BOOLEAN );
     IsCollectionListSame(lista, listb)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsGUIDPresentInList(guidarray: &[::windows::core::GUID], guidelem: *const ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn IsGUIDPresentInList ( guidarray : *const :: windows::core::GUID , arraylength : u32 , guidelem : *const :: windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsGUIDPresentInList ( guidarray : *const :: windows::core::GUID , arraylength : u32 , guidelem : *const :: windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
     IsGUIDPresentInList(::core::mem::transmute(guidarray.as_ptr()), guidarray.len() as _, guidelem)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsKeyPresentInCollectionList(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn IsKeyPresentInCollectionList ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsKeyPresentInCollectionList ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
     IsKeyPresentInCollectionList(plist, pkey)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsKeyPresentInPropertyList(plist: *const SENSOR_PROPERTY_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn IsKeyPresentInPropertyList ( plist : *const SENSOR_PROPERTY_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsKeyPresentInPropertyList ( plist : *const SENSOR_PROPERTY_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY ) -> super::super::Foundation:: BOOLEAN );
     IsKeyPresentInPropertyList(plist, pkey)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn IsSensorSubscribed(subscriptionlist: *const SENSOR_COLLECTION_LIST, currenttype: ::windows::core::GUID) -> super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn IsSensorSubscribed ( subscriptionlist : *const SENSOR_COLLECTION_LIST , currenttype : :: windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn IsSensorSubscribed ( subscriptionlist : *const SENSOR_COLLECTION_LIST , currenttype : :: windows::core::GUID ) -> super::super::Foundation:: BOOLEAN );
     IsSensorSubscribed(subscriptionlist, ::core::mem::transmute(currenttype))
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetBool(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetBool ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetBool ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetBool(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetDouble(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f64) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetDouble ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut f64 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetDouble ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut f64 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetDouble(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetFileTime(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetFileTime ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetFileTime ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut super::super::Foundation:: FILETIME ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetFileTime(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetFloat(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut f32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetFloat ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut f32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetFloat ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut f32 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetFloat(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetGuid(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetGuid ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut :: windows::core::GUID ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetGuid ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut :: windows::core::GUID ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetGuid(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetInt32(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetInt32 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut i32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetInt32 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut i32 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetInt32(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut i64) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetInt64 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut i64 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetInt64 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut i64 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetInt64(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthInt64(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut i64) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthInt64 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut i64 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthInt64 ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut i64 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetNthInt64(plist, pkey, occurrence, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthUlong ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthUlong ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetNthUlong(plist, pkey, occurrence, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, occurrence: u32, pretvalue: *mut u16) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthUshort ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut u16 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetNthUshort ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , occurrence : u32 , pretvalue : *mut u16 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetNthUshort(plist, pkey, occurrence, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -214,23 +214,23 @@ pub unsafe fn PropKeyFindKeyGetNthUshort(plist: *const SENSOR_COLLECTION_LIST, p
 #[inline]
 pub unsafe fn PropKeyFindKeyGetPropVariant<P0>(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetPropVariant ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , typecheck : super::super::Foundation:: BOOLEAN , pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
-    PropKeyFindKeyGetPropVariant(plist, pkey, typecheck.into(), pvalue).ok()
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetPropVariant ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , typecheck : super::super::Foundation:: BOOLEAN , pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
+    PropKeyFindKeyGetPropVariant(plist, pkey, typecheck.into_param().abi(), pvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetUlong(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetUlong ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetUlong ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetUlong(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pretvalue: *mut u16) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetUshort ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut u16 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeyGetUshort ( plist : *const SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pretvalue : *mut u16 ) -> super::super::Foundation:: NTSTATUS );
     PropKeyFindKeyGetUshort(plist, pkey, pretvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -238,49 +238,49 @@ pub unsafe fn PropKeyFindKeyGetUshort(plist: *const SENSOR_COLLECTION_LIST, pkey
 #[inline]
 pub unsafe fn PropKeyFindKeySetPropVariant<P0>(plist: *mut SENSOR_COLLECTION_LIST, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, typecheck: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeySetPropVariant ( plist : *mut SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , typecheck : super::super::Foundation:: BOOLEAN , pvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
-    PropKeyFindKeySetPropVariant(plist, pkey, typecheck.into(), pvalue).ok()
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropKeyFindKeySetPropVariant ( plist : *mut SENSOR_COLLECTION_LIST , pkey : *const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , typecheck : super::super::Foundation:: BOOLEAN , pvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
+    PropKeyFindKeySetPropVariant(plist, pkey, typecheck.into_param().abi(), pvalue).ok()
 }
-#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: ::core::option::Option<*mut u32>, propvariantsize: ::core::option::Option<*mut u32>, propvariantpointer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, remappedtype: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropVariantGetInformation ( propvariantvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , propvariantoffset : *mut u32 , propvariantsize : *mut u32 , propvariantpointer : *mut *mut ::core::ffi::c_void , remappedtype : *mut u32 ) -> super::super::Foundation:: NTSTATUS );
+pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: ::core::option::Option<*mut u32>, propvariantsize: ::core::option::Option<*mut u32>, propvariantpointer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, remappedtype: ::core::option::Option<*mut super::Properties::DEVPROPTYPE>) -> ::windows::core::Result<()> {
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropVariantGetInformation ( propvariantvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT , propvariantoffset : *mut u32 , propvariantsize : *mut u32 , propvariantpointer : *mut *mut ::core::ffi::c_void , remappedtype : *mut super::Properties:: DEVPROPTYPE ) -> super::super::Foundation:: NTSTATUS );
     PropVariantGetInformation(propvariantvalue, ::core::mem::transmute(propvariantoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propvariantsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(propvariantpointer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remappedtype.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn PropertiesListCopy(target: *mut SENSOR_PROPERTY_LIST, source: *const SENSOR_PROPERTY_LIST) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropertiesListCopy ( target : *mut SENSOR_PROPERTY_LIST , source : *const SENSOR_PROPERTY_LIST ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropertiesListCopy ( target : *mut SENSOR_PROPERTY_LIST , source : *const SENSOR_PROPERTY_LIST ) -> super::super::Foundation:: NTSTATUS );
     PropertiesListCopy(target, source).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[inline]
 pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn PropertiesListGetFillableCount ( buffersizebytes : u32 ) -> u32 );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn PropertiesListGetFillableCount ( buffersizebytes : u32 ) -> u32 );
     PropertiesListGetFillableCount(buffersizebytes)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: ::core::option::Option<*mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn SensorCollectionGetAt ( index : u32 , psensorslist : *const SENSOR_COLLECTION_LIST , pkey : *mut super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn SensorCollectionGetAt ( index : u32 , psensorslist : *const SENSOR_COLLECTION_LIST , pkey : *mut super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pvalue : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT ) -> super::super::Foundation:: NTSTATUS );
     SensorCollectionGetAt(index, psensorslist, ::core::mem::transmute(pkey.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn SerializationBufferAllocate ( sizeinbytes : u32 , pbuffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn SerializationBufferAllocate ( sizeinbytes : u32 , pbuffer : *mut *mut u8 ) -> super::super::Foundation:: NTSTATUS );
     SerializationBufferAllocate(sizeinbytes, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[inline]
 pub unsafe fn SerializationBufferFree(buffer: ::core::option::Option<*const u8>) {
-    ::windows::core::link ! ( "sensorsutilsv2.dll""system" fn SerializationBufferFree ( buffer : *const u8 ) -> ( ) );
+    ::windows::imp::link ! ( "sensorsutilsv2.dll""system" fn SerializationBufferFree ( buffer : *const u8 ) -> ( ) );
     SerializationBufferFree(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -290,19 +290,14 @@ impl ILocationPermissions {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGlobalLocationPermission(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGlobalLocationPermission)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetGlobalLocationPermission)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CheckLocationCapability(&self, dwclientthreadid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CheckLocationCapability)(::windows::core::Vtable::as_raw(self), dwclientthreadid).ok()
+        (::windows::core::Interface::vtable(self).CheckLocationCapability)(::windows::core::Interface::as_raw(self), dwclientthreadid).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILocationPermissions, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILocationPermissions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ILocationPermissions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILocationPermissions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -314,10 +309,15 @@ impl ::core::fmt::Debug for ILocationPermissions {
         f.debug_tuple("ILocationPermissions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ILocationPermissions {
+unsafe impl ::windows::core::Interface for ILocationPermissions {
     type Vtable = ILocationPermissions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ILocationPermissions {
+impl ::core::clone::Clone for ILocationPermissions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ILocationPermissions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 }
 #[repr(C)]
@@ -335,90 +335,85 @@ pub struct ILocationPermissions_Vtbl {
 pub struct ISensor(::windows::core::IUnknown);
 impl ISensor {
     pub unsafe fn GetID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCategory(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCategory)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetCategory)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Interface::vtable(self).GetFriendlyName)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), key, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), key, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetProperties<P0>(&self, pkeys: P0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::PortableDevices::IPortableDeviceKeyCollection>>,
+        P0: ::windows::core::IntoParam<super::PortableDevices::IPortableDeviceKeyCollection>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), pkeys.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::PortableDevices::IPortableDeviceValues>();
+        (::windows::core::Interface::vtable(self).GetProperties)(::windows::core::Interface::as_raw(self), pkeys.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetSupportedDataFields(&self) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceKeyCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSupportedDataFields)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::PortableDevices::IPortableDeviceKeyCollection>();
+        (::windows::core::Interface::vtable(self).GetSupportedDataFields)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn SetProperties<P0>(&self, pproperties: P0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::PortableDevices::IPortableDeviceValues>>,
+        P0: ::windows::core::IntoParam<super::PortableDevices::IPortableDeviceValues>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetProperties)(::windows::core::Vtable::as_raw(self), pproperties.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::PortableDevices::IPortableDeviceValues>();
+        (::windows::core::Interface::vtable(self).SetProperties)(::windows::core::Interface::as_raw(self), pproperties.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SupportsDataField(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SupportsDataField)(::windows::core::Vtable::as_raw(self), key, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Interface::vtable(self).SupportsDataField)(::windows::core::Interface::as_raw(self), key, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetState(&self) -> ::windows::core::Result<SensorState> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<SensorState>();
+        (::windows::core::Interface::vtable(self).GetState)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetData(&self) -> ::windows::core::Result<ISensorDataReport> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISensorDataReport>();
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportsEvent(&self, eventguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SupportsEvent)(::windows::core::Vtable::as_raw(self), eventguid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Interface::vtable(self).SupportsEvent)(::windows::core::Interface::as_raw(self), eventguid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventInterest(&self, ppvalues: *mut *mut ::windows::core::GUID, pcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetEventInterest)(::windows::core::Vtable::as_raw(self), ppvalues, pcount).ok()
+        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), ppvalues, pcount).ok()
     }
     pub unsafe fn SetEventInterest(&self, pvalues: ::core::option::Option<&[::windows::core::GUID]>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetEventInterest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalues.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvalues.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalues.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
     pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensorEvents>>,
+        P0: ::windows::core::IntoParam<ISensorEvents>,
     {
-        (::windows::core::Vtable::vtable(self).SetEventSink)(::windows::core::Vtable::as_raw(self), pevents.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), pevents.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISensor, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensor, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISensor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -430,10 +425,15 @@ impl ::core::fmt::Debug for ISensor {
         f.debug_tuple("ISensor").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISensor {
+unsafe impl ::windows::core::Interface for ISensor {
     type Vtable = ISensor_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISensor {
+impl ::core::clone::Clone for ISensor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
 }
 #[repr(C)]
@@ -443,7 +443,7 @@ pub struct ISensor_Vtbl {
     pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensorcategory: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensortype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfriendlyname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfriendlyname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pproperty: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))]
@@ -479,38 +479,33 @@ pub struct ISensor_Vtbl {
 pub struct ISensorCollection(::windows::core::IUnknown);
 impl ISensorCollection {
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<ISensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISensor>();
+        (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Add<P0>(&self, psensor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensor>>,
+        P0: ::windows::core::IntoParam<ISensor>,
     {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), psensor.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), psensor.into_param().abi()).ok()
     }
     pub unsafe fn Remove<P0>(&self, psensor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensor>>,
+        P0: ::windows::core::IntoParam<ISensor>,
     {
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), psensor.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), psensor.into_param().abi()).ok()
     }
     pub unsafe fn RemoveByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveByID)(::windows::core::Vtable::as_raw(self), sensorid).ok()
+        (::windows::core::Interface::vtable(self).RemoveByID)(::windows::core::Interface::as_raw(self), sensorid).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISensorCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISensorCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensorCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISensorCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -522,10 +517,15 @@ impl ::core::fmt::Debug for ISensorCollection {
         f.debug_tuple("ISensorCollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISensorCollection {
+unsafe impl ::windows::core::Interface for ISensorCollection {
     type Vtable = ISensorCollection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISensorCollection {
+impl ::core::clone::Clone for ISensorCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISensorCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23571e11_e545_4dd8_a337_b89bf44b10df);
 }
 #[repr(C)]
@@ -546,31 +546,26 @@ impl ISensorDataReport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTimestamp)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::SYSTEMTIME>();
+        (::windows::core::Interface::vtable(self).GetTimestamp)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetSensorValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSensorValue)(::windows::core::Vtable::as_raw(self), pkey, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+        (::windows::core::Interface::vtable(self).GetSensorValue)(::windows::core::Interface::as_raw(self), pkey, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn GetSensorValues<P0>(&self, pkeys: P0) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::PortableDevices::IPortableDeviceKeyCollection>>,
+        P0: ::windows::core::IntoParam<super::PortableDevices::IPortableDeviceKeyCollection>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSensorValues)(::windows::core::Vtable::as_raw(self), pkeys.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::PortableDevices::IPortableDeviceValues>();
+        (::windows::core::Interface::vtable(self).GetSensorValues)(::windows::core::Interface::as_raw(self), pkeys.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ISensorDataReport, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISensorDataReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensorDataReport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISensorDataReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -582,10 +577,15 @@ impl ::core::fmt::Debug for ISensorDataReport {
         f.debug_tuple("ISensorDataReport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISensorDataReport {
+unsafe impl ::windows::core::Interface for ISensorDataReport {
     type Vtable = ISensorDataReport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISensorDataReport {
+impl ::core::clone::Clone for ISensorDataReport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISensorDataReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 }
 #[repr(C)]
@@ -611,36 +611,31 @@ pub struct ISensorEvents(::windows::core::IUnknown);
 impl ISensorEvents {
     pub unsafe fn OnStateChanged<P0>(&self, psensor: P0, state: SensorState) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensor>>,
+        P0: ::windows::core::IntoParam<ISensor>,
     {
-        (::windows::core::Vtable::vtable(self).OnStateChanged)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), state).ok()
+        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), psensor.into_param().abi(), state).ok()
     }
     pub unsafe fn OnDataUpdated<P0, P1>(&self, psensor: P0, pnewdata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensor>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ISensorDataReport>>,
+        P0: ::windows::core::IntoParam<ISensor>,
+        P1: ::windows::core::IntoParam<ISensorDataReport>,
     {
-        (::windows::core::Vtable::vtable(self).OnDataUpdated)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), pnewdata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnDataUpdated)(::windows::core::Interface::as_raw(self), psensor.into_param().abi(), pnewdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
     #[cfg(feature = "Win32_Devices_PortableDevices")]
     pub unsafe fn OnEvent<P0, P1>(&self, psensor: P0, eventid: *const ::windows::core::GUID, peventdata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensor>>,
-        P1: ::std::convert::Into<::windows::core::InParam<super::PortableDevices::IPortableDeviceValues>>,
+        P0: ::windows::core::IntoParam<ISensor>,
+        P1: ::windows::core::IntoParam<super::PortableDevices::IPortableDeviceValues>,
     {
-        (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), eventid, peventdata.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), psensor.into_param().abi(), eventid, peventdata.into_param().abi()).ok()
     }
     pub unsafe fn OnLeave(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnLeave)(::windows::core::Vtable::as_raw(self), id).ok()
+        (::windows::core::Interface::vtable(self).OnLeave)(::windows::core::Interface::as_raw(self), id).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISensorEvents, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISensorEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensorEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISensorEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -652,10 +647,15 @@ impl ::core::fmt::Debug for ISensorEvents {
         f.debug_tuple("ISensorEvents").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISensorEvents {
+unsafe impl ::windows::core::Interface for ISensorEvents {
     type Vtable = ISensorEvents_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISensorEvents {
+impl ::core::clone::Clone for ISensorEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISensorEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
 }
 #[repr(C)]
@@ -675,40 +675,35 @@ pub struct ISensorEvents_Vtbl {
 pub struct ISensorManager(::windows::core::IUnknown);
 impl ISensorManager {
     pub unsafe fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSensorsByCategory)(::windows::core::Vtable::as_raw(self), sensorcategory, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISensorCollection>();
+        (::windows::core::Interface::vtable(self).GetSensorsByCategory)(::windows::core::Interface::as_raw(self), sensorcategory, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSensorsByType(&self, sensortype: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSensorsByType)(::windows::core::Vtable::as_raw(self), sensortype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISensorCollection>();
+        (::windows::core::Interface::vtable(self).GetSensorsByType)(::windows::core::Interface::as_raw(self), sensortype, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSensorByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<ISensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSensorByID)(::windows::core::Vtable::as_raw(self), sensorid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ISensor>();
+        (::windows::core::Interface::vtable(self).GetSensorByID)(::windows::core::Interface::as_raw(self), sensorid, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventSink<P0>(&self, pevents: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensorManagerEvents>>,
+        P0: ::windows::core::IntoParam<ISensorManagerEvents>,
     {
-        (::windows::core::Vtable::vtable(self).SetEventSink)(::windows::core::Vtable::as_raw(self), pevents.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEventSink)(::windows::core::Interface::as_raw(self), pevents.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestPermissions<P0, P1, P2>(&self, hparent: P0, psensors: P1, fmodal: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<ISensorCollection>>,
-        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::HWND>,
+        P1: ::windows::core::IntoParam<ISensorCollection>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).RequestPermissions)(::windows::core::Vtable::as_raw(self), hparent.into(), psensors.into().abi(), fmodal.into()).ok()
+        (::windows::core::Interface::vtable(self).RequestPermissions)(::windows::core::Interface::as_raw(self), hparent.into_param().abi(), psensors.into_param().abi(), fmodal.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISensorManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISensorManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensorManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISensorManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -720,10 +715,15 @@ impl ::core::fmt::Debug for ISensorManager {
         f.debug_tuple("ISensorManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISensorManager {
+unsafe impl ::windows::core::Interface for ISensorManager {
     type Vtable = ISensorManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISensorManager {
+impl ::core::clone::Clone for ISensorManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISensorManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
 }
 #[repr(C)]
@@ -745,17 +745,12 @@ pub struct ISensorManagerEvents(::windows::core::IUnknown);
 impl ISensorManagerEvents {
     pub unsafe fn OnSensorEnter<P0>(&self, psensor: P0, state: SensorState) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ISensor>>,
+        P0: ::windows::core::IntoParam<ISensor>,
     {
-        (::windows::core::Vtable::vtable(self).OnSensorEnter)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), state).ok()
+        (::windows::core::Interface::vtable(self).OnSensorEnter)(::windows::core::Interface::as_raw(self), psensor.into_param().abi(), state).ok()
     }
 }
-::windows::core::interface_hierarchy!(ISensorManagerEvents, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISensorManagerEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensorManagerEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ISensorManagerEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -767,10 +762,15 @@ impl ::core::fmt::Debug for ISensorManagerEvents {
         f.debug_tuple("ISensorManagerEvents").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ISensorManagerEvents {
+unsafe impl ::windows::core::Interface for ISensorManagerEvents {
     type Vtable = ISensorManagerEvents_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ISensorManagerEvents {
+impl ::core::clone::Clone for ISensorManagerEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ISensorManagerEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 }
 #[repr(C)]
@@ -1535,8 +1535,8 @@ impl ::core::default::Default for ACTIVITY_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ACTIVITY_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTIVITY_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ACTIVITY_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1560,8 +1560,8 @@ impl ::core::default::Default for ACTIVITY_STATE_COUNT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ACTIVITY_STATE_COUNT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTIVITY_STATE_COUNT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ACTIVITY_STATE_COUNT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1591,8 +1591,8 @@ impl ::core::default::Default for AXIS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AXIS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AXIS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AXIS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1624,8 +1624,8 @@ impl ::core::default::Default for ELEVATION_CHANGE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ELEVATION_CHANGE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ELEVATION_CHANGE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ELEVATION_CHANGE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1657,8 +1657,8 @@ impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HUMAN_PRESENCE_DETECTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1682,8 +1682,8 @@ impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1709,8 +1709,8 @@ impl ::core::default::Default for LOCATION_DESIRED_ACCURACY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LOCATION_DESIRED_ACCURACY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCATION_DESIRED_ACCURACY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LOCATION_DESIRED_ACCURACY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1742,8 +1742,8 @@ impl ::core::default::Default for LOCATION_POSITION_SOURCE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LOCATION_POSITION_SOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCATION_POSITION_SOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LOCATION_POSITION_SOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1773,8 +1773,8 @@ impl ::core::default::Default for MAGNETOMETER_ACCURACY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MAGNETOMETER_ACCURACY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAGNETOMETER_ACCURACY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MAGNETOMETER_ACCURACY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1804,8 +1804,8 @@ impl ::core::default::Default for MagnetometerAccuracy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MagnetometerAccuracy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MagnetometerAccuracy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1837,8 +1837,8 @@ impl ::core::default::Default for PEDOMETER_STEP_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PEDOMETER_STEP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1862,8 +1862,8 @@ impl ::core::default::Default for PEDOMETER_STEP_TYPE_COUNT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE_COUNT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PEDOMETER_STEP_TYPE_COUNT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1891,8 +1891,8 @@ impl ::core::default::Default for PROXIMITY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PROXIMITY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROXIMITY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PROXIMITY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1920,8 +1920,8 @@ impl ::core::default::Default for SENSOR_CONNECTION_TYPES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SENSOR_CONNECTION_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENSOR_CONNECTION_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SENSOR_CONNECTION_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1951,8 +1951,8 @@ impl ::core::default::Default for SENSOR_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SENSOR_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENSOR_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SENSOR_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1986,8 +1986,8 @@ impl ::core::default::Default for SIMPLE_DEVICE_ORIENTATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SIMPLE_DEVICE_ORIENTATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIMPLE_DEVICE_ORIENTATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SIMPLE_DEVICE_ORIENTATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2015,8 +2015,8 @@ impl ::core::default::Default for SensorConnectionType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SensorConnectionType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SensorConnectionType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SensorConnectionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2054,8 +2054,8 @@ impl ::core::default::Default for SensorState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SensorState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SensorState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SensorState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2089,8 +2089,8 @@ impl ::core::default::Default for SimpleDeviceOrientation {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SimpleDeviceOrientation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SimpleDeviceOrientation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SimpleDeviceOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2108,8 +2108,8 @@ impl ::core::clone::Clone for MATRIX3X3 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MATRIX3X3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MATRIX3X3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MATRIX3X3 {
     fn default() -> Self {
@@ -2129,8 +2129,8 @@ impl ::core::clone::Clone for MATRIX3X3_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MATRIX3X3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MATRIX3X3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MATRIX3X3_0 {
     fn default() -> Self {
@@ -2161,8 +2161,8 @@ impl ::core::fmt::Debug for MATRIX3X3_0_0 {
         f.debug_struct("MATRIX3X3_0_0").field("A11", &self.A11).field("A12", &self.A12).field("A13", &self.A13).field("A21", &self.A21).field("A22", &self.A22).field("A23", &self.A23).field("A31", &self.A31).field("A32", &self.A32).field("A33", &self.A33).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MATRIX3X3_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MATRIX3X3_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MATRIX3X3_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2193,8 +2193,8 @@ impl ::core::fmt::Debug for MATRIX3X3_0_1 {
         f.debug_struct("MATRIX3X3_0_1").field("V1", &self.V1).field("V2", &self.V2).field("V3", &self.V3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MATRIX3X3_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MATRIX3X3_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MATRIX3X3_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2226,8 +2226,8 @@ impl ::core::fmt::Debug for QUATERNION {
         f.debug_struct("QUATERNION").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QUATERNION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QUATERNION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QUATERNION {
     fn eq(&self, other: &Self) -> bool {
@@ -2255,8 +2255,8 @@ impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for SENSOR_COLLECTION_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENSOR_COLLECTION_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for SENSOR_COLLECTION_LIST {
@@ -2287,8 +2287,8 @@ impl ::core::fmt::Debug for SENSOR_PROPERTY_LIST {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-unsafe impl ::windows::core::Abi for SENSOR_PROPERTY_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENSOR_PROPERTY_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for SENSOR_PROPERTY_LIST {
@@ -2318,8 +2318,8 @@ impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for SENSOR_VALUE_PAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENSOR_VALUE_PAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for SENSOR_VALUE_PAIR {
@@ -2345,8 +2345,8 @@ impl ::core::fmt::Debug for VEC3D {
         f.debug_struct("VEC3D").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VEC3D {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VEC3D {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VEC3D {
     fn eq(&self, other: &Self) -> bool {

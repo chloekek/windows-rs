@@ -3,69 +3,69 @@
 #[inline]
 pub unsafe fn HttpAddFragmentToCache<P0, P1>(requestqueuehandle: P0, urlprefix: P1, datachunk: *const HTTP_DATA_CHUNK, cachepolicy: *const HTTP_CACHE_POLICY, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpAddFragmentToCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , datachunk : *const HTTP_DATA_CHUNK , cachepolicy : *const HTTP_CACHE_POLICY , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpAddFragmentToCache(requestqueuehandle.into(), urlprefix.into().abi(), datachunk, cachepolicy, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddFragmentToCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , datachunk : *const HTTP_DATA_CHUNK , cachepolicy : *const HTTP_CACHE_POLICY , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpAddFragmentToCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), datachunk, cachepolicy, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpAddUrl<P0, P1>(requestqueuehandle: P0, fullyqualifiedurl: P1, reserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpAddUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : :: windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> u32 );
-    HttpAddUrl(requestqueuehandle.into(), fullyqualifiedurl.into().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : :: windows::core::PCWSTR , reserved : *const ::core::ffi::c_void ) -> u32 );
+    HttpAddUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpAddUrlToUrlGroup<P0>(urlgroupid: u64, pfullyqualifiedurl: P0, urlcontext: u64, reserved: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpAddUrlToUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : :: windows::core::PCWSTR , urlcontext : u64 , reserved : u32 ) -> u32 );
-    HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.into().abi(), urlcontext, reserved)
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpAddUrlToUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : :: windows::core::PCWSTR , urlcontext : u64 , reserved : u32 ) -> u32 );
+    HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.into_param().abi(), urlcontext, reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpCancelHttpRequest<P0>(requestqueuehandle: P0, requestid: u64, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCancelHttpRequest ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpCancelHttpRequest(requestqueuehandle.into(), requestid, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCancelHttpRequest ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpCancelHttpRequest(requestqueuehandle.into_param().abi(), requestid, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpCloseRequestQueue<P0>(requestqueuehandle: P0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCloseRequestQueue ( requestqueuehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    HttpCloseRequestQueue(requestqueuehandle.into())
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCloseRequestQueue ( requestqueuehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    HttpCloseRequestQueue(requestqueuehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCloseServerSession ( serversessionid : u64 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCloseServerSession ( serversessionid : u64 ) -> u32 );
     HttpCloseServerSession(serversessionid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCloseUrlGroup ( urlgroupid : u64 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCloseUrlGroup ( urlgroupid : u64 ) -> u32 );
     HttpCloseUrlGroup(urlgroupid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Foundation::HANDLE, reserved: u32) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCreateHttpHandle ( requestqueuehandle : *mut super::super::Foundation:: HANDLE , reserved : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCreateHttpHandle ( requestqueuehandle : *mut super::super::Foundation:: HANDLE , reserved : u32 ) -> u32 );
     HttpCreateHttpHandle(requestqueuehandle, reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -73,21 +73,21 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
 #[inline]
 pub unsafe fn HttpCreateRequestQueue<P0>(version: HTTPAPI_VERSION, name: P0, securityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCreateRequestQueue ( version : HTTPAPI_VERSION , name : :: windows::core::PCWSTR , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : u32 , requestqueuehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    HttpCreateRequestQueue(::core::mem::transmute(version), name.into().abi(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), flags, requestqueuehandle)
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCreateRequestQueue ( version : HTTPAPI_VERSION , name : :: windows::core::PCWSTR , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flags : u32 , requestqueuehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    HttpCreateRequestQueue(::core::mem::transmute(version), name.into_param().abi(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), flags, requestqueuehandle)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut u64, reserved: u32) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCreateServerSession ( version : HTTPAPI_VERSION , serversessionid : *mut u64 , reserved : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCreateServerSession ( version : HTTPAPI_VERSION , serversessionid : *mut u64 , reserved : u32 ) -> u32 );
     HttpCreateServerSession(::core::mem::transmute(version), serversessionid, reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, reserved: u32) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpCreateUrlGroup ( serversessionid : u64 , purlgroupid : *mut u64 , reserved : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpCreateUrlGroup ( serversessionid : u64 , purlgroupid : *mut u64 , reserved : u32 ) -> u32 );
     HttpCreateUrlGroup(serversessionid, purlgroupid, reserved)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
@@ -95,98 +95,98 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
 #[inline]
 pub unsafe fn HttpDeclarePush<P0, P1, P2>(requestqueuehandle: P0, requestid: u64, verb: HTTP_VERB, path: P1, query: P2, headers: ::core::option::Option<*const HTTP_REQUEST_HEADERS>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpDeclarePush ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , verb : HTTP_VERB , path : :: windows::core::PCWSTR , query : :: windows::core::PCSTR , headers : *const HTTP_REQUEST_HEADERS ) -> u32 );
-    HttpDeclarePush(requestqueuehandle.into(), requestid, verb, path.into().abi(), query.into().abi(), ::core::mem::transmute(headers.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpDeclarePush ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , verb : HTTP_VERB , path : :: windows::core::PCWSTR , query : :: windows::core::PCSTR , headers : *const HTTP_REQUEST_HEADERS ) -> u32 );
+    HttpDeclarePush(requestqueuehandle.into_param().abi(), requestid, verb, path.into_param().abi(), query.into_param().abi(), ::core::mem::transmute(headers.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpDelegateRequestEx<P0, P1>(requestqueuehandle: P0, delegatequeuehandle: P1, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpDelegateRequestEx ( requestqueuehandle : super::super::Foundation:: HANDLE , delegatequeuehandle : super::super::Foundation:: HANDLE , requestid : u64 , delegateurlgroupid : u64 , propertyinfosetsize : u32 , propertyinfoset : *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO ) -> u32 );
-    HttpDelegateRequestEx(requestqueuehandle.into(), delegatequeuehandle.into(), requestid, delegateurlgroupid, propertyinfosetsize, propertyinfoset)
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpDelegateRequestEx ( requestqueuehandle : super::super::Foundation:: HANDLE , delegatequeuehandle : super::super::Foundation:: HANDLE , requestid : u64 , delegateurlgroupid : u64 , propertyinfosetsize : u32 , propertyinfoset : *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO ) -> u32 );
+    HttpDelegateRequestEx(requestqueuehandle.into_param().abi(), delegatequeuehandle.into_param().abi(), requestid, delegateurlgroupid, propertyinfosetsize, propertyinfoset)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpDeleteServiceConfiguration<P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpDeleteServiceConfiguration ( servicehandle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , pconfiginformation : *const ::core::ffi::c_void , configinformationlength : u32 , poverlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpDeleteServiceConfiguration(servicehandle.into(), configid, pconfiginformation, configinformationlength, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpDeleteServiceConfiguration ( servicehandle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , pconfiginformation : *const ::core::ffi::c_void , configinformationlength : u32 , poverlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpDeleteServiceConfiguration(servicehandle.into_param().abi(), configid, pconfiginformation, configinformationlength, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpFindUrlGroupId<P0, P1>(fullyqualifiedurl: P0, requestqueuehandle: P1, urlgroupid: *mut u64) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpFindUrlGroupId ( fullyqualifiedurl : :: windows::core::PCWSTR , requestqueuehandle : super::super::Foundation:: HANDLE , urlgroupid : *mut u64 ) -> u32 );
-    HttpFindUrlGroupId(fullyqualifiedurl.into().abi(), requestqueuehandle.into(), urlgroupid)
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpFindUrlGroupId ( fullyqualifiedurl : :: windows::core::PCWSTR , requestqueuehandle : super::super::Foundation:: HANDLE , urlgroupid : *mut u64 ) -> u32 );
+    HttpFindUrlGroupId(fullyqualifiedurl.into_param().abi(), requestqueuehandle.into_param().abi(), urlgroupid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpFlushResponseCache<P0, P1>(requestqueuehandle: P0, urlprefix: P1, flags: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpFlushResponseCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , flags : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpFlushResponseCache(requestqueuehandle.into(), urlprefix.into().abi(), flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpFlushResponseCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , flags : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpFlushResponseCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpGetExtension ( version : HTTPAPI_VERSION , extension : u32 , buffer : *mut ::core::ffi::c_void , buffersize : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpGetExtension ( version : HTTPAPI_VERSION , extension : u32 , buffer : *mut ::core::ffi::c_void , buffersize : u32 ) -> u32 );
     HttpGetExtension(::core::mem::transmute(version), extension, buffer, buffersize)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpInitialize ( version : HTTPAPI_VERSION , flags : HTTP_INITIALIZE , preserved : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpInitialize ( version : HTTPAPI_VERSION , flags : HTTP_INITIALIZE , preserved : *mut ::core::ffi::c_void ) -> u32 );
     HttpInitialize(::core::mem::transmute(version), flags, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpIsFeatureSupported ( featureid : HTTP_FEATURE_ID ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpIsFeatureSupported ( featureid : HTTP_FEATURE_ID ) -> super::super::Foundation:: BOOL );
     HttpIsFeatureSupported(featureid)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpPrepareUrl<P0>(reserved: ::core::option::Option<*const ::core::ffi::c_void>, flags: u32, url: P0, preparedurl: *mut ::windows::core::PWSTR) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpPrepareUrl ( reserved : *const ::core::ffi::c_void , flags : u32 , url : :: windows::core::PCWSTR , preparedurl : *mut :: windows::core::PWSTR ) -> u32 );
-    HttpPrepareUrl(::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), flags, url.into().abi(), preparedurl)
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpPrepareUrl ( reserved : *const ::core::ffi::c_void , flags : u32 , url : :: windows::core::PCWSTR , preparedurl : *mut :: windows::core::PWSTR ) -> u32 );
+    HttpPrepareUrl(::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), flags, url.into_param().abi(), preparedurl)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpQueryRequestQueueProperty<P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<*mut ::core::ffi::c_void>, propertyinformationlength: u32, reserved1: u32, returnlength: ::core::option::Option<*mut u32>, reserved2: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpQueryRequestQueueProperty ( requestqueuehandle : super::super::Foundation:: HANDLE , property : HTTP_SERVER_PROPERTY , propertyinformation : *mut ::core::ffi::c_void , propertyinformationlength : u32 , reserved1 : u32 , returnlength : *mut u32 , reserved2 : *const ::core::ffi::c_void ) -> u32 );
-    HttpQueryRequestQueueProperty(requestqueuehandle.into(), property, ::core::mem::transmute(propertyinformation.unwrap_or(::std::ptr::null_mut())), propertyinformationlength, reserved1, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpQueryRequestQueueProperty ( requestqueuehandle : super::super::Foundation:: HANDLE , property : HTTP_SERVER_PROPERTY , propertyinformation : *mut ::core::ffi::c_void , propertyinformationlength : u32 , reserved1 : u32 , returnlength : *mut u32 , reserved2 : *const ::core::ffi::c_void ) -> u32 );
+    HttpQueryRequestQueueProperty(requestqueuehandle.into_param().abi(), property, ::core::mem::transmute(propertyinformation.unwrap_or(::std::ptr::null_mut())), propertyinformationlength, reserved1, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<*mut ::core::ffi::c_void>, propertyinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpQueryServerSessionProperty ( serversessionid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *mut ::core::ffi::c_void , propertyinformationlength : u32 , returnlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpQueryServerSessionProperty ( serversessionid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *mut ::core::ffi::c_void , propertyinformationlength : u32 , returnlength : *mut u32 ) -> u32 );
     HttpQueryServerSessionProperty(serversessionid, property, ::core::mem::transmute(propertyinformation.unwrap_or(::std::ptr::null_mut())), propertyinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -194,15 +194,15 @@ pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTT
 #[inline]
 pub unsafe fn HttpQueryServiceConfiguration<P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pinput: ::core::option::Option<*const ::core::ffi::c_void>, inputlength: u32, poutput: ::core::option::Option<*mut ::core::ffi::c_void>, outputlength: u32, preturnlength: ::core::option::Option<*mut u32>, poverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpQueryServiceConfiguration ( servicehandle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , pinput : *const ::core::ffi::c_void , inputlength : u32 , poutput : *mut ::core::ffi::c_void , outputlength : u32 , preturnlength : *mut u32 , poverlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpQueryServiceConfiguration(servicehandle.into(), configid, ::core::mem::transmute(pinput.unwrap_or(::std::ptr::null())), inputlength, ::core::mem::transmute(poutput.unwrap_or(::std::ptr::null_mut())), outputlength, ::core::mem::transmute(preturnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpQueryServiceConfiguration ( servicehandle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , pinput : *const ::core::ffi::c_void , inputlength : u32 , poutput : *mut ::core::ffi::c_void , outputlength : u32 , preturnlength : *mut u32 , poverlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpQueryServiceConfiguration(servicehandle.into_param().abi(), configid, ::core::mem::transmute(pinput.unwrap_or(::std::ptr::null())), inputlength, ::core::mem::transmute(poutput.unwrap_or(::std::ptr::null_mut())), outputlength, ::core::mem::transmute(preturnlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: ::core::option::Option<*mut ::core::ffi::c_void>, propertyinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpQueryUrlGroupProperty ( urlgroupid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *mut ::core::ffi::c_void , propertyinformationlength : u32 , returnlength : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpQueryUrlGroupProperty ( urlgroupid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *mut ::core::ffi::c_void , propertyinformationlength : u32 , returnlength : *mut u32 ) -> u32 );
     HttpQueryUrlGroupProperty(urlgroupid, property, ::core::mem::transmute(propertyinformation.unwrap_or(::std::ptr::null_mut())), propertyinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -210,106 +210,117 @@ pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_P
 #[inline]
 pub unsafe fn HttpReadFragmentFromCache<P0, P1>(requestqueuehandle: P0, urlprefix: P1, byterange: ::core::option::Option<*const HTTP_BYTE_RANGE>, buffer: *mut ::core::ffi::c_void, bufferlength: u32, bytesread: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpReadFragmentFromCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , byterange : *const HTTP_BYTE_RANGE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 , bytesread : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpReadFragmentFromCache(requestqueuehandle.into(), urlprefix.into().abi(), ::core::mem::transmute(byterange.unwrap_or(::std::ptr::null())), buffer, bufferlength, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpReadFragmentFromCache ( requestqueuehandle : super::super::Foundation:: HANDLE , urlprefix : :: windows::core::PCWSTR , byterange : *const HTTP_BYTE_RANGE , buffer : *mut ::core::ffi::c_void , bufferlength : u32 , bytesread : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpReadFragmentFromCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::core::mem::transmute(byterange.unwrap_or(::std::ptr::null())), buffer, bufferlength, ::core::mem::transmute(bytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveClientCertificate<P0>(requestqueuehandle: P0, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpReceiveClientCertificate ( requestqueuehandle : super::super::Foundation:: HANDLE , connectionid : u64 , flags : u32 , sslclientcertinfo : *mut HTTP_SSL_CLIENT_CERT_INFO , sslclientcertinfosize : u32 , bytesreceived : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpReceiveClientCertificate(requestqueuehandle.into(), connectionid, flags, sslclientcertinfo, sslclientcertinfosize, ::core::mem::transmute(bytesreceived.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpReceiveClientCertificate ( requestqueuehandle : super::super::Foundation:: HANDLE , connectionid : u64 , flags : u32 , sslclientcertinfo : *mut HTTP_SSL_CLIENT_CERT_INFO , sslclientcertinfosize : u32 , bytesreceived : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpReceiveClientCertificate(requestqueuehandle.into_param().abi(), connectionid, flags, sslclientcertinfo, sslclientcertinfosize, ::core::mem::transmute(bytesreceived.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveHttpRequest<P0>(requestqueuehandle: P0, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpReceiveHttpRequest ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : HTTP_RECEIVE_HTTP_REQUEST_FLAGS , requestbuffer : *mut HTTP_REQUEST_V2 , requestbufferlength : u32 , bytesreturned : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpReceiveHttpRequest(requestqueuehandle.into(), requestid, flags, requestbuffer, requestbufferlength, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpReceiveHttpRequest ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : HTTP_RECEIVE_HTTP_REQUEST_FLAGS , requestbuffer : *mut HTTP_REQUEST_V2 , requestbufferlength : u32 , bytesreturned : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpReceiveHttpRequest(requestqueuehandle.into_param().abi(), requestid, flags, requestbuffer, requestbufferlength, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveRequestEntityBody<P0>(requestqueuehandle: P0, requestid: u64, flags: u32, entitybuffer: *mut ::core::ffi::c_void, entitybufferlength: u32, bytesreturned: ::core::option::Option<*mut u32>, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpReceiveRequestEntityBody ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : u32 , entitybuffer : *mut ::core::ffi::c_void , entitybufferlength : u32 , bytesreturned : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpReceiveRequestEntityBody(requestqueuehandle.into(), requestid, flags, entitybuffer, entitybufferlength, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpReceiveRequestEntityBody ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : u32 , entitybuffer : *mut ::core::ffi::c_void , entitybufferlength : u32 , bytesreturned : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpReceiveRequestEntityBody(requestqueuehandle.into_param().abi(), requestid, flags, entitybuffer, entitybufferlength, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpRemoveUrl<P0, P1>(requestqueuehandle: P0, fullyqualifiedurl: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpRemoveUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : :: windows::core::PCWSTR ) -> u32 );
-    HttpRemoveUrl(requestqueuehandle.into(), fullyqualifiedurl.into().abi())
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpRemoveUrl ( requestqueuehandle : super::super::Foundation:: HANDLE , fullyqualifiedurl : :: windows::core::PCWSTR ) -> u32 );
+    HttpRemoveUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpRemoveUrlFromUrlGroup<P0>(urlgroupid: u64, pfullyqualifiedurl: P0, flags: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpRemoveUrlFromUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : :: windows::core::PCWSTR , flags : u32 ) -> u32 );
-    HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.into().abi(), flags)
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpRemoveUrlFromUrlGroup ( urlgroupid : u64 , pfullyqualifiedurl : :: windows::core::PCWSTR , flags : u32 ) -> u32 );
+    HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSendHttpResponse<P0>(requestqueuehandle: P0, requestid: u64, flags: u32, httpresponse: *const HTTP_RESPONSE_V2, cachepolicy: ::core::option::Option<*const HTTP_CACHE_POLICY>, bytessent: ::core::option::Option<*mut u32>, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, reserved2: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, logdata: ::core::option::Option<*const HTTP_LOG_DATA>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpSendHttpResponse ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : u32 , httpresponse : *const HTTP_RESPONSE_V2 , cachepolicy : *const HTTP_CACHE_POLICY , bytessent : *mut u32 , reserved1 : *const ::core::ffi::c_void , reserved2 : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , logdata : *const HTTP_LOG_DATA ) -> u32 );
-    HttpSendHttpResponse(requestqueuehandle.into(), requestid, flags, httpresponse, ::core::mem::transmute(cachepolicy.unwrap_or(::std::ptr::null())), ::core::mem::transmute(bytessent.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), reserved2, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), ::core::mem::transmute(logdata.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpSendHttpResponse ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : u32 , httpresponse : *const HTTP_RESPONSE_V2 , cachepolicy : *const HTTP_CACHE_POLICY , bytessent : *mut u32 , reserved1 : *const ::core::ffi::c_void , reserved2 : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , logdata : *const HTTP_LOG_DATA ) -> u32 );
+    HttpSendHttpResponse(requestqueuehandle.into_param().abi(), requestid, flags, httpresponse, ::core::mem::transmute(cachepolicy.unwrap_or(::std::ptr::null())), ::core::mem::transmute(bytessent.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), reserved2, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), ::core::mem::transmute(logdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSendResponseEntityBody<P0>(requestqueuehandle: P0, requestid: u64, flags: u32, entitychunks: ::core::option::Option<&[HTTP_DATA_CHUNK]>, bytessent: ::core::option::Option<*mut u32>, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, reserved2: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, logdata: ::core::option::Option<*const HTTP_LOG_DATA>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpSendResponseEntityBody ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : u32 , entitychunkcount : u16 , entitychunks : *const HTTP_DATA_CHUNK , bytessent : *mut u32 , reserved1 : *const ::core::ffi::c_void , reserved2 : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , logdata : *const HTTP_LOG_DATA ) -> u32 );
-    HttpSendResponseEntityBody(requestqueuehandle.into(), requestid, flags, entitychunks.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(entitychunks.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(bytessent.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), reserved2, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), ::core::mem::transmute(logdata.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpSendResponseEntityBody ( requestqueuehandle : super::super::Foundation:: HANDLE , requestid : u64 , flags : u32 , entitychunkcount : u16 , entitychunks : *const HTTP_DATA_CHUNK , bytessent : *mut u32 , reserved1 : *const ::core::ffi::c_void , reserved2 : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , logdata : *const HTTP_LOG_DATA ) -> u32 );
+    HttpSendResponseEntityBody(
+        requestqueuehandle.into_param().abi(),
+        requestid,
+        flags,
+        entitychunks.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(entitychunks.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        ::core::mem::transmute(bytessent.unwrap_or(::std::ptr::null_mut())),
+        ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())),
+        reserved2,
+        ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())),
+        ::core::mem::transmute(logdata.unwrap_or(::std::ptr::null())),
+    )
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSetRequestProperty<P0>(requestqueuehandle: P0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: ::core::option::Option<*const ::core::ffi::c_void>, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpSetRequestProperty ( requestqueuehandle : super::super::Foundation:: HANDLE , id : u64 , propertyid : HTTP_REQUEST_PROPERTY , input : *const ::core::ffi::c_void , inputpropertysize : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpSetRequestProperty(requestqueuehandle.into(), id, propertyid, ::core::mem::transmute(input.unwrap_or(::std::ptr::null())), inputpropertysize, overlapped)
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpSetRequestProperty ( requestqueuehandle : super::super::Foundation:: HANDLE , id : u64 , propertyid : HTTP_REQUEST_PROPERTY , input : *const ::core::ffi::c_void , inputpropertysize : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpSetRequestProperty(requestqueuehandle.into_param().abi(), id, propertyid, ::core::mem::transmute(input.unwrap_or(::std::ptr::null())), inputpropertysize, overlapped)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpSetRequestQueueProperty<P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpSetRequestQueueProperty ( requestqueuehandle : super::super::Foundation:: HANDLE , property : HTTP_SERVER_PROPERTY , propertyinformation : *const ::core::ffi::c_void , propertyinformationlength : u32 , reserved1 : u32 , reserved2 : *const ::core::ffi::c_void ) -> u32 );
-    HttpSetRequestQueueProperty(requestqueuehandle.into(), property, propertyinformation, propertyinformationlength, reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpSetRequestQueueProperty ( requestqueuehandle : super::super::Foundation:: HANDLE , property : HTTP_SERVER_PROPERTY , propertyinformation : *const ::core::ffi::c_void , propertyinformationlength : u32 , reserved1 : u32 , reserved2 : *const ::core::ffi::c_void ) -> u32 );
+    HttpSetRequestQueueProperty(requestqueuehandle.into_param().abi(), property, propertyinformation, propertyinformationlength, reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpSetServerSessionProperty ( serversessionid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *const ::core::ffi::c_void , propertyinformationlength : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpSetServerSessionProperty ( serversessionid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *const ::core::ffi::c_void , propertyinformationlength : u32 ) -> u32 );
     HttpSetServerSessionProperty(serversessionid, property, propertyinformation, propertyinformationlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -317,15 +328,15 @@ pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_
 #[inline]
 pub unsafe fn HttpSetServiceConfiguration<P0>(servicehandle: P0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::core::ffi::c_void, configinformationlength: u32, poverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpSetServiceConfiguration ( servicehandle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , pconfiginformation : *const ::core::ffi::c_void , configinformationlength : u32 , poverlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpSetServiceConfiguration(servicehandle.into(), configid, pconfiginformation, configinformationlength, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpSetServiceConfiguration ( servicehandle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , pconfiginformation : *const ::core::ffi::c_void , configinformationlength : u32 , poverlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpSetServiceConfiguration(servicehandle.into_param().abi(), configid, pconfiginformation, configinformationlength, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::core::ffi::c_void, propertyinformationlength: u32) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpSetUrlGroupProperty ( urlgroupid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *const ::core::ffi::c_void , propertyinformationlength : u32 ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpSetUrlGroupProperty ( urlgroupid : u64 , property : HTTP_SERVER_PROPERTY , propertyinformation : *const ::core::ffi::c_void , propertyinformationlength : u32 ) -> u32 );
     HttpSetUrlGroupProperty(urlgroupid, property, propertyinformation, propertyinformationlength)
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
@@ -333,15 +344,15 @@ pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PRO
 #[inline]
 pub unsafe fn HttpShutdownRequestQueue<P0>(requestqueuehandle: P0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpShutdownRequestQueue ( requestqueuehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    HttpShutdownRequestQueue(requestqueuehandle.into())
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpShutdownRequestQueue ( requestqueuehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    HttpShutdownRequestQueue(requestqueuehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[inline]
 pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpTerminate ( flags : HTTP_INITIALIZE , preserved : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpTerminate ( flags : HTTP_INITIALIZE , preserved : *mut ::core::ffi::c_void ) -> u32 );
     HttpTerminate(flags, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -349,40 +360,40 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: ::core::option::O
 #[inline]
 pub unsafe fn HttpUpdateServiceConfiguration<P0>(handle: P0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::core::ffi::c_void, configinfolength: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpUpdateServiceConfiguration ( handle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , configinfo : *const ::core::ffi::c_void , configinfolength : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpUpdateServiceConfiguration(handle.into(), configid, configinfo, configinfolength, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpUpdateServiceConfiguration ( handle : super::super::Foundation:: HANDLE , configid : HTTP_SERVICE_CONFIG_ID , configinfo : *const ::core::ffi::c_void , configinfolength : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpUpdateServiceConfiguration(handle.into_param().abi(), configid, configinfo, configinfolength, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDemandStart<P0>(requestqueuehandle: P0, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpWaitForDemandStart ( requestqueuehandle : super::super::Foundation:: HANDLE , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpWaitForDemandStart(requestqueuehandle.into(), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpWaitForDemandStart ( requestqueuehandle : super::super::Foundation:: HANDLE , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpWaitForDemandStart(requestqueuehandle.into_param().abi(), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDisconnect<P0>(requestqueuehandle: P0, connectionid: u64, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpWaitForDisconnect ( requestqueuehandle : super::super::Foundation:: HANDLE , connectionid : u64 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpWaitForDisconnect(requestqueuehandle.into(), connectionid, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpWaitForDisconnect ( requestqueuehandle : super::super::Foundation:: HANDLE , connectionid : u64 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpWaitForDisconnect(requestqueuehandle.into_param().abi(), connectionid, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDisconnectEx<P0>(requestqueuehandle: P0, connectionid: u64, reserved: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "httpapi.dll""system" fn HttpWaitForDisconnectEx ( requestqueuehandle : super::super::Foundation:: HANDLE , connectionid : u64 , reserved : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
-    HttpWaitForDisconnectEx(requestqueuehandle.into(), connectionid, reserved, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "httpapi.dll""system" fn HttpWaitForDisconnectEx ( requestqueuehandle : super::super::Foundation:: HANDLE , connectionid : u64 , reserved : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> u32 );
+    HttpWaitForDisconnectEx(requestqueuehandle.into_param().abi(), connectionid, reserved, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
@@ -597,8 +608,8 @@ impl ::core::default::Default for HTTP_503_RESPONSE_VERBOSITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_503_RESPONSE_VERBOSITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_503_RESPONSE_VERBOSITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_503_RESPONSE_VERBOSITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -626,8 +637,8 @@ impl ::core::default::Default for HTTP_AUTHENTICATION_HARDENING_LEVELS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_AUTHENTICATION_HARDENING_LEVELS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_AUTHENTICATION_HARDENING_LEVELS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -655,8 +666,8 @@ impl ::core::default::Default for HTTP_AUTH_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_AUTH_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_AUTH_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_AUTH_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -686,8 +697,8 @@ impl ::core::default::Default for HTTP_CACHE_POLICY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_CACHE_POLICY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_CACHE_POLICY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_CACHE_POLICY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -713,8 +724,8 @@ impl ::core::default::Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -748,8 +759,8 @@ impl ::core::default::Default for HTTP_DATA_CHUNK_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_DATA_CHUNK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -775,8 +786,8 @@ impl ::core::default::Default for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -802,8 +813,8 @@ impl ::core::default::Default for HTTP_ENABLED_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_ENABLED_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_ENABLED_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_ENABLED_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -837,8 +848,8 @@ impl ::core::default::Default for HTTP_FEATURE_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_FEATURE_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_FEATURE_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_FEATURE_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -968,8 +979,8 @@ impl ::core::default::Default for HTTP_HEADER_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_HEADER_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_HEADER_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_HEADER_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -995,8 +1006,8 @@ impl ::core::default::Default for HTTP_INITIALIZE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_INITIALIZE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_INITIALIZE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_INITIALIZE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1061,8 +1072,8 @@ impl ::core::default::Default for HTTP_LOGGING_ROLLOVER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_LOGGING_ROLLOVER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_LOGGING_ROLLOVER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_LOGGING_ROLLOVER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1092,8 +1103,8 @@ impl ::core::default::Default for HTTP_LOGGING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_LOGGING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_LOGGING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_LOGGING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1117,8 +1128,8 @@ impl ::core::default::Default for HTTP_LOG_DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_LOG_DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_LOG_DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_LOG_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1154,8 +1165,8 @@ impl ::core::default::Default for HTTP_PERFORMANCE_PARAM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_PERFORMANCE_PARAM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_PERFORMANCE_PARAM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_PERFORMANCE_PARAM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1183,8 +1194,8 @@ impl ::core::default::Default for HTTP_PROTECTION_LEVEL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_PROTECTION_LEVEL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_PROTECTION_LEVEL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_PROTECTION_LEVEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1212,8 +1223,8 @@ impl ::core::default::Default for HTTP_QOS_SETTING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_QOS_SETTING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_QOS_SETTING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_QOS_SETTING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1239,8 +1250,8 @@ impl ::core::default::Default for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1274,8 +1285,8 @@ impl ::core::default::Default for HTTP_REQUEST_AUTH_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_AUTH_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_AUTH_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_REQUEST_AUTH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1317,8 +1328,8 @@ impl ::core::default::Default for HTTP_REQUEST_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_REQUEST_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1356,8 +1367,8 @@ impl ::core::default::Default for HTTP_REQUEST_PROPERTY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_REQUEST_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1391,8 +1402,8 @@ impl ::core::default::Default for HTTP_REQUEST_SIZING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_SIZING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_SIZING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_REQUEST_SIZING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1476,8 +1487,8 @@ impl ::core::default::Default for HTTP_REQUEST_TIMING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_TIMING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_REQUEST_TIMING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1507,8 +1518,8 @@ impl ::core::default::Default for HTTP_RESPONSE_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_RESPONSE_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_RESPONSE_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_RESPONSE_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1536,8 +1547,8 @@ impl ::core::default::Default for HTTP_SCHEME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SCHEME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SCHEME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SCHEME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1585,8 +1596,8 @@ impl ::core::default::Default for HTTP_SERVER_PROPERTY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVER_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVER_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SERVER_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1614,8 +1625,8 @@ impl ::core::default::Default for HTTP_SERVICE_BINDING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_BINDING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1641,8 +1652,8 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_CACHE_KEY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_CACHE_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_CACHE_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_CACHE_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1692,8 +1703,8 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1721,8 +1732,8 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_QUERY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_QUERY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_QUERY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1748,8 +1759,8 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_SETTING_KEY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SETTING_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SETTING_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SETTING_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1775,8 +1786,8 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1812,8 +1823,8 @@ impl ::core::default::Default for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1877,8 +1888,8 @@ impl ::core::default::Default for HTTP_VERB {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_VERB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_VERB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTP_VERB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1902,8 +1913,8 @@ impl ::core::fmt::Debug for HTTP2_SETTINGS_LIMITS_PARAM {
         f.debug_struct("HTTP2_SETTINGS_LIMITS_PARAM").field("Http2MaxSettingsPerFrame", &self.Http2MaxSettingsPerFrame).field("Http2MaxSettingsPerMinute", &self.Http2MaxSettingsPerMinute).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP2_SETTINGS_LIMITS_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP2_SETTINGS_LIMITS_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP2_SETTINGS_LIMITS_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -1932,8 +1943,8 @@ impl ::core::fmt::Debug for HTTP2_WINDOW_SIZE_PARAM {
         f.debug_struct("HTTP2_WINDOW_SIZE_PARAM").field("Http2ReceiveWindowSize", &self.Http2ReceiveWindowSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP2_WINDOW_SIZE_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP2_WINDOW_SIZE_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP2_WINDOW_SIZE_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -1963,8 +1974,8 @@ impl ::core::fmt::Debug for HTTPAPI_VERSION {
         f.debug_struct("HTTPAPI_VERSION").field("HttpApiMajorVersion", &self.HttpApiMajorVersion).field("HttpApiMinorVersion", &self.HttpApiMinorVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTPAPI_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTPAPI_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTPAPI_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -1994,8 +2005,8 @@ impl ::core::fmt::Debug for HTTP_BANDWIDTH_LIMIT_INFO {
         f.debug_struct("HTTP_BANDWIDTH_LIMIT_INFO").field("Flags", &self.Flags).field("MaxBandwidth", &self.MaxBandwidth).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_BANDWIDTH_LIMIT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_BANDWIDTH_LIMIT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_BANDWIDTH_LIMIT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2030,8 +2041,8 @@ impl ::core::fmt::Debug for HTTP_BINDING_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_BINDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_BINDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_BINDING_INFO {
@@ -2064,8 +2075,8 @@ impl ::core::fmt::Debug for HTTP_BYTE_RANGE {
         f.debug_struct("HTTP_BYTE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_BYTE_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_BYTE_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_BYTE_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -2095,8 +2106,8 @@ impl ::core::fmt::Debug for HTTP_CACHE_POLICY {
         f.debug_struct("HTTP_CACHE_POLICY").field("Policy", &self.Policy).field("SecondsToLive", &self.SecondsToLive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_CACHE_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_CACHE_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_CACHE_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -2128,8 +2139,8 @@ impl ::core::fmt::Debug for HTTP_CHANNEL_BIND_INFO {
         f.debug_struct("HTTP_CHANNEL_BIND_INFO").field("Hardening", &self.Hardening).field("Flags", &self.Flags).field("ServiceNames", &self.ServiceNames).field("NumberOfServiceNames", &self.NumberOfServiceNames).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_CHANNEL_BIND_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_CHANNEL_BIND_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_CHANNEL_BIND_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2159,8 +2170,8 @@ impl ::core::fmt::Debug for HTTP_CONNECTION_LIMIT_INFO {
         f.debug_struct("HTTP_CONNECTION_LIMIT_INFO").field("Flags", &self.Flags).field("MaxConnections", &self.MaxConnections).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_CONNECTION_LIMIT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_CONNECTION_LIMIT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_CONNECTION_LIMIT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2196,8 +2207,8 @@ impl ::core::fmt::Debug for HTTP_COOKED_URL {
         f.debug_struct("HTTP_COOKED_URL").field("FullUrlLength", &self.FullUrlLength).field("HostLength", &self.HostLength).field("AbsPathLength", &self.AbsPathLength).field("QueryStringLength", &self.QueryStringLength).field("pFullUrl", &self.pFullUrl).field("pHost", &self.pHost).field("pAbsPath", &self.pAbsPath).field("pQueryString", &self.pQueryString).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_COOKED_URL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_COOKED_URL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_COOKED_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -2228,8 +2239,8 @@ impl ::core::fmt::Debug for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
         f.debug_struct("HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO").field("PropertyId", &self.PropertyId).field("PropertyInfoLength", &self.PropertyInfoLength).field("PropertyInfo", &self.PropertyInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2258,8 +2269,8 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_DATA_CHUNK {
@@ -2286,8 +2297,8 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_DATA_CHUNK_0 {
@@ -2317,8 +2328,8 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_0 {
@@ -2356,8 +2367,8 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_1 {
@@ -2395,8 +2406,8 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_2 {
@@ -2434,8 +2445,8 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_3 {
@@ -2473,8 +2484,8 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DATA_CHUNK_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_4 {
@@ -2508,8 +2519,8 @@ impl ::core::fmt::Debug for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
         f.debug_struct("HTTP_DELEGATE_REQUEST_PROPERTY_INFO").field("PropertyId", &self.PropertyId).field("PropertyInfoLength", &self.PropertyInfoLength).field("PropertyInfo", &self.PropertyInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2540,8 +2551,8 @@ impl ::core::fmt::Debug for HTTP_ERROR_HEADERS_PARAM {
         f.debug_struct("HTTP_ERROR_HEADERS_PARAM").field("StatusCode", &self.StatusCode).field("HeaderCount", &self.HeaderCount).field("Headers", &self.Headers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_ERROR_HEADERS_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_ERROR_HEADERS_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_ERROR_HEADERS_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -2573,8 +2584,8 @@ impl ::core::fmt::Debug for HTTP_FLOWRATE_INFO {
         f.debug_struct("HTTP_FLOWRATE_INFO").field("Flags", &self.Flags).field("MaxBandwidth", &self.MaxBandwidth).field("MaxPeakBandwidth", &self.MaxPeakBandwidth).field("BurstSize", &self.BurstSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_FLOWRATE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_FLOWRATE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_FLOWRATE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2604,8 +2615,8 @@ impl ::core::fmt::Debug for HTTP_KNOWN_HEADER {
         f.debug_struct("HTTP_KNOWN_HEADER").field("RawValueLength", &self.RawValueLength).field("pRawValue", &self.pRawValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_KNOWN_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_KNOWN_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_KNOWN_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -2640,8 +2651,8 @@ impl ::core::fmt::Debug for HTTP_LISTEN_ENDPOINT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_LISTEN_ENDPOINT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_LISTEN_ENDPOINT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_LISTEN_ENDPOINT_INFO {
@@ -2706,8 +2717,8 @@ impl ::core::fmt::Debug for HTTP_LOGGING_INFO {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for HTTP_LOGGING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_LOGGING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for HTTP_LOGGING_INFO {
@@ -2739,8 +2750,8 @@ impl ::core::fmt::Debug for HTTP_LOG_DATA {
         f.debug_struct("HTTP_LOG_DATA").field("Type", &self.Type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_LOG_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_LOG_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_LOG_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2829,8 +2840,8 @@ impl ::core::fmt::Debug for HTTP_LOG_FIELDS_DATA {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_LOG_FIELDS_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_LOG_FIELDS_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_LOG_FIELDS_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2891,8 +2902,8 @@ impl ::core::fmt::Debug for HTTP_MULTIPLE_KNOWN_HEADERS {
         f.debug_struct("HTTP_MULTIPLE_KNOWN_HEADERS").field("HeaderId", &self.HeaderId).field("Flags", &self.Flags).field("KnownHeaderCount", &self.KnownHeaderCount).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_MULTIPLE_KNOWN_HEADERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_MULTIPLE_KNOWN_HEADERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn eq(&self, other: &Self) -> bool {
@@ -2923,8 +2934,8 @@ impl ::core::fmt::Debug for HTTP_PERFORMANCE_PARAM {
         f.debug_struct("HTTP_PERFORMANCE_PARAM").field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_PERFORMANCE_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_PERFORMANCE_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_PERFORMANCE_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -2953,8 +2964,8 @@ impl ::core::fmt::Debug for HTTP_PROPERTY_FLAGS {
         f.debug_struct("HTTP_PROPERTY_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_PROPERTY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_PROPERTY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_PROPERTY_FLAGS {
     fn eq(&self, other: &Self) -> bool {
@@ -2984,8 +2995,8 @@ impl ::core::fmt::Debug for HTTP_PROTECTION_LEVEL_INFO {
         f.debug_struct("HTTP_PROTECTION_LEVEL_INFO").field("Flags", &self.Flags).field("Level", &self.Level).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_PROTECTION_LEVEL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_PROTECTION_LEVEL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_PROTECTION_LEVEL_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3015,8 +3026,8 @@ impl ::core::fmt::Debug for HTTP_QOS_SETTING_INFO {
         f.debug_struct("HTTP_QOS_SETTING_INFO").field("QosType", &self.QosType).field("QosSetting", &self.QosSetting).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_QOS_SETTING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_QOS_SETTING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_QOS_SETTING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3045,8 +3056,8 @@ impl ::core::fmt::Debug for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
         f.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_QUIC").field("Freshness", &self.Freshness).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     fn eq(&self, other: &Self) -> bool {
@@ -3075,8 +3086,8 @@ impl ::core::fmt::Debug for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
         f.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_TCP").field("Freshness", &self.Freshness).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     fn eq(&self, other: &Self) -> bool {
@@ -3106,8 +3117,8 @@ impl ::core::fmt::Debug for HTTP_QUIC_API_TIMINGS {
         f.debug_struct("HTTP_QUIC_API_TIMINGS").field("ConnectionTimings", &self.ConnectionTimings).field("StreamTimings", &self.StreamTimings).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_QUIC_API_TIMINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_QUIC_API_TIMINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -3162,8 +3173,8 @@ impl ::core::fmt::Debug for HTTP_QUIC_CONNECTION_API_TIMINGS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_QUIC_CONNECTION_API_TIMINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_QUIC_CONNECTION_API_TIMINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_CONNECTION_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -3228,8 +3239,8 @@ impl ::core::fmt::Debug for HTTP_QUIC_STREAM_API_TIMINGS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_QUIC_STREAM_API_TIMINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_QUIC_STREAM_API_TIMINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_QUIC_STREAM_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -3289,8 +3300,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_AUTH_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_AUTH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_AUTH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_AUTH_INFO {
@@ -3325,8 +3336,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_CHANNEL_BIND_STATUS {
         f.debug_struct("HTTP_REQUEST_CHANNEL_BIND_STATUS").field("ServiceName", &self.ServiceName).field("ChannelToken", &self.ChannelToken).field("ChannelTokenSize", &self.ChannelTokenSize).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_CHANNEL_BIND_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_CHANNEL_BIND_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -3359,8 +3370,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_HEADERS {
         f.debug_struct("HTTP_REQUEST_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_HEADERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_HEADERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_HEADERS {
     fn eq(&self, other: &Self) -> bool {
@@ -3391,8 +3402,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_INFO {
         f.debug_struct("HTTP_REQUEST_INFO").field("InfoType", &self.InfoType).field("InfoLength", &self.InfoLength).field("pInfo", &self.pInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3422,8 +3433,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_PROPERTY_SNI {
         f.debug_struct("HTTP_REQUEST_PROPERTY_SNI").field("Hostname", &self.Hostname).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_SNI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_PROPERTY_SNI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_PROPERTY_SNI {
     fn eq(&self, other: &Self) -> bool {
@@ -3452,8 +3463,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
         f.debug_struct("HTTP_REQUEST_PROPERTY_STREAM_ERROR").field("ErrorCode", &self.ErrorCode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     fn eq(&self, other: &Self) -> bool {
@@ -3485,8 +3496,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_SIZING_INFO {
         f.debug_struct("HTTP_REQUEST_SIZING_INFO").field("Flags", &self.Flags).field("RequestIndex", &self.RequestIndex).field("RequestSizingCount", &self.RequestSizingCount).field("RequestSizing", &self.RequestSizing).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_SIZING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_SIZING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_SIZING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3516,8 +3527,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_TIMING_INFO {
         f.debug_struct("HTTP_REQUEST_TIMING_INFO").field("RequestTimingCount", &self.RequestTimingCount).field("RequestTiming", &self.RequestTiming).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_TIMING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_TIMING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_TIMING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3550,8 +3561,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_TOKEN_BINDING_INFO {
         f.debug_struct("HTTP_REQUEST_TOKEN_BINDING_INFO").field("TokenBinding", &self.TokenBinding).field("TokenBindingSize", &self.TokenBindingSize).field("EKM", &self.EKM).field("EKMSize", &self.EKMSize).field("KeyType", &self.KeyType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_TOKEN_BINDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_TOKEN_BINDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_REQUEST_TOKEN_BINDING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3621,8 +3632,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_V1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_V1 {
@@ -3661,8 +3672,8 @@ impl ::core::fmt::Debug for HTTP_REQUEST_V2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_REQUEST_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_REQUEST_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_REQUEST_V2 {
@@ -3698,8 +3709,8 @@ impl ::core::fmt::Debug for HTTP_RESPONSE_HEADERS {
         f.debug_struct("HTTP_RESPONSE_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_RESPONSE_HEADERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_RESPONSE_HEADERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_HEADERS {
     fn eq(&self, other: &Self) -> bool {
@@ -3730,8 +3741,8 @@ impl ::core::fmt::Debug for HTTP_RESPONSE_INFO {
         f.debug_struct("HTTP_RESPONSE_INFO").field("Type", &self.Type).field("Length", &self.Length).field("pInfo", &self.pInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_RESPONSE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_RESPONSE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3772,8 +3783,8 @@ impl ::core::fmt::Debug for HTTP_RESPONSE_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_RESPONSE_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_RESPONSE_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_V1 {
@@ -3812,8 +3823,8 @@ impl ::core::fmt::Debug for HTTP_RESPONSE_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_RESPONSE_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_RESPONSE_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_RESPONSE_V2 {
@@ -3846,8 +3857,8 @@ impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
         f.debug_struct("HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS").field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -3879,8 +3890,8 @@ impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
         f.debug_struct("HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS").field("DomainNameLength", &self.DomainNameLength).field("DomainName", &self.DomainName).field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -3921,8 +3932,8 @@ impl ::core::fmt::Debug for HTTP_SERVER_AUTHENTICATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_SERVER_AUTHENTICATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVER_AUTHENTICATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_INFO {
@@ -3956,8 +3967,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_A {
         f.debug_struct("HTTP_SERVICE_BINDING_A").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_BINDING_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_A {
     fn eq(&self, other: &Self) -> bool {
@@ -3986,8 +3997,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_BASE {
         f.debug_struct("HTTP_SERVICE_BINDING_BASE").field("Type", &self.Type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_BASE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_BINDING_BASE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_BASE {
     fn eq(&self, other: &Self) -> bool {
@@ -4018,8 +4029,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_W {
         f.debug_struct("HTTP_SERVICE_BINDING_W").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_BINDING_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_BINDING_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_BINDING_W {
     fn eq(&self, other: &Self) -> bool {
@@ -4049,8 +4060,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_CACHE_SET {
         f.debug_struct("HTTP_SERVICE_CONFIG_CACHE_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_CACHE_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_CACHE_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_CACHE_SET {
     fn eq(&self, other: &Self) -> bool {
@@ -4085,8 +4096,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
@@ -4124,8 +4135,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
@@ -4158,8 +4169,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SETTING_SET {
         f.debug_struct("HTTP_SERVICE_CONFIG_SETTING_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SETTING_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SETTING_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SETTING_SET {
     fn eq(&self, other: &Self) -> bool {
@@ -4193,8 +4204,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
@@ -4233,8 +4244,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
@@ -4274,8 +4285,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
@@ -4313,8 +4324,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
@@ -4346,8 +4357,8 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
@@ -4376,8 +4387,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY {
@@ -4414,8 +4425,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
@@ -4467,8 +4478,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -4494,8 +4505,8 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn default() -> Self {
@@ -4518,8 +4529,8 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     fn default() -> Self {
@@ -4549,8 +4560,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY {
@@ -4590,8 +4601,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
@@ -4629,8 +4640,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SET {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SET {
@@ -4662,8 +4673,8 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SET_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SET_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
@@ -4693,8 +4704,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
@@ -4733,8 +4744,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
@@ -4774,8 +4785,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
@@ -4813,8 +4824,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
@@ -4846,8 +4857,8 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
@@ -4872,8 +4883,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
         f.debug_struct("HTTP_SERVICE_CONFIG_TIMEOUT_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     fn eq(&self, other: &Self) -> bool {
@@ -4902,8 +4913,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_KEY {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_KEY").field("pUrlPrefix", &self.pUrlPrefix).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -4932,8 +4943,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_PARAM {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_PARAM").field("pStringSecurityDescriptor", &self.pStringSecurityDescriptor).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -4964,8 +4975,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_QUERY {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_QUERY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_QUERY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn eq(&self, other: &Self) -> bool {
@@ -4995,8 +5006,8 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_SET {
         f.debug_struct("HTTP_SERVICE_CONFIG_URLACL_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SERVICE_CONFIG_URLACL_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn eq(&self, other: &Self) -> bool {
@@ -5034,8 +5045,8 @@ impl ::core::fmt::Debug for HTTP_SSL_CLIENT_CERT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_SSL_CLIENT_CERT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SSL_CLIENT_CERT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SSL_CLIENT_CERT_INFO {
@@ -5079,8 +5090,8 @@ impl ::core::fmt::Debug for HTTP_SSL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HTTP_SSL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SSL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_SSL_INFO {
@@ -5118,8 +5129,8 @@ impl ::core::fmt::Debug for HTTP_SSL_PROTOCOL_INFO {
         f.debug_struct("HTTP_SSL_PROTOCOL_INFO").field("Protocol", &self.Protocol).field("CipherType", &self.CipherType).field("CipherStrength", &self.CipherStrength).field("HashType", &self.HashType).field("HashStrength", &self.HashStrength).field("KeyExchangeType", &self.KeyExchangeType).field("KeyExchangeStrength", &self.KeyExchangeStrength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_SSL_PROTOCOL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_SSL_PROTOCOL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_SSL_PROTOCOL_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5149,8 +5160,8 @@ impl ::core::fmt::Debug for HTTP_STATE_INFO {
         f.debug_struct("HTTP_STATE_INFO").field("Flags", &self.Flags).field("State", &self.State).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_STATE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_STATE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_STATE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5185,8 +5196,8 @@ impl ::core::fmt::Debug for HTTP_TIMEOUT_LIMIT_INFO {
         f.debug_struct("HTTP_TIMEOUT_LIMIT_INFO").field("Flags", &self.Flags).field("EntityBody", &self.EntityBody).field("DrainEntityBody", &self.DrainEntityBody).field("RequestQueue", &self.RequestQueue).field("IdleConnection", &self.IdleConnection).field("HeaderWait", &self.HeaderWait).field("MinSendRate", &self.MinSendRate).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_TIMEOUT_LIMIT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_TIMEOUT_LIMIT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_TIMEOUT_LIMIT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5216,8 +5227,8 @@ impl ::core::fmt::Debug for HTTP_TLS_RESTRICTIONS_PARAM {
         f.debug_struct("HTTP_TLS_RESTRICTIONS_PARAM").field("RestrictionCount", &self.RestrictionCount).field("TlsRestrictions", &self.TlsRestrictions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_TLS_RESTRICTIONS_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_TLS_RESTRICTIONS_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_TLS_RESTRICTIONS_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -5247,8 +5258,8 @@ impl ::core::fmt::Debug for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
         f.debug_struct("HTTP_TLS_SESSION_TICKET_KEYS_PARAM").field("SessionTicketKeyCount", &self.SessionTicketKeyCount).field("SessionTicketKeys", &self.SessionTicketKeys).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -5283,8 +5294,8 @@ impl ::core::fmt::Debug for HTTP_TRANSPORT_ADDRESS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-unsafe impl ::windows::core::Abi for HTTP_TRANSPORT_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_TRANSPORT_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for HTTP_TRANSPORT_ADDRESS {
@@ -5319,8 +5330,8 @@ impl ::core::fmt::Debug for HTTP_UNKNOWN_HEADER {
         f.debug_struct("HTTP_UNKNOWN_HEADER").field("NameLength", &self.NameLength).field("RawValueLength", &self.RawValueLength).field("pName", &self.pName).field("pRawValue", &self.pRawValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_UNKNOWN_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_UNKNOWN_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_UNKNOWN_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -5350,8 +5361,8 @@ impl ::core::fmt::Debug for HTTP_VERSION {
         f.debug_struct("HTTP_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -5404,8 +5415,8 @@ impl ::core::fmt::Debug for HTTP_WSK_API_TIMINGS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for HTTP_WSK_API_TIMINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTP_WSK_API_TIMINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HTTP_WSK_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {

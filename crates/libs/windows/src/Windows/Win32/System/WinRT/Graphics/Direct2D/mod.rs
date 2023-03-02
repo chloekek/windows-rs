@@ -5,25 +5,20 @@ impl IGeometrySource2DInterop {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn GetGeometry(&self) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGeometry)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>();
+        (::windows::core::Interface::vtable(self).GetGeometry)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn TryGetGeometryUsingFactory<P0>(&self, factory: P0) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::super::super::Graphics::Direct2D::ID2D1Factory>>,
+        P0: ::windows::core::IntoParam<super::super::super::super::Graphics::Direct2D::ID2D1Factory>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Vtable::as_raw(self), factory.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>();
+        (::windows::core::Interface::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Interface::as_raw(self), factory.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGeometrySource2DInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IGeometrySource2DInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IGeometrySource2DInterop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGeometrySource2DInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -35,10 +30,15 @@ impl ::core::fmt::Debug for IGeometrySource2DInterop {
         f.debug_tuple("IGeometrySource2DInterop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IGeometrySource2DInterop {
+unsafe impl ::windows::core::Interface for IGeometrySource2DInterop {
     type Vtable = IGeometrySource2DInterop_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IGeometrySource2DInterop {
+impl ::core::clone::Clone for IGeometrySource2DInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IGeometrySource2DInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0657af73_53fd_47cf_84ff_c8492d2a80a3);
 }
 #[repr(C)]
@@ -59,42 +59,37 @@ pub struct IGeometrySource2DInterop_Vtbl {
 pub struct IGraphicsEffectD2D1Interop(::windows::core::IUnknown);
 impl IGraphicsEffectD2D1Interop {
     pub unsafe fn GetEffectId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEffectId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetEffectId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNamedPropertyMapping<P0>(&self, name: P0, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetNamedPropertyMapping)(::windows::core::Vtable::as_raw(self), name.into().abi(), index, mapping).ok()
+        (::windows::core::Interface::vtable(self).GetNamedPropertyMapping)(::windows::core::Interface::as_raw(self), name.into_param().abi(), index, mapping).ok()
     }
     pub unsafe fn GetPropertyCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetPropertyCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub unsafe fn GetProperty(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Foundation::IPropertyValue> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Foundation::IPropertyValue>();
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub unsafe fn GetSource(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSource)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource>();
+        (::windows::core::Interface::vtable(self).GetSource)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSourceCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSourceCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetSourceCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IGraphicsEffectD2D1Interop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IGraphicsEffectD2D1Interop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IGraphicsEffectD2D1Interop, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGraphicsEffectD2D1Interop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -106,10 +101,15 @@ impl ::core::fmt::Debug for IGraphicsEffectD2D1Interop {
         f.debug_tuple("IGraphicsEffectD2D1Interop").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IGraphicsEffectD2D1Interop {
+unsafe impl ::windows::core::Interface for IGraphicsEffectD2D1Interop {
     type Vtable = IGraphicsEffectD2D1Interop_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IGraphicsEffectD2D1Interop {
+impl ::core::clone::Clone for IGraphicsEffectD2D1Interop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IGraphicsEffectD2D1Interop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fc57384_a068_44d7_a331_30982fcf7177);
 }
 #[repr(C)]
@@ -166,8 +166,8 @@ impl ::core::default::Default for GRAPHICS_EFFECT_PROPERTY_MAPPING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GRAPHICS_EFFECT_PROPERTY_MAPPING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GRAPHICS_EFFECT_PROPERTY_MAPPING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GRAPHICS_EFFECT_PROPERTY_MAPPING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

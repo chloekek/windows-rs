@@ -3,58 +3,53 @@
 pub struct IDirectMusic(::windows::core::IUnknown);
 impl IDirectMusic {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumPort)(::windows::core::Vtable::as_raw(self), dwindex, pportcaps).ok()
+        (::windows::core::Interface::vtable(self).EnumPort)(::windows::core::Interface::as_raw(self), dwindex, pportcaps).ok()
     }
     pub unsafe fn CreateMusicBuffer<P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).CreateMusicBuffer)(::windows::core::Vtable::as_raw(self), pbufferdesc, ::core::mem::transmute(ppbuffer), punkouter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).CreateMusicBuffer)(::windows::core::Interface::as_raw(self), pbufferdesc, ::core::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePort<P0>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).CreatePort)(::windows::core::Vtable::as_raw(self), rclsidport, pportparams, ::core::mem::transmute(ppport), punkouter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).CreatePort)(::windows::core::Interface::as_raw(self), rclsidport, pportparams, ::core::mem::transmute(ppport), punkouter.into_param().abi()).ok()
     }
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumMasterClock)(::windows::core::Vtable::as_raw(self), dwindex, lpclockinfo).ok()
+        (::windows::core::Interface::vtable(self).EnumMasterClock)(::windows::core::Interface::as_raw(self), dwindex, lpclockinfo).ok()
     }
     pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMasterClock)(::windows::core::Vtable::as_raw(self), pguidclock, ::core::mem::transmute(ppreferenceclock)).ok()
+        (::windows::core::Interface::vtable(self).GetMasterClock)(::windows::core::Interface::as_raw(self), pguidclock, ::core::mem::transmute(ppreferenceclock)).ok()
     }
     pub unsafe fn SetMasterClock(&self, rguidclock: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetMasterClock)(::windows::core::Vtable::as_raw(self), rguidclock).ok()
+        (::windows::core::Interface::vtable(self).SetMasterClock)(::windows::core::Interface::as_raw(self), rguidclock).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDefaultPort)(::windows::core::Vtable::as_raw(self), pguidport).ok()
+        (::windows::core::Interface::vtable(self).GetDefaultPort)(::windows::core::Interface::as_raw(self), pguidport).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
-        P1: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::DirectSound::IDirectSound>,
+        P1: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
+        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusic, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusic {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusic, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusic {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -66,10 +61,15 @@ impl ::core::fmt::Debug for IDirectMusic {
         f.debug_tuple("IDirectMusic").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusic {
+unsafe impl ::windows::core::Interface for IDirectMusic {
     type Vtable = IDirectMusic_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusic {
+impl ::core::clone::Clone for IDirectMusic {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusic {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6536115a_7b2d_11d2_ba18_0000f875ac12);
 }
 #[repr(C)]
@@ -100,64 +100,59 @@ pub struct IDirectMusic_Vtbl {
 pub struct IDirectMusic8(::windows::core::IUnknown);
 impl IDirectMusic8 {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumPort)(::windows::core::Vtable::as_raw(self), dwindex, pportcaps).ok()
+        (::windows::core::Interface::vtable(self).base__.EnumPort)(::windows::core::Interface::as_raw(self), dwindex, pportcaps).ok()
     }
     pub unsafe fn CreateMusicBuffer<P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::core::option::Option<IDirectMusicBuffer>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CreateMusicBuffer)(::windows::core::Vtable::as_raw(self), pbufferdesc, ::core::mem::transmute(ppbuffer), punkouter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CreateMusicBuffer)(::windows::core::Interface::as_raw(self), pbufferdesc, ::core::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePort<P0>(&self, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::core::option::Option<IDirectMusicPort>, punkouter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CreatePort)(::windows::core::Vtable::as_raw(self), rclsidport, pportparams, ::core::mem::transmute(ppport), punkouter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CreatePort)(::windows::core::Interface::as_raw(self), rclsidport, pportparams, ::core::mem::transmute(ppport), punkouter.into_param().abi()).ok()
     }
     pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.EnumMasterClock)(::windows::core::Vtable::as_raw(self), dwindex, lpclockinfo).ok()
+        (::windows::core::Interface::vtable(self).base__.EnumMasterClock)(::windows::core::Interface::as_raw(self), dwindex, lpclockinfo).ok()
     }
     pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut ::core::option::Option<super::super::IReferenceClock>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetMasterClock)(::windows::core::Vtable::as_raw(self), pguidclock, ::core::mem::transmute(ppreferenceclock)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetMasterClock)(::windows::core::Interface::as_raw(self), pguidclock, ::core::mem::transmute(ppreferenceclock)).ok()
     }
     pub unsafe fn SetMasterClock(&self, rguidclock: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetMasterClock)(::windows::core::Vtable::as_raw(self), rguidclock).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMasterClock)(::windows::core::Interface::as_raw(self), rguidclock).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Activate)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDefaultPort)(::windows::core::Vtable::as_raw(self), pguidport).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDefaultPort)(::windows::core::Interface::as_raw(self), pguidport).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
-        P1: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P0: ::windows::core::IntoParam<super::DirectSound::IDirectSound>,
+        P1: ::windows::core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), hwnd.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
     }
     pub unsafe fn SetExternalMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
+        P0: ::windows::core::IntoParam<super::super::IReferenceClock>,
     {
-        (::windows::core::Vtable::vtable(self).SetExternalMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetExternalMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusic8, ::windows::core::IUnknown, IDirectMusic);
-impl ::core::clone::Clone for IDirectMusic8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusic8, ::windows::core::IUnknown, IDirectMusic);
 impl ::core::cmp::PartialEq for IDirectMusic8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -169,10 +164,15 @@ impl ::core::fmt::Debug for IDirectMusic8 {
         f.debug_tuple("IDirectMusic8").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusic8 {
+unsafe impl ::windows::core::Interface for IDirectMusic8 {
     type Vtable = IDirectMusic8_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusic8 {
+impl ::core::clone::Clone for IDirectMusic8 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusic8 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3629f7_813d_4939_8508_f05c6b75fd97);
 }
 #[repr(C)]
@@ -186,51 +186,46 @@ pub struct IDirectMusic8_Vtbl {
 pub struct IDirectMusicBuffer(::windows::core::IUnknown);
 impl IDirectMusicBuffer {
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Flush)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn TotalTime(&self, prttime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TotalTime)(::windows::core::Vtable::as_raw(self), prttime).ok()
+        (::windows::core::Interface::vtable(self).TotalTime)(::windows::core::Interface::as_raw(self), prttime).ok()
     }
     pub unsafe fn PackStructured(&self, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PackStructured)(::windows::core::Vtable::as_raw(self), rt, dwchannelgroup, dwchannelmessage).ok()
+        (::windows::core::Interface::vtable(self).PackStructured)(::windows::core::Interface::as_raw(self), rt, dwchannelgroup, dwchannelmessage).ok()
     }
     pub unsafe fn PackUnstructured(&self, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PackUnstructured)(::windows::core::Vtable::as_raw(self), rt, dwchannelgroup, cb, lpb).ok()
+        (::windows::core::Interface::vtable(self).PackUnstructured)(::windows::core::Interface::as_raw(self), rt, dwchannelgroup, cb, lpb).ok()
     }
     pub unsafe fn ResetReadPtr(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ResetReadPtr)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).ResetReadPtr)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetNextEvent(&self, prt: *mut i64, pdwchannelgroup: *mut u32, pdwlength: *mut u32, ppdata: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNextEvent)(::windows::core::Vtable::as_raw(self), prt, pdwchannelgroup, pdwlength, ppdata).ok()
+        (::windows::core::Interface::vtable(self).GetNextEvent)(::windows::core::Interface::as_raw(self), prt, pdwchannelgroup, pdwlength, ppdata).ok()
     }
     pub unsafe fn GetRawBufferPtr(&self, ppdata: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRawBufferPtr)(::windows::core::Vtable::as_raw(self), ppdata).ok()
+        (::windows::core::Interface::vtable(self).GetRawBufferPtr)(::windows::core::Interface::as_raw(self), ppdata).ok()
     }
     pub unsafe fn GetStartTime(&self, prt: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStartTime)(::windows::core::Vtable::as_raw(self), prt).ok()
+        (::windows::core::Interface::vtable(self).GetStartTime)(::windows::core::Interface::as_raw(self), prt).ok()
     }
     pub unsafe fn GetUsedBytes(&self, pcb: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetUsedBytes)(::windows::core::Vtable::as_raw(self), pcb).ok()
+        (::windows::core::Interface::vtable(self).GetUsedBytes)(::windows::core::Interface::as_raw(self), pcb).ok()
     }
     pub unsafe fn GetMaxBytes(&self, pcb: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMaxBytes)(::windows::core::Vtable::as_raw(self), pcb).ok()
+        (::windows::core::Interface::vtable(self).GetMaxBytes)(::windows::core::Interface::as_raw(self), pcb).ok()
     }
     pub unsafe fn GetBufferFormat(&self, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBufferFormat)(::windows::core::Vtable::as_raw(self), pguidformat).ok()
+        (::windows::core::Interface::vtable(self).GetBufferFormat)(::windows::core::Interface::as_raw(self), pguidformat).ok()
     }
     pub unsafe fn SetStartTime(&self, rt: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStartTime)(::windows::core::Vtable::as_raw(self), rt).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), rt).ok()
     }
     pub unsafe fn SetUsedBytes(&self, cb: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetUsedBytes)(::windows::core::Vtable::as_raw(self), cb).ok()
+        (::windows::core::Interface::vtable(self).SetUsedBytes)(::windows::core::Interface::as_raw(self), cb).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicBuffer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -242,10 +237,15 @@ impl ::core::fmt::Debug for IDirectMusicBuffer {
         f.debug_tuple("IDirectMusicBuffer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicBuffer {
+unsafe impl ::windows::core::Interface for IDirectMusicBuffer {
     type Vtable = IDirectMusicBuffer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicBuffer {
+impl ::core::clone::Clone for IDirectMusicBuffer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicBuffer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac2878_b39b_11d1_8704_00600893b1bd);
 }
 #[repr(C)]
@@ -271,22 +271,17 @@ pub struct IDirectMusicBuffer_Vtbl {
 pub struct IDirectMusicCollection(::windows::core::IUnknown);
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows::core::Result<IDirectMusicInstrument> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInstrument)(::windows::core::Vtable::as_raw(self), dwpatch, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectMusicInstrument>();
+        (::windows::core::Interface::vtable(self).GetInstrument)(::windows::core::Interface::as_raw(self), dwpatch, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).EnumInstrument)(::windows::core::Vtable::as_raw(self), dwindex, pdwpatch, pwszname.into().abi(), dwnamelen).ok()
+        (::windows::core::Interface::vtable(self).EnumInstrument)(::windows::core::Interface::as_raw(self), dwindex, pdwpatch, pwszname.into_param().abi(), dwnamelen).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicCollection, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -298,10 +293,15 @@ impl ::core::fmt::Debug for IDirectMusicCollection {
         f.debug_tuple("IDirectMusicCollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicCollection {
+unsafe impl ::windows::core::Interface for IDirectMusicCollection {
     type Vtable = IDirectMusicCollection_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicCollection {
+impl ::core::clone::Clone for IDirectMusicCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287c_b39b_11d1_8704_00600893b1bd);
 }
 #[repr(C)]
@@ -316,15 +316,10 @@ pub struct IDirectMusicCollection_Vtbl {
 pub struct IDirectMusicDownload(::windows::core::IUnknown);
 impl IDirectMusicDownload {
     pub unsafe fn GetBuffer(&self, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), ppvbuffer, pdwsize).ok()
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ppvbuffer, pdwsize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicDownload, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicDownload {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicDownload, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicDownload {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -336,10 +331,15 @@ impl ::core::fmt::Debug for IDirectMusicDownload {
         f.debug_tuple("IDirectMusicDownload").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicDownload {
+unsafe impl ::windows::core::Interface for IDirectMusicDownload {
     type Vtable = IDirectMusicDownload_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicDownload {
+impl ::core::clone::Clone for IDirectMusicDownload {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicDownload {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287b_b39b_11d1_8704_00600893b1bd);
 }
 #[repr(C)]
@@ -352,12 +352,7 @@ pub struct IDirectMusicDownload_Vtbl {
 #[repr(transparent)]
 pub struct IDirectMusicDownloadedInstrument(::windows::core::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
-::windows::core::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicDownloadedInstrument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -369,10 +364,15 @@ impl ::core::fmt::Debug for IDirectMusicDownloadedInstrument {
         f.debug_tuple("IDirectMusicDownloadedInstrument").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicDownloadedInstrument {
+unsafe impl ::windows::core::Interface for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrument_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicDownloadedInstrument {
+impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicDownloadedInstrument {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287e_b39b_11d1_8704_00600893b1bd);
 }
 #[repr(C)]
@@ -385,18 +385,13 @@ pub struct IDirectMusicDownloadedInstrument_Vtbl {
 pub struct IDirectMusicInstrument(::windows::core::IUnknown);
 impl IDirectMusicInstrument {
     pub unsafe fn GetPatch(&self, pdwpatch: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPatch)(::windows::core::Vtable::as_raw(self), pdwpatch).ok()
+        (::windows::core::Interface::vtable(self).GetPatch)(::windows::core::Interface::as_raw(self), pdwpatch).ok()
     }
     pub unsafe fn SetPatch(&self, dwpatch: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPatch)(::windows::core::Vtable::as_raw(self), dwpatch).ok()
+        (::windows::core::Interface::vtable(self).SetPatch)(::windows::core::Interface::as_raw(self), dwpatch).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicInstrument, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicInstrument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicInstrument, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicInstrument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -408,10 +403,15 @@ impl ::core::fmt::Debug for IDirectMusicInstrument {
         f.debug_tuple("IDirectMusicInstrument").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicInstrument {
+unsafe impl ::windows::core::Interface for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrument_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicInstrument {
+impl ::core::clone::Clone for IDirectMusicInstrument {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicInstrument {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287d_b39b_11d1_8704_00600893b1bd);
 }
 #[repr(C)]
@@ -427,93 +427,88 @@ pub struct IDirectMusicPort(::windows::core::IUnknown);
 impl IDirectMusicPort {
     pub unsafe fn PlayBuffer<P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicBuffer>>,
+        P0: ::windows::core::IntoParam<IDirectMusicBuffer>,
     {
-        (::windows::core::Vtable::vtable(self).PlayBuffer)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).PlayBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadNotificationHandle<P0>(&self, hevent: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).SetReadNotificationHandle)(::windows::core::Vtable::as_raw(self), hevent.into()).ok()
+        (::windows::core::Interface::vtable(self).SetReadNotificationHandle)(::windows::core::Interface::as_raw(self), hevent.into_param().abi()).ok()
     }
     pub unsafe fn Read<P0>(&self, pbuffer: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicBuffer>>,
+        P0: ::windows::core::IntoParam<IDirectMusicBuffer>,
     {
-        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
     }
     pub unsafe fn DownloadInstrument<P0>(&self, pinstrument: P0, ppdownloadedinstrument: *mut ::core::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicInstrument>>,
+        P0: ::windows::core::IntoParam<IDirectMusicInstrument>,
     {
-        (::windows::core::Vtable::vtable(self).DownloadInstrument)(::windows::core::Vtable::as_raw(self), pinstrument.into().abi(), ::core::mem::transmute(ppdownloadedinstrument), pnoteranges, dwnumnoteranges).ok()
+        (::windows::core::Interface::vtable(self).DownloadInstrument)(::windows::core::Interface::as_raw(self), pinstrument.into_param().abi(), ::core::mem::transmute(ppdownloadedinstrument), pnoteranges, dwnumnoteranges).ok()
     }
     pub unsafe fn UnloadInstrument<P0>(&self, pdownloadedinstrument: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicDownloadedInstrument>>,
+        P0: ::windows::core::IntoParam<IDirectMusicDownloadedInstrument>,
     {
-        (::windows::core::Vtable::vtable(self).UnloadInstrument)(::windows::core::Vtable::as_raw(self), pdownloadedinstrument.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnloadInstrument)(::windows::core::Interface::as_raw(self), pdownloadedinstrument.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Interface::vtable(self).GetLatencyClock)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRunningStats)(::windows::core::Vtable::as_raw(self), pstats).ok()
+        (::windows::core::Interface::vtable(self).GetRunningStats)(::windows::core::Interface::as_raw(self), pstats).ok()
     }
     pub unsafe fn Compact(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Compact)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Compact)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetCaps(&self, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), pportcaps).ok()
+        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), pportcaps).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DeviceIoControl)(::windows::core::Vtable::as_raw(self), dwiocontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpoverlapped).ok()
+        (::windows::core::Interface::vtable(self).DeviceIoControl)(::windows::core::Interface::as_raw(self), dwiocontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpoverlapped).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwchannelgroups: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNumChannelGroups)(::windows::core::Vtable::as_raw(self), dwchannelgroups).ok()
+        (::windows::core::Interface::vtable(self).SetNumChannelGroups)(::windows::core::Interface::as_raw(self), dwchannelgroups).ok()
     }
     pub unsafe fn GetNumChannelGroups(&self, pdwchannelgroups: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNumChannelGroups)(::windows::core::Vtable::as_raw(self), pdwchannelgroups).ok()
+        (::windows::core::Interface::vtable(self).GetNumChannelGroups)(::windows::core::Interface::as_raw(self), pdwchannelgroups).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, factive: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), factive.into()).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), factive.into_param().abi()).ok()
     }
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetChannelPriority)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
+        (::windows::core::Interface::vtable(self).SetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChannelPriority)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, pdwpriority).ok()
+        (::windows::core::Interface::vtable(self).GetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, pdwpriority).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
-        P1: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSoundBuffer>>,
+        P0: ::windows::core::IntoParam<super::DirectSound::IDirectSound>,
+        P1: ::windows::core::IntoParam<super::DirectSound::IDirectSoundBuffer>,
     {
-        (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), pdirectsoundbuffer.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
     }
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), pwaveformatex, pdwwaveformatexsize, pdwbuffersize).ok()
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), pwaveformatex, pdwwaveformatexsize, pdwbuffersize).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicPort, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicPort, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -525,10 +520,15 @@ impl ::core::fmt::Debug for IDirectMusicPort {
         f.debug_tuple("IDirectMusicPort").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicPort {
+unsafe impl ::windows::core::Interface for IDirectMusicPort {
     type Vtable = IDirectMusicPort_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicPort {
+impl ::core::clone::Clone for IDirectMusicPort {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicPort {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
 }
 #[repr(C)]
@@ -570,38 +570,33 @@ pub struct IDirectMusicPort_Vtbl {
 pub struct IDirectMusicPortDownload(::windows::core::IUnknown);
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows::core::Result<IDirectMusicDownload> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBuffer)(::windows::core::Vtable::as_raw(self), dwdlid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectMusicDownload>();
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), dwdlid, &mut result__).from_abi(result__)
     }
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> ::windows::core::Result<IDirectMusicDownload> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AllocateBuffer)(::windows::core::Vtable::as_raw(self), dwsize, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectMusicDownload>();
+        (::windows::core::Interface::vtable(self).AllocateBuffer)(::windows::core::Interface::as_raw(self), dwsize, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDLId)(::windows::core::Vtable::as_raw(self), pdwstartdlid, dwcount).ok()
+        (::windows::core::Interface::vtable(self).GetDLId)(::windows::core::Interface::as_raw(self), pdwstartdlid, dwcount).ok()
     }
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAppend)(::windows::core::Vtable::as_raw(self), pdwappend).ok()
+        (::windows::core::Interface::vtable(self).GetAppend)(::windows::core::Interface::as_raw(self), pdwappend).ok()
     }
     pub unsafe fn Download<P0>(&self, pidmdownload: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicDownload>>,
+        P0: ::windows::core::IntoParam<IDirectMusicDownload>,
     {
-        (::windows::core::Vtable::vtable(self).Download)(::windows::core::Vtable::as_raw(self), pidmdownload.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), pidmdownload.into_param().abi()).ok()
     }
     pub unsafe fn Unload<P0>(&self, pidmdownload: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicDownload>>,
+        P0: ::windows::core::IntoParam<IDirectMusicDownload>,
     {
-        (::windows::core::Vtable::vtable(self).Unload)(::windows::core::Vtable::as_raw(self), pidmdownload.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), pidmdownload.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicPortDownload, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicPortDownload {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicPortDownload, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicPortDownload {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -613,10 +608,15 @@ impl ::core::fmt::Debug for IDirectMusicPortDownload {
         f.debug_tuple("IDirectMusicPortDownload").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicPortDownload {
+unsafe impl ::windows::core::Interface for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownload_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicPortDownload {
+impl ::core::clone::Clone for IDirectMusicPortDownload {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicPortDownload {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287a_b39b_11d1_8704_00600893b1bd);
 }
 #[repr(C)]
@@ -637,83 +637,78 @@ impl IDirectMusicSynth {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pportparams).ok()
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), pportparams).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNumChannelGroups)(::windows::core::Vtable::as_raw(self), dwgroups).ok()
+        (::windows::core::Interface::vtable(self).SetNumChannelGroups)(::windows::core::Interface::as_raw(self), dwgroups).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Download)(::windows::core::Vtable::as_raw(self), phdownload, pvdata, pbfree).ok()
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), phdownload, pvdata, pbfree).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unload<P0, P1>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-        P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+        P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).Unload)(::windows::core::Vtable::as_raw(self), hdownload.into(), lpfreehandle, huserdata.into()).ok()
+        (::windows::core::Interface::vtable(self).Unload)(::windows::core::Interface::as_raw(self), hdownload.into_param().abi(), lpfreehandle, huserdata.into_param().abi()).ok()
     }
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PlayBuffer)(::windows::core::Vtable::as_raw(self), rt, pbbuffer, cbbuffer).ok()
+        (::windows::core::Interface::vtable(self).PlayBuffer)(::windows::core::Interface::as_raw(self), rt, pbbuffer, cbbuffer).ok()
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRunningStats)(::windows::core::Vtable::as_raw(self), pstats).ok()
+        (::windows::core::Interface::vtable(self).GetRunningStats)(::windows::core::Interface::as_raw(self), pstats).ok()
     }
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPortCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
+        (::windows::core::Interface::vtable(self).GetPortCaps)(::windows::core::Interface::as_raw(self), pcaps).ok()
     }
     pub unsafe fn SetMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
+        P0: ::windows::core::IntoParam<super::super::IReferenceClock>,
     {
-        (::windows::core::Vtable::vtable(self).SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Interface::vtable(self).GetLatencyClock)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
     pub unsafe fn SetSynthSink<P0>(&self, psynthsink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicSynthSink>>,
+        P0: ::windows::core::IntoParam<IDirectMusicSynthSink>,
     {
-        (::windows::core::Vtable::vtable(self).SetSynthSink)(::windows::core::Vtable::as_raw(self), psynthsink.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSynthSink)(::windows::core::Interface::as_raw(self), psynthsink.into_param().abi()).ok()
     }
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Render)(::windows::core::Vtable::as_raw(self), pbuffer, dwlength, llposition).ok()
+        (::windows::core::Interface::vtable(self).Render)(::windows::core::Interface::as_raw(self), pbuffer, dwlength, llposition).ok()
     }
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetChannelPriority)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
+        (::windows::core::Interface::vtable(self).SetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChannelPriority)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, pdwpriority).ok()
+        (::windows::core::Interface::vtable(self).GetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, pdwpriority).ok()
     }
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), pwaveformatex, pdwwaveformatexsize).ok()
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), pwaveformatex, pdwwaveformatexsize).ok()
     }
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAppend)(::windows::core::Vtable::as_raw(self), pdwappend).ok()
+        (::windows::core::Interface::vtable(self).GetAppend)(::windows::core::Interface::as_raw(self), pdwappend).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicSynth, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicSynth {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicSynth, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicSynth {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -725,10 +720,15 @@ impl ::core::fmt::Debug for IDirectMusicSynth {
         f.debug_tuple("IDirectMusicSynth").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicSynth {
+unsafe impl ::windows::core::Interface for IDirectMusicSynth {
     type Vtable = IDirectMusicSynth_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicSynth {
+impl ::core::clone::Clone for IDirectMusicSynth {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicSynth {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823661_5c85_11d2_afa6_00aa0024d8b6);
 }
 #[repr(C)]
@@ -772,100 +772,95 @@ impl IDirectMusicSynth8 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Open)(::windows::core::Vtable::as_raw(self), pportparams).ok()
+        (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self), pportparams).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Close)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetNumChannelGroups)(::windows::core::Vtable::as_raw(self), dwgroups).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNumChannelGroups)(::windows::core::Interface::as_raw(self), dwgroups).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Download)(::windows::core::Vtable::as_raw(self), phdownload, pvdata, pbfree).ok()
+        (::windows::core::Interface::vtable(self).base__.Download)(::windows::core::Interface::as_raw(self), phdownload, pvdata, pbfree).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unload<P0, P1>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
-        P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
+        P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Unload)(::windows::core::Vtable::as_raw(self), hdownload.into(), lpfreehandle, huserdata.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Unload)(::windows::core::Interface::as_raw(self), hdownload.into_param().abi(), lpfreehandle, huserdata.into_param().abi()).ok()
     }
     pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.PlayBuffer)(::windows::core::Vtable::as_raw(self), rt, pbbuffer, cbbuffer).ok()
+        (::windows::core::Interface::vtable(self).base__.PlayBuffer)(::windows::core::Interface::as_raw(self), rt, pbbuffer, cbbuffer).ok()
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetRunningStats)(::windows::core::Vtable::as_raw(self), pstats).ok()
+        (::windows::core::Interface::vtable(self).base__.GetRunningStats)(::windows::core::Interface::as_raw(self), pstats).ok()
     }
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPortCaps)(::windows::core::Vtable::as_raw(self), pcaps).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPortCaps)(::windows::core::Interface::as_raw(self), pcaps).ok()
     }
     pub unsafe fn SetMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
+        P0: ::windows::core::IntoParam<super::super::IReferenceClock>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Interface::vtable(self).base__.GetLatencyClock)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Activate)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
     pub unsafe fn SetSynthSink<P0>(&self, psynthsink: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicSynthSink>>,
+        P0: ::windows::core::IntoParam<IDirectMusicSynthSink>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetSynthSink)(::windows::core::Vtable::as_raw(self), psynthsink.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSynthSink)(::windows::core::Interface::as_raw(self), psynthsink.into_param().abi()).ok()
     }
     pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Render)(::windows::core::Vtable::as_raw(self), pbuffer, dwlength, llposition).ok()
+        (::windows::core::Interface::vtable(self).base__.Render)(::windows::core::Interface::as_raw(self), pbuffer, dwlength, llposition).ok()
     }
     pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetChannelPriority)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
+        (::windows::core::Interface::vtable(self).base__.SetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, dwpriority).ok()
     }
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetChannelPriority)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, pdwpriority).ok()
+        (::windows::core::Interface::vtable(self).base__.GetChannelPriority)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, pdwpriority).ok()
     }
     pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFormat)(::windows::core::Vtable::as_raw(self), pwaveformatex, pdwwaveformatexsize).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFormat)(::windows::core::Interface::as_raw(self), pwaveformatex, pdwwaveformatexsize).ok()
     }
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAppend)(::windows::core::Vtable::as_raw(self), pdwappend).ok()
+        (::windows::core::Interface::vtable(self).base__.GetAppend)(::windows::core::Interface::as_raw(self), pdwappend).ok()
     }
     pub unsafe fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PlayVoice)(::windows::core::Vtable::as_raw(self), rt, dwvoiceid, dwchannelgroup, dwchannel, dwdlid, prpitch, vrvolume, stvoicestart, stloopstart, stloopend).ok()
+        (::windows::core::Interface::vtable(self).PlayVoice)(::windows::core::Interface::as_raw(self), rt, dwvoiceid, dwchannelgroup, dwchannel, dwdlid, prpitch, vrvolume, stvoicestart, stloopstart, stloopend).ok()
     }
     pub unsafe fn StopVoice(&self, rt: i64, dwvoiceid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StopVoice)(::windows::core::Vtable::as_raw(self), rt, dwvoiceid).ok()
+        (::windows::core::Interface::vtable(self).StopVoice)(::windows::core::Interface::as_raw(self), rt, dwvoiceid).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVoiceState(&self, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVoiceState)(::windows::core::Vtable::as_raw(self), dwvoice, cbvoice, dwvoicestate).ok()
+        (::windows::core::Interface::vtable(self).GetVoiceState)(::windows::core::Interface::as_raw(self), dwvoice, cbvoice, dwvoicestate).ok()
     }
     pub unsafe fn Refresh(&self, dwdownloadid: u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self), dwdownloadid, dwflags).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self), dwdownloadid, dwflags).ok()
     }
     pub unsafe fn AssignChannelToBuses(&self, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AssignChannelToBuses)(::windows::core::Vtable::as_raw(self), dwchannelgroup, dwchannel, pdwbuses, cbuses).ok()
+        (::windows::core::Interface::vtable(self).AssignChannelToBuses)(::windows::core::Interface::as_raw(self), dwchannelgroup, dwchannel, pdwbuses, cbuses).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicSynth8, ::windows::core::IUnknown, IDirectMusicSynth);
-impl ::core::clone::Clone for IDirectMusicSynth8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicSynth8, ::windows::core::IUnknown, IDirectMusicSynth);
 impl ::core::cmp::PartialEq for IDirectMusicSynth8 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -877,10 +872,15 @@ impl ::core::fmt::Debug for IDirectMusicSynth8 {
         f.debug_tuple("IDirectMusicSynth8").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicSynth8 {
+unsafe impl ::windows::core::Interface for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicSynth8 {
+impl ::core::clone::Clone for IDirectMusicSynth8 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicSynth8 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
 }
 #[repr(C)]
@@ -902,53 +902,48 @@ pub struct IDirectMusicSynthSink(::windows::core::IUnknown);
 impl IDirectMusicSynthSink {
     pub unsafe fn Init<P0>(&self, psynth: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicSynth>>,
+        P0: ::windows::core::IntoParam<IDirectMusicSynth>,
     {
-        (::windows::core::Vtable::vtable(self).Init)(::windows::core::Vtable::as_raw(self), psynth.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), psynth.into_param().abi()).ok()
     }
     pub unsafe fn SetMasterClock<P0>(&self, pclock: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::IReferenceClock>>,
+        P0: ::windows::core::IntoParam<super::super::IReferenceClock>,
     {
-        (::windows::core::Vtable::vtable(self).SetMasterClock)(::windows::core::Vtable::as_raw(self), pclock.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMasterClock)(::windows::core::Interface::as_raw(self), pclock.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows::core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatencyClock)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::IReferenceClock>();
+        (::windows::core::Interface::vtable(self).GetLatencyClock)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), fenable.into()).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
     pub unsafe fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SampleToRefTime)(::windows::core::Vtable::as_raw(self), llsampletime, prftime).ok()
+        (::windows::core::Interface::vtable(self).SampleToRefTime)(::windows::core::Interface::as_raw(self), llsampletime, prftime).ok()
     }
     pub unsafe fn RefTimeToSample(&self, rftime: i64, pllsampletime: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RefTimeToSample)(::windows::core::Vtable::as_raw(self), rftime, pllsampletime).ok()
+        (::windows::core::Interface::vtable(self).RefTimeToSample)(::windows::core::Interface::as_raw(self), rftime, pllsampletime).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSound>>,
-        P1: ::std::convert::Into<::windows::core::InParam<super::DirectSound::IDirectSoundBuffer>>,
+        P0: ::windows::core::IntoParam<super::DirectSound::IDirectSound>,
+        P1: ::windows::core::IntoParam<super::DirectSound::IDirectSoundBuffer>,
     {
-        (::windows::core::Vtable::vtable(self).SetDirectSound)(::windows::core::Vtable::as_raw(self), pdirectsound.into().abi(), pdirectsoundbuffer.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDirectSound)(::windows::core::Interface::as_raw(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
     }
     pub unsafe fn GetDesiredBufferSize(&self, pdwbuffersizeinsamples: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDesiredBufferSize)(::windows::core::Vtable::as_raw(self), pdwbuffersizeinsamples).ok()
+        (::windows::core::Interface::vtable(self).GetDesiredBufferSize)(::windows::core::Interface::as_raw(self), pdwbuffersizeinsamples).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicSynthSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicSynthSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicSynthSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicSynthSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -960,10 +955,15 @@ impl ::core::fmt::Debug for IDirectMusicSynthSink {
         f.debug_tuple("IDirectMusicSynthSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicSynthSink {
+unsafe impl ::windows::core::Interface for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSink_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicSynthSink {
+impl ::core::clone::Clone for IDirectMusicSynthSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicSynthSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823663_5c85_11d2_afa6_00aa0024d8b6);
 }
 #[repr(C)]
@@ -991,17 +991,12 @@ pub struct IDirectMusicThru(::windows::core::IUnknown);
 impl IDirectMusicThru {
     pub unsafe fn ThruChannel<P0>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IDirectMusicPort>>,
+        P0: ::windows::core::IntoParam<IDirectMusicPort>,
     {
-        (::windows::core::Vtable::vtable(self).ThruChannel)(::windows::core::Vtable::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ThruChannel)(::windows::core::Interface::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDirectMusicThru, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectMusicThru {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDirectMusicThru, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDirectMusicThru {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1013,10 +1008,15 @@ impl ::core::fmt::Debug for IDirectMusicThru {
         f.debug_tuple("IDirectMusicThru").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDirectMusicThru {
+unsafe impl ::windows::core::Interface for IDirectMusicThru {
     type Vtable = IDirectMusicThru_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDirectMusicThru {
+impl ::core::clone::Clone for IDirectMusicThru {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDirectMusicThru {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xced153e7_3606_11d2_b9f9_0000f875ac12);
 }
 #[repr(C)]
@@ -1518,8 +1518,8 @@ impl ::core::default::Default for DIRECTSOUNDDEVICE_DATAFLOW {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIRECTSOUNDDEVICE_DATAFLOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_DATAFLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1547,8 +1547,8 @@ impl ::core::default::Default for DIRECTSOUNDDEVICE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DIRECTSOUNDDEVICE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIRECTSOUNDDEVICE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1574,8 +1574,8 @@ impl ::core::default::Default for DMUS_CLOCKTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_CLOCKTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_CLOCKTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DMUS_CLOCKTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1613,8 +1613,8 @@ impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1641,8 +1641,8 @@ impl ::core::fmt::Debug for CONNECTION {
         f.debug_struct("CONNECTION").field("usSource", &self.usSource).field("usControl", &self.usControl).field("usDestination", &self.usDestination).field("usTransform", &self.usTransform).field("lScale", &self.lScale).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONNECTION {
     fn eq(&self, other: &Self) -> bool {
@@ -1672,8 +1672,8 @@ impl ::core::fmt::Debug for CONNECTIONLIST {
         f.debug_struct("CONNECTIONLIST").field("cbSize", &self.cbSize).field("cConnections", &self.cConnections).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTIONLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTIONLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONNECTIONLIST {
     fn eq(&self, other: &Self) -> bool {
@@ -1702,8 +1702,8 @@ impl ::core::fmt::Debug for DLSHEADER {
         f.debug_struct("DLSHEADER").field("cInstruments", &self.cInstruments).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DLSHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLSHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DLSHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -1735,8 +1735,8 @@ impl ::core::fmt::Debug for DLSID {
         f.debug_struct("DLSID").field("ulData1", &self.ulData1).field("usData2", &self.usData2).field("usData3", &self.usData3).field("abData4", &self.abData4).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DLSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DLSID {
     fn eq(&self, other: &Self) -> bool {
@@ -1766,8 +1766,8 @@ impl ::core::fmt::Debug for DLSVERSION {
         f.debug_struct("DLSVERSION").field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DLSVERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLSVERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DLSVERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -1799,8 +1799,8 @@ impl ::core::fmt::Debug for DMUS_ARTICPARAMS {
         f.debug_struct("DMUS_ARTICPARAMS").field("LFO", &self.LFO).field("VolEG", &self.VolEG).field("PitchEG", &self.PitchEG).field("Misc", &self.Misc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_ARTICPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_ARTICPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -1830,8 +1830,8 @@ impl ::core::fmt::Debug for DMUS_ARTICULATION {
         f.debug_struct("DMUS_ARTICULATION").field("ulArt1Idx", &self.ulArt1Idx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_ARTICULATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_ARTICULATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICULATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1862,8 +1862,8 @@ impl ::core::fmt::Debug for DMUS_ARTICULATION2 {
         f.debug_struct("DMUS_ARTICULATION2").field("ulArtIdx", &self.ulArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulNextArtIdx", &self.ulNextArtIdx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_ARTICULATION2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_ARTICULATION2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_ARTICULATION2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1895,8 +1895,8 @@ impl ::core::fmt::Debug for DMUS_BUFFERDESC {
         f.debug_struct("DMUS_BUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidBufferFormat", &self.guidBufferFormat).field("cbBuffer", &self.cbBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_BUFFERDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_BUFFERDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_BUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1928,8 +1928,8 @@ impl ::core::fmt::Debug for DMUS_CLOCKINFO7 {
         f.debug_struct("DMUS_CLOCKINFO7").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_CLOCKINFO7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_CLOCKINFO7 {
     fn eq(&self, other: &Self) -> bool {
@@ -1962,8 +1962,8 @@ impl ::core::fmt::Debug for DMUS_CLOCKINFO8 {
         f.debug_struct("DMUS_CLOCKINFO8").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_CLOCKINFO8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_CLOCKINFO8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_CLOCKINFO8 {
     fn eq(&self, other: &Self) -> bool {
@@ -1993,8 +1993,8 @@ impl ::core::fmt::Debug for DMUS_COPYRIGHT {
         f.debug_struct("DMUS_COPYRIGHT").field("cbSize", &self.cbSize).field("byCopyright", &self.byCopyright).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_COPYRIGHT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_COPYRIGHT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_COPYRIGHT {
     fn eq(&self, other: &Self) -> bool {
@@ -2026,8 +2026,8 @@ impl ::core::fmt::Debug for DMUS_DOWNLOADINFO {
         f.debug_struct("DMUS_DOWNLOADINFO").field("dwDLType", &self.dwDLType).field("dwDLId", &self.dwDLId).field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries).field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_DOWNLOADINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_DOWNLOADINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_DOWNLOADINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2054,8 +2054,8 @@ impl ::core::clone::Clone for DMUS_EVENTHEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_EVENTHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_EVENTHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DMUS_EVENTHEADER {
     fn default() -> Self {
@@ -2081,8 +2081,8 @@ impl ::core::fmt::Debug for DMUS_EXTENSIONCHUNK {
         f.debug_struct("DMUS_EXTENSIONCHUNK").field("cbSize", &self.cbSize).field("ulNextExtCkIdx", &self.ulNextExtCkIdx).field("ExtCkID", &self.ExtCkID).field("byExtCk", &self.byExtCk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_EXTENSIONCHUNK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_EXTENSIONCHUNK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_EXTENSIONCHUNK {
     fn eq(&self, other: &Self) -> bool {
@@ -2116,8 +2116,8 @@ impl ::core::fmt::Debug for DMUS_INSTRUMENT {
         f.debug_struct("DMUS_INSTRUMENT").field("ulPatch", &self.ulPatch).field("ulFirstRegionIdx", &self.ulFirstRegionIdx).field("ulGlobalArtIdx", &self.ulGlobalArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulFlags", &self.ulFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_INSTRUMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_INSTRUMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_INSTRUMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -2151,8 +2151,8 @@ impl ::core::fmt::Debug for DMUS_LFOPARAMS {
         f.debug_struct("DMUS_LFOPARAMS").field("pcFrequency", &self.pcFrequency).field("tcDelay", &self.tcDelay).field("gcVolumeScale", &self.gcVolumeScale).field("pcPitchScale", &self.pcPitchScale).field("gcMWToVolume", &self.gcMWToVolume).field("pcMWToPitch", &self.pcMWToPitch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_LFOPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_LFOPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_LFOPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2181,8 +2181,8 @@ impl ::core::fmt::Debug for DMUS_MSCPARAMS {
         f.debug_struct("DMUS_MSCPARAMS").field("ptDefaultPan", &self.ptDefaultPan).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_MSCPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_MSCPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_MSCPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2212,8 +2212,8 @@ impl ::core::fmt::Debug for DMUS_NOTERANGE {
         f.debug_struct("DMUS_NOTERANGE").field("dwLowNote", &self.dwLowNote).field("dwHighNote", &self.dwHighNote).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_NOTERANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_NOTERANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_NOTERANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -2242,8 +2242,8 @@ impl ::core::fmt::Debug for DMUS_OFFSETTABLE {
         f.debug_struct("DMUS_OFFSETTABLE").field("ulOffsetTable", &self.ulOffsetTable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_OFFSETTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_OFFSETTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_OFFSETTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -2278,8 +2278,8 @@ impl ::core::fmt::Debug for DMUS_PEGPARAMS {
         f.debug_struct("DMUS_PEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).field("pcRange", &self.pcRange).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_PEGPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PEGPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_PEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2318,8 +2318,8 @@ impl ::core::fmt::Debug for DMUS_PORTCAPS {
         f.debug_struct("DMUS_PORTCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidPort", &self.guidPort).field("dwClass", &self.dwClass).field("dwType", &self.dwType).field("dwMemorySize", &self.dwMemorySize).field("dwMaxChannelGroups", &self.dwMaxChannelGroups).field("dwMaxVoices", &self.dwMaxVoices).field("dwMaxAudioChannels", &self.dwMaxAudioChannels).field("dwEffectFlags", &self.dwEffectFlags).field("wszDescription", &self.wszDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_PORTCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PORTCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_PORTCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -2360,8 +2360,8 @@ impl ::core::fmt::Debug for DMUS_PORTPARAMS7 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PORTPARAMS7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_PORTPARAMS7 {
@@ -2406,8 +2406,8 @@ impl ::core::fmt::Debug for DMUS_PORTPARAMS8 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_PORTPARAMS8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_PORTPARAMS8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_PORTPARAMS8 {
@@ -2448,8 +2448,8 @@ impl ::core::fmt::Debug for DMUS_REGION {
         f.debug_struct("DMUS_REGION").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).field("ulRegionArtIdx", &self.ulRegionArtIdx).field("ulNextRegionIdx", &self.ulNextRegionIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("WaveLink", &self.WaveLink).field("WSMP", &self.WSMP).field("WLOOP", &self.WLOOP).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_REGION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_REGION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_REGION {
     fn eq(&self, other: &Self) -> bool {
@@ -2485,8 +2485,8 @@ impl ::core::fmt::Debug for DMUS_SYNTHSTATS {
         f.debug_struct("DMUS_SYNTHSTATS").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_SYNTHSTATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS {
     fn eq(&self, other: &Self) -> bool {
@@ -2523,8 +2523,8 @@ impl ::core::fmt::Debug for DMUS_SYNTHSTATS8 {
         f.debug_struct("DMUS_SYNTHSTATS8").field("dwSize", &self.dwSize).field("dwValidStats", &self.dwValidStats).field("dwVoices", &self.dwVoices).field("dwTotalCPU", &self.dwTotalCPU).field("dwCPUPerVoice", &self.dwCPUPerVoice).field("dwLostNotes", &self.dwLostNotes).field("dwFreeMemory", &self.dwFreeMemory).field("lPeakVolume", &self.lPeakVolume).field("dwSynthMemUse", &self.dwSynthMemUse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_SYNTHSTATS8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_SYNTHSTATS8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_SYNTHSTATS8 {
     fn eq(&self, other: &Self) -> bool {
@@ -2558,8 +2558,8 @@ impl ::core::fmt::Debug for DMUS_VEGPARAMS {
         f.debug_struct("DMUS_VEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_VEGPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_VEGPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_VEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2594,8 +2594,8 @@ impl ::core::fmt::Debug for DMUS_VOICE_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMUS_VOICE_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_VOICE_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMUS_VOICE_STATE {
@@ -2625,8 +2625,8 @@ impl ::core::clone::Clone for DMUS_WAVE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DMUS_WAVE {
     fn default() -> Self {
@@ -2653,8 +2653,8 @@ impl ::core::fmt::Debug for DMUS_WAVEARTDL {
         f.debug_struct("DMUS_WAVEARTDL").field("ulDownloadIdIdx", &self.ulDownloadIdIdx).field("ulBus", &self.ulBus).field("ulBuffers", &self.ulBuffers).field("ulMasterDLId", &self.ulMasterDLId).field("usOptions", &self.usOptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVEARTDL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVEARTDL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEARTDL {
     fn eq(&self, other: &Self) -> bool {
@@ -2684,8 +2684,8 @@ impl ::core::fmt::Debug for DMUS_WAVEDATA {
         f.debug_struct("DMUS_WAVEDATA").field("cbSize", &self.cbSize).field("byData", &self.byData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2714,8 +2714,8 @@ impl ::core::fmt::Debug for DMUS_WAVEDL {
         f.debug_struct("DMUS_WAVEDL").field("cbWaveData", &self.cbWaveData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVEDL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVEDL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVEDL {
     fn eq(&self, other: &Self) -> bool {
@@ -2747,8 +2747,8 @@ impl ::core::fmt::Debug for DMUS_WAVES_REVERB_PARAMS {
         f.debug_struct("DMUS_WAVES_REVERB_PARAMS").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMUS_WAVES_REVERB_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMUS_WAVES_REVERB_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMUS_WAVES_REVERB_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2790,8 +2790,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
@@ -2829,8 +2829,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2865,8 +2865,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA").field("Type", &self.Type).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).field("Description", &self.Description).field("Module", &self.Module).field("Interface", &self.Interface).field("WaveDeviceId", &self.WaveDeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2901,8 +2901,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
@@ -2932,8 +2932,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
@@ -2963,8 +2963,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
@@ -2990,8 +2990,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DAT
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3022,8 +3022,8 @@ impl ::core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DAT
         f.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3058,8 +3058,8 @@ impl ::core::fmt::Debug for DVAudInfo {
         f.debug_struct("DVAudInfo").field("bAudStyle", &self.bAudStyle).field("bAudQu", &self.bAudQu).field("bNumAudPin", &self.bNumAudPin).field("wAvgSamplesPerPinPerFrm", &self.wAvgSamplesPerPinPerFrm).field("wBlkMode", &self.wBlkMode).field("wDIFMode", &self.wDIFMode).field("wBlkDiv", &self.wBlkDiv).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DVAudInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DVAudInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DVAudInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -3089,8 +3089,8 @@ impl ::core::fmt::Debug for INSTHEADER {
         f.debug_struct("INSTHEADER").field("cRegions", &self.cRegions).field("Locale", &self.Locale).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSTHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSTHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSTHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -3115,8 +3115,8 @@ impl ::core::clone::Clone for MDEVICECAPSEX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MDEVICECAPSEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MDEVICECAPSEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MDEVICECAPSEX {
     fn default() -> Self {
@@ -3140,8 +3140,8 @@ impl ::core::fmt::Debug for MIDILOCALE {
         f.debug_struct("MIDILOCALE").field("ulBank", &self.ulBank).field("ulInstrument", &self.ulInstrument).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIDILOCALE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIDILOCALE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIDILOCALE {
     fn eq(&self, other: &Self) -> bool {
@@ -3174,8 +3174,8 @@ impl ::core::clone::Clone for MIDIOPENDESC {
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-unsafe impl ::windows::core::Abi for MIDIOPENDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIDIOPENDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::core::default::Default for MIDIOPENDESC {
@@ -3199,8 +3199,8 @@ impl ::core::fmt::Debug for POOLCUE {
         f.debug_struct("POOLCUE").field("ulOffset", &self.ulOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POOLCUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POOLCUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POOLCUE {
     fn eq(&self, other: &Self) -> bool {
@@ -3230,8 +3230,8 @@ impl ::core::fmt::Debug for POOLTABLE {
         f.debug_struct("POOLTABLE").field("cbSize", &self.cbSize).field("cCues", &self.cCues).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POOLTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POOLTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POOLTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -3263,8 +3263,8 @@ impl ::core::fmt::Debug for RGNHEADER {
         f.debug_struct("RGNHEADER").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RGNHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGNHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RGNHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -3294,8 +3294,8 @@ impl ::core::fmt::Debug for RGNRANGE {
         f.debug_struct("RGNRANGE").field("usLow", &self.usLow).field("usHigh", &self.usHigh).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RGNRANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGNRANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RGNRANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -3327,8 +3327,8 @@ impl ::core::fmt::Debug for WAVELINK {
         f.debug_struct("WAVELINK").field("fusOptions", &self.fusOptions).field("usPhaseGroup", &self.usPhaseGroup).field("ulChannel", &self.ulChannel).field("ulTableIndex", &self.ulTableIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WAVELINK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WAVELINK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WAVELINK {
     fn eq(&self, other: &Self) -> bool {
@@ -3360,8 +3360,8 @@ impl ::core::fmt::Debug for WLOOP {
         f.debug_struct("WLOOP").field("cbSize", &self.cbSize).field("ulType", &self.ulType).field("ulStart", &self.ulStart).field("ulLength", &self.ulLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLOOP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLOOP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLOOP {
     fn eq(&self, other: &Self) -> bool {
@@ -3395,8 +3395,8 @@ impl ::core::fmt::Debug for WSMPL {
         f.debug_struct("WSMPL").field("cbSize", &self.cbSize).field("usUnityNote", &self.usUnityNote).field("sFineTune", &self.sFineTune).field("lAttenuation", &self.lAttenuation).field("fulOptions", &self.fulOptions).field("cSampleLoops", &self.cSampleLoops).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WSMPL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WSMPL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WSMPL {
     fn eq(&self, other: &Self) -> bool {

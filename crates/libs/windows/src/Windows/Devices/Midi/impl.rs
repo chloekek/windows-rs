@@ -56,7 +56,7 @@ impl IMidiMessage_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMidiMessage as ::windows::core::Interface>::IID
+        iid == &<IMidiMessage as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -83,7 +83,7 @@ impl IMidiOutPort_Vtbl {
             let this = (*this).get_impl();
             this.SendBuffer(::windows::core::from_raw_borrowed(&mididata)).into()
         }
-        unsafe extern "system" fn DeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceId() {
@@ -103,6 +103,6 @@ impl IMidiOutPort_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMidiOutPort as ::windows::core::Interface>::IID
+        iid == &<IMidiOutPort as ::windows::core::ComInterface>::IID
     }
 }

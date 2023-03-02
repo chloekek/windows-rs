@@ -33,7 +33,7 @@ impl IAccountsSettingsPaneInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAccountsSettingsPaneInterop as ::windows::core::Interface>::IID
+        iid == &<IAccountsSettingsPaneInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -60,7 +60,7 @@ impl IActivationFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IActivationFactory as ::windows::core::Interface>::IID
+        iid == &<IActivationFactory as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -78,7 +78,7 @@ impl IAgileReference_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAgileReference as ::windows::core::Interface>::IID
+        iid == &<IAgileReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -96,7 +96,7 @@ impl IApartmentShutdown_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUninitialize: OnUninitialize::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IApartmentShutdown as ::windows::core::Interface>::IID
+        iid == &<IApartmentShutdown as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -117,7 +117,7 @@ impl IAppServiceConnectionExtendedExecution_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAppServiceConnectionExtendedExecution as ::windows::core::Interface>::IID
+        iid == &<IAppServiceConnectionExtendedExecution as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -141,7 +141,7 @@ impl IBufferByteAccess_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Buffer: Buffer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBufferByteAccess as ::windows::core::Interface>::IID
+        iid == &<IBufferByteAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -196,7 +196,7 @@ impl ICastingController_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICastingController as ::windows::core::Interface>::IID
+        iid == &<ICastingController as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -224,7 +224,7 @@ impl ICastingEventHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICastingEventHandler as ::windows::core::Interface>::IID
+        iid == &<ICastingEventHandler as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
@@ -267,7 +267,7 @@ impl ICastingSourceInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICastingSourceInfo as ::windows::core::Interface>::IID
+        iid == &<ICastingSourceInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -295,7 +295,7 @@ impl ICoreInputInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreInputInterop as ::windows::core::Interface>::IID
+        iid == &<ICoreInputInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -407,7 +407,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreWindowAdapterInterop as ::windows::core::Interface>::IID
+        iid == &<ICoreWindowAdapterInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -444,7 +444,7 @@ impl ICoreWindowComponentInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreWindowComponentInterop as ::windows::core::Interface>::IID
+        iid == &<ICoreWindowComponentInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -481,7 +481,7 @@ impl ICoreWindowInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreWindowInterop as ::windows::core::Interface>::IID
+        iid == &<ICoreWindowInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -493,7 +493,7 @@ pub trait ICorrelationVectorInformation_Impl: Sized {
 impl ::windows::core::RuntimeName for ICorrelationVectorInformation {}
 impl ICorrelationVectorInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>() -> ICorrelationVectorInformation_Vtbl {
-        unsafe extern "system" fn LastCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LastCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LastCorrelationVectorForThread() {
@@ -504,7 +504,7 @@ impl ICorrelationVectorInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NextCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NextCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NextCorrelationVectorForThread() {
@@ -515,7 +515,7 @@ impl ICorrelationVectorInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNextCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNextCorrelationVectorForThread<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNextCorrelationVectorForThread(::core::mem::transmute(&cv)).into()
@@ -528,7 +528,7 @@ impl ICorrelationVectorInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICorrelationVectorInformation as ::windows::core::Interface>::IID
+        iid == &<ICorrelationVectorInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -538,7 +538,7 @@ pub trait ICorrelationVectorSource_Impl: Sized {
 impl ::windows::core::RuntimeName for ICorrelationVectorSource {}
 impl ICorrelationVectorSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorSource_Impl, const OFFSET: isize>() -> ICorrelationVectorSource_Vtbl {
-        unsafe extern "system" fn CorrelationVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CorrelationVector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICorrelationVectorSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CorrelationVector() {
@@ -552,7 +552,7 @@ impl ICorrelationVectorSource_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CorrelationVector: CorrelationVector::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICorrelationVectorSource as ::windows::core::Interface>::IID
+        iid == &<ICorrelationVectorSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -576,7 +576,7 @@ impl IDragDropManagerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDragDropManagerInterop as ::windows::core::Interface>::IID
+        iid == &<IDragDropManagerInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -600,7 +600,7 @@ impl IHolographicSpaceInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IHolographicSpaceInterop as ::windows::core::Interface>::IID
+        iid == &<IHolographicSpaceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -621,7 +621,7 @@ impl IInputPaneInterop_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IInputPaneInterop, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IInputPaneInterop as ::windows::core::Interface>::IID
+        iid == &<IInputPaneInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -645,7 +645,7 @@ impl ILanguageExceptionErrorInfo_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetLanguageException: GetLanguageException::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILanguageExceptionErrorInfo as ::windows::core::Interface>::IID
+        iid == &<ILanguageExceptionErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -692,7 +692,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILanguageExceptionErrorInfo2 as ::windows::core::Interface>::IID || iid == &<ILanguageExceptionErrorInfo as ::windows::core::Interface>::IID
+        iid == &<ILanguageExceptionErrorInfo2 as ::windows::core::ComInterface>::IID || iid == &<ILanguageExceptionErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -710,7 +710,7 @@ impl ILanguageExceptionStackBackTrace_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetStackBackTrace: GetStackBackTrace::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILanguageExceptionStackBackTrace as ::windows::core::Interface>::IID
+        iid == &<ILanguageExceptionStackBackTrace as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -737,7 +737,7 @@ impl ILanguageExceptionTransform_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ILanguageExceptionTransform as ::windows::core::Interface>::IID
+        iid == &<ILanguageExceptionTransform as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -755,7 +755,7 @@ impl IMemoryBufferByteAccess_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetBuffer: GetBuffer::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMemoryBufferByteAccess as ::windows::core::Interface>::IID
+        iid == &<IMemoryBufferByteAccess as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -773,7 +773,7 @@ impl IMessageDispatcher_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IMessageDispatcher, OFFSET>(), PumpMessages: PumpMessages::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMessageDispatcher as ::windows::core::Interface>::IID
+        iid == &<IMessageDispatcher as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -804,7 +804,7 @@ impl IPlayToManagerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPlayToManagerInterop as ::windows::core::Interface>::IID
+        iid == &<IPlayToManagerInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -815,12 +815,12 @@ pub trait IRestrictedErrorInfo_Impl: Sized {
 impl ::windows::core::RuntimeName for IRestrictedErrorInfo {}
 impl IRestrictedErrorInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>() -> IRestrictedErrorInfo_Vtbl {
-        unsafe extern "system" fn GetErrorDetails<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut *mut ::core::ffi::c_void, error: *mut ::windows::core::HRESULT, restricteddescription: *mut *mut ::core::ffi::c_void, capabilitysid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorDetails<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, error: *mut ::windows::core::HRESULT, restricteddescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, capabilitysid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetErrorDetails(::core::mem::transmute_copy(&description), ::core::mem::transmute_copy(&error), ::core::mem::transmute_copy(&restricteddescription), ::core::mem::transmute_copy(&capabilitysid)).into()
         }
-        unsafe extern "system" fn GetReference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetReference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRestrictedErrorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetReference() {
@@ -838,7 +838,7 @@ impl IRestrictedErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRestrictedErrorInfo as ::windows::core::Interface>::IID
+        iid == &<IRestrictedErrorInfo as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -982,7 +982,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IShareWindowCommandEventArgsInterop as ::windows::core::Interface>::IID
+        iid == &<IShareWindowCommandEventArgsInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1003,7 +1003,7 @@ impl IShareWindowCommandSourceInterop_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetForWindow: GetForWindow::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IShareWindowCommandSourceInterop as ::windows::core::Interface>::IID
+        iid == &<IShareWindowCommandSourceInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1027,7 +1027,7 @@ impl ISpatialInteractionManagerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISpatialInteractionManagerInterop as ::windows::core::Interface>::IID
+        iid == &<ISpatialInteractionManagerInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1051,7 +1051,7 @@ impl ISystemMediaTransportControlsInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISystemMediaTransportControlsInterop as ::windows::core::Interface>::IID
+        iid == &<ISystemMediaTransportControlsInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1075,7 +1075,7 @@ impl IUIViewSettingsInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUIViewSettingsInterop as ::windows::core::Interface>::IID
+        iid == &<IUIViewSettingsInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1099,7 +1099,7 @@ impl IUserActivityInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUserActivityInterop as ::windows::core::Interface>::IID
+        iid == &<IUserActivityInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1123,7 +1123,7 @@ impl IUserActivityRequestManagerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUserActivityRequestManagerInterop as ::windows::core::Interface>::IID
+        iid == &<IUserActivityRequestManagerInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -1133,7 +1133,7 @@ pub trait IUserActivitySourceHostInterop_Impl: Sized {
 impl ::windows::core::RuntimeName for IUserActivitySourceHostInterop {}
 impl IUserActivitySourceHostInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>() -> IUserActivitySourceHostInterop_Vtbl {
-        unsafe extern "system" fn SetActivitySourceHost<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activitysourcehost: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetActivitySourceHost<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserActivitySourceHostInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activitysourcehost: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetActivitySourceHost(::core::mem::transmute(&activitysourcehost)).into()
@@ -1144,7 +1144,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUserActivitySourceHostInterop as ::windows::core::Interface>::IID
+        iid == &<IUserActivitySourceHostInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1157,7 +1157,7 @@ impl ::windows::core::RuntimeName for IUserConsentVerifierInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUserConsentVerifierInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserConsentVerifierInterop_Impl, const OFFSET: isize>() -> IUserConsentVerifierInterop_Vtbl {
-        unsafe extern "system" fn RequestVerificationForWindowAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserConsentVerifierInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequestVerificationForWindowAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserConsentVerifierInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: ::std::mem::MaybeUninit<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RequestVerificationForWindowAsync(::core::mem::transmute_copy(&appwindow), ::core::mem::transmute(&message), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&asyncoperation)).into()
@@ -1168,7 +1168,7 @@ impl IUserConsentVerifierInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IUserConsentVerifierInterop as ::windows::core::Interface>::IID
+        iid == &<IUserConsentVerifierInterop as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -1186,7 +1186,7 @@ impl IWeakReference_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Resolve: Resolve::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWeakReference as ::windows::core::Interface>::IID
+        iid == &<IWeakReference as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
@@ -1210,7 +1210,7 @@ impl IWeakReferenceSource_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWeakReference: GetWeakReference::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWeakReferenceSource as ::windows::core::Interface>::IID
+        iid == &<IWeakReferenceSource as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1241,6 +1241,6 @@ impl IWebAuthenticationCoreManagerInterop_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWebAuthenticationCoreManagerInterop as ::windows::core::Interface>::IID
+        iid == &<IWebAuthenticationCoreManagerInterop as ::windows::core::ComInterface>::IID
     }
 }

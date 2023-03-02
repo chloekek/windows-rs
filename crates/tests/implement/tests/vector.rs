@@ -1,6 +1,5 @@
 #![allow(non_snake_case)]
 
-use std::convert::TryInto;
 use std::sync::RwLock;
 use windows::core::*;
 use windows::Foundation::Collections::*;
@@ -19,12 +18,17 @@ pub(crate) fn err_memory() -> Error {
     IVector<T>,
     IVectorView<T>,
 )]
-struct Vector<T>(std::sync::RwLock<Vec<T::DefaultType>>)
+struct Vector<T>(std::sync::RwLock<Vec<T::Default>>)
 where
-    T: ::windows::core::RuntimeType;
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone;
 
-impl<T: ::windows::core::RuntimeType + 'static> Vector<T> {
-    fn new(vec: Vec<T::DefaultType>) -> Self {
+impl<T> Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
+    fn new(vec: Vec<T::Default>) -> Self {
         Self(RwLock::new(vec))
     }
 
@@ -38,7 +42,7 @@ impl<T: ::windows::core::RuntimeType + 'static> Vector<T> {
         let reader = self.0.read().unwrap();
         Ok(reader.len() as _)
     }
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         let reader = self.0.read().unwrap();
         match reader.iter().position(|element| element == value) {
             Some(index) => {
@@ -48,12 +52,16 @@ impl<T: ::windows::core::RuntimeType + 'static> Vector<T> {
             None => Ok(false),
         }
     }
-    fn GetMany(&self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
         todo!();
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
+impl<T> IVector_Impl<T> for Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
     fn GetAt(&self, index: u32) -> Result<T> {
         self.GetAt(index)
     }
@@ -63,16 +71,16 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
     fn GetView(&self) -> Result<windows::Foundation::Collections::IVectorView<T>> {
         unsafe { self.cast() }
     }
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)
     }
-    fn SetAt(&self, index: u32, value: &T::DefaultType) -> Result<()> {
+    fn SetAt(&self, index: u32, value: &T::Default) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let item = writer.get_mut(index as usize).ok_or_else(err_bounds)?;
         *item = value.clone();
         Ok(())
     }
-    fn InsertAt(&self, index: u32, value: &T::DefaultType) -> Result<()> {
+    fn InsertAt(&self, index: u32, value: &T::Default) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let index = index as usize;
         if index > writer.len() {
@@ -94,7 +102,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
             Err(err_bounds())
         }
     }
-    fn Append(&self, value: &T::DefaultType) -> Result<()> {
+    fn Append(&self, value: &T::Default) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let len = writer.len();
         writer.try_reserve(len + 1).map_err(|_| err_memory())?;
@@ -114,10 +122,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
         writer.clear();
         Ok(())
     }
-    fn GetMany(&self, startindex: u32, items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
         self.GetMany(startindex, items)
     }
-    fn ReplaceAll(&self, items: &[T::DefaultType]) -> Result<()> {
+    fn ReplaceAll(&self, items: &[T::Default]) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         writer.try_reserve(items.len() + 1).map_err(|_| err_memory())?;
         for item in items {
@@ -127,22 +135,30 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Vector<T> {
+impl<T> IVectorView_Impl<T> for Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
     fn GetAt(&self, index: u32) -> Result<T> {
         self.GetAt(index)
     }
     fn Size(&self) -> Result<u32> {
         self.Size()
     }
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)
     }
-    fn GetMany(&self, startindex: u32, items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
         self.GetMany(startindex, items)
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IIterable_Impl<T> for Vector<T> {
+impl<T> IIterable_Impl<T> for Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
     fn First(&self) -> Result<IIterator<T>> {
         todo!()
     }
@@ -182,11 +198,11 @@ fn IndexOf() -> Result<()> {
 
     let uri = Uri::CreateUri(&HSTRING::from("http://test/"))?;
     let v: IVector<IStringable> = Vector::new(vec![Some(uri.cast()?), None]).into();
-    assert_eq!(v.IndexOf(&uri.cast()?, &mut index)?, true);
+    assert_eq!(v.IndexOf(&uri.cast::<IStringable>()?, &mut index)?, true);
     assert_eq!(index, 0);
     assert_eq!(v.IndexOf(None, &mut index)?, true);
     assert_eq!(index, 1);
-    assert_eq!(v.IndexOf(&Uri::CreateUri(&HSTRING::from("http://test/"))?.cast()?, &mut index)?, false);
+    assert_eq!(v.IndexOf(&Uri::CreateUri(&HSTRING::from("http://test/"))?.cast::<IStringable>()?, &mut index)?, false);
 
     Ok(())
 }
@@ -207,7 +223,7 @@ fn test() -> Result<()> {
     assert_eq!(30, v.GetAt(2)?);
     assert!(v.GetAt(20).is_err());
     assert_eq!(3, v.Size()?);
-    let c: IInspectable = (&v).into();
+    let c: &IInspectable = v.can_into();
     assert_eq!(c.GetRuntimeClassName()?, "Windows.Foundation.Collections.IVector"); // TODO: needs to have `1<Int32>
 
     let mut index = 0;
@@ -230,7 +246,7 @@ fn test() -> Result<()> {
     assert_eq!(2, index);
     assert_eq!(false, v.IndexOf(&HSTRING::from("123"), &mut index)?);
 
-    let v: IVectorView<IStringable> = Vector::new(vec![Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.try_into().unwrap()), Some(Uri::CreateUri(&HSTRING::from("http://two/"))?.try_into().unwrap()), Some(Uri::CreateUri(&HSTRING::from("http://three/"))?.try_into().unwrap())]).into();
+    let v: IVectorView<IStringable> = Vector::new(vec![Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.cast()?), Some(Uri::CreateUri(&HSTRING::from("http://two/"))?.cast()?), Some(Uri::CreateUri(&HSTRING::from("http://three/"))?.cast()?)]).into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

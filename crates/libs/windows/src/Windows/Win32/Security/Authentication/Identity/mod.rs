@@ -4,7 +4,7 @@ pub mod Provider;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AcceptSecurityContext(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, pinput: ::core::option::Option<*const SecBufferDesc>, fcontextreq: ASC_REQ_FLAGS, targetdatarep: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::core::link ! ( "secur32.dll""system" fn AcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn AcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
     AcceptSecurityContext(::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinput.unwrap_or(::std::ptr::null())), fcontextreq, targetdatarep, ::core::mem::transmute(phnewcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poutput.unwrap_or(::std::ptr::null_mut())), pfcontextattr, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
@@ -12,68 +12,68 @@ pub unsafe fn AcceptSecurityContext(phcredential: ::core::option::Option<*const 
 #[inline]
 pub unsafe fn AcquireCredentialsHandleA<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: ::core::option::Option<*const ::core::ffi::c_void>, pauthdata: ::core::option::Option<*const ::core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: ::core::option::Option<*const ::core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleA ( pszprincipal : :: windows::core::PCSTR , pszpackage : :: windows::core::PCSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
-    AcquireCredentialsHandleA(pszprincipal.into().abi(), pszpackage.into().abi(), fcredentialuse, ::core::mem::transmute(pvlogonid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), phcredential, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleA ( pszprincipal : :: windows::core::PCSTR , pszpackage : :: windows::core::PCSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    AcquireCredentialsHandleA(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pvlogonid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), phcredential, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AcquireCredentialsHandleW<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: SECPKG_CRED, pvlogonid: ::core::option::Option<*const ::core::ffi::c_void>, pauthdata: ::core::option::Option<*const ::core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: ::core::option::Option<*const ::core::ffi::c_void>, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleW ( pszprincipal : :: windows::core::PCWSTR , pszpackage : :: windows::core::PCWSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
-    AcquireCredentialsHandleW(pszprincipal.into().abi(), pszpackage.into().abi(), fcredentialuse, ::core::mem::transmute(pvlogonid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), phcredential, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn AcquireCredentialsHandleW ( pszprincipal : :: windows::core::PCWSTR , pszpackage : :: windows::core::PCWSTR , fcredentialuse : SECPKG_CRED , pvlogonid : *const ::core::ffi::c_void , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , phcredential : *mut super::super::Credentials:: SecHandle , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    AcquireCredentialsHandleW(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pvlogonid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), phcredential, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AddCredentialsA<P0, P1>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P0, pszpackage: P1, fcredentialuse: u32, pauthdata: ::core::option::Option<*const ::core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: ::core::option::Option<*const ::core::ffi::c_void>, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn AddCredentialsA ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : :: windows::core::PCSTR , pszpackage : :: windows::core::PCSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
-    AddCredentialsA(hcredentials, pszprincipal.into().abi(), pszpackage.into().abi(), fcredentialuse, ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddCredentialsA ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : :: windows::core::PCSTR , pszpackage : :: windows::core::PCSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    AddCredentialsA(hcredentials, pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn AddCredentialsW<P0, P1>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P0, pszpackage: P1, fcredentialuse: u32, pauthdata: ::core::option::Option<*const ::core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: ::core::option::Option<*const ::core::ffi::c_void>, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn AddCredentialsW ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : :: windows::core::PCWSTR , pszpackage : :: windows::core::PCWSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
-    AddCredentialsW(hcredentials, pszprincipal.into().abi(), pszpackage.into().abi(), fcredentialuse, ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddCredentialsW ( hcredentials : *const super::super::Credentials:: SecHandle , pszprincipal : :: windows::core::PCWSTR , pszpackage : :: windows::core::PCWSTR , fcredentialuse : u32 , pauthdata : *const ::core::ffi::c_void , pgetkeyfn : SEC_GET_KEY_FN , pvgetkeyargument : *const ::core::ffi::c_void , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    AddCredentialsW(hcredentials, pszprincipal.into_param().abi(), pszpackage.into_param().abi(), fcredentialuse, ::core::mem::transmute(pauthdata.unwrap_or(::std::ptr::null())), pgetkeyfn, ::core::mem::transmute(pvgetkeyargument.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn AddSecurityPackageA<P0>(pszpackagename: P0, poptions: ::core::option::Option<*const SECURITY_PACKAGE_OPTIONS>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn AddSecurityPackageA ( pszpackagename : :: windows::core::PCSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> :: windows::core::HRESULT );
-    AddSecurityPackageA(pszpackagename.into().abi(), ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddSecurityPackageA ( pszpackagename : :: windows::core::PCSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> :: windows::core::HRESULT );
+    AddSecurityPackageA(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn AddSecurityPackageW<P0>(pszpackagename: P0, poptions: ::core::option::Option<*const SECURITY_PACKAGE_OPTIONS>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn AddSecurityPackageW ( pszpackagename : :: windows::core::PCWSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> :: windows::core::HRESULT );
-    AddSecurityPackageW(pszpackagename.into().abi(), ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn AddSecurityPackageW ( pszpackagename : :: windows::core::PCWSTR , poptions : *const SECURITY_PACKAGE_OPTIONS ) -> :: windows::core::HRESULT );
+    AddSecurityPackageW(pszpackagename.into_param().abi(), ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn ApplyControlToken ( phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ApplyControlToken ( phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc ) -> :: windows::core::HRESULT );
     ApplyControlToken(phcontext, pinput).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -81,33 +81,33 @@ pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::Sec
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid<P0>(psid: P0, psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyBySid ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditComputeEffectivePolicyBySid(psid.into(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyBySid ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditComputeEffectivePolicyBySid(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyByToken<P0>(htokenhandle: P0, psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyByToken ( htokenhandle : super::super::super::Foundation:: HANDLE , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditComputeEffectivePolicyByToken(htokenhandle.into(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditComputeEffectivePolicyByToken ( htokenhandle : super::super::super::Foundation:: HANDLE , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditComputeEffectivePolicyByToken(htokenhandle.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditEnumerateCategories ( ppauditcategoriesarray : *mut *mut :: windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditEnumerateCategories ( ppauditcategoriesarray : *mut *mut :: windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     AuditEnumerateCategories(ppauditcategoriesarray, pdwcountreturned)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditEnumeratePerUserPolicy ( ppauditsidarray : *mut *mut POLICY_AUDIT_SID_ARRAY ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditEnumeratePerUserPolicy ( ppauditsidarray : *mut *mut POLICY_AUDIT_SID_ARRAY ) -> super::super::super::Foundation:: BOOLEAN );
     AuditEnumeratePerUserPolicy(ppauditsidarray)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -115,57 +115,57 @@ pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDI
 #[inline]
 pub unsafe fn AuditEnumerateSubCategories<P0>(pauditcategoryguid: ::core::option::Option<*const ::windows::core::GUID>, bretrieveallsubcategories: P0, ppauditsubcategoriesarray: *mut *mut ::windows::core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditEnumerateSubCategories ( pauditcategoryguid : *const :: windows::core::GUID , bretrieveallsubcategories : super::super::super::Foundation:: BOOLEAN , ppauditsubcategoriesarray : *mut *mut :: windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditEnumerateSubCategories(::core::mem::transmute(pauditcategoryguid.unwrap_or(::std::ptr::null())), bretrieveallsubcategories.into(), ppauditsubcategoriesarray, pdwcountreturned)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditEnumerateSubCategories ( pauditcategoryguid : *const :: windows::core::GUID , bretrieveallsubcategories : super::super::super::Foundation:: BOOLEAN , ppauditsubcategoriesarray : *mut *mut :: windows::core::GUID , pdwcountreturned : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditEnumerateSubCategories(::core::mem::transmute(pauditcategoryguid.unwrap_or(::std::ptr::null())), bretrieveallsubcategories.into_param().abi(), ppauditsubcategoriesarray, pdwcountreturned)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn AuditFree(buffer: *const ::core::ffi::c_void) {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditFree ( buffer : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditFree ( buffer : *const ::core::ffi::c_void ) -> ( ) );
     AuditFree(buffer)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditLookupCategoryGuidFromCategoryId ( auditcategoryid : POLICY_AUDIT_EVENT_TYPE , pauditcategoryguid : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryGuidFromCategoryId ( auditcategoryid : POLICY_AUDIT_EVENT_TYPE , pauditcategoryguid : *mut :: windows::core::GUID ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryGuidFromCategoryId(auditcategoryid, pauditcategoryguid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const ::windows::core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditLookupCategoryIdFromCategoryGuid ( pauditcategoryguid : *const :: windows::core::GUID , pauditcategoryid : *mut POLICY_AUDIT_EVENT_TYPE ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryIdFromCategoryGuid ( pauditcategoryguid : *const :: windows::core::GUID , pauditcategoryid : *mut POLICY_AUDIT_EVENT_TYPE ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid, pauditcategoryid)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameA ( pauditcategoryguid : *const :: windows::core::GUID , ppszcategoryname : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameA ( pauditcategoryguid : *const :: windows::core::GUID , ppszcategoryname : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryNameA(pauditcategoryguid, ppszcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const ::windows::core::GUID, ppszcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameW ( pauditcategoryguid : *const :: windows::core::GUID , ppszcategoryname : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupCategoryNameW ( pauditcategoryguid : *const :: windows::core::GUID , ppszcategoryname : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupCategoryNameW(pauditcategoryguid, ppszcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameA ( pauditsubcategoryguid : *const :: windows::core::GUID , ppszsubcategoryname : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameA ( pauditsubcategoryguid : *const :: windows::core::GUID , ppszsubcategoryname : *mut :: windows::core::PSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupSubCategoryNameA(pauditsubcategoryguid, ppszsubcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::windows::core::GUID, ppszsubcategoryname: *mut ::windows::core::PWSTR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameW ( pauditsubcategoryguid : *const :: windows::core::GUID , ppszsubcategoryname : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditLookupSubCategoryNameW ( pauditsubcategoryguid : *const :: windows::core::GUID , ppszsubcategoryname : *mut :: windows::core::PWSTR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditLookupSubCategoryNameW(pauditsubcategoryguid, ppszsubcategoryname)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -173,43 +173,43 @@ pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const ::window
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclA<P0>(objecttypename: P0, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclA ( objecttypename : :: windows::core::PCSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditQueryGlobalSaclA(objecttypename.into().abi(), acl)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclA ( objecttypename : :: windows::core::PCSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditQueryGlobalSaclA(objecttypename.into_param().abi(), acl)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQueryGlobalSaclW<P0>(objecttypename: P0, acl: *mut *mut super::super::ACL) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclW ( objecttypename : :: windows::core::PCWSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditQueryGlobalSaclW(objecttypename.into().abi(), acl)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryGlobalSaclW ( objecttypename : :: windows::core::PCWSTR , acl : *mut *mut super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditQueryGlobalSaclW(objecttypename.into_param().abi(), acl)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQueryPerUserPolicy<P0>(psid: P0, psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditQueryPerUserPolicy ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditQueryPerUserPolicy(psid.into(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQueryPerUserPolicy ( psid : super::super::super::Foundation:: PSID , psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditQueryPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQuerySecurity(securityinformation: u32, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditQuerySecurity ( securityinformation : u32 , ppsecuritydescriptor : *mut super::super:: PSECURITY_DESCRIPTOR ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQuerySecurity ( securityinformation : u32 , ppsecuritydescriptor : *mut super::super:: PSECURITY_DESCRIPTOR ) -> super::super::super::Foundation:: BOOLEAN );
     AuditQuerySecurity(securityinformation, ppsecuritydescriptor)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[::windows::core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditQuerySystemPolicy ( psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditQuerySystemPolicy ( psubcategoryguids : *const :: windows::core::GUID , dwpolicycount : u32 , ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION ) -> super::super::super::Foundation:: BOOLEAN );
     AuditQuerySystemPolicy(::core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len() as _, ppauditpolicy)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -217,46 +217,46 @@ pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[::windows::core::GUID]
 #[inline]
 pub unsafe fn AuditSetGlobalSaclA<P0>(objecttypename: P0, acl: ::core::option::Option<*const super::super::ACL>) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclA ( objecttypename : :: windows::core::PCSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditSetGlobalSaclA(objecttypename.into().abi(), ::core::mem::transmute(acl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclA ( objecttypename : :: windows::core::PCSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditSetGlobalSaclA(objecttypename.into_param().abi(), ::core::mem::transmute(acl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetGlobalSaclW<P0>(objecttypename: P0, acl: ::core::option::Option<*const super::super::ACL>) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclW ( objecttypename : :: windows::core::PCWSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditSetGlobalSaclW(objecttypename.into().abi(), ::core::mem::transmute(acl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetGlobalSaclW ( objecttypename : :: windows::core::PCWSTR , acl : *const super::super:: ACL ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditSetGlobalSaclW(objecttypename.into_param().abi(), ::core::mem::transmute(acl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetPerUserPolicy<P0>(psid: P0, pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditSetPerUserPolicy ( psid : super::super::super::Foundation:: PSID , pauditpolicy : *const AUDIT_POLICY_INFORMATION , dwpolicycount : u32 ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditSetPerUserPolicy(psid.into(), ::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len() as _)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetPerUserPolicy ( psid : super::super::super::Foundation:: PSID , pauditpolicy : *const AUDIT_POLICY_INFORMATION , dwpolicycount : u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditSetPerUserPolicy(psid.into_param().abi(), ::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetSecurity<P0>(securityinformation: u32, psecuritydescriptor: P0) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<super::super::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditSetSecurity ( securityinformation : u32 , psecuritydescriptor : super::super:: PSECURITY_DESCRIPTOR ) -> super::super::super::Foundation:: BOOLEAN );
-    AuditSetSecurity(securityinformation, psecuritydescriptor.into())
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetSecurity ( securityinformation : u32 , psecuritydescriptor : super::super:: PSECURITY_DESCRIPTOR ) -> super::super::super::Foundation:: BOOLEAN );
+    AuditSetSecurity(securityinformation, psecuritydescriptor.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn AuditSetSystemPolicy ( pauditpolicy : *const AUDIT_POLICY_INFORMATION , dwpolicycount : u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn AuditSetSystemPolicy ( pauditpolicy : *const AUDIT_POLICY_INFORMATION , dwpolicycount : u32 ) -> super::super::super::Foundation:: BOOLEAN );
     AuditSetSystemPolicy(::core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -264,146 +264,146 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) ->
 #[inline]
 pub unsafe fn ChangeAccountPasswordA<P0>(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: P0, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn ChangeAccountPasswordA ( pszpackagename : *const i8 , pszdomainname : *const i8 , pszaccountname : *const i8 , pszoldpassword : *const i8 , psznewpassword : *const i8 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> :: windows::core::HRESULT );
-    ChangeAccountPasswordA(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.into(), dwreserved, poutput).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn ChangeAccountPasswordA ( pszpackagename : *const i8 , pszdomainname : *const i8 , pszaccountname : *const i8 , pszoldpassword : *const i8 , psznewpassword : *const i8 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> :: windows::core::HRESULT );
+    ChangeAccountPasswordA(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.into_param().abi(), dwreserved, poutput).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeAccountPasswordW<P0>(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: P0, dwreserved: u32, poutput: *mut SecBufferDesc) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn ChangeAccountPasswordW ( pszpackagename : *const u16 , pszdomainname : *const u16 , pszaccountname : *const u16 , pszoldpassword : *const u16 , psznewpassword : *const u16 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> :: windows::core::HRESULT );
-    ChangeAccountPasswordW(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.into(), dwreserved, poutput).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn ChangeAccountPasswordW ( pszpackagename : *const u16 , pszdomainname : *const u16 , pszaccountname : *const u16 , pszoldpassword : *const u16 , psznewpassword : *const u16 , bimpersonating : super::super::super::Foundation:: BOOLEAN , dwreserved : u32 , poutput : *mut SecBufferDesc ) -> :: windows::core::HRESULT );
+    ChangeAccountPasswordW(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.into_param().abi(), dwreserved, poutput).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::SecHandle, ptoken: *const SecBufferDesc) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn CompleteAuthToken ( phcontext : *const super::super::Credentials:: SecHandle , ptoken : *const SecBufferDesc ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn CompleteAuthToken ( phcontext : *const super::super::Credentials:: SecHandle , ptoken : *const SecBufferDesc ) -> :: windows::core::HRESULT );
     CompleteAuthToken(phcontext, ptoken).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn CredMarshalTargetInfo ( intargetinfo : *const super::super::Credentials:: CREDENTIAL_TARGET_INFORMATIONW , buffer : *mut *mut u16 , buffersize : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "secur32.dll""system" fn CredMarshalTargetInfo ( intargetinfo : *const super::super::Credentials:: CREDENTIAL_TARGET_INFORMATIONW , buffer : *mut *mut u16 , buffersize : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
     CredMarshalTargetInfo(intargetinfo, buffer, buffersize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: ::core::option::Option<*mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW>, retactualsize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn CredUnmarshalTargetInfo ( buffer : *const u16 , buffersize : u32 , rettargetinfo : *mut *mut super::super::Credentials:: CREDENTIAL_TARGET_INFORMATIONW , retactualsize : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "secur32.dll""system" fn CredUnmarshalTargetInfo ( buffer : *const u16 , buffersize : u32 , rettargetinfo : *mut *mut super::super::Credentials:: CREDENTIAL_TARGET_INFORMATIONW , retactualsize : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
     CredUnmarshalTargetInfo(buffer, buffersize, ::core::mem::transmute(rettargetinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(retactualsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn DecryptMessage(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-    ::windows::core::link ! ( "secur32.dll""system" fn DecryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn DecryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> :: windows::core::HRESULT );
     DecryptMessage(phcontext, pmessage, messageseqno, ::core::mem::transmute(pfqop.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn DeleteSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn DeleteSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
     DeleteSecurityContext(phcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn DeleteSecurityPackageA<P0>(pszpackagename: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn DeleteSecurityPackageA ( pszpackagename : :: windows::core::PCSTR ) -> :: windows::core::HRESULT );
-    DeleteSecurityPackageA(pszpackagename.into().abi()).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityPackageA ( pszpackagename : :: windows::core::PCSTR ) -> :: windows::core::HRESULT );
+    DeleteSecurityPackageA(pszpackagename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn DeleteSecurityPackageW<P0>(pszpackagename: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn DeleteSecurityPackageW ( pszpackagename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    DeleteSecurityPackageW(pszpackagename.into().abi()).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn DeleteSecurityPackageW ( pszpackagename : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    DeleteSecurityPackageW(pszpackagename.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn EncryptMessage(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::HRESULT {
-    ::windows::core::link ! ( "secur32.dll""system" fn EncryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn EncryptMessage ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> :: windows::core::HRESULT );
     EncryptMessage(phcontext, fqop, pmessage, messageseqno)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn EnumerateSecurityPackagesA(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoA) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesA ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesA ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
     EnumerateSecurityPackagesA(pcpackages, pppackageinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *mut *mut SecPkgInfoW) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesW ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn EnumerateSecurityPackagesW ( pcpackages : *mut u32 , pppackageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
     EnumerateSecurityPackagesW(pcpackages, pppackageinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials::SecHandle, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: *mut SecBuffer, ptoken: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn ExportSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle , fflags : EXPORT_SECURITY_CONTEXT_FLAGS , ppackedcontext : *mut SecBuffer , ptoken : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ExportSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle , fflags : EXPORT_SECURITY_CONTEXT_FLAGS , ppackedcontext : *mut SecBuffer , ptoken : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     ExportSecurityContext(phcontext, fflags, ppackedcontext, ptoken).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn FreeContextBuffer ( pvcontextbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn FreeContextBuffer ( pvcontextbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     FreeContextBuffer(pvcontextbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn FreeCredentialsHandle ( phcredential : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn FreeCredentialsHandle ( phcredential : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
     FreeCredentialsHandle(phcredential).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "secur32.dll""system" fn GetComputerObjectNameA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetComputerObjectNameA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetComputerObjectNameA(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "secur32.dll""system" fn GetComputerObjectNameW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetComputerObjectNameW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetComputerObjectNameW(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "secur32.dll""system" fn GetUserNameExA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetUserNameExA ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetUserNameExA(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "secur32.dll""system" fn GetUserNameExW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn GetUserNameExW ( nameformat : EXTENDED_NAME_FORMAT , lpnamebuffer : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
     GetUserNameExW(nameformat, ::core::mem::transmute(lpnamebuffer), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn ImpersonateSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn ImpersonateSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
     ImpersonateSecurityContext(phcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
@@ -411,42 +411,42 @@ pub unsafe fn ImpersonateSecurityContext(phcontext: *const super::super::Credent
 #[inline]
 pub unsafe fn ImportSecurityContextA<P0>(pszpackage: P0, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Credentials::SecHandle>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn ImportSecurityContextA ( pszpackage : :: windows::core::PCSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ImportSecurityContextA(pszpackage.into().abi(), ppackedcontext, token, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn ImportSecurityContextA ( pszpackage : :: windows::core::PCSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<super::super::Credentials::SecHandle>();
+    ImportSecurityContextA(pszpackage.into_param().abi(), ppackedcontext, token, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn ImportSecurityContextW<P0>(pszpackage: P0, ppackedcontext: *const SecBuffer, token: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Credentials::SecHandle>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn ImportSecurityContextW ( pszpackage : :: windows::core::PCWSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ImportSecurityContextW(pszpackage.into().abi(), ppackedcontext, token, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn ImportSecurityContextW ( pszpackage : :: windows::core::PCWSTR , ppackedcontext : *const SecBuffer , token : *const ::core::ffi::c_void , phcontext : *mut super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<super::super::Credentials::SecHandle>();
+    ImportSecurityContextW(pszpackage.into_param().abi(), ppackedcontext, token, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
-    ::windows::core::link ! ( "secur32.dll""system" fn InitSecurityInterfaceA ( ) -> *mut SecurityFunctionTableA );
+    ::windows::imp::link ! ( "secur32.dll""system" fn InitSecurityInterfaceA ( ) -> *mut SecurityFunctionTableA );
     InitSecurityInterfaceA()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
-    ::windows::core::link ! ( "secur32.dll""system" fn InitSecurityInterfaceW ( ) -> *mut SecurityFunctionTableW );
+    ::windows::imp::link ! ( "secur32.dll""system" fn InitSecurityInterfaceW ( ) -> *mut SecurityFunctionTableW );
     InitSecurityInterfaceW()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn InitializeSecurityContextA(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, psztargetname: ::core::option::Option<*const i8>, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: ::core::option::Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::core::link ! ( "secur32.dll""system" fn InitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const i8 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn InitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const i8 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
     InitializeSecurityContextA(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
@@ -466,7 +466,7 @@ pub unsafe fn InitializeSecurityContextA(phcredential: ::core::option::Option<*c
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn InitializeSecurityContextW(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, psztargetname: ::core::option::Option<*const u16>, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: ::core::option::Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::core::link ! ( "secur32.dll""system" fn InitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const u16 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn InitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : *const u16 , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
     InitializeSecurityContextW(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
@@ -487,37 +487,37 @@ pub unsafe fn InitializeSecurityContextW(phcredential: ::core::option::Option<*c
 #[inline]
 pub unsafe fn LsaAddAccountRights<P0, P1>(policyhandle: P0, accountsid: P1, userrights: &[super::super::super::Foundation::UNICODE_STRING]) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaAddAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaAddAccountRights(policyhandle.into(), accountsid.into(), ::core::mem::transmute(userrights.as_ptr()), userrights.len() as _).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaAddAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaAddAccountRights(policyhandle.into_param().abi(), accountsid.into_param().abi(), ::core::mem::transmute(userrights.as_ptr()), userrights.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaCallAuthenticationPackage<P0>(lsahandle: P0, authenticationpackage: u32, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: ::core::option::Option<*mut *mut ::core::ffi::c_void>, returnbufferlength: ::core::option::Option<*mut u32>, protocolstatus: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaCallAuthenticationPackage ( lsahandle : super::super::super::Foundation:: HANDLE , authenticationpackage : u32 , protocolsubmitbuffer : *const ::core::ffi::c_void , submitbufferlength : u32 , protocolreturnbuffer : *mut *mut ::core::ffi::c_void , returnbufferlength : *mut u32 , protocolstatus : *mut i32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaCallAuthenticationPackage(lsahandle.into(), authenticationpackage, protocolsubmitbuffer, submitbufferlength, ::core::mem::transmute(protocolreturnbuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(returnbufferlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(protocolstatus.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaCallAuthenticationPackage ( lsahandle : super::super::super::Foundation:: HANDLE , authenticationpackage : u32 , protocolsubmitbuffer : *const ::core::ffi::c_void , submitbufferlength : u32 , protocolreturnbuffer : *mut *mut ::core::ffi::c_void , returnbufferlength : *mut u32 , protocolstatus : *mut i32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaCallAuthenticationPackage(lsahandle.into_param().abi(), authenticationpackage, protocolsubmitbuffer, submitbufferlength, ::core::mem::transmute(protocolreturnbuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(returnbufferlength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(protocolstatus.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaClose<P0>(objecthandle: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaClose ( objecthandle : LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaClose(objecthandle.into()).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaClose ( objecthandle : LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaClose(objecthandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaConnectUntrusted ( lsahandle : *mut super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaConnectUntrusted ( lsahandle : *mut super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
     LsaConnectUntrusted(lsahandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -525,58 +525,58 @@ pub unsafe fn LsaConnectUntrusted(lsahandle: *mut super::super::super::Foundatio
 #[inline]
 pub unsafe fn LsaCreateTrustedDomainEx<P0>(policyhandle: P0, trusteddomaininformation: *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation: *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess: u32, trusteddomainhandle: *mut LSA_HANDLE) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaCreateTrustedDomainEx ( policyhandle : LSA_HANDLE , trusteddomaininformation : *const TRUSTED_DOMAIN_INFORMATION_EX , authenticationinformation : *const TRUSTED_DOMAIN_AUTH_INFORMATION , desiredaccess : u32 , trusteddomainhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaCreateTrustedDomainEx(policyhandle.into(), trusteddomaininformation, authenticationinformation, desiredaccess, trusteddomainhandle).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaCreateTrustedDomainEx ( policyhandle : LSA_HANDLE , trusteddomaininformation : *const TRUSTED_DOMAIN_INFORMATION_EX , authenticationinformation : *const TRUSTED_DOMAIN_AUTH_INFORMATION , desiredaccess : u32 , trusteddomainhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaCreateTrustedDomainEx(policyhandle.into_param().abi(), trusteddomaininformation, authenticationinformation, desiredaccess, trusteddomainhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaDeleteTrustedDomain<P0, P1>(policyhandle: P0, trusteddomainsid: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaDeleteTrustedDomain ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaDeleteTrustedDomain(policyhandle.into(), trusteddomainsid.into()).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaDeleteTrustedDomain ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaDeleteTrustedDomain(policyhandle.into_param().abi(), trusteddomainsid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaDeregisterLogonProcess<P0>(lsahandle: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaDeregisterLogonProcess ( lsahandle : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaDeregisterLogonProcess(lsahandle.into()).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaDeregisterLogonProcess ( lsahandle : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaDeregisterLogonProcess(lsahandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateAccountRights<P0, P1>(policyhandle: P0, accountsid: P1, userrights: *mut *mut super::super::super::Foundation::UNICODE_STRING, countofrights: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , userrights : *mut *mut super::super::super::Foundation:: UNICODE_STRING , countofrights : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateAccountRights(policyhandle.into(), accountsid.into(), userrights, countofrights).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , userrights : *mut *mut super::super::super::Foundation:: UNICODE_STRING , countofrights : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateAccountRights(policyhandle.into_param().abi(), accountsid.into_param().abi(), userrights, countofrights).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateAccountsWithUserRight<P0>(policyhandle: P0, userright: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, buffer: *mut *mut ::core::ffi::c_void, countreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountsWithUserRight ( policyhandle : LSA_HANDLE , userright : *const super::super::super::Foundation:: UNICODE_STRING , buffer : *mut *mut ::core::ffi::c_void , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateAccountsWithUserRight(policyhandle.into(), ::core::mem::transmute(userright.unwrap_or(::std::ptr::null())), buffer, countreturned).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaEnumerateAccountsWithUserRight ( policyhandle : LSA_HANDLE , userright : *const super::super::super::Foundation:: UNICODE_STRING , buffer : *mut *mut ::core::ffi::c_void , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateAccountsWithUserRight(policyhandle.into_param().abi(), ::core::mem::transmute(userright.unwrap_or(::std::ptr::null())), buffer, countreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessionlist: *mut *mut super::super::super::Foundation::LUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaEnumerateLogonSessions ( logonsessioncount : *mut u32 , logonsessionlist : *mut *mut super::super::super::Foundation:: LUID ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaEnumerateLogonSessions ( logonsessioncount : *mut u32 , logonsessionlist : *mut *mut super::super::super::Foundation:: LUID ) -> super::super::super::Foundation:: NTSTATUS );
     LsaEnumerateLogonSessions(logonsessioncount, logonsessionlist).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -584,47 +584,47 @@ pub unsafe fn LsaEnumerateLogonSessions(logonsessioncount: *mut u32, logonsessio
 #[inline]
 pub unsafe fn LsaEnumerateTrustedDomains<P0>(policyhandle: P0, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomains ( policyhandle : LSA_HANDLE , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateTrustedDomains(policyhandle.into(), enumerationcontext, buffer, preferedmaximumlength, countreturned).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomains ( policyhandle : LSA_HANDLE , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateTrustedDomains(policyhandle.into_param().abi(), enumerationcontext, buffer, preferedmaximumlength, countreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaEnumerateTrustedDomainsEx<P0>(policyhandle: P0, enumerationcontext: *mut u32, buffer: *mut *mut ::core::ffi::c_void, preferedmaximumlength: u32, countreturned: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomainsEx ( policyhandle : LSA_HANDLE , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaEnumerateTrustedDomainsEx(policyhandle.into(), enumerationcontext, buffer, preferedmaximumlength, countreturned).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaEnumerateTrustedDomainsEx ( policyhandle : LSA_HANDLE , enumerationcontext : *mut u32 , buffer : *mut *mut ::core::ffi::c_void , preferedmaximumlength : u32 , countreturned : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaEnumerateTrustedDomainsEx(policyhandle.into_param().abi(), enumerationcontext, buffer, preferedmaximumlength, countreturned).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaFreeMemory(buffer: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaFreeMemory ( buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaFreeMemory ( buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
     LsaFreeMemory(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaFreeReturnBuffer(buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaFreeReturnBuffer ( buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaFreeReturnBuffer ( buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
     LsaFreeReturnBuffer(buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaGetAppliedCAPIDs(systemname: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, capids: *mut *mut super::super::super::Foundation::PSID, capidcount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaGetAppliedCAPIDs ( systemname : *const super::super::super::Foundation:: UNICODE_STRING , capids : *mut *mut super::super::super::Foundation:: PSID , capidcount : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaGetAppliedCAPIDs ( systemname : *const super::super::super::Foundation:: UNICODE_STRING , capids : *mut *mut super::super::super::Foundation:: PSID , capidcount : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
     LsaGetAppliedCAPIDs(::core::mem::transmute(systemname.unwrap_or(::std::ptr::null())), capids, capidcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaGetLogonSessionData(logonid: *const super::super::super::Foundation::LUID, pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaGetLogonSessionData ( logonid : *const super::super::super::Foundation:: LUID , pplogonsessiondata : *mut *mut SECURITY_LOGON_SESSION_DATA ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaGetLogonSessionData ( logonid : *const super::super::super::Foundation:: LUID , pplogonsessiondata : *mut *mut SECURITY_LOGON_SESSION_DATA ) -> super::super::super::Foundation:: NTSTATUS );
     LsaGetLogonSessionData(logonid, pplogonsessiondata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -632,76 +632,76 @@ pub unsafe fn LsaGetLogonSessionData(logonid: *const super::super::super::Founda
 #[inline]
 pub unsafe fn LsaLogonUser<P0>(lsahandle: P0, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: ::core::option::Option<*const super::super::TOKEN_GROUPS>, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaLogonUser ( lsahandle : super::super::super::Foundation:: HANDLE , originname : *const super::super::super::System::Kernel:: STRING , logontype : SECURITY_LOGON_TYPE , authenticationpackage : u32 , authenticationinformation : *const ::core::ffi::c_void , authenticationinformationlength : u32 , localgroups : *const super::super:: TOKEN_GROUPS , sourcecontext : *const super::super:: TOKEN_SOURCE , profilebuffer : *mut *mut ::core::ffi::c_void , profilebufferlength : *mut u32 , logonid : *mut super::super::super::Foundation:: LUID , token : *mut super::super::super::Foundation:: HANDLE , quotas : *mut super::super:: QUOTA_LIMITS , substatus : *mut i32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLogonUser(lsahandle.into(), originname, logontype, authenticationpackage, authenticationinformation, authenticationinformationlength, ::core::mem::transmute(localgroups.unwrap_or(::std::ptr::null())), sourcecontext, profilebuffer, profilebufferlength, logonid, token, quotas, substatus).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaLogonUser ( lsahandle : super::super::super::Foundation:: HANDLE , originname : *const super::super::super::System::Kernel:: STRING , logontype : SECURITY_LOGON_TYPE , authenticationpackage : u32 , authenticationinformation : *const ::core::ffi::c_void , authenticationinformationlength : u32 , localgroups : *const super::super:: TOKEN_GROUPS , sourcecontext : *const super::super:: TOKEN_SOURCE , profilebuffer : *mut *mut ::core::ffi::c_void , profilebufferlength : *mut u32 , logonid : *mut super::super::super::Foundation:: LUID , token : *mut super::super::super::Foundation:: HANDLE , quotas : *mut super::super:: QUOTA_LIMITS , substatus : *mut i32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLogonUser(lsahandle.into_param().abi(), originname, logontype, authenticationpackage, authenticationinformation, authenticationinformationlength, ::core::mem::transmute(localgroups.unwrap_or(::std::ptr::null())), sourcecontext, profilebuffer, profilebufferlength, logonid, token, quotas, substatus).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LsaLookupAuthenticationPackage<P0>(lsahandle: P0, packagename: *const super::super::super::System::Kernel::STRING, authenticationpackage: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaLookupAuthenticationPackage ( lsahandle : super::super::super::Foundation:: HANDLE , packagename : *const super::super::super::System::Kernel:: STRING , authenticationpackage : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupAuthenticationPackage(lsahandle.into(), packagename, authenticationpackage).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaLookupAuthenticationPackage ( lsahandle : super::super::super::Foundation:: HANDLE , packagename : *const super::super::super::System::Kernel:: STRING , authenticationpackage : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupAuthenticationPackage(lsahandle.into_param().abi(), packagename, authenticationpackage).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupNames<P0>(policyhandle: P0, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupNames ( policyhandle : LSA_HANDLE , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupNames(policyhandle.into(), count, names, referenceddomains, sids).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaLookupNames ( policyhandle : LSA_HANDLE , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupNames(policyhandle.into_param().abi(), count, names, referenceddomains, sids).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupNames2<P0>(policyhandle: P0, flags: u32, count: u32, names: *const super::super::super::Foundation::UNICODE_STRING, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, sids: *mut *mut LSA_TRANSLATED_SID2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupNames2 ( policyhandle : LSA_HANDLE , flags : u32 , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID2 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupNames2(policyhandle.into(), flags, count, names, referenceddomains, sids).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaLookupNames2 ( policyhandle : LSA_HANDLE , flags : u32 , count : u32 , names : *const super::super::super::Foundation:: UNICODE_STRING , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , sids : *mut *mut LSA_TRANSLATED_SID2 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupNames2(policyhandle.into_param().abi(), flags, count, names, referenceddomains, sids).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupSids<P0>(policyhandle: P0, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupSids ( policyhandle : LSA_HANDLE , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupSids(policyhandle.into(), count, sids, referenceddomains, names).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaLookupSids ( policyhandle : LSA_HANDLE , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupSids(policyhandle.into_param().abi(), count, sids, referenceddomains, names).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaLookupSids2<P0>(policyhandle: P0, lookupoptions: u32, count: u32, sids: *const super::super::super::Foundation::PSID, referenceddomains: *mut *mut LSA_REFERENCED_DOMAIN_LIST, names: *mut *mut LSA_TRANSLATED_NAME) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaLookupSids2 ( policyhandle : LSA_HANDLE , lookupoptions : u32 , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaLookupSids2(policyhandle.into(), lookupoptions, count, sids, referenceddomains, names).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaLookupSids2 ( policyhandle : LSA_HANDLE , lookupoptions : u32 , count : u32 , sids : *const super::super::super::Foundation:: PSID , referenceddomains : *mut *mut LSA_REFERENCED_DOMAIN_LIST , names : *mut *mut LSA_TRANSLATED_NAME ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaLookupSids2(policyhandle.into_param().abi(), lookupoptions, count, sids, referenceddomains, names).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaNtStatusToWinError<P0>(status: P0) -> u32
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::NTSTATUS>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::NTSTATUS>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaNtStatusToWinError ( status : super::super::super::Foundation:: NTSTATUS ) -> u32 );
-    LsaNtStatusToWinError(status.into())
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaNtStatusToWinError ( status : super::super::super::Foundation:: NTSTATUS ) -> u32 );
+    LsaNtStatusToWinError(status.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn LsaOpenPolicy(systemname: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>, objectattributes: *const super::super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, desiredaccess: u32, policyhandle: *mut LSA_HANDLE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaOpenPolicy ( systemname : *const super::super::super::Foundation:: UNICODE_STRING , objectattributes : *const super::super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES , desiredaccess : u32 , policyhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaOpenPolicy ( systemname : *const super::super::super::Foundation:: UNICODE_STRING , objectattributes : *const super::super::super::System::WindowsProgramming:: OBJECT_ATTRIBUTES , desiredaccess : u32 , policyhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
     LsaOpenPolicy(::core::mem::transmute(systemname.unwrap_or(::std::ptr::null())), objectattributes, desiredaccess, policyhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -709,16 +709,16 @@ pub unsafe fn LsaOpenPolicy(systemname: ::core::option::Option<*const super::sup
 #[inline]
 pub unsafe fn LsaOpenTrustedDomainByName<P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, desiredaccess: u32, trusteddomainhandle: *mut LSA_HANDLE) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaOpenTrustedDomainByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , desiredaccess : u32 , trusteddomainhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaOpenTrustedDomainByName(policyhandle.into(), trusteddomainname, desiredaccess, trusteddomainhandle).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaOpenTrustedDomainByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , desiredaccess : u32 , trusteddomainhandle : *mut LSA_HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaOpenTrustedDomainByName(policyhandle.into_param().abi(), trusteddomainname, desiredaccess, trusteddomainhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryCAPs(capids: ::core::option::Option<&[super::super::super::Foundation::PSID]>, caps: *mut *mut CENTRAL_ACCESS_POLICY, capcount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryCAPs ( capids : *const super::super::super::Foundation:: PSID , capidcount : u32 , caps : *mut *mut CENTRAL_ACCESS_POLICY , capcount : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaQueryCAPs ( capids : *const super::super::super::Foundation:: PSID , capidcount : u32 , caps : *mut *mut CENTRAL_ACCESS_POLICY , capcount : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
     LsaQueryCAPs(::core::mem::transmute(capids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), capids.as_deref().map_or(0, |slice| slice.len() as _), caps, capcount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -726,57 +726,57 @@ pub unsafe fn LsaQueryCAPs(capids: ::core::option::Option<&[super::super::super:
 #[inline]
 pub unsafe fn LsaQueryDomainInformationPolicy<P0>(policyhandle: P0, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryDomainInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryDomainInformationPolicy(policyhandle.into(), informationclass, buffer).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaQueryDomainInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryDomainInformationPolicy(policyhandle.into_param().abi(), informationclass, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryForestTrustInformation<P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *mut *mut LSA_FOREST_TRUST_INFORMATION) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryForestTrustInformation ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *mut *mut LSA_FOREST_TRUST_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryForestTrustInformation(policyhandle.into(), trusteddomainname, foresttrustinfo).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaQueryForestTrustInformation ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *mut *mut LSA_FOREST_TRUST_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryForestTrustInformation(policyhandle.into_param().abi(), trusteddomainname, foresttrustinfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryInformationPolicy<P0>(policyhandle: P0, informationclass: POLICY_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryInformationPolicy(policyhandle.into(), informationclass, buffer).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaQueryInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryInformationPolicy(policyhandle.into_param().abi(), informationclass, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryTrustedDomainInfo<P0, P1>(policyhandle: P0, trusteddomainsid: P1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfo ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryTrustedDomainInfo(policyhandle.into(), trusteddomainsid.into(), informationclass, buffer).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfo ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryTrustedDomainInfo(policyhandle.into_param().abi(), trusteddomainsid.into_param().abi(), informationclass, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaQueryTrustedDomainInfoByName<P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfoByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaQueryTrustedDomainInfoByName(policyhandle.into(), trusteddomainname, informationclass, buffer).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaQueryTrustedDomainInfoByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *mut *mut ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaQueryTrustedDomainInfoByName(policyhandle.into_param().abi(), trusteddomainname, informationclass, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::super::super::System::Kernel::STRING, lsahandle: *mut super::super::super::Foundation::HANDLE, securitymode: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaRegisterLogonProcess ( logonprocessname : *const super::super::super::System::Kernel:: STRING , lsahandle : *mut super::super::super::Foundation:: HANDLE , securitymode : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaRegisterLogonProcess ( logonprocessname : *const super::super::super::System::Kernel:: STRING , lsahandle : *mut super::super::super::Foundation:: HANDLE , securitymode : *mut u32 ) -> super::super::super::Foundation:: NTSTATUS );
     LsaRegisterLogonProcess(logonprocessname, lsahandle, securitymode).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -784,38 +784,38 @@ pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const super::super::sup
 #[inline]
 pub unsafe fn LsaRegisterPolicyChangeNotification<P0>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaRegisterPolicyChangeNotification ( informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS , notificationeventhandle : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaRegisterPolicyChangeNotification(informationclass, notificationeventhandle.into()).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaRegisterPolicyChangeNotification ( informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS , notificationeventhandle : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaRegisterPolicyChangeNotification(informationclass, notificationeventhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaRemoveAccountRights<P0, P1, P2>(policyhandle: P0, accountsid: P1, allrights: P2, userrights: ::core::option::Option<&[super::super::super::Foundation::UNICODE_STRING]>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
+    P2: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaRemoveAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , allrights : super::super::super::Foundation:: BOOLEAN , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaRemoveAccountRights(policyhandle.into(), accountsid.into(), allrights.into(), ::core::mem::transmute(userrights.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaRemoveAccountRights ( policyhandle : LSA_HANDLE , accountsid : super::super::super::Foundation:: PSID , allrights : super::super::super::Foundation:: BOOLEAN , userrights : *const super::super::super::Foundation:: UNICODE_STRING , countofrights : u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaRemoveAccountRights(policyhandle.into_param().abi(), accountsid.into_param().abi(), allrights.into_param().abi(), ::core::mem::transmute(userrights.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaRetrievePrivateData<P0>(policyhandle: P0, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaRetrievePrivateData ( policyhandle : LSA_HANDLE , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *mut *mut super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaRetrievePrivateData(policyhandle.into(), keyname, privatedata).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaRetrievePrivateData ( policyhandle : LSA_HANDLE , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *mut *mut super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaRetrievePrivateData(policyhandle.into_param().abi(), keyname, privatedata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetCAPs(capdns: ::core::option::Option<&[super::super::super::Foundation::UNICODE_STRING]>, flags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetCAPs ( capdns : *const super::super::super::Foundation:: UNICODE_STRING , capdncount : u32 , flags : u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaSetCAPs ( capdns : *const super::super::super::Foundation:: UNICODE_STRING , capdncount : u32 , flags : u32 ) -> super::super::super::Foundation:: NTSTATUS );
     LsaSetCAPs(::core::mem::transmute(capdns.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), capdns.as_deref().map_or(0, |slice| slice.len() as _), flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -823,482 +823,482 @@ pub unsafe fn LsaSetCAPs(capdns: ::core::option::Option<&[super::super::super::F
 #[inline]
 pub unsafe fn LsaSetDomainInformationPolicy<P0>(policyhandle: P0, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetDomainInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetDomainInformationPolicy(policyhandle.into(), informationclass, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null()))).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaSetDomainInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_DOMAIN_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetDomainInformationPolicy(policyhandle.into_param().abi(), informationclass, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetForestTrustInformation<P0, P1>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: P1, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetForestTrustInformation ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION , checkonly : super::super::super::Foundation:: BOOLEAN , collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetForestTrustInformation(policyhandle.into(), trusteddomainname, foresttrustinfo, checkonly.into(), collisioninfo).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaSetForestTrustInformation ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION , checkonly : super::super::super::Foundation:: BOOLEAN , collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetForestTrustInformation(policyhandle.into_param().abi(), trusteddomainname, foresttrustinfo, checkonly.into_param().abi(), collisioninfo).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetInformationPolicy<P0>(policyhandle: P0, informationclass: POLICY_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetInformationPolicy(policyhandle.into(), informationclass, buffer).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaSetInformationPolicy ( policyhandle : LSA_HANDLE , informationclass : POLICY_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetInformationPolicy(policyhandle.into_param().abi(), informationclass, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetTrustedDomainInfoByName<P0>(policyhandle: P0, trusteddomainname: *const super::super::super::Foundation::UNICODE_STRING, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInfoByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetTrustedDomainInfoByName(policyhandle.into(), trusteddomainname, informationclass, buffer).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInfoByName ( policyhandle : LSA_HANDLE , trusteddomainname : *const super::super::super::Foundation:: UNICODE_STRING , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetTrustedDomainInfoByName(policyhandle.into_param().abi(), trusteddomainname, informationclass, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaSetTrustedDomainInformation<P0, P1>(policyhandle: P0, trusteddomainsid: P1, informationclass: TRUSTED_INFORMATION_CLASS, buffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
-    P1: ::std::convert::Into<super::super::super::Foundation::PSID>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::PSID>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInformation ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaSetTrustedDomainInformation(policyhandle.into(), trusteddomainsid.into(), informationclass, buffer).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaSetTrustedDomainInformation ( policyhandle : LSA_HANDLE , trusteddomainsid : super::super::super::Foundation:: PSID , informationclass : TRUSTED_INFORMATION_CLASS , buffer : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaSetTrustedDomainInformation(policyhandle.into_param().abi(), trusteddomainsid.into_param().abi(), informationclass, buffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaStorePrivateData<P0>(policyhandle: P0, keyname: *const super::super::super::Foundation::UNICODE_STRING, privatedata: ::core::option::Option<*const super::super::super::Foundation::UNICODE_STRING>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<LSA_HANDLE>,
+    P0: ::windows::core::IntoParam<LSA_HANDLE>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn LsaStorePrivateData ( policyhandle : LSA_HANDLE , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *const super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaStorePrivateData(policyhandle.into(), keyname, ::core::mem::transmute(privatedata.unwrap_or(::std::ptr::null()))).ok()
+    ::windows::imp::link ! ( "advapi32.dll""system" fn LsaStorePrivateData ( policyhandle : LSA_HANDLE , keyname : *const super::super::super::Foundation:: UNICODE_STRING , privatedata : *const super::super::super::Foundation:: UNICODE_STRING ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaStorePrivateData(policyhandle.into_param().abi(), keyname, ::core::mem::transmute(privatedata.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsaUnregisterPolicyChangeNotification<P0>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn LsaUnregisterPolicyChangeNotification ( informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS , notificationeventhandle : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
-    LsaUnregisterPolicyChangeNotification(informationclass, notificationeventhandle.into()).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn LsaUnregisterPolicyChangeNotification ( informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS , notificationeventhandle : super::super::super::Foundation:: HANDLE ) -> super::super::super::Foundation:: NTSTATUS );
+    LsaUnregisterPolicyChangeNotification(informationclass, notificationeventhandle.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn MakeSignature(phcontext: *const super::super::Credentials::SecHandle, fqop: u32, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn MakeSignature ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn MakeSignature ( phcontext : *const super::super::Credentials:: SecHandle , fqop : u32 , pmessage : *const SecBufferDesc , messageseqno : u32 ) -> :: windows::core::HRESULT );
     MakeSignature(phcontext, fqop, pmessage, messageseqno).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn QueryContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     QueryContextAttributesA(phcontext, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesExA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sspicli.dll""system" fn QueryContextAttributesExA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryContextAttributesExA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     QueryContextAttributesExA(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesExW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sspicli.dll""system" fn QueryContextAttributesExW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryContextAttributesExW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     QueryContextAttributesExW(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn QueryContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     QueryContextAttributesW(phcontext, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     QueryCredentialsAttributesA(phcredential, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     QueryCredentialsAttributesExA(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn QueryCredentialsAttributesExW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     QueryCredentialsAttributesExW(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QueryCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     QueryCredentialsAttributesW(phcredential, ulattribute, pbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QuerySecurityContextToken(phcontext: *const super::super::Credentials::SecHandle, token: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn QuerySecurityContextToken ( phcontext : *const super::super::Credentials:: SecHandle , token : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityContextToken ( phcontext : *const super::super::Credentials:: SecHandle , token : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     QuerySecurityContextToken(phcontext, token).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn QuerySecurityPackageInfoA<P0>(pszpackagename: P0) -> ::windows::core::Result<*mut SecPkgInfoA>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoA ( pszpackagename : :: windows::core::PCSTR , pppackageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QuerySecurityPackageInfoA(pszpackagename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoA ( pszpackagename : :: windows::core::PCSTR , pppackageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoA>();
+    QuerySecurityPackageInfoA(pszpackagename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn QuerySecurityPackageInfoW<P0>(pszpackagename: P0) -> ::windows::core::Result<*mut SecPkgInfoW>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoW ( pszpackagename : :: windows::core::PCWSTR , pppackageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QuerySecurityPackageInfoW(pszpackagename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn QuerySecurityPackageInfoW ( pszpackagename : :: windows::core::PCWSTR , pppackageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoW>();
+    QuerySecurityPackageInfoW(pszpackagename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn RevertSecurityContext(phcontext: *const super::super::Credentials::SecHandle) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn RevertSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn RevertSecurityContext ( phcontext : *const super::super::Credentials:: SecHandle ) -> :: windows::core::HRESULT );
     RevertSecurityContext(phcontext).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLAcquireGenuineTicket<P0, P1, P2>(ppticketblob: *mut *mut ::core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: P0, pwszserverurl: P1, pwszclienttoken: P2) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slcext.dll""system" fn SLAcquireGenuineTicket ( ppticketblob : *mut *mut ::core::ffi::c_void , pcbticketblob : *mut u32 , pwsztemplateid : :: windows::core::PCWSTR , pwszserverurl : :: windows::core::PCWSTR , pwszclienttoken : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SLAcquireGenuineTicket(ppticketblob, pcbticketblob, pwsztemplateid.into().abi(), pwszserverurl.into().abi(), pwszclienttoken.into().abi()).ok()
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLAcquireGenuineTicket ( ppticketblob : *mut *mut ::core::ffi::c_void , pcbticketblob : *mut u32 , pwsztemplateid : :: windows::core::PCWSTR , pwszserverurl : :: windows::core::PCWSTR , pwszclienttoken : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    SLAcquireGenuineTicket(ppticketblob, pcbticketblob, pwsztemplateid.into_param().abi(), pwszserverurl.into_param().abi(), pwszclienttoken.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLActivateProduct<P0>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, cbappspecificdata: u32, pvappspecificdata: ::core::option::Option<*const ::core::ffi::c_void>, pactivationinfo: ::core::option::Option<*const SL_ACTIVATION_INFO_HEADER>, pwszproxyserver: P0, wproxyport: u16) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slcext.dll""system" fn SLActivateProduct ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , cbappspecificdata : u32 , pvappspecificdata : *const ::core::ffi::c_void , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszproxyserver : :: windows::core::PCWSTR , wproxyport : u16 ) -> :: windows::core::HRESULT );
-    SLActivateProduct(hslc, pproductskuid, cbappspecificdata, ::core::mem::transmute(pvappspecificdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), pwszproxyserver.into().abi(), wproxyport).ok()
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLActivateProduct ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , cbappspecificdata : u32 , pvappspecificdata : *const ::core::ffi::c_void , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszproxyserver : :: windows::core::PCWSTR , wproxyport : u16 ) -> :: windows::core::HRESULT );
+    SLActivateProduct(hslc, pproductskuid, cbappspecificdata, ::core::mem::transmute(pvappspecificdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), pwszproxyserver.into_param().abi(), wproxyport).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLClose ( hslc : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLClose ( hslc : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SLClose(hslc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLConsumeRight<P0>(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: ::core::option::Option<*const ::windows::core::GUID>, pwszrightname: P0, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLConsumeRight ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    SLConsumeRight(hslc, pappid, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLConsumeRight ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    SLConsumeRight(hslc, pappid, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into_param().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLDepositOfflineConfirmationId<P0, P1>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszinstallationid: P0, pwszconfirmationid: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pwszinstallationid : :: windows::core::PCWSTR , pwszconfirmationid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SLDepositOfflineConfirmationId(hslc, pproductskuid, pwszinstallationid.into().abi(), pwszconfirmationid.into().abi()).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pwszinstallationid : :: windows::core::PCWSTR , pwszconfirmationid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    SLDepositOfflineConfirmationId(hslc, pproductskuid, pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLDepositOfflineConfirmationIdEx<P0, P1>(hslc: *const ::core::ffi::c_void, pproductskuid: ::core::option::Option<*const ::windows::core::GUID>, pactivationinfo: ::core::option::Option<*const SL_ACTIVATION_INFO_HEADER>, pwszinstallationid: P0, pwszconfirmationid: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszinstallationid : :: windows::core::PCWSTR , pwszconfirmationid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    SLDepositOfflineConfirmationIdEx(hslc, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), pwszinstallationid.into().abi(), pwszconfirmationid.into().abi()).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLDepositOfflineConfirmationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , pwszinstallationid : :: windows::core::PCWSTR , pwszconfirmationid : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    SLDepositOfflineConfirmationIdEx(hslc, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), pwszinstallationid.into_param().abi(), pwszconfirmationid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLFireEvent<P0>(hslc: *const ::core::ffi::c_void, pwszeventid: P0, papplicationid: *const ::windows::core::GUID) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLFireEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    SLFireEvent(hslc, pwszeventid.into().abi(), papplicationid).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLFireEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    SLFireEvent(hslc, pwszeventid.into_param().abi(), papplicationid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGenerateOfflineInstallationId(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , ppwszinstallationid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGenerateOfflineInstallationId(hslc, pproductskuid, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationId ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , ppwszinstallationid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    SLGenerateOfflineInstallationId(hslc, pproductskuid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const ::core::ffi::c_void, pproductskuid: ::core::option::Option<*const ::windows::core::GUID>, pactivationinfo: ::core::option::Option<*const SL_ACTIVATION_INFO_HEADER>) -> ::windows::core::Result<::windows::core::PWSTR> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , ppwszinstallationid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGenerateOfflineInstallationIdEx(hslc, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGenerateOfflineInstallationIdEx ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pactivationinfo : *const SL_ACTIVATION_INFO_HEADER , ppwszinstallationid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    SLGenerateOfflineInstallationIdEx(hslc, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pactivationinfo.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetApplicationInformation<P0>(hslc: *const ::core::ffi::c_void, papplicationid: *const ::windows::core::GUID, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetApplicationInformation ( hslc : *const ::core::ffi::c_void , papplicationid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetApplicationInformation(hslc, papplicationid, pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetApplicationInformation ( hslc : *const ::core::ffi::c_void , papplicationid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetApplicationInformation(hslc, papplicationid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetGenuineInformation<P0>(pqueryid: *const ::windows::core::GUID, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetGenuineInformation ( pqueryid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetGenuineInformation(pqueryid, pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetGenuineInformation ( pqueryid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetGenuineInformation(pqueryid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetInstalledProductKeyIds(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pnproductkeyids: *mut u32, ppproductkeyids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetInstalledProductKeyIds ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pnproductkeyids : *mut u32 , ppproductkeyids : *mut *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetInstalledProductKeyIds ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pnproductkeyids : *mut u32 , ppproductkeyids : *mut *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     SLGetInstalledProductKeyIds(hslc, pproductskuid, pnproductkeyids, ppproductkeyids).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID, pcblicensefile: *mut u32, ppblicensefile: *mut *mut u8) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const :: windows::core::GUID , pcblicensefile : *mut u32 , ppblicensefile : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const :: windows::core::GUID , pcblicensefile : *mut u32 , ppblicensefile : *mut *mut u8 ) -> :: windows::core::HRESULT );
     SLGetLicense(hslc, plicensefileid, pcblicensefile, ppblicensefile).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicenseFileId(hslc: *const ::core::ffi::c_void, pblicenseblob: &[u8]) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetLicenseFileId ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGetLicenseFileId(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicenseFileId ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    SLGetLicenseFileId(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicenseInformation<P0>(hslc: *const ::core::ffi::c_void, psllicenseid: *const ::windows::core::GUID, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetLicenseInformation ( hslc : *const ::core::ffi::c_void , psllicenseid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetLicenseInformation(hslc, psllicenseid, pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicenseInformation ( hslc : *const ::core::ffi::c_void , psllicenseid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetLicenseInformation(hslc, psllicenseid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetLicensingStatusInformation<P0>(hslc: *const ::core::ffi::c_void, pappid: ::core::option::Option<*const ::windows::core::GUID>, pproductskuid: ::core::option::Option<*const ::windows::core::GUID>, pwszrightname: P0, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetLicensingStatusInformation ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pnstatuscount : *mut u32 , pplicensingstatus : *mut *mut SL_LICENSING_STATUS ) -> :: windows::core::HRESULT );
-    SLGetLicensingStatusInformation(hslc, ::core::mem::transmute(pappid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into().abi(), pnstatuscount, pplicensingstatus).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetLicensingStatusInformation ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pnstatuscount : *mut u32 , pplicensingstatus : *mut *mut SL_LICENSING_STATUS ) -> :: windows::core::HRESULT );
+    SLGetLicensingStatusInformation(hslc, ::core::mem::transmute(pappid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into_param().abi(), pnstatuscount, pplicensingstatus).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPKeyId<P0, P1>(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: P0, pwszpkeystring: P1, pbpkeyspecificdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<::windows::core::GUID>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetPKeyId ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : :: windows::core::PCWSTR , pwszpkeystring : :: windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGetPKeyId(hslc, pwszpkeyalgorithm.into().abi(), pwszpkeystring.into().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPKeyId ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : :: windows::core::PCWSTR , pwszpkeystring : :: windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    SLGetPKeyId(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPKeyInformation<P0>(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetPKeyInformation ( hslc : *const ::core::ffi::c_void , ppkeyid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetPKeyInformation(hslc, ppkeyid, pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPKeyInformation ( hslc : *const ::core::ffi::c_void , ppkeyid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetPKeyInformation(hslc, ppkeyid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPolicyInformation<P0>(hslc: *const ::core::ffi::c_void, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetPolicyInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetPolicyInformation(hslc, pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPolicyInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetPolicyInformation(hslc, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetPolicyInformationDWORD<P0>(hslc: *const ::core::ffi::c_void, pwszvaluename: P0) -> ::windows::core::Result<u32>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetPolicyInformationDWORD ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pdwvalue : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGetPolicyInformationDWORD(hslc, pwszvaluename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetPolicyInformationDWORD ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pdwvalue : *mut u32 ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    SLGetPolicyInformationDWORD(hslc, pwszvaluename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetProductSkuInformation<P0>(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetProductSkuInformation ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetProductSkuInformation(hslc, pproductskuid, pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetProductSkuInformation ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetProductSkuInformation(hslc, pproductskuid, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetReferralInformation<P0>(hslc: *const ::core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const ::windows::core::GUID, pwszvaluename: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slcext.dll""system" fn SLGetReferralInformation ( hslc : *const ::core::ffi::c_void , ereferraltype : SLREFERRALTYPE , pskuorappid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , ppwszvalue : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGetReferralInformation(hslc, ereferraltype, pskuorappid, pwszvaluename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLGetReferralInformation ( hslc : *const ::core::ffi::c_void , ereferraltype : SLREFERRALTYPE , pskuorappid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , ppwszvalue : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    SLGetReferralInformation(hslc, ereferraltype, pskuorappid, pwszvaluename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetSLIDList(hslc: *const ::core::ffi::c_void, equeryidtype: SLIDTYPE, pqueryid: ::core::option::Option<*const ::windows::core::GUID>, ereturnidtype: SLIDTYPE, pnreturnids: *mut u32, ppreturnids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetSLIDList ( hslc : *const ::core::ffi::c_void , equeryidtype : SLIDTYPE , pqueryid : *const :: windows::core::GUID , ereturnidtype : SLIDTYPE , pnreturnids : *mut u32 , ppreturnids : *mut *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetSLIDList ( hslc : *const ::core::ffi::c_void , equeryidtype : SLIDTYPE , pqueryid : *const :: windows::core::GUID , ereturnidtype : SLIDTYPE , pnreturnids : *mut u32 , ppreturnids : *mut *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     SLGetSLIDList(hslc, equeryidtype, ::core::mem::transmute(pqueryid.unwrap_or(::std::ptr::null())), ereturnidtype, pnreturnids, ppreturnids).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetServerStatus<P0, P1, P2>(pwszserverurl: P0, pwszacquisitiontype: P1, pwszproxyserver: P2, wproxyport: u16) -> ::windows::core::Result<::windows::core::HRESULT>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slcext.dll""system" fn SLGetServerStatus ( pwszserverurl : :: windows::core::PCWSTR , pwszacquisitiontype : :: windows::core::PCWSTR , pwszproxyserver : :: windows::core::PCWSTR , wproxyport : u16 , phrstatus : *mut :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGetServerStatus(pwszserverurl.into().abi(), pwszacquisitiontype.into().abi(), pwszproxyserver.into().abi(), wproxyport, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slcext.dll""system" fn SLGetServerStatus ( pwszserverurl : :: windows::core::PCWSTR , pwszacquisitiontype : :: windows::core::PCWSTR , pwszproxyserver : :: windows::core::PCWSTR , wproxyport : u16 , phrstatus : *mut :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+    SLGetServerStatus(pwszserverurl.into_param().abi(), pwszacquisitiontype.into_param().abi(), pwszproxyserver.into_param().abi(), wproxyport, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetServiceInformation<P0>(hslc: *const ::core::ffi::c_void, pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetServiceInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetServiceInformation(hslc, pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetServiceInformation ( hslc : *const ::core::ffi::c_void , pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetServiceInformation(hslc, pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetWindowsInformation<P0>(pwszvaluename: P0, pedatatype: ::core::option::Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetWindowsInformation ( pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
-    SLGetWindowsInformation(pwszvaluename.into().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetWindowsInformation ( pwszvaluename : :: windows::core::PCWSTR , pedatatype : *mut SLDATATYPE , pcbvalue : *mut u32 , ppbvalue : *mut *mut u8 ) -> :: windows::core::HRESULT );
+    SLGetWindowsInformation(pwszvaluename.into_param().abi(), ::core::mem::transmute(pedatatype.unwrap_or(::std::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLGetWindowsInformationDWORD<P0>(pwszvaluename: P0) -> ::windows::core::Result<u32>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLGetWindowsInformationDWORD ( pwszvaluename : :: windows::core::PCWSTR , pdwvalue : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLGetWindowsInformationDWORD(pwszvaluename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLGetWindowsInformationDWORD ( pwszvaluename : :: windows::core::PCWSTR , pdwvalue : *mut u32 ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    SLGetWindowsInformationDWORD(pwszvaluename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLInstallLicense(hslc: *const ::core::ffi::c_void, pblicenseblob: &[u8]) -> ::windows::core::Result<::windows::core::GUID> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLInstallLicense ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLInstallLicense(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLInstallLicense ( hslc : *const ::core::ffi::c_void , cblicenseblob : u32 , pblicenseblob : *const u8 , plicensefileid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    SLInstallLicense(hslc, pblicenseblob.len() as _, ::core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLInstallProofOfPurchase<P0, P1>(hslc: *const ::core::ffi::c_void, pwszpkeyalgorithm: P0, pwszpkeystring: P1, pbpkeyspecificdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<::windows::core::GUID>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLInstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : :: windows::core::PCWSTR , pwszpkeystring : :: windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.into().abi(), pwszpkeystring.into().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "slc.dll""system" fn SLInstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , pwszpkeyalgorithm : :: windows::core::PCWSTR , pwszpkeystring : :: windows::core::PCWSTR , cbpkeyspecificdata : u32 , pbpkeyspecificdata : *const u8 , ppkeyid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.into_param().abi(), pwszpkeystring.into_param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinestate: *mut SL_GENUINE_STATE, puioptions: ::core::option::Option<*mut SL_NONGENUINE_UI_OPTIONS>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slwga.dll""system" fn SLIsGenuineLocal ( pappid : *const :: windows::core::GUID , pgenuinestate : *mut SL_GENUINE_STATE , puioptions : *mut SL_NONGENUINE_UI_OPTIONS ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slwga.dll""system" fn SLIsGenuineLocal ( pappid : *const :: windows::core::GUID , pgenuinestate : *mut SL_GENUINE_STATE , puioptions : *mut SL_NONGENUINE_UI_OPTIONS ) -> :: windows::core::HRESULT );
     SLIsGenuineLocal(pappid, pgenuinestate, ::core::mem::transmute(puioptions.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLOpen ( phslc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLOpen ( phslc : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SLOpen(phslc).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLQueryLicenseValueFromApp<P0>(valuename: P0, valuetype: ::core::option::Option<*mut u32>, databuffer: ::core::option::Option<*mut ::core::ffi::c_void>, datasize: u32, resultdatasize: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "api-ms-win-core-slapi-l1-1-0.dll""system" fn SLQueryLicenseValueFromApp ( valuename : :: windows::core::PCWSTR , valuetype : *mut u32 , databuffer : *mut ::core::ffi::c_void , datasize : u32 , resultdatasize : *mut u32 ) -> :: windows::core::HRESULT );
-    SLQueryLicenseValueFromApp(valuename.into().abi(), ::core::mem::transmute(valuetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(databuffer.unwrap_or(::std::ptr::null_mut())), datasize, resultdatasize).ok()
+    ::windows::imp::link ! ( "api-ms-win-core-slapi-l1-1-0.dll""system" fn SLQueryLicenseValueFromApp ( valuename : :: windows::core::PCWSTR , valuetype : *mut u32 , databuffer : *mut ::core::ffi::c_void , datasize : u32 , resultdatasize : *mut u32 ) -> :: windows::core::HRESULT );
+    SLQueryLicenseValueFromApp(valuename.into_param().abi(), ::core::mem::transmute(valuetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(databuffer.unwrap_or(::std::ptr::null_mut())), datasize, resultdatasize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SLRegisterEvent<P0, P1>(hslc: ::core::option::Option<*const ::core::ffi::c_void>, pwszeventid: P0, papplicationid: *const ::windows::core::GUID, hevent: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLRegisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    SLRegisterEvent(::core::mem::transmute(hslc.unwrap_or(::std::ptr::null())), pwszeventid.into().abi(), papplicationid, hevent.into()).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLRegisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    SLRegisterEvent(::core::mem::transmute(hslc.unwrap_or(::std::ptr::null())), pwszeventid.into_param().abi(), papplicationid, hevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLSetCurrentProductKey(hslc: *const ::core::ffi::c_void, pproductskuid: *const ::windows::core::GUID, pproductkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLSetCurrentProductKey ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pproductkeyid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLSetCurrentProductKey ( hslc : *const ::core::ffi::c_void , pproductskuid : *const :: windows::core::GUID , pproductkeyid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     SLSetCurrentProductKey(hslc, pproductskuid, pproductkeyid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLSetGenuineInformation<P0>(pqueryid: *const ::windows::core::GUID, pwszvaluename: P0, edatatype: SLDATATYPE, pbvalue: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLSetGenuineInformation ( pqueryid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , edatatype : SLDATATYPE , cbvalue : u32 , pbvalue : *const u8 ) -> :: windows::core::HRESULT );
-    SLSetGenuineInformation(pqueryid, pwszvaluename.into().abi(), edatatype, pbvalue.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLSetGenuineInformation ( pqueryid : *const :: windows::core::GUID , pwszvaluename : :: windows::core::PCWSTR , edatatype : SLDATATYPE , cbvalue : u32 , pbvalue : *const u8 ) -> :: windows::core::HRESULT );
+    SLSetGenuineInformation(pqueryid, pwszvaluename.into_param().abi(), edatatype, pbvalue.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLUninstallLicense(hslc: *const ::core::ffi::c_void, plicensefileid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLUninstallLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLUninstallLicense ( hslc : *const ::core::ffi::c_void , plicensefileid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     SLUninstallLicense(hslc, plicensefileid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkeyid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "slc.dll""system" fn SLUninstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , ppkeyid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "slc.dll""system" fn SLUninstallProofOfPurchase ( hslc : *const ::core::ffi::c_void , ppkeyid : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     SLUninstallProofOfPurchase(hslc, ppkeyid).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1306,84 +1306,84 @@ pub unsafe fn SLUninstallProofOfPurchase(hslc: *const ::core::ffi::c_void, ppkey
 #[inline]
 pub unsafe fn SLUnregisterEvent<P0, P1>(hslc: ::core::option::Option<*const ::core::ffi::c_void>, pwszeventid: P0, papplicationid: *const ::windows::core::GUID, hevent: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLUnregisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    SLUnregisterEvent(::core::mem::transmute(hslc.unwrap_or(::std::ptr::null())), pwszeventid.into().abi(), papplicationid, hevent.into()).ok()
+    ::windows::imp::link ! ( "slc.dll""system" fn SLUnregisterEvent ( hslc : *const ::core::ffi::c_void , pwszeventid : :: windows::core::PCWSTR , papplicationid : *const :: windows::core::GUID , hevent : super::super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
+    SLUnregisterEvent(::core::mem::transmute(hslc.unwrap_or(::std::ptr::null())), pwszeventid.into_param().abi(), papplicationid, hevent.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslAcceptSecurityContext(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, pinput: ::core::option::Option<*const SecBufferDesc>, fcontextreq: ASC_REQ_FLAGS, targetdatarep: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslAcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslAcceptSecurityContext ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , pinput : *const SecBufferDesc , fcontextreq : ASC_REQ_FLAGS , targetdatarep : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
     SaslAcceptSecurityContext(::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())), ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pinput.unwrap_or(::std::ptr::null())), fcontextreq, targetdatarep, ::core::mem::transmute(phnewcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(poutput.unwrap_or(::std::ptr::null_mut())), pfcontextattr, ::core::mem::transmute(ptsexpiry.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut ::windows::core::PSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesA ( profilelist : *mut :: windows::core::PSTR , profilecount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesA ( profilelist : *mut :: windows::core::PSTR , profilecount : *mut u32 ) -> :: windows::core::HRESULT );
     SaslEnumerateProfilesA(profilelist, profilecount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut ::windows::core::PWSTR, profilecount: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesW ( profilelist : *mut :: windows::core::PWSTR , profilecount : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslEnumerateProfilesW ( profilelist : *mut :: windows::core::PWSTR , profilecount : *mut u32 ) -> :: windows::core::HRESULT );
     SaslEnumerateProfilesW(profilelist, profilecount).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslGetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *mut ::core::ffi::c_void, size: u32, needed: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslGetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *mut ::core::ffi::c_void , size : u32 , needed : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *mut ::core::ffi::c_void , size : u32 , needed : *mut u32 ) -> :: windows::core::HRESULT );
     SaslGetContextOption(contexthandle, option, value, size, ::core::mem::transmute(needed.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslGetProfilePackageA<P0>(profilename: P0) -> ::windows::core::Result<*mut SecPkgInfoA>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslGetProfilePackageA ( profilename : :: windows::core::PCSTR , packageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SaslGetProfilePackageA(profilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetProfilePackageA ( profilename : :: windows::core::PCSTR , packageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoA>();
+    SaslGetProfilePackageA(profilename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslGetProfilePackageW<P0>(profilename: P0) -> ::windows::core::Result<*mut SecPkgInfoW>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslGetProfilePackageW ( profilename : :: windows::core::PCWSTR , packageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SaslGetProfilePackageW(profilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslGetProfilePackageW ( profilename : :: windows::core::PCWSTR , packageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoW>();
+    SaslGetProfilePackageW(profilename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslIdentifyPackageA(pinput: *const SecBufferDesc) -> ::windows::core::Result<*mut SecPkgInfoA> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslIdentifyPackageA ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SaslIdentifyPackageA(pinput, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslIdentifyPackageA ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoA ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoA>();
+    SaslIdentifyPackageA(pinput, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc) -> ::windows::core::Result<*mut SecPkgInfoW> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslIdentifyPackageW ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SaslIdentifyPackageW(pinput, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslIdentifyPackageW ( pinput : *const SecBufferDesc , packageinfo : *mut *mut SecPkgInfoW ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut SecPkgInfoW>();
+    SaslIdentifyPackageW(pinput, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslInitializeSecurityContextA<P0>(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, psztargetname: P0, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: ::core::option::Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : :: windows::core::PCSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextA ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : :: windows::core::PCSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
     SaslInitializeSecurityContextA(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
-        psztargetname.into().abi(),
+        psztargetname.into_param().abi(),
         fcontextreq,
         reserved1,
         targetdatarep,
@@ -1400,13 +1400,13 @@ where
 #[inline]
 pub unsafe fn SaslInitializeSecurityContextW<P0>(phcredential: ::core::option::Option<*const super::super::Credentials::SecHandle>, phcontext: ::core::option::Option<*const super::super::Credentials::SecHandle>, psztargetname: P0, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: ::core::option::Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: ::core::option::Option<*mut super::super::Credentials::SecHandle>, poutput: ::core::option::Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: ::core::option::Option<*mut i64>) -> ::windows::core::HRESULT
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : :: windows::core::PCWSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslInitializeSecurityContextW ( phcredential : *const super::super::Credentials:: SecHandle , phcontext : *const super::super::Credentials:: SecHandle , psztargetname : :: windows::core::PCWSTR , fcontextreq : ISC_REQ_FLAGS , reserved1 : u32 , targetdatarep : u32 , pinput : *const SecBufferDesc , reserved2 : u32 , phnewcontext : *mut super::super::Credentials:: SecHandle , poutput : *mut SecBufferDesc , pfcontextattr : *mut u32 , ptsexpiry : *mut i64 ) -> :: windows::core::HRESULT );
     SaslInitializeSecurityContextW(
         ::core::mem::transmute(phcredential.unwrap_or(::std::ptr::null())),
         ::core::mem::transmute(phcontext.unwrap_or(::std::ptr::null())),
-        psztargetname.into().abi(),
+        psztargetname.into_param().abi(),
         fcontextreq,
         reserved1,
         targetdatarep,
@@ -1422,7 +1422,7 @@ where
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SaslSetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *const ::core::ffi::c_void , size : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SaslSetContextOption ( contexthandle : *const super::super::Credentials:: SecHandle , option : u32 , value : *const ::core::ffi::c_void , size : u32 ) -> :: windows::core::HRESULT );
     SaslSetContextOption(contexthandle, option, value, size).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1430,44 +1430,44 @@ pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentia
 #[inline]
 pub unsafe fn SendSAS<P0>(asuser: P0)
 where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+    P0: ::windows::core::IntoParam<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::link ! ( "sas.dll""system" fn SendSAS ( asuser : super::super::super::Foundation:: BOOL ) -> ( ) );
-    SendSAS(asuser.into())
+    ::windows::imp::link ! ( "sas.dll""system" fn SendSAS ( asuser : super::super::super::Foundation:: BOOL ) -> ( ) );
+    SendSAS(asuser.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SetContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetContextAttributesA ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     SetContextAttributesA(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetContextAttributesW(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SetContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetContextAttributesW ( phcontext : *const super::super::Credentials:: SecHandle , ulattribute : SECPKG_ATTR , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     SetContextAttributesW(phcontext, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetCredentialsAttributesA(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SetCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetCredentialsAttributesA ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     SetCredentialsAttributesA(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Credentials::SecHandle, ulattribute: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SetCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SetCredentialsAttributesW ( phcredential : *const super::super::Credentials:: SecHandle , ulattribute : u32 , pbuffer : *const ::core::ffi::c_void , cbbuffer : u32 ) -> :: windows::core::HRESULT );
     SetCredentialsAttributesW(phcredential, ulattribute, pbuffer, cbbuffer).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslCrackCertificate ( pbcertificate : *mut u8 , cbcertificate : u32 , dwflags : u32 , ppcertificate : *mut *mut X509Certificate ) -> super::super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslCrackCertificate ( pbcertificate : *mut u8 , cbcertificate : u32 , dwflags : u32 , ppcertificate : *mut *mut X509Certificate ) -> super::super::super::Foundation:: BOOL );
     SslCrackCertificate(pbcertificate, cbcertificate, dwflags, ppcertificate)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
@@ -1475,335 +1475,335 @@ pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dw
 #[inline]
 pub unsafe fn SslEmptyCacheA<P0>(psztargetname: P0, dwflags: u32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslEmptyCacheA ( psztargetname : :: windows::core::PCSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
-    SslEmptyCacheA(psztargetname.into().abi(), dwflags)
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslEmptyCacheA ( psztargetname : :: windows::core::PCSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
+    SslEmptyCacheA(psztargetname.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslEmptyCacheW<P0>(psztargetname: P0, dwflags: u32) -> super::super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslEmptyCacheW ( psztargetname : :: windows::core::PCWSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
-    SslEmptyCacheW(psztargetname.into().abi(), dwflags)
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslEmptyCacheW ( psztargetname : :: windows::core::PCWSTR , dwflags : u32 ) -> super::super::super::Foundation:: BOOL );
+    SslEmptyCacheW(psztargetname.into_param().abi(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslFreeCertificate ( pcertificate : *mut X509Certificate ) -> ( ) );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslFreeCertificate ( pcertificate : *mut X509Certificate ) -> ( ) );
     SslFreeCertificate(pcertificate)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslGenerateRandomBits ( prandomdata : *mut u8 , crandomdata : i32 ) -> ( ) );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslGenerateRandomBits ( prandomdata : *mut u8 , crandomdata : i32 ) -> ( ) );
     SslGenerateRandomBits(prandomdata, crandomdata)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslGetExtensions ( clienthello : *const u8 , clienthellobytesize : u32 , genericextensions : *mut SCH_EXTENSION_DATA , genericextensionscount : u8 , bytestoread : *mut u32 , flags : SchGetExtensionsOptions ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslGetExtensions ( clienthello : *const u8 , clienthellobytesize : u32 , genericextensions : *mut SCH_EXTENSION_DATA , genericextensionscount : u8 , bytestoread : *mut u32 , flags : SchGetExtensionsOptions ) -> :: windows::core::HRESULT );
     SslGetExtensions(::core::mem::transmute(clienthello.as_ptr()), clienthello.len() as _, ::core::mem::transmute(genericextensions.as_ptr()), genericextensions.len() as _, bytestoread, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslGetMaximumKeySize ( reserved : u32 ) -> u32 );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslGetMaximumKeySize ( reserved : u32 ) -> u32 );
     SslGetMaximumKeySize(reserved)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "schannel.dll""system" fn SslGetServerIdentity ( clienthello : *const u8 , clienthellosize : u32 , serveridentity : *mut *mut u8 , serveridentitysize : *mut u32 , flags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "schannel.dll""system" fn SslGetServerIdentity ( clienthello : *const u8 , clienthellosize : u32 , serveridentity : *mut *mut u8 , serveridentitysize : *mut u32 , flags : u32 ) -> :: windows::core::HRESULT );
     SslGetServerIdentity(::core::mem::transmute(clienthello.as_ptr()), clienthello.len() as _, serveridentity, serveridentitysize, flags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiCompareAuthIdentities(authidentity1: ::core::option::Option<*const ::core::ffi::c_void>, authidentity2: ::core::option::Option<*const ::core::ffi::c_void>, samesupplieduser: ::core::option::Option<*mut super::super::super::Foundation::BOOLEAN>, samesuppliedidentity: ::core::option::Option<*mut super::super::super::Foundation::BOOLEAN>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiCompareAuthIdentities ( authidentity1 : *const ::core::ffi::c_void , authidentity2 : *const ::core::ffi::c_void , samesupplieduser : *mut super::super::super::Foundation:: BOOLEAN , samesuppliedidentity : *mut super::super::super::Foundation:: BOOLEAN ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiCompareAuthIdentities ( authidentity1 : *const ::core::ffi::c_void , authidentity2 : *const ::core::ffi::c_void , samesupplieduser : *mut super::super::super::Foundation:: BOOLEAN , samesuppliedidentity : *mut super::super::super::Foundation:: BOOLEAN ) -> :: windows::core::HRESULT );
     SspiCompareAuthIdentities(::core::mem::transmute(authidentity1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(authidentity2.unwrap_or(::std::ptr::null())), ::core::mem::transmute(samesupplieduser.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(samesuppliedidentity.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiCopyAuthIdentity(authdata: *const ::core::ffi::c_void, authdatacopy: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiCopyAuthIdentity ( authdata : *const ::core::ffi::c_void , authdatacopy : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiCopyAuthIdentity ( authdata : *const ::core::ffi::c_void , authdatacopy : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SspiCopyAuthIdentity(authdata, authdatacopy).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiDecryptAuthIdentity ( encryptedauthdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiDecryptAuthIdentity ( encryptedauthdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SspiDecryptAuthIdentity(encryptedauthdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sspicli.dll""system" fn SspiDecryptAuthIdentityEx ( options : u32 , encryptedauthdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn SspiDecryptAuthIdentityEx ( options : u32 , encryptedauthdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SspiDecryptAuthIdentityEx(options, encryptedauthdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: *const ::core::ffi::c_void, ppszusername: *mut ::windows::core::PWSTR, ppszdomainname: *mut ::windows::core::PWSTR, ppszpackedcredentialsstring: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiEncodeAuthIdentityAsStrings ( pauthidentity : *const ::core::ffi::c_void , ppszusername : *mut :: windows::core::PWSTR , ppszdomainname : *mut :: windows::core::PWSTR , ppszpackedcredentialsstring : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncodeAuthIdentityAsStrings ( pauthidentity : *const ::core::ffi::c_void , ppszusername : *mut :: windows::core::PWSTR , ppszdomainname : *mut :: windows::core::PWSTR , ppszpackedcredentialsstring : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     SspiEncodeAuthIdentityAsStrings(pauthidentity, ppszusername, ppszdomainname, ::core::mem::transmute(ppszpackedcredentialsstring.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncodeStringsAsAuthIdentity<P0, P1, P2>(pszusername: P0, pszdomainname: P1, pszpackedcredentialsstring: P2, ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiEncodeStringsAsAuthIdentity ( pszusername : :: windows::core::PCWSTR , pszdomainname : :: windows::core::PCWSTR , pszpackedcredentialsstring : :: windows::core::PCWSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    SspiEncodeStringsAsAuthIdentity(pszusername.into().abi(), pszdomainname.into().abi(), pszpackedcredentialsstring.into().abi(), ppauthidentity).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncodeStringsAsAuthIdentity ( pszusername : :: windows::core::PCWSTR , pszdomainname : :: windows::core::PCWSTR , pszpackedcredentialsstring : :: windows::core::PCWSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    SspiEncodeStringsAsAuthIdentity(pszusername.into_param().abi(), pszdomainname.into_param().abi(), pszpackedcredentialsstring.into_param().abi(), ppauthidentity).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiEncryptAuthIdentity ( authdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiEncryptAuthIdentity ( authdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SspiEncryptAuthIdentity(authdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "sspicli.dll""system" fn SspiEncryptAuthIdentityEx ( options : u32 , authdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "sspicli.dll""system" fn SspiEncryptAuthIdentityEx ( options : u32 , authdata : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SspiEncryptAuthIdentityEx(options, authdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiExcludePackage<P0>(authidentity: ::core::option::Option<*const ::core::ffi::c_void>, pszpackagename: P0, ppnewauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiExcludePackage ( authidentity : *const ::core::ffi::c_void , pszpackagename : :: windows::core::PCWSTR , ppnewauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    SspiExcludePackage(::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), pszpackagename.into().abi(), ppnewauthidentity).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiExcludePackage ( authidentity : *const ::core::ffi::c_void , pszpackagename : :: windows::core::PCWSTR , ppnewauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    SspiExcludePackage(::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), pszpackagename.into_param().abi(), ppnewauthidentity).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiFreeAuthIdentity(authdata: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiFreeAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiFreeAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> ( ) );
     SspiFreeAuthIdentity(::core::mem::transmute(authdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiGetTargetHostName<P0>(psztargetname: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiGetTargetHostName ( psztargetname : :: windows::core::PCWSTR , pszhostname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SspiGetTargetHostName(psztargetname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiGetTargetHostName ( psztargetname : :: windows::core::PCWSTR , pszhostname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    SspiGetTargetHostName(psztargetname.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiIsAuthIdentityEncrypted ( encryptedauthdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiIsAuthIdentityEncrypted ( encryptedauthdata : *const ::core::ffi::c_void ) -> super::super::super::Foundation:: BOOLEAN );
     SspiIsAuthIdentityEncrypted(encryptedauthdata)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "credui.dll""system" fn SspiIsPromptingNeeded ( errororntstatus : u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "credui.dll""system" fn SspiIsPromptingNeeded ( errororntstatus : u32 ) -> super::super::super::Foundation:: BOOLEAN );
     SspiIsPromptingNeeded(errororntstatus)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiLocalFree(databuffer: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiLocalFree ( databuffer : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiLocalFree ( databuffer : *const ::core::ffi::c_void ) -> ( ) );
     SspiLocalFree(::core::mem::transmute(databuffer.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const ::core::ffi::c_void, authidentitylength: *mut u32, authidentitybytearray: *mut *mut i8) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiMarshalAuthIdentity ( authidentity : *const ::core::ffi::c_void , authidentitylength : *mut u32 , authidentitybytearray : *mut *mut i8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiMarshalAuthIdentity ( authidentity : *const ::core::ffi::c_void , authidentitylength : *mut u32 , authidentitybytearray : *mut *mut i8 ) -> :: windows::core::HRESULT );
     SspiMarshalAuthIdentity(authidentity, authidentitylength, authidentitybytearray).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPrepareForCredRead<P0>(authidentity: *const ::core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiPrepareForCredRead ( authidentity : *const ::core::ffi::c_void , psztargetname : :: windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    SspiPrepareForCredRead(authidentity, psztargetname.into().abi(), pcredmancredentialtype, ppszcredmantargetname).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiPrepareForCredRead ( authidentity : *const ::core::ffi::c_void , psztargetname : :: windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    SspiPrepareForCredRead(authidentity, psztargetname.into_param().abi(), pcredmancredentialtype, ppszcredmantargetname).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPrepareForCredWrite<P0>(authidentity: *const ::core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut ::windows::core::PWSTR, ppszcredmanusername: *mut ::windows::core::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiPrepareForCredWrite ( authidentity : *const ::core::ffi::c_void , psztargetname : :: windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut :: windows::core::PWSTR , ppszcredmanusername : *mut :: windows::core::PWSTR , ppcredentialblob : *mut *mut u8 , pcredentialblobsize : *mut u32 ) -> :: windows::core::HRESULT );
-    SspiPrepareForCredWrite(authidentity, psztargetname.into().abi(), pcredmancredentialtype, ppszcredmantargetname, ppszcredmanusername, ppcredentialblob, pcredentialblobsize).ok()
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiPrepareForCredWrite ( authidentity : *const ::core::ffi::c_void , psztargetname : :: windows::core::PCWSTR , pcredmancredentialtype : *mut u32 , ppszcredmantargetname : *mut :: windows::core::PWSTR , ppszcredmanusername : *mut :: windows::core::PWSTR , ppcredentialblob : *mut *mut u8 , pcredentialblobsize : *mut u32 ) -> :: windows::core::HRESULT );
+    SspiPrepareForCredWrite(authidentity, psztargetname.into_param().abi(), pcredmancredentialtype, ppszcredmantargetname, ppszcredmanusername, ppcredentialblob, pcredentialblobsize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPromptForCredentialsA<P0, P1>(psztargetname: P0, puiinfo: ::core::option::Option<*const ::core::ffi::c_void>, dwautherror: u32, pszpackage: P1, pinputauthidentity: ::core::option::Option<*const ::core::ffi::c_void>, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: ::core::option::Option<*mut i32>, dwflags: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "credui.dll""system" fn SspiPromptForCredentialsA ( psztargetname : :: windows::core::PCSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : :: windows::core::PCSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
-    SspiPromptForCredentialsA(psztargetname.into().abi(), ::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pszpackage.into().abi(), ::core::mem::transmute(pinputauthidentity.unwrap_or(::std::ptr::null())), ppauthidentity, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
+    ::windows::imp::link ! ( "credui.dll""system" fn SspiPromptForCredentialsA ( psztargetname : :: windows::core::PCSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : :: windows::core::PCSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
+    SspiPromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity.unwrap_or(::std::ptr::null())), ppauthidentity, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiPromptForCredentialsW<P0, P1>(psztargetname: P0, puiinfo: ::core::option::Option<*const ::core::ffi::c_void>, dwautherror: u32, pszpackage: P1, pinputauthidentity: ::core::option::Option<*const ::core::ffi::c_void>, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: ::core::option::Option<*mut i32>, dwflags: u32) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "credui.dll""system" fn SspiPromptForCredentialsW ( psztargetname : :: windows::core::PCWSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : :: windows::core::PCWSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
-    SspiPromptForCredentialsW(psztargetname.into().abi(), ::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pszpackage.into().abi(), ::core::mem::transmute(pinputauthidentity.unwrap_or(::std::ptr::null())), ppauthidentity, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
+    ::windows::imp::link ! ( "credui.dll""system" fn SspiPromptForCredentialsW ( psztargetname : :: windows::core::PCWSTR , puiinfo : *const ::core::ffi::c_void , dwautherror : u32 , pszpackage : :: windows::core::PCWSTR , pinputauthidentity : *const ::core::ffi::c_void , ppauthidentity : *mut *mut ::core::ffi::c_void , pfsave : *mut i32 , dwflags : u32 ) -> u32 );
+    SspiPromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity.unwrap_or(::std::ptr::null())), ppauthidentity, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiUnmarshalAuthIdentity(authidentitybytearray: &[u8], ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiUnmarshalAuthIdentity ( authidentitylength : u32 , authidentitybytearray : :: windows::core::PCSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiUnmarshalAuthIdentity ( authidentitylength : u32 , authidentitybytearray : :: windows::core::PCSTR , ppauthidentity : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SspiUnmarshalAuthIdentity(authidentitybytearray.len() as _, ::core::mem::transmute(authidentitybytearray.as_ptr()), ppauthidentity).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiValidateAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiValidateAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     SspiValidateAuthIdentity(authdata).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn SspiZeroAuthIdentity(authdata: ::core::option::Option<*const ::core::ffi::c_void>) {
-    ::windows::core::link ! ( "secur32.dll""system" fn SspiZeroAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "secur32.dll""system" fn SspiZeroAuthIdentity ( authdata : *const ::core::ffi::c_void ) -> ( ) );
     SspiZeroAuthIdentity(::core::mem::transmute(authdata.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemFunction036(randombuffer: *mut ::core::ffi::c_void, randombufferlength: u32) -> super::super::super::Foundation::BOOLEAN {
-    ::windows::core::link ! ( "advapi32.dll""system" fn SystemFunction036 ( randombuffer : *mut ::core::ffi::c_void , randombufferlength : u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SystemFunction036 ( randombuffer : *mut ::core::ffi::c_void , randombufferlength : u32 ) -> super::super::super::Foundation:: BOOLEAN );
     SystemFunction036(randombuffer, randombufferlength)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemFunction040(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn SystemFunction040 ( memory : *mut ::core::ffi::c_void , memorysize : u32 , optionflags : u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SystemFunction040 ( memory : *mut ::core::ffi::c_void , memorysize : u32 , optionflags : u32 ) -> super::super::super::Foundation:: NTSTATUS );
     SystemFunction040(memory, memorysize, optionflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemFunction041(memory: *mut ::core::ffi::c_void, memorysize: u32, optionflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "advapi32.dll""system" fn SystemFunction041 ( memory : *mut ::core::ffi::c_void , memorysize : u32 , optionflags : u32 ) -> super::super::super::Foundation:: NTSTATUS );
+    ::windows::imp::link ! ( "advapi32.dll""system" fn SystemFunction041 ( memory : *mut ::core::ffi::c_void , memorysize : u32 , optionflags : u32 ) -> super::super::super::Foundation:: NTSTATUS );
     SystemFunction041(memory, memorysize, optionflags).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingDeleteAllBindings() -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteAllBindings ( ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteAllBindings ( ) -> :: windows::core::HRESULT );
     TokenBindingDeleteAllBindings().ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingDeleteBinding<P0>(targeturl: P0) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteBinding ( targeturl : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
-    TokenBindingDeleteBinding(targeturl.into().abi()).ok()
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingDeleteBinding ( targeturl : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
+    TokenBindingDeleteBinding(targeturl.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateBinding<P0>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: P0, bindingtype: TOKENBINDING_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const ::core::ffi::c_void, tokenbinding: *mut *mut ::core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: ::core::option::Option<*mut *mut TOKENBINDING_RESULT_DATA>) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateBinding ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturl : :: windows::core::PCWSTR , bindingtype : TOKENBINDING_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , extensionformat : TOKENBINDING_EXTENSION_FORMAT , extensiondata : *const ::core::ffi::c_void , tokenbinding : *mut *mut ::core::ffi::c_void , tokenbindingsize : *mut u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
-    TokenBindingGenerateBinding(keytype, targeturl.into().abi(), bindingtype, tlsekm, tlsekmsize, extensionformat, extensiondata, tokenbinding, tokenbindingsize, ::core::mem::transmute(resultdata.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateBinding ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturl : :: windows::core::PCWSTR , bindingtype : TOKENBINDING_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , extensionformat : TOKENBINDING_EXTENSION_FORMAT , extensiondata : *const ::core::ffi::c_void , tokenbinding : *mut *mut ::core::ffi::c_void , tokenbindingsize : *mut u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
+    TokenBindingGenerateBinding(keytype, targeturl.into_param().abi(), bindingtype, tlsekm, tlsekmsize, extensionformat, extensiondata, tokenbinding, tokenbindingsize, ::core::mem::transmute(resultdata.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: *const ::core::ffi::c_void, publickeysize: u32) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_DATA> {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateID ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , publickey : *const ::core::ffi::c_void , publickeysize : u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TokenBindingGenerateID(keytype, publickey, publickeysize, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateID ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , publickey : *const ::core::ffi::c_void , publickeysize : u32 , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_RESULT_DATA>();
+    TokenBindingGenerateID(keytype, publickey, publickeysize, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateIDForUri<P0>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: P0) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_DATA>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateIDForUri ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturi : :: windows::core::PCWSTR , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TokenBindingGenerateIDForUri(keytype, targeturi.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateIDForUri ( keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , targeturi : :: windows::core::PCWSTR , resultdata : *mut *mut TOKENBINDING_RESULT_DATA ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_RESULT_DATA>();
+    TokenBindingGenerateIDForUri(keytype, targeturi.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGenerateMessage(tokenbindings: *const *const ::core::ffi::c_void, tokenbindingssize: *const u32, tokenbindingscount: u32, tokenbindingmessage: *mut *mut ::core::ffi::c_void, tokenbindingmessagesize: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateMessage ( tokenbindings : *const *const ::core::ffi::c_void , tokenbindingssize : *const u32 , tokenbindingscount : u32 , tokenbindingmessage : *mut *mut ::core::ffi::c_void , tokenbindingmessagesize : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGenerateMessage ( tokenbindings : *const *const ::core::ffi::c_void , tokenbindingssize : *const u32 , tokenbindingscount : u32 , tokenbindingmessage : *mut *mut ::core::ffi::c_void , tokenbindingmessagesize : *mut u32 ) -> :: windows::core::HRESULT );
     TokenBindingGenerateMessage(tokenbindings, tokenbindingssize, tokenbindingscount, tokenbindingmessage, tokenbindingmessagesize).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetHighestSupportedVersion(majorversion: *mut u8, minorversion: *mut u8) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingGetHighestSupportedVersion ( majorversion : *mut u8 , minorversion : *mut u8 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetHighestSupportedVersion ( majorversion : *mut u8 , minorversion : *mut u8 ) -> :: windows::core::HRESULT );
     TokenBindingGetHighestSupportedVersion(majorversion, minorversion).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetKeyTypesClient() -> ::windows::core::Result<*mut TOKENBINDING_KEY_TYPES> {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesClient ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TokenBindingGetKeyTypesClient(result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesClient ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_KEY_TYPES>();
+    TokenBindingGetKeyTypesClient(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingGetKeyTypesServer() -> ::windows::core::Result<*mut TOKENBINDING_KEY_TYPES> {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesServer ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TokenBindingGetKeyTypesServer(result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingGetKeyTypesServer ( keytypes : *mut *mut TOKENBINDING_KEY_TYPES ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_KEY_TYPES>();
+    TokenBindingGetKeyTypesServer(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
 pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const ::core::ffi::c_void, tokenbindingmessagesize: u32, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32) -> ::windows::core::Result<*mut TOKENBINDING_RESULT_LIST> {
-    ::windows::core::link ! ( "tokenbinding.dll""system" fn TokenBindingVerifyMessage ( tokenbindingmessage : *const ::core::ffi::c_void , tokenbindingmessagesize : u32 , keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , resultlist : *mut *mut TOKENBINDING_RESULT_LIST ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TokenBindingVerifyMessage(tokenbindingmessage, tokenbindingmessagesize, keytype, tlsekm, tlsekmsize, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "tokenbinding.dll""system" fn TokenBindingVerifyMessage ( tokenbindingmessage : *const ::core::ffi::c_void , tokenbindingmessagesize : u32 , keytype : TOKENBINDING_KEY_PARAMETERS_TYPE , tlsekm : *const ::core::ffi::c_void , tlsekmsize : u32 , resultlist : *mut *mut TOKENBINDING_RESULT_LIST ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<*mut TOKENBINDING_RESULT_LIST>();
+    TokenBindingVerifyMessage(tokenbindingmessage, tokenbindingmessagesize, keytype, tlsekm, tlsekmsize, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateNameA<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn TranslateNameA ( lpaccountname : :: windows::core::PCSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
-    TranslateNameA(lpaccountname.into().abi(), accountnameformat, desirednameformat, ::core::mem::transmute(lptranslatedname), nsize)
+    ::windows::imp::link ! ( "secur32.dll""system" fn TranslateNameA ( lpaccountname : :: windows::core::PCSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : :: windows::core::PSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    TranslateNameA(lpaccountname.into_param().abi(), accountnameformat, desirednameformat, ::core::mem::transmute(lptranslatedname), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateNameW<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: ::windows::core::PWSTR, nsize: *mut u32) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "secur32.dll""system" fn TranslateNameW ( lpaccountname : :: windows::core::PCWSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
-    TranslateNameW(lpaccountname.into().abi(), accountnameformat, desirednameformat, ::core::mem::transmute(lptranslatedname), nsize)
+    ::windows::imp::link ! ( "secur32.dll""system" fn TranslateNameW ( lpaccountname : :: windows::core::PCWSTR , accountnameformat : EXTENDED_NAME_FORMAT , desirednameformat : EXTENDED_NAME_FORMAT , lptranslatedname : :: windows::core::PWSTR , nsize : *mut u32 ) -> super::super::super::Foundation:: BOOLEAN );
+    TranslateNameW(lpaccountname.into_param().abi(), accountnameformat, desirednameformat, ::core::mem::transmute(lptranslatedname), nsize)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32) -> ::windows::core::Result<u32> {
-    ::windows::core::link ! ( "secur32.dll""system" fn VerifySignature ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VerifySignature(phcontext, pmessage, messageseqno, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "secur32.dll""system" fn VerifySignature ( phcontext : *const super::super::Credentials:: SecHandle , pmessage : *const SecBufferDesc , messageseqno : u32 , pfqop : *mut u32 ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    VerifySignature(phcontext, pmessage, messageseqno, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
@@ -1811,17 +1811,12 @@ pub struct ICcgDomainAuthCredentials(::windows::core::IUnknown);
 impl ICcgDomainAuthCredentials {
     pub unsafe fn GetPasswordCredentials<P0>(&self, plugininput: P0, domainname: *mut ::windows::core::PWSTR, username: *mut ::windows::core::PWSTR, password: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetPasswordCredentials)(::windows::core::Vtable::as_raw(self), plugininput.into().abi(), domainname, username, password).ok()
+        (::windows::core::Interface::vtable(self).GetPasswordCredentials)(::windows::core::Interface::as_raw(self), plugininput.into_param().abi(), domainname, username, password).ok()
     }
 }
-::windows::core::interface_hierarchy!(ICcgDomainAuthCredentials, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICcgDomainAuthCredentials {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ICcgDomainAuthCredentials, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ICcgDomainAuthCredentials {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1833,10 +1828,15 @@ impl ::core::fmt::Debug for ICcgDomainAuthCredentials {
         f.debug_tuple("ICcgDomainAuthCredentials").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ICcgDomainAuthCredentials {
+unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
     type Vtable = ICcgDomainAuthCredentials_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ICcgDomainAuthCredentials {
+impl ::core::clone::Clone for ICcgDomainAuthCredentials {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ICcgDomainAuthCredentials {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ecda518_2010_4437_8bc3_46e752b7b172);
 }
 #[repr(C)]
@@ -4686,8 +4686,8 @@ impl ::core::default::Default for ASC_REQ_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ASC_REQ_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ASC_REQ_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ASC_REQ_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4744,8 +4744,8 @@ impl ::core::default::Default for ASC_REQ_HIGH_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ASC_REQ_HIGH_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ASC_REQ_HIGH_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ASC_REQ_HIGH_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4806,8 +4806,8 @@ impl ::core::default::Default for CRED_FETCH {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRED_FETCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRED_FETCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRED_FETCH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4841,8 +4841,8 @@ impl ::core::default::Default for DOMAIN_PASSWORD_PROPERTIES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DOMAIN_PASSWORD_PROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOMAIN_PASSWORD_PROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DOMAIN_PASSWORD_PROPERTIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4903,8 +4903,8 @@ impl ::core::default::Default for EXPORT_SECURITY_CONTEXT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXPORT_SECURITY_CONTEXT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXPORT_SECURITY_CONTEXT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXPORT_SECURITY_CONTEXT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4983,8 +4983,8 @@ impl ::core::default::Default for EXTENDED_NAME_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXTENDED_NAME_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTENDED_NAME_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXTENDED_NAME_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5060,8 +5060,8 @@ impl ::core::default::Default for ISC_REQ_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ISC_REQ_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ISC_REQ_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ISC_REQ_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5120,8 +5120,8 @@ impl ::core::default::Default for ISC_REQ_HIGH_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ISC_REQ_HIGH_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ISC_REQ_HIGH_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ISC_REQ_HIGH_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5180,8 +5180,8 @@ impl ::core::default::Default for KERB_ADDRESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_ADDRESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_ADDRESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_ADDRESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5205,8 +5205,8 @@ impl ::core::default::Default for KERB_CERTIFICATE_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CERTIFICATE_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_CERTIFICATE_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5240,8 +5240,8 @@ impl ::core::default::Default for KERB_CRYPTO_KEY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CRYPTO_KEY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CRYPTO_KEY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_CRYPTO_KEY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5289,8 +5289,8 @@ impl ::core::default::Default for KERB_LOGON_SUBMIT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_LOGON_SUBMIT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_LOGON_SUBMIT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_LOGON_SUBMIT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5318,8 +5318,8 @@ impl ::core::default::Default for KERB_PROFILE_BUFFER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_PROFILE_BUFFER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_PROFILE_BUFFER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_PROFILE_BUFFER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5415,8 +5415,8 @@ impl ::core::default::Default for KERB_PROTOCOL_MESSAGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_PROTOCOL_MESSAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_PROTOCOL_MESSAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_PROTOCOL_MESSAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5444,8 +5444,8 @@ impl ::core::default::Default for KERB_REQUEST_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_REQUEST_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_REQUEST_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_REQUEST_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5495,8 +5495,8 @@ impl ::core::default::Default for KERB_TICKET_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KERB_TICKET_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KERB_TICKET_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5555,8 +5555,8 @@ impl ::core::default::Default for KSEC_CONTEXT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KSEC_CONTEXT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KSEC_CONTEXT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KSEC_CONTEXT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5586,8 +5586,8 @@ impl ::core::default::Default for LSA_AUTH_INFORMATION_AUTH_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LSA_AUTH_INFORMATION_AUTH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5615,8 +5615,8 @@ impl ::core::default::Default for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5646,8 +5646,8 @@ impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_RECORD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LSA_FOREST_TRUST_RECORD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5673,8 +5673,8 @@ impl ::core::default::Default for LSA_LOOKUP_DOMAIN_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LSA_LOOKUP_DOMAIN_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_LOOKUP_DOMAIN_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LSA_LOOKUP_DOMAIN_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5704,8 +5704,8 @@ impl ::core::default::Default for LSA_TOKEN_INFORMATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TOKEN_INFORMATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LSA_TOKEN_INFORMATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5731,8 +5731,8 @@ impl ::core::default::Default for MSV1_0 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV1_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5776,8 +5776,8 @@ impl ::core::default::Default for MSV1_0_AVID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_AVID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_AVID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV1_0_AVID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5809,8 +5809,8 @@ impl ::core::default::Default for MSV1_0_CREDENTIAL_KEY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_CREDENTIAL_KEY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_CREDENTIAL_KEY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV1_0_CREDENTIAL_KEY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5850,8 +5850,8 @@ impl ::core::default::Default for MSV1_0_LOGON_SUBMIT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_LOGON_SUBMIT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_LOGON_SUBMIT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV1_0_LOGON_SUBMIT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5879,8 +5879,8 @@ impl ::core::default::Default for MSV1_0_PROFILE_BUFFER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_PROFILE_BUFFER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_PROFILE_BUFFER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV1_0_PROFILE_BUFFER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5952,8 +5952,8 @@ impl ::core::default::Default for MSV1_0_PROTOCOL_MESSAGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_PROTOCOL_MESSAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_PROTOCOL_MESSAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV1_0_PROTOCOL_MESSAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5995,8 +5995,8 @@ impl ::core::default::Default for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6069,8 +6069,8 @@ impl ::core::default::Default for MSV_SUB_AUTHENTICATION_FILTER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV_SUB_AUTHENTICATION_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV_SUB_AUTHENTICATION_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV_SUB_AUTHENTICATION_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6098,8 +6098,8 @@ impl ::core::default::Default for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6164,8 +6164,8 @@ impl ::core::default::Default for NEGOTIATE_MESSAGES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NEGOTIATE_MESSAGES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEGOTIATE_MESSAGES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NEGOTIATE_MESSAGES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6201,8 +6201,8 @@ impl ::core::default::Default for NETLOGON_LOGON_INFO_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETLOGON_LOGON_INFO_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_LOGON_INFO_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETLOGON_LOGON_INFO_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6226,8 +6226,8 @@ impl ::core::default::Default for PKU2U_LOGON_SUBMIT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PKU2U_LOGON_SUBMIT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PKU2U_LOGON_SUBMIT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PKU2U_LOGON_SUBMIT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6267,8 +6267,8 @@ impl ::core::default::Default for POLICY_AUDIT_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POLICY_AUDIT_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6294,8 +6294,8 @@ impl ::core::default::Default for POLICY_DOMAIN_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_DOMAIN_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_DOMAIN_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POLICY_DOMAIN_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6349,8 +6349,8 @@ impl ::core::default::Default for POLICY_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POLICY_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6376,8 +6376,8 @@ impl ::core::default::Default for POLICY_LSA_SERVER_ROLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_LSA_SERVER_ROLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_LSA_SERVER_ROLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POLICY_LSA_SERVER_ROLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6417,8 +6417,8 @@ impl ::core::default::Default for POLICY_NOTIFICATION_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_NOTIFICATION_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_NOTIFICATION_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POLICY_NOTIFICATION_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6444,8 +6444,8 @@ impl ::core::default::Default for SASL_AUTHZID_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SASL_AUTHZID_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SASL_AUTHZID_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SASL_AUTHZID_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6471,8 +6471,8 @@ impl ::core::default::Default for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6528,8 +6528,8 @@ impl ::core::default::Default for SCHANNEL_CRED_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_CRED_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_CRED_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCHANNEL_CRED_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6588,8 +6588,8 @@ impl ::core::default::Default for SCHANNEL_SESSION_TOKEN_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_SESSION_TOKEN_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_SESSION_TOKEN_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SCHANNEL_SESSION_TOKEN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6693,8 +6693,8 @@ impl ::core::default::Default for SECPKG_ATTR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_ATTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_ATTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_ATTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6722,8 +6722,8 @@ impl ::core::default::Default for SECPKG_ATTR_LCT_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_ATTR_LCT_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_ATTR_LCT_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_ATTR_LCT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6755,8 +6755,8 @@ impl ::core::default::Default for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6782,8 +6782,8 @@ impl ::core::default::Default for SECPKG_CRED {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_CRED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6815,8 +6815,8 @@ impl ::core::default::Default for SECPKG_CRED_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_CRED_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CRED_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_CRED_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6852,8 +6852,8 @@ impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_EXTENDED_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_EXTENDED_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6885,8 +6885,8 @@ impl ::core::default::Default for SECPKG_NAME_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_NAME_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_NAME_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_NAME_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6914,8 +6914,8 @@ impl ::core::default::Default for SECPKG_PACKAGE_CHANGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_PACKAGE_CHANGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_PACKAGE_CHANGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_PACKAGE_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6939,8 +6939,8 @@ impl ::core::default::Default for SECPKG_SESSIONINFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_SESSIONINFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SESSIONINFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECPKG_SESSIONINFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6977,8 +6977,8 @@ impl ::core::default::Default for SECURITY_LOGON_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECURITY_LOGON_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECURITY_LOGON_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECURITY_LOGON_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7006,8 +7006,8 @@ impl ::core::default::Default for SECURITY_PACKAGE_OPTIONS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECURITY_PACKAGE_OPTIONS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECURITY_PACKAGE_OPTIONS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECURITY_PACKAGE_OPTIONS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7035,8 +7035,8 @@ impl ::core::default::Default for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7064,8 +7064,8 @@ impl ::core::default::Default for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7093,8 +7093,8 @@ impl ::core::default::Default for SEC_TRAFFIC_SECRET_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SEC_TRAFFIC_SECRET_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_TRAFFIC_SECRET_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SEC_TRAFFIC_SECRET_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7188,8 +7188,8 @@ impl ::core::default::Default for SE_ADT_PARAMETER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SE_ADT_PARAMETER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SE_ADT_PARAMETER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7223,8 +7223,8 @@ impl ::core::default::Default for SLDATATYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SLDATATYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SLDATATYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SLDATATYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7264,8 +7264,8 @@ impl ::core::default::Default for SLIDTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SLIDTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SLIDTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SLIDTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7297,8 +7297,8 @@ impl ::core::default::Default for SLLICENSINGSTATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SLLICENSINGSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SLLICENSINGSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SLLICENSINGSTATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7330,8 +7330,8 @@ impl ::core::default::Default for SLREFERRALTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SLREFERRALTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SLREFERRALTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SLREFERRALTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7357,8 +7357,8 @@ impl ::core::default::Default for SL_ACTIVATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SL_ACTIVATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SL_ACTIVATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SL_ACTIVATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7390,8 +7390,8 @@ impl ::core::default::Default for SL_GENUINE_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SL_GENUINE_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SL_GENUINE_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SL_GENUINE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7417,8 +7417,8 @@ impl ::core::default::Default for SchGetExtensionsOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SchGetExtensionsOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SchGetExtensionsOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SchGetExtensionsOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7483,8 +7483,8 @@ impl ::core::default::Default for SecDelegationType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SecDelegationType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecDelegationType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SecDelegationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7508,8 +7508,8 @@ impl ::core::default::Default for TOKENBINDING_EXTENSION_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TOKENBINDING_EXTENSION_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKENBINDING_EXTENSION_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TOKENBINDING_EXTENSION_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7539,8 +7539,8 @@ impl ::core::default::Default for TOKENBINDING_KEY_PARAMETERS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TOKENBINDING_KEY_PARAMETERS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKENBINDING_KEY_PARAMETERS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TOKENBINDING_KEY_PARAMETERS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7566,8 +7566,8 @@ impl ::core::default::Default for TOKENBINDING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TOKENBINDING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKENBINDING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TOKENBINDING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7603,8 +7603,8 @@ impl ::core::default::Default for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7634,8 +7634,8 @@ impl ::core::default::Default for TRUSTED_DOMAIN_TRUST_DIRECTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7665,8 +7665,8 @@ impl ::core::default::Default for TRUSTED_DOMAIN_TRUST_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_TRUST_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7714,8 +7714,8 @@ impl ::core::default::Default for TRUSTED_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRUSTED_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRUSTED_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7751,8 +7751,8 @@ impl ::core::default::Default for eTlsHashAlgorithm {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for eTlsHashAlgorithm {
-    type Abi = Self;
+impl ::windows::core::TypeKind for eTlsHashAlgorithm {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for eTlsHashAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7782,8 +7782,8 @@ impl ::core::default::Default for eTlsSignatureAlgorithm {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for eTlsSignatureAlgorithm {
-    type Abi = Self;
+impl ::windows::core::TypeKind for eTlsSignatureAlgorithm {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for eTlsSignatureAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7808,8 +7808,8 @@ impl ::core::fmt::Debug for AUDIT_POLICY_INFORMATION {
         f.debug_struct("AUDIT_POLICY_INFORMATION").field("AuditSubCategoryGuid", &self.AuditSubCategoryGuid).field("AuditingInformation", &self.AuditingInformation).field("AuditCategoryGuid", &self.AuditCategoryGuid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AUDIT_POLICY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIT_POLICY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AUDIT_POLICY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7849,8 +7849,8 @@ impl ::core::fmt::Debug for CENTRAL_ACCESS_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CENTRAL_ACCESS_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CENTRAL_ACCESS_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CENTRAL_ACCESS_POLICY {
@@ -7896,8 +7896,8 @@ impl ::core::fmt::Debug for CENTRAL_ACCESS_POLICY_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CENTRAL_ACCESS_POLICY_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CENTRAL_ACCESS_POLICY_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CENTRAL_ACCESS_POLICY_ENTRY {
@@ -7934,8 +7934,8 @@ impl ::core::fmt::Debug for CLEAR_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CLEAR_BLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLEAR_BLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLEAR_BLOCK {
@@ -7971,8 +7971,8 @@ impl ::core::fmt::Debug for DOMAIN_PASSWORD_INFORMATION {
         f.debug_struct("DOMAIN_PASSWORD_INFORMATION").field("MinPasswordLength", &self.MinPasswordLength).field("PasswordHistoryLength", &self.PasswordHistoryLength).field("PasswordProperties", &self.PasswordProperties).field("MaxPasswordAge", &self.MaxPasswordAge).field("MinPasswordAge", &self.MinPasswordAge).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOMAIN_PASSWORD_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOMAIN_PASSWORD_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOMAIN_PASSWORD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -8007,8 +8007,8 @@ impl ::core::fmt::Debug for ENCRYPTED_CREDENTIALW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-unsafe impl ::windows::core::Abi for ENCRYPTED_CREDENTIALW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTED_CREDENTIALW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for ENCRYPTED_CREDENTIALW {
@@ -8053,8 +8053,8 @@ impl ::core::fmt::Debug for KDC_PROXY_CACHE_ENTRY_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KDC_PROXY_CACHE_ENTRY_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KDC_PROXY_CACHE_ENTRY_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KDC_PROXY_CACHE_ENTRY_DATA {
@@ -8095,8 +8095,8 @@ impl ::core::fmt::Debug for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
@@ -8136,8 +8136,8 @@ impl ::core::fmt::Debug for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
@@ -8179,8 +8179,8 @@ impl ::core::fmt::Debug for KERB_ADD_CREDENTIALS_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_ADD_CREDENTIALS_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_CREDENTIALS_REQUEST {
@@ -8219,8 +8219,8 @@ impl ::core::fmt::Debug for KERB_ADD_CREDENTIALS_REQUEST_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_ADD_CREDENTIALS_REQUEST_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_ADD_CREDENTIALS_REQUEST_EX {
@@ -8254,8 +8254,8 @@ impl ::core::fmt::Debug for KERB_AUTH_DATA {
         f.debug_struct("KERB_AUTH_DATA").field("Type", &self.Type).field("Length", &self.Length).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_AUTH_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_AUTH_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_AUTH_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -8296,8 +8296,8 @@ impl ::core::fmt::Debug for KERB_BINDING_CACHE_ENTRY_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_BINDING_CACHE_ENTRY_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_BINDING_CACHE_ENTRY_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_BINDING_CACHE_ENTRY_DATA {
@@ -8330,8 +8330,8 @@ impl ::core::fmt::Debug for KERB_CERTIFICATE_HASHINFO {
         f.debug_struct("KERB_CERTIFICATE_HASHINFO").field("StoreNameLength", &self.StoreNameLength).field("HashLength", &self.HashLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_HASHINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CERTIFICATE_HASHINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_HASHINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8361,8 +8361,8 @@ impl ::core::fmt::Debug for KERB_CERTIFICATE_INFO {
         f.debug_struct("KERB_CERTIFICATE_INFO").field("CertInfoSize", &self.CertInfoSize).field("InfoType", &self.InfoType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CERTIFICATE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8402,8 +8402,8 @@ impl ::core::fmt::Debug for KERB_CERTIFICATE_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CERTIFICATE_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_LOGON {
@@ -8445,8 +8445,8 @@ impl ::core::fmt::Debug for KERB_CERTIFICATE_S4U_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_S4U_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CERTIFICATE_S4U_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_S4U_LOGON {
@@ -8484,8 +8484,8 @@ impl ::core::fmt::Debug for KERB_CERTIFICATE_UNLOCK_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_UNLOCK_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CERTIFICATE_UNLOCK_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CERTIFICATE_UNLOCK_LOGON {
@@ -8527,8 +8527,8 @@ impl ::core::fmt::Debug for KERB_CHANGEPASSWORD_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_CHANGEPASSWORD_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CHANGEPASSWORD_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CHANGEPASSWORD_REQUEST {
@@ -8566,8 +8566,8 @@ impl ::core::fmt::Debug for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
@@ -8599,8 +8599,8 @@ impl ::core::fmt::Debug for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
         f.debug_struct("KERB_CLOUD_KERBEROS_DEBUG_DATA_V0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8635,8 +8635,8 @@ impl ::core::fmt::Debug for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
@@ -8671,8 +8671,8 @@ impl ::core::fmt::Debug for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
         f.debug_struct("KERB_CLOUD_KERBEROS_DEBUG_RESPONSE").field("MessageType", &self.MessageType).field("Version", &self.Version).field("Length", &self.Length).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -8703,8 +8703,8 @@ impl ::core::fmt::Debug for KERB_CRYPTO_KEY {
         f.debug_struct("KERB_CRYPTO_KEY").field("KeyType", &self.KeyType).field("Length", &self.Length).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CRYPTO_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CRYPTO_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_CRYPTO_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -8735,8 +8735,8 @@ impl ::core::fmt::Debug for KERB_CRYPTO_KEY32 {
         f.debug_struct("KERB_CRYPTO_KEY32").field("KeyType", &self.KeyType).field("Length", &self.Length).field("Offset", &self.Offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_CRYPTO_KEY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_CRYPTO_KEY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_CRYPTO_KEY32 {
     fn eq(&self, other: &Self) -> bool {
@@ -8779,8 +8779,8 @@ impl ::core::fmt::Debug for KERB_DECRYPT_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_DECRYPT_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_DECRYPT_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_DECRYPT_REQUEST {
@@ -8812,8 +8812,8 @@ impl ::core::fmt::Debug for KERB_DECRYPT_RESPONSE {
         f.debug_struct("KERB_DECRYPT_RESPONSE").field("DecryptedData", &self.DecryptedData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_DECRYPT_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_DECRYPT_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_DECRYPT_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -8849,8 +8849,8 @@ impl ::core::fmt::Debug for KERB_EXTERNAL_NAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_EXTERNAL_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_EXTERNAL_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_EXTERNAL_NAME {
@@ -8919,8 +8919,8 @@ impl ::core::fmt::Debug for KERB_EXTERNAL_TICKET {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_EXTERNAL_TICKET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_EXTERNAL_TICKET {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_EXTERNAL_TICKET {
@@ -8960,8 +8960,8 @@ impl ::core::fmt::Debug for KERB_INTERACTIVE_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_INTERACTIVE_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_INTERACTIVE_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_INTERACTIVE_LOGON {
@@ -9030,8 +9030,8 @@ impl ::core::fmt::Debug for KERB_INTERACTIVE_PROFILE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_INTERACTIVE_PROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_INTERACTIVE_PROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_INTERACTIVE_PROFILE {
@@ -9069,8 +9069,8 @@ impl ::core::fmt::Debug for KERB_INTERACTIVE_UNLOCK_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_INTERACTIVE_UNLOCK_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_INTERACTIVE_UNLOCK_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_INTERACTIVE_UNLOCK_LOGON {
@@ -9104,8 +9104,8 @@ impl ::core::fmt::Debug for KERB_NET_ADDRESS {
         f.debug_struct("KERB_NET_ADDRESS").field("Family", &self.Family).field("Length", &self.Length).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_NET_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_NET_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_NET_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -9135,8 +9135,8 @@ impl ::core::fmt::Debug for KERB_NET_ADDRESSES {
         f.debug_struct("KERB_NET_ADDRESSES").field("Number", &self.Number).field("Addresses", &self.Addresses).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_NET_ADDRESSES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_NET_ADDRESSES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_NET_ADDRESSES {
     fn eq(&self, other: &Self) -> bool {
@@ -9165,8 +9165,8 @@ impl ::core::fmt::Debug for KERB_PURGE_BINDING_CACHE_REQUEST {
         f.debug_struct("KERB_PURGE_BINDING_CACHE_REQUEST").field("MessageType", &self.MessageType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_PURGE_BINDING_CACHE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_PURGE_BINDING_CACHE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_PURGE_BINDING_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -9202,8 +9202,8 @@ impl ::core::fmt::Debug for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
@@ -9236,8 +9236,8 @@ impl ::core::fmt::Debug for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
         f.debug_struct("KERB_PURGE_KDC_PROXY_CACHE_RESPONSE").field("MessageType", &self.MessageType).field("CountOfPurged", &self.CountOfPurged).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -9274,8 +9274,8 @@ impl ::core::fmt::Debug for KERB_PURGE_TKT_CACHE_EX_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_PURGE_TKT_CACHE_EX_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_PURGE_TKT_CACHE_EX_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_PURGE_TKT_CACHE_EX_REQUEST {
@@ -9315,8 +9315,8 @@ impl ::core::fmt::Debug for KERB_PURGE_TKT_CACHE_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_PURGE_TKT_CACHE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_PURGE_TKT_CACHE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_PURGE_TKT_CACHE_REQUEST {
@@ -9348,8 +9348,8 @@ impl ::core::fmt::Debug for KERB_QUERY_BINDING_CACHE_REQUEST {
         f.debug_struct("KERB_QUERY_BINDING_CACHE_REQUEST").field("MessageType", &self.MessageType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_QUERY_BINDING_CACHE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_BINDING_CACHE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_QUERY_BINDING_CACHE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -9385,8 +9385,8 @@ impl ::core::fmt::Debug for KERB_QUERY_BINDING_CACHE_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_BINDING_CACHE_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_BINDING_CACHE_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_BINDING_CACHE_RESPONSE {
@@ -9425,8 +9425,8 @@ impl ::core::fmt::Debug for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
@@ -9461,8 +9461,8 @@ impl ::core::fmt::Debug for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
         f.debug_struct("KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE").field("MessageType", &self.MessageType).field("Flags", &self.Flags).field("ExtendedPolicies", &self.ExtendedPolicies).field("DsFlags", &self.DsFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -9498,8 +9498,8 @@ impl ::core::fmt::Debug for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
@@ -9538,8 +9538,8 @@ impl ::core::fmt::Debug for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
@@ -9578,8 +9578,8 @@ impl ::core::fmt::Debug for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
@@ -9618,8 +9618,8 @@ impl ::core::fmt::Debug for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
@@ -9658,8 +9658,8 @@ impl ::core::fmt::Debug for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
@@ -9698,8 +9698,8 @@ impl ::core::fmt::Debug for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
@@ -9738,8 +9738,8 @@ impl ::core::fmt::Debug for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
@@ -9777,8 +9777,8 @@ impl ::core::fmt::Debug for KERB_QUERY_TKT_CACHE_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_TKT_CACHE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_REQUEST {
@@ -9817,8 +9817,8 @@ impl ::core::fmt::Debug for KERB_QUERY_TKT_CACHE_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_QUERY_TKT_CACHE_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_QUERY_TKT_CACHE_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_QUERY_TKT_CACHE_RESPONSE {
@@ -9851,8 +9851,8 @@ impl ::core::fmt::Debug for KERB_REFRESH_POLICY_REQUEST {
         f.debug_struct("KERB_REFRESH_POLICY_REQUEST").field("MessageType", &self.MessageType).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_REFRESH_POLICY_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_REFRESH_POLICY_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_REFRESH_POLICY_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -9882,8 +9882,8 @@ impl ::core::fmt::Debug for KERB_REFRESH_POLICY_RESPONSE {
         f.debug_struct("KERB_REFRESH_POLICY_RESPONSE").field("MessageType", &self.MessageType).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_REFRESH_POLICY_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_REFRESH_POLICY_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_REFRESH_POLICY_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -9920,8 +9920,8 @@ impl ::core::fmt::Debug for KERB_REFRESH_SCCRED_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_REFRESH_SCCRED_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_REFRESH_SCCRED_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_REFRESH_SCCRED_REQUEST {
@@ -9962,8 +9962,8 @@ impl ::core::fmt::Debug for KERB_RETRIEVE_KEY_TAB_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_RETRIEVE_KEY_TAB_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_RETRIEVE_KEY_TAB_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_KEY_TAB_REQUEST {
@@ -9997,8 +9997,8 @@ impl ::core::fmt::Debug for KERB_RETRIEVE_KEY_TAB_RESPONSE {
         f.debug_struct("KERB_RETRIEVE_KEY_TAB_RESPONSE").field("MessageType", &self.MessageType).field("KeyTabLength", &self.KeyTabLength).field("KeyTab", &self.KeyTab).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_RETRIEVE_KEY_TAB_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_RETRIEVE_KEY_TAB_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_KEY_TAB_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -10038,8 +10038,8 @@ impl ::core::fmt::Debug for KERB_RETRIEVE_TKT_REQUEST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-unsafe impl ::windows::core::Abi for KERB_RETRIEVE_TKT_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_RETRIEVE_TKT_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_TKT_REQUEST {
@@ -10076,8 +10076,8 @@ impl ::core::fmt::Debug for KERB_RETRIEVE_TKT_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_RETRIEVE_TKT_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_RETRIEVE_TKT_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_RETRIEVE_TKT_RESPONSE {
@@ -10117,8 +10117,8 @@ impl ::core::fmt::Debug for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
@@ -10161,8 +10161,8 @@ impl ::core::fmt::Debug for KERB_S4U2PROXY_CRED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_S4U2PROXY_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_S4U2PROXY_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_S4U2PROXY_CRED {
@@ -10202,8 +10202,8 @@ impl ::core::fmt::Debug for KERB_S4U_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_S4U_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_S4U_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_S4U_LOGON {
@@ -10264,8 +10264,8 @@ impl ::core::fmt::Debug for KERB_SETPASSWORD_EX_REQUEST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-unsafe impl ::windows::core::Abi for KERB_SETPASSWORD_EX_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_SETPASSWORD_EX_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for KERB_SETPASSWORD_EX_REQUEST {
@@ -10308,8 +10308,8 @@ impl ::core::fmt::Debug for KERB_SETPASSWORD_REQUEST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-unsafe impl ::windows::core::Abi for KERB_SETPASSWORD_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_SETPASSWORD_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::cmp::PartialEq for KERB_SETPASSWORD_REQUEST {
@@ -10349,8 +10349,8 @@ impl ::core::fmt::Debug for KERB_SMART_CARD_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_SMART_CARD_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_SMART_CARD_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SMART_CARD_LOGON {
@@ -10389,8 +10389,8 @@ impl ::core::fmt::Debug for KERB_SMART_CARD_PROFILE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_SMART_CARD_PROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_SMART_CARD_PROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SMART_CARD_PROFILE {
@@ -10428,8 +10428,8 @@ impl ::core::fmt::Debug for KERB_SMART_CARD_UNLOCK_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_SMART_CARD_UNLOCK_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_SMART_CARD_UNLOCK_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SMART_CARD_UNLOCK_LOGON {
@@ -10471,8 +10471,8 @@ impl ::core::fmt::Debug for KERB_SUBMIT_TKT_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_SUBMIT_TKT_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_SUBMIT_TKT_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_SUBMIT_TKT_REQUEST {
@@ -10515,8 +10515,8 @@ impl ::core::fmt::Debug for KERB_TICKET_CACHE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_CACHE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO {
@@ -10561,8 +10561,8 @@ impl ::core::fmt::Debug for KERB_TICKET_CACHE_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_CACHE_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO_EX {
@@ -10609,8 +10609,8 @@ impl ::core::fmt::Debug for KERB_TICKET_CACHE_INFO_EX2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO_EX2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_CACHE_INFO_EX2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO_EX2 {
@@ -10673,8 +10673,8 @@ impl ::core::fmt::Debug for KERB_TICKET_CACHE_INFO_EX3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_TICKET_CACHE_INFO_EX3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_CACHE_INFO_EX3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO_EX3 {
@@ -10711,8 +10711,8 @@ impl ::core::fmt::Debug for KERB_TICKET_LOGON {
         f.debug_struct("KERB_TICKET_LOGON").field("MessageType", &self.MessageType).field("Flags", &self.Flags).field("ServiceTicketLength", &self.ServiceTicketLength).field("TicketGrantingTicketLength", &self.TicketGrantingTicketLength).field("ServiceTicket", &self.ServiceTicket).field("TicketGrantingTicket", &self.TicketGrantingTicket).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KERB_TICKET_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KERB_TICKET_LOGON {
     fn eq(&self, other: &Self) -> bool {
@@ -10747,8 +10747,8 @@ impl ::core::fmt::Debug for KERB_TICKET_PROFILE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_TICKET_PROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_PROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_PROFILE {
@@ -10786,8 +10786,8 @@ impl ::core::fmt::Debug for KERB_TICKET_UNLOCK_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_TICKET_UNLOCK_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TICKET_UNLOCK_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_UNLOCK_LOGON {
@@ -10827,8 +10827,8 @@ impl ::core::fmt::Debug for KERB_TRANSFER_CRED_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KERB_TRANSFER_CRED_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERB_TRANSFER_CRED_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TRANSFER_CRED_REQUEST {
@@ -10869,8 +10869,8 @@ impl ::core::fmt::Debug for KSEC_LIST_ENTRY {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-unsafe impl ::windows::core::Abi for KSEC_LIST_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KSEC_LIST_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for KSEC_LIST_ENTRY {
@@ -10903,8 +10903,8 @@ impl ::core::fmt::Debug for LOGON_HOURS {
         f.debug_struct("LOGON_HOURS").field("UnitsPerWeek", &self.UnitsPerWeek).field("LogonHours", &self.LogonHours).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOGON_HOURS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGON_HOURS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOGON_HOURS {
     fn eq(&self, other: &Self) -> bool {
@@ -10936,8 +10936,8 @@ impl ::core::fmt::Debug for LSA_AUTH_INFORMATION {
         f.debug_struct("LSA_AUTH_INFORMATION").field("LastUpdateTime", &self.LastUpdateTime).field("AuthType", &self.AuthType).field("AuthInfoLength", &self.AuthInfoLength).field("AuthInfo", &self.AuthInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LSA_AUTH_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_AUTH_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LSA_AUTH_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -10981,8 +10981,8 @@ impl ::core::fmt::Debug for LSA_DISPATCH_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for LSA_DISPATCH_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_DISPATCH_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LSA_DISPATCH_TABLE {
@@ -11011,8 +11011,8 @@ impl ::core::fmt::Debug for LSA_ENUMERATION_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_ENUMERATION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_ENUMERATION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_ENUMERATION_INFORMATION {
@@ -11045,8 +11045,8 @@ impl ::core::fmt::Debug for LSA_FOREST_TRUST_BINARY_DATA {
         f.debug_struct("LSA_FOREST_TRUST_BINARY_DATA").field("Length", &self.Length).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_BINARY_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_BINARY_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_BINARY_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -11081,8 +11081,8 @@ impl ::core::fmt::Debug for LSA_FOREST_TRUST_COLLISION_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_COLLISION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_COLLISION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_COLLISION_INFORMATION {
@@ -11122,8 +11122,8 @@ impl ::core::fmt::Debug for LSA_FOREST_TRUST_COLLISION_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_COLLISION_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_COLLISION_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_COLLISION_RECORD {
@@ -11162,8 +11162,8 @@ impl ::core::fmt::Debug for LSA_FOREST_TRUST_DOMAIN_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_DOMAIN_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_DOMAIN_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_DOMAIN_INFO {
@@ -11201,8 +11201,8 @@ impl ::core::fmt::Debug for LSA_FOREST_TRUST_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_FOREST_TRUST_INFORMATION {
@@ -11236,8 +11236,8 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_RECORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LSA_FOREST_TRUST_RECORD {
@@ -11262,8 +11262,8 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_FOREST_TRUST_RECORD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_0 {
@@ -11295,13 +11295,8 @@ impl ::core::fmt::Debug for LSA_HANDLE {
         f.debug_tuple("LSA_HANDLE").field(&self.0).finish()
     }
 }
-impl ::core::convert::From<::core::option::Option<LSA_HANDLE>> for LSA_HANDLE {
-    fn from(optional: ::core::option::Option<LSA_HANDLE>) -> LSA_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for LSA_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -11321,8 +11316,8 @@ impl ::core::fmt::Debug for LSA_LAST_INTER_LOGON_INFO {
         f.debug_struct("LSA_LAST_INTER_LOGON_INFO").field("LastSuccessfulLogon", &self.LastSuccessfulLogon).field("LastFailedLogon", &self.LastFailedLogon).field("FailedAttemptCountSinceLastSuccessfulLogon", &self.FailedAttemptCountSinceLastSuccessfulLogon).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LSA_LAST_INTER_LOGON_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_LAST_INTER_LOGON_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LSA_LAST_INTER_LOGON_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11357,8 +11352,8 @@ impl ::core::fmt::Debug for LSA_REFERENCED_DOMAIN_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_REFERENCED_DOMAIN_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_REFERENCED_DOMAIN_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_REFERENCED_DOMAIN_LIST {
@@ -11457,8 +11452,8 @@ impl ::core::fmt::Debug for LSA_SECPKG_FUNCTION_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-unsafe impl ::windows::core::Abi for LSA_SECPKG_FUNCTION_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_SECPKG_FUNCTION_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::default::Default for LSA_SECPKG_FUNCTION_TABLE {
@@ -11488,8 +11483,8 @@ impl ::core::fmt::Debug for LSA_TOKEN_INFORMATION_NULL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_NULL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TOKEN_INFORMATION_NULL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TOKEN_INFORMATION_NULL {
@@ -11532,8 +11527,8 @@ impl ::core::fmt::Debug for LSA_TOKEN_INFORMATION_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TOKEN_INFORMATION_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TOKEN_INFORMATION_V1 {
@@ -11579,8 +11574,8 @@ impl ::core::fmt::Debug for LSA_TOKEN_INFORMATION_V3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TOKEN_INFORMATION_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TOKEN_INFORMATION_V3 {
@@ -11619,8 +11614,8 @@ impl ::core::fmt::Debug for LSA_TRANSLATED_NAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_TRANSLATED_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TRANSLATED_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TRANSLATED_NAME {
@@ -11654,8 +11649,8 @@ impl ::core::fmt::Debug for LSA_TRANSLATED_SID {
         f.debug_struct("LSA_TRANSLATED_SID").field("Use", &self.Use).field("RelativeId", &self.RelativeId).field("DomainIndex", &self.DomainIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LSA_TRANSLATED_SID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TRANSLATED_SID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LSA_TRANSLATED_SID {
     fn eq(&self, other: &Self) -> bool {
@@ -11692,8 +11687,8 @@ impl ::core::fmt::Debug for LSA_TRANSLATED_SID2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_TRANSLATED_SID2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TRANSLATED_SID2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TRANSLATED_SID2 {
@@ -11731,8 +11726,8 @@ impl ::core::fmt::Debug for LSA_TRUST_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LSA_TRUST_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LSA_TRUST_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LSA_TRUST_INFORMATION {
@@ -11765,8 +11760,8 @@ impl ::core::fmt::Debug for MSV1_0_AV_PAIR {
         f.debug_struct("MSV1_0_AV_PAIR").field("AvId", &self.AvId).field("AvLen", &self.AvLen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_AV_PAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_AV_PAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_AV_PAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -11805,8 +11800,8 @@ impl ::core::fmt::Debug for MSV1_0_CHANGEPASSWORD_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSV1_0_CHANGEPASSWORD_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_CHANGEPASSWORD_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_CHANGEPASSWORD_REQUEST {
@@ -11845,8 +11840,8 @@ impl ::core::fmt::Debug for MSV1_0_CHANGEPASSWORD_RESPONSE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSV1_0_CHANGEPASSWORD_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_CHANGEPASSWORD_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_CHANGEPASSWORD_RESPONSE {
@@ -11878,8 +11873,8 @@ impl ::core::fmt::Debug for MSV1_0_CREDENTIAL_KEY {
         f.debug_struct("MSV1_0_CREDENTIAL_KEY").field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_CREDENTIAL_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_CREDENTIAL_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_CREDENTIAL_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -11916,8 +11911,8 @@ impl ::core::fmt::Debug for MSV1_0_INTERACTIVE_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSV1_0_INTERACTIVE_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_INTERACTIVE_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_INTERACTIVE_LOGON {
@@ -11986,8 +11981,8 @@ impl ::core::fmt::Debug for MSV1_0_INTERACTIVE_PROFILE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSV1_0_INTERACTIVE_PROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_INTERACTIVE_PROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_INTERACTIVE_PROFILE {
@@ -12021,8 +12016,8 @@ impl ::core::fmt::Debug for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
         f.debug_struct("MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL").field("Version", &self.Version).field("EncryptedCredsSize", &self.EncryptedCredsSize).field("EncryptedCreds", &self.EncryptedCreds).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12063,8 +12058,8 @@ impl ::core::fmt::Debug for MSV1_0_LM20_LOGON {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for MSV1_0_LM20_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_LM20_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MSV1_0_LM20_LOGON {
@@ -12109,8 +12104,8 @@ impl ::core::fmt::Debug for MSV1_0_LM20_LOGON_PROFILE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSV1_0_LM20_LOGON_PROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_LM20_LOGON_PROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_LM20_LOGON_PROFILE {
@@ -12150,8 +12145,8 @@ impl ::core::fmt::Debug for MSV1_0_NTLM3_RESPONSE {
         f.debug_struct("MSV1_0_NTLM3_RESPONSE").field("Response", &self.Response).field("RespType", &self.RespType).field("HiRespType", &self.HiRespType).field("Flags", &self.Flags).field("MsgWord", &self.MsgWord).field("TimeStamp", &self.TimeStamp).field("ChallengeFromClient", &self.ChallengeFromClient).field("AvPairsOff", &self.AvPairsOff).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_NTLM3_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_NTLM3_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_NTLM3_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -12190,8 +12185,8 @@ impl ::core::fmt::Debug for MSV1_0_PASSTHROUGH_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSV1_0_PASSTHROUGH_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_PASSTHROUGH_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_PASSTHROUGH_REQUEST {
@@ -12226,8 +12221,8 @@ impl ::core::fmt::Debug for MSV1_0_PASSTHROUGH_RESPONSE {
         f.debug_struct("MSV1_0_PASSTHROUGH_RESPONSE").field("MessageType", &self.MessageType).field("Pad", &self.Pad).field("DataLength", &self.DataLength).field("ValidationData", &self.ValidationData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_PASSTHROUGH_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_PASSTHROUGH_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_PASSTHROUGH_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -12256,8 +12251,8 @@ impl ::core::clone::Clone for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
@@ -12288,8 +12283,8 @@ impl ::core::fmt::Debug for MSV1_0_S4U_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSV1_0_S4U_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_S4U_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_S4U_LOGON {
@@ -12334,8 +12329,8 @@ impl ::core::fmt::Debug for MSV1_0_SUBAUTH_LOGON {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for MSV1_0_SUBAUTH_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_SUBAUTH_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MSV1_0_SUBAUTH_LOGON {
@@ -12370,8 +12365,8 @@ impl ::core::fmt::Debug for MSV1_0_SUBAUTH_REQUEST {
         f.debug_struct("MSV1_0_SUBAUTH_REQUEST").field("MessageType", &self.MessageType).field("SubAuthPackageId", &self.SubAuthPackageId).field("SubAuthInfoLength", &self.SubAuthInfoLength).field("SubAuthSubmitBuffer", &self.SubAuthSubmitBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_SUBAUTH_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_SUBAUTH_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUBAUTH_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -12402,8 +12397,8 @@ impl ::core::fmt::Debug for MSV1_0_SUBAUTH_RESPONSE {
         f.debug_struct("MSV1_0_SUBAUTH_RESPONSE").field("MessageType", &self.MessageType).field("SubAuthInfoLength", &self.SubAuthInfoLength).field("SubAuthReturnBuffer", &self.SubAuthReturnBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_SUBAUTH_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_SUBAUTH_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUBAUTH_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -12435,8 +12430,8 @@ impl ::core::fmt::Debug for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
         f.debug_struct("MSV1_0_SUPPLEMENTAL_CREDENTIAL").field("Version", &self.Version).field("Flags", &self.Flags).field("LmPassword", &self.LmPassword).field("NtPassword", &self.NtPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12468,8 +12463,8 @@ impl ::core::fmt::Debug for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
         f.debug_struct("MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2").field("Version", &self.Version).field("Flags", &self.Flags).field("NtPassword", &self.NtPassword).field("CredentialKey", &self.CredentialKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -12503,8 +12498,8 @@ impl ::core::fmt::Debug for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
         f.debug_struct("MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3").field("Version", &self.Version).field("Flags", &self.Flags).field("CredentialKeyType", &self.CredentialKeyType).field("NtPassword", &self.NtPassword).field("CredentialKey", &self.CredentialKey).field("ShaPassword", &self.ShaPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     fn eq(&self, other: &Self) -> bool {
@@ -12546,8 +12541,8 @@ impl ::core::fmt::Debug for MSV1_0_VALIDATION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
-unsafe impl ::windows::core::Abi for MSV1_0_VALIDATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSV1_0_VALIDATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for MSV1_0_VALIDATION_INFO {
@@ -12585,8 +12580,8 @@ impl ::core::fmt::Debug for NEGOTIATE_CALLER_NAME_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NEGOTIATE_CALLER_NAME_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEGOTIATE_CALLER_NAME_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NEGOTIATE_CALLER_NAME_REQUEST {
@@ -12619,8 +12614,8 @@ impl ::core::fmt::Debug for NEGOTIATE_CALLER_NAME_RESPONSE {
         f.debug_struct("NEGOTIATE_CALLER_NAME_RESPONSE").field("MessageType", &self.MessageType).field("CallerName", &self.CallerName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NEGOTIATE_CALLER_NAME_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEGOTIATE_CALLER_NAME_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NEGOTIATE_CALLER_NAME_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -12653,8 +12648,8 @@ impl ::core::fmt::Debug for NEGOTIATE_PACKAGE_PREFIX {
         f.debug_struct("NEGOTIATE_PACKAGE_PREFIX").field("PackageId", &self.PackageId).field("PackageDataA", &self.PackageDataA).field("PackageDataW", &self.PackageDataW).field("PrefixLen", &self.PrefixLen).field("Prefix", &self.Prefix).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NEGOTIATE_PACKAGE_PREFIX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEGOTIATE_PACKAGE_PREFIX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NEGOTIATE_PACKAGE_PREFIX {
     fn eq(&self, other: &Self) -> bool {
@@ -12686,8 +12681,8 @@ impl ::core::fmt::Debug for NEGOTIATE_PACKAGE_PREFIXES {
         f.debug_struct("NEGOTIATE_PACKAGE_PREFIXES").field("MessageType", &self.MessageType).field("PrefixCount", &self.PrefixCount).field("Offset", &self.Offset).field("Pad", &self.Pad).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NEGOTIATE_PACKAGE_PREFIXES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NEGOTIATE_PACKAGE_PREFIXES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NEGOTIATE_PACKAGE_PREFIXES {
     fn eq(&self, other: &Self) -> bool {
@@ -12724,8 +12719,8 @@ impl ::core::fmt::Debug for NETLOGON_GENERIC_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETLOGON_GENERIC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_GENERIC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETLOGON_GENERIC_INFO {
@@ -12764,8 +12759,8 @@ impl ::core::fmt::Debug for NETLOGON_INTERACTIVE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
-unsafe impl ::windows::core::Abi for NETLOGON_INTERACTIVE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_INTERACTIVE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for NETLOGON_INTERACTIVE_INFO {
@@ -12806,8 +12801,8 @@ impl ::core::fmt::Debug for NETLOGON_LOGON_IDENTITY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETLOGON_LOGON_IDENTITY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_LOGON_IDENTITY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETLOGON_LOGON_IDENTITY_INFO {
@@ -12847,8 +12842,8 @@ impl ::core::fmt::Debug for NETLOGON_NETWORK_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for NETLOGON_NETWORK_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_NETWORK_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for NETLOGON_NETWORK_INFO {
@@ -12887,8 +12882,8 @@ impl ::core::fmt::Debug for NETLOGON_SERVICE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
-unsafe impl ::windows::core::Abi for NETLOGON_SERVICE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_SERVICE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for NETLOGON_SERVICE_INFO {
@@ -12930,8 +12925,8 @@ impl ::core::fmt::Debug for PKU2U_CERTIFICATE_S4U_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PKU2U_CERTIFICATE_S4U_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PKU2U_CERTIFICATE_S4U_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PKU2U_CERTIFICATE_S4U_LOGON {
@@ -12964,8 +12959,8 @@ impl ::core::fmt::Debug for PKU2U_CERT_BLOB {
         f.debug_struct("PKU2U_CERT_BLOB").field("CertOffset", &self.CertOffset).field("CertLength", &self.CertLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PKU2U_CERT_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PKU2U_CERT_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PKU2U_CERT_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -12998,8 +12993,8 @@ impl ::core::fmt::Debug for PKU2U_CREDUI_CONTEXT {
         f.debug_struct("PKU2U_CREDUI_CONTEXT").field("Version", &self.Version).field("cbHeaderLength", &self.cbHeaderLength).field("cbStructureLength", &self.cbStructureLength).field("CertArrayCount", &self.CertArrayCount).field("CertArrayOffset", &self.CertArrayOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PKU2U_CREDUI_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PKU2U_CREDUI_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PKU2U_CREDUI_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -13034,8 +13029,8 @@ impl ::core::fmt::Debug for POLICY_ACCOUNT_DOMAIN_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_ACCOUNT_DOMAIN_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_ACCOUNT_DOMAIN_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_ACCOUNT_DOMAIN_INFO {
@@ -13068,8 +13063,8 @@ impl ::core::fmt::Debug for POLICY_AUDIT_CATEGORIES_INFO {
         f.debug_struct("POLICY_AUDIT_CATEGORIES_INFO").field("MaximumCategoryCount", &self.MaximumCategoryCount).field("SubCategoriesInfo", &self.SubCategoriesInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_CATEGORIES_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_CATEGORIES_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_AUDIT_CATEGORIES_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13105,8 +13100,8 @@ impl ::core::fmt::Debug for POLICY_AUDIT_EVENTS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_EVENTS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_EVENTS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_EVENTS_INFO {
@@ -13144,8 +13139,8 @@ impl ::core::fmt::Debug for POLICY_AUDIT_FULL_QUERY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_FULL_QUERY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_FULL_QUERY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_FULL_QUERY_INFO {
@@ -13182,8 +13177,8 @@ impl ::core::fmt::Debug for POLICY_AUDIT_FULL_SET_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_FULL_SET_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_FULL_SET_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_FULL_SET_INFO {
@@ -13225,8 +13220,8 @@ impl ::core::fmt::Debug for POLICY_AUDIT_LOG_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_LOG_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_LOG_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_LOG_INFO {
@@ -13264,8 +13259,8 @@ impl ::core::fmt::Debug for POLICY_AUDIT_SID_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_SID_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_SID_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_AUDIT_SID_ARRAY {
@@ -13298,8 +13293,8 @@ impl ::core::fmt::Debug for POLICY_AUDIT_SUBCATEGORIES_INFO {
         f.debug_struct("POLICY_AUDIT_SUBCATEGORIES_INFO").field("MaximumSubCategoryCount", &self.MaximumSubCategoryCount).field("EventAuditingOptions", &self.EventAuditingOptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_AUDIT_SUBCATEGORIES_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_AUDIT_SUBCATEGORIES_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_AUDIT_SUBCATEGORIES_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13328,8 +13323,8 @@ impl ::core::fmt::Debug for POLICY_DEFAULT_QUOTA_INFO {
         f.debug_struct("POLICY_DEFAULT_QUOTA_INFO").field("QuotaLimits", &self.QuotaLimits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_DEFAULT_QUOTA_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_DEFAULT_QUOTA_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_DEFAULT_QUOTA_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13367,8 +13362,8 @@ impl ::core::fmt::Debug for POLICY_DNS_DOMAIN_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_DNS_DOMAIN_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_DNS_DOMAIN_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_DNS_DOMAIN_INFO {
@@ -13401,8 +13396,8 @@ impl ::core::fmt::Debug for POLICY_DOMAIN_EFS_INFO {
         f.debug_struct("POLICY_DOMAIN_EFS_INFO").field("InfoLength", &self.InfoLength).field("EfsBlob", &self.EfsBlob).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_DOMAIN_EFS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_DOMAIN_EFS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_DOMAIN_EFS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13436,8 +13431,8 @@ impl ::core::fmt::Debug for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
         f.debug_struct("POLICY_DOMAIN_KERBEROS_TICKET_INFO").field("AuthenticationOptions", &self.AuthenticationOptions).field("MaxServiceTicketAge", &self.MaxServiceTicketAge).field("MaxTicketAge", &self.MaxTicketAge).field("MaxRenewAge", &self.MaxRenewAge).field("MaxClockSkew", &self.MaxClockSkew).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13466,8 +13461,8 @@ impl ::core::fmt::Debug for POLICY_LSA_SERVER_ROLE_INFO {
         f.debug_struct("POLICY_LSA_SERVER_ROLE_INFO").field("LsaServerRole", &self.LsaServerRole).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_LSA_SERVER_ROLE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_LSA_SERVER_ROLE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_LSA_SERVER_ROLE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13502,8 +13497,8 @@ impl ::core::fmt::Debug for POLICY_MACHINE_ACCT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_MACHINE_ACCT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_MACHINE_ACCT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_MACHINE_ACCT_INFO {
@@ -13536,8 +13531,8 @@ impl ::core::fmt::Debug for POLICY_MODIFICATION_INFO {
         f.debug_struct("POLICY_MODIFICATION_INFO").field("ModifiedId", &self.ModifiedId).field("DatabaseCreationTime", &self.DatabaseCreationTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POLICY_MODIFICATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_MODIFICATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POLICY_MODIFICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13571,8 +13566,8 @@ impl ::core::fmt::Debug for POLICY_PD_ACCOUNT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_PD_ACCOUNT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_PD_ACCOUNT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_PD_ACCOUNT_INFO {
@@ -13610,8 +13605,8 @@ impl ::core::fmt::Debug for POLICY_PRIMARY_DOMAIN_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_PRIMARY_DOMAIN_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_PRIMARY_DOMAIN_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_PRIMARY_DOMAIN_INFO {
@@ -13649,8 +13644,8 @@ impl ::core::fmt::Debug for POLICY_REPLICA_SOURCE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_REPLICA_SOURCE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_REPLICA_SOURCE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_REPLICA_SOURCE_INFO {
@@ -13684,8 +13679,8 @@ impl ::core::fmt::Debug for PctPublicKey {
         f.debug_struct("PctPublicKey").field("Type", &self.Type).field("cbKey", &self.cbKey).field("pKey", &self.pKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PctPublicKey {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PctPublicKey {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PctPublicKey {
     fn eq(&self, other: &Self) -> bool {
@@ -13721,8 +13716,8 @@ impl ::core::fmt::Debug for SAM_REGISTER_MAPPING_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SAM_REGISTER_MAPPING_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SAM_REGISTER_MAPPING_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAM_REGISTER_MAPPING_ELEMENT {
@@ -13760,8 +13755,8 @@ impl ::core::fmt::Debug for SAM_REGISTER_MAPPING_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SAM_REGISTER_MAPPING_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SAM_REGISTER_MAPPING_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAM_REGISTER_MAPPING_LIST {
@@ -13799,8 +13794,8 @@ impl ::core::fmt::Debug for SAM_REGISTER_MAPPING_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SAM_REGISTER_MAPPING_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SAM_REGISTER_MAPPING_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAM_REGISTER_MAPPING_TABLE {
@@ -13834,8 +13829,8 @@ impl ::core::fmt::Debug for SCHANNEL_ALERT_TOKEN {
         f.debug_struct("SCHANNEL_ALERT_TOKEN").field("dwTokenType", &self.dwTokenType).field("dwAlertType", &self.dwAlertType).field("dwAlertNumber", &self.dwAlertNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_ALERT_TOKEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_ALERT_TOKEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCHANNEL_ALERT_TOKEN {
     fn eq(&self, other: &Self) -> bool {
@@ -13867,8 +13862,8 @@ impl ::core::fmt::Debug for SCHANNEL_CERT_HASH {
         f.debug_struct("SCHANNEL_CERT_HASH").field("dwLength", &self.dwLength).field("dwFlags", &self.dwFlags).field("hProv", &self.hProv).field("ShaHash", &self.ShaHash).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_CERT_HASH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_CERT_HASH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCHANNEL_CERT_HASH {
     fn eq(&self, other: &Self) -> bool {
@@ -13901,8 +13896,8 @@ impl ::core::fmt::Debug for SCHANNEL_CERT_HASH_STORE {
         f.debug_struct("SCHANNEL_CERT_HASH_STORE").field("dwLength", &self.dwLength).field("dwFlags", &self.dwFlags).field("hProv", &self.hProv).field("ShaHash", &self.ShaHash).field("pwszStoreName", &self.pwszStoreName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_CERT_HASH_STORE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_CERT_HASH_STORE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCHANNEL_CERT_HASH_STORE {
     fn eq(&self, other: &Self) -> bool {
@@ -13935,8 +13930,8 @@ impl ::core::fmt::Debug for SCHANNEL_CLIENT_SIGNATURE {
         f.debug_struct("SCHANNEL_CLIENT_SIGNATURE").field("cbLength", &self.cbLength).field("aiHash", &self.aiHash).field("cbHash", &self.cbHash).field("HashValue", &self.HashValue).field("CertThumbprint", &self.CertThumbprint).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_CLIENT_SIGNATURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_CLIENT_SIGNATURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCHANNEL_CLIENT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -13998,8 +13993,8 @@ impl ::core::fmt::Debug for SCHANNEL_CRED {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for SCHANNEL_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SCHANNEL_CRED {
@@ -14032,8 +14027,8 @@ impl ::core::fmt::Debug for SCHANNEL_SESSION_TOKEN {
         f.debug_struct("SCHANNEL_SESSION_TOKEN").field("dwTokenType", &self.dwTokenType).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_SESSION_TOKEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_SESSION_TOKEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCHANNEL_SESSION_TOKEN {
     fn eq(&self, other: &Self) -> bool {
@@ -14067,8 +14062,8 @@ impl ::core::fmt::Debug for SCH_CRED {
         f.debug_struct("SCH_CRED").field("dwVersion", &self.dwVersion).field("cCreds", &self.cCreds).field("paSecret", &self.paSecret).field("paPublic", &self.paPublic).field("cMappers", &self.cMappers).field("aphMappers", &self.aphMappers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCH_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCH_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCH_CRED {
     fn eq(&self, other: &Self) -> bool {
@@ -14099,8 +14094,8 @@ impl ::core::fmt::Debug for SCH_CRED_PUBLIC_CERTCHAIN {
         f.debug_struct("SCH_CRED_PUBLIC_CERTCHAIN").field("dwType", &self.dwType).field("cbCertChain", &self.cbCertChain).field("pCertChain", &self.pCertChain).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCH_CRED_PUBLIC_CERTCHAIN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCH_CRED_PUBLIC_CERTCHAIN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCH_CRED_PUBLIC_CERTCHAIN {
     fn eq(&self, other: &Self) -> bool {
@@ -14130,8 +14125,8 @@ impl ::core::fmt::Debug for SCH_CRED_SECRET_CAPI {
         f.debug_struct("SCH_CRED_SECRET_CAPI").field("dwType", &self.dwType).field("hProv", &self.hProv).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCH_CRED_SECRET_CAPI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCH_CRED_SECRET_CAPI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCH_CRED_SECRET_CAPI {
     fn eq(&self, other: &Self) -> bool {
@@ -14163,8 +14158,8 @@ impl ::core::fmt::Debug for SCH_CRED_SECRET_PRIVKEY {
         f.debug_struct("SCH_CRED_SECRET_PRIVKEY").field("dwType", &self.dwType).field("pPrivateKey", &self.pPrivateKey).field("cbPrivateKey", &self.cbPrivateKey).field("pszPassword", &self.pszPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCH_CRED_SECRET_PRIVKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCH_CRED_SECRET_PRIVKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCH_CRED_SECRET_PRIVKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -14195,8 +14190,8 @@ impl ::core::fmt::Debug for SCH_EXTENSION_DATA {
         f.debug_struct("SCH_EXTENSION_DATA").field("ExtensionType", &self.ExtensionType).field("pExtData", &self.pExtData).field("cbExtData", &self.cbExtData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCH_EXTENSION_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCH_EXTENSION_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCH_EXTENSION_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -14234,8 +14229,8 @@ impl ::core::fmt::Debug for SECPKG_APP_MODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_APP_MODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_APP_MODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_APP_MODE_INFO {
@@ -14268,8 +14263,8 @@ impl ::core::fmt::Debug for SECPKG_BYTE_VECTOR {
         f.debug_struct("SECPKG_BYTE_VECTOR").field("ByteArrayOffset", &self.ByteArrayOffset).field("ByteArrayLength", &self.ByteArrayLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_BYTE_VECTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_BYTE_VECTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_BYTE_VECTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -14302,8 +14297,8 @@ impl ::core::fmt::Debug for SECPKG_CALL_INFO {
         f.debug_struct("SECPKG_CALL_INFO").field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("Attributes", &self.Attributes).field("CallCount", &self.CallCount).field("MechOid", &self.MechOid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_CALL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CALL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_CALL_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14341,8 +14336,8 @@ impl ::core::fmt::Debug for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
@@ -14382,8 +14377,8 @@ impl ::core::fmt::Debug for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
@@ -14416,8 +14411,8 @@ impl ::core::fmt::Debug for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
         f.debug_struct("SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST").field("MessageType", &self.MessageType).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -14459,8 +14454,8 @@ impl ::core::fmt::Debug for SECPKG_CLIENT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_CLIENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CLIENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CLIENT_INFO {
@@ -14493,8 +14488,8 @@ impl ::core::fmt::Debug for SECPKG_CONTEXT_THUNKS {
         f.debug_struct("SECPKG_CONTEXT_THUNKS").field("InfoLevelCount", &self.InfoLevelCount).field("Levels", &self.Levels).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_CONTEXT_THUNKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CONTEXT_THUNKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_CONTEXT_THUNKS {
     fn eq(&self, other: &Self) -> bool {
@@ -14556,8 +14551,8 @@ impl ::core::fmt::Debug for SECPKG_CREDENTIAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_CREDENTIAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_CREDENTIAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CREDENTIAL {
@@ -14597,8 +14592,8 @@ impl ::core::fmt::Debug for SECPKG_DLL_FUNCTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_DLL_FUNCTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_DLL_FUNCTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_DLL_FUNCTIONS {
@@ -14626,8 +14621,8 @@ impl ::core::fmt::Debug for SECPKG_EVENT_NOTIFY {
         f.debug_struct("SECPKG_EVENT_NOTIFY").field("EventClass", &self.EventClass).field("Reserved", &self.Reserved).field("EventDataSize", &self.EventDataSize).field("EventData", &self.EventData).field("PackageParameter", &self.PackageParameter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_EVENT_NOTIFY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_EVENT_NOTIFY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_EVENT_NOTIFY {
     fn eq(&self, other: &Self) -> bool {
@@ -14663,8 +14658,8 @@ impl ::core::fmt::Debug for SECPKG_EVENT_PACKAGE_CHANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_EVENT_PACKAGE_CHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_EVENT_PACKAGE_CHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_EVENT_PACKAGE_CHANGE {
@@ -14697,8 +14692,8 @@ impl ::core::fmt::Debug for SECPKG_EVENT_ROLE_CHANGE {
         f.debug_struct("SECPKG_EVENT_ROLE_CHANGE").field("PreviousRole", &self.PreviousRole).field("NewRole", &self.NewRole).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_EVENT_ROLE_CHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_EVENT_ROLE_CHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_EVENT_ROLE_CHANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -14727,8 +14722,8 @@ impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_EXTENDED_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION {
@@ -14756,8 +14751,8 @@ impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_EXTENDED_INFORMATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION_0 {
@@ -14782,8 +14777,8 @@ impl ::core::fmt::Debug for SECPKG_EXTRA_OIDS {
         f.debug_struct("SECPKG_EXTRA_OIDS").field("OidCount", &self.OidCount).field("Oids", &self.Oids).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_EXTRA_OIDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_EXTRA_OIDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_EXTRA_OIDS {
     fn eq(&self, other: &Self) -> bool {
@@ -14858,8 +14853,8 @@ impl ::core::fmt::Debug for SECPKG_FUNCTION_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-unsafe impl ::windows::core::Abi for SECPKG_FUNCTION_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_FUNCTION_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::default::Default for SECPKG_FUNCTION_TABLE {
@@ -14884,8 +14879,8 @@ impl ::core::fmt::Debug for SECPKG_GSS_INFO {
         f.debug_struct("SECPKG_GSS_INFO").field("EncodedIdLength", &self.EncodedIdLength).field("EncodedId", &self.EncodedId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_GSS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_GSS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_GSS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14927,8 +14922,8 @@ impl ::core::fmt::Debug for SECPKG_KERNEL_FUNCTIONS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for SECPKG_KERNEL_FUNCTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_KERNEL_FUNCTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for SECPKG_KERNEL_FUNCTIONS {
@@ -14971,8 +14966,8 @@ impl ::core::fmt::Debug for SECPKG_KERNEL_FUNCTION_TABLE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for SECPKG_KERNEL_FUNCTION_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_KERNEL_FUNCTION_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for SECPKG_KERNEL_FUNCTION_TABLE {
@@ -14996,8 +14991,8 @@ impl ::core::fmt::Debug for SECPKG_MUTUAL_AUTH_LEVEL {
         f.debug_struct("SECPKG_MUTUAL_AUTH_LEVEL").field("MutualAuthLevel", &self.MutualAuthLevel).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_MUTUAL_AUTH_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_MUTUAL_AUTH_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_MUTUAL_AUTH_LEVEL {
     fn eq(&self, other: &Self) -> bool {
@@ -15027,8 +15022,8 @@ impl ::core::fmt::Debug for SECPKG_NEGO2_INFO {
         f.debug_struct("SECPKG_NEGO2_INFO").field("AuthScheme", &self.AuthScheme).field("PackageFlags", &self.PackageFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_NEGO2_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_NEGO2_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_NEGO2_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -15068,8 +15063,8 @@ impl ::core::fmt::Debug for SECPKG_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_PARAMETERS {
@@ -15108,8 +15103,8 @@ impl ::core::fmt::Debug for SECPKG_POST_LOGON_USER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_POST_LOGON_USER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_POST_LOGON_USER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_POST_LOGON_USER_INFO {
@@ -15174,8 +15169,8 @@ impl ::core::fmt::Debug for SECPKG_PRIMARY_CRED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_PRIMARY_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_PRIMARY_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_PRIMARY_CRED {
@@ -15246,8 +15241,8 @@ impl ::core::fmt::Debug for SECPKG_PRIMARY_CRED_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_PRIMARY_CRED_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_PRIMARY_CRED_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_PRIMARY_CRED_EX {
@@ -15290,8 +15285,8 @@ impl ::core::fmt::Debug for SECPKG_REDIRECTED_LOGON_BUFFER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_REDIRECTED_LOGON_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_REDIRECTED_LOGON_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_REDIRECTED_LOGON_BUFFER {
@@ -15317,8 +15312,8 @@ impl ::core::fmt::Debug for SECPKG_SERIALIZED_OID {
         f.debug_struct("SECPKG_SERIALIZED_OID").field("OidLength", &self.OidLength).field("OidAttributes", &self.OidAttributes).field("OidValue", &self.OidValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_SERIALIZED_OID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SERIALIZED_OID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_SERIALIZED_OID {
     fn eq(&self, other: &Self) -> bool {
@@ -15348,8 +15343,8 @@ impl ::core::fmt::Debug for SECPKG_SHORT_VECTOR {
         f.debug_struct("SECPKG_SHORT_VECTOR").field("ShortArrayOffset", &self.ShortArrayOffset).field("ShortArrayCount", &self.ShortArrayCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_SHORT_VECTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SHORT_VECTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_SHORT_VECTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -15385,8 +15380,8 @@ impl ::core::fmt::Debug for SECPKG_SUPPLEMENTAL_CRED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_SUPPLEMENTAL_CRED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SUPPLEMENTAL_CRED {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_SUPPLEMENTAL_CRED {
@@ -15424,8 +15419,8 @@ impl ::core::fmt::Debug for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
@@ -15462,8 +15457,8 @@ impl ::core::fmt::Debug for SECPKG_SUPPLIED_CREDENTIAL {
         f.debug_struct("SECPKG_SUPPLIED_CREDENTIAL").field("cbHeaderLength", &self.cbHeaderLength).field("cbStructureLength", &self.cbStructureLength).field("UserName", &self.UserName).field("DomainName", &self.DomainName).field("PackedCredentials", &self.PackedCredentials).field("CredFlags", &self.CredFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_SUPPLIED_CREDENTIAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SUPPLIED_CREDENTIAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_SUPPLIED_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -15500,8 +15495,8 @@ impl ::core::fmt::Debug for SECPKG_SURROGATE_LOGON {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_SURROGATE_LOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SURROGATE_LOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_SURROGATE_LOGON {
@@ -15534,8 +15529,8 @@ impl ::core::fmt::Debug for SECPKG_SURROGATE_LOGON_ENTRY {
         f.debug_struct("SECPKG_SURROGATE_LOGON_ENTRY").field("Type", &self.Type).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECPKG_SURROGATE_LOGON_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_SURROGATE_LOGON_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECPKG_SURROGATE_LOGON_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -15570,8 +15565,8 @@ impl ::core::fmt::Debug for SECPKG_TARGETINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_TARGETINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_TARGETINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_TARGETINFO {
@@ -15622,8 +15617,8 @@ impl ::core::fmt::Debug for SECPKG_USER_FUNCTION_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_USER_FUNCTION_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_USER_FUNCTION_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SECPKG_USER_FUNCTION_TABLE {
@@ -15652,8 +15647,8 @@ impl ::core::fmt::Debug for SECPKG_WOW_CLIENT_DLL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECPKG_WOW_CLIENT_DLL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECPKG_WOW_CLIENT_DLL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_WOW_CLIENT_DLL {
@@ -15736,8 +15731,8 @@ impl ::core::fmt::Debug for SECURITY_LOGON_SESSION_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECURITY_LOGON_SESSION_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECURITY_LOGON_SESSION_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECURITY_LOGON_SESSION_DATA {
@@ -15795,8 +15790,8 @@ impl ::core::fmt::Debug for SECURITY_PACKAGE_OPTIONS {
         f.debug_struct("SECURITY_PACKAGE_OPTIONS").field("Size", &self.Size).field("Type", &self.Type).field("Flags", &self.Flags).field("SignatureSize", &self.SignatureSize).field("Signature", &self.Signature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SECURITY_PACKAGE_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECURITY_PACKAGE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SECURITY_PACKAGE_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -15833,8 +15828,8 @@ impl ::core::fmt::Debug for SECURITY_USER_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECURITY_USER_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECURITY_USER_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECURITY_USER_DATA {
@@ -15867,8 +15862,8 @@ impl ::core::fmt::Debug for SEC_APPLICATION_PROTOCOLS {
         f.debug_struct("SEC_APPLICATION_PROTOCOLS").field("ProtocolListsSize", &self.ProtocolListsSize).field("ProtocolLists", &self.ProtocolLists).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOLS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_APPLICATION_PROTOCOLS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_APPLICATION_PROTOCOLS {
     fn eq(&self, other: &Self) -> bool {
@@ -15899,8 +15894,8 @@ impl ::core::fmt::Debug for SEC_APPLICATION_PROTOCOL_LIST {
         f.debug_struct("SEC_APPLICATION_PROTOCOL_LIST").field("ProtoNegoExt", &self.ProtoNegoExt).field("ProtocolListSize", &self.ProtocolListSize).field("ProtocolList", &self.ProtocolList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_APPLICATION_PROTOCOL_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_APPLICATION_PROTOCOL_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -15945,8 +15940,8 @@ impl ::core::fmt::Debug for SEC_CHANNEL_BINDINGS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_CHANNEL_BINDINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_CHANNEL_BINDINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_CHANNEL_BINDINGS {
     fn eq(&self, other: &Self) -> bool {
@@ -15975,8 +15970,8 @@ impl ::core::fmt::Debug for SEC_DTLS_MTU {
         f.debug_struct("SEC_DTLS_MTU").field("PathMTU", &self.PathMTU).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_DTLS_MTU {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_DTLS_MTU {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_DTLS_MTU {
     fn eq(&self, other: &Self) -> bool {
@@ -16005,8 +16000,8 @@ impl ::core::fmt::Debug for SEC_FLAGS {
         f.debug_struct("SEC_FLAGS").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_FLAGS {
     fn eq(&self, other: &Self) -> bool {
@@ -16038,8 +16033,8 @@ impl ::core::fmt::Debug for SEC_NEGOTIATION_INFO {
         f.debug_struct("SEC_NEGOTIATION_INFO").field("Size", &self.Size).field("NameLength", &self.NameLength).field("Name", &self.Name).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_NEGOTIATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_NEGOTIATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_NEGOTIATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16069,8 +16064,8 @@ impl ::core::fmt::Debug for SEC_PRESHAREDKEY {
         f.debug_struct("SEC_PRESHAREDKEY").field("KeySize", &self.KeySize).field("Key", &self.Key).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_PRESHAREDKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_PRESHAREDKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_PRESHAREDKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -16100,8 +16095,8 @@ impl ::core::fmt::Debug for SEC_PRESHAREDKEY_IDENTITY {
         f.debug_struct("SEC_PRESHAREDKEY_IDENTITY").field("KeyIdentitySize", &self.KeyIdentitySize).field("KeyIdentity", &self.KeyIdentity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_PRESHAREDKEY_IDENTITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_PRESHAREDKEY_IDENTITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_PRESHAREDKEY_IDENTITY {
     fn eq(&self, other: &Self) -> bool {
@@ -16131,8 +16126,8 @@ impl ::core::fmt::Debug for SEC_SRTP_MASTER_KEY_IDENTIFIER {
         f.debug_struct("SEC_SRTP_MASTER_KEY_IDENTIFIER").field("MasterKeyIdentifierSize", &self.MasterKeyIdentifierSize).field("MasterKeyIdentifier", &self.MasterKeyIdentifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_SRTP_MASTER_KEY_IDENTIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_SRTP_MASTER_KEY_IDENTIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_SRTP_MASTER_KEY_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
@@ -16162,8 +16157,8 @@ impl ::core::fmt::Debug for SEC_SRTP_PROTECTION_PROFILES {
         f.debug_struct("SEC_SRTP_PROTECTION_PROFILES").field("ProfilesSize", &self.ProfilesSize).field("ProfilesList", &self.ProfilesList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_SRTP_PROTECTION_PROFILES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_SRTP_PROTECTION_PROFILES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_SRTP_PROTECTION_PROFILES {
     fn eq(&self, other: &Self) -> bool {
@@ -16195,8 +16190,8 @@ impl ::core::fmt::Debug for SEC_TOKEN_BINDING {
         f.debug_struct("SEC_TOKEN_BINDING").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("KeyParametersSize", &self.KeyParametersSize).field("KeyParameters", &self.KeyParameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_TOKEN_BINDING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_TOKEN_BINDING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_TOKEN_BINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -16234,8 +16229,8 @@ impl ::core::fmt::Debug for SEC_TRAFFIC_SECRETS {
         f.debug_struct("SEC_TRAFFIC_SECRETS").field("SymmetricAlgId", &self.SymmetricAlgId).field("ChainingMode", &self.ChainingMode).field("HashAlgId", &self.HashAlgId).field("KeySize", &self.KeySize).field("IvSize", &self.IvSize).field("MsgSequenceStart", &self.MsgSequenceStart).field("MsgSequenceEnd", &self.MsgSequenceEnd).field("TrafficSecretType", &self.TrafficSecretType).field("TrafficSecretSize", &self.TrafficSecretSize).field("TrafficSecret", &self.TrafficSecret).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_TRAFFIC_SECRETS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_TRAFFIC_SECRETS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_TRAFFIC_SECRETS {
     fn eq(&self, other: &Self) -> bool {
@@ -16270,8 +16265,8 @@ impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY32 {
         f.debug_struct("SEC_WINNT_AUTH_IDENTITY32").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_WINNT_AUTH_IDENTITY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY32 {
     fn eq(&self, other: &Self) -> bool {
@@ -16324,8 +16319,8 @@ impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EX2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EX2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EX2 {
     fn eq(&self, other: &Self) -> bool {
@@ -16364,8 +16359,8 @@ impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EX32 {
         f.debug_struct("SEC_WINNT_AUTH_IDENTITY_EX32").field("Version", &self.Version).field("Length", &self.Length).field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).field("PackageList", &self.PackageList).field("PackageListLength", &self.PackageListLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EX32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EX32 {
     fn eq(&self, other: &Self) -> bool {
@@ -16404,8 +16399,8 @@ impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EXA {
         f.debug_struct("SEC_WINNT_AUTH_IDENTITY_EXA").field("Version", &self.Version).field("Length", &self.Length).field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).field("PackageList", &self.PackageList).field("PackageListLength", &self.PackageListLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EXA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EXA {
     fn eq(&self, other: &Self) -> bool {
@@ -16444,8 +16439,8 @@ impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EXW {
         f.debug_struct("SEC_WINNT_AUTH_IDENTITY_EXW").field("Version", &self.Version).field("Length", &self.Length).field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).field("PackageList", &self.PackageList).field("PackageListLength", &self.PackageListLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_EXW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EXW {
     fn eq(&self, other: &Self) -> bool {
@@ -16477,8 +16472,8 @@ impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_INFO {
     }
 }
 #[cfg(feature = "Win32_System_Rpc")]
-unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEC_WINNT_AUTH_IDENTITY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Rpc")]
 impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_INFO {
@@ -16506,8 +16501,8 @@ impl ::core::fmt::Debug for SEND_GENERIC_TLS_EXTENSION {
         f.debug_struct("SEND_GENERIC_TLS_EXTENSION").field("ExtensionType", &self.ExtensionType).field("HandshakeType", &self.HandshakeType).field("Flags", &self.Flags).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SEND_GENERIC_TLS_EXTENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEND_GENERIC_TLS_EXTENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SEND_GENERIC_TLS_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
@@ -16540,8 +16535,8 @@ impl ::core::fmt::Debug for SE_ADT_ACCESS_REASON {
         f.debug_struct("SE_ADT_ACCESS_REASON").field("AccessMask", &self.AccessMask).field("AccessReasons", &self.AccessReasons).field("ObjectTypeIndex", &self.ObjectTypeIndex).field("AccessGranted", &self.AccessGranted).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SE_ADT_ACCESS_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SE_ADT_ACCESS_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SE_ADT_ACCESS_REASON {
     fn eq(&self, other: &Self) -> bool {
@@ -16571,8 +16566,8 @@ impl ::core::fmt::Debug for SE_ADT_CLAIMS {
         f.debug_struct("SE_ADT_CLAIMS").field("Length", &self.Length).field("Claims", &self.Claims).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SE_ADT_CLAIMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SE_ADT_CLAIMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SE_ADT_CLAIMS {
     fn eq(&self, other: &Self) -> bool {
@@ -16604,8 +16599,8 @@ impl ::core::fmt::Debug for SE_ADT_OBJECT_TYPE {
         f.debug_struct("SE_ADT_OBJECT_TYPE").field("ObjectType", &self.ObjectType).field("Flags", &self.Flags).field("Level", &self.Level).field("AccessMask", &self.AccessMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SE_ADT_OBJECT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SE_ADT_OBJECT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SE_ADT_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
@@ -16641,8 +16636,8 @@ impl ::core::fmt::Debug for SE_ADT_PARAMETER_ARRAY {
         f.debug_struct("SE_ADT_PARAMETER_ARRAY").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("ParameterCount", &self.ParameterCount).field("Length", &self.Length).field("FlatSubCategoryId", &self.FlatSubCategoryId).field("Type", &self.Type).field("Flags", &self.Flags).field("Parameters", &self.Parameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SE_ADT_PARAMETER_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -16674,8 +16669,8 @@ impl ::core::fmt::Debug for SE_ADT_PARAMETER_ARRAY_ENTRY {
         f.debug_struct("SE_ADT_PARAMETER_ARRAY_ENTRY").field("Type", &self.Type).field("Length", &self.Length).field("Data", &self.Data).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_ARRAY_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SE_ADT_PARAMETER_ARRAY_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -16712,8 +16707,8 @@ impl ::core::fmt::Debug for SE_ADT_PARAMETER_ARRAY_EX {
         f.debug_struct("SE_ADT_PARAMETER_ARRAY_EX").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("Version", &self.Version).field("ParameterCount", &self.ParameterCount).field("Length", &self.Length).field("FlatSubCategoryId", &self.FlatSubCategoryId).field("Type", &self.Type).field("Flags", &self.Flags).field("Parameters", &self.Parameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_ARRAY_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SE_ADT_PARAMETER_ARRAY_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -16743,8 +16738,8 @@ impl ::core::fmt::Debug for SL_ACTIVATION_INFO_HEADER {
         f.debug_struct("SL_ACTIVATION_INFO_HEADER").field("cbSize", &self.cbSize).field("type", &self.r#type).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SL_ACTIVATION_INFO_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SL_ACTIVATION_INFO_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SL_ACTIVATION_INFO_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -16775,8 +16770,8 @@ impl ::core::fmt::Debug for SL_AD_ACTIVATION_INFO {
         f.debug_struct("SL_AD_ACTIVATION_INFO").field("header", &self.header).field("pwszProductKey", &self.pwszProductKey).field("pwszActivationObjectName", &self.pwszActivationObjectName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SL_AD_ACTIVATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SL_AD_ACTIVATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SL_AD_ACTIVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16810,8 +16805,8 @@ impl ::core::fmt::Debug for SL_LICENSING_STATUS {
         f.debug_struct("SL_LICENSING_STATUS").field("SkuId", &self.SkuId).field("eStatus", &self.eStatus).field("dwGraceTime", &self.dwGraceTime).field("dwTotalGraceDays", &self.dwTotalGraceDays).field("hrReason", &self.hrReason).field("qwValidityExpiration", &self.qwValidityExpiration).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SL_LICENSING_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SL_LICENSING_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SL_LICENSING_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -16842,8 +16837,8 @@ impl ::core::fmt::Debug for SL_NONGENUINE_UI_OPTIONS {
         f.debug_struct("SL_NONGENUINE_UI_OPTIONS").field("cbSize", &self.cbSize).field("pComponentId", &self.pComponentId).field("hResultUI", &self.hResultUI).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SL_NONGENUINE_UI_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SL_NONGENUINE_UI_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SL_NONGENUINE_UI_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -16873,8 +16868,8 @@ impl ::core::fmt::Debug for SL_SYSTEM_POLICY_INFORMATION {
         f.debug_struct("SL_SYSTEM_POLICY_INFORMATION").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SL_SYSTEM_POLICY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SL_SYSTEM_POLICY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SL_SYSTEM_POLICY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -16904,8 +16899,8 @@ impl ::core::fmt::Debug for SR_SECURITY_DESCRIPTOR {
         f.debug_struct("SR_SECURITY_DESCRIPTOR").field("Length", &self.Length).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SR_SECURITY_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SR_SECURITY_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SR_SECURITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -16938,8 +16933,8 @@ impl ::core::fmt::Debug for SSL_CREDENTIAL_CERTIFICATE {
         f.debug_struct("SSL_CREDENTIAL_CERTIFICATE").field("cbPrivateKey", &self.cbPrivateKey).field("pPrivateKey", &self.pPrivateKey).field("cbCertificate", &self.cbCertificate).field("pCertificate", &self.pCertificate).field("pszPassword", &self.pszPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSL_CREDENTIAL_CERTIFICATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSL_CREDENTIAL_CERTIFICATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSL_CREDENTIAL_CERTIFICATE {
     fn eq(&self, other: &Self) -> bool {
@@ -16970,8 +16965,8 @@ impl ::core::fmt::Debug for SUBSCRIBE_GENERIC_TLS_EXTENSION {
         f.debug_struct("SUBSCRIBE_GENERIC_TLS_EXTENSION").field("Flags", &self.Flags).field("SubscriptionsCount", &self.SubscriptionsCount).field("Subscriptions", &self.Subscriptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SUBSCRIBE_GENERIC_TLS_EXTENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SUBSCRIBE_GENERIC_TLS_EXTENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SUBSCRIBE_GENERIC_TLS_EXTENSION {
     fn eq(&self, other: &Self) -> bool {
@@ -17002,8 +16997,8 @@ impl ::core::fmt::Debug for SecBuffer {
         f.debug_struct("SecBuffer").field("cbBuffer", &self.cbBuffer).field("BufferType", &self.BufferType).field("pvBuffer", &self.pvBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecBuffer {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecBuffer {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecBuffer {
     fn eq(&self, other: &Self) -> bool {
@@ -17034,8 +17029,8 @@ impl ::core::fmt::Debug for SecBufferDesc {
         f.debug_struct("SecBufferDesc").field("ulVersion", &self.ulVersion).field("cBuffers", &self.cBuffers).field("pBuffers", &self.pBuffers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecBufferDesc {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecBufferDesc {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecBufferDesc {
     fn eq(&self, other: &Self) -> bool {
@@ -17064,8 +17059,8 @@ impl ::core::fmt::Debug for SecPkgContext_AccessToken {
         f.debug_struct("SecPkgContext_AccessToken").field("AccessToken", &self.AccessToken).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_AccessToken {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_AccessToken {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AccessToken {
     fn eq(&self, other: &Self) -> bool {
@@ -17097,8 +17092,8 @@ impl ::core::fmt::Debug for SecPkgContext_ApplicationProtocol {
         f.debug_struct("SecPkgContext_ApplicationProtocol").field("ProtoNegoStatus", &self.ProtoNegoStatus).field("ProtoNegoExt", &self.ProtoNegoExt).field("ProtocolIdSize", &self.ProtocolIdSize).field("ProtocolId", &self.ProtocolId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ApplicationProtocol {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ApplicationProtocol {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ApplicationProtocol {
     fn eq(&self, other: &Self) -> bool {
@@ -17127,8 +17122,8 @@ impl ::core::fmt::Debug for SecPkgContext_AuthorityA {
         f.debug_struct("SecPkgContext_AuthorityA").field("sAuthorityName", &self.sAuthorityName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_AuthorityA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_AuthorityA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AuthorityA {
     fn eq(&self, other: &Self) -> bool {
@@ -17157,8 +17152,8 @@ impl ::core::fmt::Debug for SecPkgContext_AuthorityW {
         f.debug_struct("SecPkgContext_AuthorityW").field("sAuthorityName", &self.sAuthorityName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_AuthorityW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_AuthorityW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AuthorityW {
     fn eq(&self, other: &Self) -> bool {
@@ -17188,8 +17183,8 @@ impl ::core::fmt::Debug for SecPkgContext_AuthzID {
         f.debug_struct("SecPkgContext_AuthzID").field("AuthzIDLength", &self.AuthzIDLength).field("AuthzID", &self.AuthzID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_AuthzID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_AuthzID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_AuthzID {
     fn eq(&self, other: &Self) -> bool {
@@ -17219,8 +17214,8 @@ impl ::core::fmt::Debug for SecPkgContext_Bindings {
         f.debug_struct("SecPkgContext_Bindings").field("BindingsLength", &self.BindingsLength).field("Bindings", &self.Bindings).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_Bindings {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_Bindings {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Bindings {
     fn eq(&self, other: &Self) -> bool {
@@ -17254,8 +17249,8 @@ impl ::core::fmt::Debug for SecPkgContext_CertInfo {
         f.debug_struct("SecPkgContext_CertInfo").field("dwVersion", &self.dwVersion).field("cbSubjectName", &self.cbSubjectName).field("pwszSubjectName", &self.pwszSubjectName).field("cbIssuerName", &self.cbIssuerName).field("pwszIssuerName", &self.pwszIssuerName).field("dwKeySize", &self.dwKeySize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_CertInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_CertInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CertInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -17285,8 +17280,8 @@ impl ::core::fmt::Debug for SecPkgContext_CertificateValidationResult {
         f.debug_struct("SecPkgContext_CertificateValidationResult").field("dwChainErrorStatus", &self.dwChainErrorStatus).field("hrVerifyChainStatus", &self.hrVerifyChainStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_CertificateValidationResult {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_CertificateValidationResult {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CertificateValidationResult {
     fn eq(&self, other: &Self) -> bool {
@@ -17317,8 +17312,8 @@ impl ::core::fmt::Debug for SecPkgContext_Certificates {
         f.debug_struct("SecPkgContext_Certificates").field("cCertificates", &self.cCertificates).field("cbCertificateChain", &self.cbCertificateChain).field("pbCertificateChain", &self.pbCertificateChain).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_Certificates {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_Certificates {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Certificates {
     fn eq(&self, other: &Self) -> bool {
@@ -17377,8 +17372,8 @@ impl ::core::fmt::Debug for SecPkgContext_CipherInfo {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_CipherInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_CipherInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CipherInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -17408,8 +17403,8 @@ impl ::core::fmt::Debug for SecPkgContext_ClientCertPolicyResult {
         f.debug_struct("SecPkgContext_ClientCertPolicyResult").field("dwPolicyResult", &self.dwPolicyResult).field("guidPolicyId", &self.guidPolicyId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ClientCertPolicyResult {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ClientCertPolicyResult {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ClientCertPolicyResult {
     fn eq(&self, other: &Self) -> bool {
@@ -17438,8 +17433,8 @@ impl ::core::fmt::Debug for SecPkgContext_ClientSpecifiedTarget {
         f.debug_struct("SecPkgContext_ClientSpecifiedTarget").field("sTargetName", &self.sTargetName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ClientSpecifiedTarget {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ClientSpecifiedTarget {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ClientSpecifiedTarget {
     fn eq(&self, other: &Self) -> bool {
@@ -17474,8 +17469,8 @@ impl ::core::fmt::Debug for SecPkgContext_ConnectionInfo {
         f.debug_struct("SecPkgContext_ConnectionInfo").field("dwProtocol", &self.dwProtocol).field("aiCipher", &self.aiCipher).field("dwCipherStrength", &self.dwCipherStrength).field("aiHash", &self.aiHash).field("dwHashStrength", &self.dwHashStrength).field("aiExch", &self.aiExch).field("dwExchStrength", &self.dwExchStrength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ConnectionInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ConnectionInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ConnectionInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -17511,8 +17506,8 @@ impl ::core::fmt::Debug for SecPkgContext_ConnectionInfoEx {
         f.debug_struct("SecPkgContext_ConnectionInfoEx").field("dwVersion", &self.dwVersion).field("dwProtocol", &self.dwProtocol).field("szCipher", &self.szCipher).field("dwCipherStrength", &self.dwCipherStrength).field("szHash", &self.szHash).field("dwHashStrength", &self.dwHashStrength).field("szExchange", &self.szExchange).field("dwExchStrength", &self.dwExchStrength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ConnectionInfoEx {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ConnectionInfoEx {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ConnectionInfoEx {
     fn eq(&self, other: &Self) -> bool {
@@ -17542,8 +17537,8 @@ impl ::core::fmt::Debug for SecPkgContext_CredInfo {
         f.debug_struct("SecPkgContext_CredInfo").field("CredClass", &self.CredClass).field("IsPromptingNeeded", &self.IsPromptingNeeded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_CredInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_CredInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CredInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -17573,8 +17568,8 @@ impl ::core::fmt::Debug for SecPkgContext_CredentialNameA {
         f.debug_struct("SecPkgContext_CredentialNameA").field("CredentialType", &self.CredentialType).field("sCredentialName", &self.sCredentialName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_CredentialNameA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_CredentialNameA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CredentialNameA {
     fn eq(&self, other: &Self) -> bool {
@@ -17604,8 +17599,8 @@ impl ::core::fmt::Debug for SecPkgContext_CredentialNameW {
         f.debug_struct("SecPkgContext_CredentialNameW").field("CredentialType", &self.CredentialType).field("sCredentialName", &self.sCredentialName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_CredentialNameW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_CredentialNameW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CredentialNameW {
     fn eq(&self, other: &Self) -> bool {
@@ -17635,8 +17630,8 @@ impl ::core::fmt::Debug for SecPkgContext_DceInfo {
         f.debug_struct("SecPkgContext_DceInfo").field("AuthzSvc", &self.AuthzSvc).field("pPac", &self.pPac).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_DceInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_DceInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_DceInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -17666,8 +17661,8 @@ impl ::core::fmt::Debug for SecPkgContext_EapKeyBlock {
         f.debug_struct("SecPkgContext_EapKeyBlock").field("rgbKeys", &self.rgbKeys).field("rgbIVs", &self.rgbIVs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_EapKeyBlock {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_EapKeyBlock {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_EapKeyBlock {
     fn eq(&self, other: &Self) -> bool {
@@ -17698,8 +17693,8 @@ impl ::core::fmt::Debug for SecPkgContext_EapPrfInfo {
         f.debug_struct("SecPkgContext_EapPrfInfo").field("dwVersion", &self.dwVersion).field("cbPrfData", &self.cbPrfData).field("pbPrfData", &self.pbPrfData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_EapPrfInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_EapPrfInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_EapPrfInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -17728,8 +17723,8 @@ impl ::core::fmt::Debug for SecPkgContext_EarlyStart {
         f.debug_struct("SecPkgContext_EarlyStart").field("dwEarlyStartFlags", &self.dwEarlyStartFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_EarlyStart {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_EarlyStart {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_EarlyStart {
     fn eq(&self, other: &Self) -> bool {
@@ -17758,8 +17753,8 @@ impl ::core::fmt::Debug for SecPkgContext_Flags {
         f.debug_struct("SecPkgContext_Flags").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_Flags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_Flags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Flags {
     fn eq(&self, other: &Self) -> bool {
@@ -17794,8 +17789,8 @@ impl ::core::fmt::Debug for SecPkgContext_IssuerListInfoEx {
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-unsafe impl ::windows::core::Abi for SecPkgContext_IssuerListInfoEx {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_IssuerListInfoEx {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for SecPkgContext_IssuerListInfoEx {
@@ -17831,8 +17826,8 @@ impl ::core::fmt::Debug for SecPkgContext_KeyInfoA {
         f.debug_struct("SecPkgContext_KeyInfoA").field("sSignatureAlgorithmName", &self.sSignatureAlgorithmName).field("sEncryptAlgorithmName", &self.sEncryptAlgorithmName).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("EncryptAlgorithm", &self.EncryptAlgorithm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_KeyInfoA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_KeyInfoA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyInfoA {
     fn eq(&self, other: &Self) -> bool {
@@ -17865,8 +17860,8 @@ impl ::core::fmt::Debug for SecPkgContext_KeyInfoW {
         f.debug_struct("SecPkgContext_KeyInfoW").field("sSignatureAlgorithmName", &self.sSignatureAlgorithmName).field("sEncryptAlgorithmName", &self.sEncryptAlgorithmName).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("EncryptAlgorithm", &self.EncryptAlgorithm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_KeyInfoW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_KeyInfoW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyInfoW {
     fn eq(&self, other: &Self) -> bool {
@@ -17896,8 +17891,8 @@ impl ::core::fmt::Debug for SecPkgContext_KeyingMaterial {
         f.debug_struct("SecPkgContext_KeyingMaterial").field("cbKeyingMaterial", &self.cbKeyingMaterial).field("pbKeyingMaterial", &self.pbKeyingMaterial).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_KeyingMaterial {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_KeyingMaterial {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyingMaterial {
     fn eq(&self, other: &Self) -> bool {
@@ -17930,8 +17925,8 @@ impl ::core::fmt::Debug for SecPkgContext_KeyingMaterialInfo {
         f.debug_struct("SecPkgContext_KeyingMaterialInfo").field("cbLabel", &self.cbLabel).field("pszLabel", &self.pszLabel).field("cbContextValue", &self.cbContextValue).field("pbContextValue", &self.pbContextValue).field("cbKeyingMaterial", &self.cbKeyingMaterial).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_KeyingMaterialInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_KeyingMaterialInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyingMaterialInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -17965,8 +17960,8 @@ impl ::core::fmt::Debug for SecPkgContext_KeyingMaterial_Inproc {
         f.debug_struct("SecPkgContext_KeyingMaterial_Inproc").field("cbLabel", &self.cbLabel).field("pszLabel", &self.pszLabel).field("cbContextValue", &self.cbContextValue).field("pbContextValue", &self.pbContextValue).field("cbKeyingMaterial", &self.cbKeyingMaterial).field("pbKeyingMaterial", &self.pbKeyingMaterial).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_KeyingMaterial_Inproc {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_KeyingMaterial_Inproc {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyingMaterial_Inproc {
     fn eq(&self, other: &Self) -> bool {
@@ -17995,8 +17990,8 @@ impl ::core::fmt::Debug for SecPkgContext_LastClientTokenStatus {
         f.debug_struct("SecPkgContext_LastClientTokenStatus").field("LastClientTokenStatus", &self.LastClientTokenStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_LastClientTokenStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_LastClientTokenStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_LastClientTokenStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -18026,8 +18021,8 @@ impl ::core::fmt::Debug for SecPkgContext_Lifespan {
         f.debug_struct("SecPkgContext_Lifespan").field("tsStart", &self.tsStart).field("tsExpiry", &self.tsExpiry).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_Lifespan {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_Lifespan {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Lifespan {
     fn eq(&self, other: &Self) -> bool {
@@ -18060,8 +18055,8 @@ impl ::core::fmt::Debug for SecPkgContext_LocalCredentialInfo {
         f.debug_struct("SecPkgContext_LocalCredentialInfo").field("cbCertificateChain", &self.cbCertificateChain).field("pbCertificateChain", &self.pbCertificateChain).field("cCertificates", &self.cCertificates).field("fFlags", &self.fFlags).field("dwBits", &self.dwBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_LocalCredentialInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_LocalCredentialInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_LocalCredentialInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -18090,8 +18085,8 @@ impl ::core::fmt::Debug for SecPkgContext_LogoffTime {
         f.debug_struct("SecPkgContext_LogoffTime").field("tsLogoffTime", &self.tsLogoffTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_LogoffTime {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_LogoffTime {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_LogoffTime {
     fn eq(&self, other: &Self) -> bool {
@@ -18121,8 +18116,8 @@ impl ::core::fmt::Debug for SecPkgContext_MappedCredAttr {
         f.debug_struct("SecPkgContext_MappedCredAttr").field("dwAttribute", &self.dwAttribute).field("pvBuffer", &self.pvBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_MappedCredAttr {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_MappedCredAttr {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_MappedCredAttr {
     fn eq(&self, other: &Self) -> bool {
@@ -18151,8 +18146,8 @@ impl ::core::fmt::Debug for SecPkgContext_NamesA {
         f.debug_struct("SecPkgContext_NamesA").field("sUserName", &self.sUserName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NamesA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NamesA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NamesA {
     fn eq(&self, other: &Self) -> bool {
@@ -18181,8 +18176,8 @@ impl ::core::fmt::Debug for SecPkgContext_NamesW {
         f.debug_struct("SecPkgContext_NamesW").field("sUserName", &self.sUserName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NamesW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NamesW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NamesW {
     fn eq(&self, other: &Self) -> bool {
@@ -18212,8 +18207,8 @@ impl ::core::fmt::Debug for SecPkgContext_NativeNamesA {
         f.debug_struct("SecPkgContext_NativeNamesA").field("sClientName", &self.sClientName).field("sServerName", &self.sServerName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NativeNamesA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NativeNamesA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NativeNamesA {
     fn eq(&self, other: &Self) -> bool {
@@ -18243,8 +18238,8 @@ impl ::core::fmt::Debug for SecPkgContext_NativeNamesW {
         f.debug_struct("SecPkgContext_NativeNamesW").field("sClientName", &self.sClientName).field("sServerName", &self.sServerName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NativeNamesW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NativeNamesW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NativeNamesW {
     fn eq(&self, other: &Self) -> bool {
@@ -18278,8 +18273,8 @@ impl ::core::fmt::Debug for SecPkgContext_NegoKeys {
         f.debug_struct("SecPkgContext_NegoKeys").field("KeyType", &self.KeyType).field("KeyLength", &self.KeyLength).field("KeyValue", &self.KeyValue).field("VerifyKeyType", &self.VerifyKeyType).field("VerifyKeyLength", &self.VerifyKeyLength).field("VerifyKeyValue", &self.VerifyKeyValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NegoKeys {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NegoKeys {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegoKeys {
     fn eq(&self, other: &Self) -> bool {
@@ -18308,8 +18303,8 @@ impl ::core::fmt::Debug for SecPkgContext_NegoPackageInfo {
         f.debug_struct("SecPkgContext_NegoPackageInfo").field("PackageMask", &self.PackageMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NegoPackageInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NegoPackageInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegoPackageInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -18338,8 +18333,8 @@ impl ::core::fmt::Debug for SecPkgContext_NegoStatus {
         f.debug_struct("SecPkgContext_NegoStatus").field("LastStatus", &self.LastStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NegoStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NegoStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegoStatus {
     fn eq(&self, other: &Self) -> bool {
@@ -18369,8 +18364,8 @@ impl ::core::fmt::Debug for SecPkgContext_NegotiatedTlsExtensions {
         f.debug_struct("SecPkgContext_NegotiatedTlsExtensions").field("ExtensionsCount", &self.ExtensionsCount).field("Extensions", &self.Extensions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NegotiatedTlsExtensions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NegotiatedTlsExtensions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegotiatedTlsExtensions {
     fn eq(&self, other: &Self) -> bool {
@@ -18400,8 +18395,8 @@ impl ::core::fmt::Debug for SecPkgContext_NegotiationInfoA {
         f.debug_struct("SecPkgContext_NegotiationInfoA").field("PackageInfo", &self.PackageInfo).field("NegotiationState", &self.NegotiationState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NegotiationInfoA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NegotiationInfoA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegotiationInfoA {
     fn eq(&self, other: &Self) -> bool {
@@ -18431,8 +18426,8 @@ impl ::core::fmt::Debug for SecPkgContext_NegotiationInfoW {
         f.debug_struct("SecPkgContext_NegotiationInfoW").field("PackageInfo", &self.PackageInfo).field("NegotiationState", &self.NegotiationState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_NegotiationInfoW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_NegotiationInfoW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_NegotiationInfoW {
     fn eq(&self, other: &Self) -> bool {
@@ -18461,8 +18456,8 @@ impl ::core::fmt::Debug for SecPkgContext_PackageInfoA {
         f.debug_struct("SecPkgContext_PackageInfoA").field("PackageInfo", &self.PackageInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_PackageInfoA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_PackageInfoA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_PackageInfoA {
     fn eq(&self, other: &Self) -> bool {
@@ -18491,8 +18486,8 @@ impl ::core::fmt::Debug for SecPkgContext_PackageInfoW {
         f.debug_struct("SecPkgContext_PackageInfoW").field("PackageInfo", &self.PackageInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_PackageInfoW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_PackageInfoW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_PackageInfoW {
     fn eq(&self, other: &Self) -> bool {
@@ -18521,8 +18516,8 @@ impl ::core::fmt::Debug for SecPkgContext_PasswordExpiry {
         f.debug_struct("SecPkgContext_PasswordExpiry").field("tsPasswordExpires", &self.tsPasswordExpires).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_PasswordExpiry {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_PasswordExpiry {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_PasswordExpiry {
     fn eq(&self, other: &Self) -> bool {
@@ -18553,8 +18548,8 @@ impl ::core::fmt::Debug for SecPkgContext_ProtoInfoA {
         f.debug_struct("SecPkgContext_ProtoInfoA").field("sProtocolName", &self.sProtocolName).field("majorVersion", &self.majorVersion).field("minorVersion", &self.minorVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ProtoInfoA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ProtoInfoA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ProtoInfoA {
     fn eq(&self, other: &Self) -> bool {
@@ -18585,8 +18580,8 @@ impl ::core::fmt::Debug for SecPkgContext_ProtoInfoW {
         f.debug_struct("SecPkgContext_ProtoInfoW").field("sProtocolName", &self.sProtocolName).field("majorVersion", &self.majorVersion).field("minorVersion", &self.minorVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_ProtoInfoW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_ProtoInfoW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ProtoInfoW {
     fn eq(&self, other: &Self) -> bool {
@@ -18619,8 +18614,8 @@ impl ::core::fmt::Debug for SecPkgContext_RemoteCredentialInfo {
         f.debug_struct("SecPkgContext_RemoteCredentialInfo").field("cbCertificateChain", &self.cbCertificateChain).field("pbCertificateChain", &self.pbCertificateChain).field("cCertificates", &self.cCertificates).field("fFlags", &self.fFlags).field("dwBits", &self.dwBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_RemoteCredentialInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_RemoteCredentialInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_RemoteCredentialInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -18649,8 +18644,8 @@ impl ::core::fmt::Debug for SecPkgContext_SaslContext {
         f.debug_struct("SecPkgContext_SaslContext").field("SaslContext", &self.SaslContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_SaslContext {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_SaslContext {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SaslContext {
     fn eq(&self, other: &Self) -> bool {
@@ -18681,8 +18676,8 @@ impl ::core::fmt::Debug for SecPkgContext_SessionAppData {
         f.debug_struct("SecPkgContext_SessionAppData").field("dwFlags", &self.dwFlags).field("cbAppData", &self.cbAppData).field("pbAppData", &self.pbAppData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_SessionAppData {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_SessionAppData {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SessionAppData {
     fn eq(&self, other: &Self) -> bool {
@@ -18713,8 +18708,8 @@ impl ::core::fmt::Debug for SecPkgContext_SessionInfo {
         f.debug_struct("SecPkgContext_SessionInfo").field("dwFlags", &self.dwFlags).field("cbSessionId", &self.cbSessionId).field("rgbSessionId", &self.rgbSessionId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_SessionInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_SessionInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SessionInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -18744,8 +18739,8 @@ impl ::core::fmt::Debug for SecPkgContext_SessionKey {
         f.debug_struct("SecPkgContext_SessionKey").field("SessionKeyLength", &self.SessionKeyLength).field("SessionKey", &self.SessionKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_SessionKey {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_SessionKey {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SessionKey {
     fn eq(&self, other: &Self) -> bool {
@@ -18777,8 +18772,8 @@ impl ::core::fmt::Debug for SecPkgContext_Sizes {
         f.debug_struct("SecPkgContext_Sizes").field("cbMaxToken", &self.cbMaxToken).field("cbMaxSignature", &self.cbMaxSignature).field("cbBlockSize", &self.cbBlockSize).field("cbSecurityTrailer", &self.cbSecurityTrailer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_Sizes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_Sizes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Sizes {
     fn eq(&self, other: &Self) -> bool {
@@ -18809,8 +18804,8 @@ impl ::core::fmt::Debug for SecPkgContext_SrtpParameters {
         f.debug_struct("SecPkgContext_SrtpParameters").field("ProtectionProfile", &self.ProtectionProfile).field("MasterKeyIdentifierSize", &self.MasterKeyIdentifierSize).field("MasterKeyIdentifier", &self.MasterKeyIdentifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_SrtpParameters {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_SrtpParameters {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SrtpParameters {
     fn eq(&self, other: &Self) -> bool {
@@ -18843,8 +18838,8 @@ impl ::core::fmt::Debug for SecPkgContext_StreamSizes {
         f.debug_struct("SecPkgContext_StreamSizes").field("cbHeader", &self.cbHeader).field("cbTrailer", &self.cbTrailer).field("cbMaximumMessage", &self.cbMaximumMessage).field("cBuffers", &self.cBuffers).field("cbBlockSize", &self.cbBlockSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_StreamSizes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_StreamSizes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_StreamSizes {
     fn eq(&self, other: &Self) -> bool {
@@ -18873,8 +18868,8 @@ impl ::core::fmt::Debug for SecPkgContext_SubjectAttributes {
         f.debug_struct("SecPkgContext_SubjectAttributes").field("AttributeInfo", &self.AttributeInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_SubjectAttributes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_SubjectAttributes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SubjectAttributes {
     fn eq(&self, other: &Self) -> bool {
@@ -18904,8 +18899,8 @@ impl ::core::fmt::Debug for SecPkgContext_SupportedSignatures {
         f.debug_struct("SecPkgContext_SupportedSignatures").field("cSignatureAndHashAlgorithms", &self.cSignatureAndHashAlgorithms).field("pSignatureAndHashAlgorithms", &self.pSignatureAndHashAlgorithms).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_SupportedSignatures {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_SupportedSignatures {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_SupportedSignatures {
     fn eq(&self, other: &Self) -> bool {
@@ -18935,8 +18930,8 @@ impl ::core::fmt::Debug for SecPkgContext_Target {
         f.debug_struct("SecPkgContext_Target").field("TargetLength", &self.TargetLength).field("Target", &self.Target).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_Target {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_Target {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_Target {
     fn eq(&self, other: &Self) -> bool {
@@ -18966,8 +18961,8 @@ impl ::core::fmt::Debug for SecPkgContext_TargetInformation {
         f.debug_struct("SecPkgContext_TargetInformation").field("MarshalledTargetInfoLength", &self.MarshalledTargetInfoLength).field("MarshalledTargetInfo", &self.MarshalledTargetInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_TargetInformation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_TargetInformation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_TargetInformation {
     fn eq(&self, other: &Self) -> bool {
@@ -18999,8 +18994,8 @@ impl ::core::fmt::Debug for SecPkgContext_TokenBinding {
         f.debug_struct("SecPkgContext_TokenBinding").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("KeyParametersSize", &self.KeyParametersSize).field("KeyParameters", &self.KeyParameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_TokenBinding {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_TokenBinding {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_TokenBinding {
     fn eq(&self, other: &Self) -> bool {
@@ -19034,8 +19029,8 @@ impl ::core::fmt::Debug for SecPkgContext_UiInfo {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SecPkgContext_UiInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_UiInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SecPkgContext_UiInfo {
@@ -19067,8 +19062,8 @@ impl ::core::fmt::Debug for SecPkgContext_UserFlags {
         f.debug_struct("SecPkgContext_UserFlags").field("UserFlags", &self.UserFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgContext_UserFlags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgContext_UserFlags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgContext_UserFlags {
     fn eq(&self, other: &Self) -> bool {
@@ -19098,8 +19093,8 @@ impl ::core::fmt::Debug for SecPkgCred_CipherStrengths {
         f.debug_struct("SecPkgCred_CipherStrengths").field("dwMinimumCipherStrength", &self.dwMinimumCipherStrength).field("dwMaximumCipherStrength", &self.dwMaximumCipherStrength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCred_CipherStrengths {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCred_CipherStrengths {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCred_CipherStrengths {
     fn eq(&self, other: &Self) -> bool {
@@ -19151,8 +19146,8 @@ impl ::core::fmt::Debug for SecPkgCred_ClientCertPolicy {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SecPkgCred_ClientCertPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCred_ClientCertPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SecPkgCred_ClientCertPolicy {
@@ -19187,8 +19182,8 @@ impl ::core::fmt::Debug for SecPkgCred_SessionTicketKey {
         f.debug_struct("SecPkgCred_SessionTicketKey").field("TicketInfoVersion", &self.TicketInfoVersion).field("KeyId", &self.KeyId).field("KeyingMaterial", &self.KeyingMaterial).field("KeyingMaterialSize", &self.KeyingMaterialSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCred_SessionTicketKey {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCred_SessionTicketKey {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SessionTicketKey {
     fn eq(&self, other: &Self) -> bool {
@@ -19218,8 +19213,8 @@ impl ::core::fmt::Debug for SecPkgCred_SessionTicketKeys {
         f.debug_struct("SecPkgCred_SessionTicketKeys").field("cSessionTicketKeys", &self.cSessionTicketKeys).field("pSessionTicketKeys", &self.pSessionTicketKeys).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCred_SessionTicketKeys {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCred_SessionTicketKeys {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SessionTicketKeys {
     fn eq(&self, other: &Self) -> bool {
@@ -19249,8 +19244,8 @@ impl ::core::fmt::Debug for SecPkgCred_SupportedAlgs {
         f.debug_struct("SecPkgCred_SupportedAlgs").field("cSupportedAlgs", &self.cSupportedAlgs).field("palgSupportedAlgs", &self.palgSupportedAlgs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCred_SupportedAlgs {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCred_SupportedAlgs {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SupportedAlgs {
     fn eq(&self, other: &Self) -> bool {
@@ -19279,8 +19274,8 @@ impl ::core::fmt::Debug for SecPkgCred_SupportedProtocols {
         f.debug_struct("SecPkgCred_SupportedProtocols").field("grbitProtocol", &self.grbitProtocol).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCred_SupportedProtocols {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCred_SupportedProtocols {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCred_SupportedProtocols {
     fn eq(&self, other: &Self) -> bool {
@@ -19310,8 +19305,8 @@ impl ::core::fmt::Debug for SecPkgCredentials_Cert {
         f.debug_struct("SecPkgCredentials_Cert").field("EncodedCertSize", &self.EncodedCertSize).field("EncodedCert", &self.EncodedCert).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCredentials_Cert {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCredentials_Cert {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_Cert {
     fn eq(&self, other: &Self) -> bool {
@@ -19345,8 +19340,8 @@ impl ::core::fmt::Debug for SecPkgCredentials_KdcProxySettingsW {
         f.debug_struct("SecPkgCredentials_KdcProxySettingsW").field("Version", &self.Version).field("Flags", &self.Flags).field("ProxyServerOffset", &self.ProxyServerOffset).field("ProxyServerLength", &self.ProxyServerLength).field("ClientTlsCredOffset", &self.ClientTlsCredOffset).field("ClientTlsCredLength", &self.ClientTlsCredLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCredentials_KdcProxySettingsW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCredentials_KdcProxySettingsW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_KdcProxySettingsW {
     fn eq(&self, other: &Self) -> bool {
@@ -19375,8 +19370,8 @@ impl ::core::fmt::Debug for SecPkgCredentials_NamesA {
         f.debug_struct("SecPkgCredentials_NamesA").field("sUserName", &self.sUserName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCredentials_NamesA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCredentials_NamesA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_NamesA {
     fn eq(&self, other: &Self) -> bool {
@@ -19405,8 +19400,8 @@ impl ::core::fmt::Debug for SecPkgCredentials_NamesW {
         f.debug_struct("SecPkgCredentials_NamesW").field("sUserName", &self.sUserName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCredentials_NamesW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCredentials_NamesW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_NamesW {
     fn eq(&self, other: &Self) -> bool {
@@ -19437,8 +19432,8 @@ impl ::core::fmt::Debug for SecPkgCredentials_SSIProviderA {
         f.debug_struct("SecPkgCredentials_SSIProviderA").field("sProviderName", &self.sProviderName).field("ProviderInfoLength", &self.ProviderInfoLength).field("ProviderInfo", &self.ProviderInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCredentials_SSIProviderA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCredentials_SSIProviderA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_SSIProviderA {
     fn eq(&self, other: &Self) -> bool {
@@ -19469,8 +19464,8 @@ impl ::core::fmt::Debug for SecPkgCredentials_SSIProviderW {
         f.debug_struct("SecPkgCredentials_SSIProviderW").field("sProviderName", &self.sProviderName).field("ProviderInfoLength", &self.ProviderInfoLength).field("ProviderInfo", &self.ProviderInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgCredentials_SSIProviderW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgCredentials_SSIProviderW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_SSIProviderW {
     fn eq(&self, other: &Self) -> bool {
@@ -19504,8 +19499,8 @@ impl ::core::fmt::Debug for SecPkgInfoA {
         f.debug_struct("SecPkgInfoA").field("fCapabilities", &self.fCapabilities).field("wVersion", &self.wVersion).field("wRPCID", &self.wRPCID).field("cbMaxToken", &self.cbMaxToken).field("Name", &self.Name).field("Comment", &self.Comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgInfoA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgInfoA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgInfoA {
     fn eq(&self, other: &Self) -> bool {
@@ -19539,8 +19534,8 @@ impl ::core::fmt::Debug for SecPkgInfoW {
         f.debug_struct("SecPkgInfoW").field("fCapabilities", &self.fCapabilities).field("wVersion", &self.wVersion).field("wRPCID", &self.wRPCID).field("cbMaxToken", &self.cbMaxToken).field("Name", &self.Name).field("Comment", &self.Comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SecPkgInfoW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecPkgInfoW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SecPkgInfoW {
     fn eq(&self, other: &Self) -> bool {
@@ -19605,8 +19600,8 @@ impl ::core::fmt::Debug for SecurityFunctionTableA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-unsafe impl ::windows::core::Abi for SecurityFunctionTableA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecurityFunctionTableA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::default::Default for SecurityFunctionTableA {
@@ -19666,8 +19661,8 @@ impl ::core::fmt::Debug for SecurityFunctionTableW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-unsafe impl ::windows::core::Abi for SecurityFunctionTableW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SecurityFunctionTableW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::default::Default for SecurityFunctionTableW {
@@ -19692,8 +19687,8 @@ impl ::core::fmt::Debug for TLS_EXTENSION_SUBSCRIPTION {
         f.debug_struct("TLS_EXTENSION_SUBSCRIPTION").field("ExtensionType", &self.ExtensionType).field("HandshakeType", &self.HandshakeType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TLS_EXTENSION_SUBSCRIPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TLS_EXTENSION_SUBSCRIPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TLS_EXTENSION_SUBSCRIPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -19722,8 +19717,8 @@ impl ::core::fmt::Debug for TOKENBINDING_IDENTIFIER {
         f.debug_struct("TOKENBINDING_IDENTIFIER").field("keyType", &self.keyType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TOKENBINDING_IDENTIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKENBINDING_IDENTIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
@@ -19753,8 +19748,8 @@ impl ::core::fmt::Debug for TOKENBINDING_KEY_TYPES {
         f.debug_struct("TOKENBINDING_KEY_TYPES").field("keyCount", &self.keyCount).field("keyType", &self.keyType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TOKENBINDING_KEY_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKENBINDING_KEY_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_KEY_TYPES {
     fn eq(&self, other: &Self) -> bool {
@@ -19788,8 +19783,8 @@ impl ::core::fmt::Debug for TOKENBINDING_RESULT_DATA {
         f.debug_struct("TOKENBINDING_RESULT_DATA").field("bindingType", &self.bindingType).field("identifierSize", &self.identifierSize).field("identifierData", &self.identifierData).field("extensionFormat", &self.extensionFormat).field("extensionSize", &self.extensionSize).field("extensionData", &self.extensionData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TOKENBINDING_RESULT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKENBINDING_RESULT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_RESULT_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -19819,8 +19814,8 @@ impl ::core::fmt::Debug for TOKENBINDING_RESULT_LIST {
         f.debug_struct("TOKENBINDING_RESULT_LIST").field("resultCount", &self.resultCount).field("resultData", &self.resultData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TOKENBINDING_RESULT_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKENBINDING_RESULT_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_RESULT_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -19855,8 +19850,8 @@ impl ::core::fmt::Debug for TRUSTED_CONTROLLERS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRUSTED_CONTROLLERS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_CONTROLLERS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_CONTROLLERS_INFO {
@@ -19900,8 +19895,8 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_AUTH_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_AUTH_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_AUTH_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_AUTH_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -19937,8 +19932,8 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_FULL_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_FULL_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_FULL_INFORMATION {
@@ -19977,8 +19972,8 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_FULL_INFORMATION2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_FULL_INFORMATION2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_FULL_INFORMATION2 {
@@ -20020,8 +20015,8 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_INFORMATION_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_INFORMATION_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_INFORMATION_EX {
@@ -20065,8 +20060,8 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_INFORMATION_EX2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_INFORMATION_EX2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_INFORMATION_EX2 {
@@ -20103,8 +20098,8 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_NAME_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_NAME_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_NAME_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_NAME_INFO {
@@ -20136,8 +20131,8 @@ impl ::core::fmt::Debug for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
         f.debug_struct("TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES").field("SupportedEncryptionTypes", &self.SupportedEncryptionTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     fn eq(&self, other: &Self) -> bool {
@@ -20172,8 +20167,8 @@ impl ::core::fmt::Debug for TRUSTED_PASSWORD_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRUSTED_PASSWORD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_PASSWORD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRUSTED_PASSWORD_INFO {
@@ -20205,8 +20200,8 @@ impl ::core::fmt::Debug for TRUSTED_POSIX_OFFSET_INFO {
         f.debug_struct("TRUSTED_POSIX_OFFSET_INFO").field("Offset", &self.Offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRUSTED_POSIX_OFFSET_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUSTED_POSIX_OFFSET_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRUSTED_POSIX_OFFSET_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20266,8 +20261,8 @@ impl ::core::clone::Clone for USER_ALL_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USER_ALL_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_ALL_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for USER_ALL_INFORMATION {
@@ -20296,8 +20291,8 @@ impl ::core::fmt::Debug for USER_SESSION_KEY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
-unsafe impl ::windows::core::Abi for USER_SESSION_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_SESSION_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::cmp::PartialEq for USER_SESSION_KEY {
@@ -20341,8 +20336,8 @@ impl ::core::fmt::Debug for X509Certificate {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for X509Certificate {
-    type Abi = Self;
+impl ::windows::core::TypeKind for X509Certificate {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for X509Certificate {

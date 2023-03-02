@@ -1,4 +1,3 @@
-use core::convert::TryInto;
 use windows::core::*;
 use windows::Foundation::Collections::*;
 use windows::Foundation::*;
@@ -8,10 +7,15 @@ use windows::Foundation::*;
 )]
 struct Thing<T>(Vec<T>)
 where
-    T: ::windows::core::RuntimeType + 'static;
+    T: RuntimeType + 'static + Clone,
+    <T as Type<T>>::Default: PartialEq;
 
 #[allow(non_snake_case)]
-impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T> {
+impl<T> IVectorView_Impl<T> for Thing<T>
+where
+    T: RuntimeType + 'static + Clone,
+    <T as Type<T>>::Default: PartialEq,
+{
     fn GetAt(&self, index: u32) -> Result<T> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
     }
@@ -20,16 +24,20 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Thing<T>
         panic!();
     }
 
-    fn IndexOf(&self, _value: &T::DefaultType, _index: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, _value: &T::Default, _index: &mut u32) -> Result<bool> {
         panic!();
     }
 
-    fn GetMany(&self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
         panic!();
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IIterable_Impl<T> for Thing<T> {
+impl<T> IIterable_Impl<T> for Thing<T>
+where
+    T: RuntimeType + 'static + Clone,
+    <T as Type<T>>::Default: PartialEq,
+{
     fn First(&self) -> Result<IIterator<T>> {
         todo!()
     }
@@ -50,7 +58,7 @@ fn test_implement() -> Result<()> {
     let url1: HSTRING = "http://one/".into();
     let url2: HSTRING = "http://two/".into();
     let url3: HSTRING = "http://three/".into();
-    let v: IVectorView<IStringable> = Thing(vec![Uri::CreateUri(&url1)?.try_into()?, Uri::CreateUri(&url2)?.try_into()?, Uri::CreateUri(&url3)?.try_into()?]).into();
+    let v: IVectorView<IStringable> = Thing(vec![Uri::CreateUri(&url1)?.cast()?, Uri::CreateUri(&url2)?.cast()?, Uri::CreateUri(&url3)?.cast()?]).into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

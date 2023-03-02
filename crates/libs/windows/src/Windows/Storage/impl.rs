@@ -21,7 +21,7 @@ impl ::windows::core::RuntimeName for IStorageFile {
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl IStorageFile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>() -> IStorageFile_Vtbl {
-        unsafe extern "system" fn FileType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FileType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FileType() {
@@ -33,7 +33,7 @@ impl IStorageFile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ContentType() {
@@ -81,7 +81,7 @@ impl IStorageFile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CopyOverloadDefaultOptions(::windows::core::from_raw_borrowed(&destinationfolder), ::core::mem::transmute(&desirednewname)) {
@@ -93,7 +93,7 @@ impl IStorageFile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CopyOverload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: *mut ::core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CopyOverload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, option: NameCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CopyOverload(::windows::core::from_raw_borrowed(&destinationfolder), ::core::mem::transmute(&desirednewname), option) {
@@ -129,7 +129,7 @@ impl IStorageFile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveOverloadDefaultOptions(::windows::core::from_raw_borrowed(&destinationfolder), ::core::mem::transmute(&desirednewname)) {
@@ -141,7 +141,7 @@ impl IStorageFile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveOverload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: *mut ::core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MoveOverload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationfolder: *mut ::core::ffi::c_void, desirednewname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, option: NameCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MoveOverload(::windows::core::from_raw_borrowed(&destinationfolder), ::core::mem::transmute(&desirednewname), option) {
@@ -182,7 +182,7 @@ impl IStorageFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFile as ::windows::core::Interface>::IID
+        iid == &<IStorageFile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -229,7 +229,7 @@ impl IStorageFile2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFile2 as ::windows::core::Interface>::IID
+        iid == &<IStorageFile2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"implement\"`*"]
@@ -259,7 +259,7 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFilePropertiesWithAvailability as ::windows::core::Interface>::IID
+        iid == &<IStorageFilePropertiesWithAvailability as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation_Collections\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -283,7 +283,7 @@ impl ::windows::core::RuntimeName for IStorageFolder {
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 impl IStorageFolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>() -> IStorageFolder_Vtbl {
-        unsafe extern "system" fn CreateFileAsyncOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFileAsyncOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateFileAsyncOverloadDefaultOptions(::core::mem::transmute(&desiredname)) {
@@ -295,7 +295,7 @@ impl IStorageFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFileAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: *mut ::core::ffi::c_void, options: CreationCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFileAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, options: CreationCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateFileAsync(::core::mem::transmute(&desiredname), options) {
@@ -307,7 +307,7 @@ impl IStorageFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderAsyncOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFolderAsyncOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateFolderAsyncOverloadDefaultOptions(::core::mem::transmute(&desiredname)) {
@@ -319,7 +319,7 @@ impl IStorageFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateFolderAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: *mut ::core::ffi::c_void, options: CreationCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateFolderAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, options: CreationCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateFolderAsync(::core::mem::transmute(&desiredname), options) {
@@ -331,7 +331,7 @@ impl IStorageFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFileAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFileAsync(::core::mem::transmute(&name)) {
@@ -343,7 +343,7 @@ impl IStorageFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFolderAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFolderAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFolderAsync(::core::mem::transmute(&name)) {
@@ -355,7 +355,7 @@ impl IStorageFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetItemAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemAsync(::core::mem::transmute(&name)) {
@@ -418,7 +418,7 @@ impl IStorageFolder_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFolder as ::windows::core::Interface>::IID
+        iid == &<IStorageFolder as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -433,7 +433,7 @@ impl ::windows::core::RuntimeName for IStorageFolder2 {
 #[cfg(feature = "Foundation")]
 impl IStorageFolder2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder2_Impl, const OFFSET: isize>() -> IStorageFolder2_Vtbl {
-        unsafe extern "system" fn TryGetItemAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TryGetItemAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TryGetItemAsync(::core::mem::transmute(&name)) {
@@ -451,7 +451,7 @@ impl IStorageFolder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFolder2 as ::windows::core::Interface>::IID
+        iid == &<IStorageFolder2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -475,7 +475,7 @@ impl ::windows::core::RuntimeName for IStorageItem {
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 impl IStorageItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>() -> IStorageItem_Vtbl {
-        unsafe extern "system" fn RenameAsyncOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenameAsyncOverloadDefaultOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RenameAsyncOverloadDefaultOptions(::core::mem::transmute(&desiredname)) {
@@ -487,7 +487,7 @@ impl IStorageItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RenameAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: *mut ::core::ffi::c_void, option: NameCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenameAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::std::mem::MaybeUninit<::windows::core::HSTRING>, option: NameCollisionOption, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RenameAsync(::core::mem::transmute(&desiredname), option) {
@@ -535,7 +535,7 @@ impl IStorageItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -547,7 +547,7 @@ impl IStorageItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Path() {
@@ -610,7 +610,7 @@ impl IStorageItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItem as ::windows::core::Interface>::IID
+        iid == &<IStorageItem as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"implement\"`*"]
@@ -657,7 +657,7 @@ impl IStorageItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItem2 as ::windows::core::Interface>::IID
+        iid == &<IStorageItem2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -714,7 +714,7 @@ impl IStorageItemProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DisplayName() {
@@ -726,7 +726,7 @@ impl IStorageItemProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DisplayType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisplayType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DisplayType() {
@@ -738,7 +738,7 @@ impl IStorageItemProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FolderRelativeId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FolderRelativeId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FolderRelativeId() {
@@ -774,7 +774,7 @@ impl IStorageItemProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemProperties as ::windows::core::Interface>::IID
+        iid == &<IStorageItemProperties as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -835,7 +835,7 @@ impl IStorageItemProperties2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemProperties2 as ::windows::core::Interface>::IID
+        iid == &<IStorageItemProperties2 as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`, `\"Storage_FileProperties\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -868,7 +868,7 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageItemPropertiesWithProvider as ::windows::core::Interface>::IID
+        iid == &<IStorageItemPropertiesWithProvider as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage\"`, `\"implement\"`*"]
@@ -891,6 +891,6 @@ impl IStreamedFileDataRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStreamedFileDataRequest as ::windows::core::Interface>::IID
+        iid == &<IStreamedFileDataRequest as ::windows::core::ComInterface>::IID
     }
 }

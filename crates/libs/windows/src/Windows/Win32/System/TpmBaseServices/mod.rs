@@ -2,80 +2,80 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeviceID(pbwindowsaik: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "tbs.dll""system" fn GetDeviceID ( pbwindowsaik : *mut u8 , cbwindowsaik : u32 , pcbresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tbs.dll""system" fn GetDeviceID ( pbwindowsaik : *mut u8 , cbwindowsaik : u32 , pcbresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     GetDeviceID(::core::mem::transmute(pbwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), pcbresult, ::core::mem::transmute(pfprotectedbytpm.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDeviceIDString(pszwindowsaik: ::core::option::Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "tbs.dll""system" fn GetDeviceIDString ( pszwindowsaik : :: windows::core::PWSTR , cchwindowsaik : u32 , pcchresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "tbs.dll""system" fn GetDeviceIDString ( pszwindowsaik : :: windows::core::PWSTR , cchwindowsaik : u32 , pcchresult : *mut u32 , pfprotectedbytpm : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     GetDeviceIDString(::core::mem::transmute(pszwindowsaik.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len() as _), pcchresult, ::core::mem::transmute(pfprotectedbytpm.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Context_Create(pcontextparams: *const TBS_CONTEXT_PARAMS, phcontext: *mut *mut ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_Context_Create ( pcontextparams : *const TBS_CONTEXT_PARAMS , phcontext : *mut *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_Context_Create ( pcontextparams : *const TBS_CONTEXT_PARAMS , phcontext : *mut *mut ::core::ffi::c_void ) -> u32 );
     Tbsi_Context_Create(pcontextparams, phcontext)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_Create_Windows_Key ( keyhandle : u32 ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_Create_Windows_Key ( keyhandle : u32 ) -> u32 );
     Tbsi_Create_Windows_Key(keyhandle)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_GetDeviceInfo ( size : u32 , info : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_GetDeviceInfo ( size : u32 , info : *mut ::core::ffi::c_void ) -> u32 );
     Tbsi_GetDeviceInfo(size, info)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const ::core::ffi::c_void, ownerauthtype: u32, poutputbuf: ::core::option::Option<*mut u8>, poutputbuflen: *mut u32) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_Get_OwnerAuth ( hcontext : *const ::core::ffi::c_void , ownerauthtype : u32 , poutputbuf : *mut u8 , poutputbuflen : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_Get_OwnerAuth ( hcontext : *const ::core::ffi::c_void , ownerauthtype : u32 , poutputbuf : *mut u8 , poutputbuflen : *mut u32 ) -> u32 );
     Tbsi_Get_OwnerAuth(hcontext, ownerauthtype, ::core::mem::transmute(poutputbuf.unwrap_or(::std::ptr::null_mut())), poutputbuflen)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const ::core::ffi::c_void, poutputbuf: ::core::option::Option<*mut u8>, poutputbuflen: *mut u32) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_Get_TCG_Log ( hcontext : *const ::core::ffi::c_void , poutputbuf : *mut u8 , poutputbuflen : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_Get_TCG_Log ( hcontext : *const ::core::ffi::c_void , poutputbuf : *mut u8 , poutputbuflen : *mut u32 ) -> u32 );
     Tbsi_Get_TCG_Log(hcontext, ::core::mem::transmute(poutputbuf.unwrap_or(::std::ptr::null_mut())), poutputbuflen)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: ::core::option::Option<*mut u8>, pcboutput: *mut u32) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_Get_TCG_Log_Ex ( logtype : u32 , pboutput : *mut u8 , pcboutput : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_Get_TCG_Log_Ex ( logtype : u32 , pboutput : *mut u8 , pcboutput : *mut u32 ) -> u32 );
     Tbsi_Get_TCG_Log_Ex(logtype, ::core::mem::transmute(pboutput.unwrap_or(::std::ptr::null_mut())), pcboutput)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: &[u8], paboutput: *mut u8, pcboutput: *mut u32) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_Physical_Presence_Command ( hcontext : *const ::core::ffi::c_void , pabinput : *const u8 , cbinput : u32 , paboutput : *mut u8 , pcboutput : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_Physical_Presence_Command ( hcontext : *const ::core::ffi::c_void , pabinput : *const u8 , cbinput : u32 , paboutput : *mut u8 , pcboutput : *mut u32 ) -> u32 );
     Tbsi_Physical_Presence_Command(hcontext, ::core::mem::transmute(pabinput.as_ptr()), pabinput.len() as _, paboutput, pcboutput)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsi_Revoke_Attestation ( ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsi_Revoke_Attestation ( ) -> u32 );
     Tbsi_Revoke_Attestation()
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsip_Cancel_Commands ( hcontext : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsip_Cancel_Commands ( hcontext : *const ::core::ffi::c_void ) -> u32 );
     Tbsip_Cancel_Commands(hcontext)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsip_Context_Close ( hcontext : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsip_Context_Close ( hcontext : *const ::core::ffi::c_void ) -> u32 );
     Tbsip_Context_Close(hcontext)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: &[u8], pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
-    ::windows::core::link ! ( "tbs.dll""system" fn Tbsip_Submit_Command ( hcontext : *const ::core::ffi::c_void , locality : TBS_COMMAND_LOCALITY , priority : TBS_COMMAND_PRIORITY , pabcommand : *const u8 , cbcommand : u32 , pabresult : *mut u8 , pcbresult : *mut u32 ) -> u32 );
+    ::windows::imp::link ! ( "tbs.dll""system" fn Tbsip_Submit_Command ( hcontext : *const ::core::ffi::c_void , locality : TBS_COMMAND_LOCALITY , priority : TBS_COMMAND_PRIORITY , pabcommand : *const u8 , cbcommand : u32 , pabresult : *mut u8 , pcbresult : *mut u32 ) -> u32 );
     Tbsip_Submit_Command(hcontext, locality, priority, ::core::mem::transmute(pabcommand.as_ptr()), pabcommand.len() as _, pabresult, pcbresult)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
@@ -157,8 +157,8 @@ impl ::core::default::Default for TBS_COMMAND_LOCALITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TBS_COMMAND_LOCALITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_COMMAND_LOCALITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -190,8 +190,8 @@ impl ::core::default::Default for TBS_COMMAND_PRIORITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_COMMAND_PRIORITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TBS_COMMAND_PRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -214,8 +214,8 @@ impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS {
         f.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -240,8 +240,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2 {
     fn default() -> Self {
@@ -260,8 +260,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0 {
     fn default() -> Self {
@@ -284,8 +284,8 @@ impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
         f.debug_struct("TBS_CONTEXT_PARAMS2_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -317,8 +317,8 @@ impl ::core::fmt::Debug for TPM_DEVICE_INFO {
         f.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TPM_DEVICE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -348,8 +348,8 @@ impl ::core::fmt::Debug for TPM_WNF_PROVISIONING {
         f.debug_struct("TPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TPM_WNF_PROVISIONING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TPM_WNF_PROVISIONING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TPM_WNF_PROVISIONING {
     fn eq(&self, other: &Self) -> bool {

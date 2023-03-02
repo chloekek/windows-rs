@@ -1,77 +1,77 @@
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOEnum(guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<IEnumDMO> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn DMOEnum ( guidcategory : *const :: windows::core::GUID , dwflags : u32 , cintypes : u32 , pintypes : *const DMO_PARTIAL_MEDIATYPE , couttypes : u32 , pouttypes : *const DMO_PARTIAL_MEDIATYPE , ppenum : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DMOEnum(guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "msdmo.dll""system" fn DMOEnum ( guidcategory : *const :: windows::core::GUID , dwflags : u32 , cintypes : u32 , pintypes : *const DMO_PARTIAL_MEDIATYPE , couttypes : u32 , pouttypes : *const DMO_PARTIAL_MEDIATYPE , ppenum : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<IEnumDMO>();
+    DMOEnum(guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOGetName(clsiddmo: *const ::windows::core::GUID, szname: &mut [u16; 80]) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn DMOGetName ( clsiddmo : *const :: windows::core::GUID , szname : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn DMOGetName ( clsiddmo : *const :: windows::core::GUID , szname : :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     DMOGetName(clsiddmo, ::core::mem::transmute(szname.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOGetTypes(clsiddmo: *const ::windows::core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn DMOGetTypes ( clsiddmo : *const :: windows::core::GUID , ulinputtypesrequested : u32 , pulinputtypessupplied : *mut u32 , pinputtypes : *mut DMO_PARTIAL_MEDIATYPE , uloutputtypesrequested : u32 , puloutputtypessupplied : *mut u32 , poutputtypes : *mut DMO_PARTIAL_MEDIATYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn DMOGetTypes ( clsiddmo : *const :: windows::core::GUID , ulinputtypesrequested : u32 , pulinputtypessupplied : *mut u32 , pinputtypes : *mut DMO_PARTIAL_MEDIATYPE , uloutputtypesrequested : u32 , puloutputtypessupplied : *mut u32 , poutputtypes : *mut DMO_PARTIAL_MEDIATYPE ) -> :: windows::core::HRESULT );
     DMOGetTypes(clsiddmo, ulinputtypesrequested, pulinputtypessupplied, pinputtypes, uloutputtypesrequested, puloutputtypessupplied, poutputtypes).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMORegister<P0>(szname: P0, clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "msdmo.dll""system" fn DMORegister ( szname : :: windows::core::PCWSTR , clsiddmo : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID , dwflags : u32 , cintypes : u32 , pintypes : *const DMO_PARTIAL_MEDIATYPE , couttypes : u32 , pouttypes : *const DMO_PARTIAL_MEDIATYPE ) -> :: windows::core::HRESULT );
-    DMORegister(szname.into().abi(), clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes).ok()
+    ::windows::imp::link ! ( "msdmo.dll""system" fn DMORegister ( szname : :: windows::core::PCWSTR , clsiddmo : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID , dwflags : u32 , cintypes : u32 , pintypes : *const DMO_PARTIAL_MEDIATYPE , couttypes : u32 , pouttypes : *const DMO_PARTIAL_MEDIATYPE ) -> :: windows::core::HRESULT );
+    DMORegister(szname.into_param().abi(), clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[inline]
 pub unsafe fn DMOUnregister(clsiddmo: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn DMOUnregister ( clsiddmo : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn DMOUnregister ( clsiddmo : *const :: windows::core::GUID , guidcategory : *const :: windows::core::GUID ) -> :: windows::core::HRESULT );
     DMOUnregister(clsiddmo, guidcategory).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn MoCopyMediaType ( pmtdest : *mut DMO_MEDIA_TYPE , pmtsrc : *const DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn MoCopyMediaType ( pmtdest : *mut DMO_MEDIA_TYPE , pmtsrc : *const DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
     MoCopyMediaType(pmtdest, pmtsrc).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn MoCreateMediaType ( ppmt : *mut *mut DMO_MEDIA_TYPE , cbformat : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn MoCreateMediaType ( ppmt : *mut *mut DMO_MEDIA_TYPE , cbformat : u32 ) -> :: windows::core::HRESULT );
     MoCreateMediaType(ppmt, cbformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn MoDeleteMediaType ( pmt : *mut DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn MoDeleteMediaType ( pmt : *mut DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
     MoDeleteMediaType(pmt).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn MoDuplicateMediaType ( ppmtdest : *mut *mut DMO_MEDIA_TYPE , pmtsrc : *const DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn MoDuplicateMediaType ( ppmtdest : *mut *mut DMO_MEDIA_TYPE , pmtsrc : *const DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
     MoDuplicateMediaType(ppmtdest, pmtsrc).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn MoFreeMediaType ( pmt : *mut DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn MoFreeMediaType ( pmt : *mut DMO_MEDIA_TYPE ) -> :: windows::core::HRESULT );
     MoFreeMediaType(pmt).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "msdmo.dll""system" fn MoInitMediaType ( pmt : *mut DMO_MEDIA_TYPE , cbformat : u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "msdmo.dll""system" fn MoInitMediaType ( pmt : *mut DMO_MEDIA_TYPE , cbformat : u32 ) -> :: windows::core::HRESULT );
     MoInitMediaType(pmt, cbformat).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
@@ -79,22 +79,17 @@ pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::wind
 pub struct IDMOQualityControl(::windows::core::IUnknown);
 impl IDMOQualityControl {
     pub unsafe fn SetNow(&self, rtnow: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNow)(::windows::core::Vtable::as_raw(self), rtnow).ok()
+        (::windows::core::Interface::vtable(self).SetNow)(::windows::core::Interface::as_raw(self), rtnow).ok()
     }
     pub unsafe fn SetStatus(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), dwflags).ok()
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDMOQualityControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDMOQualityControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDMOQualityControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDMOQualityControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -106,10 +101,15 @@ impl ::core::fmt::Debug for IDMOQualityControl {
         f.debug_tuple("IDMOQualityControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDMOQualityControl {
+unsafe impl ::windows::core::Interface for IDMOQualityControl {
     type Vtable = IDMOQualityControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDMOQualityControl {
+impl ::core::clone::Clone for IDMOQualityControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDMOQualityControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65abea96_cf36_453f_af8a_705e98f16260);
 }
 #[repr(C)]
@@ -125,27 +125,22 @@ pub struct IDMOQualityControl_Vtbl {
 pub struct IDMOVideoOutputOptimizations(::windows::core::IUnknown);
 impl IDMOVideoOutputOptimizations {
     pub unsafe fn QueryOperationModePreferences(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryOperationModePreferences)(::windows::core::Vtable::as_raw(self), uloutputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).QueryOperationModePreferences)(::windows::core::Interface::as_raw(self), uloutputstreamindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOperationMode(&self, uloutputstreamindex: u32, dwenabledfeatures: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOperationMode)(::windows::core::Vtable::as_raw(self), uloutputstreamindex, dwenabledfeatures).ok()
+        (::windows::core::Interface::vtable(self).SetOperationMode)(::windows::core::Interface::as_raw(self), uloutputstreamindex, dwenabledfeatures).ok()
     }
     pub unsafe fn GetCurrentOperationMode(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrentOperationMode)(::windows::core::Vtable::as_raw(self), uloutputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetCurrentOperationMode)(::windows::core::Interface::as_raw(self), uloutputstreamindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSampleRequirements(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrentSampleRequirements)(::windows::core::Vtable::as_raw(self), uloutputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetCurrentSampleRequirements)(::windows::core::Interface::as_raw(self), uloutputstreamindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDMOVideoOutputOptimizations, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDMOVideoOutputOptimizations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDMOVideoOutputOptimizations, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDMOVideoOutputOptimizations {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -157,10 +152,15 @@ impl ::core::fmt::Debug for IDMOVideoOutputOptimizations {
         f.debug_tuple("IDMOVideoOutputOptimizations").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDMOVideoOutputOptimizations {
+unsafe impl ::windows::core::Interface for IDMOVideoOutputOptimizations {
     type Vtable = IDMOVideoOutputOptimizations_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDMOVideoOutputOptimizations {
+impl ::core::clone::Clone for IDMOVideoOutputOptimizations {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDMOVideoOutputOptimizations {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac);
 }
 #[repr(C)]
@@ -177,25 +177,20 @@ pub struct IDMOVideoOutputOptimizations_Vtbl {
 pub struct IEnumDMO(::windows::core::IUnknown);
 impl IEnumDMO {
     pub unsafe fn Next(&self, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut ::windows::core::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), citemstofetch, pclsid, names, pcitemsfetched).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), citemstofetch, pclsid, names, pcitemsfetched).ok()
     }
     pub unsafe fn Skip(&self, citemstoskip: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), citemstoskip).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), citemstoskip).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDMO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumDMO>();
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IEnumDMO, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumDMO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IEnumDMO, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IEnumDMO {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -207,10 +202,15 @@ impl ::core::fmt::Debug for IEnumDMO {
         f.debug_tuple("IEnumDMO").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IEnumDMO {
+unsafe impl ::windows::core::Interface for IEnumDMO {
     type Vtable = IEnumDMO_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IEnumDMO {
+impl ::core::clone::Clone for IEnumDMO {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IEnumDMO {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f);
 }
 #[repr(C)]
@@ -227,22 +227,17 @@ pub struct IEnumDMO_Vtbl {
 pub struct IMediaBuffer(::windows::core::IUnknown);
 impl IMediaBuffer {
     pub unsafe fn SetLength(&self, cblength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetLength)(::windows::core::Vtable::as_raw(self), cblength).ok()
+        (::windows::core::Interface::vtable(self).SetLength)(::windows::core::Interface::as_raw(self), cblength).ok()
     }
     pub unsafe fn GetMaxLength(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMaxLength)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetMaxLength)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBufferAndLength(&self, ppbuffer: ::core::option::Option<*mut *mut u8>, pcblength: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetBufferAndLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcblength.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetBufferAndLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbuffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcblength.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMediaBuffer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMediaBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IMediaBuffer, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMediaBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -254,10 +249,15 @@ impl ::core::fmt::Debug for IMediaBuffer {
         f.debug_tuple("IMediaBuffer").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IMediaBuffer {
+unsafe impl ::windows::core::Interface for IMediaBuffer {
     type Vtable = IMediaBuffer_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IMediaBuffer {
+impl ::core::clone::Clone for IMediaBuffer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMediaBuffer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59eff8b9_938c_4a26_82f2_95cb84cdc837);
 }
 #[repr(C)]
@@ -273,94 +273,89 @@ pub struct IMediaBuffer_Vtbl {
 pub struct IMediaObject(::windows::core::IUnknown);
 impl IMediaObject {
     pub unsafe fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetStreamCount)(::windows::core::Vtable::as_raw(self), pcinputstreams, pcoutputstreams).ok()
+        (::windows::core::Interface::vtable(self).GetStreamCount)(::windows::core::Interface::as_raw(self), pcinputstreams, pcoutputstreams).ok()
     }
     pub unsafe fn GetInputStreamInfo(&self, dwinputstreamindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputStreamInfo)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetInputStreamInfo)(::windows::core::Interface::as_raw(self), dwinputstreamindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputStreamInfo(&self, dwoutputstreamindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputStreamInfo)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetOutputStreamInfo)(::windows::core::Interface::as_raw(self), dwoutputstreamindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInputType(&self, dwinputstreamindex: u32, dwtypeindex: u32, pmt: ::core::option::Option<*mut DMO_MEDIA_TYPE>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInputType)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, dwtypeindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetInputType)(::windows::core::Interface::as_raw(self), dwinputstreamindex, dwtypeindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputType(&self, dwoutputstreamindex: u32, dwtypeindex: u32, pmt: ::core::option::Option<*mut DMO_MEDIA_TYPE>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOutputType)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, dwtypeindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetOutputType)(::windows::core::Interface::as_raw(self), dwoutputstreamindex, dwtypeindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInputType(&self, dwinputstreamindex: u32, pmt: ::core::option::Option<*const DMO_MEDIA_TYPE>, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInputType)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null())), dwflags).ok()
+        (::windows::core::Interface::vtable(self).SetInputType)(::windows::core::Interface::as_raw(self), dwinputstreamindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null())), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOutputType(&self, dwoutputstreamindex: u32, pmt: ::core::option::Option<*const DMO_MEDIA_TYPE>, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOutputType)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null())), dwflags).ok()
+        (::windows::core::Interface::vtable(self).SetOutputType)(::windows::core::Interface::as_raw(self), dwoutputstreamindex, ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null())), dwflags).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInputCurrentType(&self, dwinputstreamindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInputCurrentType)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, pmt).ok()
+        (::windows::core::Interface::vtable(self).GetInputCurrentType)(::windows::core::Interface::as_raw(self), dwinputstreamindex, pmt).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputCurrentType(&self, dwoutputstreamindex: u32, pmt: *mut DMO_MEDIA_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOutputCurrentType)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, pmt).ok()
+        (::windows::core::Interface::vtable(self).GetOutputCurrentType)(::windows::core::Interface::as_raw(self), dwoutputstreamindex, pmt).ok()
     }
     pub unsafe fn GetInputSizeInfo(&self, dwinputstreamindex: u32, pcbsize: *mut u32, pcbmaxlookahead: *mut u32, pcbalignment: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetInputSizeInfo)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, pcbsize, pcbmaxlookahead, pcbalignment).ok()
+        (::windows::core::Interface::vtable(self).GetInputSizeInfo)(::windows::core::Interface::as_raw(self), dwinputstreamindex, pcbsize, pcbmaxlookahead, pcbalignment).ok()
     }
     pub unsafe fn GetOutputSizeInfo(&self, dwoutputstreamindex: u32, pcbsize: *mut u32, pcbalignment: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOutputSizeInfo)(::windows::core::Vtable::as_raw(self), dwoutputstreamindex, pcbsize, pcbalignment).ok()
+        (::windows::core::Interface::vtable(self).GetOutputSizeInfo)(::windows::core::Interface::as_raw(self), dwoutputstreamindex, pcbsize, pcbalignment).ok()
     }
     pub unsafe fn GetInputMaxLatency(&self, dwinputstreamindex: u32) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputMaxLatency)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i64>();
+        (::windows::core::Interface::vtable(self).GetInputMaxLatency)(::windows::core::Interface::as_raw(self), dwinputstreamindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputMaxLatency(&self, dwinputstreamindex: u32, rtmaxlatency: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetInputMaxLatency)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, rtmaxlatency).ok()
+        (::windows::core::Interface::vtable(self).SetInputMaxLatency)(::windows::core::Interface::as_raw(self), dwinputstreamindex, rtmaxlatency).ok()
     }
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Flush)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Discontinuity(&self, dwinputstreamindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Discontinuity)(::windows::core::Vtable::as_raw(self), dwinputstreamindex).ok()
+        (::windows::core::Interface::vtable(self).Discontinuity)(::windows::core::Interface::as_raw(self), dwinputstreamindex).ok()
     }
     pub unsafe fn AllocateStreamingResources(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AllocateStreamingResources)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).AllocateStreamingResources)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn FreeStreamingResources(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).FreeStreamingResources)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).FreeStreamingResources)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetInputStatus(&self, dwinputstreamindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputStatus)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetInputStatus)(::windows::core::Interface::as_raw(self), dwinputstreamindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn ProcessInput<P0>(&self, dwinputstreamindex: u32, pbuffer: P0, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IMediaBuffer>>,
+        P0: ::windows::core::IntoParam<IMediaBuffer>,
     {
-        (::windows::core::Vtable::vtable(self).ProcessInput)(::windows::core::Vtable::as_raw(self), dwinputstreamindex, pbuffer.into().abi(), dwflags, rttimestamp, rttimelength).ok()
+        (::windows::core::Interface::vtable(self).ProcessInput)(::windows::core::Interface::as_raw(self), dwinputstreamindex, pbuffer.into_param().abi(), dwflags, rttimestamp, rttimelength).ok()
     }
     pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ProcessOutput)(::windows::core::Vtable::as_raw(self), dwflags, poutputbuffers.len() as _, ::core::mem::transmute(poutputbuffers.as_ptr()), pdwstatus).ok()
+        (::windows::core::Interface::vtable(self).ProcessOutput)(::windows::core::Interface::as_raw(self), dwflags, poutputbuffers.len() as _, ::core::mem::transmute(poutputbuffers.as_ptr()), pdwstatus).ok()
     }
     pub unsafe fn Lock(&self, block: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Lock)(::windows::core::Vtable::as_raw(self), block).ok()
+        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), block).ok()
     }
 }
-::windows::core::interface_hierarchy!(IMediaObject, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMediaObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IMediaObject, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMediaObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -372,10 +367,15 @@ impl ::core::fmt::Debug for IMediaObject {
         f.debug_tuple("IMediaObject").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IMediaObject {
+unsafe impl ::windows::core::Interface for IMediaObject {
     type Vtable = IMediaObject_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IMediaObject {
+impl ::core::clone::Clone for IMediaObject {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMediaObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4);
 }
 #[repr(C)]
@@ -427,23 +427,18 @@ pub struct IMediaObject_Vtbl {
 pub struct IMediaObjectInPlace(::windows::core::IUnknown);
 impl IMediaObjectInPlace {
     pub unsafe fn Process(&self, pdata: &mut [u8], reftimestart: i64, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Process)(::windows::core::Vtable::as_raw(self), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), reftimestart, dwflags).ok()
+        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), reftimestart, dwflags).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IMediaObjectInPlace> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMediaObjectInPlace>();
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLatency(&self) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatency)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i64>();
+        (::windows::core::Interface::vtable(self).GetLatency)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IMediaObjectInPlace, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMediaObjectInPlace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IMediaObjectInPlace, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IMediaObjectInPlace {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -455,10 +450,15 @@ impl ::core::fmt::Debug for IMediaObjectInPlace {
         f.debug_tuple("IMediaObjectInPlace").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IMediaObjectInPlace {
+unsafe impl ::windows::core::Interface for IMediaObjectInPlace {
     type Vtable = IMediaObjectInPlace_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IMediaObjectInPlace {
+impl ::core::clone::Clone for IMediaObjectInPlace {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IMediaObjectInPlace {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x651b9ad0_0fc7_4aa9_9538_d89931010741);
 }
 #[repr(C)]
@@ -518,8 +518,8 @@ impl ::core::default::Default for DMO_ENUM_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DMO_ENUM_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMO_ENUM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DMO_ENUM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -543,8 +543,8 @@ impl ::core::default::Default for DMO_REGISTER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DMO_REGISTER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMO_REGISTER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DMO_REGISTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -570,8 +570,8 @@ impl ::core::default::Default for _DMO_INPLACE_PROCESS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_INPLACE_PROCESS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_INPLACE_PROCESS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_INPLACE_PROCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -601,8 +601,8 @@ impl ::core::default::Default for _DMO_INPUT_DATA_BUFFER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_INPUT_DATA_BUFFER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_INPUT_DATA_BUFFER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_INPUT_DATA_BUFFER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -626,8 +626,8 @@ impl ::core::default::Default for _DMO_INPUT_STATUS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_INPUT_STATUS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_INPUT_STATUS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_INPUT_STATUS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -657,8 +657,8 @@ impl ::core::default::Default for _DMO_INPUT_STREAM_INFO_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_INPUT_STREAM_INFO_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_INPUT_STREAM_INFO_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_INPUT_STREAM_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -690,8 +690,8 @@ impl ::core::default::Default for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -723,8 +723,8 @@ impl ::core::default::Default for _DMO_OUTPUT_STREAM_INFO_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_OUTPUT_STREAM_INFO_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_OUTPUT_STREAM_INFO_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_OUTPUT_STREAM_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -748,8 +748,8 @@ impl ::core::default::Default for _DMO_PROCESS_OUTPUT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_PROCESS_OUTPUT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_PROCESS_OUTPUT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_PROCESS_OUTPUT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -773,8 +773,8 @@ impl ::core::default::Default for _DMO_QUALITY_STATUS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_QUALITY_STATUS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_QUALITY_STATUS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_QUALITY_STATUS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -800,8 +800,8 @@ impl ::core::default::Default for _DMO_SET_TYPE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_SET_TYPE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_SET_TYPE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_SET_TYPE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -825,8 +825,8 @@ impl ::core::default::Default for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -843,7 +843,7 @@ pub struct DMO_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows::core::GUID,
-    pub pUnk: ::windows::core::ManuallyDrop<::windows::core::IUnknown>,
+    pub pUnk: ::std::mem::ManuallyDrop<::core::option::Option<::windows::core::IUnknown>>,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
@@ -860,8 +860,8 @@ impl ::core::fmt::Debug for DMO_MEDIA_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DMO_MEDIA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMO_MEDIA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DMO_MEDIA_TYPE {
@@ -880,7 +880,7 @@ impl ::core::default::Default for DMO_MEDIA_TYPE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 pub struct DMO_OUTPUT_DATA_BUFFER {
-    pub pBuffer: ::windows::core::ManuallyDrop<IMediaBuffer>,
+    pub pBuffer: ::std::mem::ManuallyDrop<::core::option::Option<IMediaBuffer>>,
     pub dwStatus: u32,
     pub rtTimestamp: i64,
     pub rtTimelength: i64,
@@ -895,8 +895,8 @@ impl ::core::fmt::Debug for DMO_OUTPUT_DATA_BUFFER {
         f.debug_struct("DMO_OUTPUT_DATA_BUFFER").field("pBuffer", &self.pBuffer).field("dwStatus", &self.dwStatus).field("rtTimestamp", &self.rtTimestamp).field("rtTimelength", &self.rtTimelength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMO_OUTPUT_DATA_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMO_OUTPUT_DATA_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMO_OUTPUT_DATA_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -926,8 +926,8 @@ impl ::core::fmt::Debug for DMO_PARTIAL_MEDIATYPE {
         f.debug_struct("DMO_PARTIAL_MEDIATYPE").field("type", &self.r#type).field("subtype", &self.subtype).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DMO_PARTIAL_MEDIATYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMO_PARTIAL_MEDIATYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DMO_PARTIAL_MEDIATYPE {
     fn eq(&self, other: &Self) -> bool {

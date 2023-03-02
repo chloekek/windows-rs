@@ -3,73 +3,73 @@
 #[inline]
 pub unsafe fn MatchEnumTag<P0, P1>(hmodule: P0, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "netsh.dll""system" fn MatchEnumTag ( hmodule : super::super::Foundation:: HANDLE , pwcarg : :: windows::core::PCWSTR , dwnumarg : u32 , penumtable : *const TOKEN_VALUE , pdwvalue : *mut u32 ) -> u32 );
-    MatchEnumTag(hmodule.into(), pwcarg.into().abi(), dwnumarg, penumtable, pdwvalue)
+    ::windows::imp::link ! ( "netsh.dll""system" fn MatchEnumTag ( hmodule : super::super::Foundation:: HANDLE , pwcarg : :: windows::core::PCWSTR , dwnumarg : u32 , penumtable : *const TOKEN_VALUE , pdwvalue : *mut u32 ) -> u32 );
+    MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), dwnumarg, penumtable, pdwvalue)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchToken<P0, P1>(pwszusertoken: P0, pwszcmdtoken: P1) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "netsh.dll""system" fn MatchToken ( pwszusertoken : :: windows::core::PCWSTR , pwszcmdtoken : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
-    MatchToken(pwszusertoken.into().abi(), pwszcmdtoken.into().abi())
+    ::windows::imp::link ! ( "netsh.dll""system" fn MatchToken ( pwszusertoken : :: windows::core::PCWSTR , pwszcmdtoken : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PreprocessCommand<P0>(hmodule: P0, ppwcarguments: &mut [::windows::core::PWSTR], dwcurrentindex: u32, ptttags: ::core::option::Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "netsh.dll""system" fn PreprocessCommand ( hmodule : super::super::Foundation:: HANDLE , ppwcarguments : *mut :: windows::core::PWSTR , dwcurrentindex : u32 , dwargcount : u32 , ptttags : *mut TAG_TYPE , dwtagcount : u32 , dwminargs : u32 , dwmaxargs : u32 , pdwtagtype : *mut u32 ) -> u32 );
-    PreprocessCommand(hmodule.into(), ::core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(ptttags.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len() as _), dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "netsh.dll""system" fn PreprocessCommand ( hmodule : super::super::Foundation:: HANDLE , ppwcarguments : *mut :: windows::core::PWSTR , dwcurrentindex : u32 , dwargcount : u32 , ptttags : *mut TAG_TYPE , dwtagcount : u32 , dwminargs : u32 , dwmaxargs : u32 , pdwtagtype : *mut u32 ) -> u32 );
+    PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(ptttags.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len() as _), dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintError<P0>(hmodule: P0, dwerrid: u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "netsh.dll""cdecl" fn PrintError ( hmodule : super::super::Foundation:: HANDLE , dwerrid : u32 ) -> u32 );
-    PrintError(hmodule.into(), dwerrid)
+    ::windows::imp::link ! ( "netsh.dll""cdecl" fn PrintError ( hmodule : super::super::Foundation:: HANDLE , dwerrid : u32 ) -> u32 );
+    PrintError(hmodule.into_param().abi(), dwerrid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
 pub unsafe fn PrintMessage<P0>(pwszformat: P0) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "netsh.dll""cdecl" fn PrintMessage ( pwszformat : :: windows::core::PCWSTR ) -> u32 );
-    PrintMessage(pwszformat.into().abi())
+    ::windows::imp::link ! ( "netsh.dll""cdecl" fn PrintMessage ( pwszformat : :: windows::core::PCWSTR ) -> u32 );
+    PrintMessage(pwszformat.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintMessageFromModule<P0>(hmodule: P0, dwmsgid: u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "netsh.dll""cdecl" fn PrintMessageFromModule ( hmodule : super::super::Foundation:: HANDLE , dwmsgid : u32 ) -> u32 );
-    PrintMessageFromModule(hmodule.into(), dwmsgid)
+    ::windows::imp::link ! ( "netsh.dll""cdecl" fn PrintMessageFromModule ( hmodule : super::super::Foundation:: HANDLE , dwmsgid : u32 ) -> u32 );
+    PrintMessageFromModule(hmodule.into_param().abi(), dwmsgid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
-    ::windows::core::link ! ( "netsh.dll""system" fn RegisterContext ( pchildcontext : *const NS_CONTEXT_ATTRIBUTES ) -> u32 );
+    ::windows::imp::link ! ( "netsh.dll""system" fn RegisterContext ( pchildcontext : *const NS_CONTEXT_ATTRIBUTES ) -> u32 );
     RegisterContext(pchildcontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
-    ::windows::core::link ! ( "netsh.dll""system" fn RegisterHelper ( pguidparentcontext : *const :: windows::core::GUID , pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES ) -> u32 );
+    ::windows::imp::link ! ( "netsh.dll""system" fn RegisterHelper ( pguidparentcontext : *const :: windows::core::GUID , pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES ) -> u32 );
     RegisterHelper(pguidparentcontext, pfnregistersubcontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -165,8 +165,8 @@ impl ::core::default::Default for NS_CMD_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_CMD_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CMD_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_CMD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -198,8 +198,8 @@ impl ::core::default::Default for NS_EVENTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_EVENTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_EVENTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_EVENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -231,8 +231,8 @@ impl ::core::default::Default for NS_MODE_CHANGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_MODE_CHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_MODE_CHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_MODE_CHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -262,8 +262,8 @@ impl ::core::default::Default for NS_REQS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NS_REQS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_REQS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NS_REQS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -296,8 +296,8 @@ impl ::core::fmt::Debug for CMD_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMD_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMD_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_ENTRY {
@@ -331,8 +331,8 @@ impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMD_GROUP_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMD_GROUP_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_GROUP_ENTRY {
@@ -368,8 +368,8 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
@@ -393,8 +393,8 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
@@ -424,8 +424,8 @@ impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
@@ -455,8 +455,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
     fn default() -> Self {
@@ -475,8 +475,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0 {
     fn default() -> Self {
@@ -500,8 +500,8 @@ impl ::core::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
         f.debug_struct("NS_HELPER_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -537,8 +537,8 @@ impl ::core::fmt::Debug for TAG_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAG_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAG_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAG_TYPE {
@@ -571,8 +571,8 @@ impl ::core::fmt::Debug for TOKEN_VALUE {
         f.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TOKEN_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOKEN_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TOKEN_VALUE {
     fn eq(&self, other: &Self) -> bool {

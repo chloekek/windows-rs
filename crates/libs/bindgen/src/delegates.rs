@@ -1,7 +1,11 @@
 use super::*;
 
 pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+    if gen
+        .reader
+        .type_def_flags(def)
+        .contains(TypeAttributes::WINRT)
+    {
         gen_delegate(gen, def)
     } else {
         gen_callback(gen, def)
@@ -64,7 +68,15 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
     let features = gen.cfg_features(&cfg);
 
     let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
-    let invoke = winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, &mut MethodNames::new(), &mut MethodNames::new());
+    let invoke = winrt_methods::gen(
+        gen,
+        def,
+        generics,
+        InterfaceKind::Default,
+        method,
+        &mut MethodNames::new(),
+        &mut MethodNames::new(),
+    );
     let invoke_upcall = winrt_methods::gen_upcall(gen, &signature, quote! { ((*this).invoke) });
 
     let mut tokens = quote! {
@@ -77,11 +89,11 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
                 let com = #boxed::<#generic_names F> {
                     vtable: &#boxed::<#generic_names F>::VTABLE,
-                    count: ::windows::core::RefCount::new(1),
+                    count: ::windows::imp::RefCount::new(1),
                     invoke,
                 };
                 unsafe {
-                    ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com))
+                    ::core::mem::transmute(::std::boxed::Box::new(com))
                 }
             }
             #invoke
@@ -91,7 +103,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         struct #boxed<#generic_names #fn_constraint> where #constraints {
             vtable: *const #vtbl<#generic_names>,
             invoke: F,
-            count: ::windows::core::RefCount,
+            count: ::windows::imp::RefCount,
         }
         #features
         impl<#constraints #fn_constraint> #boxed<#generic_names F> {
@@ -103,9 +115,9 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
             unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
                 let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
 
-                *interface = if iid == &<#ident as ::windows::core::Interface>::IID ||
-                    iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID ||
-                    iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
+                *interface = if iid == &<#ident as ::windows::core::ComInterface>::IID ||
+                    iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID ||
+                    iid == &<::windows::imp::IAgileObject as ::windows::core::ComInterface>::IID {
                         &mut (*this).vtable as *mut _ as _
                     } else {
                         ::core::ptr::null_mut()
@@ -129,7 +141,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                 let remaining = (*this).count.release();
 
                 if remaining == 0 {
-                    let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+                    let _ = ::std::boxed::Box::from_raw(this);
                 }
 
                 remaining
@@ -141,9 +153,23 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&gen.interface_core_traits(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &phantoms,
+        &features,
+    ));
     tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features, true));
-    tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&gen.interface_winrt_trait(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &phantoms,
+        &features,
+    ));
     tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));
     tokens
 }

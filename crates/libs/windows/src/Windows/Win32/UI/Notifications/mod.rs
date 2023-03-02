@@ -4,18 +4,13 @@ pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
     pub unsafe fn Activate<P0, P1>(&self, appusermodelid: P0, invokedargs: P1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), appusermodelid.into().abi(), invokedargs.into().abi(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(INotificationActivationCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INotificationActivationCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(INotificationActivationCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for INotificationActivationCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -27,10 +22,15 @@ impl ::core::fmt::Debug for INotificationActivationCallback {
         f.debug_tuple("INotificationActivationCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for INotificationActivationCallback {
+unsafe impl ::windows::core::Interface for INotificationActivationCallback {
     type Vtable = INotificationActivationCallback_Vtbl;
 }
-unsafe impl ::windows::core::Interface for INotificationActivationCallback {
+impl ::core::clone::Clone for INotificationActivationCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for INotificationActivationCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53e31837_6600_4a81_9395_75cffe746f94);
 }
 #[repr(C)]
@@ -56,8 +56,8 @@ impl ::core::fmt::Debug for NOTIFICATION_USER_INPUT_DATA {
         f.debug_struct("NOTIFICATION_USER_INPUT_DATA").field("Key", &self.Key).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NOTIFICATION_USER_INPUT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFICATION_USER_INPUT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NOTIFICATION_USER_INPUT_DATA {
     fn eq(&self, other: &Self) -> bool {

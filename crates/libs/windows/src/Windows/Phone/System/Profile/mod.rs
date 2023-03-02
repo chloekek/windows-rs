@@ -3,11 +3,17 @@
 #[repr(transparent)]
 pub struct IRetailModeStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Vtable for IRetailModeStatics {
+unsafe impl ::windows::core::Interface for IRetailModeStatics {
     type Vtable = IRetailModeStatics_Vtbl;
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IRetailModeStatics {
+impl ::core::clone::Clone for IRetailModeStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::ComInterface for IRetailModeStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
 }
 #[cfg(feature = "deprecated")]
@@ -29,14 +35,14 @@ impl RetailMode {
     #[cfg(feature = "deprecated")]
     pub fn RetailModeEnabled() -> ::windows::core::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RetailModeEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Interface::vtable(this).RetailModeEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
     pub fn IRetailModeStatics<R, F: FnOnce(&IRetailModeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<RetailMode, IRetailModeStatics> = ::windows::core::FactoryCache::new();
+        static SHARED: ::windows::imp::FactoryCache<RetailMode, IRetailModeStatics> = ::windows::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }

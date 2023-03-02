@@ -16,7 +16,7 @@ impl ::windows::core::RuntimeName for IIndexableContent {
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IIndexableContent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>() -> IIndexableContent_Vtbl {
-        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Id() {
@@ -28,7 +28,7 @@ impl IIndexableContent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetId(::core::mem::transmute(&value)).into()
@@ -62,7 +62,7 @@ impl IIndexableContent_Vtbl {
             let this = (*this).get_impl();
             this.SetStream(::windows::core::from_raw_borrowed(&value)).into()
         }
-        unsafe extern "system" fn StreamContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StreamContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StreamContentType() {
@@ -74,7 +74,7 @@ impl IIndexableContent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStreamContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStreamContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStreamContentType(::core::mem::transmute(&value)).into()
@@ -91,7 +91,7 @@ impl IIndexableContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIndexableContent as ::windows::core::Interface>::IID
+        iid == &<IIndexableContent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -348,7 +348,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageFolderQueryOperations as ::windows::core::Interface>::IID
+        iid == &<IStorageFolderQueryOperations as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -472,6 +472,6 @@ impl IStorageQueryResultBase_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IStorageQueryResultBase as ::windows::core::Interface>::IID
+        iid == &<IStorageQueryResultBase as ::windows::core::ComInterface>::IID
     }
 }

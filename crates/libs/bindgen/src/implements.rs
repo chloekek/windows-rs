@@ -1,7 +1,9 @@
 use super::*;
 
 pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.reader.type_def_kind(def) != TypeKind::Interface || (!gen.component && !gen.reader.type_def_can_implement(def)) {
+    if gen.reader.type_def_kind(def) != TypeKind::Interface
+        || (!gen.component && !gen.reader.type_def_can_implement(def))
+    {
         return quote! {};
     }
 
@@ -28,7 +30,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     }
 
-    let mut matches = quote! { iid == &<#type_ident as ::windows::core::Interface>::IID };
+    let mut matches = quote! { iid == &<#type_ident as ::windows::core::ComInterface>::IID };
 
     if let Some(Type::TypeDef((def, _))) = vtables.last() {
         requires.combine(&gen_required_trait(gen, *def, &[]))
@@ -39,14 +41,21 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             let name = gen.type_def_name(*def, generics);
 
             matches.combine(&quote! {
-                || iid == &<#name as ::windows::core::Interface>::IID
+                || iid == &<#name as ::windows::core::ComInterface>::IID
             })
         }
     }
 
-    if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+    if gen
+        .reader
+        .type_def_flags(def)
+        .contains(TypeAttributes::WINRT)
+    {
         // TODO: this awkward wrapping of TypeDefs needs fixing
-        for interface in gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec()))) {
+        for interface in gen
+            .reader
+            .type_interfaces(&Type::TypeDef((def, generics.to_vec())))
+        {
             if let Type::TypeDef((def, generics)) = interface.ty {
                 requires.combine(&gen_required_trait(gen, def, &generics));
             }

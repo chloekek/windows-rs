@@ -3,24 +3,24 @@
 #[inline]
 pub unsafe fn MSChapSrvChangePassword<P0, P1, P2>(servername: P0, username: P1, lmoldpresent: P2, lmoldowfpassword: *const LM_OWF_PASSWORD, lmnewowfpassword: *const LM_OWF_PASSWORD, ntoldowfpassword: *const LM_OWF_PASSWORD, ntnewowfpassword: *const LM_OWF_PASSWORD) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , lmoldpresent : super::super::Foundation:: BOOLEAN , lmoldowfpassword : *const LM_OWF_PASSWORD , lmnewowfpassword : *const LM_OWF_PASSWORD , ntoldowfpassword : *const LM_OWF_PASSWORD , ntnewowfpassword : *const LM_OWF_PASSWORD ) -> u32 );
-    MSChapSrvChangePassword(servername.into().abi(), username.into().abi(), lmoldpresent.into(), lmoldowfpassword, lmnewowfpassword, ntoldowfpassword, ntnewowfpassword)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , lmoldpresent : super::super::Foundation:: BOOLEAN , lmoldowfpassword : *const LM_OWF_PASSWORD , lmnewowfpassword : *const LM_OWF_PASSWORD , ntoldowfpassword : *const LM_OWF_PASSWORD , ntnewowfpassword : *const LM_OWF_PASSWORD ) -> u32 );
+    MSChapSrvChangePassword(servername.into_param().abi(), username.into_param().abi(), lmoldpresent.into_param().abi(), lmoldowfpassword, lmnewowfpassword, ntoldowfpassword, ntnewowfpassword)
 }
 #[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword2<P0, P1, P2>(servername: P0, username: P1, newpasswordencryptedwitholdnt: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldntowfpasswordencryptedwithnewnt: *const ENCRYPTED_LM_OWF_PASSWORD, lmpresent: P2, newpasswordencryptedwitholdlm: *const SAMPR_ENCRYPTED_USER_PASSWORD, oldlmowfpasswordencryptedwithnewlmornt: *const ENCRYPTED_LM_OWF_PASSWORD) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P2: ::windows::core::IntoParam<super::super::Foundation::BOOLEAN>,
 {
-    ::windows::core::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword2 ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , newpasswordencryptedwitholdnt : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldntowfpasswordencryptedwithnewnt : *const ENCRYPTED_LM_OWF_PASSWORD , lmpresent : super::super::Foundation:: BOOLEAN , newpasswordencryptedwitholdlm : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldlmowfpasswordencryptedwithnewlmornt : *const ENCRYPTED_LM_OWF_PASSWORD ) -> u32 );
-    MSChapSrvChangePassword2(servername.into().abi(), username.into().abi(), newpasswordencryptedwitholdnt, oldntowfpasswordencryptedwithnewnt, lmpresent.into(), newpasswordencryptedwitholdlm, oldlmowfpasswordencryptedwithnewlmornt)
+    ::windows::imp::link ! ( "advapi32.dll""system" fn MSChapSrvChangePassword2 ( servername : :: windows::core::PCWSTR , username : :: windows::core::PCWSTR , newpasswordencryptedwitholdnt : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldntowfpasswordencryptedwithnewnt : *const ENCRYPTED_LM_OWF_PASSWORD , lmpresent : super::super::Foundation:: BOOLEAN , newpasswordencryptedwitholdlm : *const SAMPR_ENCRYPTED_USER_PASSWORD , oldlmowfpasswordencryptedwithnewlmornt : *const ENCRYPTED_LM_OWF_PASSWORD ) -> u32 );
+    MSChapSrvChangePassword2(servername.into_param().abi(), username.into_param().abi(), newpasswordencryptedwitholdnt, oldntowfpasswordencryptedwithnewnt, lmpresent.into_param().abi(), newpasswordencryptedwitholdlm, oldlmowfpasswordencryptedwithnewlmornt)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
@@ -43,8 +43,8 @@ impl ::core::fmt::Debug for CYPHER_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CYPHER_BLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CYPHER_BLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CYPHER_BLOCK {
@@ -81,8 +81,8 @@ impl ::core::fmt::Debug for ENCRYPTED_LM_OWF_PASSWORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENCRYPTED_LM_OWF_PASSWORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTED_LM_OWF_PASSWORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENCRYPTED_LM_OWF_PASSWORD {
@@ -119,8 +119,8 @@ impl ::core::fmt::Debug for LM_OWF_PASSWORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LM_OWF_PASSWORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LM_OWF_PASSWORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LM_OWF_PASSWORD {
@@ -152,8 +152,8 @@ impl ::core::fmt::Debug for SAMPR_ENCRYPTED_USER_PASSWORD {
         f.debug_struct("SAMPR_ENCRYPTED_USER_PASSWORD").field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SAMPR_ENCRYPTED_USER_PASSWORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SAMPR_ENCRYPTED_USER_PASSWORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SAMPR_ENCRYPTED_USER_PASSWORD {
     fn eq(&self, other: &Self) -> bool {

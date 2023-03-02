@@ -4,134 +4,129 @@ pub mod D2D;
 #[inline]
 pub unsafe fn WICConvertBitmapSource<P0>(dstformat: *const ::windows::core::GUID, pisrc: P0) -> ::windows::core::Result<IWICBitmapSource>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+    P0: ::windows::core::IntoParam<IWICBitmapSource>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICConvertBitmapSource ( dstformat : *const :: windows::core::GUID , pisrc : * mut::core::ffi::c_void , ppidst : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WICConvertBitmapSource(dstformat, pisrc.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICConvertBitmapSource ( dstformat : *const :: windows::core::GUID , pisrc : * mut::core::ffi::c_void , ppidst : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<IWICBitmapSource>();
+    WICConvertBitmapSource(dstformat, pisrc.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSection<P0>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: P0, stride: u32, offset: u32) -> ::windows::core::Result<IWICBitmap>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSection ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WICCreateBitmapFromSection(width, height, pixelformat, hsection.into(), stride, offset, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSection ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+    WICCreateBitmapFromSection(width, height, pixelformat, hsection.into_param().abi(), stride, offset, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSectionEx<P0>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: P0, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel) -> ::windows::core::Result<IWICBitmap>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSectionEx ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , desiredaccesslevel : WICSectionAccessLevel , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WICCreateBitmapFromSectionEx(width, height, pixelformat, hsection.into(), stride, offset, desiredaccesslevel, result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSectionEx ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , desiredaccesslevel : WICSectionAccessLevel , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+    WICCreateBitmapFromSectionEx(width, height, pixelformat, hsection.into_param().abi(), stride, offset, desiredaccesslevel, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
 pub unsafe fn WICGetMetadataContentSize<P0>(guidcontainerformat: *const ::windows::core::GUID, piwriter: P0) -> ::windows::core::Result<u64>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataWriter>>,
+    P0: ::windows::core::IntoParam<IWICMetadataWriter>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICGetMetadataContentSize ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , pcbsize : *mut u64 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WICGetMetadataContentSize(guidcontainerformat, piwriter.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICGetMetadataContentSize ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , pcbsize : *mut u64 ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<u64>();
+    WICGetMetadataContentSize(guidcontainerformat, piwriter.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
 pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: ::core::option::Option<&mut [u16]>, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapGuidToShortName ( guid : *const :: windows::core::GUID , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMapGuidToShortName ( guid : *const :: windows::core::GUID , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
     WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchactual).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
 pub unsafe fn WICMapSchemaToName<P0>(guidmetadataformat: *const ::windows::core::GUID, pwzschema: P0, wzname: ::core::option::Option<&mut [u16]>, pcchactual: *mut u32) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapSchemaToName ( guidmetadataformat : *const :: windows::core::GUID , pwzschema : :: windows::core::PCWSTR , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
-    WICMapSchemaToName(guidmetadataformat, pwzschema.into().abi(), wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchactual).ok()
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMapSchemaToName ( guidmetadataformat : *const :: windows::core::GUID , pwzschema : :: windows::core::PCWSTR , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
+    WICMapSchemaToName(guidmetadataformat, pwzschema.into_param().abi(), wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchactual).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0) -> ::windows::core::Result<::windows::core::GUID>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapShortNameToGuid ( wzname : :: windows::core::PCWSTR , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WICMapShortNameToGuid(wzname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMapShortNameToGuid ( wzname : :: windows::core::PCWSTR , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    WICMapShortNameToGuid(wzname.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICMatchMetadataContent<P0>(guidcontainerformat: *const ::windows::core::GUID, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, pistream: P0) -> ::windows::core::Result<::windows::core::GUID>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+    P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMatchMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , pguidvendor : *const :: windows::core::GUID , pistream : * mut::core::ffi::c_void , pguidmetadataformat : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WICMatchMetadataContent(guidcontainerformat, ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), pistream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICMatchMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , pguidvendor : *const :: windows::core::GUID , pistream : * mut::core::ffi::c_void , pguidmetadataformat : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    WICMatchMetadataContent(guidcontainerformat, ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), pistream.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICSerializeMetadataContent<P0, P1>(guidcontainerformat: *const ::windows::core::GUID, piwriter: P0, dwpersistoptions: u32, pistream: P1) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataWriter>>,
-    P1: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+    P0: ::windows::core::IntoParam<IWICMetadataWriter>,
+    P1: ::windows::core::IntoParam<super::super::System::Com::IStream>,
 {
-    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICSerializeMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , dwpersistoptions : u32 , pistream : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    WICSerializeMetadataContent(guidcontainerformat, piwriter.into().abi(), dwpersistoptions, pistream.into().abi()).ok()
+    ::windows::imp::link ! ( "windowscodecs.dll""system" fn WICSerializeMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , dwpersistoptions : u32 , pistream : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    WICSerializeMetadataContent(guidcontainerformat, piwriter.into_param().abi(), dwpersistoptions, pistream.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct IWICBitmap(::windows::core::IUnknown);
 impl IWICBitmap {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Lock(&self, prclock: *const WICRect, flags: u32) -> ::windows::core::Result<IWICBitmapLock> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Lock)(::windows::core::Vtable::as_raw(self), prclock, flags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapLock>();
+        (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), prclock, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).SetPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn SetResolution(&self, dpix: f64, dpiy: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetResolution)(::windows::core::Vtable::as_raw(self), dpix, dpiy).ok()
+        (::windows::core::Interface::vtable(self).SetResolution)(::windows::core::Interface::as_raw(self), dpix, dpiy).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmap, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICBitmap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmap, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmap {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -143,10 +138,15 @@ impl ::core::fmt::Debug for IWICBitmap {
         f.debug_tuple("IWICBitmap").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmap {
+unsafe impl ::windows::core::Interface for IWICBitmap {
     type Vtable = IWICBitmap_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmap {
+impl ::core::clone::Clone for IWICBitmap {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmap {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000121_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -162,37 +162,32 @@ pub struct IWICBitmap_Vtbl {
 pub struct IWICBitmapClipper(::windows::core::IUnknown);
 impl IWICBitmapClipper {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Initialize<P0>(&self, pisource: P0, prc: *const WICRect) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), prc).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), prc).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapClipper, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICBitmapClipper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapClipper, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapClipper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -204,10 +199,15 @@ impl ::core::fmt::Debug for IWICBitmapClipper {
         f.debug_tuple("IWICBitmapClipper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapClipper {
+unsafe impl ::windows::core::Interface for IWICBitmapClipper {
     type Vtable = IWICBitmapClipper_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapClipper {
+impl ::core::clone::Clone for IWICBitmapClipper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapClipper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4fbcf03_223d_4e81_9333_d635556dd1b5);
 }
 #[repr(C)]
@@ -221,95 +221,90 @@ pub struct IWICBitmapClipper_Vtbl {
 pub struct IWICBitmapCodecInfo(::windows::core::IUnknown);
 impl IWICBitmapCodecInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormats(&self, pguidpixelformats: &mut [::windows::core::GUID], pcactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPixelFormats)(::windows::core::Vtable::as_raw(self), pguidpixelformats.len() as _, ::core::mem::transmute(pguidpixelformats.as_ptr()), pcactual).ok()
+        (::windows::core::Interface::vtable(self).GetPixelFormats)(::windows::core::Interface::as_raw(self), pguidpixelformats.len() as _, ::core::mem::transmute(pguidpixelformats.as_ptr()), pcactual).ok()
     }
     pub unsafe fn GetColorManagementVersion(&self, wzcolormanagementversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColorManagementVersion)(::windows::core::Vtable::as_raw(self), wzcolormanagementversion.len() as _, ::core::mem::transmute(wzcolormanagementversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetColorManagementVersion)(::windows::core::Interface::as_raw(self), wzcolormanagementversion.len() as _, ::core::mem::transmute(wzcolormanagementversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDeviceManufacturer)(::windows::core::Vtable::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceManufacturer)(::windows::core::Interface::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceModels(&self, wzdevicemodels: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDeviceModels)(::windows::core::Vtable::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceModels)(::windows::core::Interface::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetMimeTypes(&self, wzmimetypes: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetMimeTypes)(::windows::core::Vtable::as_raw(self), wzmimetypes.len() as _, ::core::mem::transmute(wzmimetypes.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetMimeTypes)(::windows::core::Interface::as_raw(self), wzmimetypes.len() as _, ::core::mem::transmute(wzmimetypes.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFileExtensions(&self, wzfileextensions: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFileExtensions)(::windows::core::Vtable::as_raw(self), wzfileextensions.len() as _, ::core::mem::transmute(wzfileextensions.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetFileExtensions)(::windows::core::Interface::as_raw(self), wzfileextensions.len() as _, ::core::mem::transmute(wzfileextensions.as_ptr()), pcchactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportAnimation(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesSupportAnimation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesSupportAnimation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportChromakey(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesSupportChromakey)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesSupportChromakey)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportLossless(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesSupportLossless)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesSupportLossless)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportMultiframe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesSupportMultiframe)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesSupportMultiframe)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapCodecInfo, ::windows::core::IUnknown, IWICComponentInfo);
-impl ::core::clone::Clone for IWICBitmapCodecInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapCodecInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICBitmapCodecInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -321,10 +316,15 @@ impl ::core::fmt::Debug for IWICBitmapCodecInfo {
         f.debug_tuple("IWICBitmapCodecInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapCodecInfo {
+unsafe impl ::windows::core::Interface for IWICBitmapCodecInfo {
     type Vtable = IWICBitmapCodecInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapCodecInfo {
+impl ::core::clone::Clone for IWICBitmapCodecInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapCodecInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe87a44c4_b76e_4c47_8b09_298eb12a2714);
 }
 #[repr(C)]
@@ -364,15 +364,10 @@ pub struct IWICBitmapCodecInfo_Vtbl {
 pub struct IWICBitmapCodecProgressNotification(::windows::core::IUnknown);
 impl IWICBitmapCodecProgressNotification {
     pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: ::core::option::Option<*const ::core::ffi::c_void>, dwprogressflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RegisterProgressNotification)(::windows::core::Vtable::as_raw(self), pfnprogressnotification, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), dwprogressflags).ok()
+        (::windows::core::Interface::vtable(self).RegisterProgressNotification)(::windows::core::Interface::as_raw(self), pfnprogressnotification, ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), dwprogressflags).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapCodecProgressNotification, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICBitmapCodecProgressNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapCodecProgressNotification, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapCodecProgressNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -384,10 +379,15 @@ impl ::core::fmt::Debug for IWICBitmapCodecProgressNotification {
         f.debug_tuple("IWICBitmapCodecProgressNotification").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapCodecProgressNotification {
+unsafe impl ::windows::core::Interface for IWICBitmapCodecProgressNotification {
     type Vtable = IWICBitmapCodecProgressNotification_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapCodecProgressNotification {
+impl ::core::clone::Clone for IWICBitmapCodecProgressNotification {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapCodecProgressNotification {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c1024e_c3cf_4462_8078_88c2b11c46d9);
 }
 #[repr(C)]
@@ -404,63 +404,58 @@ impl IWICBitmapDecoder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryCapability<P0>(&self, pistream: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryCapability)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).QueryCapability)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pistream: P0, cacheoptions: WICDecodeOptions) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), cacheoptions).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), cacheoptions).ok()
     }
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDecoderInfo(&self) -> ::windows::core::Result<IWICBitmapDecoderInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDecoderInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoderInfo>();
+        (::windows::core::Interface::vtable(self).GetDecoderInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataQueryReader)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryReader>();
+        (::windows::core::Interface::vtable(self).GetMetadataQueryReader)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPreview(&self) -> ::windows::core::Result<IWICBitmapSource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPreview)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapSource>();
+        (::windows::core::Interface::vtable(self).GetPreview)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorContexts(&self, ppicolorcontexts: &mut [::core::option::Option<IWICColorContext>], pcactualcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColorContexts)(::windows::core::Vtable::as_raw(self), ppicolorcontexts.len() as _, ::core::mem::transmute(ppicolorcontexts.as_ptr()), pcactualcount).ok()
+        (::windows::core::Interface::vtable(self).GetColorContexts)(::windows::core::Interface::as_raw(self), ppicolorcontexts.len() as _, ::core::mem::transmute(ppicolorcontexts.as_ptr()), pcactualcount).ok()
     }
     pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IWICBitmapSource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetThumbnail)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapSource>();
+        (::windows::core::Interface::vtable(self).GetThumbnail)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFrameCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFrameCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetFrameCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFrame(&self, index: u32) -> ::windows::core::Result<IWICBitmapFrameDecode> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFrame)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapFrameDecode>();
+        (::windows::core::Interface::vtable(self).GetFrame)(::windows::core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapDecoder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICBitmapDecoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapDecoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -472,10 +467,15 @@ impl ::core::fmt::Debug for IWICBitmapDecoder {
         f.debug_tuple("IWICBitmapDecoder").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapDecoder {
+unsafe impl ::windows::core::Interface for IWICBitmapDecoder {
     type Vtable = IWICBitmapDecoder_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapDecoder {
+impl ::core::clone::Clone for IWICBitmapDecoder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapDecoder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9edde9e7_8dee_47ea_99df_e6faf2ed44bf);
 }
 #[repr(C)]
@@ -505,113 +505,108 @@ pub struct IWICBitmapDecoder_Vtbl {
 pub struct IWICBitmapDecoderInfo(::windows::core::IUnknown);
 impl IWICBitmapDecoderInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormats(&self, pguidpixelformats: &mut [::windows::core::GUID], pcactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormats)(::windows::core::Vtable::as_raw(self), pguidpixelformats.len() as _, ::core::mem::transmute(pguidpixelformats.as_ptr()), pcactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormats)(::windows::core::Interface::as_raw(self), pguidpixelformats.len() as _, ::core::mem::transmute(pguidpixelformats.as_ptr()), pcactual).ok()
     }
     pub unsafe fn GetColorManagementVersion(&self, wzcolormanagementversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetColorManagementVersion)(::windows::core::Vtable::as_raw(self), wzcolormanagementversion.len() as _, ::core::mem::transmute(wzcolormanagementversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetColorManagementVersion)(::windows::core::Interface::as_raw(self), wzcolormanagementversion.len() as _, ::core::mem::transmute(wzcolormanagementversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Vtable::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Interface::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceModels(&self, wzdevicemodels: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceModels)(::windows::core::Vtable::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceModels)(::windows::core::Interface::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetMimeTypes(&self, wzmimetypes: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetMimeTypes)(::windows::core::Vtable::as_raw(self), wzmimetypes.len() as _, ::core::mem::transmute(wzmimetypes.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetMimeTypes)(::windows::core::Interface::as_raw(self), wzmimetypes.len() as _, ::core::mem::transmute(wzmimetypes.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFileExtensions(&self, wzfileextensions: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFileExtensions)(::windows::core::Vtable::as_raw(self), wzfileextensions.len() as _, ::core::mem::transmute(wzfileextensions.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFileExtensions)(::windows::core::Interface::as_raw(self), wzfileextensions.len() as _, ::core::mem::transmute(wzfileextensions.as_ptr()), pcchactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportAnimation(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportAnimation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportAnimation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportChromakey(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportChromakey)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportChromakey)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportLossless(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportLossless)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportLossless)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportMultiframe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportMultiframe)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportMultiframe)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: ::core::option::Option<*mut WICBitmapPattern>, pcpatterns: ::core::option::Option<*mut u32>, pcbpatternsactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPatterns)(::windows::core::Vtable::as_raw(self), cbsizepatterns, ::core::mem::transmute(ppatterns.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcpatterns.unwrap_or(::std::ptr::null_mut())), pcbpatternsactual).ok()
+        (::windows::core::Interface::vtable(self).GetPatterns)(::windows::core::Interface::as_raw(self), cbsizepatterns, ::core::mem::transmute(ppatterns.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcpatterns.unwrap_or(::std::ptr::null_mut())), pcbpatternsactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn MatchesPattern<P0>(&self, pistream: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MatchesPattern)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).MatchesPattern)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapDecoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
-impl ::core::clone::Clone for IWICBitmapDecoderInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapDecoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl ::core::cmp::PartialEq for IWICBitmapDecoderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -623,10 +618,15 @@ impl ::core::fmt::Debug for IWICBitmapDecoderInfo {
         f.debug_tuple("IWICBitmapDecoderInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapDecoderInfo {
+unsafe impl ::windows::core::Interface for IWICBitmapDecoderInfo {
     type Vtable = IWICBitmapDecoderInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapDecoderInfo {
+impl ::core::clone::Clone for IWICBitmapDecoderInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapDecoderInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cd007f_d08f_4191_9bfc_236ea7f0e4b5);
 }
 #[repr(C)]
@@ -651,58 +651,53 @@ impl IWICBitmapEncoder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0>(&self, pistream: P0, cacheoption: WICBitmapEncoderCacheOption) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), cacheoption).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), cacheoption).ok()
     }
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEncoderInfo(&self) -> ::windows::core::Result<IWICBitmapEncoderInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEncoderInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapEncoderInfo>();
+        (::windows::core::Interface::vtable(self).GetEncoderInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[::core::option::Option<IWICColorContext>]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetColorContexts)(::windows::core::Vtable::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(ppicolorcontext.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetColorContexts)(::windows::core::Interface::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(ppicolorcontext.as_ptr())).ok()
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).SetPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn SetThumbnail<P0>(&self, pithumbnail: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        (::windows::core::Vtable::vtable(self).SetThumbnail)(::windows::core::Vtable::as_raw(self), pithumbnail.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetThumbnail)(::windows::core::Interface::as_raw(self), pithumbnail.into_param().abi()).ok()
     }
     pub unsafe fn SetPreview<P0>(&self, pipreview: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        (::windows::core::Vtable::vtable(self).SetPreview)(::windows::core::Vtable::as_raw(self), pipreview.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPreview)(::windows::core::Interface::as_raw(self), pipreview.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn CreateNewFrame(&self, ppiframeencode: *mut ::core::option::Option<IWICBitmapFrameEncode>, ppiencoderoptions: *mut ::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag2>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateNewFrame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppiframeencode), ::core::mem::transmute(ppiencoderoptions)).ok()
+        (::windows::core::Interface::vtable(self).CreateNewFrame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppiframeencode), ::core::mem::transmute(ppiencoderoptions)).ok()
     }
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetMetadataQueryWriter(&self) -> ::windows::core::Result<IWICMetadataQueryWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).GetMetadataQueryWriter)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapEncoder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICBitmapEncoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapEncoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -714,10 +709,15 @@ impl ::core::fmt::Debug for IWICBitmapEncoder {
         f.debug_tuple("IWICBitmapEncoder").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapEncoder {
+unsafe impl ::windows::core::Interface for IWICBitmapEncoder {
     type Vtable = IWICBitmapEncoder_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapEncoder {
+impl ::core::clone::Clone for IWICBitmapEncoder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapEncoder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000103_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -746,99 +746,94 @@ pub struct IWICBitmapEncoder_Vtbl {
 pub struct IWICBitmapEncoderInfo(::windows::core::IUnknown);
 impl IWICBitmapEncoderInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormats(&self, pguidpixelformats: &mut [::windows::core::GUID], pcactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormats)(::windows::core::Vtable::as_raw(self), pguidpixelformats.len() as _, ::core::mem::transmute(pguidpixelformats.as_ptr()), pcactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormats)(::windows::core::Interface::as_raw(self), pguidpixelformats.len() as _, ::core::mem::transmute(pguidpixelformats.as_ptr()), pcactual).ok()
     }
     pub unsafe fn GetColorManagementVersion(&self, wzcolormanagementversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetColorManagementVersion)(::windows::core::Vtable::as_raw(self), wzcolormanagementversion.len() as _, ::core::mem::transmute(wzcolormanagementversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetColorManagementVersion)(::windows::core::Interface::as_raw(self), wzcolormanagementversion.len() as _, ::core::mem::transmute(wzcolormanagementversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Vtable::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Interface::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceModels(&self, wzdevicemodels: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceModels)(::windows::core::Vtable::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceModels)(::windows::core::Interface::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetMimeTypes(&self, wzmimetypes: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetMimeTypes)(::windows::core::Vtable::as_raw(self), wzmimetypes.len() as _, ::core::mem::transmute(wzmimetypes.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetMimeTypes)(::windows::core::Interface::as_raw(self), wzmimetypes.len() as _, ::core::mem::transmute(wzmimetypes.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFileExtensions(&self, wzfileextensions: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFileExtensions)(::windows::core::Vtable::as_raw(self), wzfileextensions.len() as _, ::core::mem::transmute(wzfileextensions.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFileExtensions)(::windows::core::Interface::as_raw(self), wzfileextensions.len() as _, ::core::mem::transmute(wzfileextensions.as_ptr()), pcchactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportAnimation(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportAnimation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportAnimation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportChromakey(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportChromakey)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportChromakey)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportLossless(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportLossless)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportLossless)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportMultiframe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportMultiframe)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportMultiframe)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesMimeType<P0>(&self, wzmimetype: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapEncoder>();
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapEncoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
-impl ::core::clone::Clone for IWICBitmapEncoderInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapEncoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl ::core::cmp::PartialEq for IWICBitmapEncoderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -850,10 +845,15 @@ impl ::core::fmt::Debug for IWICBitmapEncoderInfo {
         f.debug_tuple("IWICBitmapEncoderInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapEncoderInfo {
+unsafe impl ::windows::core::Interface for IWICBitmapEncoderInfo {
     type Vtable = IWICBitmapEncoderInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapEncoderInfo {
+impl ::core::clone::Clone for IWICBitmapEncoderInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapEncoderInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94c9b4ee_a09f_4f92_8a1e_4a9bce7e76fb);
 }
 #[repr(C)]
@@ -867,37 +867,32 @@ pub struct IWICBitmapEncoderInfo_Vtbl {
 pub struct IWICBitmapFlipRotator(::windows::core::IUnknown);
 impl IWICBitmapFlipRotator {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Initialize<P0>(&self, pisource: P0, options: WICBitmapTransformOptions) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), options).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), options).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapFlipRotator, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICBitmapFlipRotator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapFlipRotator, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapFlipRotator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -909,10 +904,15 @@ impl ::core::fmt::Debug for IWICBitmapFlipRotator {
         f.debug_tuple("IWICBitmapFlipRotator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapFlipRotator {
+unsafe impl ::windows::core::Interface for IWICBitmapFlipRotator {
     type Vtable = IWICBitmapFlipRotator_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapFlipRotator {
+impl ::core::clone::Clone for IWICBitmapFlipRotator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapFlipRotator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5009834f_2d6a_41ce_9e1b_17c5aff7a782);
 }
 #[repr(C)]
@@ -926,42 +926,37 @@ pub struct IWICBitmapFlipRotator_Vtbl {
 pub struct IWICBitmapFrameDecode(::windows::core::IUnknown);
 impl IWICBitmapFrameDecode {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataQueryReader)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryReader>();
+        (::windows::core::Interface::vtable(self).GetMetadataQueryReader)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorContexts(&self, ppicolorcontexts: &mut [::core::option::Option<IWICColorContext>], pcactualcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColorContexts)(::windows::core::Vtable::as_raw(self), ppicolorcontexts.len() as _, ::core::mem::transmute(ppicolorcontexts.as_ptr()), pcactualcount).ok()
+        (::windows::core::Interface::vtable(self).GetColorContexts)(::windows::core::Interface::as_raw(self), ppicolorcontexts.len() as _, ::core::mem::transmute(ppicolorcontexts.as_ptr()), pcactualcount).ok()
     }
     pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IWICBitmapSource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetThumbnail)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapSource>();
+        (::windows::core::Interface::vtable(self).GetThumbnail)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapFrameDecode, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICBitmapFrameDecode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapFrameDecode, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapFrameDecode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -973,10 +968,15 @@ impl ::core::fmt::Debug for IWICBitmapFrameDecode {
         f.debug_tuple("IWICBitmapFrameDecode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapFrameDecode {
+unsafe impl ::windows::core::Interface for IWICBitmapFrameDecode {
     type Vtable = IWICBitmapFrameDecode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapFrameDecode {
+impl ::core::clone::Clone for IWICBitmapFrameDecode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapFrameDecode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b16811b_6a43_4ec9_a813_3d930c13b940);
 }
 #[repr(C)]
@@ -995,57 +995,52 @@ impl IWICBitmapFrameEncode {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Initialize<P0>(&self, piencoderoptions: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::StructuredStorage::IPropertyBag2>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::StructuredStorage::IPropertyBag2>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), piencoderoptions.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), piencoderoptions.into_param().abi()).ok()
     }
     pub unsafe fn SetSize(&self, uiwidth: u32, uiheight: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSize)(::windows::core::Vtable::as_raw(self), uiwidth, uiheight).ok()
+        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), uiwidth, uiheight).ok()
     }
     pub unsafe fn SetResolution(&self, dpix: f64, dpiy: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetResolution)(::windows::core::Vtable::as_raw(self), dpix, dpiy).ok()
+        (::windows::core::Interface::vtable(self).SetResolution)(::windows::core::Interface::as_raw(self), dpix, dpiy).ok()
     }
     pub unsafe fn SetPixelFormat(&self, ppixelformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetPixelFormat)(::windows::core::Vtable::as_raw(self), ppixelformat).ok()
+        (::windows::core::Interface::vtable(self).SetPixelFormat)(::windows::core::Interface::as_raw(self), ppixelformat).ok()
     }
     pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[::core::option::Option<IWICColorContext>]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetColorContexts)(::windows::core::Vtable::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(ppicolorcontext.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).SetColorContexts)(::windows::core::Interface::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(ppicolorcontext.as_ptr())).ok()
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).SetPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn SetThumbnail<P0>(&self, pithumbnail: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        (::windows::core::Vtable::vtable(self).SetThumbnail)(::windows::core::Vtable::as_raw(self), pithumbnail.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetThumbnail)(::windows::core::Interface::as_raw(self), pithumbnail.into_param().abi()).ok()
     }
     pub unsafe fn WritePixels(&self, linecount: u32, cbstride: u32, pbpixels: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WritePixels)(::windows::core::Vtable::as_raw(self), linecount, cbstride, pbpixels.len() as _, ::core::mem::transmute(pbpixels.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).WritePixels)(::windows::core::Interface::as_raw(self), linecount, cbstride, pbpixels.len() as _, ::core::mem::transmute(pbpixels.as_ptr())).ok()
     }
     pub unsafe fn WriteSource<P0>(&self, pibitmapsource: P0, prc: *const WICRect) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        (::windows::core::Vtable::vtable(self).WriteSource)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), prc).ok()
+        (::windows::core::Interface::vtable(self).WriteSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), prc).ok()
     }
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetMetadataQueryWriter(&self) -> ::windows::core::Result<IWICMetadataQueryWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).GetMetadataQueryWriter)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapFrameEncode, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICBitmapFrameEncode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapFrameEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapFrameEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1057,10 +1052,15 @@ impl ::core::fmt::Debug for IWICBitmapFrameEncode {
         f.debug_tuple("IWICBitmapFrameEncode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapFrameEncode {
+unsafe impl ::windows::core::Interface for IWICBitmapFrameEncode {
     type Vtable = IWICBitmapFrameEncode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapFrameEncode {
+impl ::core::clone::Clone for IWICBitmapFrameEncode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapFrameEncode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000105_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -1087,26 +1087,21 @@ pub struct IWICBitmapFrameEncode_Vtbl {
 pub struct IWICBitmapLock(::windows::core::IUnknown);
 impl IWICBitmapLock {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetStride(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStride)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetStride)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDataPointer(&self, pcbbuffersize: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDataPointer)(::windows::core::Vtable::as_raw(self), pcbbuffersize, ppbdata).ok()
+        (::windows::core::Interface::vtable(self).GetDataPointer)(::windows::core::Interface::as_raw(self), pcbbuffersize, ppbdata).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapLock, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICBitmapLock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapLock, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapLock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1118,10 +1113,15 @@ impl ::core::fmt::Debug for IWICBitmapLock {
         f.debug_tuple("IWICBitmapLock").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapLock {
+unsafe impl ::windows::core::Interface for IWICBitmapLock {
     type Vtable = IWICBitmapLock_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapLock {
+impl ::core::clone::Clone for IWICBitmapLock {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapLock {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000123_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -1138,37 +1138,32 @@ pub struct IWICBitmapLock_Vtbl {
 pub struct IWICBitmapScaler(::windows::core::IUnknown);
 impl IWICBitmapScaler {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Initialize<P0>(&self, pisource: P0, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), uiwidth, uiheight, mode).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), uiwidth, uiheight, mode).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapScaler, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICBitmapScaler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapScaler, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICBitmapScaler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1180,10 +1175,15 @@ impl ::core::fmt::Debug for IWICBitmapScaler {
         f.debug_tuple("IWICBitmapScaler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapScaler {
+unsafe impl ::windows::core::Interface for IWICBitmapScaler {
     type Vtable = IWICBitmapScaler_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapScaler {
+impl ::core::clone::Clone for IWICBitmapScaler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapScaler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000302_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -1197,31 +1197,26 @@ pub struct IWICBitmapScaler_Vtbl {
 pub struct IWICBitmapSource(::windows::core::IUnknown);
 impl IWICBitmapSource {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapSource, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICBitmapSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapSource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1233,10 +1228,15 @@ impl ::core::fmt::Debug for IWICBitmapSource {
         f.debug_tuple("IWICBitmapSource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapSource {
+unsafe impl ::windows::core::Interface for IWICBitmapSource {
     type Vtable = IWICBitmapSource_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapSource {
+impl ::core::clone::Clone for IWICBitmapSource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000120_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -1254,27 +1254,22 @@ pub struct IWICBitmapSource_Vtbl {
 pub struct IWICBitmapSourceTransform(::windows::core::IUnknown);
 impl IWICBitmapSourceTransform {
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const ::windows::core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CopyPixels)(::windows::core::Vtable::as_raw(self), prc, uiwidth, uiheight, pguiddstformat, dsttransform, nstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).CopyPixels)(::windows::core::Interface::as_raw(self), prc, uiwidth, uiheight, pguiddstformat, dsttransform, nstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetClosestSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClosestSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).GetClosestSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetClosestPixelFormat(&self, pguiddstformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetClosestPixelFormat)(::windows::core::Vtable::as_raw(self), pguiddstformat).ok()
+        (::windows::core::Interface::vtable(self).GetClosestPixelFormat)(::windows::core::Interface::as_raw(self), pguiddstformat).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesSupportTransform)(::windows::core::Vtable::as_raw(self), dsttransform, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesSupportTransform)(::windows::core::Interface::as_raw(self), dsttransform, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICBitmapSourceTransform, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICBitmapSourceTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICBitmapSourceTransform, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICBitmapSourceTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1286,10 +1281,15 @@ impl ::core::fmt::Debug for IWICBitmapSourceTransform {
         f.debug_tuple("IWICBitmapSourceTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICBitmapSourceTransform {
+unsafe impl ::windows::core::Interface for IWICBitmapSourceTransform {
     type Vtable = IWICBitmapSourceTransform_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICBitmapSourceTransform {
+impl ::core::clone::Clone for IWICBitmapSourceTransform {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICBitmapSourceTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b16811b_6a43_4ec9_b713_3d5a0c13b940);
 }
 #[repr(C)]
@@ -1310,34 +1310,29 @@ pub struct IWICColorContext(::windows::core::IUnknown);
 impl IWICColorContext {
     pub unsafe fn InitializeFromFilename<P0>(&self, wzfilename: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi()).ok()
     }
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromMemory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _).ok()
     }
     pub unsafe fn InitializeFromExifColorSpace(&self, value: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeFromExifColorSpace)(::windows::core::Vtable::as_raw(self), value).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromExifColorSpace)(::windows::core::Interface::as_raw(self), value).ok()
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<WICColorContextType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICColorContextType>();
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProfileBytes(&self, pbbuffer: &mut [u8], pcbactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetProfileBytes)(::windows::core::Vtable::as_raw(self), pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), pcbactual).ok()
+        (::windows::core::Interface::vtable(self).GetProfileBytes)(::windows::core::Interface::as_raw(self), pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), pcbactual).ok()
     }
     pub unsafe fn GetExifColorSpace(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExifColorSpace)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetExifColorSpace)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICColorContext, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICColorContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICColorContext, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICColorContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1349,10 +1344,15 @@ impl ::core::fmt::Debug for IWICColorContext {
         f.debug_tuple("IWICColorContext").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICColorContext {
+unsafe impl ::windows::core::Interface for IWICColorContext {
     type Vtable = IWICColorContext_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICColorContext {
+impl ::core::clone::Clone for IWICColorContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICColorContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c613a02_34b2_44ea_9a7c_45aea9c6fd6d);
 }
 #[repr(C)]
@@ -1371,39 +1371,34 @@ pub struct IWICColorContext_Vtbl {
 pub struct IWICColorTransform(::windows::core::IUnknown);
 impl IWICColorTransform {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Initialize<P0, P1, P2>(&self, pibitmapsource: P0, picontextsource: P1, picontextdest: P2, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWICColorContext>>,
-        P2: ::std::convert::Into<::windows::core::InParam<IWICColorContext>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
+        P1: ::windows::core::IntoParam<IWICColorContext>,
+        P2: ::windows::core::IntoParam<IWICColorContext>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), picontextsource.into().abi(), picontextdest.into().abi(), pixelfmtdest).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), picontextsource.into_param().abi(), picontextdest.into_param().abi(), pixelfmtdest).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICColorTransform, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICColorTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICColorTransform, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICColorTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1415,10 +1410,15 @@ impl ::core::fmt::Debug for IWICColorTransform {
         f.debug_tuple("IWICColorTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICColorTransform {
+unsafe impl ::windows::core::Interface for IWICColorTransform {
     type Vtable = IWICColorTransform_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICColorTransform {
+impl ::core::clone::Clone for IWICColorTransform {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICColorTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66f034f_d0e2_40ab_b436_6de39e321a94);
 }
 #[repr(C)]
@@ -1433,198 +1433,193 @@ pub struct IWICComponentFactory(::windows::core::IUnknown);
 impl IWICComponentFactory {
     pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDecoderFromStream<P0>(&self, pistream: P0, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateDecoderFromStream)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), pguidvendor, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromStream)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), pguidvendor, metadataoptions, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateDecoderFromFileHandle)(::windows::core::Vtable::as_raw(self), hfile, pguidvendor, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFileHandle)(::windows::core::Interface::as_raw(self), hfile, pguidvendor, metadataoptions, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateComponentInfo)(::windows::core::Vtable::as_raw(self), clsidcomponent, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICComponentInfo>();
+        (::windows::core::Interface::vtable(self).base__.CreateComponentInfo)(::windows::core::Interface::as_raw(self), clsidcomponent, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDecoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateDecoder)(::windows::core::Vtable::as_raw(self), guidcontainerformat, pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).base__.CreateDecoder)(::windows::core::Interface::as_raw(self), guidcontainerformat, pguidvendor, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEncoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapEncoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateEncoder)(::windows::core::Vtable::as_raw(self), guidcontainerformat, pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapEncoder>();
+        (::windows::core::Interface::vtable(self).base__.CreateEncoder)(::windows::core::Interface::as_raw(self), guidcontainerformat, pguidvendor, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePalette(&self) -> ::windows::core::Result<IWICPalette> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreatePalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICPalette>();
+        (::windows::core::Interface::vtable(self).base__.CreatePalette)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFormatConverter(&self) -> ::windows::core::Result<IWICFormatConverter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateFormatConverter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICFormatConverter>();
+        (::windows::core::Interface::vtable(self).base__.CreateFormatConverter)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapScaler(&self) -> ::windows::core::Result<IWICBitmapScaler> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapScaler)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapScaler>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapScaler)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapClipper(&self) -> ::windows::core::Result<IWICBitmapClipper> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapClipper>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapClipper)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFlipRotator(&self) -> ::windows::core::Result<IWICBitmapFlipRotator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapFlipRotator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapFlipRotator>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFlipRotator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStream(&self) -> ::windows::core::Result<IWICStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICStream>();
+        (::windows::core::Interface::vtable(self).base__.CreateStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateColorContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICColorContext>();
+        (::windows::core::Interface::vtable(self).base__.CreateColorContext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateColorTransformer(&self) -> ::windows::core::Result<IWICColorTransform> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateColorTransformer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICColorTransform>();
+        (::windows::core::Interface::vtable(self).base__.CreateColorTransformer)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmap(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmap)(::windows::core::Vtable::as_raw(self), uiwidth, uiheight, pixelformat, option, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmap)(::windows::core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, option, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFromSource<P0>(&self, pibitmapsource: P0, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapFromSource)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), option, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), option, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFromSourceRect<P0>(&self, pibitmapsource: P0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapFromSourceRect)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), x, y, width, height, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromSourceRect)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), x, y, width, height, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, cbstride: u32, pbbuffer: &[u8]) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapFromMemory)(::windows::core::Vtable::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromMemory)(::windows::core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateBitmapFromHBITMAP<P0, P1>(&self, hbitmap: P0, hpalette: P1, options: WICBitmapAlphaChannelOption) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<super::Gdi::HBITMAP>,
-        P1: ::std::convert::Into<super::Gdi::HPALETTE>,
+        P0: ::windows::core::IntoParam<super::Gdi::HBITMAP>,
+        P1: ::windows::core::IntoParam<super::Gdi::HPALETTE>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapFromHBITMAP)(::windows::core::Vtable::as_raw(self), hbitmap.into(), hpalette.into(), options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromHBITMAP)(::windows::core::Interface::as_raw(self), hbitmap.into_param().abi(), hpalette.into_param().abi(), options, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn CreateBitmapFromHICON<P0>(&self, hicon: P0) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>,
+        P0: ::windows::core::IntoParam<super::super::UI::WindowsAndMessaging::HICON>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateBitmapFromHICON)(::windows::core::Vtable::as_raw(self), hicon.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromHICON)(::windows::core::Interface::as_raw(self), hicon.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentEnumerator(&self, componenttypes: u32, options: u32) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateComponentEnumerator)(::windows::core::Vtable::as_raw(self), componenttypes, options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Interface::vtable(self).base__.CreateComponentEnumerator)(::windows::core::Interface::as_raw(self), componenttypes, options, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFastMetadataEncoderFromDecoder<P0>(&self, pidecoder: P0) -> ::windows::core::Result<IWICFastMetadataEncoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapDecoder>>,
+        P0: ::windows::core::IntoParam<IWICBitmapDecoder>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateFastMetadataEncoderFromDecoder)(::windows::core::Vtable::as_raw(self), pidecoder.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICFastMetadataEncoder>();
+        (::windows::core::Interface::vtable(self).base__.CreateFastMetadataEncoderFromDecoder)(::windows::core::Interface::as_raw(self), pidecoder.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<P0>(&self, piframedecoder: P0) -> ::windows::core::Result<IWICFastMetadataEncoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapFrameDecode>>,
+        P0: ::windows::core::IntoParam<IWICBitmapFrameDecode>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Vtable::as_raw(self), piframedecoder.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICFastMetadataEncoder>();
+        (::windows::core::Interface::vtable(self).base__.CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Interface::as_raw(self), piframedecoder.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateQueryWriter)(::windows::core::Vtable::as_raw(self), guidmetadataformat, pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).base__.CreateQueryWriter)(::windows::core::Interface::as_raw(self), guidmetadataformat, pguidvendor, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateQueryWriterFromReader<P0>(&self, piqueryreader: P0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataQueryReader>>,
+        P0: ::windows::core::IntoParam<IWICMetadataQueryReader>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateQueryWriterFromReader)(::windows::core::Vtable::as_raw(self), piqueryreader.into().abi(), pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).base__.CreateQueryWriterFromReader)(::windows::core::Interface::as_raw(self), piqueryreader.into_param().abi(), pguidvendor, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMetadataReader<P0>(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: P0) -> ::windows::core::Result<IWICMetadataReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMetadataReader)(::windows::core::Vtable::as_raw(self), guidmetadataformat, pguidvendor, dwoptions, pistream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataReader>();
+        (::windows::core::Interface::vtable(self).CreateMetadataReader)(::windows::core::Interface::as_raw(self), guidmetadataformat, pguidvendor, dwoptions, pistream.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMetadataReaderFromContainer<P0>(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: P0) -> ::windows::core::Result<IWICMetadataReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMetadataReaderFromContainer)(::windows::core::Vtable::as_raw(self), guidcontainerformat, pguidvendor, dwoptions, pistream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataReader>();
+        (::windows::core::Interface::vtable(self).CreateMetadataReaderFromContainer)(::windows::core::Interface::as_raw(self), guidcontainerformat, pguidvendor, dwoptions, pistream.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMetadataWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwmetadataoptions: u32) -> ::windows::core::Result<IWICMetadataWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMetadataWriter)(::windows::core::Vtable::as_raw(self), guidmetadataformat, pguidvendor, dwmetadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataWriter>();
+        (::windows::core::Interface::vtable(self).CreateMetadataWriter)(::windows::core::Interface::as_raw(self), guidmetadataformat, pguidvendor, dwmetadataoptions, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateMetadataWriterFromReader<P0>(&self, pireader: P0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataReader>>,
+        P0: ::windows::core::IntoParam<IWICMetadataReader>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateMetadataWriterFromReader)(::windows::core::Vtable::as_raw(self), pireader.into().abi(), pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataWriter>();
+        (::windows::core::Interface::vtable(self).CreateMetadataWriterFromReader)(::windows::core::Interface::as_raw(self), pireader.into_param().abi(), pguidvendor, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateQueryReaderFromBlockReader<P0>(&self, piblockreader: P0) -> ::windows::core::Result<IWICMetadataQueryReader>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataBlockReader>>,
+        P0: ::windows::core::IntoParam<IWICMetadataBlockReader>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateQueryReaderFromBlockReader)(::windows::core::Vtable::as_raw(self), piblockreader.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryReader>();
+        (::windows::core::Interface::vtable(self).CreateQueryReaderFromBlockReader)(::windows::core::Interface::as_raw(self), piblockreader.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateQueryWriterFromBlockWriter<P0>(&self, piblockwriter: P0) -> ::windows::core::Result<IWICMetadataQueryWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataBlockWriter>>,
+        P0: ::windows::core::IntoParam<IWICMetadataBlockWriter>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateQueryWriterFromBlockWriter)(::windows::core::Vtable::as_raw(self), piblockwriter.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).CreateQueryWriterFromBlockWriter)(::windows::core::Interface::as_raw(self), piblockwriter.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn CreateEncoderPropertyBag(&self, ppropoptions: &[super::super::System::Com::StructuredStorage::PROPBAG2]) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncoderPropertyBag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppropoptions.as_ptr()), ppropoptions.len() as _, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::IPropertyBag2>();
+        (::windows::core::Interface::vtable(self).CreateEncoderPropertyBag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropoptions.as_ptr()), ppropoptions.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICComponentFactory, ::windows::core::IUnknown, IWICImagingFactory);
-impl ::core::clone::Clone for IWICComponentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICComponentFactory, ::windows::core::IUnknown, IWICImagingFactory);
 impl ::core::cmp::PartialEq for IWICComponentFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1636,10 +1631,15 @@ impl ::core::fmt::Debug for IWICComponentFactory {
         f.debug_tuple("IWICComponentFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICComponentFactory {
+unsafe impl ::windows::core::Interface for IWICComponentFactory {
     type Vtable = IWICComponentFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICComponentFactory {
+impl ::core::clone::Clone for IWICComponentFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICComponentFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x412d0c3a_9650_44fa_af5b_dd2a06c8e8fb);
 }
 #[repr(C)]
@@ -1668,40 +1668,35 @@ pub struct IWICComponentFactory_Vtbl {
 pub struct IWICComponentInfo(::windows::core::IUnknown);
 impl IWICComponentInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICComponentInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICComponentInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICComponentInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICComponentInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1713,10 +1708,15 @@ impl ::core::fmt::Debug for IWICComponentInfo {
         f.debug_tuple("IWICComponentInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICComponentInfo {
+unsafe impl ::windows::core::Interface for IWICComponentInfo {
     type Vtable = IWICComponentInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICComponentInfo {
+impl ::core::clone::Clone for IWICComponentInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICComponentInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23bc3f0a_698b_4357_886b_f24d50671334);
 }
 #[repr(C)]
@@ -1739,19 +1739,14 @@ impl IWICDdsDecoder {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), pparameters).ok()
+        (::windows::core::Interface::vtable(self).GetParameters)(::windows::core::Interface::as_raw(self), pparameters).ok()
     }
     pub unsafe fn GetFrame(&self, arrayindex: u32, miplevel: u32, sliceindex: u32) -> ::windows::core::Result<IWICBitmapFrameDecode> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFrame)(::windows::core::Vtable::as_raw(self), arrayindex, miplevel, sliceindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapFrameDecode>();
+        (::windows::core::Interface::vtable(self).GetFrame)(::windows::core::Interface::as_raw(self), arrayindex, miplevel, sliceindex, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICDdsDecoder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICDdsDecoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICDdsDecoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDdsDecoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1763,10 +1758,15 @@ impl ::core::fmt::Debug for IWICDdsDecoder {
         f.debug_tuple("IWICDdsDecoder").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICDdsDecoder {
+unsafe impl ::windows::core::Interface for IWICDdsDecoder {
     type Vtable = IWICDdsDecoder_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICDdsDecoder {
+impl ::core::clone::Clone for IWICDdsDecoder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICDdsDecoder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409cd537_8532_40cb_9774_e2feb2df4e9c);
 }
 #[repr(C)]
@@ -1786,23 +1786,18 @@ impl IWICDdsEncoder {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetParameters(&self, pparameters: *const WICDdsParameters) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetParameters)(::windows::core::Vtable::as_raw(self), pparameters).ok()
+        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), pparameters).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), pparameters).ok()
+        (::windows::core::Interface::vtable(self).GetParameters)(::windows::core::Interface::as_raw(self), pparameters).ok()
     }
     pub unsafe fn CreateNewFrame(&self, ppiframeencode: *mut ::core::option::Option<IWICBitmapFrameEncode>, parrayindex: *mut u32, pmiplevel: *mut u32, psliceindex: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CreateNewFrame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppiframeencode), parrayindex, pmiplevel, psliceindex).ok()
+        (::windows::core::Interface::vtable(self).CreateNewFrame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppiframeencode), parrayindex, pmiplevel, psliceindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDdsEncoder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICDdsEncoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICDdsEncoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDdsEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1814,10 +1809,15 @@ impl ::core::fmt::Debug for IWICDdsEncoder {
         f.debug_tuple("IWICDdsEncoder").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICDdsEncoder {
+unsafe impl ::windows::core::Interface for IWICDdsEncoder {
     type Vtable = IWICDdsEncoder_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICDdsEncoder {
+impl ::core::clone::Clone for IWICDdsEncoder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICDdsEncoder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cacdb4c_407e_41b3_b936_d0f010cd6732);
 }
 #[repr(C)]
@@ -1839,24 +1839,19 @@ pub struct IWICDdsEncoder_Vtbl {
 pub struct IWICDdsFrameDecode(::windows::core::IUnknown);
 impl IWICDdsFrameDecode {
     pub unsafe fn GetSizeInBlocks(&self, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetSizeInBlocks)(::windows::core::Vtable::as_raw(self), pwidthinblocks, pheightinblocks).ok()
+        (::windows::core::Interface::vtable(self).GetSizeInBlocks)(::windows::core::Interface::as_raw(self), pwidthinblocks, pheightinblocks).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetFormatInfo(&self) -> ::windows::core::Result<WICDdsFormatInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFormatInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICDdsFormatInfo>();
+        (::windows::core::Interface::vtable(self).GetFormatInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CopyBlocks(&self, prcboundsinblocks: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CopyBlocks)(::windows::core::Vtable::as_raw(self), prcboundsinblocks, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).CopyBlocks)(::windows::core::Interface::as_raw(self), prcboundsinblocks, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDdsFrameDecode, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICDdsFrameDecode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICDdsFrameDecode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDdsFrameDecode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1868,10 +1863,15 @@ impl ::core::fmt::Debug for IWICDdsFrameDecode {
         f.debug_tuple("IWICDdsFrameDecode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICDdsFrameDecode {
+unsafe impl ::windows::core::Interface for IWICDdsFrameDecode {
     type Vtable = IWICDdsFrameDecode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICDdsFrameDecode {
+impl ::core::clone::Clone for IWICDdsFrameDecode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICDdsFrameDecode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464);
 }
 #[repr(C)]
@@ -1890,158 +1890,153 @@ pub struct IWICDdsFrameDecode_Vtbl {
 pub struct IWICDevelopRaw(::windows::core::IUnknown);
 impl IWICDevelopRaw {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMetadataQueryReader)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryReader>();
+        (::windows::core::Interface::vtable(self).base__.GetMetadataQueryReader)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorContexts(&self, ppicolorcontexts: &mut [::core::option::Option<IWICColorContext>], pcactualcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetColorContexts)(::windows::core::Vtable::as_raw(self), ppicolorcontexts.len() as _, ::core::mem::transmute(ppicolorcontexts.as_ptr()), pcactualcount).ok()
+        (::windows::core::Interface::vtable(self).base__.GetColorContexts)(::windows::core::Interface::as_raw(self), ppicolorcontexts.len() as _, ::core::mem::transmute(ppicolorcontexts.as_ptr()), pcactualcount).ok()
     }
     pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IWICBitmapSource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetThumbnail)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapSource>();
+        (::windows::core::Interface::vtable(self).base__.GetThumbnail)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QueryRawCapabilitiesInfo(&self, pinfo: *mut WICRawCapabilitiesInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).QueryRawCapabilitiesInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
+        (::windows::core::Interface::vtable(self).QueryRawCapabilitiesInfo)(::windows::core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn LoadParameterSet(&self, parameterset: WICRawParameterSet) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).LoadParameterSet)(::windows::core::Vtable::as_raw(self), parameterset).ok()
+        (::windows::core::Interface::vtable(self).LoadParameterSet)(::windows::core::Interface::as_raw(self), parameterset).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetCurrentParameterSet(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrentParameterSet)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::IPropertyBag2>();
+        (::windows::core::Interface::vtable(self).GetCurrentParameterSet)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExposureCompensation(&self, ev: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetExposureCompensation)(::windows::core::Vtable::as_raw(self), ev).ok()
+        (::windows::core::Interface::vtable(self).SetExposureCompensation)(::windows::core::Interface::as_raw(self), ev).ok()
     }
     pub unsafe fn GetExposureCompensation(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExposureCompensation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetExposureCompensation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetWhitePointRGB(&self, red: u32, green: u32, blue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWhitePointRGB)(::windows::core::Vtable::as_raw(self), red, green, blue).ok()
+        (::windows::core::Interface::vtable(self).SetWhitePointRGB)(::windows::core::Interface::as_raw(self), red, green, blue).ok()
     }
     pub unsafe fn GetWhitePointRGB(&self, pred: *mut u32, pgreen: *mut u32, pblue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetWhitePointRGB)(::windows::core::Vtable::as_raw(self), pred, pgreen, pblue).ok()
+        (::windows::core::Interface::vtable(self).GetWhitePointRGB)(::windows::core::Interface::as_raw(self), pred, pgreen, pblue).ok()
     }
     pub unsafe fn SetNamedWhitePoint(&self, whitepoint: WICNamedWhitePoint) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNamedWhitePoint)(::windows::core::Vtable::as_raw(self), whitepoint).ok()
+        (::windows::core::Interface::vtable(self).SetNamedWhitePoint)(::windows::core::Interface::as_raw(self), whitepoint).ok()
     }
     pub unsafe fn GetNamedWhitePoint(&self) -> ::windows::core::Result<WICNamedWhitePoint> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNamedWhitePoint)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICNamedWhitePoint>();
+        (::windows::core::Interface::vtable(self).GetNamedWhitePoint)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetWhitePointKelvin(&self, whitepointkelvin: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetWhitePointKelvin)(::windows::core::Vtable::as_raw(self), whitepointkelvin).ok()
+        (::windows::core::Interface::vtable(self).SetWhitePointKelvin)(::windows::core::Interface::as_raw(self), whitepointkelvin).ok()
     }
     pub unsafe fn GetWhitePointKelvin(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWhitePointKelvin)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetWhitePointKelvin)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetKelvinRangeInfo(&self, pminkelvintemp: *mut u32, pmaxkelvintemp: *mut u32, pkelvintempstepvalue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetKelvinRangeInfo)(::windows::core::Vtable::as_raw(self), pminkelvintemp, pmaxkelvintemp, pkelvintempstepvalue).ok()
+        (::windows::core::Interface::vtable(self).GetKelvinRangeInfo)(::windows::core::Interface::as_raw(self), pminkelvintemp, pmaxkelvintemp, pkelvintempstepvalue).ok()
     }
     pub unsafe fn SetContrast(&self, contrast: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetContrast)(::windows::core::Vtable::as_raw(self), contrast).ok()
+        (::windows::core::Interface::vtable(self).SetContrast)(::windows::core::Interface::as_raw(self), contrast).ok()
     }
     pub unsafe fn GetContrast(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContrast)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetContrast)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetGamma(&self, gamma: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetGamma)(::windows::core::Vtable::as_raw(self), gamma).ok()
+        (::windows::core::Interface::vtable(self).SetGamma)(::windows::core::Interface::as_raw(self), gamma).ok()
     }
     pub unsafe fn GetGamma(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGamma)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetGamma)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSharpness(&self, sharpness: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSharpness)(::windows::core::Vtable::as_raw(self), sharpness).ok()
+        (::windows::core::Interface::vtable(self).SetSharpness)(::windows::core::Interface::as_raw(self), sharpness).ok()
     }
     pub unsafe fn GetSharpness(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSharpness)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetSharpness)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSaturation(&self, saturation: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetSaturation)(::windows::core::Vtable::as_raw(self), saturation).ok()
+        (::windows::core::Interface::vtable(self).SetSaturation)(::windows::core::Interface::as_raw(self), saturation).ok()
     }
     pub unsafe fn GetSaturation(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSaturation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetSaturation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTint(&self, tint: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetTint)(::windows::core::Vtable::as_raw(self), tint).ok()
+        (::windows::core::Interface::vtable(self).SetTint)(::windows::core::Interface::as_raw(self), tint).ok()
     }
     pub unsafe fn GetTint(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTint)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetTint)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNoiseReduction(&self, noisereduction: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetNoiseReduction)(::windows::core::Vtable::as_raw(self), noisereduction).ok()
+        (::windows::core::Interface::vtable(self).SetNoiseReduction)(::windows::core::Interface::as_raw(self), noisereduction).ok()
     }
     pub unsafe fn GetNoiseReduction(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNoiseReduction)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetNoiseReduction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDestinationColorContext<P0>(&self, pcolorcontext: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICColorContext>>,
+        P0: ::windows::core::IntoParam<IWICColorContext>,
     {
-        (::windows::core::Vtable::vtable(self).SetDestinationColorContext)(::windows::core::Vtable::as_raw(self), pcolorcontext.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDestinationColorContext)(::windows::core::Interface::as_raw(self), pcolorcontext.into_param().abi()).ok()
     }
     pub unsafe fn SetToneCurve(&self, cbtonecurvesize: u32, ptonecurve: *const WICRawToneCurve) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetToneCurve)(::windows::core::Vtable::as_raw(self), cbtonecurvesize, ptonecurve).ok()
+        (::windows::core::Interface::vtable(self).SetToneCurve)(::windows::core::Interface::as_raw(self), cbtonecurvesize, ptonecurve).ok()
     }
     pub unsafe fn GetToneCurve(&self, cbtonecurvebuffersize: u32, ptonecurve: ::core::option::Option<*mut WICRawToneCurve>, pcbactualtonecurvebuffersize: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetToneCurve)(::windows::core::Vtable::as_raw(self), cbtonecurvebuffersize, ::core::mem::transmute(ptonecurve.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactualtonecurvebuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetToneCurve)(::windows::core::Interface::as_raw(self), cbtonecurvebuffersize, ::core::mem::transmute(ptonecurve.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactualtonecurvebuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetRotation(&self, rotation: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRotation)(::windows::core::Vtable::as_raw(self), rotation).ok()
+        (::windows::core::Interface::vtable(self).SetRotation)(::windows::core::Interface::as_raw(self), rotation).ok()
     }
     pub unsafe fn GetRotation(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRotation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Interface::vtable(self).GetRotation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRenderMode(&self, rendermode: WICRawRenderMode) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetRenderMode)(::windows::core::Vtable::as_raw(self), rendermode).ok()
+        (::windows::core::Interface::vtable(self).SetRenderMode)(::windows::core::Interface::as_raw(self), rendermode).ok()
     }
     pub unsafe fn GetRenderMode(&self) -> ::windows::core::Result<WICRawRenderMode> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRenderMode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICRawRenderMode>();
+        (::windows::core::Interface::vtable(self).GetRenderMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotificationCallback<P0>(&self, pcallback: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICDevelopRawNotificationCallback>>,
+        P0: ::windows::core::IntoParam<IWICDevelopRawNotificationCallback>,
     {
-        (::windows::core::Vtable::vtable(self).SetNotificationCallback)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNotificationCallback)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDevelopRaw, ::windows::core::IUnknown, IWICBitmapSource, IWICBitmapFrameDecode);
-impl ::core::clone::Clone for IWICDevelopRaw {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICDevelopRaw, ::windows::core::IUnknown, IWICBitmapSource, IWICBitmapFrameDecode);
 impl ::core::cmp::PartialEq for IWICDevelopRaw {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2053,10 +2048,15 @@ impl ::core::fmt::Debug for IWICDevelopRaw {
         f.debug_tuple("IWICDevelopRaw").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICDevelopRaw {
+unsafe impl ::windows::core::Interface for IWICDevelopRaw {
     type Vtable = IWICDevelopRaw_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICDevelopRaw {
+impl ::core::clone::Clone for IWICDevelopRaw {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICDevelopRaw {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d);
 }
 #[repr(C)]
@@ -2104,15 +2104,10 @@ pub struct IWICDevelopRaw_Vtbl {
 pub struct IWICDevelopRawNotificationCallback(::windows::core::IUnknown);
 impl IWICDevelopRawNotificationCallback {
     pub unsafe fn Notify(&self, notificationmask: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), notificationmask).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), notificationmask).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICDevelopRawNotificationCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICDevelopRawNotificationCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICDevelopRawNotificationCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICDevelopRawNotificationCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2124,10 +2119,15 @@ impl ::core::fmt::Debug for IWICDevelopRawNotificationCallback {
         f.debug_tuple("IWICDevelopRawNotificationCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICDevelopRawNotificationCallback {
+unsafe impl ::windows::core::Interface for IWICDevelopRawNotificationCallback {
     type Vtable = IWICDevelopRawNotificationCallback_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICDevelopRawNotificationCallback {
+impl ::core::clone::Clone for IWICDevelopRawNotificationCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICDevelopRawNotificationCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c75a6e_3e8c_4ec2_85a8_aebcc551e59b);
 }
 #[repr(C)]
@@ -2143,25 +2143,20 @@ impl IWICEnumMetadataItem {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Next(&self, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, rgeltschema, rgeltid, rgeltvalue, pceltfetched).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, rgeltschema, rgeltid, rgeltvalue, pceltfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), celt).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWICEnumMetadataItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICEnumMetadataItem>();
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICEnumMetadataItem, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICEnumMetadataItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICEnumMetadataItem, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICEnumMetadataItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2173,10 +2168,15 @@ impl ::core::fmt::Debug for IWICEnumMetadataItem {
         f.debug_tuple("IWICEnumMetadataItem").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICEnumMetadataItem {
+unsafe impl ::windows::core::Interface for IWICEnumMetadataItem {
     type Vtable = IWICEnumMetadataItem_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICEnumMetadataItem {
+impl ::core::clone::Clone for IWICEnumMetadataItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICEnumMetadataItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2bb46d_3f07_481e_8625_220c4aedbb33);
 }
 #[repr(C)]
@@ -2196,19 +2196,14 @@ pub struct IWICEnumMetadataItem_Vtbl {
 pub struct IWICFastMetadataEncoder(::windows::core::IUnknown);
 impl IWICFastMetadataEncoder {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetMetadataQueryWriter(&self) -> ::windows::core::Result<IWICMetadataQueryWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).GetMetadataQueryWriter)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICFastMetadataEncoder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICFastMetadataEncoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICFastMetadataEncoder, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICFastMetadataEncoder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2220,10 +2215,15 @@ impl ::core::fmt::Debug for IWICFastMetadataEncoder {
         f.debug_tuple("IWICFastMetadataEncoder").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICFastMetadataEncoder {
+unsafe impl ::windows::core::Interface for IWICFastMetadataEncoder {
     type Vtable = IWICFastMetadataEncoder_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICFastMetadataEncoder {
+impl ::core::clone::Clone for IWICFastMetadataEncoder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICFastMetadataEncoder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84e2c09_78c9_4ac4_8bd3_524ae1663a2f);
 }
 #[repr(C)]
@@ -2238,44 +2238,39 @@ pub struct IWICFastMetadataEncoder_Vtbl {
 pub struct IWICFormatConverter(::windows::core::IUnknown);
 impl IWICFormatConverter {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Initialize<P0, P1>(&self, pisource: P0, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: P1, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
+        P1: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), dstformat, dither, pipalette.into().abi(), alphathresholdpercent, palettetranslate).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), dstformat, dither, pipalette.into_param().abi(), alphathresholdpercent, palettetranslate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanConvert(&self, srcpixelformat: *const ::windows::core::GUID, dstpixelformat: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CanConvert)(::windows::core::Vtable::as_raw(self), srcpixelformat, dstpixelformat, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), srcpixelformat, dstpixelformat, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICFormatConverter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICFormatConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2287,10 +2282,15 @@ impl ::core::fmt::Debug for IWICFormatConverter {
         f.debug_tuple("IWICFormatConverter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICFormatConverter {
+unsafe impl ::windows::core::Interface for IWICFormatConverter {
     type Vtable = IWICFormatConverter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICFormatConverter {
+impl ::core::clone::Clone for IWICFormatConverter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICFormatConverter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000301_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -2308,47 +2308,42 @@ pub struct IWICFormatConverter_Vtbl {
 pub struct IWICFormatConverterInfo(::windows::core::IUnknown);
 impl IWICFormatConverterInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetPixelFormats(&self, ppixelformatguids: &mut [::windows::core::GUID], pcactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPixelFormats)(::windows::core::Vtable::as_raw(self), ppixelformatguids.len() as _, ::core::mem::transmute(ppixelformatguids.as_ptr()), pcactual).ok()
+        (::windows::core::Interface::vtable(self).GetPixelFormats)(::windows::core::Interface::as_raw(self), ppixelformatguids.len() as _, ::core::mem::transmute(ppixelformatguids.as_ptr()), pcactual).ok()
     }
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICFormatConverter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICFormatConverter>();
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICFormatConverterInfo, ::windows::core::IUnknown, IWICComponentInfo);
-impl ::core::clone::Clone for IWICFormatConverterInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICFormatConverterInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICFormatConverterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2360,10 +2355,15 @@ impl ::core::fmt::Debug for IWICFormatConverterInfo {
         f.debug_tuple("IWICFormatConverterInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICFormatConverterInfo {
+unsafe impl ::windows::core::Interface for IWICFormatConverterInfo {
     type Vtable = IWICFormatConverterInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICFormatConverterInfo {
+impl ::core::clone::Clone for IWICFormatConverterInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICFormatConverterInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f34fb65_13f4_4f15_bc57_3726b5e53d9f);
 }
 #[repr(C)]
@@ -2379,149 +2379,144 @@ pub struct IWICImagingFactory(::windows::core::IUnknown);
 impl IWICImagingFactory {
     pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: ::core::option::Option<*const ::windows::core::GUID>, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDecoderFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDecoderFromStream<P0>(&self, pistream: P0, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDecoderFromStream)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), pguidvendor, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).CreateDecoderFromStream)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), pguidvendor, metadataoptions, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDecoderFromFileHandle)(::windows::core::Vtable::as_raw(self), hfile, pguidvendor, metadataoptions, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).CreateDecoderFromFileHandle)(::windows::core::Interface::as_raw(self), hfile, pguidvendor, metadataoptions, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateComponentInfo)(::windows::core::Vtable::as_raw(self), clsidcomponent, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICComponentInfo>();
+        (::windows::core::Interface::vtable(self).CreateComponentInfo)(::windows::core::Interface::as_raw(self), clsidcomponent, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDecoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDecoder)(::windows::core::Vtable::as_raw(self), guidcontainerformat, pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapDecoder>();
+        (::windows::core::Interface::vtable(self).CreateDecoder)(::windows::core::Interface::as_raw(self), guidcontainerformat, pguidvendor, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEncoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapEncoder> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEncoder)(::windows::core::Vtable::as_raw(self), guidcontainerformat, pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapEncoder>();
+        (::windows::core::Interface::vtable(self).CreateEncoder)(::windows::core::Interface::as_raw(self), guidcontainerformat, pguidvendor, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePalette(&self) -> ::windows::core::Result<IWICPalette> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICPalette>();
+        (::windows::core::Interface::vtable(self).CreatePalette)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFormatConverter(&self) -> ::windows::core::Result<IWICFormatConverter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFormatConverter)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICFormatConverter>();
+        (::windows::core::Interface::vtable(self).CreateFormatConverter)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapScaler(&self) -> ::windows::core::Result<IWICBitmapScaler> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapScaler)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapScaler>();
+        (::windows::core::Interface::vtable(self).CreateBitmapScaler)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapClipper(&self) -> ::windows::core::Result<IWICBitmapClipper> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapClipper>();
+        (::windows::core::Interface::vtable(self).CreateBitmapClipper)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFlipRotator(&self) -> ::windows::core::Result<IWICBitmapFlipRotator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapFlipRotator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmapFlipRotator>();
+        (::windows::core::Interface::vtable(self).CreateBitmapFlipRotator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStream(&self) -> ::windows::core::Result<IWICStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICStream>();
+        (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateColorContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICColorContext>();
+        (::windows::core::Interface::vtable(self).CreateColorContext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateColorTransformer(&self) -> ::windows::core::Result<IWICColorTransform> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateColorTransformer)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICColorTransform>();
+        (::windows::core::Interface::vtable(self).CreateColorTransformer)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmap(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmap)(::windows::core::Vtable::as_raw(self), uiwidth, uiheight, pixelformat, option, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).CreateBitmap)(::windows::core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, option, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFromSource<P0>(&self, pibitmapsource: P0, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapFromSource)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), option, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).CreateBitmapFromSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), option, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFromSourceRect<P0>(&self, pibitmapsource: P0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapFromSourceRect)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), x, y, width, height, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).CreateBitmapFromSourceRect)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), x, y, width, height, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, cbstride: u32, pbbuffer: &[u8]) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapFromMemory)(::windows::core::Vtable::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).CreateBitmapFromMemory)(::windows::core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateBitmapFromHBITMAP<P0, P1>(&self, hbitmap: P0, hpalette: P1, options: WICBitmapAlphaChannelOption) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<super::Gdi::HBITMAP>,
-        P1: ::std::convert::Into<super::Gdi::HPALETTE>,
+        P0: ::windows::core::IntoParam<super::Gdi::HBITMAP>,
+        P1: ::windows::core::IntoParam<super::Gdi::HPALETTE>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapFromHBITMAP)(::windows::core::Vtable::as_raw(self), hbitmap.into(), hpalette.into(), options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).CreateBitmapFromHBITMAP)(::windows::core::Interface::as_raw(self), hbitmap.into_param().abi(), hpalette.into_param().abi(), options, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn CreateBitmapFromHICON<P0>(&self, hicon: P0) -> ::windows::core::Result<IWICBitmap>
     where
-        P0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>,
+        P0: ::windows::core::IntoParam<super::super::UI::WindowsAndMessaging::HICON>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateBitmapFromHICON)(::windows::core::Vtable::as_raw(self), hicon.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICBitmap>();
+        (::windows::core::Interface::vtable(self).CreateBitmapFromHICON)(::windows::core::Interface::as_raw(self), hicon.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentEnumerator(&self, componenttypes: u32, options: u32) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateComponentEnumerator)(::windows::core::Vtable::as_raw(self), componenttypes, options, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Interface::vtable(self).CreateComponentEnumerator)(::windows::core::Interface::as_raw(self), componenttypes, options, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFastMetadataEncoderFromDecoder<P0>(&self, pidecoder: P0) -> ::windows::core::Result<IWICFastMetadataEncoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapDecoder>>,
+        P0: ::windows::core::IntoParam<IWICBitmapDecoder>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFastMetadataEncoderFromDecoder)(::windows::core::Vtable::as_raw(self), pidecoder.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICFastMetadataEncoder>();
+        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromDecoder)(::windows::core::Interface::as_raw(self), pidecoder.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<P0>(&self, piframedecoder: P0) -> ::windows::core::Result<IWICFastMetadataEncoder>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapFrameDecode>>,
+        P0: ::windows::core::IntoParam<IWICBitmapFrameDecode>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Vtable::as_raw(self), piframedecoder.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICFastMetadataEncoder>();
+        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Interface::as_raw(self), piframedecoder.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateQueryWriter)(::windows::core::Vtable::as_raw(self), guidmetadataformat, pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).CreateQueryWriter)(::windows::core::Interface::as_raw(self), guidmetadataformat, pguidvendor, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateQueryWriterFromReader<P0>(&self, piqueryreader: P0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataQueryReader>>,
+        P0: ::windows::core::IntoParam<IWICMetadataQueryReader>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateQueryWriterFromReader)(::windows::core::Vtable::as_raw(self), piqueryreader.into().abi(), pguidvendor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataQueryWriter>();
+        (::windows::core::Interface::vtable(self).CreateQueryWriterFromReader)(::windows::core::Interface::as_raw(self), piqueryreader.into_param().abi(), pguidvendor, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICImagingFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICImagingFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICImagingFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICImagingFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2533,10 +2528,15 @@ impl ::core::fmt::Debug for IWICImagingFactory {
         f.debug_tuple("IWICImagingFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICImagingFactory {
+unsafe impl ::windows::core::Interface for IWICImagingFactory {
     type Vtable = IWICImagingFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICImagingFactory {
+impl ::core::clone::Clone for IWICImagingFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICImagingFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
 }
 #[repr(C)]
@@ -2591,49 +2591,44 @@ impl IWICJpegFrameDecode {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportIndexing(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesSupportIndexing)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesSupportIndexing)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalintervalsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetIndexing)(::windows::core::Vtable::as_raw(self), options, horizontalintervalsize).ok()
+        (::windows::core::Interface::vtable(self).SetIndexing)(::windows::core::Interface::as_raw(self), options, horizontalintervalsize).ok()
     }
     pub unsafe fn ClearIndexing(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ClearIndexing)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).ClearIndexing)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::Dxgi::Common::DXGI_JPEG_AC_HUFFMAN_TABLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAcHuffmanTable)(::windows::core::Vtable::as_raw(self), scanindex, tableindex, pachuffmantable).ok()
+        (::windows::core::Interface::vtable(self).GetAcHuffmanTable)(::windows::core::Interface::as_raw(self), scanindex, tableindex, pachuffmantable).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::Dxgi::Common::DXGI_JPEG_DC_HUFFMAN_TABLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDcHuffmanTable)(::windows::core::Vtable::as_raw(self), scanindex, tableindex, pdchuffmantable).ok()
+        (::windows::core::Interface::vtable(self).GetDcHuffmanTable)(::windows::core::Interface::as_raw(self), scanindex, tableindex, pdchuffmantable).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::Dxgi::Common::DXGI_JPEG_QUANTIZATION_TABLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetQuantizationTable)(::windows::core::Vtable::as_raw(self), scanindex, tableindex, pquantizationtable).ok()
+        (::windows::core::Interface::vtable(self).GetQuantizationTable)(::windows::core::Interface::as_raw(self), scanindex, tableindex, pquantizationtable).ok()
     }
     pub unsafe fn GetFrameHeader(&self, pframeheader: *mut WICJpegFrameHeader) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetFrameHeader)(::windows::core::Vtable::as_raw(self), pframeheader).ok()
+        (::windows::core::Interface::vtable(self).GetFrameHeader)(::windows::core::Interface::as_raw(self), pframeheader).ok()
     }
     pub unsafe fn GetScanHeader(&self, scanindex: u32, pscanheader: *mut WICJpegScanHeader) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetScanHeader)(::windows::core::Vtable::as_raw(self), scanindex, pscanheader).ok()
+        (::windows::core::Interface::vtable(self).GetScanHeader)(::windows::core::Interface::as_raw(self), scanindex, pscanheader).ok()
     }
     pub unsafe fn CopyScan(&self, scanindex: u32, scanoffset: u32, pbscandata: &mut [u8], pcbscandataactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CopyScan)(::windows::core::Vtable::as_raw(self), scanindex, scanoffset, pbscandata.len() as _, ::core::mem::transmute(pbscandata.as_ptr()), pcbscandataactual).ok()
+        (::windows::core::Interface::vtable(self).CopyScan)(::windows::core::Interface::as_raw(self), scanindex, scanoffset, pbscandata.len() as _, ::core::mem::transmute(pbscandata.as_ptr()), pcbscandataactual).ok()
     }
     pub unsafe fn CopyMinimalStream(&self, streamoffset: u32, pbstreamdata: &mut [u8], pcbstreamdataactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CopyMinimalStream)(::windows::core::Vtable::as_raw(self), streamoffset, pbstreamdata.len() as _, ::core::mem::transmute(pbstreamdata.as_ptr()), pcbstreamdataactual).ok()
+        (::windows::core::Interface::vtable(self).CopyMinimalStream)(::windows::core::Interface::as_raw(self), streamoffset, pbstreamdata.len() as _, ::core::mem::transmute(pbstreamdata.as_ptr()), pcbstreamdataactual).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICJpegFrameDecode, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICJpegFrameDecode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICJpegFrameDecode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICJpegFrameDecode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2645,10 +2640,15 @@ impl ::core::fmt::Debug for IWICJpegFrameDecode {
         f.debug_tuple("IWICJpegFrameDecode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICJpegFrameDecode {
+unsafe impl ::windows::core::Interface for IWICJpegFrameDecode {
     type Vtable = IWICJpegFrameDecode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICJpegFrameDecode {
+impl ::core::clone::Clone for IWICJpegFrameDecode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICJpegFrameDecode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
 }
 #[repr(C)]
@@ -2685,28 +2685,23 @@ impl IWICJpegFrameEncode {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::Dxgi::Common::DXGI_JPEG_AC_HUFFMAN_TABLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAcHuffmanTable)(::windows::core::Vtable::as_raw(self), scanindex, tableindex, pachuffmantable).ok()
+        (::windows::core::Interface::vtable(self).GetAcHuffmanTable)(::windows::core::Interface::as_raw(self), scanindex, tableindex, pachuffmantable).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::Dxgi::Common::DXGI_JPEG_DC_HUFFMAN_TABLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDcHuffmanTable)(::windows::core::Vtable::as_raw(self), scanindex, tableindex, pdchuffmantable).ok()
+        (::windows::core::Interface::vtable(self).GetDcHuffmanTable)(::windows::core::Interface::as_raw(self), scanindex, tableindex, pdchuffmantable).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::Dxgi::Common::DXGI_JPEG_QUANTIZATION_TABLE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetQuantizationTable)(::windows::core::Vtable::as_raw(self), scanindex, tableindex, pquantizationtable).ok()
+        (::windows::core::Interface::vtable(self).GetQuantizationTable)(::windows::core::Interface::as_raw(self), scanindex, tableindex, pquantizationtable).ok()
     }
     pub unsafe fn WriteScan(&self, pbscandata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WriteScan)(::windows::core::Vtable::as_raw(self), pbscandata.len() as _, ::core::mem::transmute(pbscandata.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).WriteScan)(::windows::core::Interface::as_raw(self), pbscandata.len() as _, ::core::mem::transmute(pbscandata.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICJpegFrameEncode, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICJpegFrameEncode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICJpegFrameEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICJpegFrameEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2718,10 +2713,15 @@ impl ::core::fmt::Debug for IWICJpegFrameEncode {
         f.debug_tuple("IWICJpegFrameEncode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICJpegFrameEncode {
+unsafe impl ::windows::core::Interface for IWICJpegFrameEncode {
     type Vtable = IWICJpegFrameEncode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICJpegFrameEncode {
+impl ::core::clone::Clone for IWICJpegFrameEncode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICJpegFrameEncode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f0c601f_d2c6_468c_abfa_49495d983ed1);
 }
 #[repr(C)]
@@ -2747,30 +2747,25 @@ pub struct IWICJpegFrameEncode_Vtbl {
 pub struct IWICMetadataBlockReader(::windows::core::IUnknown);
 impl IWICMetadataBlockReader {
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReaderByIndex(&self, nindex: u32) -> ::windows::core::Result<IWICMetadataReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReaderByIndex)(::windows::core::Vtable::as_raw(self), nindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataReader>();
+        (::windows::core::Interface::vtable(self).GetReaderByIndex)(::windows::core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataBlockReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICMetadataBlockReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataBlockReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICMetadataBlockReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2782,10 +2777,15 @@ impl ::core::fmt::Debug for IWICMetadataBlockReader {
         f.debug_tuple("IWICMetadataBlockReader").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataBlockReader {
+unsafe impl ::windows::core::Interface for IWICMetadataBlockReader {
     type Vtable = IWICMetadataBlockReader_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataBlockReader {
+impl ::core::clone::Clone for IWICMetadataBlockReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataBlockReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeaa2a8d_b3f3_43e4_b25c_d1de990a1ae1);
 }
 #[repr(C)]
@@ -2805,55 +2805,50 @@ pub struct IWICMetadataBlockReader_Vtbl {
 pub struct IWICMetadataBlockWriter(::windows::core::IUnknown);
 impl IWICMetadataBlockWriter {
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReaderByIndex(&self, nindex: u32) -> ::windows::core::Result<IWICMetadataReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetReaderByIndex)(::windows::core::Vtable::as_raw(self), nindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataReader>();
+        (::windows::core::Interface::vtable(self).base__.GetReaderByIndex)(::windows::core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetEnumerator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Interface::vtable(self).base__.GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeFromBlockReader<P0>(&self, pimdblockreader: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataBlockReader>>,
+        P0: ::windows::core::IntoParam<IWICMetadataBlockReader>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromBlockReader)(::windows::core::Vtable::as_raw(self), pimdblockreader.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromBlockReader)(::windows::core::Interface::as_raw(self), pimdblockreader.into_param().abi()).ok()
     }
     pub unsafe fn GetWriterByIndex(&self, nindex: u32) -> ::windows::core::Result<IWICMetadataWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWriterByIndex)(::windows::core::Vtable::as_raw(self), nindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataWriter>();
+        (::windows::core::Interface::vtable(self).GetWriterByIndex)(::windows::core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddWriter<P0>(&self, pimetadatawriter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataWriter>>,
+        P0: ::windows::core::IntoParam<IWICMetadataWriter>,
     {
-        (::windows::core::Vtable::vtable(self).AddWriter)(::windows::core::Vtable::as_raw(self), pimetadatawriter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddWriter)(::windows::core::Interface::as_raw(self), pimetadatawriter.into_param().abi()).ok()
     }
     pub unsafe fn SetWriterByIndex<P0>(&self, nindex: u32, pimetadatawriter: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICMetadataWriter>>,
+        P0: ::windows::core::IntoParam<IWICMetadataWriter>,
     {
-        (::windows::core::Vtable::vtable(self).SetWriterByIndex)(::windows::core::Vtable::as_raw(self), nindex, pimetadatawriter.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetWriterByIndex)(::windows::core::Interface::as_raw(self), nindex, pimetadatawriter.into_param().abi()).ok()
     }
     pub unsafe fn RemoveWriterByIndex(&self, nindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveWriterByIndex)(::windows::core::Vtable::as_raw(self), nindex).ok()
+        (::windows::core::Interface::vtable(self).RemoveWriterByIndex)(::windows::core::Interface::as_raw(self), nindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataBlockWriter, ::windows::core::IUnknown, IWICMetadataBlockReader);
-impl ::core::clone::Clone for IWICMetadataBlockWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataBlockWriter, ::windows::core::IUnknown, IWICMetadataBlockReader);
 impl ::core::cmp::PartialEq for IWICMetadataBlockWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2865,10 +2860,15 @@ impl ::core::fmt::Debug for IWICMetadataBlockWriter {
         f.debug_tuple("IWICMetadataBlockWriter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataBlockWriter {
+unsafe impl ::windows::core::Interface for IWICMetadataBlockWriter {
     type Vtable = IWICMetadataBlockWriter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataBlockWriter {
+impl ::core::clone::Clone for IWICMetadataBlockWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataBlockWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08fb9676_b444_41e8_8dbe_6a53a542bff1);
 }
 #[repr(C)]
@@ -2886,71 +2886,66 @@ pub struct IWICMetadataBlockWriter_Vtbl {
 pub struct IWICMetadataHandlerInfo(::windows::core::IUnknown);
 impl IWICMetadataHandlerInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetMetadataFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainerFormats(&self, pguidcontainerformats: &mut [::windows::core::GUID], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetContainerFormats)(::windows::core::Vtable::as_raw(self), pguidcontainerformats.len() as _, ::core::mem::transmute(pguidcontainerformats.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetContainerFormats)(::windows::core::Interface::as_raw(self), pguidcontainerformats.len() as _, ::core::mem::transmute(pguidcontainerformats.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDeviceManufacturer)(::windows::core::Vtable::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceManufacturer)(::windows::core::Interface::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceModels(&self, wzdevicemodels: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDeviceModels)(::windows::core::Vtable::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceModels)(::windows::core::Interface::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesRequireFullStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesRequireFullStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesSupportPadding)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesSupportPadding)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DoesRequireFixedSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).DoesRequireFixedSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataHandlerInfo, ::windows::core::IUnknown, IWICComponentInfo);
-impl ::core::clone::Clone for IWICMetadataHandlerInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataHandlerInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICMetadataHandlerInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2962,10 +2957,15 @@ impl ::core::fmt::Debug for IWICMetadataHandlerInfo {
         f.debug_tuple("IWICMetadataHandlerInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataHandlerInfo {
+unsafe impl ::windows::core::Interface for IWICMetadataHandlerInfo {
     type Vtable = IWICMetadataHandlerInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataHandlerInfo {
+impl ::core::clone::Clone for IWICMetadataHandlerInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataHandlerInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba958bf_c672_44d1_8d61_ce6df2e682c2);
 }
 #[repr(C)]
@@ -2994,33 +2994,28 @@ pub struct IWICMetadataHandlerInfo_Vtbl {
 pub struct IWICMetadataQueryReader(::windows::core::IUnknown);
 impl IWICMetadataQueryReader {
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocation(&self, wznamespace: &mut [u16], pcchactuallength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLocation)(::windows::core::Vtable::as_raw(self), wznamespace.len() as _, ::core::mem::transmute(wznamespace.as_ptr()), pcchactuallength).ok()
+        (::windows::core::Interface::vtable(self).GetLocation)(::windows::core::Interface::as_raw(self), wznamespace.len() as _, ::core::mem::transmute(wznamespace.as_ptr()), pcchactuallength).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).GetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi(), pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).GetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi(), pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumString>();
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataQueryReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICMetadataQueryReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataQueryReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICMetadataQueryReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3032,10 +3027,15 @@ impl ::core::fmt::Debug for IWICMetadataQueryReader {
         f.debug_tuple("IWICMetadataQueryReader").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataQueryReader {
+unsafe impl ::windows::core::Interface for IWICMetadataQueryReader {
     type Vtable = IWICMetadataQueryReader_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataQueryReader {
+impl ::core::clone::Clone for IWICMetadataQueryReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataQueryReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30989668_e1c9_4597_b395_458eedb808df);
 }
 #[repr(C)]
@@ -3058,47 +3058,42 @@ pub struct IWICMetadataQueryReader_Vtbl {
 pub struct IWICMetadataQueryWriter(::windows::core::IUnknown);
 impl IWICMetadataQueryWriter {
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContainerFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetContainerFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocation(&self, wznamespace: &mut [u16], pcchactuallength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLocation)(::windows::core::Vtable::as_raw(self), wznamespace.len() as _, ::core::mem::transmute(wznamespace.as_ptr()), pcchactuallength).ok()
+        (::windows::core::Interface::vtable(self).base__.GetLocation)(::windows::core::Interface::as_raw(self), wznamespace.len() as _, ::core::mem::transmute(wznamespace.as_ptr()), pcchactuallength).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).base__.GetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi(), pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).base__.GetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi(), pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetEnumerator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumString>();
+        (::windows::core::Interface::vtable(self).base__.GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).SetMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi(), pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).SetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi(), pvarvalue).ok()
     }
     pub unsafe fn RemoveMetadataByName<P0>(&self, wzname: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).RemoveMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataQueryWriter, ::windows::core::IUnknown, IWICMetadataQueryReader);
-impl ::core::clone::Clone for IWICMetadataQueryWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataQueryWriter, ::windows::core::IUnknown, IWICMetadataQueryReader);
 impl ::core::cmp::PartialEq for IWICMetadataQueryWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3110,10 +3105,15 @@ impl ::core::fmt::Debug for IWICMetadataQueryWriter {
         f.debug_tuple("IWICMetadataQueryWriter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataQueryWriter {
+unsafe impl ::windows::core::Interface for IWICMetadataQueryWriter {
     type Vtable = IWICMetadataQueryWriter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataQueryWriter {
+impl ::core::clone::Clone for IWICMetadataQueryWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataQueryWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa721791a_0def_4d06_bd91_2118bf1db10b);
 }
 #[repr(C)]
@@ -3131,38 +3131,33 @@ pub struct IWICMetadataQueryWriter_Vtbl {
 pub struct IWICMetadataReader(::windows::core::IUnknown);
 impl IWICMetadataReader {
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetMetadataFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMetadataHandlerInfo(&self) -> ::windows::core::Result<IWICMetadataHandlerInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMetadataHandlerInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataHandlerInfo>();
+        (::windows::core::Interface::vtable(self).GetMetadataHandlerInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetValueByIndex)(::windows::core::Vtable::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).GetValueByIndex)(::windows::core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IWICEnumMetadataItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICEnumMetadataItem>();
+        (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICMetadataReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataReader, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICMetadataReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3174,10 +3169,15 @@ impl ::core::fmt::Debug for IWICMetadataReader {
         f.debug_tuple("IWICMetadataReader").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataReader {
+unsafe impl ::windows::core::Interface for IWICMetadataReader {
     type Vtable = IWICMetadataReader_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataReader {
+impl ::core::clone::Clone for IWICMetadataReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9204fe99_d8fc_4fd5_a001_9536b067a899);
 }
 #[repr(C)]
@@ -3202,87 +3202,82 @@ pub struct IWICMetadataReader_Vtbl {
 pub struct IWICMetadataReaderInfo(::windows::core::IUnknown);
 impl IWICMetadataReaderInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMetadataFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetMetadataFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainerFormats(&self, pguidcontainerformats: &mut [::windows::core::GUID], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetContainerFormats)(::windows::core::Vtable::as_raw(self), pguidcontainerformats.len() as _, ::core::mem::transmute(pguidcontainerformats.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetContainerFormats)(::windows::core::Interface::as_raw(self), pguidcontainerformats.len() as _, ::core::mem::transmute(pguidcontainerformats.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Vtable::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Interface::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceModels(&self, wzdevicemodels: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceModels)(::windows::core::Vtable::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceModels)(::windows::core::Interface::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesRequireFullStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesRequireFullStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportPadding)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportPadding)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesRequireFixedSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesRequireFixedSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPatterns(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, ppattern: ::core::option::Option<*mut WICMetadataPattern>, pccount: ::core::option::Option<*mut u32>, pcbactual: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPatterns)(::windows::core::Vtable::as_raw(self), guidcontainerformat, cbsize, ::core::mem::transmute(ppattern.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetPatterns)(::windows::core::Interface::as_raw(self), guidcontainerformat, cbsize, ::core::mem::transmute(ppattern.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pccount.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn MatchesPattern<P0>(&self, guidcontainerformat: *const ::windows::core::GUID, pistream: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MatchesPattern)(::windows::core::Vtable::as_raw(self), guidcontainerformat, pistream.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).MatchesPattern)(::windows::core::Interface::as_raw(self), guidcontainerformat, pistream.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataReader> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataReader>();
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataReaderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
-impl ::core::clone::Clone for IWICMetadataReaderInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataReaderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl ::core::cmp::PartialEq for IWICMetadataReaderInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3294,10 +3289,15 @@ impl ::core::fmt::Debug for IWICMetadataReaderInfo {
         f.debug_tuple("IWICMetadataReaderInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataReaderInfo {
+unsafe impl ::windows::core::Interface for IWICMetadataReaderInfo {
     type Vtable = IWICMetadataReaderInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataReaderInfo {
+impl ::core::clone::Clone for IWICMetadataReaderInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataReaderInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeebf1f5b_07c1_4447_a3ab_22acaf78a804);
 }
 #[repr(C)]
@@ -3316,56 +3316,51 @@ pub struct IWICMetadataReaderInfo_Vtbl {
 pub struct IWICMetadataWriter(::windows::core::IUnknown);
 impl IWICMetadataWriter {
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMetadataFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetMetadataFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMetadataHandlerInfo(&self) -> ::windows::core::Result<IWICMetadataHandlerInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMetadataHandlerInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataHandlerInfo>();
+        (::windows::core::Interface::vtable(self).base__.GetMetadataHandlerInfo)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetValueByIndex)(::windows::core::Vtable::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).base__.GetValueByIndex)(::windows::core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetValue)(::windows::core::Vtable::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IWICEnumMetadataItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetEnumerator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICEnumMetadataItem>();
+        (::windows::core::Interface::vtable(self).base__.GetEnumerator)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValue)(::windows::core::Vtable::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetValueByIndex(&self, nindex: u32, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetValueByIndex)(::windows::core::Vtable::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
+        (::windows::core::Interface::vtable(self).SetValueByIndex)(::windows::core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn RemoveValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveValue)(::windows::core::Vtable::as_raw(self), pvarschema, pvarid).ok()
+        (::windows::core::Interface::vtable(self).RemoveValue)(::windows::core::Interface::as_raw(self), pvarschema, pvarid).ok()
     }
     pub unsafe fn RemoveValueByIndex(&self, nindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RemoveValueByIndex)(::windows::core::Vtable::as_raw(self), nindex).ok()
+        (::windows::core::Interface::vtable(self).RemoveValueByIndex)(::windows::core::Interface::as_raw(self), nindex).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataWriter, ::windows::core::IUnknown, IWICMetadataReader);
-impl ::core::clone::Clone for IWICMetadataWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataWriter, ::windows::core::IUnknown, IWICMetadataReader);
 impl ::core::cmp::PartialEq for IWICMetadataWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3377,10 +3372,15 @@ impl ::core::fmt::Debug for IWICMetadataWriter {
         f.debug_tuple("IWICMetadataWriter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataWriter {
+unsafe impl ::windows::core::Interface for IWICMetadataWriter {
     type Vtable = IWICMetadataWriter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataWriter {
+impl ::core::clone::Clone for IWICMetadataWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7836e16_3be0_470b_86bb_160d0aecd7de);
 }
 #[repr(C)]
@@ -3406,78 +3406,73 @@ pub struct IWICMetadataWriter_Vtbl {
 pub struct IWICMetadataWriterInfo(::windows::core::IUnknown);
 impl IWICMetadataWriterInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMetadataFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetMetadataFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainerFormats(&self, pguidcontainerformats: &mut [::windows::core::GUID], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetContainerFormats)(::windows::core::Vtable::as_raw(self), pguidcontainerformats.len() as _, ::core::mem::transmute(pguidcontainerformats.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetContainerFormats)(::windows::core::Interface::as_raw(self), pguidcontainerformats.len() as _, ::core::mem::transmute(pguidcontainerformats.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceManufacturer(&self, wzdevicemanufacturer: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Vtable::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceManufacturer)(::windows::core::Interface::as_raw(self), wzdevicemanufacturer.len() as _, ::core::mem::transmute(wzdevicemanufacturer.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetDeviceModels(&self, wzdevicemodels: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceModels)(::windows::core::Vtable::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDeviceModels)(::windows::core::Interface::as_raw(self), wzdevicemodels.len() as _, ::core::mem::transmute(wzdevicemodels.as_ptr()), pcchactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesRequireFullStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesRequireFullStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesSupportPadding)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesSupportPadding)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DoesRequireFixedSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.DoesRequireFixedSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHeader(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, pheader: ::core::option::Option<*mut WICMetadataHeader>, pcbactual: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetHeader)(::windows::core::Vtable::as_raw(self), guidcontainerformat, cbsize, ::core::mem::transmute(pheader.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).GetHeader)(::windows::core::Interface::as_raw(self), guidcontainerformat, cbsize, ::core::mem::transmute(pheader.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataWriter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICMetadataWriter>();
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICMetadataWriterInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
-impl ::core::clone::Clone for IWICMetadataWriterInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICMetadataWriterInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl ::core::cmp::PartialEq for IWICMetadataWriterInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3489,10 +3484,15 @@ impl ::core::fmt::Debug for IWICMetadataWriterInfo {
         f.debug_tuple("IWICMetadataWriterInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICMetadataWriterInfo {
+unsafe impl ::windows::core::Interface for IWICMetadataWriterInfo {
     type Vtable = IWICMetadataWriterInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICMetadataWriterInfo {
+impl ::core::clone::Clone for IWICMetadataWriterInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICMetadataWriterInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22e3fba_3925_4323_b5c1_9ebfc430f236);
 }
 #[repr(C)]
@@ -3510,64 +3510,59 @@ impl IWICPalette {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializePredefined<P0>(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).InitializePredefined)(::windows::core::Vtable::as_raw(self), epalettetype, faddtransparentcolor.into()).ok()
+        (::windows::core::Interface::vtable(self).InitializePredefined)(::windows::core::Interface::as_raw(self), epalettetype, faddtransparentcolor.into_param().abi()).ok()
     }
     pub unsafe fn InitializeCustom(&self, pcolors: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeCustom)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcolors.as_ptr()), pcolors.len() as _).ok()
+        (::windows::core::Interface::vtable(self).InitializeCustom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcolors.as_ptr()), pcolors.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializeFromBitmap<P0, P1>(&self, pisurface: P0, ccount: u32, faddtransparentcolor: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICBitmapSource>>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<IWICBitmapSource>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromBitmap)(::windows::core::Vtable::as_raw(self), pisurface.into().abi(), ccount, faddtransparentcolor.into()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromBitmap)(::windows::core::Interface::as_raw(self), pisurface.into_param().abi(), ccount, faddtransparentcolor.into_param().abi()).ok()
     }
     pub unsafe fn InitializeFromPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn GetType(&self) -> ::windows::core::Result<WICBitmapPaletteType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICBitmapPaletteType>();
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetColorCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetColorCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColors(&self, pcolors: &mut [u32], pcactualcolors: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetColors)(::windows::core::Vtable::as_raw(self), pcolors.len() as _, ::core::mem::transmute(pcolors.as_ptr()), pcactualcolors).ok()
+        (::windows::core::Interface::vtable(self).GetColors)(::windows::core::Interface::as_raw(self), pcolors.len() as _, ::core::mem::transmute(pcolors.as_ptr()), pcactualcolors).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsBlackWhite(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsBlackWhite)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).IsBlackWhite)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsGrayscale(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsGrayscale)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).IsGrayscale)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAlpha(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HasAlpha)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).HasAlpha)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICPalette, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICPalette {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICPalette, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICPalette {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3579,10 +3574,15 @@ impl ::core::fmt::Debug for IWICPalette {
         f.debug_tuple("IWICPalette").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICPalette {
+unsafe impl ::windows::core::Interface for IWICPalette {
     type Vtable = IWICPalette_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICPalette {
+impl ::core::clone::Clone for IWICPalette {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICPalette {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000040_a8f2_4877_ba0a_fd2b6645fb94);
 }
 #[repr(C)]
@@ -3624,63 +3624,57 @@ impl IWICPersistStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetClassID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
-        (::windows::core::Vtable::vtable(self).base__.IsDirty)(::windows::core::Vtable::as_raw(self))
+        (::windows::core::Interface::vtable(self).base__.IsDirty)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Load<P0>(&self, pstm: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Load)(::windows::core::Vtable::as_raw(self), pstm.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Load)(::windows::core::Interface::as_raw(self), pstm.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Save)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), fcleardirty.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSizeMax(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSizeMax)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Interface::vtable(self).base__.GetSizeMax)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadEx<P0>(&self, pistream: P0, pguidpreferredvendor: *const ::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).LoadEx)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), pguidpreferredvendor, dwpersistoptions).ok()
+        (::windows::core::Interface::vtable(self).LoadEx)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), pguidpreferredvendor, dwpersistoptions).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SaveEx<P0, P1>(&self, pistream: P0, dwpersistoptions: u32, fcleardirty: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SaveEx)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), dwpersistoptions, fcleardirty.into()).ok()
+        (::windows::core::Interface::vtable(self).SaveEx)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), dwpersistoptions, fcleardirty.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWICPersistStream, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStream);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWICPersistStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICPersistStream, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWICPersistStream {
     fn eq(&self, other: &Self) -> bool {
@@ -3696,11 +3690,17 @@ impl ::core::fmt::Debug for IWICPersistStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for IWICPersistStream {
+unsafe impl ::windows::core::Interface for IWICPersistStream {
     type Vtable = IWICPersistStream_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IWICPersistStream {
+impl ::core::clone::Clone for IWICPersistStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for IWICPersistStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00675040_6908_45f8_86a3_49c7dfd6d9ad);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3722,59 +3722,54 @@ pub struct IWICPersistStream_Vtbl {
 pub struct IWICPixelFormatInfo(::windows::core::IUnknown);
 impl IWICPixelFormatInfo {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFormatGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFormatGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetFormatGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetColorContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICColorContext>();
+        (::windows::core::Interface::vtable(self).GetColorContext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBitsPerPixel(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBitsPerPixel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetBitsPerPixel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetChannelCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetChannelCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetChannelCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetChannelMask(&self, uichannelindex: u32, pbmaskbuffer: &mut [u8], pcbactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetChannelMask)(::windows::core::Vtable::as_raw(self), uichannelindex, pbmaskbuffer.len() as _, ::core::mem::transmute(pbmaskbuffer.as_ptr()), pcbactual).ok()
+        (::windows::core::Interface::vtable(self).GetChannelMask)(::windows::core::Interface::as_raw(self), uichannelindex, pbmaskbuffer.len() as _, ::core::mem::transmute(pbmaskbuffer.as_ptr()), pcbactual).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICPixelFormatInfo, ::windows::core::IUnknown, IWICComponentInfo);
-impl ::core::clone::Clone for IWICPixelFormatInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICPixelFormatInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::cmp::PartialEq for IWICPixelFormatInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3786,10 +3781,15 @@ impl ::core::fmt::Debug for IWICPixelFormatInfo {
         f.debug_tuple("IWICPixelFormatInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICPixelFormatInfo {
+unsafe impl ::windows::core::Interface for IWICPixelFormatInfo {
     type Vtable = IWICPixelFormatInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICPixelFormatInfo {
+impl ::core::clone::Clone for IWICPixelFormatInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICPixelFormatInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8eda601_3d48_431a_ab44_69059be88bbe);
 }
 #[repr(C)]
@@ -3807,69 +3807,64 @@ pub struct IWICPixelFormatInfo_Vtbl {
 pub struct IWICPixelFormatInfo2(::windows::core::IUnknown);
 impl IWICPixelFormatInfo2 {
     pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetComponentType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICComponentType>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetComponentType)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCLSID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetCLSID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetSigningStatus)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAuthor(&self, wzauthor: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAuthor)(::windows::core::Vtable::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetAuthor)(::windows::core::Interface::as_raw(self), wzauthor.len() as _, ::core::mem::transmute(wzauthor.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, wzversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetVersion)(::windows::core::Vtable::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetVersion)(::windows::core::Interface::as_raw(self), wzversion.len() as _, ::core::mem::transmute(wzversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetSpecVersion(&self, wzspecversion: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Vtable::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetSpecVersion)(::windows::core::Interface::as_raw(self), wzspecversion.len() as _, ::core::mem::transmute(wzspecversion.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFriendlyName(&self, wzfriendlyname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetFriendlyName)(::windows::core::Interface::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), pcchactual).ok()
     }
     pub unsafe fn GetFormatGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFormatGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetFormatGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetColorContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWICColorContext>();
+        (::windows::core::Interface::vtable(self).base__.GetColorContext)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBitsPerPixel(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBitsPerPixel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetBitsPerPixel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetChannelCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetChannelCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).base__.GetChannelCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetChannelMask(&self, uichannelindex: u32, pbmaskbuffer: &mut [u8], pcbactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetChannelMask)(::windows::core::Vtable::as_raw(self), uichannelindex, pbmaskbuffer.len() as _, ::core::mem::transmute(pbmaskbuffer.as_ptr()), pcbactual).ok()
+        (::windows::core::Interface::vtable(self).base__.GetChannelMask)(::windows::core::Interface::as_raw(self), uichannelindex, pbmaskbuffer.len() as _, ::core::mem::transmute(pbmaskbuffer.as_ptr()), pcbactual).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportsTransparency(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SupportsTransparency)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).SupportsTransparency)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumericRepresentation(&self) -> ::windows::core::Result<WICPixelFormatNumericRepresentation> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNumericRepresentation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<WICPixelFormatNumericRepresentation>();
+        (::windows::core::Interface::vtable(self).GetNumericRepresentation)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICPixelFormatInfo2, ::windows::core::IUnknown, IWICComponentInfo, IWICPixelFormatInfo);
-impl ::core::clone::Clone for IWICPixelFormatInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICPixelFormatInfo2, ::windows::core::IUnknown, IWICComponentInfo, IWICPixelFormatInfo);
 impl ::core::cmp::PartialEq for IWICPixelFormatInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3881,10 +3876,15 @@ impl ::core::fmt::Debug for IWICPixelFormatInfo2 {
         f.debug_tuple("IWICPixelFormatInfo2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICPixelFormatInfo2 {
+unsafe impl ::windows::core::Interface for IWICPixelFormatInfo2 {
     type Vtable = IWICPixelFormatInfo2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICPixelFormatInfo2 {
+impl ::core::clone::Clone for IWICPixelFormatInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICPixelFormatInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9db33a2_af5f_43c7_b679_74f5984b5aa4);
 }
 #[repr(C)]
@@ -3902,18 +3902,13 @@ pub struct IWICPixelFormatInfo2_Vtbl {
 pub struct IWICPlanarBitmapFrameEncode(::windows::core::IUnknown);
 impl IWICPlanarBitmapFrameEncode {
     pub unsafe fn WritePixels(&self, linecount: u32, pplanes: &[WICBitmapPlane]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WritePixels)(::windows::core::Vtable::as_raw(self), linecount, ::core::mem::transmute(pplanes.as_ptr()), pplanes.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WritePixels)(::windows::core::Interface::as_raw(self), linecount, ::core::mem::transmute(pplanes.as_ptr()), pplanes.len() as _).ok()
     }
     pub unsafe fn WriteSource(&self, ppplanes: &[::core::option::Option<IWICBitmapSource>], prcsource: *const WICRect) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WriteSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppplanes.as_ptr()), ppplanes.len() as _, prcsource).ok()
+        (::windows::core::Interface::vtable(self).WriteSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppplanes.as_ptr()), ppplanes.len() as _, prcsource).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICPlanarBitmapFrameEncode, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICPlanarBitmapFrameEncode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICPlanarBitmapFrameEncode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICPlanarBitmapFrameEncode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3925,10 +3920,15 @@ impl ::core::fmt::Debug for IWICPlanarBitmapFrameEncode {
         f.debug_tuple("IWICPlanarBitmapFrameEncode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICPlanarBitmapFrameEncode {
+unsafe impl ::windows::core::Interface for IWICPlanarBitmapFrameEncode {
     type Vtable = IWICPlanarBitmapFrameEncode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICPlanarBitmapFrameEncode {
+impl ::core::clone::Clone for IWICPlanarBitmapFrameEncode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICPlanarBitmapFrameEncode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf928b7b8_2221_40c1_b72e_7e82f1974d1a);
 }
 #[repr(C)]
@@ -3945,18 +3945,13 @@ impl IWICPlanarBitmapSourceTransform {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportTransform(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const ::windows::core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DoesSupportTransform)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight, dsttransform, dstplanaroptions, pguiddstformats, pplanedescriptions, cplanes, pfissupported).ok()
+        (::windows::core::Interface::vtable(self).DoesSupportTransform)(::windows::core::Interface::as_raw(self), puiwidth, puiheight, dsttransform, dstplanaroptions, pguiddstformats, pplanedescriptions, cplanes, pfissupported).ok()
     }
     pub unsafe fn CopyPixels(&self, prcsource: *const WICRect, uiwidth: u32, uiheight: u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pdstplanes: &[WICBitmapPlane]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CopyPixels)(::windows::core::Vtable::as_raw(self), prcsource, uiwidth, uiheight, dsttransform, dstplanaroptions, ::core::mem::transmute(pdstplanes.as_ptr()), pdstplanes.len() as _).ok()
+        (::windows::core::Interface::vtable(self).CopyPixels)(::windows::core::Interface::as_raw(self), prcsource, uiwidth, uiheight, dsttransform, dstplanaroptions, ::core::mem::transmute(pdstplanes.as_ptr()), pdstplanes.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICPlanarBitmapSourceTransform, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICPlanarBitmapSourceTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICPlanarBitmapSourceTransform, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICPlanarBitmapSourceTransform {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3968,10 +3963,15 @@ impl ::core::fmt::Debug for IWICPlanarBitmapSourceTransform {
         f.debug_tuple("IWICPlanarBitmapSourceTransform").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICPlanarBitmapSourceTransform {
+unsafe impl ::windows::core::Interface for IWICPlanarBitmapSourceTransform {
     type Vtable = IWICPlanarBitmapSourceTransform_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICPlanarBitmapSourceTransform {
+impl ::core::clone::Clone for IWICPlanarBitmapSourceTransform {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICPlanarBitmapSourceTransform {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aff9cce_be95_4303_b927_e7d16ff4a613);
 }
 #[repr(C)]
@@ -3989,43 +3989,38 @@ pub struct IWICPlanarBitmapSourceTransform_Vtbl {
 pub struct IWICPlanarFormatConverter(::windows::core::IUnknown);
 impl IWICPlanarFormatConverter {
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetSize)(::windows::core::Vtable::as_raw(self), puiwidth, puiheight).ok()
+        (::windows::core::Interface::vtable(self).base__.GetSize)(::windows::core::Interface::as_raw(self), puiwidth, puiheight).ok()
     }
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPixelFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).base__.GetPixelFormat)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetResolution)(::windows::core::Vtable::as_raw(self), pdpix, pdpiy).ok()
+        (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), pdpix, pdpiy).ok()
     }
     pub unsafe fn CopyPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyPalette)(::windows::core::Vtable::as_raw(self), pipalette.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
     }
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
     pub unsafe fn Initialize<P0>(&self, ppplanes: &[::core::option::Option<IWICBitmapSource>], dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: P0, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
+        P0: ::windows::core::IntoParam<IWICPalette>,
     {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppplanes.as_ptr()), ppplanes.len() as _, dstformat, dither, pipalette.into().abi(), alphathresholdpercent, palettetranslate).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppplanes.as_ptr()), ppplanes.len() as _, dstformat, dither, pipalette.into_param().abi(), alphathresholdpercent, palettetranslate).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanConvert(&self, psrcpixelformats: &[::windows::core::GUID], dstpixelformat: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CanConvert)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psrcpixelformats.as_ptr()), psrcpixelformats.len() as _, dstpixelformat, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).CanConvert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psrcpixelformats.as_ptr()), psrcpixelformats.len() as _, dstpixelformat, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IWICPlanarFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
-impl ::core::clone::Clone for IWICPlanarFormatConverter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICPlanarFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::cmp::PartialEq for IWICPlanarFormatConverter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4037,10 +4032,15 @@ impl ::core::fmt::Debug for IWICPlanarFormatConverter {
         f.debug_tuple("IWICPlanarFormatConverter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICPlanarFormatConverter {
+unsafe impl ::windows::core::Interface for IWICPlanarFormatConverter {
     type Vtable = IWICPlanarFormatConverter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICPlanarFormatConverter {
+impl ::core::clone::Clone for IWICPlanarFormatConverter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICPlanarFormatConverter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbebee9cb_83b0_4dcc_8132_b0aaa55eac96);
 }
 #[repr(C)]
@@ -4058,15 +4058,10 @@ pub struct IWICPlanarFormatConverter_Vtbl {
 pub struct IWICProgressCallback(::windows::core::IUnknown);
 impl IWICProgressCallback {
     pub unsafe fn Notify(&self, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), uframenum, operation, dblprogress).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), uframenum, operation, dblprogress).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICProgressCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICProgressCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICProgressCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICProgressCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4078,10 +4073,15 @@ impl ::core::fmt::Debug for IWICProgressCallback {
         f.debug_tuple("IWICProgressCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICProgressCallback {
+unsafe impl ::windows::core::Interface for IWICProgressCallback {
     type Vtable = IWICProgressCallback_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICProgressCallback {
+impl ::core::clone::Clone for IWICProgressCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICProgressCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4776f9cd_9517_45fa_bf24_e89c5ec5c60c);
 }
 #[repr(C)]
@@ -4095,23 +4095,18 @@ pub struct IWICProgressCallback_Vtbl {
 pub struct IWICProgressiveLevelControl(::windows::core::IUnknown);
 impl IWICProgressiveLevelControl {
     pub unsafe fn GetLevelCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLevelCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetLevelCount)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentLevel(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrentLevel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetCurrentLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentLevel(&self, nlevel: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetCurrentLevel)(::windows::core::Vtable::as_raw(self), nlevel).ok()
+        (::windows::core::Interface::vtable(self).SetCurrentLevel)(::windows::core::Interface::as_raw(self), nlevel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICProgressiveLevelControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICProgressiveLevelControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICProgressiveLevelControl, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICProgressiveLevelControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4123,10 +4118,15 @@ impl ::core::fmt::Debug for IWICProgressiveLevelControl {
         f.debug_tuple("IWICProgressiveLevelControl").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICProgressiveLevelControl {
+unsafe impl ::windows::core::Interface for IWICProgressiveLevelControl {
     type Vtable = IWICProgressiveLevelControl_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICProgressiveLevelControl {
+impl ::core::clone::Clone for IWICProgressiveLevelControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICProgressiveLevelControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaac296f_7aa5_4dbf_8d15_225c5976f891);
 }
 #[repr(C)]
@@ -4146,96 +4146,90 @@ impl IWICStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Vtable::vtable(self).base__.base__.Read)(::windows::core::Vtable::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
+        (::windows::core::Interface::vtable(self).base__.base__.Read)(::windows::core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows::core::HRESULT {
-        (::windows::core::Vtable::vtable(self).base__.base__.Write)(::windows::core::Vtable::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
+        (::windows::core::Interface::vtable(self).base__.base__.Write)(::windows::core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK, plibnewposition: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Seek)(::windows::core::Vtable::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(plibnewposition.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(plibnewposition.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetSize)(::windows::core::Vtable::as_raw(self), libnewsize).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSize)(::windows::core::Interface::as_raw(self), libnewsize).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).base__.CopyTo)(::windows::core::Vtable::as_raw(self), pstm.into().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Commit)(::windows::core::Vtable::as_raw(self), grfcommitflags).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Revert)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Revert)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.LockRegion)(::windows::core::Vtable::as_raw(self), liboffset, cb, dwlocktype).ok()
+        (::windows::core::Interface::vtable(self).base__.LockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.UnlockRegion)(::windows::core::Vtable::as_raw(self), liboffset, cb, dwlocktype).ok()
+        (::windows::core::Interface::vtable(self).base__.UnlockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Stat)(::windows::core::Vtable::as_raw(self), pstatstg, grfstatflag).ok()
+        (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), pstatstg, grfstatflag).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromIStream<P0>(&self, pistream: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromIStream)(::windows::core::Vtable::as_raw(self), pistream.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromIStream)(::windows::core::Interface::as_raw(self), pistream.into_param().abi()).ok()
     }
     pub unsafe fn InitializeFromFilename<P0>(&self, wzfilename: P0, dwdesiredaccess: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromFilename)(::windows::core::Vtable::as_raw(self), wzfilename.into().abi(), dwdesiredaccess).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi(), dwdesiredaccess).ok()
     }
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeFromMemory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromMemory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromIStreamRegion<P0>(&self, pistream: P0, uloffset: u64, ulmaxsize: u64) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
+        P0: ::windows::core::IntoParam<super::super::System::Com::IStream>,
     {
-        (::windows::core::Vtable::vtable(self).InitializeFromIStreamRegion)(::windows::core::Vtable::as_raw(self), pistream.into().abi(), uloffset, ulmaxsize).ok()
+        (::windows::core::Interface::vtable(self).InitializeFromIStreamRegion)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), uloffset, ulmaxsize).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(IWICStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWICStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IWICStream {
     fn eq(&self, other: &Self) -> bool {
@@ -4251,11 +4245,17 @@ impl ::core::fmt::Debug for IWICStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for IWICStream {
+unsafe impl ::windows::core::Interface for IWICStream {
     type Vtable = IWICStream_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for IWICStream {
+impl ::core::clone::Clone for IWICStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for IWICStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x135ff860_22b7_4ddf_b0f6_218f4f299a43);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4281,27 +4281,22 @@ impl IWICStreamProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPersistOptions(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPersistOptions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetPersistOptions)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPreferredVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPreferredVendorGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetPreferredVendorGUID)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RefreshStream(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RefreshStream)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RefreshStream)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IWICStreamProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWICStreamProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IWICStreamProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IWICStreamProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4313,10 +4308,15 @@ impl ::core::fmt::Debug for IWICStreamProvider {
         f.debug_tuple("IWICStreamProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IWICStreamProvider {
+unsafe impl ::windows::core::Interface for IWICStreamProvider {
     type Vtable = IWICStreamProvider_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IWICStreamProvider {
+impl ::core::clone::Clone for IWICStreamProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IWICStreamProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x449494bc_b468_4927_96d7_ba90d31ab505);
 }
 #[repr(C)]
@@ -4954,8 +4954,8 @@ impl ::core::default::Default for WIC8BIMIptcDigestProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WIC8BIMIptcDigestProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIC8BIMIptcDigestProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WIC8BIMIptcDigestProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4983,8 +4983,8 @@ impl ::core::default::Default for WIC8BIMIptcProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WIC8BIMIptcProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIC8BIMIptcProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WIC8BIMIptcProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5022,8 +5022,8 @@ impl ::core::default::Default for WIC8BIMResolutionInfoProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WIC8BIMResolutionInfoProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIC8BIMResolutionInfoProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WIC8BIMResolutionInfoProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5053,8 +5053,8 @@ impl ::core::default::Default for WICBitmapAlphaChannelOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapAlphaChannelOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapAlphaChannelOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapAlphaChannelOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5084,8 +5084,8 @@ impl ::core::default::Default for WICBitmapCreateCacheOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapCreateCacheOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapCreateCacheOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapCreateCacheOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5119,8 +5119,8 @@ impl ::core::default::Default for WICBitmapDecoderCapabilities {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapDecoderCapabilities {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapDecoderCapabilities {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapDecoderCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5164,8 +5164,8 @@ impl ::core::default::Default for WICBitmapDitherType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapDitherType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapDitherType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapDitherType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5195,8 +5195,8 @@ impl ::core::default::Default for WICBitmapEncoderCacheOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapEncoderCacheOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapEncoderCacheOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapEncoderCacheOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5230,8 +5230,8 @@ impl ::core::default::Default for WICBitmapInterpolationMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapInterpolationMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapInterpolationMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapInterpolationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5259,8 +5259,8 @@ impl ::core::default::Default for WICBitmapLockFlags {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapLockFlags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapLockFlags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapLockFlags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5312,8 +5312,8 @@ impl ::core::default::Default for WICBitmapPaletteType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapPaletteType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapPaletteType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapPaletteType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5349,8 +5349,8 @@ impl ::core::default::Default for WICBitmapTransformOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapTransformOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapTransformOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICBitmapTransformOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5378,8 +5378,8 @@ impl ::core::default::Default for WICColorContextType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICColorContextType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICColorContextType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICColorContextType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5413,8 +5413,8 @@ impl ::core::default::Default for WICComponentEnumerateOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICComponentEnumerateOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICComponentEnumerateOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICComponentEnumerateOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5446,8 +5446,8 @@ impl ::core::default::Default for WICComponentSigning {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICComponentSigning {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICComponentSigning {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICComponentSigning {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5485,8 +5485,8 @@ impl ::core::default::Default for WICComponentType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICComponentType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICComponentType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICComponentType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5520,8 +5520,8 @@ impl ::core::default::Default for WICDdsAlphaMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICDdsAlphaMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICDdsAlphaMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICDdsAlphaMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5553,8 +5553,8 @@ impl ::core::default::Default for WICDdsDimension {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICDdsDimension {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICDdsDimension {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICDdsDimension {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5582,8 +5582,8 @@ impl ::core::default::Default for WICDecodeOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICDecodeOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICDecodeOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICDecodeOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5611,8 +5611,8 @@ impl ::core::default::Default for WICGifApplicationExtensionProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICGifApplicationExtensionProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICGifApplicationExtensionProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5638,8 +5638,8 @@ impl ::core::default::Default for WICGifCommentExtensionProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICGifCommentExtensionProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICGifCommentExtensionProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICGifCommentExtensionProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5673,8 +5673,8 @@ impl ::core::default::Default for WICGifGraphicControlExtensionProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICGifGraphicControlExtensionProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICGifGraphicControlExtensionProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICGifGraphicControlExtensionProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5714,8 +5714,8 @@ impl ::core::default::Default for WICGifImageDescriptorProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICGifImageDescriptorProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICGifImageDescriptorProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICGifImageDescriptorProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5757,8 +5757,8 @@ impl ::core::default::Default for WICGifLogicalScreenDescriptorProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICGifLogicalScreenDescriptorProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICGifLogicalScreenDescriptorProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICGifLogicalScreenDescriptorProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5792,8 +5792,8 @@ impl ::core::default::Default for WICHeifHdrProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICHeifHdrProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICHeifHdrProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICHeifHdrProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5819,8 +5819,8 @@ impl ::core::default::Default for WICHeifProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICHeifProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICHeifProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICHeifProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5846,8 +5846,8 @@ impl ::core::default::Default for WICJpegChrominanceProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegChrominanceProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegChrominanceProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICJpegChrominanceProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5873,8 +5873,8 @@ impl ::core::default::Default for WICJpegCommentProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegCommentProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegCommentProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICJpegCommentProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5902,8 +5902,8 @@ impl ::core::default::Default for WICJpegIndexingOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegIndexingOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegIndexingOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICJpegIndexingOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5929,8 +5929,8 @@ impl ::core::default::Default for WICJpegLuminanceProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegLuminanceProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegLuminanceProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICJpegLuminanceProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5960,8 +5960,8 @@ impl ::core::default::Default for WICJpegScanType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegScanType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegScanType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICJpegScanType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5989,8 +5989,8 @@ impl ::core::default::Default for WICJpegTransferMatrix {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegTransferMatrix {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegTransferMatrix {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICJpegTransferMatrix {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6024,8 +6024,8 @@ impl ::core::default::Default for WICJpegYCrCbSubsamplingOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegYCrCbSubsamplingOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegYCrCbSubsamplingOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICJpegYCrCbSubsamplingOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6055,8 +6055,8 @@ impl ::core::default::Default for WICMetadataCreationOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICMetadataCreationOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICMetadataCreationOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICMetadataCreationOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6102,8 +6102,8 @@ impl ::core::default::Default for WICNamedWhitePoint {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICNamedWhitePoint {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICNamedWhitePoint {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICNamedWhitePoint {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6139,8 +6139,8 @@ impl ::core::default::Default for WICPersistOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPersistOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPersistOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPersistOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6176,8 +6176,8 @@ impl ::core::default::Default for WICPixelFormatNumericRepresentation {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPixelFormatNumericRepresentation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPixelFormatNumericRepresentation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPixelFormatNumericRepresentation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6205,8 +6205,8 @@ impl ::core::default::Default for WICPlanarOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPlanarOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPlanarOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPlanarOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6232,8 +6232,8 @@ impl ::core::default::Default for WICPngBkgdProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngBkgdProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngBkgdProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngBkgdProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6273,8 +6273,8 @@ impl ::core::default::Default for WICPngChrmProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngChrmProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngChrmProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngChrmProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6312,8 +6312,8 @@ impl ::core::default::Default for WICPngFilterOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngFilterOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngFilterOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngFilterOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6339,8 +6339,8 @@ impl ::core::default::Default for WICPngGamaProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngGamaProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngGamaProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngGamaProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6366,8 +6366,8 @@ impl ::core::default::Default for WICPngHistProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngHistProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngHistProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngHistProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6395,8 +6395,8 @@ impl ::core::default::Default for WICPngIccpProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngIccpProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngIccpProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngIccpProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6430,8 +6430,8 @@ impl ::core::default::Default for WICPngItxtProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngItxtProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngItxtProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngItxtProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6457,8 +6457,8 @@ impl ::core::default::Default for WICPngSrgbProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngSrgbProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngSrgbProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngSrgbProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6494,8 +6494,8 @@ impl ::core::default::Default for WICPngTimeProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICPngTimeProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICPngTimeProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICPngTimeProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6527,8 +6527,8 @@ impl ::core::default::Default for WICProgressNotification {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICProgressNotification {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICProgressNotification {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICProgressNotification {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6558,8 +6558,8 @@ impl ::core::default::Default for WICProgressOperation {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICProgressOperation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICProgressOperation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICProgressOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6589,8 +6589,8 @@ impl ::core::default::Default for WICRawCapabilities {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICRawCapabilities {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRawCapabilities {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICRawCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6620,8 +6620,8 @@ impl ::core::default::Default for WICRawParameterSet {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICRawParameterSet {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRawParameterSet {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICRawParameterSet {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6651,8 +6651,8 @@ impl ::core::default::Default for WICRawRenderMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICRawRenderMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRawRenderMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICRawRenderMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6684,8 +6684,8 @@ impl ::core::default::Default for WICRawRotationCapabilities {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICRawRotationCapabilities {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRawRotationCapabilities {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICRawRotationCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6713,8 +6713,8 @@ impl ::core::default::Default for WICSectionAccessLevel {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICSectionAccessLevel {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICSectionAccessLevel {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICSectionAccessLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6754,8 +6754,8 @@ impl ::core::default::Default for WICTiffCompressionOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICTiffCompressionOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICTiffCompressionOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICTiffCompressionOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6781,8 +6781,8 @@ impl ::core::default::Default for WICWebpAnimProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICWebpAnimProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICWebpAnimProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICWebpAnimProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6808,8 +6808,8 @@ impl ::core::default::Default for WICWebpAnmfProperties {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WICWebpAnmfProperties {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICWebpAnmfProperties {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WICWebpAnmfProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6841,8 +6841,8 @@ impl ::core::fmt::Debug for WICBitmapPattern {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WICBitmapPattern {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapPattern {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WICBitmapPattern {
@@ -6877,8 +6877,8 @@ impl ::core::fmt::Debug for WICBitmapPlane {
         f.debug_struct("WICBitmapPlane").field("Format", &self.Format).field("pbBuffer", &self.pbBuffer).field("cbStride", &self.cbStride).field("cbBufferSize", &self.cbBufferSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapPlane {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapPlane {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICBitmapPlane {
     fn eq(&self, other: &Self) -> bool {
@@ -6909,8 +6909,8 @@ impl ::core::fmt::Debug for WICBitmapPlaneDescription {
         f.debug_struct("WICBitmapPlaneDescription").field("Format", &self.Format).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICBitmapPlaneDescription {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICBitmapPlaneDescription {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICBitmapPlaneDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -6947,8 +6947,8 @@ impl ::core::fmt::Debug for WICDdsFormatInfo {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for WICDdsFormatInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICDdsFormatInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for WICDdsFormatInfo {
@@ -6992,8 +6992,8 @@ impl ::core::fmt::Debug for WICDdsParameters {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for WICDdsParameters {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICDdsParameters {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for WICDdsParameters {
@@ -7036,8 +7036,8 @@ impl ::core::fmt::Debug for WICImageParameters {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for WICImageParameters {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICImageParameters {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for WICImageParameters {
@@ -7076,8 +7076,8 @@ impl ::core::fmt::Debug for WICJpegFrameHeader {
         f.debug_struct("WICJpegFrameHeader").field("Width", &self.Width).field("Height", &self.Height).field("TransferMatrix", &self.TransferMatrix).field("ScanType", &self.ScanType).field("cComponents", &self.cComponents).field("ComponentIdentifiers", &self.ComponentIdentifiers).field("SampleFactors", &self.SampleFactors).field("QuantizationTableIndices", &self.QuantizationTableIndices).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegFrameHeader {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegFrameHeader {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICJpegFrameHeader {
     fn eq(&self, other: &Self) -> bool {
@@ -7122,8 +7122,8 @@ impl ::core::fmt::Debug for WICJpegScanHeader {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICJpegScanHeader {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICJpegScanHeader {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICJpegScanHeader {
     fn eq(&self, other: &Self) -> bool {
@@ -7155,8 +7155,8 @@ impl ::core::fmt::Debug for WICMetadataHeader {
         f.debug_struct("WICMetadataHeader").field("Position", &self.Position).field("Length", &self.Length).field("Header", &self.Header).field("DataOffset", &self.DataOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICMetadataHeader {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICMetadataHeader {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICMetadataHeader {
     fn eq(&self, other: &Self) -> bool {
@@ -7189,8 +7189,8 @@ impl ::core::fmt::Debug for WICMetadataPattern {
         f.debug_struct("WICMetadataPattern").field("Position", &self.Position).field("Length", &self.Length).field("Pattern", &self.Pattern).field("Mask", &self.Mask).field("DataOffset", &self.DataOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICMetadataPattern {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICMetadataPattern {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICMetadataPattern {
     fn eq(&self, other: &Self) -> bool {
@@ -7255,8 +7255,8 @@ impl ::core::fmt::Debug for WICRawCapabilitiesInfo {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICRawCapabilitiesInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRawCapabilitiesInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICRawCapabilitiesInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -7303,8 +7303,8 @@ impl ::core::fmt::Debug for WICRawToneCurve {
         f.debug_struct("WICRawToneCurve").field("cPoints", &self.cPoints).field("aPoints", &self.aPoints).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICRawToneCurve {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRawToneCurve {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICRawToneCurve {
     fn eq(&self, other: &Self) -> bool {
@@ -7334,8 +7334,8 @@ impl ::core::fmt::Debug for WICRawToneCurvePoint {
         f.debug_struct("WICRawToneCurvePoint").field("Input", &self.Input).field("Output", &self.Output).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICRawToneCurvePoint {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRawToneCurvePoint {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICRawToneCurvePoint {
     fn eq(&self, other: &Self) -> bool {
@@ -7367,8 +7367,8 @@ impl ::core::fmt::Debug for WICRect {
         f.debug_struct("WICRect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WICRect {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WICRect {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WICRect {
     fn eq(&self, other: &Self) -> bool {

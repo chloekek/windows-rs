@@ -1,6 +1,14 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize) -> TokenStream {
+pub fn gen(
+    gen: &Gen,
+    def: TypeDef,
+    kind: InterfaceKind,
+    method: MethodDef,
+    method_names: &mut MethodNames,
+    virtual_names: &mut MethodNames,
+    base_count: usize,
+) -> TokenStream {
     let signature = gen.reader.method_def_signature(method, &[]);
     let name = method_names.add(gen, method);
     let vname = virtual_names.add(gen, method);
@@ -27,14 +35,15 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<T> #where_clause {
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
+                    let mut result__ = ::std::ptr::null_mut();
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).from_abi(result__)
                 }
             }
         }
@@ -42,13 +51,14 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: ::windows::core::ComInterface));
 
             quote! {
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
@@ -62,8 +72,8 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
-                    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).from_abi(result__)
+                    let mut result__ = ::windows::core::zeroed::<#return_type>();
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).from_abi(result__)
                 }
             }
         }
@@ -75,7 +85,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<()> #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
@@ -91,9 +101,9 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                     #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type> #where_clause {
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                        (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
-                        <#return_type as ::windows::core::Abi>::from_abi(result__.assume_init())
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
+                        (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args);
+                        ::windows::core::from_abi(result__)
                     }
                 }
             } else {
@@ -101,9 +111,9 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                     #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
-                        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-                        (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args);
-                        result__.assume_init()
+                        let mut result__ = ::windows::core::zeroed::<#return_type>();
+                        (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args);
+                        ::std::mem::transmute(result__)
                     }
                 }
             }
@@ -118,7 +128,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                     let mut result__: #return_type = ::core::mem::zeroed();
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), &mut result__, #args);
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), &mut result__, #args);
                     result__
                 }
             }
@@ -132,7 +142,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #return_type #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
                 }
             }
         }
@@ -144,7 +154,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #where_clause {
-                    (::windows::core::Vtable::vtable(self)#bases.#vname)(::windows::core::Vtable::as_raw(self), #args)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
                 }
             }
         }
@@ -154,7 +164,9 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
 pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream {
     match gen.reader.signature_kind(sig) {
         SignatureKind::ResultValue => {
-            let invoke_args = sig.params[..sig.params.len() - 1].iter().map(|param| gen_win32_invoke_arg(gen, param));
+            let invoke_args = sig.params[..sig.params.len() - 1]
+                .iter()
+                .map(|param| gen_win32_invoke_arg(gen, param));
 
             let result = gen.param_name(sig.params[sig.params.len() - 1].def);
 
@@ -170,21 +182,30 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
             }
         }
         SignatureKind::Query(_) | SignatureKind::QueryOptional(_) | SignatureKind::ResultVoid => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(gen, param));
+            let invoke_args = sig
+                .params
+                .iter()
+                .map(|param| gen_win32_invoke_arg(gen, param));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()
             }
         }
         SignatureKind::ReturnStruct => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(gen, param));
+            let invoke_args = sig
+                .params
+                .iter()
+                .map(|param| gen_win32_invoke_arg(gen, param));
 
             quote! {
                 *result__ = #inner(#(#invoke_args,)*)
             }
         }
         _ => {
-            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(gen, param));
+            let invoke_args = sig
+                .params
+                .iter()
+                .map(|param| gen_win32_invoke_arg(gen, param));
 
             quote! {
                 #inner(#(#invoke_args,)*)
@@ -196,9 +217,20 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
 fn gen_win32_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
     let name = gen.param_name(param.def);
 
-    if gen.reader.param_flags(param.def).contains(ParamAttributes::INPUT) && gen.reader.type_is_nullable(&param.ty) {
+    if gen
+        .reader
+        .param_flags(param.def)
+        .contains(ParamAttributes::INPUT)
+        && gen.reader.type_is_nullable(&param.ty)
+    {
         quote! { ::windows::core::from_raw_borrowed(&#name) }
-    } else if (!param.ty.is_pointer() && gen.reader.type_is_nullable(&param.ty)) || (gen.reader.param_flags(param.def).contains(ParamAttributes::INPUT) && !gen.reader.type_is_primitive(&param.ty)) {
+    } else if (!param.ty.is_pointer() && gen.reader.type_is_nullable(&param.ty))
+        || (gen
+            .reader
+            .param_flags(param.def)
+            .contains(ParamAttributes::INPUT)
+            && !gen.reader.type_is_primitive(&param.ty))
+    {
         quote! { ::core::mem::transmute(&#name) }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }

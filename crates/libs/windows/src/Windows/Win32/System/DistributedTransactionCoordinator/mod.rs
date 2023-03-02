@@ -2,59 +2,54 @@
 #[inline]
 pub unsafe fn DtcGetTransactionManager<P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: ::core::option::Option<*const ::core::ffi::c_void>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManager ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManager(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManager ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    DtcGetTransactionManager(i_pszhost.into_param().abi(), i_psztmname.into_param().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerC<P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: ::core::option::Option<*const ::core::ffi::c_void>, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerC ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManagerC(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerC ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_dwreserved1 : u32 , i_wcbreserved2 : u16 , i_pvreserved2 : *const ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    DtcGetTransactionManagerC(i_pszhost.into_param().abi(), i_psztmname.into_param().abi(), i_riid, i_dwreserved1, i_wcbreserved2, ::core::mem::transmute(i_pvreserved2.unwrap_or(::std::ptr::null())), o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExA<P0, P1>(i_pszhost: P0, i_psztmname: P1, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExA ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManagerExA(i_pszhost.into().abi(), i_psztmname.into().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExA ( i_pszhost : :: windows::core::PCSTR , i_psztmname : :: windows::core::PCSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    DtcGetTransactionManagerExA(i_pszhost.into_param().abi(), i_psztmname.into_param().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExW<P0, P1>(i_pwszhost: P0, i_pwsztmname: P1, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+    P1: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExW ( i_pwszhost : :: windows::core::PCWSTR , i_pwsztmname : :: windows::core::PCWSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    DtcGetTransactionManagerExW(i_pwszhost.into().abi(), i_pwsztmname.into().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
+    ::windows::imp::link ! ( "xolehlp.dll""cdecl" fn DtcGetTransactionManagerExW ( i_pwszhost : :: windows::core::PCWSTR , i_pwsztmname : :: windows::core::PCWSTR , i_riid : *const :: windows::core::GUID , i_grfoptions : u32 , i_pvconfigparams : *mut ::core::ffi::c_void , o_ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    DtcGetTransactionManagerExW(i_pwszhost.into_param().abi(), i_pwsztmname.into_param().abi(), i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[repr(transparent)]
 pub struct IDtcLuConfigure(::windows::core::IUnknown);
 impl IDtcLuConfigure {
     pub unsafe fn Add(&self, puclupair: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
     }
     pub unsafe fn Delete(&self, puclupair: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuConfigure, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuConfigure {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuConfigure, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuConfigure {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -66,10 +61,15 @@ impl ::core::fmt::Debug for IDtcLuConfigure {
         f.debug_tuple("IDtcLuConfigure").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuConfigure {
+unsafe impl ::windows::core::Interface for IDtcLuConfigure {
     type Vtable = IDtcLuConfigure_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuConfigure {
+impl ::core::clone::Clone for IDtcLuConfigure {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuConfigure {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e760_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -83,12 +83,7 @@ pub struct IDtcLuConfigure_Vtbl {
 #[repr(transparent)]
 pub struct IDtcLuRecovery(::windows::core::IUnknown);
 impl IDtcLuRecovery {}
-::windows::core::interface_hierarchy!(IDtcLuRecovery, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRecovery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRecovery, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecovery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -100,10 +95,15 @@ impl ::core::fmt::Debug for IDtcLuRecovery {
         f.debug_tuple("IDtcLuRecovery").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRecovery {
+unsafe impl ::windows::core::Interface for IDtcLuRecovery {
     type Vtable = IDtcLuRecovery_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRecovery {
+impl ::core::clone::Clone for IDtcLuRecovery {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRecovery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac2b8ad2_d6f0_11d0_b386_00a0c9083365);
 }
 #[repr(C)]
@@ -116,16 +116,11 @@ pub struct IDtcLuRecovery_Vtbl {
 pub struct IDtcLuRecoveryFactory(::windows::core::IUnknown);
 impl IDtcLuRecoveryFactory {
     pub unsafe fn Create(&self, puclupair: &[u8]) -> ::windows::core::Result<IDtcLuRecovery> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDtcLuRecovery>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRecoveryFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -137,10 +132,15 @@ impl ::core::fmt::Debug for IDtcLuRecoveryFactory {
         f.debug_tuple("IDtcLuRecoveryFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRecoveryFactory {
+unsafe impl ::windows::core::Interface for IDtcLuRecoveryFactory {
     type Vtable = IDtcLuRecoveryFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRecoveryFactory {
+impl ::core::clone::Clone for IDtcLuRecoveryFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRecoveryFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e762_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -154,15 +154,10 @@ pub struct IDtcLuRecoveryFactory_Vtbl {
 pub struct IDtcLuRecoveryInitiatedByDtc(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtc {
     pub unsafe fn GetWork(&self, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetWork)(::windows::core::Vtable::as_raw(self), pwork, ppv).ok()
+        (::windows::core::Interface::vtable(self).GetWork)(::windows::core::Interface::as_raw(self), pwork, ppv).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtc {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByDtc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -174,10 +169,15 @@ impl ::core::fmt::Debug for IDtcLuRecoveryInitiatedByDtc {
         f.debug_tuple("IDtcLuRecoveryInitiatedByDtc").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRecoveryInitiatedByDtc {
+unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtc {
     type Vtable = IDtcLuRecoveryInitiatedByDtc_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtc {
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtc {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRecoveryInitiatedByDtc {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e764_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -191,15 +191,10 @@ pub struct IDtcLuRecoveryInitiatedByDtc_Vtbl {
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcStatusWork {
     pub unsafe fn HandleCheckLuStatus(&self, lrecoveryseqnum: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleCheckLuStatus)(::windows::core::Vtable::as_raw(self), lrecoveryseqnum).ok()
+        (::windows::core::Interface::vtable(self).HandleCheckLuStatus)(::windows::core::Interface::as_raw(self), lrecoveryseqnum).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcStatusWork {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByDtcStatusWork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -211,10 +206,15 @@ impl ::core::fmt::Debug for IDtcLuRecoveryInitiatedByDtcStatusWork {
         f.debug_tuple("IDtcLuRecoveryInitiatedByDtcStatusWork").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRecoveryInitiatedByDtcStatusWork {
+unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtcStatusWork {
     type Vtable = IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtcStatusWork {
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcStatusWork {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRecoveryInitiatedByDtcStatusWork {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e766_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -228,53 +228,48 @@ pub struct IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcTransWork {
     pub unsafe fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetLogNameSizes)(::windows::core::Vtable::as_raw(self), pcbourlogname, pcbremotelogname).ok()
+        (::windows::core::Interface::vtable(self).GetLogNameSizes)(::windows::core::Interface::as_raw(self), pcbourlogname, pcbremotelogname).ok()
     }
     pub unsafe fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOurXln)(::windows::core::Vtable::as_raw(self), pxln, pourlogname, premotelogname, pdwprotocol).ok()
+        (::windows::core::Interface::vtable(self).GetOurXln)(::windows::core::Interface::as_raw(self), pxln, pourlogname, premotelogname, pdwprotocol).ok()
     }
     pub unsafe fn HandleConfirmationFromOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleConfirmationFromOurXln)(::windows::core::Vtable::as_raw(self), confirmation).ok()
+        (::windows::core::Interface::vtable(self).HandleConfirmationFromOurXln)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
     pub unsafe fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleTheirXlnResponse)(::windows::core::Vtable::as_raw(self), xln, premotelogname, cbremotelogname, dwprotocol, pconfirmation).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirXlnResponse)(::windows::core::Interface::as_raw(self), xln, premotelogname, cbremotelogname, dwprotocol, pconfirmation).ok()
     }
     pub unsafe fn HandleErrorFromOurXln(&self, error: DTCLUXLNERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleErrorFromOurXln)(::windows::core::Vtable::as_raw(self), error).ok()
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurXln)(::windows::core::Interface::as_raw(self), error).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckForCompareStates(&self, fcomparestates: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CheckForCompareStates)(::windows::core::Vtable::as_raw(self), fcomparestates).ok()
+        (::windows::core::Interface::vtable(self).CheckForCompareStates)(::windows::core::Interface::as_raw(self), fcomparestates).ok()
     }
     pub unsafe fn GetOurTransIdSize(&self, pcbourtransid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOurTransIdSize)(::windows::core::Vtable::as_raw(self), pcbourtransid).ok()
+        (::windows::core::Interface::vtable(self).GetOurTransIdSize)(::windows::core::Interface::as_raw(self), pcbourtransid).ok()
     }
     pub unsafe fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOurCompareStates)(::windows::core::Vtable::as_raw(self), pourtransid, pcomparestate).ok()
+        (::windows::core::Interface::vtable(self).GetOurCompareStates)(::windows::core::Interface::as_raw(self), pourtransid, pcomparestate).ok()
     }
     pub unsafe fn HandleTheirCompareStatesResponse(&self, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleTheirCompareStatesResponse)(::windows::core::Vtable::as_raw(self), comparestate, pconfirmation).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirCompareStatesResponse)(::windows::core::Interface::as_raw(self), comparestate, pconfirmation).ok()
     }
     pub unsafe fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Vtable::as_raw(self), error).ok()
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error).ok()
     }
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConversationLost)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).ConversationLost)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetRecoverySeqNum(&self, plrecoveryseqnum: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetRecoverySeqNum)(::windows::core::Vtable::as_raw(self), plrecoveryseqnum).ok()
+        (::windows::core::Interface::vtable(self).GetRecoverySeqNum)(::windows::core::Interface::as_raw(self), plrecoveryseqnum).ok()
     }
     pub unsafe fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ObsoleteRecoverySeqNum)(::windows::core::Vtable::as_raw(self), lnewrecoveryseqnum).ok()
+        (::windows::core::Interface::vtable(self).ObsoleteRecoverySeqNum)(::windows::core::Interface::as_raw(self), lnewrecoveryseqnum).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcTransWork {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByDtcTransWork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -286,10 +281,15 @@ impl ::core::fmt::Debug for IDtcLuRecoveryInitiatedByDtcTransWork {
         f.debug_tuple("IDtcLuRecoveryInitiatedByDtcTransWork").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRecoveryInitiatedByDtcTransWork {
+unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtcTransWork {
     type Vtable = IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtcTransWork {
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcTransWork {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRecoveryInitiatedByDtcTransWork {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e765_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -318,16 +318,11 @@ pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
 pub struct IDtcLuRecoveryInitiatedByLu(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLu {
     pub unsafe fn GetObjectToHandleWorkFromLu(&self) -> ::windows::core::Result<IDtcLuRecoveryInitiatedByLuWork> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetObjectToHandleWorkFromLu)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDtcLuRecoveryInitiatedByLuWork>();
+        (::windows::core::Interface::vtable(self).GetObjectToHandleWorkFromLu)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLu {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByLu {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -339,10 +334,15 @@ impl ::core::fmt::Debug for IDtcLuRecoveryInitiatedByLu {
         f.debug_tuple("IDtcLuRecoveryInitiatedByLu").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRecoveryInitiatedByLu {
+unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByLu {
     type Vtable = IDtcLuRecoveryInitiatedByLu_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByLu {
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLu {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRecoveryInitiatedByLu {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e768_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -356,36 +356,31 @@ pub struct IDtcLuRecoveryInitiatedByLu_Vtbl {
 pub struct IDtcLuRecoveryInitiatedByLuWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
     pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut DTCLUXLNRESPONSE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleTheirXln)(::windows::core::Vtable::as_raw(self), lrecoveryseqnum, xln, premotelogname, cbremotelogname, pourlogname, cbourlogname, dwprotocol, presponse).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirXln)(::windows::core::Interface::as_raw(self), lrecoveryseqnum, xln, premotelogname, cbremotelogname, pourlogname, cbourlogname, dwprotocol, presponse).ok()
     }
     pub unsafe fn GetOurLogNameSize(&self, pcbourlogname: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOurLogNameSize)(::windows::core::Vtable::as_raw(self), pcbourlogname).ok()
+        (::windows::core::Interface::vtable(self).GetOurLogNameSize)(::windows::core::Interface::as_raw(self), pcbourlogname).ok()
     }
     pub unsafe fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOurXln)(::windows::core::Vtable::as_raw(self), pxln, pourlogname, pdwprotocol).ok()
+        (::windows::core::Interface::vtable(self).GetOurXln)(::windows::core::Interface::as_raw(self), pxln, pourlogname, pdwprotocol).ok()
     }
     pub unsafe fn HandleConfirmationOfOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleConfirmationOfOurXln)(::windows::core::Vtable::as_raw(self), confirmation).ok()
+        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurXln)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
     pub unsafe fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleTheirCompareStates)(::windows::core::Vtable::as_raw(self), premotetransid, cbremotetransid, comparestate, presponse, pcomparestate).ok()
+        (::windows::core::Interface::vtable(self).HandleTheirCompareStates)(::windows::core::Interface::as_raw(self), premotetransid, cbremotetransid, comparestate, presponse, pcomparestate).ok()
     }
     pub unsafe fn HandleConfirmationOfOurCompareStates(&self, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleConfirmationOfOurCompareStates)(::windows::core::Vtable::as_raw(self), confirmation).ok()
+        (::windows::core::Interface::vtable(self).HandleConfirmationOfOurCompareStates)(::windows::core::Interface::as_raw(self), confirmation).ok()
     }
     pub unsafe fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Vtable::as_raw(self), error).ok()
+        (::windows::core::Interface::vtable(self).HandleErrorFromOurCompareStates)(::windows::core::Interface::as_raw(self), error).ok()
     }
     pub unsafe fn ConversationLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConversationLost)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).ConversationLost)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLuWork {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRecoveryInitiatedByLuWork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -397,10 +392,15 @@ impl ::core::fmt::Debug for IDtcLuRecoveryInitiatedByLuWork {
         f.debug_tuple("IDtcLuRecoveryInitiatedByLuWork").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRecoveryInitiatedByLuWork {
+unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByLuWork {
     type Vtable = IDtcLuRecoveryInitiatedByLuWork_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByLuWork {
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLuWork {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRecoveryInitiatedByLuWork {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac2b8ad1_d6f0_11d0_b386_00a0c9083365);
 }
 #[repr(C)]
@@ -424,32 +424,27 @@ impl IDtcLuRmEnlistment {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unplug<P0>(&self, fconversationlost: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Unplug)(::windows::core::Vtable::as_raw(self), fconversationlost.into()).ok()
+        (::windows::core::Interface::vtable(self).Unplug)(::windows::core::Interface::as_raw(self), fconversationlost.into_param().abi()).ok()
     }
     pub unsafe fn BackedOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackedOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackedOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn BackOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Committed(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Committed)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Committed)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Forget(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Forget)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Forget)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RequestCommit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RequestCommit)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRmEnlistment, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRmEnlistment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRmEnlistment, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRmEnlistment {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -461,10 +456,15 @@ impl ::core::fmt::Debug for IDtcLuRmEnlistment {
         f.debug_tuple("IDtcLuRmEnlistment").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRmEnlistment {
+unsafe impl ::windows::core::Interface for IDtcLuRmEnlistment {
     type Vtable = IDtcLuRmEnlistment_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRmEnlistment {
+impl ::core::clone::Clone for IDtcLuRmEnlistment {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRmEnlistment {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e769_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -487,18 +487,13 @@ pub struct IDtcLuRmEnlistmentFactory(::windows::core::IUnknown);
 impl IDtcLuRmEnlistmentFactory {
     pub unsafe fn Create<P0, P1>(&self, puclupair: *mut u8, cblupair: u32, pitransaction: P0, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: P1, pprmenlistment: *mut ::core::option::Option<IDtcLuRmEnlistment>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IDtcLuRmEnlistmentSink>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<IDtcLuRmEnlistmentSink>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), puclupair, cblupair, pitransaction.into().abi(), ptransid, cbtransid, prmenlistmentsink.into().abi(), ::core::mem::transmute(pprmenlistment)).ok()
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), puclupair, cblupair, pitransaction.into_param().abi(), ptransid, cbtransid, prmenlistmentsink.into_param().abi(), ::core::mem::transmute(pprmenlistment)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRmEnlistmentFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRmEnlistmentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRmEnlistmentFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRmEnlistmentFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -510,10 +505,15 @@ impl ::core::fmt::Debug for IDtcLuRmEnlistmentFactory {
         f.debug_tuple("IDtcLuRmEnlistmentFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRmEnlistmentFactory {
+unsafe impl ::windows::core::Interface for IDtcLuRmEnlistmentFactory {
     type Vtable = IDtcLuRmEnlistmentFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRmEnlistmentFactory {
+impl ::core::clone::Clone for IDtcLuRmEnlistmentFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRmEnlistmentFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e771_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -527,39 +527,34 @@ pub struct IDtcLuRmEnlistmentFactory_Vtbl {
 pub struct IDtcLuRmEnlistmentSink(::windows::core::IUnknown);
 impl IDtcLuRmEnlistmentSink {
     pub unsafe fn AckUnplug(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AckUnplug)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).AckUnplug)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn TmDown(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TmDown)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).TmDown)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SessionLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SessionLost)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).SessionLost)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn BackedOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackedOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackedOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn BackOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Committed(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Committed)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Committed)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Forget(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Forget)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Forget)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Prepare(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Prepare)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Prepare)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RequestCommit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RequestCommit)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuRmEnlistmentSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuRmEnlistmentSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuRmEnlistmentSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuRmEnlistmentSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -571,10 +566,15 @@ impl ::core::fmt::Debug for IDtcLuRmEnlistmentSink {
         f.debug_tuple("IDtcLuRmEnlistmentSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuRmEnlistmentSink {
+unsafe impl ::windows::core::Interface for IDtcLuRmEnlistmentSink {
     type Vtable = IDtcLuRmEnlistmentSink_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuRmEnlistmentSink {
+impl ::core::clone::Clone for IDtcLuRmEnlistmentSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuRmEnlistmentSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e770_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -599,35 +599,30 @@ impl IDtcLuSubordinateDtc {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unplug<P0>(&self, fconversationlost: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Unplug)(::windows::core::Vtable::as_raw(self), fconversationlost.into()).ok()
+        (::windows::core::Interface::vtable(self).Unplug)(::windows::core::Interface::as_raw(self), fconversationlost.into_param().abi()).ok()
     }
     pub unsafe fn BackedOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackedOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackedOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn BackOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Committed(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Committed)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Committed)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Forget(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Forget)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Forget)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Prepare(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Prepare)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Prepare)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RequestCommit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RequestCommit)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuSubordinateDtc, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuSubordinateDtc {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuSubordinateDtc, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuSubordinateDtc {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -639,10 +634,15 @@ impl ::core::fmt::Debug for IDtcLuSubordinateDtc {
         f.debug_tuple("IDtcLuSubordinateDtc").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuSubordinateDtc {
+unsafe impl ::windows::core::Interface for IDtcLuSubordinateDtc {
     type Vtable = IDtcLuSubordinateDtc_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuSubordinateDtc {
+impl ::core::clone::Clone for IDtcLuSubordinateDtc {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuSubordinateDtc {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e773_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -666,19 +666,14 @@ pub struct IDtcLuSubordinateDtcFactory(::windows::core::IUnknown);
 impl IDtcLuSubordinateDtcFactory {
     pub unsafe fn Create<P0, P1, P2>(&self, puclupair: *mut u8, cblupair: u32, punktransactionouter: P0, isolevel: i32, isoflags: u32, poptions: P1, pptransaction: *mut ::core::option::Option<ITransaction>, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: P2, ppsubordinatedtc: *mut ::core::option::Option<IDtcLuSubordinateDtc>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionOptions>>,
-        P2: ::std::convert::Into<::windows::core::InParam<IDtcLuSubordinateDtcSink>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P1: ::windows::core::IntoParam<ITransactionOptions>,
+        P2: ::windows::core::IntoParam<IDtcLuSubordinateDtcSink>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), puclupair, cblupair, punktransactionouter.into().abi(), isolevel, isoflags, poptions.into().abi(), ::core::mem::transmute(pptransaction), ptransid, cbtransid, psubordinatedtcsink.into().abi(), ::core::mem::transmute(ppsubordinatedtc)).ok()
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), puclupair, cblupair, punktransactionouter.into_param().abi(), isolevel, isoflags, poptions.into_param().abi(), ::core::mem::transmute(pptransaction), ptransid, cbtransid, psubordinatedtcsink.into_param().abi(), ::core::mem::transmute(ppsubordinatedtc)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuSubordinateDtcFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuSubordinateDtcFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuSubordinateDtcFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuSubordinateDtcFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -690,10 +685,15 @@ impl ::core::fmt::Debug for IDtcLuSubordinateDtcFactory {
         f.debug_tuple("IDtcLuSubordinateDtcFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuSubordinateDtcFactory {
+unsafe impl ::windows::core::Interface for IDtcLuSubordinateDtcFactory {
     type Vtable = IDtcLuSubordinateDtcFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuSubordinateDtcFactory {
+impl ::core::clone::Clone for IDtcLuSubordinateDtcFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuSubordinateDtcFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e775_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -707,36 +707,31 @@ pub struct IDtcLuSubordinateDtcFactory_Vtbl {
 pub struct IDtcLuSubordinateDtcSink(::windows::core::IUnknown);
 impl IDtcLuSubordinateDtcSink {
     pub unsafe fn AckUnplug(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AckUnplug)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).AckUnplug)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn TmDown(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TmDown)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).TmDown)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn SessionLost(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SessionLost)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).SessionLost)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn BackedOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackedOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackedOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn BackOut(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BackOut)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).BackOut)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Committed(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Committed)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Committed)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Forget(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Forget)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Forget)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn RequestCommit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RequestCommit)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcLuSubordinateDtcSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcLuSubordinateDtcSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcLuSubordinateDtcSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcLuSubordinateDtcSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -748,10 +743,15 @@ impl ::core::fmt::Debug for IDtcLuSubordinateDtcSink {
         f.debug_tuple("IDtcLuSubordinateDtcSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcLuSubordinateDtcSink {
+unsafe impl ::windows::core::Interface for IDtcLuSubordinateDtcSink {
     type Vtable = IDtcLuSubordinateDtcSink_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcLuSubordinateDtcSink {
+impl ::core::clone::Clone for IDtcLuSubordinateDtcSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcLuSubordinateDtcSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4131e774_1aea_11d0_944b_00a0c905416e);
 }
 #[repr(C)]
@@ -774,97 +774,92 @@ impl IDtcNetworkAccessConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAnyNetworkAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetAnyNetworkAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAnyNetworkAccess<P0>(&self, banynetworkaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetAnyNetworkAccess)(::windows::core::Vtable::as_raw(self), banynetworkaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).SetAnyNetworkAccess)(::windows::core::Interface::as_raw(self), banynetworkaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetworkAdministrationAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetNetworkAdministrationAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkAdministrationAccess<P0>(&self, bnetworkadministrationaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkAdministrationAccess)(::windows::core::Vtable::as_raw(self), bnetworkadministrationaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkAdministrationAccess)(::windows::core::Interface::as_raw(self), bnetworkadministrationaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetworkTransactionAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetNetworkTransactionAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkTransactionAccess<P0>(&self, bnetworktransactionaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkTransactionAccess)(::windows::core::Vtable::as_raw(self), bnetworktransactionaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkTransactionAccess)(::windows::core::Interface::as_raw(self), bnetworktransactionaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetworkClientAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetNetworkClientAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkClientAccess<P0>(&self, bnetworkclientaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkClientAccess)(::windows::core::Vtable::as_raw(self), bnetworkclientaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkClientAccess)(::windows::core::Interface::as_raw(self), bnetworkclientaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetworkTIPAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetNetworkTIPAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkTIPAccess<P0>(&self, bnetworktipaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkTIPAccess)(::windows::core::Vtable::as_raw(self), bnetworktipaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkTIPAccess)(::windows::core::Interface::as_raw(self), bnetworktipaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXAAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetXAAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetXAAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXAAccess<P0>(&self, bxaaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetXAAccess)(::windows::core::Vtable::as_raw(self), bxaaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).SetXAAccess)(::windows::core::Interface::as_raw(self), bxaaccess.into_param().abi()).ok()
     }
     pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RestartDtcService)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RestartDtcService)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcNetworkAccessConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcNetworkAccessConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcNetworkAccessConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -876,10 +871,15 @@ impl ::core::fmt::Debug for IDtcNetworkAccessConfig {
         f.debug_tuple("IDtcNetworkAccessConfig").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcNetworkAccessConfig {
+unsafe impl ::windows::core::Interface for IDtcNetworkAccessConfig {
     type Vtable = IDtcNetworkAccessConfig_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcNetworkAccessConfig {
+impl ::core::clone::Clone for IDtcNetworkAccessConfig {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcNetworkAccessConfig {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9797c15d_a428_4291_87b6_0995031a678d);
 }
 #[repr(C)]
@@ -943,132 +943,127 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAnyNetworkAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetAnyNetworkAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAnyNetworkAccess<P0>(&self, banynetworkaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetAnyNetworkAccess)(::windows::core::Vtable::as_raw(self), banynetworkaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAnyNetworkAccess)(::windows::core::Interface::as_raw(self), banynetworkaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetNetworkAdministrationAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkAdministrationAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkAdministrationAccess<P0>(&self, bnetworkadministrationaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetNetworkAdministrationAccess)(::windows::core::Vtable::as_raw(self), bnetworkadministrationaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkAdministrationAccess)(::windows::core::Interface::as_raw(self), bnetworkadministrationaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetNetworkTransactionAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkTransactionAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkTransactionAccess<P0>(&self, bnetworktransactionaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetNetworkTransactionAccess)(::windows::core::Vtable::as_raw(self), bnetworktransactionaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkTransactionAccess)(::windows::core::Interface::as_raw(self), bnetworktransactionaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetNetworkClientAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkClientAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkClientAccess<P0>(&self, bnetworkclientaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetNetworkClientAccess)(::windows::core::Vtable::as_raw(self), bnetworkclientaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkClientAccess)(::windows::core::Interface::as_raw(self), bnetworkclientaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetNetworkTIPAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkTIPAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkTIPAccess<P0>(&self, bnetworktipaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetNetworkTIPAccess)(::windows::core::Vtable::as_raw(self), bnetworktipaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkTIPAccess)(::windows::core::Interface::as_raw(self), bnetworktipaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXAAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetXAAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetXAAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXAAccess<P0>(&self, bxaaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetXAAccess)(::windows::core::Vtable::as_raw(self), bxaaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetXAAccess)(::windows::core::Interface::as_raw(self), bxaaccess.into_param().abi()).ok()
     }
     pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RestartDtcService)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.RestartDtcService)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetworkInboundAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetNetworkInboundAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNetworkOutboundAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetNetworkOutboundAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkInboundAccess<P0>(&self, binbound: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkInboundAccess)(::windows::core::Vtable::as_raw(self), binbound.into()).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkInboundAccess)(::windows::core::Interface::as_raw(self), binbound.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkOutboundAccess<P0>(&self, boutbound: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetNetworkOutboundAccess)(::windows::core::Vtable::as_raw(self), boutbound.into()).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkOutboundAccess)(::windows::core::Interface::as_raw(self), boutbound.into_param().abi()).ok()
     }
     pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAuthenticationLevel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<AUTHENTICATION_LEVEL>();
+        (::windows::core::Interface::vtable(self).GetAuthenticationLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetAuthenticationLevel)(::windows::core::Vtable::as_raw(self), authlevel).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), authlevel).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig2, ::windows::core::IUnknown, IDtcNetworkAccessConfig);
-impl ::core::clone::Clone for IDtcNetworkAccessConfig2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcNetworkAccessConfig2, ::windows::core::IUnknown, IDtcNetworkAccessConfig);
 impl ::core::cmp::PartialEq for IDtcNetworkAccessConfig2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1080,10 +1075,15 @@ impl ::core::fmt::Debug for IDtcNetworkAccessConfig2 {
         f.debug_tuple("IDtcNetworkAccessConfig2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcNetworkAccessConfig2 {
+unsafe impl ::windows::core::Interface for IDtcNetworkAccessConfig2 {
     type Vtable = IDtcNetworkAccessConfig2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcNetworkAccessConfig2 {
+impl ::core::clone::Clone for IDtcNetworkAccessConfig2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcNetworkAccessConfig2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7aa013b_eb7d_4f42_b41c_b2dec09ae034);
 }
 #[repr(C)]
@@ -1116,146 +1116,141 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetAnyNetworkAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetAnyNetworkAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAnyNetworkAccess<P0>(&self, banynetworkaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetAnyNetworkAccess)(::windows::core::Vtable::as_raw(self), banynetworkaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetAnyNetworkAccess)(::windows::core::Interface::as_raw(self), banynetworkaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNetworkAdministrationAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetNetworkAdministrationAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkAdministrationAccess<P0>(&self, bnetworkadministrationaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetNetworkAdministrationAccess)(::windows::core::Vtable::as_raw(self), bnetworkadministrationaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNetworkAdministrationAccess)(::windows::core::Interface::as_raw(self), bnetworkadministrationaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNetworkTransactionAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetNetworkTransactionAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkTransactionAccess<P0>(&self, bnetworktransactionaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetNetworkTransactionAccess)(::windows::core::Vtable::as_raw(self), bnetworktransactionaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNetworkTransactionAccess)(::windows::core::Interface::as_raw(self), bnetworktransactionaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNetworkClientAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetNetworkClientAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkClientAccess<P0>(&self, bnetworkclientaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetNetworkClientAccess)(::windows::core::Vtable::as_raw(self), bnetworkclientaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNetworkClientAccess)(::windows::core::Interface::as_raw(self), bnetworkclientaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetNetworkTIPAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetNetworkTIPAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkTIPAccess<P0>(&self, bnetworktipaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetNetworkTIPAccess)(::windows::core::Vtable::as_raw(self), bnetworktipaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetNetworkTIPAccess)(::windows::core::Interface::as_raw(self), bnetworktipaccess.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXAAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetXAAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.base__.GetXAAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXAAccess<P0>(&self, bxaaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.SetXAAccess)(::windows::core::Vtable::as_raw(self), bxaaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetXAAccess)(::windows::core::Interface::as_raw(self), bxaaccess.into_param().abi()).ok()
     }
     pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.RestartDtcService)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.RestartDtcService)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetNetworkInboundAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkInboundAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetNetworkOutboundAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).base__.GetNetworkOutboundAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkInboundAccess<P0>(&self, binbound: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetNetworkInboundAccess)(::windows::core::Vtable::as_raw(self), binbound.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkInboundAccess)(::windows::core::Interface::as_raw(self), binbound.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNetworkOutboundAccess<P0>(&self, boutbound: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetNetworkOutboundAccess)(::windows::core::Vtable::as_raw(self), boutbound.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkOutboundAccess)(::windows::core::Interface::as_raw(self), boutbound.into_param().abi()).ok()
     }
     pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAuthenticationLevel)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<AUTHENTICATION_LEVEL>();
+        (::windows::core::Interface::vtable(self).base__.GetAuthenticationLevel)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetAuthenticationLevel)(::windows::core::Vtable::as_raw(self), authlevel).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAuthenticationLevel)(::windows::core::Interface::as_raw(self), authlevel).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLUAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLUAccess)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Interface::vtable(self).GetLUAccess)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLUAccess<P0>(&self, bluaccess: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).SetLUAccess)(::windows::core::Vtable::as_raw(self), bluaccess.into()).ok()
+        (::windows::core::Interface::vtable(self).SetLUAccess)(::windows::core::Interface::as_raw(self), bluaccess.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig3, ::windows::core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
-impl ::core::clone::Clone for IDtcNetworkAccessConfig3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcNetworkAccessConfig3, ::windows::core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
 impl ::core::cmp::PartialEq for IDtcNetworkAccessConfig3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1267,10 +1262,15 @@ impl ::core::fmt::Debug for IDtcNetworkAccessConfig3 {
         f.debug_tuple("IDtcNetworkAccessConfig3").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcNetworkAccessConfig3 {
+unsafe impl ::windows::core::Interface for IDtcNetworkAccessConfig3 {
     type Vtable = IDtcNetworkAccessConfig3_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcNetworkAccessConfig3 {
+impl ::core::clone::Clone for IDtcNetworkAccessConfig3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcNetworkAccessConfig3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76e4b4f3_2ca5_466b_89d5_fd218ee75b49);
 }
 #[repr(C)]
@@ -1294,25 +1294,20 @@ impl IDtcToXaHelper {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Close<P0>(&self, i_fdorecovery: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), i_fdorecovery.into()).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self), i_fdorecovery.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateTridToXid<P0>(&self, pitransaction: P0, pguidbqual: *const ::windows::core::GUID, pxid: *mut XID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
     {
-        (::windows::core::Vtable::vtable(self).TranslateTridToXid)(::windows::core::Vtable::as_raw(self), pitransaction.into().abi(), pguidbqual, pxid).ok()
+        (::windows::core::Interface::vtable(self).TranslateTridToXid)(::windows::core::Interface::as_raw(self), pitransaction.into_param().abi(), pguidbqual, pxid).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcToXaHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcToXaHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1324,10 +1319,15 @@ impl ::core::fmt::Debug for IDtcToXaHelper {
         f.debug_tuple("IDtcToXaHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcToXaHelper {
+unsafe impl ::windows::core::Interface for IDtcToXaHelper {
     type Vtable = IDtcToXaHelper_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcToXaHelper {
+impl ::core::clone::Clone for IDtcToXaHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcToXaHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9861611_304a_11d1_9813_00a0c905416e);
 }
 #[repr(C)]
@@ -1349,18 +1349,13 @@ pub struct IDtcToXaHelperFactory(::windows::core::IUnknown);
 impl IDtcToXaHelperFactory {
     pub unsafe fn Create<P0, P1>(&self, pszdsn: P0, pszclientdllname: P1, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::core::option::Option<IDtcToXaHelper>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pszdsn.into().abi(), pszclientdllname.into().abi(), pguidrm, ::core::mem::transmute(ppxahelper)).ok()
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), pszdsn.into_param().abi(), pszclientdllname.into_param().abi(), pguidrm, ::core::mem::transmute(ppxahelper)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaHelperFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcToXaHelperFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcToXaHelperFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaHelperFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1372,10 +1367,15 @@ impl ::core::fmt::Debug for IDtcToXaHelperFactory {
         f.debug_tuple("IDtcToXaHelperFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcToXaHelperFactory {
+unsafe impl ::windows::core::Interface for IDtcToXaHelperFactory {
     type Vtable = IDtcToXaHelperFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcToXaHelperFactory {
+impl ::core::clone::Clone for IDtcToXaHelperFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcToXaHelperFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9861610_304a_11d1_9813_00a0c905416e);
 }
 #[repr(C)]
@@ -1390,39 +1390,34 @@ pub struct IDtcToXaHelperSinglePipe(::windows::core::IUnknown);
 impl IDtcToXaHelperSinglePipe {
     pub unsafe fn XARMCreate<P0, P1>(&self, pszdsn: P0, pszclientdll: P1, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).XARMCreate)(::windows::core::Vtable::as_raw(self), pszdsn.into().abi(), pszclientdll.into().abi(), pdwrmcookie).ok()
+        (::windows::core::Interface::vtable(self).XARMCreate)(::windows::core::Interface::as_raw(self), pszdsn.into_param().abi(), pszclientdll.into_param().abi(), pdwrmcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConvertTridToXID(&self, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConvertTridToXID)(::windows::core::Vtable::as_raw(self), pdwitrans, dwrmcookie, pxid).ok()
+        (::windows::core::Interface::vtable(self).ConvertTridToXID)(::windows::core::Interface::as_raw(self), pdwitrans, dwrmcookie, pxid).ok()
     }
     pub unsafe fn EnlistWithRM<P0, P1>(&self, dwrmcookie: u32, i_pitransaction: P0, i_pitransres: P1) -> ::windows::core::Result<ITransactionEnlistmentAsync>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionResourceAsync>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<ITransactionResourceAsync>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnlistWithRM)(::windows::core::Vtable::as_raw(self), dwrmcookie, i_pitransaction.into().abi(), i_pitransres.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransactionEnlistmentAsync>();
+        (::windows::core::Interface::vtable(self).EnlistWithRM)(::windows::core::Interface::as_raw(self), dwrmcookie, i_pitransaction.into_param().abi(), i_pitransres.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseRMCookie<P0>(&self, i_dwrmcookie: u32, i_fnormal: P0)
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).ReleaseRMCookie)(::windows::core::Vtable::as_raw(self), i_dwrmcookie, i_fnormal.into())
+        (::windows::core::Interface::vtable(self).ReleaseRMCookie)(::windows::core::Interface::as_raw(self), i_dwrmcookie, i_fnormal.into_param().abi())
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaHelperSinglePipe, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcToXaHelperSinglePipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcToXaHelperSinglePipe, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaHelperSinglePipe {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1434,10 +1429,15 @@ impl ::core::fmt::Debug for IDtcToXaHelperSinglePipe {
         f.debug_tuple("IDtcToXaHelperSinglePipe").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcToXaHelperSinglePipe {
+unsafe impl ::windows::core::Interface for IDtcToXaHelperSinglePipe {
     type Vtable = IDtcToXaHelperSinglePipe_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcToXaHelperSinglePipe {
+impl ::core::clone::Clone for IDtcToXaHelperSinglePipe {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcToXaHelperSinglePipe {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47ed4971_53b3_11d1_bbb9_00c04fd658f6);
 }
 #[repr(C)]
@@ -1461,29 +1461,24 @@ pub struct IDtcToXaMapper(::windows::core::IUnknown);
 impl IDtcToXaMapper {
     pub unsafe fn RequestNewResourceManager<P0, P1>(&self, pszdsn: P0, pszclientdllname: P1, pdwrmcookie: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).RequestNewResourceManager)(::windows::core::Vtable::as_raw(self), pszdsn.into().abi(), pszclientdllname.into().abi(), pdwrmcookie).ok()
+        (::windows::core::Interface::vtable(self).RequestNewResourceManager)(::windows::core::Interface::as_raw(self), pszdsn.into_param().abi(), pszclientdllname.into_param().abi(), pdwrmcookie).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateTridToXid(&self, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TranslateTridToXid)(::windows::core::Vtable::as_raw(self), pdwitransaction, dwrmcookie, pxid).ok()
+        (::windows::core::Interface::vtable(self).TranslateTridToXid)(::windows::core::Interface::as_raw(self), pdwitransaction, dwrmcookie, pxid).ok()
     }
     pub unsafe fn EnlistResourceManager(&self, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnlistResourceManager)(::windows::core::Vtable::as_raw(self), dwrmcookie, pdwitransaction).ok()
+        (::windows::core::Interface::vtable(self).EnlistResourceManager)(::windows::core::Interface::as_raw(self), dwrmcookie, pdwitransaction).ok()
     }
     pub unsafe fn ReleaseResourceManager(&self, dwrmcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReleaseResourceManager)(::windows::core::Vtable::as_raw(self), dwrmcookie).ok()
+        (::windows::core::Interface::vtable(self).ReleaseResourceManager)(::windows::core::Interface::as_raw(self), dwrmcookie).ok()
     }
 }
-::windows::core::interface_hierarchy!(IDtcToXaMapper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDtcToXaMapper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IDtcToXaMapper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IDtcToXaMapper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1495,10 +1490,15 @@ impl ::core::fmt::Debug for IDtcToXaMapper {
         f.debug_tuple("IDtcToXaMapper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IDtcToXaMapper {
+unsafe impl ::windows::core::Interface for IDtcToXaMapper {
     type Vtable = IDtcToXaMapper_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IDtcToXaMapper {
+impl ::core::clone::Clone for IDtcToXaMapper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IDtcToXaMapper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64ffabe0_7ce9_11d0_8ce6_00c04fdc877e);
 }
 #[repr(C)]
@@ -1518,15 +1518,10 @@ pub struct IDtcToXaMapper_Vtbl {
 pub struct IGetDispenser(::windows::core::IUnknown);
 impl IGetDispenser {
     pub unsafe fn GetDispenser(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDispenser)(::windows::core::Vtable::as_raw(self), iid, ppvobject).ok()
+        (::windows::core::Interface::vtable(self).GetDispenser)(::windows::core::Interface::as_raw(self), iid, ppvobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IGetDispenser, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IGetDispenser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IGetDispenser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IGetDispenser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1538,10 +1533,15 @@ impl ::core::fmt::Debug for IGetDispenser {
         f.debug_tuple("IGetDispenser").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IGetDispenser {
+unsafe impl ::windows::core::Interface for IGetDispenser {
     type Vtable = IGetDispenser_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IGetDispenser {
+impl ::core::clone::Clone for IGetDispenser {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IGetDispenser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc23cc370_87ef_11ce_8081_0080c758527e);
 }
 #[repr(C)]
@@ -1557,16 +1557,11 @@ impl IKernelTransaction {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHandle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Interface::vtable(self).GetHandle)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IKernelTransaction, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IKernelTransaction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IKernelTransaction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IKernelTransaction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1578,10 +1573,15 @@ impl ::core::fmt::Debug for IKernelTransaction {
         f.debug_tuple("IKernelTransaction").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IKernelTransaction {
+unsafe impl ::windows::core::Interface for IKernelTransaction {
     type Vtable = IKernelTransaction_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IKernelTransaction {
+impl ::core::clone::Clone for IKernelTransaction {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IKernelTransaction {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79427a2b_f895_40e0_be79_b57dc82ed231);
 }
 #[repr(C)]
@@ -1598,18 +1598,13 @@ pub struct IKernelTransaction_Vtbl {
 pub struct ILastResourceManager(::windows::core::IUnknown);
 impl ILastResourceManager {
     pub unsafe fn TransactionCommitted(&self, pprepinfo: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TransactionCommitted)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _).ok()
+        (::windows::core::Interface::vtable(self).TransactionCommitted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _).ok()
     }
     pub unsafe fn RecoveryDone(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RecoveryDone)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).RecoveryDone)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ILastResourceManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILastResourceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ILastResourceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ILastResourceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1621,10 +1616,15 @@ impl ::core::fmt::Debug for ILastResourceManager {
         f.debug_tuple("ILastResourceManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ILastResourceManager {
+unsafe impl ::windows::core::Interface for ILastResourceManager {
     type Vtable = ILastResourceManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ILastResourceManager {
+impl ::core::clone::Clone for ILastResourceManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ILastResourceManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d964ad4_5b33_11d3_8a91_00c04f79eb6d);
 }
 #[repr(C)]
@@ -1639,18 +1639,13 @@ pub struct ILastResourceManager_Vtbl {
 pub struct IPrepareInfo(::windows::core::IUnknown);
 impl IPrepareInfo {
     pub unsafe fn GetPrepareInfoSize(&self, pcbprepinfo: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPrepareInfoSize)(::windows::core::Vtable::as_raw(self), pcbprepinfo).ok()
+        (::windows::core::Interface::vtable(self).GetPrepareInfoSize)(::windows::core::Interface::as_raw(self), pcbprepinfo).ok()
     }
     pub unsafe fn GetPrepareInfo(&self, pprepinfo: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPrepareInfo)(::windows::core::Vtable::as_raw(self), pprepinfo).ok()
+        (::windows::core::Interface::vtable(self).GetPrepareInfo)(::windows::core::Interface::as_raw(self), pprepinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPrepareInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrepareInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IPrepareInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrepareInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1662,10 +1657,15 @@ impl ::core::fmt::Debug for IPrepareInfo {
         f.debug_tuple("IPrepareInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPrepareInfo {
+unsafe impl ::windows::core::Interface for IPrepareInfo {
     type Vtable = IPrepareInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IPrepareInfo {
+impl ::core::clone::Clone for IPrepareInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IPrepareInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80c7bfd0_87ee_11ce_8081_0080c758527e);
 }
 #[repr(C)]
@@ -1680,19 +1680,14 @@ pub struct IPrepareInfo_Vtbl {
 pub struct IPrepareInfo2(::windows::core::IUnknown);
 impl IPrepareInfo2 {
     pub unsafe fn GetPrepareInfoSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrepareInfoSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetPrepareInfoSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrepareInfo(&self, pprepinfo: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetPrepareInfo)(::windows::core::Vtable::as_raw(self), pprepinfo.len() as _, ::core::mem::transmute(pprepinfo.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).GetPrepareInfo)(::windows::core::Interface::as_raw(self), pprepinfo.len() as _, ::core::mem::transmute(pprepinfo.as_ptr())).ok()
     }
 }
-::windows::core::interface_hierarchy!(IPrepareInfo2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrepareInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IPrepareInfo2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IPrepareInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1704,10 +1699,15 @@ impl ::core::fmt::Debug for IPrepareInfo2 {
         f.debug_tuple("IPrepareInfo2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IPrepareInfo2 {
+unsafe impl ::windows::core::Interface for IPrepareInfo2 {
     type Vtable = IPrepareInfo2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IPrepareInfo2 {
+impl ::core::clone::Clone for IPrepareInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IPrepareInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fab2547_9779_11d1_b886_00c04fb9618a);
 }
 #[repr(C)]
@@ -1722,25 +1722,20 @@ pub struct IPrepareInfo2_Vtbl {
 pub struct IRMHelper(::windows::core::IUnknown);
 impl IRMHelper {
     pub unsafe fn RMCount(&self, dwctotalnumberofrms: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).RMCount)(::windows::core::Vtable::as_raw(self), dwctotalnumberofrms).ok()
+        (::windows::core::Interface::vtable(self).RMCount)(::windows::core::Interface::as_raw(self), dwctotalnumberofrms).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RMInfo<P0, P1, P2>(&self, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: P0, pszopenstring: P1, pszclosestring: P2, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-        P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P2: ::windows::core::IntoParam<::windows::core::PCSTR>,
     {
-        (::windows::core::Vtable::vtable(self).RMInfo)(::windows::core::Vtable::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring.into().abi(), pszclosestring.into().abi(), ::core::mem::transmute(guidrmrecovery)).ok()
+        (::windows::core::Interface::vtable(self).RMInfo)(::windows::core::Interface::as_raw(self), pxa_switch, fcdeclcallingconv.into_param().abi(), pszopenstring.into_param().abi(), pszclosestring.into_param().abi(), ::core::mem::transmute(guidrmrecovery)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IRMHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IRMHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IRMHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRMHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1752,10 +1747,15 @@ impl ::core::fmt::Debug for IRMHelper {
         f.debug_tuple("IRMHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IRMHelper {
+unsafe impl ::windows::core::Interface for IRMHelper {
     type Vtable = IRMHelper_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IRMHelper {
+impl ::core::clone::Clone for IRMHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IRMHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe793f6d1_f53d_11cf_a60d_00a0c905416e);
 }
 #[repr(C)]
@@ -1774,28 +1774,23 @@ pub struct IResourceManager(::windows::core::IUnknown);
 impl IResourceManager {
     pub unsafe fn Enlist<P0, P1>(&self, ptransaction: P0, pres: P1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionResourceAsync>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<ITransactionResourceAsync>,
     {
-        (::windows::core::Vtable::vtable(self).Enlist)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), pres.into().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
+        (::windows::core::Interface::vtable(self).Enlist)(::windows::core::Interface::as_raw(self), ptransaction.into_param().abi(), pres.into_param().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Reenlist)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<XACTSTAT>();
+        (::windows::core::Interface::vtable(self).Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ReenlistmentComplete)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).ReenlistmentComplete)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDistributedTransactionManager)(::windows::core::Vtable::as_raw(self), iid, ppvobject).ok()
+        (::windows::core::Interface::vtable(self).GetDistributedTransactionManager)(::windows::core::Interface::as_raw(self), iid, ppvobject).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResourceManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IResourceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IResourceManager, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResourceManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1807,10 +1802,15 @@ impl ::core::fmt::Debug for IResourceManager {
         f.debug_tuple("IResourceManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IResourceManager {
+unsafe impl ::windows::core::Interface for IResourceManager {
     type Vtable = IResourceManager_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IResourceManager {
+impl ::core::clone::Clone for IResourceManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IResourceManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13741d21_87eb_11ce_8081_0080c758527e);
 }
 #[repr(C)]
@@ -1828,43 +1828,38 @@ pub struct IResourceManager2(::windows::core::IUnknown);
 impl IResourceManager2 {
     pub unsafe fn Enlist<P0, P1>(&self, ptransaction: P0, pres: P1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionResourceAsync>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<ITransactionResourceAsync>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Enlist)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), pres.into().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
+        (::windows::core::Interface::vtable(self).base__.Enlist)(::windows::core::Interface::as_raw(self), ptransaction.into_param().abi(), pres.into_param().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Reenlist)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<XACTSTAT>();
+        (::windows::core::Interface::vtable(self).base__.Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.ReenlistmentComplete)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.ReenlistmentComplete)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDistributedTransactionManager)(::windows::core::Vtable::as_raw(self), iid, ppvobject).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDistributedTransactionManager)(::windows::core::Interface::as_raw(self), iid, ppvobject).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enlist2<P0, P1>(&self, ptransaction: P0, presasync: P1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionResourceAsync>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<ITransactionResourceAsync>,
     {
-        (::windows::core::Vtable::vtable(self).Enlist2)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), presasync.into().abi(), puow, pisolevel, pxid, ::core::mem::transmute(ppenlist)).ok()
+        (::windows::core::Interface::vtable(self).Enlist2)(::windows::core::Interface::as_raw(self), ptransaction.into_param().abi(), presasync.into_param().abi(), puow, pisolevel, pxid, ::core::mem::transmute(ppenlist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Reenlist2)(::windows::core::Vtable::as_raw(self), pxid, dwtimeout, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<XACTSTAT>();
+        (::windows::core::Interface::vtable(self).Reenlist2)(::windows::core::Interface::as_raw(self), pxid, dwtimeout, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IResourceManager2, ::windows::core::IUnknown, IResourceManager);
-impl ::core::clone::Clone for IResourceManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IResourceManager2, ::windows::core::IUnknown, IResourceManager);
 impl ::core::cmp::PartialEq for IResourceManager2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1876,10 +1871,15 @@ impl ::core::fmt::Debug for IResourceManager2 {
         f.debug_tuple("IResourceManager2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IResourceManager2 {
+unsafe impl ::windows::core::Interface for IResourceManager2 {
     type Vtable = IResourceManager2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IResourceManager2 {
+impl ::core::clone::Clone for IResourceManager2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IResourceManager2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd136c69a_f749_11d1_8f47_00c04f8ee57d);
 }
 #[repr(C)]
@@ -1901,19 +1901,14 @@ pub struct IResourceManagerFactory(::windows::core::IUnknown);
 impl IResourceManagerFactory {
     pub unsafe fn Create<P0, P1>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: P0, piresmgrsink: P1) -> ::windows::core::Result<IResourceManager>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IResourceManagerSink>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<IResourceManagerSink>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IResourceManager>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), pguidrm, pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IResourceManagerFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IResourceManagerFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResourceManagerFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1925,10 +1920,15 @@ impl ::core::fmt::Debug for IResourceManagerFactory {
         f.debug_tuple("IResourceManagerFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IResourceManagerFactory {
+unsafe impl ::windows::core::Interface for IResourceManagerFactory {
     type Vtable = IResourceManagerFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IResourceManagerFactory {
+impl ::core::clone::Clone for IResourceManagerFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IResourceManagerFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13741d20_87eb_11ce_8081_0080c758527e);
 }
 #[repr(C)]
@@ -1943,26 +1943,21 @@ pub struct IResourceManagerFactory2(::windows::core::IUnknown);
 impl IResourceManagerFactory2 {
     pub unsafe fn Create<P0, P1>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: P0, piresmgrsink: P1) -> ::windows::core::Result<IResourceManager>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IResourceManagerSink>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<IResourceManagerSink>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Create)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IResourceManager>();
+        (::windows::core::Interface::vtable(self).base__.Create)(::windows::core::Interface::as_raw(self), pguidrm, pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEx<P0, P1>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: P0, piresmgrsink: P1, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IResourceManagerSink>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
+        P1: ::windows::core::IntoParam<IResourceManagerSink>,
     {
-        (::windows::core::Vtable::vtable(self).CreateEx)(::windows::core::Vtable::as_raw(self), pguidrm, pszrmname.into().abi(), piresmgrsink.into().abi(), riidrequested, ppvresmgr).ok()
+        (::windows::core::Interface::vtable(self).CreateEx)(::windows::core::Interface::as_raw(self), pguidrm, pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), riidrequested, ppvresmgr).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerFactory2, ::windows::core::IUnknown, IResourceManagerFactory);
-impl ::core::clone::Clone for IResourceManagerFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IResourceManagerFactory2, ::windows::core::IUnknown, IResourceManagerFactory);
 impl ::core::cmp::PartialEq for IResourceManagerFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1974,10 +1969,15 @@ impl ::core::fmt::Debug for IResourceManagerFactory2 {
         f.debug_tuple("IResourceManagerFactory2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IResourceManagerFactory2 {
+unsafe impl ::windows::core::Interface for IResourceManagerFactory2 {
     type Vtable = IResourceManagerFactory2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IResourceManagerFactory2 {
+impl ::core::clone::Clone for IResourceManagerFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IResourceManagerFactory2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d);
 }
 #[repr(C)]
@@ -1992,47 +1992,42 @@ pub struct IResourceManagerRejoinable(::windows::core::IUnknown);
 impl IResourceManagerRejoinable {
     pub unsafe fn Enlist<P0, P1>(&self, ptransaction: P0, pres: P1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionResourceAsync>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<ITransactionResourceAsync>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Enlist)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), pres.into().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Enlist)(::windows::core::Interface::as_raw(self), ptransaction.into_param().abi(), pres.into_param().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Reenlist)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<XACTSTAT>();
+        (::windows::core::Interface::vtable(self).base__.base__.Reenlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.ReenlistmentComplete)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.ReenlistmentComplete)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDistributedTransactionManager)(::windows::core::Vtable::as_raw(self), iid, ppvobject).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetDistributedTransactionManager)(::windows::core::Interface::as_raw(self), iid, ppvobject).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enlist2<P0, P1>(&self, ptransaction: P0, presasync: P1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionResourceAsync>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<ITransactionResourceAsync>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Enlist2)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), presasync.into().abi(), puow, pisolevel, pxid, ::core::mem::transmute(ppenlist)).ok()
+        (::windows::core::Interface::vtable(self).base__.Enlist2)(::windows::core::Interface::as_raw(self), ptransaction.into_param().abi(), presasync.into_param().abi(), puow, pisolevel, pxid, ::core::mem::transmute(ppenlist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Reenlist2)(::windows::core::Vtable::as_raw(self), pxid, dwtimeout, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<XACTSTAT>();
+        (::windows::core::Interface::vtable(self).base__.Reenlist2)(::windows::core::Interface::as_raw(self), pxid, dwtimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn Rejoin(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Rejoin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<XACTSTAT>();
+        (::windows::core::Interface::vtable(self).Rejoin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerRejoinable, ::windows::core::IUnknown, IResourceManager, IResourceManager2);
-impl ::core::clone::Clone for IResourceManagerRejoinable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IResourceManagerRejoinable, ::windows::core::IUnknown, IResourceManager, IResourceManager2);
 impl ::core::cmp::PartialEq for IResourceManagerRejoinable {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2044,10 +2039,15 @@ impl ::core::fmt::Debug for IResourceManagerRejoinable {
         f.debug_tuple("IResourceManagerRejoinable").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IResourceManagerRejoinable {
+unsafe impl ::windows::core::Interface for IResourceManagerRejoinable {
     type Vtable = IResourceManagerRejoinable_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IResourceManagerRejoinable {
+impl ::core::clone::Clone for IResourceManagerRejoinable {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IResourceManagerRejoinable {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b);
 }
 #[repr(C)]
@@ -2061,15 +2061,10 @@ pub struct IResourceManagerRejoinable_Vtbl {
 pub struct IResourceManagerSink(::windows::core::IUnknown);
 impl IResourceManagerSink {
     pub unsafe fn TMDown(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).TMDown)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IResourceManagerSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IResourceManagerSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IResourceManagerSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IResourceManagerSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2081,10 +2076,15 @@ impl ::core::fmt::Debug for IResourceManagerSink {
         f.debug_tuple("IResourceManagerSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IResourceManagerSink {
+unsafe impl ::windows::core::Interface for IResourceManagerSink {
     type Vtable = IResourceManagerSink_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IResourceManagerSink {
+impl ::core::clone::Clone for IResourceManagerSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IResourceManagerSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d563181_defb_11ce_aed1_00aa0051e2c4);
 }
 #[repr(C)]
@@ -2098,27 +2098,22 @@ pub struct IResourceManagerSink_Vtbl {
 pub struct ITipHelper(::windows::core::IUnknown);
 impl ITipHelper {
     pub unsafe fn Pull(&self, i_psztxurl: *const u8) -> ::windows::core::Result<ITransaction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Pull)(::windows::core::Vtable::as_raw(self), i_psztxurl, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).Pull)(::windows::core::Interface::as_raw(self), i_psztxurl, &mut result__).from_abi(result__)
     }
     pub unsafe fn PullAsync<P0>(&self, i_psztxurl: *const u8, i_ptippullsink: P0) -> ::windows::core::Result<ITransaction>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITipPullSink>>,
+        P0: ::windows::core::IntoParam<ITipPullSink>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PullAsync)(::windows::core::Vtable::as_raw(self), i_psztxurl, i_ptippullsink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).PullAsync)(::windows::core::Interface::as_raw(self), i_psztxurl, i_ptippullsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocalTmUrl(&self) -> ::windows::core::Result<*mut u8> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLocalTmUrl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut u8>();
+        (::windows::core::Interface::vtable(self).GetLocalTmUrl)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITipHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITipHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITipHelper, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2130,10 +2125,15 @@ impl ::core::fmt::Debug for ITipHelper {
         f.debug_tuple("ITipHelper").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITipHelper {
+unsafe impl ::windows::core::Interface for ITipHelper {
     type Vtable = ITipHelper_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITipHelper {
+impl ::core::clone::Clone for ITipHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITipHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef);
 }
 #[repr(C)]
@@ -2149,15 +2149,10 @@ pub struct ITipHelper_Vtbl {
 pub struct ITipPullSink(::windows::core::IUnknown);
 impl ITipPullSink {
     pub unsafe fn PullComplete(&self, i_hrpull: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PullComplete)(::windows::core::Vtable::as_raw(self), i_hrpull).ok()
+        (::windows::core::Interface::vtable(self).PullComplete)(::windows::core::Interface::as_raw(self), i_hrpull).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITipPullSink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITipPullSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITipPullSink, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipPullSink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2169,10 +2164,15 @@ impl ::core::fmt::Debug for ITipPullSink {
         f.debug_tuple("ITipPullSink").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITipPullSink {
+unsafe impl ::windows::core::Interface for ITipPullSink {
     type Vtable = ITipPullSink_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITipPullSink {
+impl ::core::clone::Clone for ITipPullSink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITipPullSink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef);
 }
 #[repr(C)]
@@ -2186,20 +2186,15 @@ pub struct ITipPullSink_Vtbl {
 pub struct ITipTransaction(::windows::core::IUnknown);
 impl ITipTransaction {
     pub unsafe fn Push(&self, i_pszremotetmurl: *const u8) -> ::windows::core::Result<::windows::core::PSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Push)(::windows::core::Vtable::as_raw(self), i_pszremotetmurl, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+        (::windows::core::Interface::vtable(self).Push)(::windows::core::Interface::as_raw(self), i_pszremotetmurl, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransactionUrl(&self) -> ::windows::core::Result<::windows::core::PSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTransactionUrl)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+        (::windows::core::Interface::vtable(self).GetTransactionUrl)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITipTransaction, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITipTransaction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITipTransaction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITipTransaction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2211,10 +2206,15 @@ impl ::core::fmt::Debug for ITipTransaction {
         f.debug_tuple("ITipTransaction").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITipTransaction {
+unsafe impl ::windows::core::Interface for ITipTransaction {
     type Vtable = ITipTransaction_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITipTransaction {
+impl ::core::clone::Clone for ITipTransaction {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITipTransaction {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cf72d0_bac5_11d1_b1bf_00c04fc2f3ef);
 }
 #[repr(C)]
@@ -2229,19 +2229,14 @@ pub struct ITipTransaction_Vtbl {
 pub struct ITmNodeName(::windows::core::IUnknown);
 impl ITmNodeName {
     pub unsafe fn GetNodeNameSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNodeNameSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetNodeNameSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetNodeName)(::windows::core::Vtable::as_raw(self), cbnodenamebuffersize, ::core::mem::transmute(pnodenamebuffer)).ok()
+        (::windows::core::Interface::vtable(self).GetNodeName)(::windows::core::Interface::as_raw(self), cbnodenamebuffersize, ::core::mem::transmute(pnodenamebuffer)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITmNodeName, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITmNodeName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITmNodeName, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITmNodeName {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2253,10 +2248,15 @@ impl ::core::fmt::Debug for ITmNodeName {
         f.debug_tuple("ITmNodeName").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITmNodeName {
+unsafe impl ::windows::core::Interface for ITmNodeName {
     type Vtable = ITmNodeName_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITmNodeName {
+impl ::core::clone::Clone for ITmNodeName {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITmNodeName {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30274f88_6ee4_474e_9b95_7807bc9ef8cf);
 }
 #[repr(C)]
@@ -2274,29 +2274,24 @@ impl ITransaction {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<P0>(&self, fretaining: P0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), fretaining.into(), grftc, grfrm).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), fretaining.into_param().abi(), grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Abort<P0, P1>(&self, pboidreason: *const BOID, fretaining: P0, fasync: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Abort)(::windows::core::Vtable::as_raw(self), pboidreason, fretaining.into(), fasync.into()).ok()
+        (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self), pboidreason, fretaining.into_param().abi(), fasync.into_param().abi()).ok()
     }
     pub unsafe fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTransactionInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
+        (::windows::core::Interface::vtable(self).GetTransactionInfo)(::windows::core::Interface::as_raw(self), pinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransaction, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransaction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransaction, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransaction {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2308,10 +2303,15 @@ impl ::core::fmt::Debug for ITransaction {
         f.debug_tuple("ITransaction").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransaction {
+unsafe impl ::windows::core::Interface for ITransaction {
     type Vtable = ITransaction_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransaction {
+impl ::core::clone::Clone for ITransaction {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransaction {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fb15084_af41_11ce_bd2b_204c4f4f5020);
 }
 #[repr(C)]
@@ -2336,36 +2336,31 @@ impl ITransaction2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<P0>(&self, fretaining: P0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Commit)(::windows::core::Vtable::as_raw(self), fretaining.into(), grftc, grfrm).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into_param().abi(), grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Abort<P0, P1>(&self, pboidreason: *const BOID, fretaining: P0, fasync: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.base__.Abort)(::windows::core::Vtable::as_raw(self), pboidreason, fretaining.into(), fasync.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Abort)(::windows::core::Interface::as_raw(self), pboidreason, fretaining.into_param().abi(), fasync.into_param().abi()).ok()
     }
     pub unsafe fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.base__.GetTransactionInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetTransactionInfo)(::windows::core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CloneWithCommitDisabled)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).base__.CloneWithCommitDisabled)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetTransactionInfo2)(::windows::core::Vtable::as_raw(self), pinfo).ok()
+        (::windows::core::Interface::vtable(self).GetTransactionInfo2)(::windows::core::Interface::as_raw(self), pinfo).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransaction2, ::windows::core::IUnknown, ITransaction, ITransactionCloner);
-impl ::core::clone::Clone for ITransaction2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransaction2, ::windows::core::IUnknown, ITransaction, ITransactionCloner);
 impl ::core::cmp::PartialEq for ITransaction2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2377,10 +2372,15 @@ impl ::core::fmt::Debug for ITransaction2 {
         f.debug_tuple("ITransaction2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransaction2 {
+unsafe impl ::windows::core::Interface for ITransaction2 {
     type Vtable = ITransaction2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransaction2 {
+impl ::core::clone::Clone for ITransaction2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransaction2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34021548_0065_11d3_bac1_00c04f797be2);
 }
 #[repr(C)]
@@ -2397,33 +2397,28 @@ impl ITransactionCloner {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<P0>(&self, fretaining: P0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Commit)(::windows::core::Vtable::as_raw(self), fretaining.into(), grftc, grfrm).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), fretaining.into_param().abi(), grftc, grfrm).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Abort<P0, P1>(&self, pboidreason: *const BOID, fretaining: P0, fasync: P1) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Abort)(::windows::core::Vtable::as_raw(self), pboidreason, fretaining.into(), fasync.into()).ok()
+        (::windows::core::Interface::vtable(self).base__.Abort)(::windows::core::Interface::as_raw(self), pboidreason, fretaining.into_param().abi(), fasync.into_param().abi()).ok()
     }
     pub unsafe fn GetTransactionInfo(&self, pinfo: *mut XACTTRANSINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetTransactionInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
+        (::windows::core::Interface::vtable(self).base__.GetTransactionInfo)(::windows::core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CloneWithCommitDisabled)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).CloneWithCommitDisabled)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionCloner, ::windows::core::IUnknown, ITransaction);
-impl ::core::clone::Clone for ITransactionCloner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionCloner, ::windows::core::IUnknown, ITransaction);
 impl ::core::cmp::PartialEq for ITransactionCloner {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2435,10 +2430,15 @@ impl ::core::fmt::Debug for ITransactionCloner {
         f.debug_tuple("ITransactionCloner").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionCloner {
+unsafe impl ::windows::core::Interface for ITransactionCloner {
     type Vtable = ITransactionCloner_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionCloner {
+impl ::core::clone::Clone for ITransactionCloner {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionCloner {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02656950_2152_11d0_944c_00a0c905416e);
 }
 #[repr(C)]
@@ -2452,24 +2452,19 @@ pub struct ITransactionCloner_Vtbl {
 pub struct ITransactionDispenser(::windows::core::IUnknown);
 impl ITransactionDispenser {
     pub unsafe fn GetOptionsObject(&self) -> ::windows::core::Result<ITransactionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptionsObject)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransactionOptions>();
+        (::windows::core::Interface::vtable(self).GetOptionsObject)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn BeginTransaction<P0, P1>(&self, punkouter: P0, isolevel: i32, isoflags: u32, poptions: P1) -> ::windows::core::Result<ITransaction>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionOptions>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
+        P1: ::windows::core::IntoParam<ITransactionOptions>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BeginTransaction)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), isolevel, isoflags, poptions.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).BeginTransaction)(::windows::core::Interface::as_raw(self), punkouter.into_param().abi(), isolevel, isoflags, poptions.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionDispenser, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionDispenser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionDispenser, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionDispenser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2481,10 +2476,15 @@ impl ::core::fmt::Debug for ITransactionDispenser {
         f.debug_tuple("ITransactionDispenser").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionDispenser {
+unsafe impl ::windows::core::Interface for ITransactionDispenser {
     type Vtable = ITransactionDispenser_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionDispenser {
+impl ::core::clone::Clone for ITransactionDispenser {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionDispenser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd);
 }
 #[repr(C)]
@@ -2502,23 +2502,18 @@ impl ITransactionEnlistmentAsync {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrepareRequestDone<P0>(&self, hr: ::windows::core::HRESULT, pmk: P0, pboidreason: *const BOID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<super::Com::IMoniker>>,
+        P0: ::windows::core::IntoParam<super::Com::IMoniker>,
     {
-        (::windows::core::Vtable::vtable(self).PrepareRequestDone)(::windows::core::Vtable::as_raw(self), hr, pmk.into().abi(), pboidreason).ok()
+        (::windows::core::Interface::vtable(self).PrepareRequestDone)(::windows::core::Interface::as_raw(self), hr, pmk.into_param().abi(), pboidreason).ok()
     }
     pub unsafe fn CommitRequestDone(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CommitRequestDone)(::windows::core::Vtable::as_raw(self), hr).ok()
+        (::windows::core::Interface::vtable(self).CommitRequestDone)(::windows::core::Interface::as_raw(self), hr).ok()
     }
     pub unsafe fn AbortRequestDone(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).AbortRequestDone)(::windows::core::Vtable::as_raw(self), hr).ok()
+        (::windows::core::Interface::vtable(self).AbortRequestDone)(::windows::core::Interface::as_raw(self), hr).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionEnlistmentAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionEnlistmentAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionEnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionEnlistmentAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2530,10 +2525,15 @@ impl ::core::fmt::Debug for ITransactionEnlistmentAsync {
         f.debug_tuple("ITransactionEnlistmentAsync").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionEnlistmentAsync {
+unsafe impl ::windows::core::Interface for ITransactionEnlistmentAsync {
     type Vtable = ITransactionEnlistmentAsync_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionEnlistmentAsync {
+impl ::core::clone::Clone for ITransactionEnlistmentAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionEnlistmentAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fb15081_af41_11ce_bd2b_204c4f4f5020);
 }
 #[repr(C)]
@@ -2553,24 +2553,19 @@ pub struct ITransactionExport(::windows::core::IUnknown);
 impl ITransactionExport {
     pub unsafe fn Export<P0>(&self, punktransaction: P0) -> ::windows::core::Result<u32>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Export)(::windows::core::Vtable::as_raw(self), punktransaction.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).Export)(::windows::core::Interface::as_raw(self), punktransaction.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransactionCookie<P0>(&self, punktransaction: P0, rgbtransactioncookie: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+        P0: ::windows::core::IntoParam<::windows::core::IUnknown>,
     {
-        (::windows::core::Vtable::vtable(self).GetTransactionCookie)(::windows::core::Vtable::as_raw(self), punktransaction.into().abi(), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), pcbused).ok()
+        (::windows::core::Interface::vtable(self).GetTransactionCookie)(::windows::core::Interface::as_raw(self), punktransaction.into_param().abi(), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), pcbused).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionExport, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionExport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionExport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionExport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2582,10 +2577,15 @@ impl ::core::fmt::Debug for ITransactionExport {
         f.debug_tuple("ITransactionExport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionExport {
+unsafe impl ::windows::core::Interface for ITransactionExport {
     type Vtable = ITransactionExport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionExport {
+impl ::core::clone::Clone for ITransactionExport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionExport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0141fda5_8fc0_11ce_bd18_204c4f4f5020);
 }
 #[repr(C)]
@@ -2600,20 +2600,15 @@ pub struct ITransactionExport_Vtbl {
 pub struct ITransactionExportFactory(::windows::core::IUnknown);
 impl ITransactionExportFactory {
     pub unsafe fn GetRemoteClassId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRemoteClassId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Interface::vtable(self).GetRemoteClassId)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Create(&self, rgbwhereabouts: &[u8]) -> ::windows::core::Result<ITransactionExport> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransactionExport>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionExportFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionExportFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionExportFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionExportFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2625,10 +2620,15 @@ impl ::core::fmt::Debug for ITransactionExportFactory {
         f.debug_tuple("ITransactionExportFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionExportFactory {
+unsafe impl ::windows::core::Interface for ITransactionExportFactory {
     type Vtable = ITransactionExportFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionExportFactory {
+impl ::core::clone::Clone for ITransactionExportFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionExportFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1cf9b53_8745_11ce_a9ba_00aa006c3706);
 }
 #[repr(C)]
@@ -2644,18 +2644,13 @@ pub struct ITransactionImport(::windows::core::IUnknown);
 impl ITransactionImport {
     pub unsafe fn Import<T>(&self, rgbtransactioncookie: &[u8]) -> ::windows::core::Result<T>
     where
-        T: ::windows::core::Interface,
+        T: ::windows::core::ComInterface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), &<T as ::windows::core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionImport, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionImport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionImport, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionImport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2667,10 +2662,15 @@ impl ::core::fmt::Debug for ITransactionImport {
         f.debug_tuple("ITransactionImport").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionImport {
+unsafe impl ::windows::core::Interface for ITransactionImport {
     type Vtable = ITransactionImport_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionImport {
+impl ::core::clone::Clone for ITransactionImport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionImport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706);
 }
 #[repr(C)]
@@ -2684,19 +2684,14 @@ pub struct ITransactionImport_Vtbl {
 pub struct ITransactionImportWhereabouts(::windows::core::IUnknown);
 impl ITransactionImportWhereabouts {
     pub unsafe fn GetWhereaboutsSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWhereaboutsSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetWhereaboutsSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWhereabouts(&self, rgbwhereabouts: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetWhereabouts)(::windows::core::Vtable::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), pcbused).ok()
+        (::windows::core::Interface::vtable(self).GetWhereabouts)(::windows::core::Interface::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), pcbused).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionImportWhereabouts, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionImportWhereabouts {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionImportWhereabouts, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionImportWhereabouts {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2708,10 +2703,15 @@ impl ::core::fmt::Debug for ITransactionImportWhereabouts {
         f.debug_tuple("ITransactionImportWhereabouts").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionImportWhereabouts {
+unsafe impl ::windows::core::Interface for ITransactionImportWhereabouts {
     type Vtable = ITransactionImportWhereabouts_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionImportWhereabouts {
+impl ::core::clone::Clone for ITransactionImportWhereabouts {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionImportWhereabouts {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0141fda4_8fc0_11ce_bd18_204c4f4f5020);
 }
 #[repr(C)]
@@ -2726,15 +2726,10 @@ pub struct ITransactionImportWhereabouts_Vtbl {
 pub struct ITransactionLastEnlistmentAsync(::windows::core::IUnknown);
 impl ITransactionLastEnlistmentAsync {
     pub unsafe fn TransactionOutcome(&self, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TransactionOutcome)(::windows::core::Vtable::as_raw(self), xactstat, pboidreason).ok()
+        (::windows::core::Interface::vtable(self).TransactionOutcome)(::windows::core::Interface::as_raw(self), xactstat, pboidreason).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionLastEnlistmentAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionLastEnlistmentAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionLastEnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionLastEnlistmentAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2746,10 +2741,15 @@ impl ::core::fmt::Debug for ITransactionLastEnlistmentAsync {
         f.debug_tuple("ITransactionLastEnlistmentAsync").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionLastEnlistmentAsync {
+unsafe impl ::windows::core::Interface for ITransactionLastEnlistmentAsync {
     type Vtable = ITransactionLastEnlistmentAsync_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionLastEnlistmentAsync {
+impl ::core::clone::Clone for ITransactionLastEnlistmentAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionLastEnlistmentAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc82bd533_5b30_11d3_8a91_00c04f79eb6d);
 }
 #[repr(C)]
@@ -2763,18 +2763,13 @@ pub struct ITransactionLastEnlistmentAsync_Vtbl {
 pub struct ITransactionLastResourceAsync(::windows::core::IUnknown);
 impl ITransactionLastResourceAsync {
     pub unsafe fn DelegateCommit(&self, grfrm: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DelegateCommit)(::windows::core::Vtable::as_raw(self), grfrm).ok()
+        (::windows::core::Interface::vtable(self).DelegateCommit)(::windows::core::Interface::as_raw(self), grfrm).ok()
     }
     pub unsafe fn ForgetRequest(&self, pnewuow: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ForgetRequest)(::windows::core::Vtable::as_raw(self), pnewuow).ok()
+        (::windows::core::Interface::vtable(self).ForgetRequest)(::windows::core::Interface::as_raw(self), pnewuow).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionLastResourceAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionLastResourceAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionLastResourceAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionLastResourceAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2786,10 +2781,15 @@ impl ::core::fmt::Debug for ITransactionLastResourceAsync {
         f.debug_tuple("ITransactionLastResourceAsync").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionLastResourceAsync {
+unsafe impl ::windows::core::Interface for ITransactionLastResourceAsync {
     type Vtable = ITransactionLastResourceAsync_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionLastResourceAsync {
+impl ::core::clone::Clone for ITransactionLastResourceAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionLastResourceAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc82bd532_5b30_11d3_8a91_00c04f79eb6d);
 }
 #[repr(C)]
@@ -2804,18 +2804,13 @@ pub struct ITransactionLastResourceAsync_Vtbl {
 pub struct ITransactionOptions(::windows::core::IUnknown);
 impl ITransactionOptions {
     pub unsafe fn SetOptions(&self, poptions: *const XACTOPT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SetOptions)(::windows::core::Vtable::as_raw(self), poptions).ok()
+        (::windows::core::Interface::vtable(self).SetOptions)(::windows::core::Interface::as_raw(self), poptions).ok()
     }
     pub unsafe fn GetOptions(&self, poptions: *mut XACTOPT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self), poptions).ok()
+        (::windows::core::Interface::vtable(self).GetOptions)(::windows::core::Interface::as_raw(self), poptions).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionOptions, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionOptions, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2827,10 +2822,15 @@ impl ::core::fmt::Debug for ITransactionOptions {
         f.debug_tuple("ITransactionOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionOptions {
+unsafe impl ::windows::core::Interface for ITransactionOptions {
     type Vtable = ITransactionOptions_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionOptions {
+impl ::core::clone::Clone for ITransactionOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd);
 }
 #[repr(C)]
@@ -2848,31 +2848,26 @@ impl ITransactionOutcomeEvents {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Committed<P0>(&self, fretaining: P0, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Committed)(::windows::core::Vtable::as_raw(self), fretaining.into(), pnewuow, hr).ok()
+        (::windows::core::Interface::vtable(self).Committed)(::windows::core::Interface::as_raw(self), fretaining.into_param().abi(), pnewuow, hr).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Aborted<P0>(&self, pboidreason: *const BOID, fretaining: P0, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Aborted)(::windows::core::Vtable::as_raw(self), pboidreason, fretaining.into(), pnewuow, hr).ok()
+        (::windows::core::Interface::vtable(self).Aborted)(::windows::core::Interface::as_raw(self), pboidreason, fretaining.into_param().abi(), pnewuow, hr).ok()
     }
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).HeuristicDecision)(::windows::core::Vtable::as_raw(self), dwdecision, pboidreason, hr).ok()
+        (::windows::core::Interface::vtable(self).HeuristicDecision)(::windows::core::Interface::as_raw(self), dwdecision, pboidreason, hr).ok()
     }
     pub unsafe fn Indoubt(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Indoubt)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Indoubt)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionOutcomeEvents, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionOutcomeEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionOutcomeEvents, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionOutcomeEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2884,10 +2879,15 @@ impl ::core::fmt::Debug for ITransactionOutcomeEvents {
         f.debug_tuple("ITransactionOutcomeEvents").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionOutcomeEvents {
+unsafe impl ::windows::core::Interface for ITransactionOutcomeEvents {
     type Vtable = ITransactionOutcomeEvents_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionOutcomeEvents {
+impl ::core::clone::Clone for ITransactionOutcomeEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionOutcomeEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd);
 }
 #[repr(C)]
@@ -2910,28 +2910,23 @@ pub struct ITransactionOutcomeEvents_Vtbl {
 pub struct ITransactionPhase0EnlistmentAsync(::windows::core::IUnknown);
 impl ITransactionPhase0EnlistmentAsync {
     pub unsafe fn Enable(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Enable)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Enable)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForEnlistment(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).WaitForEnlistment)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).WaitForEnlistment)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Phase0Done(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Phase0Done)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Phase0Done)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Unenlist(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Unenlist)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Unenlist)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetTransaction(&self) -> ::windows::core::Result<ITransaction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTransaction)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).GetTransaction)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionPhase0EnlistmentAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionPhase0EnlistmentAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2943,10 +2938,15 @@ impl ::core::fmt::Debug for ITransactionPhase0EnlistmentAsync {
         f.debug_tuple("ITransactionPhase0EnlistmentAsync").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionPhase0EnlistmentAsync {
+unsafe impl ::windows::core::Interface for ITransactionPhase0EnlistmentAsync {
     type Vtable = ITransactionPhase0EnlistmentAsync_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionPhase0EnlistmentAsync {
+impl ::core::clone::Clone for ITransactionPhase0EnlistmentAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionPhase0EnlistmentAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82dc88e1_a954_11d1_8f88_00600895e7d5);
 }
 #[repr(C)]
@@ -2965,18 +2965,13 @@ pub struct ITransactionPhase0Factory(::windows::core::IUnknown);
 impl ITransactionPhase0Factory {
     pub unsafe fn Create<P0>(&self, pphase0notify: P0) -> ::windows::core::Result<ITransactionPhase0EnlistmentAsync>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransactionPhase0NotifyAsync>>,
+        P0: ::windows::core::IntoParam<ITransactionPhase0NotifyAsync>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pphase0notify.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransactionPhase0EnlistmentAsync>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), pphase0notify.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionPhase0Factory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionPhase0Factory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionPhase0Factory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionPhase0Factory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2988,10 +2983,15 @@ impl ::core::fmt::Debug for ITransactionPhase0Factory {
         f.debug_tuple("ITransactionPhase0Factory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionPhase0Factory {
+unsafe impl ::windows::core::Interface for ITransactionPhase0Factory {
     type Vtable = ITransactionPhase0Factory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionPhase0Factory {
+impl ::core::clone::Clone for ITransactionPhase0Factory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionPhase0Factory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82dc88e0_a954_11d1_8f88_00600895e7d5);
 }
 #[repr(C)]
@@ -3008,20 +3008,15 @@ impl ITransactionPhase0NotifyAsync {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Phase0Request<P0>(&self, fabortinghint: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).Phase0Request)(::windows::core::Vtable::as_raw(self), fabortinghint.into()).ok()
+        (::windows::core::Interface::vtable(self).Phase0Request)(::windows::core::Interface::as_raw(self), fabortinghint.into_param().abi()).ok()
     }
     pub unsafe fn EnlistCompleted(&self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnlistCompleted)(::windows::core::Vtable::as_raw(self), status).ok()
+        (::windows::core::Interface::vtable(self).EnlistCompleted)(::windows::core::Interface::as_raw(self), status).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionPhase0NotifyAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionPhase0NotifyAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionPhase0NotifyAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionPhase0NotifyAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3033,10 +3028,15 @@ impl ::core::fmt::Debug for ITransactionPhase0NotifyAsync {
         f.debug_tuple("ITransactionPhase0NotifyAsync").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionPhase0NotifyAsync {
+unsafe impl ::windows::core::Interface for ITransactionPhase0NotifyAsync {
     type Vtable = ITransactionPhase0NotifyAsync_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionPhase0NotifyAsync {
+impl ::core::clone::Clone for ITransactionPhase0NotifyAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionPhase0NotifyAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef081809_0c76_11d2_87a6_00c04f990f34);
 }
 #[repr(C)]
@@ -3054,26 +3054,21 @@ pub struct ITransactionPhase0NotifyAsync_Vtbl {
 pub struct ITransactionReceiver(::windows::core::IUnknown);
 impl ITransactionReceiver {
     pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[u8]) -> ::windows::core::Result<ITransaction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UnmarshalPropagationToken)(::windows::core::Vtable::as_raw(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).UnmarshalPropagationToken)(::windows::core::Interface::as_raw(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReturnTokenSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReturnTokenSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetReturnTokenSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalReturnToken(&self, rgbreturntoken: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MarshalReturnToken)(::windows::core::Vtable::as_raw(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_ptr()), pcbused).ok()
+        (::windows::core::Interface::vtable(self).MarshalReturnToken)(::windows::core::Interface::as_raw(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_ptr()), pcbused).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionReceiver, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionReceiver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionReceiver, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionReceiver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3085,10 +3080,15 @@ impl ::core::fmt::Debug for ITransactionReceiver {
         f.debug_tuple("ITransactionReceiver").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionReceiver {
+unsafe impl ::windows::core::Interface for ITransactionReceiver {
     type Vtable = ITransactionReceiver_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionReceiver {
+impl ::core::clone::Clone for ITransactionReceiver {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionReceiver {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59313e03_b36c_11cf_a539_00aa006887c3);
 }
 #[repr(C)]
@@ -3105,16 +3105,11 @@ pub struct ITransactionReceiver_Vtbl {
 pub struct ITransactionReceiverFactory(::windows::core::IUnknown);
 impl ITransactionReceiverFactory {
     pub unsafe fn Create(&self) -> ::windows::core::Result<ITransactionReceiver> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransactionReceiver>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionReceiverFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionReceiverFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionReceiverFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionReceiverFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3126,10 +3121,15 @@ impl ::core::fmt::Debug for ITransactionReceiverFactory {
         f.debug_tuple("ITransactionReceiverFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionReceiverFactory {
+unsafe impl ::windows::core::Interface for ITransactionReceiverFactory {
     type Vtable = ITransactionReceiverFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionReceiverFactory {
+impl ::core::clone::Clone for ITransactionReceiverFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionReceiverFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59313e02_b36c_11cf_a539_00aa006887c3);
 }
 #[repr(C)]
@@ -3146,33 +3146,28 @@ impl ITransactionResource {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrepareRequest<P0, P1, P2>(&self, fretaining: P0, grfrm: u32, fwantmoniker: P1, fsinglephase: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).PrepareRequest)(::windows::core::Vtable::as_raw(self), fretaining.into(), grfrm, fwantmoniker.into(), fsinglephase.into()).ok()
+        (::windows::core::Interface::vtable(self).PrepareRequest)(::windows::core::Interface::as_raw(self), fretaining.into_param().abi(), grfrm, fwantmoniker.into_param().abi(), fsinglephase.into_param().abi()).ok()
     }
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CommitRequest)(::windows::core::Vtable::as_raw(self), grfrm, pnewuow).ok()
+        (::windows::core::Interface::vtable(self).CommitRequest)(::windows::core::Interface::as_raw(self), grfrm, pnewuow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AbortRequest<P0>(&self, pboidreason: *const BOID, fretaining: P0, pnewuow: *const BOID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).AbortRequest)(::windows::core::Vtable::as_raw(self), pboidreason, fretaining.into(), pnewuow).ok()
+        (::windows::core::Interface::vtable(self).AbortRequest)(::windows::core::Interface::as_raw(self), pboidreason, fretaining.into_param().abi(), pnewuow).ok()
     }
     pub unsafe fn TMDown(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).TMDown)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionResource, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionResource, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionResource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3184,10 +3179,15 @@ impl ::core::fmt::Debug for ITransactionResource {
         f.debug_tuple("ITransactionResource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionResource {
+unsafe impl ::windows::core::Interface for ITransactionResource {
     type Vtable = ITransactionResource_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionResource {
+impl ::core::clone::Clone for ITransactionResource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionResource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5ff7b3_4572_11d0_9452_00a0c905416e);
 }
 #[repr(C)]
@@ -3213,33 +3213,28 @@ impl ITransactionResourceAsync {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrepareRequest<P0, P1, P2>(&self, fretaining: P0, grfrm: u32, fwantmoniker: P1, fsinglephase: P2) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P1: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
+        P2: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).PrepareRequest)(::windows::core::Vtable::as_raw(self), fretaining.into(), grfrm, fwantmoniker.into(), fsinglephase.into()).ok()
+        (::windows::core::Interface::vtable(self).PrepareRequest)(::windows::core::Interface::as_raw(self), fretaining.into_param().abi(), grfrm, fwantmoniker.into_param().abi(), fsinglephase.into_param().abi()).ok()
     }
     pub unsafe fn CommitRequest(&self, grfrm: u32, pnewuow: *const BOID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CommitRequest)(::windows::core::Vtable::as_raw(self), grfrm, pnewuow).ok()
+        (::windows::core::Interface::vtable(self).CommitRequest)(::windows::core::Interface::as_raw(self), grfrm, pnewuow).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AbortRequest<P0>(&self, pboidreason: *const BOID, fretaining: P0, pnewuow: *const BOID) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).AbortRequest)(::windows::core::Vtable::as_raw(self), pboidreason, fretaining.into(), pnewuow).ok()
+        (::windows::core::Interface::vtable(self).AbortRequest)(::windows::core::Interface::as_raw(self), pboidreason, fretaining.into_param().abi(), pnewuow).ok()
     }
     pub unsafe fn TMDown(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).TMDown)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionResourceAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionResourceAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionResourceAsync, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionResourceAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3251,10 +3246,15 @@ impl ::core::fmt::Debug for ITransactionResourceAsync {
         f.debug_tuple("ITransactionResourceAsync").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionResourceAsync {
+unsafe impl ::windows::core::Interface for ITransactionResourceAsync {
     type Vtable = ITransactionResourceAsync_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionResourceAsync {
+impl ::core::clone::Clone for ITransactionResourceAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionResourceAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e971f0_23ce_11cf_ad60_00aa00a74ccd);
 }
 #[repr(C)]
@@ -3278,30 +3278,25 @@ pub struct ITransactionTransmitter(::windows::core::IUnknown);
 impl ITransactionTransmitter {
     pub unsafe fn Set<P0>(&self, ptransaction: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
     {
-        (::windows::core::Vtable::vtable(self).Set)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ptransaction.into_param().abi()).ok()
     }
     pub unsafe fn GetPropagationTokenSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropagationTokenSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetPropagationTokenSize)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalPropagationToken(&self, rgbtoken: &mut [u8], pcbused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).MarshalPropagationToken)(::windows::core::Vtable::as_raw(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), pcbused).ok()
+        (::windows::core::Interface::vtable(self).MarshalPropagationToken)(::windows::core::Interface::as_raw(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), pcbused).ok()
     }
     pub unsafe fn UnmarshalReturnToken(&self, rgbreturntoken: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).UnmarshalReturnToken)(::windows::core::Vtable::as_raw(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_ptr())).ok()
+        (::windows::core::Interface::vtable(self).UnmarshalReturnToken)(::windows::core::Interface::as_raw(self), rgbreturntoken.len() as _, ::core::mem::transmute(rgbreturntoken.as_ptr())).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionTransmitter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionTransmitter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionTransmitter, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionTransmitter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3313,10 +3308,15 @@ impl ::core::fmt::Debug for ITransactionTransmitter {
         f.debug_tuple("ITransactionTransmitter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionTransmitter {
+unsafe impl ::windows::core::Interface for ITransactionTransmitter {
     type Vtable = ITransactionTransmitter_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionTransmitter {
+impl ::core::clone::Clone for ITransactionTransmitter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionTransmitter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59313e01_b36c_11cf_a539_00aa006887c3);
 }
 #[repr(C)]
@@ -3334,16 +3334,11 @@ pub struct ITransactionTransmitter_Vtbl {
 pub struct ITransactionTransmitterFactory(::windows::core::IUnknown);
 impl ITransactionTransmitterFactory {
     pub unsafe fn Create(&self) -> ::windows::core::Result<ITransactionTransmitter> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransactionTransmitter>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionTransmitterFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionTransmitterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionTransmitterFactory, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionTransmitterFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3355,10 +3350,15 @@ impl ::core::fmt::Debug for ITransactionTransmitterFactory {
         f.debug_tuple("ITransactionTransmitterFactory").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionTransmitterFactory {
+unsafe impl ::windows::core::Interface for ITransactionTransmitterFactory {
     type Vtable = ITransactionTransmitterFactory_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionTransmitterFactory {
+impl ::core::clone::Clone for ITransactionTransmitterFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionTransmitterFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59313e00_b36c_11cf_a539_00aa006887c3);
 }
 #[repr(C)]
@@ -3372,15 +3372,10 @@ pub struct ITransactionTransmitterFactory_Vtbl {
 pub struct ITransactionVoterBallotAsync2(::windows::core::IUnknown);
 impl ITransactionVoterBallotAsync2 {
     pub unsafe fn VoteRequestDone(&self, hr: ::windows::core::HRESULT, pboidreason: ::core::option::Option<*const BOID>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).VoteRequestDone)(::windows::core::Vtable::as_raw(self), hr, ::core::mem::transmute(pboidreason.unwrap_or(::std::ptr::null()))).ok()
+        (::windows::core::Interface::vtable(self).VoteRequestDone)(::windows::core::Interface::as_raw(self), hr, ::core::mem::transmute(pboidreason.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionVoterBallotAsync2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionVoterBallotAsync2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionVoterBallotAsync2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionVoterBallotAsync2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3392,10 +3387,15 @@ impl ::core::fmt::Debug for ITransactionVoterBallotAsync2 {
         f.debug_tuple("ITransactionVoterBallotAsync2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionVoterBallotAsync2 {
+unsafe impl ::windows::core::Interface for ITransactionVoterBallotAsync2 {
     type Vtable = ITransactionVoterBallotAsync2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionVoterBallotAsync2 {
+impl ::core::clone::Clone for ITransactionVoterBallotAsync2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionVoterBallotAsync2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5433376c_414d_11d3_b206_00c04fc2f3ef);
 }
 #[repr(C)]
@@ -3410,19 +3410,14 @@ pub struct ITransactionVoterFactory2(::windows::core::IUnknown);
 impl ITransactionVoterFactory2 {
     pub unsafe fn Create<P0, P1>(&self, ptransaction: P0, pvoternotify: P1) -> ::windows::core::Result<ITransactionVoterBallotAsync2>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<ITransaction>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITransactionVoterNotifyAsync2>>,
+        P0: ::windows::core::IntoParam<ITransaction>,
+        P1: ::windows::core::IntoParam<ITransactionVoterNotifyAsync2>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), pvoternotify.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransactionVoterBallotAsync2>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ptransaction.into_param().abi(), pvoternotify.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(ITransactionVoterFactory2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITransactionVoterFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionVoterFactory2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for ITransactionVoterFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3434,10 +3429,15 @@ impl ::core::fmt::Debug for ITransactionVoterFactory2 {
         f.debug_tuple("ITransactionVoterFactory2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionVoterFactory2 {
+unsafe impl ::windows::core::Interface for ITransactionVoterFactory2 {
     type Vtable = ITransactionVoterFactory2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionVoterFactory2 {
+impl ::core::clone::Clone for ITransactionVoterFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionVoterFactory2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5433376a_414d_11d3_b206_00c04fc2f3ef);
 }
 #[repr(C)]
@@ -3454,34 +3454,29 @@ impl ITransactionVoterNotifyAsync2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Committed<P0>(&self, fretaining: P0, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Committed)(::windows::core::Vtable::as_raw(self), fretaining.into(), pnewuow, hr).ok()
+        (::windows::core::Interface::vtable(self).base__.Committed)(::windows::core::Interface::as_raw(self), fretaining.into_param().abi(), pnewuow, hr).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Aborted<P0>(&self, pboidreason: *const BOID, fretaining: P0, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+        P0: ::windows::core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).base__.Aborted)(::windows::core::Vtable::as_raw(self), pboidreason, fretaining.into(), pnewuow, hr).ok()
+        (::windows::core::Interface::vtable(self).base__.Aborted)(::windows::core::Interface::as_raw(self), pboidreason, fretaining.into_param().abi(), pnewuow, hr).ok()
     }
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.HeuristicDecision)(::windows::core::Vtable::as_raw(self), dwdecision, pboidreason, hr).ok()
+        (::windows::core::Interface::vtable(self).base__.HeuristicDecision)(::windows::core::Interface::as_raw(self), dwdecision, pboidreason, hr).ok()
     }
     pub unsafe fn Indoubt(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Indoubt)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Indoubt)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn VoteRequest(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).VoteRequest)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).VoteRequest)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(ITransactionVoterNotifyAsync2, ::windows::core::IUnknown, ITransactionOutcomeEvents);
-impl ::core::clone::Clone for ITransactionVoterNotifyAsync2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ITransactionVoterNotifyAsync2, ::windows::core::IUnknown, ITransactionOutcomeEvents);
 impl ::core::cmp::PartialEq for ITransactionVoterNotifyAsync2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3493,10 +3488,15 @@ impl ::core::fmt::Debug for ITransactionVoterNotifyAsync2 {
         f.debug_tuple("ITransactionVoterNotifyAsync2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for ITransactionVoterNotifyAsync2 {
+unsafe impl ::windows::core::Interface for ITransactionVoterNotifyAsync2 {
     type Vtable = ITransactionVoterNotifyAsync2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for ITransactionVoterNotifyAsync2 {
+impl ::core::clone::Clone for ITransactionVoterNotifyAsync2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for ITransactionVoterNotifyAsync2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5433376b_414d_11d3_b206_00c04fc2f3ef);
 }
 #[repr(C)]
@@ -3510,18 +3510,13 @@ pub struct ITransactionVoterNotifyAsync2_Vtbl {
 pub struct IXAConfig(::windows::core::IUnknown);
 impl IXAConfig {
     pub unsafe fn Initialize(&self, clsidhelperdll: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clsidhelperdll)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clsidhelperdll)).ok()
     }
     pub unsafe fn Terminate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXAConfig, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXAConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IXAConfig, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAConfig {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3533,10 +3528,15 @@ impl ::core::fmt::Debug for IXAConfig {
         f.debug_tuple("IXAConfig").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXAConfig {
+unsafe impl ::windows::core::Interface for IXAConfig {
     type Vtable = IXAConfig_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IXAConfig {
+impl ::core::clone::Clone for IXAConfig {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IXAConfig {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8a6e3a1_9a8c_11cf_a308_00a0c905416e);
 }
 #[repr(C)]
@@ -3552,17 +3552,12 @@ pub struct IXAObtainRMInfo(::windows::core::IUnknown);
 impl IXAObtainRMInfo {
     pub unsafe fn ObtainRMInfo<P0>(&self, pirmhelper: P0) -> ::windows::core::Result<()>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IRMHelper>>,
+        P0: ::windows::core::IntoParam<IRMHelper>,
     {
-        (::windows::core::Vtable::vtable(self).ObtainRMInfo)(::windows::core::Vtable::as_raw(self), pirmhelper.into().abi()).ok()
+        (::windows::core::Interface::vtable(self).ObtainRMInfo)(::windows::core::Interface::as_raw(self), pirmhelper.into_param().abi()).ok()
     }
 }
-::windows::core::interface_hierarchy!(IXAObtainRMInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXAObtainRMInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IXAObtainRMInfo, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXAObtainRMInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3574,10 +3569,15 @@ impl ::core::fmt::Debug for IXAObtainRMInfo {
         f.debug_tuple("IXAObtainRMInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXAObtainRMInfo {
+unsafe impl ::windows::core::Interface for IXAObtainRMInfo {
     type Vtable = IXAObtainRMInfo_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IXAObtainRMInfo {
+impl ::core::clone::Clone for IXAObtainRMInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IXAObtainRMInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe793f6d2_f53d_11cf_a60d_00a0c905416e);
 }
 #[repr(C)]
@@ -3591,16 +3591,11 @@ pub struct IXAObtainRMInfo_Vtbl {
 pub struct IXATransLookup(::windows::core::IUnknown);
 impl IXATransLookup {
     pub unsafe fn Lookup(&self) -> ::windows::core::Result<ITransaction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).Lookup)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXATransLookup, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXATransLookup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IXATransLookup, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXATransLookup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3612,10 +3607,15 @@ impl ::core::fmt::Debug for IXATransLookup {
         f.debug_tuple("IXATransLookup").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXATransLookup {
+unsafe impl ::windows::core::Interface for IXATransLookup {
     type Vtable = IXATransLookup_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IXATransLookup {
+impl ::core::clone::Clone for IXATransLookup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IXATransLookup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b1f131_eeda_11ce_aed4_00aa0051e2c4);
 }
 #[repr(C)]
@@ -3631,16 +3631,11 @@ impl IXATransLookup2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lookup(&self, pxid: *const XID) -> ::windows::core::Result<ITransaction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), pxid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ITransaction>();
+        (::windows::core::Interface::vtable(self).Lookup)(::windows::core::Interface::as_raw(self), pxid, &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IXATransLookup2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXATransLookup2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IXATransLookup2, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IXATransLookup2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3652,10 +3647,15 @@ impl ::core::fmt::Debug for IXATransLookup2 {
         f.debug_tuple("IXATransLookup2").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IXATransLookup2 {
+unsafe impl ::windows::core::Interface for IXATransLookup2 {
     type Vtable = IXATransLookup2_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IXATransLookup2 {
+impl ::core::clone::Clone for IXATransLookup2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IXATransLookup2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf193c85_0d1a_4290_b88f_d2cb8873d1e7);
 }
 #[repr(C)]
@@ -3824,8 +3824,8 @@ impl ::core::default::Default for APPLICATIONTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPLICATIONTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLICATIONTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPLICATIONTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3853,8 +3853,8 @@ impl ::core::default::Default for AUTHENTICATION_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AUTHENTICATION_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUTHENTICATION_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AUTHENTICATION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3882,8 +3882,8 @@ impl ::core::default::Default for DTCINITIATEDRECOVERYWORK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCINITIATEDRECOVERYWORK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCINITIATEDRECOVERYWORK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCINITIATEDRECOVERYWORK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3917,8 +3917,8 @@ impl ::core::default::Default for DTCLUCOMPARESTATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUCOMPARESTATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUCOMPARESTATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3944,8 +3944,8 @@ impl ::core::default::Default for DTCLUCOMPARESTATESCONFIRMATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATESCONFIRMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUCOMPARESTATESCONFIRMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUCOMPARESTATESCONFIRMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3969,8 +3969,8 @@ impl ::core::default::Default for DTCLUCOMPARESTATESERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATESERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUCOMPARESTATESERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUCOMPARESTATESERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3996,8 +3996,8 @@ impl ::core::default::Default for DTCLUCOMPARESTATESRESPONSE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUCOMPARESTATESRESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUCOMPARESTATESRESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUCOMPARESTATESRESPONSE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4023,8 +4023,8 @@ impl ::core::default::Default for DTCLUXLN {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUXLN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUXLN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUXLN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4054,8 +4054,8 @@ impl ::core::default::Default for DTCLUXLNCONFIRMATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUXLNCONFIRMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUXLNCONFIRMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUXLNCONFIRMATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4083,8 +4083,8 @@ impl ::core::default::Default for DTCLUXLNERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUXLNERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUXLNERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUXLNERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4114,8 +4114,8 @@ impl ::core::default::Default for DTCLUXLNRESPONSE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTCLUXLNRESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTCLUXLNRESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTCLUXLNRESPONSE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4157,8 +4157,8 @@ impl ::core::default::Default for DTC_STATUS_ {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DTC_STATUS_ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DTC_STATUS_ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DTC_STATUS_ {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4202,8 +4202,8 @@ impl ::core::default::Default for ISOFLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ISOFLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ISOFLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ISOFLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4243,8 +4243,8 @@ impl ::core::default::Default for ISOLATIONLEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ISOLATIONLEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ISOLATIONLEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ISOLATIONLEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4268,8 +4268,8 @@ impl ::core::default::Default for TX_MISC_CONSTANTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TX_MISC_CONSTANTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TX_MISC_CONSTANTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TX_MISC_CONSTANTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4293,8 +4293,8 @@ impl ::core::default::Default for XACTCONST {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XACTCONST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTCONST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XACTCONST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4324,8 +4324,8 @@ impl ::core::default::Default for XACTHEURISTIC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XACTHEURISTIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTHEURISTIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XACTHEURISTIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4351,8 +4351,8 @@ impl ::core::default::Default for XACTRM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XACTRM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTRM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XACTRM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4420,8 +4420,8 @@ impl ::core::default::Default for XACTSTAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XACTSTAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTSTAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XACTSTAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4455,8 +4455,8 @@ impl ::core::default::Default for XACTTC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XACTTC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTTC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XACTTC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4524,8 +4524,8 @@ impl ::core::default::Default for XACT_DTC_CONSTANTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XACT_DTC_CONSTANTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACT_DTC_CONSTANTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XACT_DTC_CONSTANTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4548,8 +4548,8 @@ impl ::core::fmt::Debug for BOID {
         f.debug_struct("BOID").field("rgb", &self.rgb).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BOID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BOID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BOID {
     fn eq(&self, other: &Self) -> bool {
@@ -4579,8 +4579,8 @@ impl ::core::fmt::Debug for OLE_TM_CONFIG_PARAMS_V1 {
         f.debug_struct("OLE_TM_CONFIG_PARAMS_V1").field("dwVersion", &self.dwVersion).field("dwcConcurrencyHint", &self.dwcConcurrencyHint).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OLE_TM_CONFIG_PARAMS_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLE_TM_CONFIG_PARAMS_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OLE_TM_CONFIG_PARAMS_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -4612,8 +4612,8 @@ impl ::core::fmt::Debug for OLE_TM_CONFIG_PARAMS_V2 {
         f.debug_struct("OLE_TM_CONFIG_PARAMS_V2").field("dwVersion", &self.dwVersion).field("dwcConcurrencyHint", &self.dwcConcurrencyHint).field("applicationType", &self.applicationType).field("clusterResourceId", &self.clusterResourceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OLE_TM_CONFIG_PARAMS_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLE_TM_CONFIG_PARAMS_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OLE_TM_CONFIG_PARAMS_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -4642,8 +4642,8 @@ impl ::core::fmt::Debug for PROXY_CONFIG_PARAMS {
         f.debug_struct("PROXY_CONFIG_PARAMS").field("wcThreadsMax", &self.wcThreadsMax).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROXY_CONFIG_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROXY_CONFIG_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROXY_CONFIG_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -4673,8 +4673,8 @@ impl ::core::fmt::Debug for XACTOPT {
         f.debug_struct("XACTOPT").field("ulTimeout", &self.ulTimeout).field("szDescription", &self.szDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XACTOPT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTOPT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XACTOPT {
     fn eq(&self, other: &Self) -> bool {
@@ -4715,8 +4715,8 @@ impl ::core::fmt::Debug for XACTSTATS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for XACTSTATS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTSTATS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for XACTSTATS {
@@ -4754,8 +4754,8 @@ impl ::core::fmt::Debug for XACTTRANSINFO {
         f.debug_struct("XACTTRANSINFO").field("uow", &self.uow).field("isoLevel", &self.isoLevel).field("isoFlags", &self.isoFlags).field("grfTCSupported", &self.grfTCSupported).field("grfRMSupported", &self.grfRMSupported).field("grfTCSupportedRetaining", &self.grfTCSupportedRetaining).field("grfRMSupportedRetaining", &self.grfRMSupportedRetaining).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XACTTRANSINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XACTTRANSINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XACTTRANSINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4792,8 +4792,8 @@ impl ::core::fmt::Debug for XID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for XID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for XID {
@@ -4856,8 +4856,8 @@ impl ::core::fmt::Debug for xa_switch_t {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for xa_switch_t {
-    type Abi = Self;
+impl ::windows::core::TypeKind for xa_switch_t {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for xa_switch_t {

@@ -26,7 +26,7 @@ impl INetworkTransportSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INetworkTransportSettings as ::windows::core::Interface>::IID
+        iid == &<INetworkTransportSettings as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -54,7 +54,7 @@ impl INotificationTransportSync_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<INotificationTransportSync as ::windows::core::Interface>::IID
+        iid == &<INotificationTransportSync as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -79,7 +79,7 @@ impl IRTCBuddy_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Notes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnotes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Notes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnotes: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Notes() {
@@ -97,7 +97,7 @@ impl IRTCBuddy_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCBuddy as ::windows::core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID
+        iid == &<IRTCBuddy as ::windows::core::ComInterface>::IID || iid == &<IRTCPresenceContact as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -155,7 +155,7 @@ impl IRTCBuddy2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
@@ -212,7 +212,7 @@ impl IRTCBuddy2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCBuddy2 as ::windows::core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID || iid == &<IRTCBuddy as ::windows::core::Interface>::IID
+        iid == &<IRTCBuddy2 as ::windows::core::ComInterface>::IID || iid == &<IRTCPresenceContact as ::windows::core::ComInterface>::IID || iid == &<IRTCBuddy as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -239,7 +239,7 @@ impl IRTCBuddyEvent_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Buddy: Buddy::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCBuddyEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCBuddyEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -276,7 +276,7 @@ impl IRTCBuddyEvent2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -295,7 +295,7 @@ impl IRTCBuddyEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCBuddyEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IRTCBuddyEvent as ::windows::core::Interface>::IID
+        iid == &<IRTCBuddyEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IRTCBuddyEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -316,7 +316,7 @@ impl ::windows::core::RuntimeName for IRTCBuddyGroup {}
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>() -> IRTCBuddyGroup_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgroupname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgroupname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -327,7 +327,7 @@ impl IRTCBuddyGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrgroupname)).into()
@@ -364,7 +364,7 @@ impl IRTCBuddyGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Data<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Data<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Data() {
@@ -375,7 +375,7 @@ impl IRTCBuddyGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetData(::core::mem::transmute(&bstrdata)).into()
@@ -405,7 +405,7 @@ impl IRTCBuddyGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCBuddyGroup as ::windows::core::Interface>::IID
+        iid == &<IRTCBuddyGroup as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -474,7 +474,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCBuddyGroupEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCBuddyGroupEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -586,7 +586,7 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSession(::core::mem::transmute_copy(&entype), ::core::mem::transmute(&bstrlocalphoneuri), ::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute_copy(&lflags)) {
@@ -667,12 +667,12 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_PreferredAudioDevice(::core::mem::transmute_copy(&endevice), ::core::mem::transmute(&bstrdevicename)).into()
         }
-        unsafe extern "system" fn get_PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pbstrdevicename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pbstrdevicename: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_PreferredAudioDevice(::core::mem::transmute_copy(&endevice)) {
@@ -715,12 +715,12 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreferredVideoDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdevicename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPreferredVideoDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdevicename: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPreferredVideoDevice(::core::mem::transmute(&bstrdevicename)).into()
         }
-        unsafe extern "system" fn PreferredVideoDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PreferredVideoDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PreferredVideoDevice() {
@@ -806,7 +806,7 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LocalUserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalUserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LocalUserURI() {
@@ -817,12 +817,12 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocalUserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseruri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLocalUserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseruri: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLocalUserURI(::core::mem::transmute(&bstruseruri)).into()
         }
-        unsafe extern "system" fn LocalUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrusername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LocalUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrusername: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LocalUserName() {
@@ -833,7 +833,7 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLocalUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLocalUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLocalUserName(::core::mem::transmute(&bstrusername)).into()
@@ -911,7 +911,7 @@ impl IRTCClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClient as ::windows::core::Interface>::IID
+        iid == &<IRTCClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -968,12 +968,12 @@ impl IRTCClient2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclientname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclientname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetClientName(::core::mem::transmute(&bstrclientname)).into()
         }
-        unsafe extern "system" fn SetClientCurVer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclientcurver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetClientCurVer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclientcurver: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetClientCurVer(::core::mem::transmute(&bstrclientcurver)).into()
@@ -983,7 +983,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             this.InitializeEx(::core::mem::transmute_copy(&lflags)).into()
         }
-        unsafe extern "system" fn CreateSessionWithDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: *mut ::core::ffi::c_void, bstrsessiondescription: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppsession2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSessionWithDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrsessiondescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppsession2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSessionWithDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute_copy(&lflags)) {
@@ -1049,7 +1049,7 @@ impl IRTCClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClient2 as ::windows::core::Interface>::IID || iid == &<IRTCClient as ::windows::core::Interface>::IID
+        iid == &<IRTCClient2 as ::windows::core::ComInterface>::IID || iid == &<IRTCClient as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1092,7 +1092,7 @@ impl IRTCClientEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClientEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCClientEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -1104,12 +1104,12 @@ pub trait IRTCClientPortManagement_Impl: Sized {
 impl ::windows::core::RuntimeName for IRTCClientPortManagement {}
 impl IRTCClientPortManagement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>() -> IRTCClientPortManagement_Vtbl {
-        unsafe extern "system" fn StartListenAddressAndPort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: *mut ::core::ffi::c_void, linternallocalport: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartListenAddressAndPort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::std::mem::MaybeUninit<::windows::core::BSTR>, linternallocalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartListenAddressAndPort(::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport)).into()
         }
-        unsafe extern "system" fn StopListenAddressAndPort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: *mut ::core::ffi::c_void, linternallocalport: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopListenAddressAndPort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::std::mem::MaybeUninit<::windows::core::BSTR>, linternallocalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StopListenAddressAndPort(::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport)).into()
@@ -1127,7 +1127,7 @@ impl IRTCClientPortManagement_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClientPortManagement as ::windows::core::Interface>::IID
+        iid == &<IRTCClientPortManagement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1194,7 +1194,7 @@ impl IRTCClientPresence_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Buddy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: *mut ::core::ffi::c_void, ppbuddy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Buddy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppbuddy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Buddy(::core::mem::transmute(&bstrpresentityuri)) {
@@ -1205,7 +1205,7 @@ impl IRTCClientPresence_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddBuddy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBuddy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddBuddy(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute_copy(&lflags)) {
@@ -1243,7 +1243,7 @@ impl IRTCClientPresence_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Watcher<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: *mut ::core::ffi::c_void, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Watcher<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Watcher(::core::mem::transmute(&bstrpresentityuri)) {
@@ -1254,7 +1254,7 @@ impl IRTCClientPresence_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddWatcher<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddWatcher<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddWatcher(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fblocked), ::core::mem::transmute_copy(&fpersistent)) {
@@ -1270,7 +1270,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             this.RemoveWatcher(::windows::core::from_raw_borrowed(&pwatcher)).into()
         }
-        unsafe extern "system" fn SetLocalPresenceInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enstatus: RTC_PRESENCE_STATUS, bstrnotes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLocalPresenceInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enstatus: RTC_PRESENCE_STATUS, bstrnotes: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetLocalPresenceInfo(::core::mem::transmute_copy(&enstatus), ::core::mem::transmute(&bstrnotes)).into()
@@ -1330,7 +1330,7 @@ impl IRTCClientPresence_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClientPresence as ::windows::core::Interface>::IID
+        iid == &<IRTCClientPresence as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1367,7 +1367,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             this.DisablePresence().into()
         }
-        unsafe extern "system" fn AddGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&bstrdata), ::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute_copy(&lflags)) {
@@ -1405,7 +1405,7 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Group<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: *mut ::core::ffi::c_void, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Group<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Group(::core::mem::transmute(&bstrgroupname)) {
@@ -1416,7 +1416,7 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddWatcherEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddWatcherEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddWatcherEx(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&enstate), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&enscope), ::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute_copy(&lflags)) {
@@ -1427,7 +1427,7 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_WatcherEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: *mut ::core::ffi::c_void, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_WatcherEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppwatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_WatcherEx(::core::mem::transmute_copy(&enmode), ::core::mem::transmute(&bstrpresentityuri)) {
@@ -1438,12 +1438,12 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_PresenceProperty(::core::mem::transmute_copy(&enproperty), ::core::mem::transmute(&bstrproperty)).into()
         }
-        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
@@ -1454,22 +1454,22 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnamespace: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnamespace: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPresenceData(::core::mem::transmute(&bstrnamespace), ::core::mem::transmute(&bstrdata)).into()
         }
-        unsafe extern "system" fn GetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPresenceData(::core::mem::transmute_copy(&pbstrnamespace), ::core::mem::transmute_copy(&pbstrdata)).into()
         }
-        unsafe extern "system" fn GetLocalPresenceInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalPresenceInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLocalPresenceInfo(::core::mem::transmute_copy(&penstatus), ::core::mem::transmute_copy(&pbstrnotes)).into()
         }
-        unsafe extern "system" fn AddBuddyEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBuddyEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: *mut ::core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddBuddyEx(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&ensubscriptiontype), ::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute_copy(&lflags)) {
@@ -1500,7 +1500,7 @@ impl IRTCClientPresence2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClientPresence2 as ::windows::core::Interface>::IID || iid == &<IRTCClientPresence as ::windows::core::Interface>::IID
+        iid == &<IRTCClientPresence2 as ::windows::core::ComInterface>::IID || iid == &<IRTCClientPresence as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1519,7 +1519,7 @@ impl ::windows::core::RuntimeName for IRTCClientProvisioning {}
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientProvisioning_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>() -> IRTCClientProvisioning_Vtbl {
-        unsafe extern "system" fn CreateProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprofilexml: *mut ::core::ffi::c_void, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprofilexml: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateProfile(::core::mem::transmute(&bstrprofilexml)) {
@@ -1562,7 +1562,7 @@ impl IRTCClientProvisioning_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseraccount: *mut ::core::ffi::c_void, bstruserpassword: *mut ::core::ffi::c_void, bstruseruri: *mut ::core::ffi::c_void, bstrserver: *mut ::core::ffi::c_void, ltransport: i32, lcookie: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProfile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseraccount: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstruserpassword: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstruseruri: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrserver: ::std::mem::MaybeUninit<::windows::core::BSTR>, ltransport: i32, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetProfile(::core::mem::transmute(&bstruseraccount), ::core::mem::transmute(&bstruserpassword), ::core::mem::transmute(&bstruseruri), ::core::mem::transmute(&bstrserver), ::core::mem::transmute_copy(&ltransport), ::core::mem::transmute_copy(&lcookie)).into()
@@ -1590,7 +1590,7 @@ impl IRTCClientProvisioning_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClientProvisioning as ::windows::core::Interface>::IID
+        iid == &<IRTCClientProvisioning as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1611,7 +1611,7 @@ impl IRTCClientProvisioning2_Vtbl {
         Self { base__: IRTCClientProvisioning_Vtbl::new::<Identity, Impl, OFFSET>(), EnableProfileEx: EnableProfileEx::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCClientProvisioning2 as ::windows::core::Interface>::IID || iid == &<IRTCClientProvisioning as ::windows::core::Interface>::IID
+        iid == &<IRTCClientProvisioning2 as ::windows::core::ComInterface>::IID || iid == &<IRTCClientProvisioning as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1667,7 +1667,7 @@ impl IRTCCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCCollection as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCCollection as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -1681,7 +1681,7 @@ impl IRTCDispatchEventNotification_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCDispatchEventNotification as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCDispatchEventNotification as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -1729,7 +1729,7 @@ impl IRTCEnumBuddies_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEnumBuddies as ::windows::core::Interface>::IID
+        iid == &<IRTCEnumBuddies as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -1777,7 +1777,7 @@ impl IRTCEnumGroups_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEnumGroups as ::windows::core::Interface>::IID
+        iid == &<IRTCEnumGroups as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -1825,7 +1825,7 @@ impl IRTCEnumParticipants_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEnumParticipants as ::windows::core::Interface>::IID
+        iid == &<IRTCEnumParticipants as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -1873,7 +1873,7 @@ impl IRTCEnumPresenceDevices_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEnumPresenceDevices as ::windows::core::Interface>::IID
+        iid == &<IRTCEnumPresenceDevices as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -1921,7 +1921,7 @@ impl IRTCEnumProfiles_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEnumProfiles as ::windows::core::Interface>::IID
+        iid == &<IRTCEnumProfiles as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -1969,7 +1969,7 @@ impl IRTCEnumUserSearchResults_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEnumUserSearchResults as ::windows::core::Interface>::IID
+        iid == &<IRTCEnumUserSearchResults as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -2017,7 +2017,7 @@ impl IRTCEnumWatchers_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEnumWatchers as ::windows::core::Interface>::IID
+        iid == &<IRTCEnumWatchers as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2038,7 +2038,7 @@ impl IRTCEventNotification_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Event: Event::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCEventNotification as ::windows::core::Interface>::IID
+        iid == &<IRTCEventNotification as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2076,7 +2076,7 @@ impl IRTCInfoEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Info<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Info<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrinfo: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Info() {
@@ -2087,7 +2087,7 @@ impl IRTCInfoEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InfoHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrinfoheader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InfoHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrinfoheader: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InfoHeader() {
@@ -2107,7 +2107,7 @@ impl IRTCInfoEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCInfoEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCInfoEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2176,7 +2176,7 @@ impl IRTCIntensityEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCIntensityEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCIntensityEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2232,7 +2232,7 @@ impl IRTCMediaEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCMediaEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCMediaEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2328,7 +2328,7 @@ impl IRTCMediaRequestEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCMediaRequestEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCMediaRequestEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2379,7 +2379,7 @@ impl IRTCMessagingEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Message<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmessage: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Message<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmessage: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Message() {
@@ -2390,7 +2390,7 @@ impl IRTCMessagingEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmessageheader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrmessageheader: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MessageHeader() {
@@ -2423,7 +2423,7 @@ impl IRTCMessagingEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCMessagingEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCMessagingEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2440,7 +2440,7 @@ impl ::windows::core::RuntimeName for IRTCParticipant {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCParticipant_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCParticipant_Impl, const OFFSET: isize>() -> IRTCParticipant_Vtbl {
-        unsafe extern "system" fn UserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UserURI() {
@@ -2451,7 +2451,7 @@ impl IRTCParticipant_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -2505,7 +2505,7 @@ impl IRTCParticipant_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCParticipant as ::windows::core::Interface>::IID
+        iid == &<IRTCParticipant as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2561,7 +2561,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCParticipantStateChangeEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCParticipantStateChangeEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -2573,17 +2573,17 @@ pub trait IRTCPortManager_Impl: Sized {
 impl ::windows::core::RuntimeName for IRTCPortManager {}
 impl IRTCPortManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPortManager_Impl, const OFFSET: isize>() -> IRTCPortManager_Vtbl {
-        unsafe extern "system" fn GetMapping<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremoteaddress: *mut ::core::ffi::c_void, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut *mut ::core::ffi::c_void, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut *mut ::core::ffi::c_void, plexternallocalport: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetMapping<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremoteaddress: ::std::mem::MaybeUninit<::windows::core::BSTR>, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, plexternallocalport: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetMapping(::core::mem::transmute(&bstrremoteaddress), ::core::mem::transmute_copy(&enporttype), ::core::mem::transmute_copy(&pbstrinternallocaladdress), ::core::mem::transmute_copy(&plinternallocalport), ::core::mem::transmute_copy(&pbstrexternallocaladdress), ::core::mem::transmute_copy(&plexternallocalport)).into()
         }
-        unsafe extern "system" fn UpdateRemoteAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremoteaddress: *mut ::core::ffi::c_void, bstrinternallocaladdress: *mut ::core::ffi::c_void, linternallocalport: i32, bstrexternallocaladdress: *mut ::core::ffi::c_void, lexternallocalport: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateRemoteAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrremoteaddress: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrinternallocaladdress: ::std::mem::MaybeUninit<::windows::core::BSTR>, linternallocalport: i32, bstrexternallocaladdress: ::std::mem::MaybeUninit<::windows::core::BSTR>, lexternallocalport: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateRemoteAddress(::core::mem::transmute(&bstrremoteaddress), ::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport), ::core::mem::transmute(&bstrexternallocaladdress), ::core::mem::transmute_copy(&lexternallocalport)).into()
         }
-        unsafe extern "system" fn ReleaseMapping<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: *mut ::core::ffi::c_void, linternallocalport: i32, bstrexternallocaladdress: *mut ::core::ffi::c_void, lexternallocaladdress: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseMapping<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::std::mem::MaybeUninit<::windows::core::BSTR>, linternallocalport: i32, bstrexternallocaladdress: ::std::mem::MaybeUninit<::windows::core::BSTR>, lexternallocaladdress: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReleaseMapping(::core::mem::transmute(&bstrinternallocaladdress), ::core::mem::transmute_copy(&linternallocalport), ::core::mem::transmute(&bstrexternallocaladdress), ::core::mem::transmute_copy(&lexternallocaladdress)).into()
@@ -2596,7 +2596,7 @@ impl IRTCPortManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCPortManager as ::windows::core::Interface>::IID
+        iid == &<IRTCPortManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2616,7 +2616,7 @@ impl ::windows::core::RuntimeName for IRTCPresenceContact {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCPresenceContact_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>() -> IRTCPresenceContact_Vtbl {
-        unsafe extern "system" fn PresentityURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpresentityuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PresentityURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpresentityuri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PresentityURI() {
@@ -2627,12 +2627,12 @@ impl IRTCPresenceContact_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPresentityURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPresentityURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPresentityURI(::core::mem::transmute(&bstrpresentityuri)).into()
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -2643,12 +2643,12 @@ impl IRTCPresenceContact_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
-        unsafe extern "system" fn Data<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Data<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Data() {
@@ -2659,7 +2659,7 @@ impl IRTCPresenceContact_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetData(::core::mem::transmute(&bstrdata)).into()
@@ -2693,7 +2693,7 @@ impl IRTCPresenceContact_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID
+        iid == &<IRTCPresenceContact as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2719,7 +2719,7 @@ impl IRTCPresenceDataEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -2730,7 +2730,7 @@ impl IRTCPresenceDataEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPresenceData(::core::mem::transmute_copy(&pbstrnamespace), ::core::mem::transmute_copy(&pbstrdata)).into()
@@ -2743,7 +2743,7 @@ impl IRTCPresenceDataEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCPresenceDataEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCPresenceDataEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -2767,7 +2767,7 @@ impl IRTCPresenceDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Notes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnotes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Notes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnotes: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Notes() {
@@ -2778,7 +2778,7 @@ impl IRTCPresenceDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
@@ -2789,7 +2789,7 @@ impl IRTCPresenceDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPresenceData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPresenceData(::core::mem::transmute_copy(&pbstrnamespace), ::core::mem::transmute_copy(&pbstrdata)).into()
@@ -2803,7 +2803,7 @@ impl IRTCPresenceDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCPresenceDevice as ::windows::core::Interface>::IID
+        iid == &<IRTCPresenceDevice as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2830,7 +2830,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -2852,7 +2852,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -2872,7 +2872,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCPresencePropertyEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCPresencePropertyEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -2898,7 +2898,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -2909,7 +2909,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetLocalPresenceInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetLocalPresenceInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetLocalPresenceInfo(::core::mem::transmute_copy(&penstatus), ::core::mem::transmute_copy(&pbstrnotes)).into()
@@ -2922,7 +2922,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCPresenceStatusEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCPresenceStatusEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2952,7 +2952,7 @@ impl ::windows::core::RuntimeName for IRTCProfile {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>() -> IRTCProfile_Vtbl {
-        unsafe extern "system" fn Key<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrkey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Key<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrkey: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Key() {
@@ -2963,7 +2963,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Name() {
@@ -2974,7 +2974,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn XML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn XML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.XML() {
@@ -2985,7 +2985,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ProviderName() {
@@ -2996,7 +2996,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_ProviderURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enuri: RTC_PROVIDER_URI, pbstruri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ProviderURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enuri: RTC_PROVIDER_URI, pbstruri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_ProviderURI(::core::mem::transmute_copy(&enuri)) {
@@ -3007,7 +3007,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProviderData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ProviderData() {
@@ -3018,7 +3018,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientName() {
@@ -3040,7 +3040,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientMinVer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrminver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientMinVer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrminver: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientMinVer() {
@@ -3051,7 +3051,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientCurVer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcurver: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientCurVer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcurver: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientCurVer() {
@@ -3062,7 +3062,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientUpdateURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrupdateuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientUpdateURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrupdateuri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientUpdateURI() {
@@ -3073,7 +3073,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ClientData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ClientData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ClientData() {
@@ -3084,7 +3084,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UserURI() {
@@ -3095,7 +3095,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrusername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrusername: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UserName() {
@@ -3106,7 +3106,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UserAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseraccount: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UserAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseraccount: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UserAccount() {
@@ -3117,7 +3117,7 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCredentials<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseruri: *mut ::core::ffi::c_void, bstruseraccount: *mut ::core::ffi::c_void, bstrpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCredentials<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruseruri: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstruseraccount: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCredentials(::core::mem::transmute(&bstruseruri), ::core::mem::transmute(&bstruseraccount), ::core::mem::transmute(&bstrpassword)).into()
@@ -3167,7 +3167,7 @@ impl IRTCProfile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCProfile as ::windows::core::Interface>::IID
+        iid == &<IRTCProfile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3183,7 +3183,7 @@ impl ::windows::core::RuntimeName for IRTCProfile2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCProfile2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile2_Impl, const OFFSET: isize>() -> IRTCProfile2_Vtbl {
-        unsafe extern "system" fn Realm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrealm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Realm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrealm: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Realm() {
@@ -3194,7 +3194,7 @@ impl IRTCProfile2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRealm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRealm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRealm(::core::mem::transmute(&bstrrealm)).into()
@@ -3224,7 +3224,7 @@ impl IRTCProfile2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCProfile2 as ::windows::core::Interface>::IID || iid == &<IRTCProfile as ::windows::core::Interface>::IID
+        iid == &<IRTCProfile2 as ::windows::core::ComInterface>::IID || iid == &<IRTCProfile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3280,7 +3280,7 @@ impl IRTCProfileEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCProfileEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCProfileEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3307,7 +3307,7 @@ impl IRTCProfileEvent2_Vtbl {
         Self { base__: IRTCProfileEvent_Vtbl::new::<Identity, Impl, OFFSET>(), EventType: EventType::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCProfileEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IRTCProfileEvent as ::windows::core::Interface>::IID
+        iid == &<IRTCProfileEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IRTCProfileEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3335,7 +3335,7 @@ impl IRTCReInviteEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Accept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: *mut ::core::ffi::c_void, bstrsessiondescription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Accept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrsessiondescription: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Accept(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription)).into()
@@ -3356,7 +3356,7 @@ impl IRTCReInviteEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRemoteSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut *mut ::core::ffi::c_void, pbstrsessiondescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemoteSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrsessiondescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRemoteSessionDescription(::core::mem::transmute_copy(&pbstrcontenttype), ::core::mem::transmute_copy(&pbstrsessiondescription)).into()
@@ -3371,7 +3371,7 @@ impl IRTCReInviteEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCReInviteEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCReInviteEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3420,7 +3420,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -3440,7 +3440,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCRegistrationStateChangeEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCRegistrationStateChangeEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3489,7 +3489,7 @@ impl IRTCRoamingEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRoamingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCRoamingEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -3509,7 +3509,7 @@ impl IRTCRoamingEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCRoamingEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCRoamingEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3606,12 +3606,12 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             this.Terminate(::core::mem::transmute_copy(&enreason)).into()
         }
-        unsafe extern "system" fn Redirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Redirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, pprofile: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Redirect(::core::mem::transmute_copy(&entype), ::core::mem::transmute(&bstrlocalphoneuri), ::windows::core::from_raw_borrowed(&pprofile), ::core::mem::transmute_copy(&lflags)).into()
         }
-        unsafe extern "system" fn AddParticipant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraddress: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, ppparticipant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddParticipant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraddress: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppparticipant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddParticipant(::core::mem::transmute(&bstraddress), ::core::mem::transmute(&bstrname)) {
@@ -3649,7 +3649,7 @@ impl IRTCSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RedirectedUserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RedirectedUserURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruseruri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RedirectedUserURI() {
@@ -3660,7 +3660,7 @@ impl IRTCSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RedirectedUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrusername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RedirectedUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrusername: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RedirectedUserName() {
@@ -3676,7 +3676,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             this.NextRedirectedUser().into()
         }
-        unsafe extern "system" fn SendMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageheader: *mut ::core::ffi::c_void, bstrmessage: *mut ::core::ffi::c_void, lcookie: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageheader: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrmessage: ::std::mem::MaybeUninit<::windows::core::BSTR>, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SendMessage(::core::mem::transmute(&bstrmessageheader), ::core::mem::transmute(&bstrmessage), ::core::mem::transmute_copy(&lcookie)).into()
@@ -3696,7 +3696,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             this.RemoveStream(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&lcookie)).into()
         }
-        unsafe extern "system" fn put_EncryptionKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, encryptionkey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_EncryptionKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, encryptionkey: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_EncryptionKey(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute(&encryptionkey)).into()
@@ -3726,7 +3726,7 @@ impl IRTCSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSession as ::windows::core::Interface>::IID
+        iid == &<IRTCSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3744,7 +3744,7 @@ impl ::windows::core::RuntimeName for IRTCSession2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCSession2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession2_Impl, const OFFSET: isize>() -> IRTCSession2_Vtbl {
-        unsafe extern "system" fn SendInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfoheader: *mut ::core::ffi::c_void, bstrinfo: *mut ::core::ffi::c_void, lcookie: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SendInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfoheader: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrinfo: ::std::mem::MaybeUninit<::windows::core::BSTR>, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SendInfo(::core::mem::transmute(&bstrinfoheader), ::core::mem::transmute(&bstrinfo), ::core::mem::transmute_copy(&lcookie)).into()
@@ -3776,12 +3776,12 @@ impl IRTCSession2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AnswerWithSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: *mut ::core::ffi::c_void, bstrsessiondescription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AnswerWithSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrsessiondescription: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AnswerWithSessionDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription)).into()
         }
-        unsafe extern "system" fn ReInviteWithSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: *mut ::core::ffi::c_void, bstrsessiondescription: *mut ::core::ffi::c_void, lcookie: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReInviteWithSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrsessiondescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, lcookie: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReInviteWithSessionDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::core::mem::transmute_copy(&lcookie)).into()
@@ -3797,7 +3797,7 @@ impl IRTCSession2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSession2 as ::windows::core::Interface>::IID || iid == &<IRTCSession as ::windows::core::Interface>::IID
+        iid == &<IRTCSession2 as ::windows::core::ComInterface>::IID || iid == &<IRTCSession as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3828,22 +3828,22 @@ impl IRTCSessionCallControl_Vtbl {
             let this = (*this).get_impl();
             this.UnHold(::core::mem::transmute_copy(&lcookie)).into()
         }
-        unsafe extern "system" fn Forward<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrforwardtouri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Forward<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrforwardtouri: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Forward(::core::mem::transmute(&bstrforwardtouri)).into()
         }
-        unsafe extern "system" fn Refer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrefertouri: *mut ::core::ffi::c_void, bstrrefercookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Refer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrefertouri: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrrefercookie: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Refer(::core::mem::transmute(&bstrrefertouri), ::core::mem::transmute(&bstrrefercookie)).into()
         }
-        unsafe extern "system" fn SetReferredByURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreferredbyuri: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReferredByURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreferredbyuri: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetReferredByURI(::core::mem::transmute(&bstrreferredbyuri)).into()
         }
-        unsafe extern "system" fn ReferredByURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreferredbyuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferredByURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreferredbyuri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReferredByURI() {
@@ -3854,12 +3854,12 @@ impl IRTCSessionCallControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetReferCookie<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrefercookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetReferCookie<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrefercookie: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetReferCookie(::core::mem::transmute(&bstrrefercookie)).into()
         }
-        unsafe extern "system" fn ReferCookie<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrefercookie: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferCookie<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrefercookie: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReferCookie() {
@@ -3895,7 +3895,7 @@ impl IRTCSessionCallControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionCallControl as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionCallControl as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3908,7 +3908,7 @@ impl ::windows::core::RuntimeName for IRTCSessionDescriptionManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCSessionDescriptionManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionDescriptionManager_Impl, const OFFSET: isize>() -> IRTCSessionDescriptionManager_Vtbl {
-        unsafe extern "system" fn EvaluateSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionDescriptionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: *mut ::core::ffi::c_void, bstrsessiondescription: *mut ::core::ffi::c_void, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EvaluateSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionDescriptionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcontenttype: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrsessiondescription: ::std::mem::MaybeUninit<::windows::core::BSTR>, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EvaluateSessionDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::core::mem::transmute_copy(&pfapplicationsession)).into()
@@ -3919,7 +3919,7 @@ impl IRTCSessionDescriptionManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionDescriptionManager as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionDescriptionManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -3968,7 +3968,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -3988,7 +3988,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionOperationCompleteEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionOperationCompleteEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4013,7 +4013,7 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRemoteSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut *mut ::core::ffi::c_void, pbstrsessiondescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemoteSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionOperationCompleteEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrsessiondescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRemoteSessionDescription(::core::mem::transmute_copy(&pbstrcontenttype), ::core::mem::transmute_copy(&pbstrsessiondescription)).into()
@@ -4025,7 +4025,7 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionOperationCompleteEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IRTCSessionOperationCompleteEvent as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionOperationCompleteEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IRTCSessionOperationCompleteEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -4043,7 +4043,7 @@ impl IRTCSessionPortManagement_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetPortManager: SetPortManager::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionPortManagement as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionPortManagement as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4092,7 +4092,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -4112,7 +4112,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionReferStatusEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionReferStatusEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4142,7 +4142,7 @@ impl IRTCSessionReferredEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferredByURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreferredbyuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferredByURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreferredbyuri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReferredByURI() {
@@ -4153,7 +4153,7 @@ impl IRTCSessionReferredEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferToURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreferouri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferToURI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreferouri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReferToURI() {
@@ -4164,7 +4164,7 @@ impl IRTCSessionReferredEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferCookie<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrefercookie: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferCookie<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrefercookie: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReferCookie() {
@@ -4202,7 +4202,7 @@ impl IRTCSessionReferredEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionReferredEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionReferredEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4251,7 +4251,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusText() {
@@ -4271,7 +4271,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionStateChangeEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionStateChangeEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4320,7 +4320,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRemoteSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut *mut ::core::ffi::c_void, pbstrsessiondescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRemoteSessionDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrsessiondescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRemoteSessionDescription(::core::mem::transmute_copy(&pbstrcontenttype), ::core::mem::transmute_copy(&pbstrsessiondescription)).into()
@@ -4334,7 +4334,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCSessionStateChangeEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IRTCSessionStateChangeEvent as ::windows::core::Interface>::IID
+        iid == &<IRTCSessionStateChangeEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IRTCSessionStateChangeEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -4368,7 +4368,7 @@ impl IRTCUserSearch_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCUserSearch as ::windows::core::Interface>::IID
+        iid == &<IRTCUserSearch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -4384,12 +4384,12 @@ pub trait IRTCUserSearchQuery_Impl: Sized {
 impl ::windows::core::RuntimeName for IRTCUserSearchQuery {}
 impl IRTCUserSearchQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>() -> IRTCUserSearchQuery_Vtbl {
-        unsafe extern "system" fn put_SearchTerm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_SearchTerm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrvalue: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_SearchTerm(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
         }
-        unsafe extern "system" fn get_SearchTerm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SearchTerm<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_SearchTerm(::core::mem::transmute(&bstrname)) {
@@ -4400,7 +4400,7 @@ impl IRTCUserSearchQuery_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SearchTerms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnames: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchTerms<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnames: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SearchTerms() {
@@ -4427,12 +4427,12 @@ impl IRTCUserSearchQuery_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSearchDomain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdomain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSearchDomain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdomain: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSearchDomain(::core::mem::transmute(&bstrdomain)).into()
         }
-        unsafe extern "system" fn SearchDomain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdomain: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SearchDomain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdomain: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SearchDomain() {
@@ -4455,7 +4455,7 @@ impl IRTCUserSearchQuery_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCUserSearchQuery as ::windows::core::Interface>::IID
+        iid == &<IRTCUserSearchQuery as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"implement\"`*"]
@@ -4465,7 +4465,7 @@ pub trait IRTCUserSearchResult_Impl: Sized {
 impl ::windows::core::RuntimeName for IRTCUserSearchResult {}
 impl IRTCUserSearchResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchResult_Impl, const OFFSET: isize>() -> IRTCUserSearchResult_Vtbl {
-        unsafe extern "system" fn get_Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Value<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRTCUserSearchResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Value(::core::mem::transmute_copy(&encolumn)) {
@@ -4479,7 +4479,7 @@ impl IRTCUserSearchResult_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_Value: get_Value::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCUserSearchResult as ::windows::core::Interface>::IID
+        iid == &<IRTCUserSearchResult as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4587,7 +4587,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCUserSearchResultsEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCUserSearchResultsEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4624,7 +4624,7 @@ impl IRTCWatcher_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCWatcher as ::windows::core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID
+        iid == &<IRTCWatcher as ::windows::core::ComInterface>::IID || iid == &<IRTCPresenceContact as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4663,7 +4663,7 @@ impl IRTCWatcher2_Vtbl {
         Self { base__: IRTCWatcher_Vtbl::new::<Identity, Impl, OFFSET>(), Profile: Profile::<Identity, Impl, OFFSET>, Scope: Scope::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCWatcher2 as ::windows::core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows::core::Interface>::IID || iid == &<IRTCWatcher as ::windows::core::Interface>::IID
+        iid == &<IRTCWatcher2 as ::windows::core::ComInterface>::IID || iid == &<IRTCPresenceContact as ::windows::core::ComInterface>::IID || iid == &<IRTCWatcher as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4690,7 +4690,7 @@ impl IRTCWatcherEvent_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Watcher: Watcher::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCWatcherEvent as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IRTCWatcherEvent as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
@@ -4733,7 +4733,7 @@ impl IRTCWatcherEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IRTCWatcherEvent2 as ::windows::core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows::core::Interface>::IID || iid == &<IRTCWatcherEvent as ::windows::core::Interface>::IID
+        iid == &<IRTCWatcherEvent2 as ::windows::core::ComInterface>::IID || iid == &<super::Com::IDispatch as ::windows::core::ComInterface>::IID || iid == &<IRTCWatcherEvent as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`, `\"Win32_Networking_WinSock\"`, `\"implement\"`*"]
@@ -4764,6 +4764,6 @@ impl ITransportSettingsInternal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITransportSettingsInternal as ::windows::core::Interface>::IID
+        iid == &<ITransportSettingsInternal as ::windows::core::ComInterface>::IID
     }
 }

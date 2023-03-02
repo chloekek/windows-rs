@@ -9,7 +9,7 @@ impl IDummyMBNUCMExt_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IDummyMBNUCMExt as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
+        iid == &<IDummyMBNUCMExt as ::windows::core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -25,7 +25,7 @@ pub trait IMbnConnection_Impl: Sized {
 impl ::windows::core::RuntimeName for IMbnConnection {}
 impl IMbnConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>() -> IMbnConnection_Vtbl {
-        unsafe extern "system" fn ConnectionID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConnectionID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConnectionID() {
@@ -36,7 +36,7 @@ impl IMbnConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InterfaceID() {
@@ -69,7 +69,7 @@ impl IMbnConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConnectionState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetConnectionState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connectionstate: *mut MBN_ACTIVATION_STATE, profilename: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetConnectionState(::core::mem::transmute_copy(&connectionstate), ::core::mem::transmute_copy(&profilename)).into()
@@ -108,7 +108,7 @@ impl IMbnConnection_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnection as ::windows::core::Interface>::IID
+        iid == &<IMbnConnection as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -151,7 +151,7 @@ impl IMbnConnectionContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionContext as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -179,7 +179,7 @@ impl IMbnConnectionContextEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionContextEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionContextEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -221,7 +221,7 @@ impl IMbnConnectionEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -264,7 +264,7 @@ impl IMbnConnectionManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionManager as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -292,7 +292,7 @@ impl IMbnConnectionManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionManagerEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionManagerEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -304,7 +304,7 @@ pub trait IMbnConnectionProfile_Impl: Sized {
 impl ::windows::core::RuntimeName for IMbnConnectionProfile {}
 impl IMbnConnectionProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>() -> IMbnConnectionProfile_Vtbl {
-        unsafe extern "system" fn GetProfileXmlData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiledata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProfileXmlData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnConnectionProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profiledata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProfileXmlData() {
@@ -333,7 +333,7 @@ impl IMbnConnectionProfile_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionProfile as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionProfile as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -351,7 +351,7 @@ impl IMbnConnectionProfileEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnProfileUpdate: OnProfileUpdate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionProfileEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionProfileEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -401,7 +401,7 @@ impl IMbnConnectionProfileManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionProfileManager as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionProfileManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -429,7 +429,7 @@ impl IMbnConnectionProfileManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnConnectionProfileManagerEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnConnectionProfileManagerEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -541,7 +541,7 @@ impl IMbnDeviceService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InterfaceID() {
@@ -552,7 +552,7 @@ impl IMbnDeviceService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceServiceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceServiceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceServiceID() {
@@ -602,7 +602,7 @@ impl IMbnDeviceService_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnDeviceService as ::windows::core::Interface>::IID
+        iid == &<IMbnDeviceService as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -612,7 +612,7 @@ pub trait IMbnDeviceServiceStateEvents_Impl: Sized {
 impl ::windows::core::RuntimeName for IMbnDeviceServiceStateEvents {}
 impl IMbnDeviceServiceStateEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>() -> IMbnDeviceServiceStateEvents_Vtbl {
-        unsafe extern "system" fn OnSessionsStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::ffi::c_void, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnSessionsStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServiceStateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnSessionsStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
@@ -620,7 +620,7 @@ impl IMbnDeviceServiceStateEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSessionsStateChange: OnSessionsStateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnDeviceServiceStateEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnDeviceServiceStateEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -647,7 +647,7 @@ impl IMbnDeviceServicesContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDeviceService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: *mut ::core::ffi::c_void, mbndeviceservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceserviceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, mbndeviceservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceService(::core::mem::transmute(&deviceserviceid)) {
@@ -689,7 +689,7 @@ impl IMbnDeviceServicesContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnDeviceServicesContext as ::windows::core::Interface>::IID
+        iid == &<IMbnDeviceServicesContext as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -762,7 +762,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
             let this = (*this).get_impl();
             this.OnReadData(::windows::core::from_raw_borrowed(&deviceservice), ::core::mem::transmute_copy(&deviceservicedata)).into()
         }
-        unsafe extern "system" fn OnInterfaceStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::ffi::c_void, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnInterfaceStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnInterfaceStateChange(::core::mem::transmute(&interfaceid), ::core::mem::transmute_copy(&statechange)).into()
@@ -783,7 +783,7 @@ impl IMbnDeviceServicesEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnDeviceServicesEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnDeviceServicesEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -793,7 +793,7 @@ pub trait IMbnDeviceServicesManager_Impl: Sized {
 impl ::windows::core::RuntimeName for IMbnDeviceServicesManager {}
 impl IMbnDeviceServicesManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>() -> IMbnDeviceServicesManager_Vtbl {
-        unsafe extern "system" fn GetDeviceServicesContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkinterfaceid: *mut ::core::ffi::c_void, mbndevicescontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDeviceServicesContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnDeviceServicesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, networkinterfaceid: ::std::mem::MaybeUninit<::windows::core::BSTR>, mbndevicescontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceServicesContext(::core::mem::transmute(&networkinterfaceid)) {
@@ -807,7 +807,7 @@ impl IMbnDeviceServicesManager_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDeviceServicesContext: GetDeviceServicesContext::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnDeviceServicesManager as ::windows::core::Interface>::IID
+        iid == &<IMbnDeviceServicesManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -830,7 +830,7 @@ impl ::windows::core::RuntimeName for IMbnInterface {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMbnInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>() -> IMbnInterface_Vtbl {
-        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InterfaceID() {
@@ -955,7 +955,7 @@ impl IMbnInterface_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnInterface as ::windows::core::Interface>::IID
+        iid == &<IMbnInterface as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1025,7 +1025,7 @@ impl IMbnInterfaceEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnInterfaceEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnInterfaceEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1068,7 +1068,7 @@ impl IMbnInterfaceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnInterfaceManager as ::windows::core::Interface>::IID
+        iid == &<IMbnInterfaceManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1096,7 +1096,7 @@ impl IMbnInterfaceManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnInterfaceManagerEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnInterfaceManagerEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1185,7 +1185,7 @@ impl IMbnMultiCarrier_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnMultiCarrier as ::windows::core::Interface>::IID
+        iid == &<IMbnMultiCarrier as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1234,7 +1234,7 @@ impl IMbnMultiCarrierEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnMultiCarrierEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnMultiCarrierEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1391,7 +1391,7 @@ impl IMbnPin_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnPin as ::windows::core::Interface>::IID
+        iid == &<IMbnPin as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1440,7 +1440,7 @@ impl IMbnPinEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnPinEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnPinEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1496,7 +1496,7 @@ impl IMbnPinManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnPinManager as ::windows::core::Interface>::IID
+        iid == &<IMbnPinManager as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1524,7 +1524,7 @@ impl IMbnPinManagerEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnPinManagerEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnPinManagerEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1577,7 +1577,7 @@ impl IMbnRadio_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnRadio as ::windows::core::Interface>::IID
+        iid == &<IMbnRadio as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1605,7 +1605,7 @@ impl IMbnRadioEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnRadioEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnRadioEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1646,7 +1646,7 @@ impl IMbnRegistration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProviderID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProviderID() {
@@ -1657,7 +1657,7 @@ impl IMbnRegistration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providername: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProviderName() {
@@ -1668,7 +1668,7 @@ impl IMbnRegistration_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRoamingText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, roamingtext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRoamingText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, roamingtext: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRoamingText() {
@@ -1749,7 +1749,7 @@ impl IMbnRegistration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnRegistration as ::windows::core::Interface>::IID
+        iid == &<IMbnRegistration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1791,7 +1791,7 @@ impl IMbnRegistrationEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnRegistrationEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnRegistrationEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1818,7 +1818,7 @@ impl IMbnServiceActivation_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Activate: Activate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnServiceActivation as ::windows::core::Interface>::IID
+        iid == &<IMbnServiceActivation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1839,7 +1839,7 @@ impl IMbnServiceActivationEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnActivationComplete: OnActivationComplete::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnServiceActivationEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnServiceActivationEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1879,7 +1879,7 @@ impl IMbnSignal_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSignal as ::windows::core::Interface>::IID
+        iid == &<IMbnSignal as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -1897,7 +1897,7 @@ impl IMbnSignalEvents_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSignalStateChange: OnSignalStateChange::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSignalEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnSignalEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2018,7 +2018,7 @@ impl IMbnSms_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSms as ::windows::core::Interface>::IID
+        iid == &<IMbnSms as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"implement\"`*"]
@@ -2033,7 +2033,7 @@ pub trait IMbnSmsConfiguration_Impl: Sized {
 impl ::windows::core::RuntimeName for IMbnSmsConfiguration {}
 impl IMbnSmsConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>() -> IMbnSmsConfiguration_Vtbl {
-        unsafe extern "system" fn ServiceCenterAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ServiceCenterAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scaddress: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceCenterAddress() {
@@ -2098,7 +2098,7 @@ impl IMbnSmsConfiguration_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSmsConfiguration as ::windows::core::Interface>::IID
+        iid == &<IMbnSmsConfiguration as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2164,7 +2164,7 @@ impl IMbnSmsEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSmsEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnSmsEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2202,7 +2202,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PduData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdudata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PduData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgPdu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdudata: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PduData() {
@@ -2233,7 +2233,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSmsReadMsgPdu as ::windows::core::Interface>::IID
+        iid == &<IMbnSmsReadMsgPdu as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2275,7 +2275,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Address() {
@@ -2286,7 +2286,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Timestamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timestamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsReadMsgTextCdma_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timestamp: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Timestamp() {
@@ -2354,7 +2354,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSmsReadMsgTextCdma as ::windows::core::Interface>::IID
+        iid == &<IMbnSmsReadMsgTextCdma as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2369,7 +2369,7 @@ impl ::windows::core::RuntimeName for IMbnSubscriberInformation {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMbnSubscriberInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>() -> IMbnSubscriberInformation_Vtbl {
-        unsafe extern "system" fn SubscriberID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriberid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscriberID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscriberid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SubscriberID() {
@@ -2380,7 +2380,7 @@ impl IMbnSubscriberInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimIccID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, simiccid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimIccID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSubscriberInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, simiccid: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SimIccID() {
@@ -2410,7 +2410,7 @@ impl IMbnSubscriberInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnSubscriberInformation as ::windows::core::Interface>::IID
+        iid == &<IMbnSubscriberInformation as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2441,7 +2441,7 @@ impl IMbnVendorSpecificEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnVendorSpecificEvents as ::windows::core::Interface>::IID
+        iid == &<IMbnVendorSpecificEvents as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2468,6 +2468,6 @@ impl IMbnVendorSpecificOperation_Vtbl {
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetVendorSpecific: SetVendorSpecific::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IMbnVendorSpecificOperation as ::windows::core::Interface>::IID
+        iid == &<IMbnVendorSpecificOperation as ::windows::core::ComInterface>::IID
     }
 }

@@ -3,223 +3,223 @@
 #[inline]
 pub unsafe fn FwpmCalloutAdd0<P0, P1>(enginehandle: P0, callout: *const FWPM_CALLOUT0, sd: P1, id: ::core::option::Option<*mut u32>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutAdd0 ( enginehandle : super::super::Foundation:: HANDLE , callout : *const FWPM_CALLOUT0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u32 ) -> u32 );
-    FwpmCalloutAdd0(enginehandle.into(), callout, sd.into(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutAdd0 ( enginehandle : super::super::Foundation:: HANDLE , callout : *const FWPM_CALLOUT0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u32 ) -> u32 );
+    FwpmCalloutAdd0(enginehandle.into_param().abi(), callout, sd.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_CALLOUT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_CALLOUT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmCalloutCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_CALLOUT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmCalloutCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDeleteById0<P0>(enginehandle: P0, id: u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u32 ) -> u32 );
-    FwpmCalloutDeleteById0(enginehandle.into(), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u32 ) -> u32 );
+    FwpmCalloutDeleteById0(enginehandle.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDeleteByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
-    FwpmCalloutDeleteByKey0(enginehandle.into(), key)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
+    FwpmCalloutDeleteByKey0(enginehandle.into_param().abi(), key)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmCalloutDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmCalloutDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CALLOUT0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_CALLOUT0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmCalloutEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_CALLOUT0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmCalloutEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutGetById0<P0>(enginehandle: P0, id: u32, callout: *mut *mut FWPM_CALLOUT0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u32 , callout : *mut *mut FWPM_CALLOUT0 ) -> u32 );
-    FwpmCalloutGetById0(enginehandle.into(), id, callout)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u32 , callout : *mut *mut FWPM_CALLOUT0 ) -> u32 );
+    FwpmCalloutGetById0(enginehandle.into_param().abi(), id, callout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutGetByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID, callout: *mut *mut FWPM_CALLOUT0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , callout : *mut *mut FWPM_CALLOUT0 ) -> u32 );
-    FwpmCalloutGetByKey0(enginehandle.into(), key, callout)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , callout : *mut *mut FWPM_CALLOUT0 ) -> u32 );
+    FwpmCalloutGetByKey0(enginehandle.into_param().abi(), key, callout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmCalloutGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmCalloutGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmCalloutSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmCalloutSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutSubscribeChanges0<P0>(enginehandle: P0, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_CALLOUT_SUBSCRIPTION0 , callback : FWPM_CALLOUT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmCalloutSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_CALLOUT_SUBSCRIPTION0 , callback : FWPM_CALLOUT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmCalloutSubscribeChanges0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutSubscriptionsGet0<P0>(enginehandle: P0, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
-    FwpmCalloutSubscriptionsGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
+    FwpmCalloutSubscriptionsGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutUnsubscribeChanges0<P0, P1>(enginehandle: P0, changehandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmCalloutUnsubscribeChanges0(enginehandle.into(), changehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmCalloutUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmCalloutUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_CONNECTION_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_CONNECTION_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmConnectionCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_CONNECTION_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmConnectionCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmConnectionDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmConnectionDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CONNECTION0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_CONNECTION0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmConnectionEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_CONNECTION0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmConnectionEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionGetById0<P0>(enginehandle: P0, id: u64, connection: *mut *mut FWPM_CONNECTION0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , connection : *mut *mut FWPM_CONNECTION0 ) -> u32 );
-    FwpmConnectionGetById0(enginehandle.into(), id, connection)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , connection : *mut *mut FWPM_CONNECTION0 ) -> u32 );
+    FwpmConnectionGetById0(enginehandle.into_param().abi(), id, connection)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmConnectionGetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmConnectionGetSecurityInfo0(enginehandle.into(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmConnectionGetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmConnectionSetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmConnectionSetSecurityInfo0(enginehandle.into(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmConnectionSetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionSubscribe0<P0>(enginehandle: P0, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: FWPM_CONNECTION_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_CONNECTION_SUBSCRIPTION0 , callback : FWPM_CONNECTION_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmConnectionSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_CONNECTION_SUBSCRIPTION0 , callback : FWPM_CONNECTION_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmConnectionSubscribe0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionUnsubscribe0<P0, P1>(enginehandle: P0, eventshandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , eventshandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmConnectionUnsubscribe0(enginehandle.into(), eventshandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmConnectionUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , eventshandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmConnectionUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KEYWORD_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmDynamicKeywordSubscribe0 ( flags : u32 , callback : FWPM_DYNAMIC_KEYWORD_CALLBACK0 , context : *const ::core::ffi::c_void , subscriptionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmDynamicKeywordSubscribe0 ( flags : u32 , callback : FWPM_DYNAMIC_KEYWORD_CALLBACK0 , context : *const ::core::ffi::c_void , subscriptionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     FwpmDynamicKeywordSubscribe0(flags, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), subscriptionhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
@@ -227,1689 +227,1689 @@ pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: FWPM_DYNAMIC_KE
 #[inline]
 pub unsafe fn FwpmDynamicKeywordUnsubscribe0<P0>(subscriptionhandle: P0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmDynamicKeywordUnsubscribe0 ( subscriptionhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmDynamicKeywordUnsubscribe0(subscriptionhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmDynamicKeywordUnsubscribe0 ( subscriptionhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmDynamicKeywordUnsubscribe0(subscriptionhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmEngineClose0<P0>(enginehandle: P0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmEngineClose0 ( enginehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmEngineClose0(enginehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmEngineClose0 ( enginehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmEngineClose0(enginehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineGetOption0<P0>(enginehandle: P0, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmEngineGetOption0 ( enginehandle : super::super::Foundation:: HANDLE , option : FWPM_ENGINE_OPTION , value : *mut *mut FWP_VALUE0 ) -> u32 );
-    FwpmEngineGetOption0(enginehandle.into(), option, value)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmEngineGetOption0 ( enginehandle : super::super::Foundation:: HANDLE , option : FWPM_ENGINE_OPTION , value : *mut *mut FWP_VALUE0 ) -> u32 );
+    FwpmEngineGetOption0(enginehandle.into_param().abi(), option, value)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineGetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmEngineGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmEngineGetSecurityInfo0(enginehandle.into(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmEngineGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmEngineGetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Rpc\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
 pub unsafe fn FwpmEngineOpen0<P0>(servername: P0, authnservice: u32, authidentity: ::core::option::Option<*const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: ::core::option::Option<*const FWPM_SESSION0>, enginehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmEngineOpen0 ( servername : :: windows::core::PCWSTR , authnservice : u32 , authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W , session : *const FWPM_SESSION0 , enginehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmEngineOpen0(servername.into().abi(), authnservice, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), ::core::mem::transmute(session.unwrap_or(::std::ptr::null())), enginehandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmEngineOpen0 ( servername : :: windows::core::PCWSTR , authnservice : u32 , authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W , session : *const FWPM_SESSION0 , enginehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmEngineOpen0(servername.into_param().abi(), authnservice, ::core::mem::transmute(authidentity.unwrap_or(::std::ptr::null())), ::core::mem::transmute(session.unwrap_or(::std::ptr::null())), enginehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineSetOption0<P0>(enginehandle: P0, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmEngineSetOption0 ( enginehandle : super::super::Foundation:: HANDLE , option : FWPM_ENGINE_OPTION , newvalue : *const FWP_VALUE0 ) -> u32 );
-    FwpmEngineSetOption0(enginehandle.into(), option, newvalue)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmEngineSetOption0 ( enginehandle : super::super::Foundation:: HANDLE , option : FWPM_ENGINE_OPTION , newvalue : *const FWP_VALUE0 ) -> u32 );
+    FwpmEngineSetOption0(enginehandle.into_param().abi(), option, newvalue)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineSetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmEngineSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmEngineSetSecurityInfo0(enginehandle.into(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmEngineSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmEngineSetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterAdd0<P0, P1>(enginehandle: P0, filter: *const FWPM_FILTER0, sd: P1, id: ::core::option::Option<*mut u64>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterAdd0 ( enginehandle : super::super::Foundation:: HANDLE , filter : *const FWPM_FILTER0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
-    FwpmFilterAdd0(enginehandle.into(), filter, sd.into(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterAdd0 ( enginehandle : super::super::Foundation:: HANDLE , filter : *const FWPM_FILTER0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
+    FwpmFilterAdd0(enginehandle.into_param().abi(), filter, sd.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_FILTER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_FILTER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmFilterCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_FILTER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmFilterCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDeleteById0<P0>(enginehandle: P0, id: u64) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
-    FwpmFilterDeleteById0(enginehandle.into(), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
+    FwpmFilterDeleteById0(enginehandle.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDeleteByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
-    FwpmFilterDeleteByKey0(enginehandle.into(), key)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
+    FwpmFilterDeleteByKey0(enginehandle.into_param().abi(), key)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmFilterDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmFilterDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_FILTER0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_FILTER0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmFilterEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_FILTER0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmFilterEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetById0<P0>(enginehandle: P0, id: u64, filter: *mut *mut FWPM_FILTER0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , filter : *mut *mut FWPM_FILTER0 ) -> u32 );
-    FwpmFilterGetById0(enginehandle.into(), id, filter)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , filter : *mut *mut FWPM_FILTER0 ) -> u32 );
+    FwpmFilterGetById0(enginehandle.into_param().abi(), id, filter)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID, filter: *mut *mut FWPM_FILTER0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , filter : *mut *mut FWPM_FILTER0 ) -> u32 );
-    FwpmFilterGetByKey0(enginehandle.into(), key, filter)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , filter : *mut *mut FWPM_FILTER0 ) -> u32 );
+    FwpmFilterGetByKey0(enginehandle.into_param().abi(), key, filter)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmFilterGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmFilterGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmFilterSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmFilterSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSubscribeChanges0<P0>(enginehandle: P0, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: FWPM_FILTER_CHANGE_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_FILTER_SUBSCRIPTION0 , callback : FWPM_FILTER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmFilterSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_FILTER_SUBSCRIPTION0 , callback : FWPM_FILTER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmFilterSubscribeChanges0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSubscriptionsGet0<P0>(enginehandle: P0, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
-    FwpmFilterSubscriptionsGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
+    FwpmFilterSubscriptionsGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterUnsubscribeChanges0<P0, P1>(enginehandle: P0, changehandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFilterUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmFilterUnsubscribeChanges0(enginehandle.into(), changehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFilterUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmFilterUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 #[inline]
 pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::core::ffi::c_void) {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmFreeMemory0 ( p : *mut *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmFreeMemory0 ( p : *mut *mut ::core::ffi::c_void ) -> ( ) );
     FwpmFreeMemory0(p)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 #[inline]
 pub unsafe fn FwpmGetAppIdFromFileName0<P0>(filename: P0, appid: *mut *mut FWP_BYTE_BLOB) -> u32
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmGetAppIdFromFileName0 ( filename : :: windows::core::PCWSTR , appid : *mut *mut FWP_BYTE_BLOB ) -> u32 );
-    FwpmGetAppIdFromFileName0(filename.into().abi(), appid)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmGetAppIdFromFileName0 ( filename : :: windows::core::PCWSTR , appid : *mut *mut FWP_BYTE_BLOB ) -> u32 );
+    FwpmGetAppIdFromFileName0(filename.into_param().abi(), appid)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd0<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: ::core::option::Option<*const FWPM_PROVIDER_CONTEXT0>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, filterconditions: &[FWPM_FILTER_CONDITION0], sd: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd0 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmIPsecTunnelAdd0(enginehandle.into(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), sd.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd0 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmIPsecTunnelAdd0(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), sd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd1<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: ::core::option::Option<*const FWPM_PROVIDER_CONTEXT1>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: ::core::option::Option<*const ::windows::core::GUID>, sd: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd1 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmIPsecTunnelAdd1(enginehandle.into(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd1 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmIPsecTunnelAdd1(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd2<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: ::core::option::Option<*const FWPM_PROVIDER_CONTEXT2>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: ::core::option::Option<*const ::windows::core::GUID>, sd: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd2 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmIPsecTunnelAdd2(enginehandle.into(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd2 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmIPsecTunnelAdd2(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd3<P0, P1>(enginehandle: P0, flags: u32, mainmodepolicy: ::core::option::Option<*const FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: ::core::option::Option<*const ::windows::core::GUID>, sd: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd3 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmIPsecTunnelAdd3(enginehandle.into(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelAdd3 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 , mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3 , tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3 , numfilterconditions : u32 , filterconditions : *const FWPM_FILTER_CONDITION0 , keymodkey : *const :: windows::core::GUID , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmIPsecTunnelAdd3(enginehandle.into_param().abi(), flags, ::core::mem::transmute(mainmodepolicy.unwrap_or(::std::ptr::null())), tunnelpolicy, filterconditions.len() as _, ::core::mem::transmute(filterconditions.as_ptr()), ::core::mem::transmute(keymodkey.unwrap_or(::std::ptr::null())), sd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelDeleteByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
-    FwpmIPsecTunnelDeleteByKey0(enginehandle.into(), key)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmIPsecTunnelDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
+    FwpmIPsecTunnelDeleteByKey0(enginehandle.into_param().abi(), key)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_LAYER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmLayerCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_LAYER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmLayerCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmLayerCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_LAYER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmLayerCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmLayerDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmLayerDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmLayerDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmLayerDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_LAYER0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmLayerEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_LAYER0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmLayerEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmLayerEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_LAYER0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmLayerEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerGetById0<P0>(enginehandle: P0, id: u16, layer: *mut *mut FWPM_LAYER0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmLayerGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u16 , layer : *mut *mut FWPM_LAYER0 ) -> u32 );
-    FwpmLayerGetById0(enginehandle.into(), id, layer)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmLayerGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u16 , layer : *mut *mut FWPM_LAYER0 ) -> u32 );
+    FwpmLayerGetById0(enginehandle.into_param().abi(), id, layer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerGetByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID, layer: *mut *mut FWPM_LAYER0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , layer : *mut *mut FWPM_LAYER0 ) -> u32 );
-    FwpmLayerGetByKey0(enginehandle.into(), key, layer)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , layer : *mut *mut FWPM_LAYER0 ) -> u32 );
+    FwpmLayerGetByKey0(enginehandle.into_param().abi(), key, layer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmLayerGetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmLayerGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmLayerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmLayerSetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmLayerSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmLayerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_NET_EVENT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_NET_EVENT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_NET_EVENT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmNetEventDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmNetEventEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmNetEventEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum1<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT1 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmNetEventEnum1(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT1 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmNetEventEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum2<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum2 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT2 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmNetEventEnum2(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum2 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT2 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmNetEventEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum3<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum3 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT3 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmNetEventEnum3(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum3 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT3 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmNetEventEnum3(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum4<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum4 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT4 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmNetEventEnum4(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum4 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT4 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmNetEventEnum4(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum5<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum5 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT5 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmNetEventEnum5(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventEnum5 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_NET_EVENT5 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmNetEventEnum5(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe0<P0>(enginehandle: P0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventSubscribe0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe1<P0>(enginehandle: P0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK1, context: ::core::option::Option<*const ::core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe1 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK1 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe1(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe1 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK1 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventSubscribe1(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe2<P0>(enginehandle: P0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK2, context: ::core::option::Option<*const ::core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe2 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK2 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe2(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe2 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK2 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventSubscribe2(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe3<P0>(enginehandle: P0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK3, context: ::core::option::Option<*const ::core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe3 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK3 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe3(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe3 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK3 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventSubscribe3(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe4<P0>(enginehandle: P0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK4, context: ::core::option::Option<*const ::core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe4 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK4 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventSubscribe4(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscribe4 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0 , callback : FWPM_NET_EVENT_CALLBACK4 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventSubscribe4(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscriptionsGet0<P0>(enginehandle: P0, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
-    FwpmNetEventSubscriptionsGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
+    FwpmNetEventSubscriptionsGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmNetEventUnsubscribe0<P0, P1>(enginehandle: P0, eventshandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , eventshandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmNetEventUnsubscribe0(enginehandle.into(), eventshandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , eventshandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmNetEventUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventsGetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventsGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmNetEventsGetSecurityInfo0(enginehandle.into(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventsGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmNetEventsGetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventsSetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventsSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmNetEventsSetSecurityInfo0(enginehandle.into(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmNetEventsSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmNetEventsSetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderAdd0<P0, P1>(enginehandle: P0, provider: *const FWPM_PROVIDER0, sd: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderAdd0 ( enginehandle : super::super::Foundation:: HANDLE , provider : *const FWPM_PROVIDER0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmProviderAdd0(enginehandle.into(), provider, sd.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderAdd0 ( enginehandle : super::super::Foundation:: HANDLE , provider : *const FWPM_PROVIDER0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmProviderAdd0(enginehandle.into_param().abi(), provider, sd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd0<P0, P1>(enginehandle: P0, providercontext: *const FWPM_PROVIDER_CONTEXT0, sd: P1, id: ::core::option::Option<*mut u64>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd0 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
-    FwpmProviderContextAdd0(enginehandle.into(), providercontext, sd.into(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd0 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
+    FwpmProviderContextAdd0(enginehandle.into_param().abi(), providercontext, sd.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd1<P0, P1>(enginehandle: P0, providercontext: *const FWPM_PROVIDER_CONTEXT1, sd: P1, id: ::core::option::Option<*mut u64>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd1 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT1 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
-    FwpmProviderContextAdd1(enginehandle.into(), providercontext, sd.into(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd1 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT1 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
+    FwpmProviderContextAdd1(enginehandle.into_param().abi(), providercontext, sd.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd2<P0, P1>(enginehandle: P0, providercontext: *const FWPM_PROVIDER_CONTEXT2, sd: P1, id: ::core::option::Option<*mut u64>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd2 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT2 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
-    FwpmProviderContextAdd2(enginehandle.into(), providercontext, sd.into(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd2 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT2 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
+    FwpmProviderContextAdd2(enginehandle.into_param().abi(), providercontext, sd.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd3<P0, P1>(enginehandle: P0, providercontext: *const FWPM_PROVIDER_CONTEXT3, sd: P1, id: ::core::option::Option<*mut u64>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd3 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT3 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
-    FwpmProviderContextAdd3(enginehandle.into(), providercontext, sd.into(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextAdd3 ( enginehandle : super::super::Foundation:: HANDLE , providercontext : *const FWPM_PROVIDER_CONTEXT3 , sd : super::super::Security:: PSECURITY_DESCRIPTOR , id : *mut u64 ) -> u32 );
+    FwpmProviderContextAdd3(enginehandle.into_param().abi(), providercontext, sd.into_param().abi(), ::core::mem::transmute(id.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderContextCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderContextCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteById0<P0>(enginehandle: P0, id: u64) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
-    FwpmProviderContextDeleteById0(enginehandle.into(), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
+    FwpmProviderContextDeleteById0(enginehandle.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
-    FwpmProviderContextDeleteByKey0(enginehandle.into(), key)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
+    FwpmProviderContextDeleteByKey0(enginehandle.into_param().abi(), key)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderContextDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderContextDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmProviderContextEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmProviderContextEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum1<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT1 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmProviderContextEnum1(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT1 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmProviderContextEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum2<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum2 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT2 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmProviderContextEnum2(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum2 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT2 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmProviderContextEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum3<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum3 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT3 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmProviderContextEnum3(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextEnum3 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT3 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmProviderContextEnum3(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById0<P0>(enginehandle: P0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0 ) -> u32 );
-    FwpmProviderContextGetById0(enginehandle.into(), id, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0 ) -> u32 );
+    FwpmProviderContextGetById0(enginehandle.into_param().abi(), id, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById1<P0>(enginehandle: P0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1 ) -> u32 );
-    FwpmProviderContextGetById1(enginehandle.into(), id, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1 ) -> u32 );
+    FwpmProviderContextGetById1(enginehandle.into_param().abi(), id, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById2<P0>(enginehandle: P0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById2 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2 ) -> u32 );
-    FwpmProviderContextGetById2(enginehandle.into(), id, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById2 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2 ) -> u32 );
+    FwpmProviderContextGetById2(enginehandle.into_param().abi(), id, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById3<P0>(enginehandle: P0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById3 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3 ) -> u32 );
-    FwpmProviderContextGetById3(enginehandle.into(), id, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetById3 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3 ) -> u32 );
+    FwpmProviderContextGetById3(enginehandle.into_param().abi(), id, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0 ) -> u32 );
-    FwpmProviderContextGetByKey0(enginehandle.into(), key, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0 ) -> u32 );
+    FwpmProviderContextGetByKey0(enginehandle.into_param().abi(), key, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey1<P0>(enginehandle: P0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey1 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1 ) -> u32 );
-    FwpmProviderContextGetByKey1(enginehandle.into(), key, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey1 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1 ) -> u32 );
+    FwpmProviderContextGetByKey1(enginehandle.into_param().abi(), key, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey2<P0>(enginehandle: P0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey2 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2 ) -> u32 );
-    FwpmProviderContextGetByKey2(enginehandle.into(), key, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey2 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2 ) -> u32 );
+    FwpmProviderContextGetByKey2(enginehandle.into_param().abi(), key, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey3<P0>(enginehandle: P0, key: *const ::windows::core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey3 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3 ) -> u32 );
-    FwpmProviderContextGetByKey3(enginehandle.into(), key, providercontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetByKey3 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3 ) -> u32 );
+    FwpmProviderContextGetByKey3(enginehandle.into_param().abi(), key, providercontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmProviderContextGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmProviderContextGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmProviderContextSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmProviderContextSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextSubscribeChanges0<P0>(enginehandle: P0, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderContextSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderContextSubscribeChanges0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextSubscriptionsGet0<P0>(enginehandle: P0, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
-    FwpmProviderContextSubscriptionsGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
+    FwpmProviderContextSubscriptionsGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextUnsubscribeChanges0<P0, P1>(enginehandle: P0, changehandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderContextUnsubscribeChanges0(enginehandle.into(), changehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderContextUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderContextUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_PROVIDER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_PROVIDER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_PROVIDER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderDeleteByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
-    FwpmProviderDeleteByKey0(enginehandle.into(), key)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
+    FwpmProviderDeleteByKey0(enginehandle.into_param().abi(), key)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmProviderEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_PROVIDER0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmProviderEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderGetByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID, provider: *mut *mut FWPM_PROVIDER0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , provider : *mut *mut FWPM_PROVIDER0 ) -> u32 );
-    FwpmProviderGetByKey0(enginehandle.into(), key, provider)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , provider : *mut *mut FWPM_PROVIDER0 ) -> u32 );
+    FwpmProviderGetByKey0(enginehandle.into_param().abi(), key, provider)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderGetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmProviderGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmProviderGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderSetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmProviderSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmProviderSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderSubscribeChanges0<P0>(enginehandle: P0, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_PROVIDER_SUBSCRIPTION0 , callback : FWPM_PROVIDER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderSubscribeChanges0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderSubscriptionsGet0<P0>(enginehandle: P0, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
-    FwpmProviderSubscriptionsGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
+    FwpmProviderSubscriptionsGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderUnsubscribeChanges0<P0, P1>(enginehandle: P0, changehandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmProviderUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmProviderUnsubscribeChanges0(enginehandle.into(), changehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmProviderUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmProviderUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSessionCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_SESSION_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSessionCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_SESSION_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSessionCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSessionCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_SESSION_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSessionCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSessionDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSessionDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSessionDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSessionDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSessionDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSessionEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SESSION0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSessionEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_SESSION0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmSessionEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSessionEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_SESSION0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmSessionEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerAdd0<P0, P1>(enginehandle: P0, sublayer: *const FWPM_SUBLAYER0, sd: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerAdd0 ( enginehandle : super::super::Foundation:: HANDLE , sublayer : *const FWPM_SUBLAYER0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmSubLayerAdd0(enginehandle.into(), sublayer, sd.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerAdd0 ( enginehandle : super::super::Foundation:: HANDLE , sublayer : *const FWPM_SUBLAYER0 , sd : super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmSubLayerAdd0(enginehandle.into_param().abi(), sublayer, sd.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const FWPM_SUBLAYER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_SUBLAYER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSubLayerCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const FWPM_SUBLAYER_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSubLayerCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerDeleteByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
-    FwpmSubLayerDeleteByKey0(enginehandle.into(), key)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerDeleteByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID ) -> u32 );
+    FwpmSubLayerDeleteByKey0(enginehandle.into_param().abi(), key)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSubLayerDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSubLayerDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_SUBLAYER0 , numentriesreturned : *mut u32 ) -> u32 );
-    FwpmSubLayerEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut FWPM_SUBLAYER0 , numentriesreturned : *mut u32 ) -> u32 );
+    FwpmSubLayerEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerGetByKey0<P0>(enginehandle: P0, key: *const ::windows::core::GUID, sublayer: *mut *mut FWPM_SUBLAYER0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , sublayer : *mut *mut FWPM_SUBLAYER0 ) -> u32 );
-    FwpmSubLayerGetByKey0(enginehandle.into(), key, sublayer)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerGetByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , sublayer : *mut *mut FWPM_SUBLAYER0 ) -> u32 );
+    FwpmSubLayerGetByKey0(enginehandle.into_param().abi(), key, sublayer)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmSubLayerGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmSubLayerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<P0>(enginehandle: P0, key: ::core::option::Option<*const ::windows::core::GUID>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmSubLayerSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , key : *const :: windows::core::GUID , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmSubLayerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(key.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerSubscribeChanges0<P0>(enginehandle: P0, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0 , callback : FWPM_SUBLAYER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSubLayerSubscribeChanges0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerSubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0 , callback : FWPM_SUBLAYER_CHANGE_CALLBACK0 , context : *const ::core::ffi::c_void , changehandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSubLayerSubscribeChanges0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), changehandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerSubscriptionsGet0<P0>(enginehandle: P0, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
-    FwpmSubLayerSubscriptionsGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
+    FwpmSubLayerSubscriptionsGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerUnsubscribeChanges0<P0, P1>(enginehandle: P0, changehandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSubLayerUnsubscribeChanges0(enginehandle.into(), changehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSubLayerUnsubscribeChanges0 ( enginehandle : super::super::Foundation:: HANDLE , changehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSubLayerUnsubscribeChanges0(enginehandle.into_param().abi(), changehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsGet0<P0>(enginehandle: P0, sysports: *mut *mut FWPM_SYSTEM_PORTS0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsGet0 ( enginehandle : super::super::Foundation:: HANDLE , sysports : *mut *mut FWPM_SYSTEM_PORTS0 ) -> u32 );
-    FwpmSystemPortsGet0(enginehandle.into(), sysports)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsGet0 ( enginehandle : super::super::Foundation:: HANDLE , sysports : *mut *mut FWPM_SYSTEM_PORTS0 ) -> u32 );
+    FwpmSystemPortsGet0(enginehandle.into_param().abi(), sysports)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsSubscribe0<P0>(enginehandle: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , callback : FWPM_SYSTEM_PORTS_CALLBACK0 , context : *const ::core::ffi::c_void , sysportshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSystemPortsSubscribe0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), sysportshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , callback : FWPM_SYSTEM_PORTS_CALLBACK0 , context : *const ::core::ffi::c_void , sysportshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSystemPortsSubscribe0(enginehandle.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), sysportshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsUnsubscribe0<P0, P1>(enginehandle: P0, sysportshandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , sysportshandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSystemPortsUnsubscribe0(enginehandle.into(), sysportshandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , sysportshandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSystemPortsUnsubscribe0(enginehandle.into_param().abi(), sysportshandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionAbort0<P0>(enginehandle: P0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmTransactionAbort0 ( enginehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmTransactionAbort0(enginehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmTransactionAbort0 ( enginehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmTransactionAbort0(enginehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionBegin0<P0>(enginehandle: P0, flags: u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmTransactionBegin0 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 ) -> u32 );
-    FwpmTransactionBegin0(enginehandle.into(), flags)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmTransactionBegin0 ( enginehandle : super::super::Foundation:: HANDLE , flags : u32 ) -> u32 );
+    FwpmTransactionBegin0(enginehandle.into_param().abi(), flags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionCommit0<P0>(enginehandle: P0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmTransactionCommit0 ( enginehandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmTransactionCommit0(enginehandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmTransactionCommit0 ( enginehandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmTransactionCommit0(enginehandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmvSwitchEventSubscribe0<P0>(enginehandle: P0, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: FWPM_VSWITCH_EVENT_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0 , callback : FWPM_VSWITCH_EVENT_CALLBACK0 , context : *const ::core::ffi::c_void , subscriptionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmvSwitchEventSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), subscriptionhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0 , callback : FWPM_VSWITCH_EVENT_CALLBACK0 , context : *const ::core::ffi::c_void , subscriptionhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmvSwitchEventSubscribe0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), subscriptionhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmvSwitchEventUnsubscribe0<P0, P1>(enginehandle: P0, subscriptionhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscriptionhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmvSwitchEventUnsubscribe0(enginehandle.into(), subscriptionhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscriptionhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmvSwitchEventUnsubscribe0(enginehandle.into_param().abi(), subscriptionhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventsGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    FwpmvSwitchEventsGetSecurityInfo0(enginehandle.into(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventsGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    FwpmvSwitchEventsGetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventsSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    FwpmvSwitchEventsSetSecurityInfo0(enginehandle.into(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn FwpmvSwitchEventsSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    FwpmvSwitchEventsSetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecDospGetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecDospGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    IPsecDospGetSecurityInfo0(enginehandle.into(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecDospGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    IPsecDospGetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospGetStatistics0<P0>(enginehandle: P0, idpstatistics: *mut IPSEC_DOSP_STATISTICS0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecDospGetStatistics0 ( enginehandle : super::super::Foundation:: HANDLE , idpstatistics : *mut IPSEC_DOSP_STATISTICS0 ) -> u32 );
-    IPsecDospGetStatistics0(enginehandle.into(), idpstatistics)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecDospGetStatistics0 ( enginehandle : super::super::Foundation:: HANDLE , idpstatistics : *mut IPSEC_DOSP_STATISTICS0 ) -> u32 );
+    IPsecDospGetStatistics0(enginehandle.into_param().abi(), idpstatistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecDospSetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecDospSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    IPsecDospSetSecurityInfo0(enginehandle.into(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecDospSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    IPsecDospSetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const IPSEC_DOSP_STATE_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecDospStateCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecDospStateCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecDospStateCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecDospStateCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecDospStateDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecDospStateDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecDospStateDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecDospStateDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_DOSP_STATE0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecDospStateEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_DOSP_STATE0 , numentries : *mut u32 ) -> u32 );
-    IPsecDospStateEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecDospStateEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_DOSP_STATE0 , numentries : *mut u32 ) -> u32 );
+    IPsecDospStateEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecGetStatistics0<P0>(enginehandle: P0, ipsecstatistics: *mut IPSEC_STATISTICS0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecGetStatistics0 ( enginehandle : super::super::Foundation:: HANDLE , ipsecstatistics : *mut IPSEC_STATISTICS0 ) -> u32 );
-    IPsecGetStatistics0(enginehandle.into(), ipsecstatistics)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecGetStatistics0 ( enginehandle : super::super::Foundation:: HANDLE , ipsecstatistics : *mut IPSEC_STATISTICS0 ) -> u32 );
+    IPsecGetStatistics0(enginehandle.into_param().abi(), ipsecstatistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecGetStatistics1<P0>(enginehandle: P0, ipsecstatistics: *mut IPSEC_STATISTICS1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecGetStatistics1 ( enginehandle : super::super::Foundation:: HANDLE , ipsecstatistics : *mut IPSEC_STATISTICS1 ) -> u32 );
-    IPsecGetStatistics1(enginehandle.into(), ipsecstatistics)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecGetStatistics1 ( enginehandle : super::super::Foundation:: HANDLE , ipsecstatistics : *mut IPSEC_STATISTICS1 ) -> u32 );
+    IPsecGetStatistics1(enginehandle.into_param().abi(), ipsecstatistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerAddAndRegister0<P0>(enginehandle: P0, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerAddAndRegister0 ( enginehandle : super::super::Foundation:: HANDLE , keymanager : *const IPSEC_KEY_MANAGER0 , keymanagercallbacks : *const IPSEC_KEY_MANAGER_CALLBACKS0 , keymgmthandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecKeyManagerAddAndRegister0(enginehandle.into(), keymanager, keymanagercallbacks, keymgmthandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerAddAndRegister0 ( enginehandle : super::super::Foundation:: HANDLE , keymanager : *const IPSEC_KEY_MANAGER0 , keymanagercallbacks : *const IPSEC_KEY_MANAGER_CALLBACKS0 , keymgmthandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecKeyManagerAddAndRegister0(enginehandle.into_param().abi(), keymanager, keymanagercallbacks, keymgmthandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<P0>(enginehandle: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    IPsecKeyManagerGetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerGetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    IPsecKeyManagerGetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<P0>(enginehandle: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    IPsecKeyManagerSetSecurityInfoByKey0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerSetSecurityInfoByKey0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    IPsecKeyManagerSetSecurityInfoByKey0(enginehandle.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<P0, P1>(enginehandle: P0, keymgmthandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerUnregisterAndDelete0 ( enginehandle : super::super::Foundation:: HANDLE , keymgmthandle : super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecKeyManagerUnregisterAndDelete0(enginehandle.into(), keymgmthandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagerUnregisterAndDelete0 ( enginehandle : super::super::Foundation:: HANDLE , keymgmthandle : super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecKeyManagerUnregisterAndDelete0(enginehandle.into_param().abi(), keymgmthandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecKeyManagersGet0<P0>(enginehandle: P0, entries: *mut *mut *mut IPSEC_KEY_MANAGER0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagersGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut IPSEC_KEY_MANAGER0 , numentries : *mut u32 ) -> u32 );
-    IPsecKeyManagersGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecKeyManagersGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut IPSEC_KEY_MANAGER0 , numentries : *mut u32 ) -> u32 );
+    IPsecKeyManagersGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddInbound0<P0>(enginehandle: P0, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddInbound0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , inboundbundle : *const IPSEC_SA_BUNDLE0 ) -> u32 );
-    IPsecSaContextAddInbound0(enginehandle.into(), id, inboundbundle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddInbound0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , inboundbundle : *const IPSEC_SA_BUNDLE0 ) -> u32 );
+    IPsecSaContextAddInbound0(enginehandle.into_param().abi(), id, inboundbundle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddInbound1<P0>(enginehandle: P0, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddInbound1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , inboundbundle : *const IPSEC_SA_BUNDLE1 ) -> u32 );
-    IPsecSaContextAddInbound1(enginehandle.into(), id, inboundbundle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddInbound1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , inboundbundle : *const IPSEC_SA_BUNDLE1 ) -> u32 );
+    IPsecSaContextAddInbound1(enginehandle.into_param().abi(), id, inboundbundle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddOutbound0<P0>(enginehandle: P0, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddOutbound0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , outboundbundle : *const IPSEC_SA_BUNDLE0 ) -> u32 );
-    IPsecSaContextAddOutbound0(enginehandle.into(), id, outboundbundle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddOutbound0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , outboundbundle : *const IPSEC_SA_BUNDLE0 ) -> u32 );
+    IPsecSaContextAddOutbound0(enginehandle.into_param().abi(), id, outboundbundle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddOutbound1<P0>(enginehandle: P0, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddOutbound1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , outboundbundle : *const IPSEC_SA_BUNDLE1 ) -> u32 );
-    IPsecSaContextAddOutbound1(enginehandle.into(), id, outboundbundle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextAddOutbound1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , outboundbundle : *const IPSEC_SA_BUNDLE1 ) -> u32 );
+    IPsecSaContextAddOutbound1(enginehandle.into_param().abi(), id, outboundbundle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextCreate0<P0>(enginehandle: P0, outboundtraffic: *const IPSEC_TRAFFIC0, inboundfilterid: ::core::option::Option<*mut u64>, id: *mut u64) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextCreate0 ( enginehandle : super::super::Foundation:: HANDLE , outboundtraffic : *const IPSEC_TRAFFIC0 , inboundfilterid : *mut u64 , id : *mut u64 ) -> u32 );
-    IPsecSaContextCreate0(enginehandle.into(), outboundtraffic, ::core::mem::transmute(inboundfilterid.unwrap_or(::std::ptr::null_mut())), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextCreate0 ( enginehandle : super::super::Foundation:: HANDLE , outboundtraffic : *const IPSEC_TRAFFIC0 , inboundfilterid : *mut u64 , id : *mut u64 ) -> u32 );
+    IPsecSaContextCreate0(enginehandle.into_param().abi(), outboundtraffic, ::core::mem::transmute(inboundfilterid.unwrap_or(::std::ptr::null_mut())), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextCreate1<P0>(enginehandle: P0, outboundtraffic: *const IPSEC_TRAFFIC1, virtualiftunnelinfo: ::core::option::Option<*const IPSEC_VIRTUAL_IF_TUNNEL_INFO0>, inboundfilterid: ::core::option::Option<*mut u64>, id: *mut u64) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextCreate1 ( enginehandle : super::super::Foundation:: HANDLE , outboundtraffic : *const IPSEC_TRAFFIC1 , virtualiftunnelinfo : *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0 , inboundfilterid : *mut u64 , id : *mut u64 ) -> u32 );
-    IPsecSaContextCreate1(enginehandle.into(), outboundtraffic, ::core::mem::transmute(virtualiftunnelinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inboundfilterid.unwrap_or(::std::ptr::null_mut())), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextCreate1 ( enginehandle : super::super::Foundation:: HANDLE , outboundtraffic : *const IPSEC_TRAFFIC1 , virtualiftunnelinfo : *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0 , inboundfilterid : *mut u64 , id : *mut u64 ) -> u32 );
+    IPsecSaContextCreate1(enginehandle.into_param().abi(), outboundtraffic, ::core::mem::transmute(virtualiftunnelinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(inboundfilterid.unwrap_or(::std::ptr::null_mut())), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecSaContextCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecSaContextCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextDeleteById0<P0>(enginehandle: P0, id: u64) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
-    IPsecSaContextDeleteById0(enginehandle.into(), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
+    IPsecSaContextDeleteById0(enginehandle.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecSaContextDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecSaContextDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_CONTEXT0 , numentriesreturned : *mut u32 ) -> u32 );
-    IPsecSaContextEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_CONTEXT0 , numentriesreturned : *mut u32 ) -> u32 );
+    IPsecSaContextEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextEnum1<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_CONTEXT1 , numentriesreturned : *mut u32 ) -> u32 );
-    IPsecSaContextEnum1(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_CONTEXT1 , numentriesreturned : *mut u32 ) -> u32 );
+    IPsecSaContextEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextExpire0<P0>(enginehandle: P0, id: u64) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextExpire0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
-    IPsecSaContextExpire0(enginehandle.into(), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextExpire0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
+    IPsecSaContextExpire0(enginehandle.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextGetById0<P0>(enginehandle: P0, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , sacontext : *mut *mut IPSEC_SA_CONTEXT0 ) -> u32 );
-    IPsecSaContextGetById0(enginehandle.into(), id, sacontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , sacontext : *mut *mut IPSEC_SA_CONTEXT0 ) -> u32 );
+    IPsecSaContextGetById0(enginehandle.into_param().abi(), id, sacontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextGetById1<P0>(enginehandle: P0, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , sacontext : *mut *mut IPSEC_SA_CONTEXT1 ) -> u32 );
-    IPsecSaContextGetById1(enginehandle.into(), id, sacontext)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , sacontext : *mut *mut IPSEC_SA_CONTEXT1 ) -> u32 );
+    IPsecSaContextGetById1(enginehandle.into_param().abi(), id, sacontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextGetSpi0<P0>(enginehandle: P0, id: u64, getspi: *const IPSEC_GETSPI0, inboundspi: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetSpi0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , getspi : *const IPSEC_GETSPI0 , inboundspi : *mut u32 ) -> u32 );
-    IPsecSaContextGetSpi0(enginehandle.into(), id, getspi, inboundspi)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetSpi0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , getspi : *const IPSEC_GETSPI0 , inboundspi : *mut u32 ) -> u32 );
+    IPsecSaContextGetSpi0(enginehandle.into_param().abi(), id, getspi, inboundspi)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextGetSpi1<P0>(enginehandle: P0, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetSpi1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , getspi : *const IPSEC_GETSPI1 , inboundspi : *mut u32 ) -> u32 );
-    IPsecSaContextGetSpi1(enginehandle.into(), id, getspi, inboundspi)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextGetSpi1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , getspi : *const IPSEC_GETSPI1 , inboundspi : *mut u32 ) -> u32 );
+    IPsecSaContextGetSpi1(enginehandle.into_param().abi(), id, getspi, inboundspi)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextSetSpi0<P0>(enginehandle: P0, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextSetSpi0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , getspi : *const IPSEC_GETSPI1 , inboundspi : u32 ) -> u32 );
-    IPsecSaContextSetSpi0(enginehandle.into(), id, getspi, inboundspi)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextSetSpi0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , getspi : *const IPSEC_GETSPI1 , inboundspi : u32 ) -> u32 );
+    IPsecSaContextSetSpi0(enginehandle.into_param().abi(), id, getspi, inboundspi)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextSubscribe0<P0>(enginehandle: P0, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: IPSEC_SA_CONTEXT_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const IPSEC_SA_CONTEXT_SUBSCRIPTION0 , callback : IPSEC_SA_CONTEXT_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecSaContextSubscribe0(enginehandle.into(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , subscription : *const IPSEC_SA_CONTEXT_SUBSCRIPTION0 , callback : IPSEC_SA_CONTEXT_CALLBACK0 , context : *const ::core::ffi::c_void , eventshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecSaContextSubscribe0(enginehandle.into_param().abi(), subscription, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), eventshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextSubscriptionsGet0<P0>(enginehandle: P0, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
-    IPsecSaContextSubscriptionsGet0(enginehandle.into(), entries, numentries)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextSubscriptionsGet0 ( enginehandle : super::super::Foundation:: HANDLE , entries : *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0 , numentries : *mut u32 ) -> u32 );
+    IPsecSaContextSubscriptionsGet0(enginehandle.into_param().abi(), entries, numentries)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextUnsubscribe0<P0, P1>(enginehandle: P0, eventshandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , eventshandle : super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecSaContextUnsubscribe0(enginehandle.into(), eventshandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , eventshandle : super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecSaContextUnsubscribe0(enginehandle.into_param().abi(), eventshandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextUpdate0<P0>(enginehandle: P0, flags: u64, newvalues: *const IPSEC_SA_CONTEXT1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextUpdate0 ( enginehandle : super::super::Foundation:: HANDLE , flags : u64 , newvalues : *const IPSEC_SA_CONTEXT1 ) -> u32 );
-    IPsecSaContextUpdate0(enginehandle.into(), flags, newvalues)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaContextUpdate0 ( enginehandle : super::super::Foundation:: HANDLE , flags : u64 , newvalues : *const IPSEC_SA_CONTEXT1 ) -> u32 );
+    IPsecSaContextUpdate0(enginehandle.into_param().abi(), flags, newvalues)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const IPSEC_SA_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IPSEC_SA_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecSaCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IPSEC_SA_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecSaCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaDbGetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaDbGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    IPsecSaDbGetSecurityInfo0(enginehandle.into(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaDbGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    IPsecSaDbGetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaDbSetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaDbSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    IPsecSaDbSetSecurityInfo0(enginehandle.into(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaDbSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    IPsecSaDbSetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    IPsecSaDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    IPsecSaDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_DETAILS0 , numentriesreturned : *mut u32 ) -> u32 );
-    IPsecSaEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_DETAILS0 , numentriesreturned : *mut u32 ) -> u32 );
+    IPsecSaEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaEnum1<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IPsecSaEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_DETAILS1 , numentriesreturned : *mut u32 ) -> u32 );
-    IPsecSaEnum1(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IPsecSaEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IPSEC_SA_DETAILS1 , numentriesreturned : *mut u32 ) -> u32 );
+    IPsecSaEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextGetStatistics0<P0>(enginehandle: P0, ikeextstatistics: *mut IKEEXT_STATISTICS0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextGetStatistics0 ( enginehandle : super::super::Foundation:: HANDLE , ikeextstatistics : *mut IKEEXT_STATISTICS0 ) -> u32 );
-    IkeextGetStatistics0(enginehandle.into(), ikeextstatistics)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextGetStatistics0 ( enginehandle : super::super::Foundation:: HANDLE , ikeextstatistics : *mut IKEEXT_STATISTICS0 ) -> u32 );
+    IkeextGetStatistics0(enginehandle.into_param().abi(), ikeextstatistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextGetStatistics1<P0>(enginehandle: P0, ikeextstatistics: *mut IKEEXT_STATISTICS1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextGetStatistics1 ( enginehandle : super::super::Foundation:: HANDLE , ikeextstatistics : *mut IKEEXT_STATISTICS1 ) -> u32 );
-    IkeextGetStatistics1(enginehandle.into(), ikeextstatistics)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextGetStatistics1 ( enginehandle : super::super::Foundation:: HANDLE , ikeextstatistics : *mut IKEEXT_STATISTICS1 ) -> u32 );
+    IkeextGetStatistics1(enginehandle.into_param().abi(), ikeextstatistics)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaCreateEnumHandle0<P0>(enginehandle: P0, enumtemplate: ::core::option::Option<*const IKEEXT_SA_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IKEEXT_SA_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    IkeextSaCreateEnumHandle0(enginehandle.into(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaCreateEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumtemplate : *const IKEEXT_SA_ENUM_TEMPLATE0 , enumhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    IkeextSaCreateEnumHandle0(enginehandle.into_param().abi(), ::core::mem::transmute(enumtemplate.unwrap_or(::std::ptr::null())), enumhandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaDbGetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaDbGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
-    IkeextSaDbGetSecurityInfo0(enginehandle.into(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaDbGetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *mut super::super::Foundation:: PSID , sidgroup : *mut super::super::Foundation:: PSID , dacl : *mut *mut super::super::Security:: ACL , sacl : *mut *mut super::super::Security:: ACL , securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR ) -> u32 );
+    IkeextSaDbGetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaDbSetSecurityInfo0<P0>(enginehandle: P0, securityinfo: u32, sidowner: ::core::option::Option<*const super::super::Security::SID>, sidgroup: ::core::option::Option<*const super::super::Security::SID>, dacl: ::core::option::Option<*const super::super::Security::ACL>, sacl: ::core::option::Option<*const super::super::Security::ACL>) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaDbSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
-    IkeextSaDbSetSecurityInfo0(enginehandle.into(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaDbSetSecurityInfo0 ( enginehandle : super::super::Foundation:: HANDLE , securityinfo : u32 , sidowner : *const super::super::Security:: SID , sidgroup : *const super::super::Security:: SID , dacl : *const super::super::Security:: ACL , sacl : *const super::super::Security:: ACL ) -> u32 );
+    IkeextSaDbSetSecurityInfo0(enginehandle.into_param().abi(), securityinfo, ::core::mem::transmute(sidowner.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sidgroup.unwrap_or(::std::ptr::null())), ::core::mem::transmute(dacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(sacl.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaDeleteById0<P0>(enginehandle: P0, id: u64) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
-    IkeextSaDeleteById0(enginehandle.into(), id)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaDeleteById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 ) -> u32 );
+    IkeextSaDeleteById0(enginehandle.into_param().abi(), id)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaDestroyEnumHandle0<P0, P1>(enginehandle: P0, enumhandle: P1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
-    IkeextSaDestroyEnumHandle0(enginehandle.into(), enumhandle.into())
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaDestroyEnumHandle0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE ) -> u32 );
+    IkeextSaDestroyEnumHandle0(enginehandle.into_param().abi(), enumhandle.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum0<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IKEEXT_SA_DETAILS0 , numentriesreturned : *mut u32 ) -> u32 );
-    IkeextSaEnum0(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaEnum0 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IKEEXT_SA_DETAILS0 , numentriesreturned : *mut u32 ) -> u32 );
+    IkeextSaEnum0(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum1<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IKEEXT_SA_DETAILS1 , numentriesreturned : *mut u32 ) -> u32 );
-    IkeextSaEnum1(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaEnum1 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IKEEXT_SA_DETAILS1 , numentriesreturned : *mut u32 ) -> u32 );
+    IkeextSaEnum1(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum2<P0, P1>(enginehandle: P0, enumhandle: P1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned: *mut u32) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaEnum2 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IKEEXT_SA_DETAILS2 , numentriesreturned : *mut u32 ) -> u32 );
-    IkeextSaEnum2(enginehandle.into(), enumhandle.into(), numentriesrequested, entries, numentriesreturned)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaEnum2 ( enginehandle : super::super::Foundation:: HANDLE , enumhandle : super::super::Foundation:: HANDLE , numentriesrequested : u32 , entries : *mut *mut *mut IKEEXT_SA_DETAILS2 , numentriesreturned : *mut u32 ) -> u32 );
+    IkeextSaEnum2(enginehandle.into_param().abi(), enumhandle.into_param().abi(), numentriesrequested, entries, numentriesreturned)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById0<P0>(enginehandle: P0, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , sa : *mut *mut IKEEXT_SA_DETAILS0 ) -> u32 );
-    IkeextSaGetById0(enginehandle.into(), id, sa)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaGetById0 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , sa : *mut *mut IKEEXT_SA_DETAILS0 ) -> u32 );
+    IkeextSaGetById0(enginehandle.into_param().abi(), id, sa)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById1<P0>(enginehandle: P0, id: u64, salookupcontext: ::core::option::Option<*const ::windows::core::GUID>, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const :: windows::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS1 ) -> u32 );
-    IkeextSaGetById1(enginehandle.into(), id, ::core::mem::transmute(salookupcontext.unwrap_or(::std::ptr::null())), sa)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaGetById1 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const :: windows::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS1 ) -> u32 );
+    IkeextSaGetById1(enginehandle.into_param().abi(), id, ::core::mem::transmute(salookupcontext.unwrap_or(::std::ptr::null())), sa)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById2<P0>(enginehandle: P0, id: u64, salookupcontext: ::core::option::Option<*const ::windows::core::GUID>, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::windows::core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn IkeextSaGetById2 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const :: windows::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS2 ) -> u32 );
-    IkeextSaGetById2(enginehandle.into(), id, ::core::mem::transmute(salookupcontext.unwrap_or(::std::ptr::null())), sa)
+    ::windows::imp::link ! ( "fwpuclnt.dll""system" fn IkeextSaGetById2 ( enginehandle : super::super::Foundation:: HANDLE , id : u64 , salookupcontext : *const :: windows::core::GUID , sa : *mut *mut IKEEXT_SA_DETAILS2 ) -> u32 );
+    IkeextSaGetById2(enginehandle.into_param().abi(), id, ::core::mem::transmute(salookupcontext.unwrap_or(::std::ptr::null())), sa)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub const FWPM_ACTRL_ADD: u32 = 1u32;
@@ -3072,8 +3072,8 @@ impl ::core::default::Default for DL_ADDRESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DL_ADDRESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DL_ADDRESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DL_ADDRESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3101,8 +3101,8 @@ impl ::core::default::Default for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_APPC_NETWORK_CAPABILITY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3130,8 +3130,8 @@ impl ::core::default::Default for FWPM_CHANGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CHANGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CHANGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3159,8 +3159,8 @@ impl ::core::default::Default for FWPM_CONNECTION_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CONNECTION_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CONNECTION_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_CONNECTION_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3196,8 +3196,8 @@ impl ::core::default::Default for FWPM_ENGINE_OPTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_ENGINE_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_ENGINE_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_ENGINE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3227,8 +3227,8 @@ impl ::core::default::Default for FWPM_FIELD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_FIELD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FIELD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_FIELD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3266,8 +3266,8 @@ impl ::core::default::Default for FWPM_FILTER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_FILTER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FILTER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_FILTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3346,8 +3346,8 @@ impl ::core::default::Default for FWPM_NET_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_NET_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3397,8 +3397,8 @@ impl ::core::default::Default for FWPM_PROVIDER_CONTEXT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3430,8 +3430,8 @@ impl ::core::default::Default for FWPM_SERVICE_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SERVICE_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SERVICE_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_SERVICE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3457,8 +3457,8 @@ impl ::core::default::Default for FWPM_SUBSCRIPTION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SUBSCRIPTION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SUBSCRIPTION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_SUBSCRIPTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3490,8 +3490,8 @@ impl ::core::default::Default for FWPM_SYSTEM_PORT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SYSTEM_PORT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_SYSTEM_PORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3525,8 +3525,8 @@ impl ::core::default::Default for FWPM_VSWITCH_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_VSWITCH_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3556,8 +3556,8 @@ impl ::core::default::Default for FWP_AF {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_AF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_AF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_AF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3597,8 +3597,8 @@ impl ::core::default::Default for FWP_CLASSIFY_OPTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_CLASSIFY_OPTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_CLASSIFY_OPTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_CLASSIFY_OPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3668,8 +3668,8 @@ impl ::core::default::Default for FWP_DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3697,8 +3697,8 @@ impl ::core::default::Default for FWP_DIRECTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_DIRECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_DIRECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_DIRECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3726,8 +3726,8 @@ impl ::core::default::Default for FWP_ETHER_ENCAP_METHOD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_ETHER_ENCAP_METHOD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_ETHER_ENCAP_METHOD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_ETHER_ENCAP_METHOD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3755,8 +3755,8 @@ impl ::core::default::Default for FWP_FILTER_ENUM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_FILTER_ENUM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_FILTER_ENUM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_FILTER_ENUM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3786,8 +3786,8 @@ impl ::core::default::Default for FWP_IP_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_IP_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_IP_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_IP_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3837,8 +3837,8 @@ impl ::core::default::Default for FWP_MATCH_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_MATCH_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_MATCH_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_MATCH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3868,8 +3868,8 @@ impl ::core::default::Default for FWP_VSWITCH_NETWORK_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FWP_VSWITCH_NETWORK_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_VSWITCH_NETWORK_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FWP_VSWITCH_NETWORK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3897,8 +3897,8 @@ impl ::core::default::Default for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3948,8 +3948,8 @@ impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_METHOD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_AUTHENTICATION_METHOD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3981,8 +3981,8 @@ impl ::core::default::Default for IKEEXT_CERT_AUTH {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERT_AUTH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERT_AUTH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_CERT_AUTH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4047,8 +4047,8 @@ impl ::core::default::Default for IKEEXT_CERT_CONFIG_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERT_CONFIG_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERT_CONFIG_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_CERT_CONFIG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4086,8 +4086,8 @@ impl ::core::default::Default for IKEEXT_CERT_CRITERIA_NAME_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERT_CRITERIA_NAME_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERT_CRITERIA_NAME_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_CERT_CRITERIA_NAME_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4127,8 +4127,8 @@ impl ::core::default::Default for IKEEXT_CERT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_CERT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4199,8 +4199,8 @@ impl ::core::default::Default for IKEEXT_CIPHER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CIPHER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CIPHER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_CIPHER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4240,8 +4240,8 @@ impl ::core::default::Default for IKEEXT_DH_GROUP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_DH_GROUP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_DH_GROUP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_DH_GROUP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4267,8 +4267,8 @@ impl ::core::default::Default for IKEEXT_EAP_AUTHENTICATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_EAP_AUTHENTICATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_EAP_AUTHENTICATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4337,8 +4337,8 @@ impl ::core::default::Default for IKEEXT_EM_SA_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_EM_SA_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_EM_SA_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_EM_SA_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4370,8 +4370,8 @@ impl ::core::default::Default for IKEEXT_INTEGRITY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_INTEGRITY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_INTEGRITY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_INTEGRITY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4397,8 +4397,8 @@ impl ::core::default::Default for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4461,8 +4461,8 @@ impl ::core::default::Default for IKEEXT_KEY_MODULE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_KEY_MODULE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_KEY_MODULE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_KEY_MODULE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4498,8 +4498,8 @@ impl ::core::default::Default for IKEEXT_MM_SA_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_MM_SA_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_MM_SA_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_MM_SA_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4529,8 +4529,8 @@ impl ::core::default::Default for IKEEXT_POLICY_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_POLICY_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_POLICY_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_POLICY_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4589,8 +4589,8 @@ impl ::core::default::Default for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4655,8 +4655,8 @@ impl ::core::default::Default for IKEEXT_QM_SA_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_QM_SA_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_QM_SA_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_QM_SA_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4680,8 +4680,8 @@ impl ::core::default::Default for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4742,8 +4742,8 @@ impl ::core::default::Default for IKEEXT_SA_ROLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_SA_ROLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_ROLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IKEEXT_SA_ROLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4779,8 +4779,8 @@ impl ::core::default::Default for IPSEC_AUTH_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AUTH_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AUTH_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_AUTH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4814,8 +4814,8 @@ impl ::core::default::Default for IPSEC_CIPHER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_CIPHER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_CIPHER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_CIPHER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4849,8 +4849,8 @@ impl ::core::default::Default for IPSEC_DOSP_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_DOSP_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_DOSP_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_DOSP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4913,8 +4913,8 @@ impl ::core::default::Default for IPSEC_FAILURE_POINT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_FAILURE_POINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_FAILURE_POINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_FAILURE_POINT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4956,8 +4956,8 @@ impl ::core::default::Default for IPSEC_PFS_GROUP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_PFS_GROUP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_PFS_GROUP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_PFS_GROUP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5005,8 +5005,8 @@ impl ::core::default::Default for IPSEC_POLICY_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_POLICY_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_POLICY_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_POLICY_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5081,8 +5081,8 @@ impl ::core::default::Default for IPSEC_SA_BUNDLE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_BUNDLE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_SA_BUNDLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5143,8 +5143,8 @@ impl ::core::default::Default for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_SA_CONTEXT_EVENT_TYPE0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5172,8 +5172,8 @@ impl ::core::default::Default for IPSEC_TOKEN_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TOKEN_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TOKEN_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_TOKEN_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5201,8 +5201,8 @@ impl ::core::default::Default for IPSEC_TOKEN_PRINCIPAL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TOKEN_PRINCIPAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TOKEN_PRINCIPAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_TOKEN_PRINCIPAL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5230,8 +5230,8 @@ impl ::core::default::Default for IPSEC_TOKEN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TOKEN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TOKEN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_TOKEN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5259,8 +5259,8 @@ impl ::core::default::Default for IPSEC_TRAFFIC_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_TRAFFIC_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5294,8 +5294,8 @@ impl ::core::default::Default for IPSEC_TRANSFORM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRANSFORM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRANSFORM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IPSEC_TRANSFORM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5314,8 +5314,8 @@ impl ::core::clone::Clone for FWPM_ACTION0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_ACTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_ACTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FWPM_ACTION0 {
     fn default() -> Self {
@@ -5334,8 +5334,8 @@ impl ::core::clone::Clone for FWPM_ACTION0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_ACTION0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_ACTION0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FWPM_ACTION0_0 {
     fn default() -> Self {
@@ -5364,8 +5364,8 @@ impl ::core::fmt::Debug for FWPM_CALLOUT0 {
         f.debug_struct("FWPM_CALLOUT0").field("calloutKey", &self.calloutKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("applicableLayer", &self.applicableLayer).field("calloutId", &self.calloutId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CALLOUT0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CALLOUT0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_CALLOUT0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5396,8 +5396,8 @@ impl ::core::fmt::Debug for FWPM_CALLOUT_CHANGE0 {
         f.debug_struct("FWPM_CALLOUT_CHANGE0").field("changeType", &self.changeType).field("calloutKey", &self.calloutKey).field("calloutId", &self.calloutId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CALLOUT_CHANGE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CALLOUT_CHANGE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_CALLOUT_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5427,8 +5427,8 @@ impl ::core::fmt::Debug for FWPM_CALLOUT_ENUM_TEMPLATE0 {
         f.debug_struct("FWPM_CALLOUT_ENUM_TEMPLATE0").field("providerKey", &self.providerKey).field("layerKey", &self.layerKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CALLOUT_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CALLOUT_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_CALLOUT_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5459,8 +5459,8 @@ impl ::core::fmt::Debug for FWPM_CALLOUT_SUBSCRIPTION0 {
         f.debug_struct("FWPM_CALLOUT_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CALLOUT_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CALLOUT_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_CALLOUT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5489,8 +5489,8 @@ impl ::core::clone::Clone for FWPM_CLASSIFY_OPTION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_CLASSIFY_OPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CLASSIFY_OPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_CLASSIFY_OPTION0 {
@@ -5520,8 +5520,8 @@ impl ::core::fmt::Debug for FWPM_CLASSIFY_OPTIONS0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_CLASSIFY_OPTIONS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CLASSIFY_OPTIONS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWPM_CLASSIFY_OPTIONS0 {
@@ -5565,8 +5565,8 @@ impl ::core::clone::Clone for FWPM_CONNECTION0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_CONNECTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CONNECTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_CONNECTION0 {
@@ -5590,8 +5590,8 @@ impl ::core::clone::Clone for FWPM_CONNECTION0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_CONNECTION0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CONNECTION0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_CONNECTION0_0 {
@@ -5615,8 +5615,8 @@ impl ::core::clone::Clone for FWPM_CONNECTION0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_CONNECTION0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CONNECTION0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_CONNECTION0_1 {
@@ -5641,8 +5641,8 @@ impl ::core::fmt::Debug for FWPM_CONNECTION_ENUM_TEMPLATE0 {
         f.debug_struct("FWPM_CONNECTION_ENUM_TEMPLATE0").field("connectionId", &self.connectionId).field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CONNECTION_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CONNECTION_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_CONNECTION_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5673,8 +5673,8 @@ impl ::core::fmt::Debug for FWPM_CONNECTION_SUBSCRIPTION0 {
         f.debug_struct("FWPM_CONNECTION_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_CONNECTION_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_CONNECTION_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_CONNECTION_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5704,8 +5704,8 @@ impl ::core::fmt::Debug for FWPM_DISPLAY_DATA0 {
         f.debug_struct("FWPM_DISPLAY_DATA0").field("name", &self.name).field("description", &self.description).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_DISPLAY_DATA0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_DISPLAY_DATA0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_DISPLAY_DATA0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5736,8 +5736,8 @@ impl ::core::fmt::Debug for FWPM_FIELD0 {
         f.debug_struct("FWPM_FIELD0").field("fieldKey", &self.fieldKey).field("type", &self.r#type).field("dataType", &self.dataType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_FIELD0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FIELD0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_FIELD0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5779,8 +5779,8 @@ impl ::core::clone::Clone for FWPM_FILTER0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_FILTER0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FILTER0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_FILTER0 {
@@ -5804,8 +5804,8 @@ impl ::core::clone::Clone for FWPM_FILTER0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_FILTER0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FILTER0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_FILTER0_0 {
@@ -5831,8 +5831,8 @@ impl ::core::fmt::Debug for FWPM_FILTER_CHANGE0 {
         f.debug_struct("FWPM_FILTER_CHANGE0").field("changeType", &self.changeType).field("filterKey", &self.filterKey).field("filterId", &self.filterId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_FILTER_CHANGE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FILTER_CHANGE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_FILTER_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5862,8 +5862,8 @@ impl ::core::clone::Clone for FWPM_FILTER_CONDITION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_FILTER_CONDITION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FILTER_CONDITION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_FILTER_CONDITION0 {
@@ -5900,8 +5900,8 @@ impl ::core::fmt::Debug for FWPM_FILTER_ENUM_TEMPLATE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_FILTER_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FILTER_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWPM_FILTER_ENUM_TEMPLATE0 {
@@ -5940,8 +5940,8 @@ impl ::core::fmt::Debug for FWPM_FILTER_SUBSCRIPTION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_FILTER_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_FILTER_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWPM_FILTER_SUBSCRIPTION0 {
@@ -5979,8 +5979,8 @@ impl ::core::fmt::Debug for FWPM_LAYER0 {
         f.debug_struct("FWPM_LAYER0").field("layerKey", &self.layerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("numFields", &self.numFields).field("field", &self.field).field("defaultSubLayerKey", &self.defaultSubLayerKey).field("layerId", &self.layerId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_LAYER0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_LAYER0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_LAYER0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6009,8 +6009,8 @@ impl ::core::fmt::Debug for FWPM_LAYER_ENUM_TEMPLATE0 {
         f.debug_struct("FWPM_LAYER_ENUM_TEMPLATE0").field("reserved", &self.reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_LAYER_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_LAYER_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_LAYER_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6043,8 +6043,8 @@ impl ::core::fmt::Debug for FWPM_LAYER_STATISTICS0 {
         f.debug_struct("FWPM_LAYER_STATISTICS0").field("layerId", &self.layerId).field("classifyPermitCount", &self.classifyPermitCount).field("classifyBlockCount", &self.classifyBlockCount).field("classifyVetoCount", &self.classifyVetoCount).field("numCacheEntries", &self.numCacheEntries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_LAYER_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_LAYER_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_LAYER_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6074,8 +6074,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT0 {
@@ -6103,8 +6103,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT0_0 {
@@ -6129,8 +6129,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT1 {
@@ -6158,8 +6158,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT1_0 {
@@ -6184,8 +6184,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT2 {
@@ -6217,8 +6217,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT2_0 {
@@ -6243,8 +6243,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT3 {
@@ -6276,8 +6276,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT3_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT3_0 {
@@ -6302,8 +6302,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT4 {
@@ -6335,8 +6335,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT4_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT4_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT4_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT4_0 {
@@ -6361,8 +6361,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT5 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT5 {
@@ -6395,8 +6395,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT5_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT5_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT5_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT5_0 {
@@ -6427,8 +6427,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
@@ -6467,8 +6467,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CAPABILITY_DROP0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CAPABILITY_DROP0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_CAPABILITY_DROP0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CAPABILITY_DROP0 {
@@ -6511,8 +6511,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
@@ -6545,8 +6545,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP0 {
         f.debug_struct("FWPM_NET_EVENT_CLASSIFY_DROP0").field("filterId", &self.filterId).field("layerId", &self.layerId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6586,8 +6586,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP1 {
@@ -6644,8 +6644,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP2 {
@@ -6720,8 +6720,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
@@ -6761,8 +6761,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_ENUM_TEMPLATE0 {
@@ -6803,8 +6803,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER0 {
@@ -6828,8 +6828,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER0_0 {
@@ -6853,8 +6853,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER0_1 {
@@ -6888,8 +6888,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER1 {
@@ -6913,8 +6913,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_0 {
@@ -6938,8 +6938,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_1 {
@@ -6962,8 +6962,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER1_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2 {
@@ -6987,8 +6987,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER1_2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2_0 {
@@ -7011,8 +7011,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_2_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER1_2_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
@@ -7049,8 +7049,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
@@ -7093,8 +7093,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER2 {
@@ -7118,8 +7118,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER2_0 {
@@ -7143,8 +7143,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER2_1 {
@@ -7182,8 +7182,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER3 {
@@ -7207,8 +7207,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER3_0 {
@@ -7232,8 +7232,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_HEADER3_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_HEADER3_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_HEADER3_1 {
@@ -7265,8 +7265,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
         f.debug_struct("FWPM_NET_EVENT_IKEEXT_EM_FAILURE0").field("failureErrorCode", &self.failureErrorCode).field("failurePoint", &self.failurePoint).field("flags", &self.flags).field("emState", &self.emState).field("saRole", &self.saRole).field("emAuthMethod", &self.emAuthMethod).field("endCertHash", &self.endCertHash).field("mmId", &self.mmId).field("qmFilterId", &self.qmFilterId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7327,8 +7327,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -7381,8 +7381,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
         f.debug_struct("FWPM_NET_EVENT_IKEEXT_MM_FAILURE0").field("failureErrorCode", &self.failureErrorCode).field("failurePoint", &self.failurePoint).field("flags", &self.flags).field("keyingModuleType", &self.keyingModuleType).field("mmState", &self.mmState).field("saRole", &self.saRole).field("mmAuthMethod", &self.mmAuthMethod).field("endCertHash", &self.endCertHash).field("mmId", &self.mmId).field("mmFilterId", &self.mmFilterId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7443,8 +7443,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -7522,8 +7522,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     fn eq(&self, other: &Self) -> bool {
@@ -7575,8 +7575,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
@@ -7599,8 +7599,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
@@ -7623,8 +7623,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
@@ -7657,8 +7657,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1 {
@@ -7681,8 +7681,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 {
@@ -7705,8 +7705,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 {
@@ -7729,8 +7729,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0 {
     fn default() -> Self {
@@ -7749,8 +7749,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 {
     fn default() -> Self {
@@ -7769,8 +7769,8 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
     fn default() -> Self {
@@ -7797,8 +7797,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
         f.debug_struct("FWPM_NET_EVENT_IPSEC_KERNEL_DROP0").field("failureStatus", &self.failureStatus).field("direction", &self.direction).field("spi", &self.spi).field("filterId", &self.filterId).field("layerId", &self.layerId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7827,8 +7827,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
         f.debug_struct("FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0").field("spi", &self.spi).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7864,8 +7864,8 @@ impl ::core::fmt::Debug for FWPM_NET_EVENT_SUBSCRIPTION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_NET_EVENT_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_NET_EVENT_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWPM_NET_EVENT_SUBSCRIPTION0 {
@@ -7901,8 +7901,8 @@ impl ::core::fmt::Debug for FWPM_PROVIDER0 {
         f.debug_struct("FWPM_PROVIDER0").field("providerKey", &self.providerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerData", &self.providerData).field("serviceName", &self.serviceName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_PROVIDER0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7932,8 +7932,8 @@ impl ::core::fmt::Debug for FWPM_PROVIDER_CHANGE0 {
         f.debug_struct("FWPM_PROVIDER_CHANGE0").field("changeType", &self.changeType).field("providerKey", &self.providerKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CHANGE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CHANGE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_PROVIDER_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7968,8 +7968,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT0 {
@@ -8000,8 +8000,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT0_0 {
@@ -8031,8 +8031,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT1 {
@@ -8066,8 +8066,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT1_0 {
@@ -8097,8 +8097,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT2 {
@@ -8133,8 +8133,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT2_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT2_0 {
@@ -8164,8 +8164,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3 {
@@ -8200,8 +8200,8 @@ impl ::core::clone::Clone for FWPM_PROVIDER_CONTEXT3_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWPM_PROVIDER_CONTEXT3_0 {
@@ -8227,8 +8227,8 @@ impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT_CHANGE0 {
         f.debug_struct("FWPM_PROVIDER_CONTEXT_CHANGE0").field("changeType", &self.changeType).field("providerContextKey", &self.providerContextKey).field("providerContextId", &self.providerContextId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_CHANGE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT_CHANGE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8258,8 +8258,8 @@ impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
         f.debug_struct("FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0").field("providerKey", &self.providerKey).field("providerContextType", &self.providerContextType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8290,8 +8290,8 @@ impl ::core::fmt::Debug for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
         f.debug_struct("FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8320,8 +8320,8 @@ impl ::core::fmt::Debug for FWPM_PROVIDER_ENUM_TEMPLATE0 {
         f.debug_struct("FWPM_PROVIDER_ENUM_TEMPLATE0").field("reserved", &self.reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_PROVIDER_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8352,8 +8352,8 @@ impl ::core::fmt::Debug for FWPM_PROVIDER_SUBSCRIPTION0 {
         f.debug_struct("FWPM_PROVIDER_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_PROVIDER_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_PROVIDER_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_PROVIDER_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8394,8 +8394,8 @@ impl ::core::fmt::Debug for FWPM_SESSION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWPM_SESSION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SESSION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWPM_SESSION0 {
@@ -8427,8 +8427,8 @@ impl ::core::fmt::Debug for FWPM_SESSION_ENUM_TEMPLATE0 {
         f.debug_struct("FWPM_SESSION_ENUM_TEMPLATE0").field("reserved", &self.reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SESSION_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SESSION_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_SESSION_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8529,8 +8529,8 @@ impl ::core::fmt::Debug for FWPM_STATISTICS0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8599,8 +8599,8 @@ impl ::core::fmt::Debug for FWPM_SUBLAYER0 {
         f.debug_struct("FWPM_SUBLAYER0").field("subLayerKey", &self.subLayerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("providerKey", &self.providerKey).field("providerData", &self.providerData).field("weight", &self.weight).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SUBLAYER0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SUBLAYER0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_SUBLAYER0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8630,8 +8630,8 @@ impl ::core::fmt::Debug for FWPM_SUBLAYER_CHANGE0 {
         f.debug_struct("FWPM_SUBLAYER_CHANGE0").field("changeType", &self.changeType).field("subLayerKey", &self.subLayerKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SUBLAYER_CHANGE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SUBLAYER_CHANGE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_SUBLAYER_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8660,8 +8660,8 @@ impl ::core::fmt::Debug for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
         f.debug_struct("FWPM_SUBLAYER_ENUM_TEMPLATE0").field("providerKey", &self.providerKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8692,8 +8692,8 @@ impl ::core::fmt::Debug for FWPM_SUBLAYER_SUBSCRIPTION0 {
         f.debug_struct("FWPM_SUBLAYER_SUBSCRIPTION0").field("enumTemplate", &self.enumTemplate).field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SUBLAYER_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SUBLAYER_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_SUBLAYER_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8723,8 +8723,8 @@ impl ::core::fmt::Debug for FWPM_SYSTEM_PORTS0 {
         f.debug_struct("FWPM_SYSTEM_PORTS0").field("numTypes", &self.numTypes).field("types", &self.types).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORTS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SYSTEM_PORTS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_SYSTEM_PORTS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8755,8 +8755,8 @@ impl ::core::fmt::Debug for FWPM_SYSTEM_PORTS_BY_TYPE0 {
         f.debug_struct("FWPM_SYSTEM_PORTS_BY_TYPE0").field("type", &self.r#type).field("numPorts", &self.numPorts).field("ports", &self.ports).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_SYSTEM_PORTS_BY_TYPE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_SYSTEM_PORTS_BY_TYPE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_SYSTEM_PORTS_BY_TYPE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8786,8 +8786,8 @@ impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_VSWITCH_EVENT0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_VSWITCH_EVENT0 {
@@ -8811,8 +8811,8 @@ impl ::core::clone::Clone for FWPM_VSWITCH_EVENT0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_VSWITCH_EVENT0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FWPM_VSWITCH_EVENT0_0 {
@@ -8842,8 +8842,8 @@ impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT0_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_VSWITCH_EVENT0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0_0 {
@@ -8882,8 +8882,8 @@ impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT0_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT0_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_VSWITCH_EVENT0_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT0_0_1 {
@@ -8916,8 +8916,8 @@ impl ::core::fmt::Debug for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
         f.debug_struct("FWPM_VSWITCH_EVENT_SUBSCRIPTION0").field("flags", &self.flags).field("sessionKey", &self.sessionKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8946,8 +8946,8 @@ impl ::core::fmt::Debug for FWP_BYTE_ARRAY16 {
         f.debug_struct("FWP_BYTE_ARRAY16").field("byteArray16", &self.byteArray16).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWP_BYTE_ARRAY16 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_BYTE_ARRAY16 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWP_BYTE_ARRAY16 {
     fn eq(&self, other: &Self) -> bool {
@@ -8976,8 +8976,8 @@ impl ::core::fmt::Debug for FWP_BYTE_ARRAY6 {
         f.debug_struct("FWP_BYTE_ARRAY6").field("byteArray6", &self.byteArray6).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWP_BYTE_ARRAY6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_BYTE_ARRAY6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWP_BYTE_ARRAY6 {
     fn eq(&self, other: &Self) -> bool {
@@ -9007,8 +9007,8 @@ impl ::core::fmt::Debug for FWP_BYTE_BLOB {
         f.debug_struct("FWP_BYTE_BLOB").field("size", &self.size).field("data", &self.data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWP_BYTE_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_BYTE_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWP_BYTE_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -9037,8 +9037,8 @@ impl ::core::clone::Clone for FWP_CONDITION_VALUE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWP_CONDITION_VALUE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_CONDITION_VALUE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWP_CONDITION_VALUE0 {
@@ -9081,8 +9081,8 @@ impl ::core::clone::Clone for FWP_CONDITION_VALUE0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWP_CONDITION_VALUE0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_CONDITION_VALUE0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWP_CONDITION_VALUE0_0 {
@@ -9106,8 +9106,8 @@ impl ::core::clone::Clone for FWP_RANGE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWP_RANGE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_RANGE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWP_RANGE0 {
@@ -9139,8 +9139,8 @@ impl ::core::fmt::Debug for FWP_TOKEN_INFORMATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWP_TOKEN_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_TOKEN_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for FWP_TOKEN_INFORMATION {
@@ -9173,8 +9173,8 @@ impl ::core::fmt::Debug for FWP_V4_ADDR_AND_MASK {
         f.debug_struct("FWP_V4_ADDR_AND_MASK").field("addr", &self.addr).field("mask", &self.mask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWP_V4_ADDR_AND_MASK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_V4_ADDR_AND_MASK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWP_V4_ADDR_AND_MASK {
     fn eq(&self, other: &Self) -> bool {
@@ -9204,8 +9204,8 @@ impl ::core::fmt::Debug for FWP_V6_ADDR_AND_MASK {
         f.debug_struct("FWP_V6_ADDR_AND_MASK").field("addr", &self.addr).field("prefixLength", &self.prefixLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FWP_V6_ADDR_AND_MASK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_V6_ADDR_AND_MASK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FWP_V6_ADDR_AND_MASK {
     fn eq(&self, other: &Self) -> bool {
@@ -9234,8 +9234,8 @@ impl ::core::clone::Clone for FWP_VALUE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWP_VALUE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_VALUE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWP_VALUE0 {
@@ -9275,8 +9275,8 @@ impl ::core::clone::Clone for FWP_VALUE0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for FWP_VALUE0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FWP_VALUE0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for FWP_VALUE0_0 {
@@ -9296,8 +9296,8 @@ impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_METHOD0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD0 {
     fn default() -> Self {
@@ -9320,8 +9320,8 @@ impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_METHOD0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn default() -> Self {
@@ -9340,8 +9340,8 @@ impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_METHOD1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD1 {
     fn default() -> Self {
@@ -9365,8 +9365,8 @@ impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_METHOD1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn default() -> Self {
@@ -9385,8 +9385,8 @@ impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_METHOD2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD2 {
     fn default() -> Self {
@@ -9411,8 +9411,8 @@ impl ::core::clone::Clone for IKEEXT_AUTHENTICATION_METHOD2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_AUTHENTICATION_METHOD2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_AUTHENTICATION_METHOD2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn default() -> Self {
@@ -9434,8 +9434,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     fn default() -> Self {
@@ -9455,8 +9455,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     fn default() -> Self {
@@ -9480,8 +9480,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0").field("inboundRootArraySize", &self.inboundRootArraySize).field("inboundRootArray", &self.inboundRootArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9507,8 +9507,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     fn default() -> Self {
@@ -9532,8 +9532,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0").field("outboundRootArraySize", &self.outboundRootArraySize).field("outboundRootArray", &self.outboundRootArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9562,8 +9562,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     fn default() -> Self {
@@ -9583,8 +9583,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     fn default() -> Self {
@@ -9608,8 +9608,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0").field("inboundRootArraySize", &self.inboundRootArraySize).field("inboundRootArray", &self.inboundRootArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9635,8 +9635,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     fn default() -> Self {
@@ -9660,8 +9660,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0").field("outboundRootArraySize", &self.outboundRootArraySize).field("outboundRootArray", &self.outboundRootArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9690,8 +9690,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn default() -> Self {
@@ -9711,8 +9711,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn default() -> Self {
@@ -9736,8 +9736,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0").field("inboundRootArraySize", &self.inboundRootArraySize).field("inboundRootCriteria", &self.inboundRootCriteria).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9767,8 +9767,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1").field("inboundEnterpriseStoreArraySize", &self.inboundEnterpriseStoreArraySize).field("inboundEnterpriseStoreCriteria", &self.inboundEnterpriseStoreCriteria).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9798,8 +9798,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2").field("inboundRootStoreArraySize", &self.inboundRootStoreArraySize).field("inboundTrustedRootStoreCriteria", &self.inboundTrustedRootStoreCriteria).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9825,8 +9825,8 @@ impl ::core::clone::Clone for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn default() -> Self {
@@ -9850,8 +9850,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0").field("outboundRootArraySize", &self.outboundRootArraySize).field("outboundRootCriteria", &self.outboundRootCriteria).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9881,8 +9881,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1").field("outboundEnterpriseStoreArraySize", &self.outboundEnterpriseStoreArraySize).field("outboundEnterpriseStoreCriteria", &self.outboundEnterpriseStoreCriteria).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9912,8 +9912,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
         f.debug_struct("IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2").field("outboundRootStoreArraySize", &self.outboundRootStoreArraySize).field("outboundTrustedRootStoreCriteria", &self.outboundTrustedRootStoreCriteria).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9944,8 +9944,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_CREDENTIAL0 {
         f.debug_struct("IKEEXT_CERTIFICATE_CREDENTIAL0").field("subjectName", &self.subjectName).field("certHash", &self.certHash).field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_CREDENTIAL0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_CREDENTIAL0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_CREDENTIAL0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9977,8 +9977,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_CREDENTIAL1 {
         f.debug_struct("IKEEXT_CERTIFICATE_CREDENTIAL1").field("subjectName", &self.subjectName).field("certHash", &self.certHash).field("flags", &self.flags).field("certificate", &self.certificate).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_CREDENTIAL1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_CREDENTIAL1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_CREDENTIAL1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10011,8 +10011,8 @@ impl ::core::fmt::Debug for IKEEXT_CERTIFICATE_CRITERIA0 {
         f.debug_struct("IKEEXT_CERTIFICATE_CRITERIA0").field("certData", &self.certData).field("certHash", &self.certHash).field("eku", &self.eku).field("name", &self.name).field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERTIFICATE_CRITERIA0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERTIFICATE_CRITERIA0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERTIFICATE_CRITERIA0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10042,8 +10042,8 @@ impl ::core::fmt::Debug for IKEEXT_CERT_EKUS0 {
         f.debug_struct("IKEEXT_CERT_EKUS0").field("numEku", &self.numEku).field("eku", &self.eku).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERT_EKUS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERT_EKUS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERT_EKUS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10073,8 +10073,8 @@ impl ::core::fmt::Debug for IKEEXT_CERT_NAME0 {
         f.debug_struct("IKEEXT_CERT_NAME0").field("nameType", &self.nameType).field("certName", &self.certName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERT_NAME0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERT_NAME0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERT_NAME0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10104,8 +10104,8 @@ impl ::core::fmt::Debug for IKEEXT_CERT_ROOT_CONFIG0 {
         f.debug_struct("IKEEXT_CERT_ROOT_CONFIG0").field("certData", &self.certData).field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CERT_ROOT_CONFIG0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CERT_ROOT_CONFIG0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CERT_ROOT_CONFIG0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10136,8 +10136,8 @@ impl ::core::fmt::Debug for IKEEXT_CIPHER_ALGORITHM0 {
         f.debug_struct("IKEEXT_CIPHER_ALGORITHM0").field("algoIdentifier", &self.algoIdentifier).field("keyLen", &self.keyLen).field("rounds", &self.rounds).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CIPHER_ALGORITHM0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CIPHER_ALGORITHM0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CIPHER_ALGORITHM0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10170,8 +10170,8 @@ impl ::core::fmt::Debug for IKEEXT_COMMON_STATISTICS0 {
         f.debug_struct("IKEEXT_COMMON_STATISTICS0").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("totalPacketsReceived", &self.totalPacketsReceived).field("totalInvalidPacketsReceived", &self.totalInvalidPacketsReceived).field("currentQueuedWorkitems", &self.currentQueuedWorkitems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_COMMON_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_COMMON_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_COMMON_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10204,8 +10204,8 @@ impl ::core::fmt::Debug for IKEEXT_COMMON_STATISTICS1 {
         f.debug_struct("IKEEXT_COMMON_STATISTICS1").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("totalPacketsReceived", &self.totalPacketsReceived).field("totalInvalidPacketsReceived", &self.totalInvalidPacketsReceived).field("currentQueuedWorkitems", &self.currentQueuedWorkitems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_COMMON_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_COMMON_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_COMMON_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10235,8 +10235,8 @@ impl ::core::fmt::Debug for IKEEXT_COOKIE_PAIR0 {
         f.debug_struct("IKEEXT_COOKIE_PAIR0").field("initiator", &self.initiator).field("responder", &self.responder).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_COOKIE_PAIR0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_COOKIE_PAIR0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_COOKIE_PAIR0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10262,8 +10262,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL0 {
     fn default() -> Self {
@@ -10283,8 +10283,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL0_0 {
     fn default() -> Self {
@@ -10304,8 +10304,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL1 {
     fn default() -> Self {
@@ -10325,8 +10325,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL1_0 {
     fn default() -> Self {
@@ -10346,8 +10346,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL2 {
     fn default() -> Self {
@@ -10367,8 +10367,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL2_0 {
     fn default() -> Self {
@@ -10392,8 +10392,8 @@ impl ::core::fmt::Debug for IKEEXT_CREDENTIALS0 {
         f.debug_struct("IKEEXT_CREDENTIALS0").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIALS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10423,8 +10423,8 @@ impl ::core::fmt::Debug for IKEEXT_CREDENTIALS1 {
         f.debug_struct("IKEEXT_CREDENTIALS1").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIALS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10454,8 +10454,8 @@ impl ::core::fmt::Debug for IKEEXT_CREDENTIALS2 {
         f.debug_struct("IKEEXT_CREDENTIALS2").field("numCredentials", &self.numCredentials).field("credentials", &self.credentials).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIALS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIALS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_CREDENTIALS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -10480,8 +10480,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL_PAIR0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR0 {
     fn default() -> Self {
@@ -10500,8 +10500,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL_PAIR1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR1 {
     fn default() -> Self {
@@ -10520,8 +10520,8 @@ impl ::core::clone::Clone for IKEEXT_CREDENTIAL_PAIR2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_CREDENTIAL_PAIR2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_CREDENTIAL_PAIR2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_CREDENTIAL_PAIR2 {
     fn default() -> Self {
@@ -10544,8 +10544,8 @@ impl ::core::fmt::Debug for IKEEXT_EAP_AUTHENTICATION0 {
         f.debug_struct("IKEEXT_EAP_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_EAP_AUTHENTICATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_EAP_AUTHENTICATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_EAP_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10576,8 +10576,8 @@ impl ::core::fmt::Debug for IKEEXT_EM_POLICY0 {
         f.debug_struct("IKEEXT_EM_POLICY0").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_EM_POLICY0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10608,8 +10608,8 @@ impl ::core::fmt::Debug for IKEEXT_EM_POLICY1 {
         f.debug_struct("IKEEXT_EM_POLICY1").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_EM_POLICY1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10640,8 +10640,8 @@ impl ::core::fmt::Debug for IKEEXT_EM_POLICY2 {
         f.debug_struct("IKEEXT_EM_POLICY2").field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_EM_POLICY2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_EM_POLICY2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_EM_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
@@ -10670,8 +10670,8 @@ impl ::core::fmt::Debug for IKEEXT_INTEGRITY_ALGORITHM0 {
         f.debug_struct("IKEEXT_INTEGRITY_ALGORITHM0").field("algoIdentifier", &self.algoIdentifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_INTEGRITY_ALGORITHM0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_INTEGRITY_ALGORITHM0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_INTEGRITY_ALGORITHM0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10704,8 +10704,8 @@ impl ::core::fmt::Debug for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
         f.debug_struct("IKEEXT_IPV6_CGA_AUTHENTICATION0").field("keyContainerName", &self.keyContainerName).field("cspName", &self.cspName).field("cspType", &self.cspType).field("cgaModifier", &self.cgaModifier).field("cgaCollisionCount", &self.cgaCollisionCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10735,8 +10735,8 @@ impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
         f.debug_struct("IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0").field("totalSocketReceiveFailures", &self.totalSocketReceiveFailures).field("totalSocketSendFailures", &self.totalSocketSendFailures).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10766,8 +10766,8 @@ impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
         f.debug_struct("IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1").field("totalSocketReceiveFailures", &self.totalSocketReceiveFailures).field("totalSocketSendFailures", &self.totalSocketSendFailures).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10832,8 +10832,8 @@ impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10915,8 +10915,8 @@ impl ::core::fmt::Debug for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10962,8 +10962,8 @@ impl ::core::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION0 {
         f.debug_struct("IKEEXT_KERBEROS_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_KERBEROS_AUTHENTICATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_KERBEROS_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10993,8 +10993,8 @@ impl ::core::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION1 {
         f.debug_struct("IKEEXT_KERBEROS_AUTHENTICATION1").field("flags", &self.flags).field("proxyServer", &self.proxyServer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_KERBEROS_AUTHENTICATION1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_KERBEROS_AUTHENTICATION1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11028,8 +11028,8 @@ impl ::core::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS0 {
         f.debug_struct("IKEEXT_KEYMODULE_STATISTICS0").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("errorFrequencyTable", &self.errorFrequencyTable).field("mainModeNegotiationTime", &self.mainModeNegotiationTime).field("quickModeNegotiationTime", &self.quickModeNegotiationTime).field("extendedModeNegotiationTime", &self.extendedModeNegotiationTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_KEYMODULE_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_KEYMODULE_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11063,8 +11063,8 @@ impl ::core::fmt::Debug for IKEEXT_KEYMODULE_STATISTICS1 {
         f.debug_struct("IKEEXT_KEYMODULE_STATISTICS1").field("v4Statistics", &self.v4Statistics).field("v6Statistics", &self.v6Statistics).field("errorFrequencyTable", &self.errorFrequencyTable).field("mainModeNegotiationTime", &self.mainModeNegotiationTime).field("quickModeNegotiationTime", &self.quickModeNegotiationTime).field("extendedModeNegotiationTime", &self.extendedModeNegotiationTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_KEYMODULE_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_KEYMODULE_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_KEYMODULE_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11093,8 +11093,8 @@ impl ::core::fmt::Debug for IKEEXT_NAME_CREDENTIAL0 {
         f.debug_struct("IKEEXT_NAME_CREDENTIAL0").field("principalName", &self.principalName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_NAME_CREDENTIAL0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_NAME_CREDENTIAL0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_NAME_CREDENTIAL0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11123,8 +11123,8 @@ impl ::core::fmt::Debug for IKEEXT_NTLM_V2_AUTHENTICATION0 {
         f.debug_struct("IKEEXT_NTLM_V2_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_NTLM_V2_AUTHENTICATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_NTLM_V2_AUTHENTICATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_NTLM_V2_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11160,8 +11160,8 @@ impl ::core::fmt::Debug for IKEEXT_POLICY0 {
         f.debug_struct("IKEEXT_POLICY0").field("softExpirationTime", &self.softExpirationTime).field("numAuthenticationMethods", &self.numAuthenticationMethods).field("authenticationMethods", &self.authenticationMethods).field("initiatorImpersonationType", &self.initiatorImpersonationType).field("numIkeProposals", &self.numIkeProposals).field("ikeProposals", &self.ikeProposals).field("flags", &self.flags).field("maxDynamicFilters", &self.maxDynamicFilters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_POLICY0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_POLICY0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11208,8 +11208,8 @@ impl ::core::fmt::Debug for IKEEXT_POLICY1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_POLICY1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_POLICY1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11256,8 +11256,8 @@ impl ::core::fmt::Debug for IKEEXT_POLICY2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_POLICY2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_POLICY2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
@@ -11286,8 +11286,8 @@ impl ::core::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
         f.debug_struct("IKEEXT_PRESHARED_KEY_AUTHENTICATION0").field("presharedKey", &self.presharedKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11317,8 +11317,8 @@ impl ::core::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
         f.debug_struct("IKEEXT_PRESHARED_KEY_AUTHENTICATION1").field("presharedKey", &self.presharedKey).field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11351,8 +11351,8 @@ impl ::core::fmt::Debug for IKEEXT_PROPOSAL0 {
         f.debug_struct("IKEEXT_PROPOSAL0").field("cipherAlgorithm", &self.cipherAlgorithm).field("integrityAlgorithm", &self.integrityAlgorithm).field("maxLifetimeSeconds", &self.maxLifetimeSeconds).field("dhGroup", &self.dhGroup).field("quickModeLimit", &self.quickModeLimit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_PROPOSAL0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_PROPOSAL0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_PROPOSAL0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11381,8 +11381,8 @@ impl ::core::fmt::Debug for IKEEXT_RESERVED_AUTHENTICATION0 {
         f.debug_struct("IKEEXT_RESERVED_AUTHENTICATION0").field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_RESERVED_AUTHENTICATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_RESERVED_AUTHENTICATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_RESERVED_AUTHENTICATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11415,8 +11415,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_DETAILS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_SA_DETAILS0 {
     fn default() -> Self {
@@ -11434,8 +11434,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_DETAILS0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_SA_DETAILS0_0 {
     fn default() -> Self {
@@ -11463,8 +11463,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_DETAILS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_SA_DETAILS1 {
     fn default() -> Self {
@@ -11482,8 +11482,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_DETAILS1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_SA_DETAILS1_0 {
     fn default() -> Self {
@@ -11511,8 +11511,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_DETAILS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_SA_DETAILS2 {
     fn default() -> Self {
@@ -11530,8 +11530,8 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_SA_DETAILS2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_DETAILS2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_SA_DETAILS2_0 {
     fn default() -> Self {
@@ -11555,8 +11555,8 @@ impl ::core::clone::Clone for IKEEXT_SA_ENUM_TEMPLATE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IKEEXT_SA_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_SA_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for IKEEXT_SA_ENUM_TEMPLATE0 {
@@ -11582,8 +11582,8 @@ impl ::core::fmt::Debug for IKEEXT_STATISTICS0 {
         f.debug_struct("IKEEXT_STATISTICS0").field("ikeStatistics", &self.ikeStatistics).field("authipStatistics", &self.authipStatistics).field("commonStatistics", &self.commonStatistics).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11615,8 +11615,8 @@ impl ::core::fmt::Debug for IKEEXT_STATISTICS1 {
         f.debug_struct("IKEEXT_STATISTICS1").field("ikeStatistics", &self.ikeStatistics).field("authipStatistics", &self.authipStatistics).field("ikeV2Statistics", &self.ikeV2Statistics).field("commonStatistics", &self.commonStatistics).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IKEEXT_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11643,8 +11643,8 @@ impl ::core::clone::Clone for IKEEXT_TRAFFIC0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_TRAFFIC0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_TRAFFIC0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_TRAFFIC0 {
     fn default() -> Self {
@@ -11663,8 +11663,8 @@ impl ::core::clone::Clone for IKEEXT_TRAFFIC0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_TRAFFIC0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_TRAFFIC0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_TRAFFIC0_0 {
     fn default() -> Self {
@@ -11683,8 +11683,8 @@ impl ::core::clone::Clone for IKEEXT_TRAFFIC0_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IKEEXT_TRAFFIC0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IKEEXT_TRAFFIC0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IKEEXT_TRAFFIC0_1 {
     fn default() -> Self {
@@ -11710,8 +11710,8 @@ impl ::core::fmt::Debug for IPSEC_ADDRESS_INFO0 {
         f.debug_struct("IPSEC_ADDRESS_INFO0").field("numV4Addresses", &self.numV4Addresses).field("v4Addresses", &self.v4Addresses).field("numV6Addresses", &self.numV6Addresses).field("v6Addresses", &self.v6Addresses).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_ADDRESS_INFO0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_ADDRESS_INFO0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_ADDRESS_INFO0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11758,8 +11758,8 @@ impl ::core::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11808,8 +11808,8 @@ impl ::core::fmt::Debug for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11844,8 +11844,8 @@ impl ::core::fmt::Debug for IPSEC_AGGREGATE_SA_STATISTICS0 {
         f.debug_struct("IPSEC_AGGREGATE_SA_STATISTICS0").field("activeSas", &self.activeSas).field("pendingSaNegotiations", &self.pendingSaNegotiations).field("totalSasAdded", &self.totalSasAdded).field("totalSasDeleted", &self.totalSasDeleted).field("successfulRekeys", &self.successfulRekeys).field("activeTunnels", &self.activeTunnels).field("offloadedSas", &self.offloadedSas).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AGGREGATE_SA_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AGGREGATE_SA_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_AGGREGATE_SA_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11877,8 +11877,8 @@ impl ::core::fmt::Debug for IPSEC_AH_DROP_PACKET_STATISTICS0 {
         f.debug_struct("IPSEC_AH_DROP_PACKET_STATISTICS0").field("invalidSpisOnInbound", &self.invalidSpisOnInbound).field("authenticationFailuresOnInbound", &self.authenticationFailuresOnInbound).field("replayCheckFailuresOnInbound", &self.replayCheckFailuresOnInbound).field("saNotInitializedOnInbound", &self.saNotInitializedOnInbound).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AH_DROP_PACKET_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AH_DROP_PACKET_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_AH_DROP_PACKET_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11908,8 +11908,8 @@ impl ::core::fmt::Debug for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
         f.debug_struct("IPSEC_AUTH_AND_CIPHER_TRANSFORM0").field("authTransform", &self.authTransform).field("cipherTransform", &self.cipherTransform).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11939,8 +11939,8 @@ impl ::core::fmt::Debug for IPSEC_AUTH_TRANSFORM0 {
         f.debug_struct("IPSEC_AUTH_TRANSFORM0").field("authTransformId", &self.authTransformId).field("cryptoModuleId", &self.cryptoModuleId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AUTH_TRANSFORM0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AUTH_TRANSFORM0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_AUTH_TRANSFORM0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11970,8 +11970,8 @@ impl ::core::fmt::Debug for IPSEC_AUTH_TRANSFORM_ID0 {
         f.debug_struct("IPSEC_AUTH_TRANSFORM_ID0").field("authType", &self.authType).field("authConfig", &self.authConfig).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_AUTH_TRANSFORM_ID0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_AUTH_TRANSFORM_ID0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_AUTH_TRANSFORM_ID0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12001,8 +12001,8 @@ impl ::core::fmt::Debug for IPSEC_CIPHER_TRANSFORM0 {
         f.debug_struct("IPSEC_CIPHER_TRANSFORM0").field("cipherTransformId", &self.cipherTransformId).field("cryptoModuleId", &self.cryptoModuleId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_CIPHER_TRANSFORM0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_CIPHER_TRANSFORM0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_CIPHER_TRANSFORM0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12032,8 +12032,8 @@ impl ::core::fmt::Debug for IPSEC_CIPHER_TRANSFORM_ID0 {
         f.debug_struct("IPSEC_CIPHER_TRANSFORM_ID0").field("cipherType", &self.cipherType).field("cipherConfig", &self.cipherConfig).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_CIPHER_TRANSFORM_ID0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_CIPHER_TRANSFORM_ID0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_CIPHER_TRANSFORM_ID0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12106,8 +12106,8 @@ impl ::core::fmt::Debug for IPSEC_DOSP_OPTIONS0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_DOSP_OPTIONS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_DOSP_OPTIONS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_DOSP_OPTIONS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12161,8 +12161,8 @@ impl ::core::fmt::Debug for IPSEC_DOSP_STATE0 {
         f.debug_struct("IPSEC_DOSP_STATE0").field("publicHostV6Addr", &self.publicHostV6Addr).field("internalHostV6Addr", &self.internalHostV6Addr).field("totalInboundIPv6IPsecAuthPackets", &self.totalInboundIPv6IPsecAuthPackets).field("totalOutboundIPv6IPsecAuthPackets", &self.totalOutboundIPv6IPsecAuthPackets).field("durationSecs", &self.durationSecs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_DOSP_STATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_DOSP_STATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_DOSP_STATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12192,8 +12192,8 @@ impl ::core::fmt::Debug for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
         f.debug_struct("IPSEC_DOSP_STATE_ENUM_TEMPLATE0").field("publicV6AddrMask", &self.publicV6AddrMask).field("internalV6AddrMask", &self.internalV6AddrMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12258,8 +12258,8 @@ impl ::core::fmt::Debug for IPSEC_DOSP_STATISTICS0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_DOSP_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_DOSP_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_DOSP_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12309,8 +12309,8 @@ impl ::core::fmt::Debug for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
         f.debug_struct("IPSEC_ESP_DROP_PACKET_STATISTICS0").field("invalidSpisOnInbound", &self.invalidSpisOnInbound).field("decryptionFailuresOnInbound", &self.decryptionFailuresOnInbound).field("authenticationFailuresOnInbound", &self.authenticationFailuresOnInbound).field("replayCheckFailuresOnInbound", &self.replayCheckFailuresOnInbound).field("saNotInitializedOnInbound", &self.saNotInitializedOnInbound).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12337,8 +12337,8 @@ impl ::core::clone::Clone for IPSEC_GETSPI0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_GETSPI0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_GETSPI0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_GETSPI0 {
     fn default() -> Self {
@@ -12356,8 +12356,8 @@ impl ::core::clone::Clone for IPSEC_GETSPI0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_GETSPI0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_GETSPI0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_GETSPI0_0 {
     fn default() -> Self {
@@ -12378,8 +12378,8 @@ impl ::core::clone::Clone for IPSEC_GETSPI1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_GETSPI1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_GETSPI1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_GETSPI1 {
     fn default() -> Self {
@@ -12397,8 +12397,8 @@ impl ::core::clone::Clone for IPSEC_GETSPI1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_GETSPI1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_GETSPI1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_GETSPI1_0 {
     fn default() -> Self {
@@ -12426,8 +12426,8 @@ impl ::core::fmt::Debug for IPSEC_ID0 {
         f.debug_struct("IPSEC_ID0").field("mmTargetName", &self.mmTargetName).field("emTargetName", &self.emTargetName).field("numTokens", &self.numTokens).field("tokens", &self.tokens).field("explicitCredentials", &self.explicitCredentials).field("logonId", &self.logonId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_ID0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_ID0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_ID0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12457,8 +12457,8 @@ impl ::core::fmt::Debug for IPSEC_KEYING_POLICY0 {
         f.debug_struct("IPSEC_KEYING_POLICY0").field("numKeyMods", &self.numKeyMods).field("keyModKeys", &self.keyModKeys).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_KEYING_POLICY0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_KEYING_POLICY0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_KEYING_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12489,8 +12489,8 @@ impl ::core::fmt::Debug for IPSEC_KEYING_POLICY1 {
         f.debug_struct("IPSEC_KEYING_POLICY1").field("numKeyMods", &self.numKeyMods).field("keyModKeys", &self.keyModKeys).field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_KEYING_POLICY1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_KEYING_POLICY1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_KEYING_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
@@ -12520,8 +12520,8 @@ impl ::core::fmt::Debug for IPSEC_KEYMODULE_STATE0 {
         f.debug_struct("IPSEC_KEYMODULE_STATE0").field("keyModuleKey", &self.keyModuleKey).field("stateBlob", &self.stateBlob).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_KEYMODULE_STATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_KEYMODULE_STATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_KEYMODULE_STATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12553,8 +12553,8 @@ impl ::core::fmt::Debug for IPSEC_KEY_MANAGER0 {
         f.debug_struct("IPSEC_KEY_MANAGER0").field("keyManagerKey", &self.keyManagerKey).field("displayData", &self.displayData).field("flags", &self.flags).field("keyDictationTimeoutHint", &self.keyDictationTimeoutHint).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_KEY_MANAGER0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_KEY_MANAGER0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_KEY_MANAGER0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12592,8 +12592,8 @@ impl ::core::fmt::Debug for IPSEC_KEY_MANAGER_CALLBACKS0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_KEY_MANAGER_CALLBACKS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_KEY_MANAGER_CALLBACKS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for IPSEC_KEY_MANAGER_CALLBACKS0 {
@@ -12620,8 +12620,8 @@ impl ::core::fmt::Debug for IPSEC_PROPOSAL0 {
         f.debug_struct("IPSEC_PROPOSAL0").field("lifetime", &self.lifetime).field("numSaTransforms", &self.numSaTransforms).field("saTransforms", &self.saTransforms).field("pfsGroup", &self.pfsGroup).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_PROPOSAL0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_PROPOSAL0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_PROPOSAL0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12647,8 +12647,8 @@ impl ::core::clone::Clone for IPSEC_SA0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA0 {
     fn default() -> Self {
@@ -12670,8 +12670,8 @@ impl ::core::clone::Clone for IPSEC_SA0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA0_0 {
     fn default() -> Self {
@@ -12695,8 +12695,8 @@ impl ::core::fmt::Debug for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
         f.debug_struct("IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0").field("saCipherInformation", &self.saCipherInformation).field("saAuthInformation", &self.saAuthInformation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12726,8 +12726,8 @@ impl ::core::fmt::Debug for IPSEC_SA_AUTH_INFORMATION0 {
         f.debug_struct("IPSEC_SA_AUTH_INFORMATION0").field("authTransform", &self.authTransform).field("authKey", &self.authKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_AUTH_INFORMATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_AUTH_INFORMATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_SA_AUTH_INFORMATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12764,8 +12764,8 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_BUNDLE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA_BUNDLE0 {
     fn default() -> Self {
@@ -12783,8 +12783,8 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_BUNDLE0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA_BUNDLE0_0 {
     fn default() -> Self {
@@ -12817,8 +12817,8 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_BUNDLE1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA_BUNDLE1 {
     fn default() -> Self {
@@ -12836,8 +12836,8 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_BUNDLE1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA_BUNDLE1_0 {
     fn default() -> Self {
@@ -12861,8 +12861,8 @@ impl ::core::fmt::Debug for IPSEC_SA_CIPHER_INFORMATION0 {
         f.debug_struct("IPSEC_SA_CIPHER_INFORMATION0").field("cipherTransform", &self.cipherTransform).field("cipherKey", &self.cipherKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_CIPHER_INFORMATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_CIPHER_INFORMATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_SA_CIPHER_INFORMATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12898,8 +12898,8 @@ impl ::core::fmt::Debug for IPSEC_SA_CONTEXT0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_CONTEXT0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT0 {
@@ -12938,8 +12938,8 @@ impl ::core::fmt::Debug for IPSEC_SA_CONTEXT1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_CONTEXT1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT1 {
@@ -12972,8 +12972,8 @@ impl ::core::fmt::Debug for IPSEC_SA_CONTEXT_CHANGE0 {
         f.debug_struct("IPSEC_SA_CONTEXT_CHANGE0").field("changeType", &self.changeType).field("saContextId", &self.saContextId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_CHANGE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_CONTEXT_CHANGE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT_CHANGE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13002,8 +13002,8 @@ impl ::core::clone::Clone for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for IPSEC_SA_CONTEXT_ENUM_TEMPLATE0 {
@@ -13034,8 +13034,8 @@ impl ::core::fmt::Debug for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
@@ -13071,8 +13071,8 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_DETAILS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_DETAILS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for IPSEC_SA_DETAILS0 {
@@ -13095,8 +13095,8 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_DETAILS0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_DETAILS0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for IPSEC_SA_DETAILS0_0 {
@@ -13125,8 +13125,8 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_DETAILS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_DETAILS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for IPSEC_SA_DETAILS1 {
@@ -13149,8 +13149,8 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS1_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for IPSEC_SA_DETAILS1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_DETAILS1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for IPSEC_SA_DETAILS1_0 {
@@ -13174,8 +13174,8 @@ impl ::core::fmt::Debug for IPSEC_SA_ENUM_TEMPLATE0 {
         f.debug_struct("IPSEC_SA_ENUM_TEMPLATE0").field("saDirection", &self.saDirection).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_ENUM_TEMPLATE0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_ENUM_TEMPLATE0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_SA_ENUM_TEMPLATE0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13205,8 +13205,8 @@ impl ::core::fmt::Debug for IPSEC_SA_IDLE_TIMEOUT0 {
         f.debug_struct("IPSEC_SA_IDLE_TIMEOUT0").field("idleTimeoutSeconds", &self.idleTimeoutSeconds).field("idleTimeoutSecondsFailOver", &self.idleTimeoutSecondsFailOver).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_IDLE_TIMEOUT0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_IDLE_TIMEOUT0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_SA_IDLE_TIMEOUT0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13237,8 +13237,8 @@ impl ::core::fmt::Debug for IPSEC_SA_LIFETIME0 {
         f.debug_struct("IPSEC_SA_LIFETIME0").field("lifetimeSeconds", &self.lifetimeSeconds).field("lifetimeKilobytes", &self.lifetimeKilobytes).field("lifetimePackets", &self.lifetimePackets).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_LIFETIME0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_LIFETIME0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_SA_LIFETIME0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13263,8 +13263,8 @@ impl ::core::clone::Clone for IPSEC_SA_TRANSFORM0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_TRANSFORM0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_TRANSFORM0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA_TRANSFORM0 {
     fn default() -> Self {
@@ -13286,8 +13286,8 @@ impl ::core::clone::Clone for IPSEC_SA_TRANSFORM0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_SA_TRANSFORM0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_SA_TRANSFORM0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_SA_TRANSFORM0_0 {
     fn default() -> Self {
@@ -13315,8 +13315,8 @@ impl ::core::fmt::Debug for IPSEC_STATISTICS0 {
         f.debug_struct("IPSEC_STATISTICS0").field("aggregateSaStatistics", &self.aggregateSaStatistics).field("espDropPacketStatistics", &self.espDropPacketStatistics).field("ahDropPacketStatistics", &self.ahDropPacketStatistics).field("aggregateDropPacketStatistics", &self.aggregateDropPacketStatistics).field("inboundTrafficStatistics", &self.inboundTrafficStatistics).field("outboundTrafficStatistics", &self.outboundTrafficStatistics).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13350,8 +13350,8 @@ impl ::core::fmt::Debug for IPSEC_STATISTICS1 {
         f.debug_struct("IPSEC_STATISTICS1").field("aggregateSaStatistics", &self.aggregateSaStatistics).field("espDropPacketStatistics", &self.espDropPacketStatistics).field("ahDropPacketStatistics", &self.ahDropPacketStatistics).field("aggregateDropPacketStatistics", &self.aggregateDropPacketStatistics).field("inboundTrafficStatistics", &self.inboundTrafficStatistics).field("outboundTrafficStatistics", &self.outboundTrafficStatistics).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -13383,8 +13383,8 @@ impl ::core::fmt::Debug for IPSEC_TOKEN0 {
         f.debug_struct("IPSEC_TOKEN0").field("type", &self.r#type).field("principal", &self.principal).field("mode", &self.mode).field("token", &self.token).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TOKEN0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TOKEN0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_TOKEN0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13413,8 +13413,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC0 {
     fn default() -> Self {
@@ -13433,8 +13433,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC0_0 {
     fn default() -> Self {
@@ -13453,8 +13453,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC0_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC0_1 {
     fn default() -> Self {
@@ -13473,8 +13473,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC0_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC0_2 {
     fn default() -> Self {
@@ -13501,8 +13501,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC1 {
     fn default() -> Self {
@@ -13521,8 +13521,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC1_0 {
     fn default() -> Self {
@@ -13541,8 +13541,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC1_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC1_1 {
     fn default() -> Self {
@@ -13561,8 +13561,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC1_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC1_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC1_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC1_2 {
     fn default() -> Self {
@@ -13585,8 +13585,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC_SELECTOR0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0 {
     fn default() -> Self {
@@ -13605,8 +13605,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC_SELECTOR0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0_0 {
     fn default() -> Self {
@@ -13625,8 +13625,8 @@ impl ::core::clone::Clone for IPSEC_TRAFFIC_SELECTOR0_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC_SELECTOR0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TRAFFIC_SELECTOR0_1 {
     fn default() -> Self {
@@ -13653,8 +13653,8 @@ impl ::core::fmt::Debug for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
         f.debug_struct("IPSEC_TRAFFIC_SELECTOR_POLICY0").field("flags", &self.flags).field("numLocalTrafficSelectors", &self.numLocalTrafficSelectors).field("localTrafficSelectors", &self.localTrafficSelectors).field("numRemoteTrafficSelectors", &self.numRemoteTrafficSelectors).field("remoteTrafficSelectors", &self.remoteTrafficSelectors).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13688,8 +13688,8 @@ impl ::core::fmt::Debug for IPSEC_TRAFFIC_STATISTICS0 {
         f.debug_struct("IPSEC_TRAFFIC_STATISTICS0").field("encryptedByteCount", &self.encryptedByteCount).field("authenticatedAHByteCount", &self.authenticatedAHByteCount).field("authenticatedESPByteCount", &self.authenticatedESPByteCount).field("transportByteCount", &self.transportByteCount).field("tunnelByteCount", &self.tunnelByteCount).field("offloadByteCount", &self.offloadByteCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_STATISTICS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC_STATISTICS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13724,8 +13724,8 @@ impl ::core::fmt::Debug for IPSEC_TRAFFIC_STATISTICS1 {
         f.debug_struct("IPSEC_TRAFFIC_STATISTICS1").field("encryptedByteCount", &self.encryptedByteCount).field("authenticatedAHByteCount", &self.authenticatedAHByteCount).field("authenticatedESPByteCount", &self.authenticatedESPByteCount).field("transportByteCount", &self.transportByteCount).field("tunnelByteCount", &self.tunnelByteCount).field("offloadByteCount", &self.offloadByteCount).field("totalSuccessfulPackets", &self.totalSuccessfulPackets).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRAFFIC_STATISTICS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRAFFIC_STATISTICS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_TRAFFIC_STATISTICS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -13759,8 +13759,8 @@ impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY0 {
         f.debug_struct("IPSEC_TRANSPORT_POLICY0").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRANSPORT_POLICY0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13794,8 +13794,8 @@ impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY1 {
         f.debug_struct("IPSEC_TRANSPORT_POLICY1").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRANSPORT_POLICY1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY1 {
     fn eq(&self, other: &Self) -> bool {
@@ -13829,8 +13829,8 @@ impl ::core::fmt::Debug for IPSEC_TRANSPORT_POLICY2 {
         f.debug_struct("IPSEC_TRANSPORT_POLICY2").field("numIpsecProposals", &self.numIpsecProposals).field("ipsecProposals", &self.ipsecProposals).field("flags", &self.flags).field("ndAllowClearTimeoutSeconds", &self.ndAllowClearTimeoutSeconds).field("saIdleTimeout", &self.saIdleTimeout).field("emPolicy", &self.emPolicy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TRANSPORT_POLICY2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TRANSPORT_POLICY2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_TRANSPORT_POLICY2 {
     fn eq(&self, other: &Self) -> bool {
@@ -13855,8 +13855,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINT0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINT0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINT0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINT0 {
     fn default() -> Self {
@@ -13875,8 +13875,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINT0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINT0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINT0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINT0_0 {
     fn default() -> Self {
@@ -13896,8 +13896,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS0 {
     fn default() -> Self {
@@ -13916,8 +13916,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS0_0 {
     fn default() -> Self {
@@ -13936,8 +13936,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS0_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS0_1 {
     fn default() -> Self {
@@ -13958,8 +13958,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS1 {
     fn default() -> Self {
@@ -13978,8 +13978,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS1_0 {
     fn default() -> Self {
@@ -13998,8 +13998,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS1_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS1_1 {
     fn default() -> Self {
@@ -14023,8 +14023,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2 {
     fn default() -> Self {
@@ -14043,8 +14043,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn default() -> Self {
@@ -14063,8 +14063,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_ENDPOINTS2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_ENDPOINTS2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn default() -> Self {
@@ -14087,8 +14087,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_POLICY0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY0 {
     fn default() -> Self {
@@ -14111,8 +14111,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_POLICY1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY1 {
     fn default() -> Self {
@@ -14136,8 +14136,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_POLICY2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY2 {
     fn default() -> Self {
@@ -14164,8 +14164,8 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_POLICY3 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_TUNNEL_POLICY3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_TUNNEL_POLICY3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IPSEC_TUNNEL_POLICY3 {
     fn default() -> Self {
@@ -14189,8 +14189,8 @@ impl ::core::fmt::Debug for IPSEC_V4_UDP_ENCAPSULATION0 {
         f.debug_struct("IPSEC_V4_UDP_ENCAPSULATION0").field("localUdpEncapPort", &self.localUdpEncapPort).field("remoteUdpEncapPort", &self.remoteUdpEncapPort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_V4_UDP_ENCAPSULATION0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_V4_UDP_ENCAPSULATION0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_V4_UDP_ENCAPSULATION0 {
     fn eq(&self, other: &Self) -> bool {
@@ -14220,8 +14220,8 @@ impl ::core::fmt::Debug for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
         f.debug_struct("IPSEC_VIRTUAL_IF_TUNNEL_INFO0").field("virtualIfTunnelId", &self.virtualIfTunnelId).field("trafficSelectorId", &self.trafficSelectorId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     fn eq(&self, other: &Self) -> bool {

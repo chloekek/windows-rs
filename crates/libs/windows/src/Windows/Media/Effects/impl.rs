@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IAudioEffectDefinition {
 #[cfg(feature = "Foundation_Collections")]
 impl IAudioEffectDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>() -> IAudioEffectDefinition_Vtbl {
-        unsafe extern "system" fn ActivatableClassId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivatableClassId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ActivatableClassId() {
@@ -42,7 +42,7 @@ impl IAudioEffectDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAudioEffectDefinition as ::windows::core::Interface>::IID
+        iid == &<IAudioEffectDefinition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -117,7 +117,7 @@ impl IBasicAudioEffect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBasicAudioEffect as ::windows::core::Interface>::IID
+        iid == &<IBasicAudioEffect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -220,7 +220,7 @@ impl IBasicVideoEffect_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IBasicVideoEffect as ::windows::core::Interface>::IID
+        iid == &<IBasicVideoEffect as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -281,7 +281,7 @@ impl IVideoCompositor_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoCompositor as ::windows::core::Interface>::IID
+        iid == &<IVideoCompositor as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -297,7 +297,7 @@ impl ::windows::core::RuntimeName for IVideoCompositorDefinition {
 #[cfg(feature = "Foundation_Collections")]
 impl IVideoCompositorDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>() -> IVideoCompositorDefinition_Vtbl {
-        unsafe extern "system" fn ActivatableClassId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivatableClassId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositorDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ActivatableClassId() {
@@ -328,7 +328,7 @@ impl IVideoCompositorDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoCompositorDefinition as ::windows::core::Interface>::IID
+        iid == &<IVideoCompositorDefinition as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -344,7 +344,7 @@ impl ::windows::core::RuntimeName for IVideoEffectDefinition {
 #[cfg(feature = "Foundation_Collections")]
 impl IVideoEffectDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>() -> IVideoEffectDefinition_Vtbl {
-        unsafe extern "system" fn ActivatableClassId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ActivatableClassId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoEffectDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ActivatableClassId() {
@@ -375,6 +375,6 @@ impl IVideoEffectDefinition_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IVideoEffectDefinition as ::windows::core::Interface>::IID
+        iid == &<IVideoEffectDefinition as ::windows::core::ComInterface>::IID
     }
 }

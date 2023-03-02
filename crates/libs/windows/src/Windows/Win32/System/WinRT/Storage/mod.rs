@@ -3,15 +3,10 @@
 pub struct IOplockBreakingHandler(::windows::core::IUnknown);
 impl IOplockBreakingHandler {
     pub unsafe fn OplockBreaking(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OplockBreaking)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).OplockBreaking)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IOplockBreakingHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOplockBreakingHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IOplockBreakingHandler, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IOplockBreakingHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -23,10 +18,15 @@ impl ::core::fmt::Debug for IOplockBreakingHandler {
         f.debug_tuple("IOplockBreakingHandler").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IOplockBreakingHandler {
+unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
     type Vtable = IOplockBreakingHandler_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
+impl ::core::clone::Clone for IOplockBreakingHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IOplockBreakingHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826abe3d_3acd_47d3_84f2_88aaedcf6304);
 }
 #[repr(C)]
@@ -40,16 +40,11 @@ pub struct IOplockBreakingHandler_Vtbl {
 pub struct IRandomAccessStreamFileAccessMode(::windows::core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Interface::vtable(self).GetMode)(::windows::core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IRandomAccessStreamFileAccessMode, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IRandomAccessStreamFileAccessMode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IRandomAccessStreamFileAccessMode {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -61,10 +56,15 @@ impl ::core::fmt::Debug for IRandomAccessStreamFileAccessMode {
         f.debug_tuple("IRandomAccessStreamFileAccessMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IRandomAccessStreamFileAccessMode {
+unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
     type Vtable = IRandomAccessStreamFileAccessMode_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
+impl ::core::clone::Clone for IRandomAccessStreamFileAccessMode {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IRandomAccessStreamFileAccessMode {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
 }
 #[repr(C)]
@@ -81,19 +81,14 @@ impl IStorageFolderHandleAccess {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<P0, P1>(&self, filename: P0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P1) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IOplockBreakingHandler>>,
+        P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
+        P1: ::windows::core::IntoParam<IOplockBreakingHandler>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HANDLE>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), filename.into_param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStorageFolderHandleAccess, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IStorageFolderHandleAccess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IStorageFolderHandleAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageFolderHandleAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -105,10 +100,15 @@ impl ::core::fmt::Debug for IStorageFolderHandleAccess {
         f.debug_tuple("IStorageFolderHandleAccess").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IStorageFolderHandleAccess {
+unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
     type Vtable = IStorageFolderHandleAccess_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
+impl ::core::clone::Clone for IStorageFolderHandleAccess {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IStorageFolderHandleAccess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf19938f_5462_48a0_be65_d2a3271a08d6);
 }
 #[repr(C)]
@@ -128,18 +128,13 @@ impl IStorageItemHandleAccess {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<P0>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: P0) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IOplockBreakingHandler>>,
+        P0: ::windows::core::IntoParam<IOplockBreakingHandler>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HANDLE>();
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
-::windows::core::interface_hierarchy!(IStorageItemHandleAccess, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IStorageItemHandleAccess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IStorageItemHandleAccess, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IStorageItemHandleAccess {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -151,10 +146,15 @@ impl ::core::fmt::Debug for IStorageItemHandleAccess {
         f.debug_tuple("IStorageItemHandleAccess").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IStorageItemHandleAccess {
+unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
     type Vtable = IStorageItemHandleAccess_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
+impl ::core::clone::Clone for IStorageItemHandleAccess {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IStorageItemHandleAccess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
 }
 #[repr(C)]
@@ -171,15 +171,10 @@ pub struct IStorageItemHandleAccess_Vtbl {
 pub struct IUnbufferedFileHandleOplockCallback(::windows::core::IUnknown);
 impl IUnbufferedFileHandleOplockCallback {
     pub unsafe fn OnBrokenCallback(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnBrokenCallback)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).OnBrokenCallback)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUnbufferedFileHandleOplockCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUnbufferedFileHandleOplockCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -191,10 +186,15 @@ impl ::core::fmt::Debug for IUnbufferedFileHandleOplockCallback {
         f.debug_tuple("IUnbufferedFileHandleOplockCallback").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IUnbufferedFileHandleOplockCallback {
+unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
     type Vtable = IUnbufferedFileHandleOplockCallback_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
+impl ::core::clone::Clone for IUnbufferedFileHandleOplockCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IUnbufferedFileHandleOplockCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1019a0e_6243_4329_8497_2e75894d7710);
 }
 #[repr(C)]
@@ -209,21 +209,16 @@ pub struct IUnbufferedFileHandleProvider(::windows::core::IUnknown);
 impl IUnbufferedFileHandleProvider {
     pub unsafe fn OpenUnbufferedFileHandle<P0>(&self, oplockbreakcallback: P0) -> ::windows::core::Result<usize>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<IUnbufferedFileHandleOplockCallback>>,
+        P0: ::windows::core::IntoParam<IUnbufferedFileHandleOplockCallback>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self), oplockbreakcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<usize>();
+        (::windows::core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Interface::as_raw(self), oplockbreakcallback.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).CloseUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).CloseUnbufferedFileHandle)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
-::windows::core::interface_hierarchy!(IUnbufferedFileHandleProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IUnbufferedFileHandleProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(IUnbufferedFileHandleProvider, ::windows::core::IUnknown);
 impl ::core::cmp::PartialEq for IUnbufferedFileHandleProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -235,10 +230,15 @@ impl ::core::fmt::Debug for IUnbufferedFileHandleProvider {
         f.debug_tuple("IUnbufferedFileHandleProvider").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::Vtable for IUnbufferedFileHandleProvider {
+unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
     type Vtable = IUnbufferedFileHandleProvider_Vtbl;
 }
-unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
+impl ::core::clone::Clone for IUnbufferedFileHandleProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows::core::ComInterface for IUnbufferedFileHandleProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
 }
 #[repr(C)]
@@ -273,8 +273,8 @@ impl ::core::default::Default for HANDLE_ACCESS_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE_ACCESS_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE_ACCESS_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HANDLE_ACCESS_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -339,8 +339,8 @@ impl ::core::default::Default for HANDLE_CREATION_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE_CREATION_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE_CREATION_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HANDLE_CREATION_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -378,8 +378,8 @@ impl ::core::default::Default for HANDLE_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HANDLE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -442,8 +442,8 @@ impl ::core::default::Default for HANDLE_SHARING_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE_SHARING_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE_SHARING_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HANDLE_SHARING_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

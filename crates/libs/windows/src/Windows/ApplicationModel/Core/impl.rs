@@ -35,7 +35,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICoreApplicationUnhandledError as ::windows::core::Interface>::IID
+        iid == &<ICoreApplicationUnhandledError as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"UI_Core\"`, `\"implement\"`*"]
@@ -64,7 +64,7 @@ impl IFrameworkView_Vtbl {
             let this = (*this).get_impl();
             this.SetWindow(::windows::core::from_raw_borrowed(&window)).into()
         }
-        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrypoint: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrypoint: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Load(::core::mem::transmute(&entrypoint)).into()
@@ -89,7 +89,7 @@ impl IFrameworkView_Vtbl {
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFrameworkView as ::windows::core::Interface>::IID
+        iid == &<IFrameworkView as ::windows::core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"implement\"`*"]
@@ -116,6 +116,6 @@ impl IFrameworkViewSource_Vtbl {
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IFrameworkViewSource, OFFSET>(), CreateView: CreateView::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IFrameworkViewSource as ::windows::core::Interface>::IID
+        iid == &<IFrameworkViewSource as ::windows::core::ComInterface>::IID
     }
 }

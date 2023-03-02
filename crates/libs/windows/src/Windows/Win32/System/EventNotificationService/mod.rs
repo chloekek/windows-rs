@@ -3,26 +3,26 @@
 #[inline]
 pub unsafe fn IsDestinationReachableA<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCSTR>,
 {
-    ::windows::core::link ! ( "sensapi.dll""system" fn IsDestinationReachableA ( lpszdestination : :: windows::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
-    IsDestinationReachableA(lpszdestination.into().abi(), lpqocinfo)
+    ::windows::imp::link ! ( "sensapi.dll""system" fn IsDestinationReachableA ( lpszdestination : :: windows::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
+    IsDestinationReachableA(lpszdestination.into_param().abi(), lpqocinfo)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDestinationReachableW<P0>(lpszdestination: P0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    P0: ::windows::core::IntoParam<::windows::core::PCWSTR>,
 {
-    ::windows::core::link ! ( "sensapi.dll""system" fn IsDestinationReachableW ( lpszdestination : :: windows::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
-    IsDestinationReachableW(lpszdestination.into().abi(), lpqocinfo)
+    ::windows::imp::link ! ( "sensapi.dll""system" fn IsDestinationReachableW ( lpszdestination : :: windows::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
+    IsDestinationReachableW(lpszdestination.into_param().abi(), lpqocinfo)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::link ! ( "sensapi.dll""system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::imp::link ! ( "sensapi.dll""system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     IsNetworkAlive(lpdwflags)
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
@@ -32,35 +32,29 @@ pub struct ISensLogon(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISensLogon {
     pub unsafe fn Logon(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Logon)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
+        (::windows::core::Interface::vtable(self).Logon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
     }
     pub unsafe fn Logoff(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Logoff)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
+        (::windows::core::Interface::vtable(self).Logoff)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
     }
     pub unsafe fn StartShell(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartShell)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
+        (::windows::core::Interface::vtable(self).StartShell)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
     }
     pub unsafe fn DisplayLock(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisplayLock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
+        (::windows::core::Interface::vtable(self).DisplayLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
     }
     pub unsafe fn DisplayUnlock(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DisplayUnlock)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
+        (::windows::core::Interface::vtable(self).DisplayUnlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
     }
     pub unsafe fn StartScreenSaver(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StartScreenSaver)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
+        (::windows::core::Interface::vtable(self).StartScreenSaver)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
     }
     pub unsafe fn StopScreenSaver(&self, bstrusername: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).StopScreenSaver)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
+        (::windows::core::Interface::vtable(self).StopScreenSaver)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISensLogon, ::windows::core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensLogon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensLogon, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensLogon {
     fn eq(&self, other: &Self) -> bool {
@@ -76,11 +70,17 @@ impl ::core::fmt::Debug for ISensLogon {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for ISensLogon {
+unsafe impl ::windows::core::Interface for ISensLogon {
     type Vtable = ISensLogon_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for ISensLogon {
+impl ::core::clone::Clone for ISensLogon {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for ISensLogon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -88,13 +88,13 @@ unsafe impl ::windows::core::Interface for ISensLogon {
 #[doc(hidden)]
 pub struct ISensLogon_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StartShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DisplayLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DisplayUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StartScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StopScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub StartShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DisplayLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DisplayUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub StartScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub StopScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -103,29 +103,23 @@ pub struct ISensLogon2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISensLogon2 {
     pub unsafe fn Logon(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Logon)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        (::windows::core::Interface::vtable(self).Logon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
     }
     pub unsafe fn Logoff(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Logoff)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        (::windows::core::Interface::vtable(self).Logoff)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
     }
     pub unsafe fn SessionDisconnect(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SessionDisconnect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        (::windows::core::Interface::vtable(self).SessionDisconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
     }
     pub unsafe fn SessionReconnect(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).SessionReconnect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        (::windows::core::Interface::vtable(self).SessionReconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
     }
     pub unsafe fn PostShell(&self, bstrusername: &::windows::core::BSTR, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).PostShell)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
+        (::windows::core::Interface::vtable(self).PostShell)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrusername), dwsessionid).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISensLogon2, ::windows::core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensLogon2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensLogon2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensLogon2 {
     fn eq(&self, other: &Self) -> bool {
@@ -141,11 +135,17 @@ impl ::core::fmt::Debug for ISensLogon2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for ISensLogon2 {
+unsafe impl ::windows::core::Interface for ISensLogon2 {
     type Vtable = ISensLogon2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for ISensLogon2 {
+impl ::core::clone::Clone for ISensLogon2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for ISensLogon2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -153,11 +153,11 @@ unsafe impl ::windows::core::Interface for ISensLogon2 {
 #[doc(hidden)]
 pub struct ISensLogon2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub SessionDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub SessionReconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub PostShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub SessionDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub SessionReconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub PostShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -166,29 +166,23 @@ pub struct ISensNetwork(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISensNetwork {
     pub unsafe fn ConnectionMade(&self, bstrconnection: &::windows::core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConnectionMade)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
+        (::windows::core::Interface::vtable(self).ConnectionMade)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
     }
     pub unsafe fn ConnectionMadeNoQOCInfo(&self, bstrconnection: &::windows::core::BSTR, ultype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConnectionMadeNoQOCInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
+        (::windows::core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
     }
     pub unsafe fn ConnectionLost(&self, bstrconnection: &::windows::core::BSTR, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).ConnectionLost)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
+        (::windows::core::Interface::vtable(self).ConnectionLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
     }
     pub unsafe fn DestinationReachable(&self, bstrdestination: &::windows::core::BSTR, bstrconnection: &::windows::core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DestinationReachable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdestination), ::core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
+        (::windows::core::Interface::vtable(self).DestinationReachable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdestination), ::core::mem::transmute_copy(bstrconnection), ultype, lpqocinfo).ok()
     }
     pub unsafe fn DestinationReachableNoQOCInfo(&self, bstrdestination: &::windows::core::BSTR, bstrconnection: &::windows::core::BSTR, ultype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).DestinationReachableNoQOCInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdestination), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
+        (::windows::core::Interface::vtable(self).DestinationReachableNoQOCInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute_copy(bstrdestination), ::core::mem::transmute_copy(bstrconnection), ultype).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISensNetwork, ::windows::core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensNetwork {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensNetwork, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensNetwork {
     fn eq(&self, other: &Self) -> bool {
@@ -204,11 +198,17 @@ impl ::core::fmt::Debug for ISensNetwork {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for ISensNetwork {
+unsafe impl ::windows::core::Interface for ISensNetwork {
     type Vtable = ISensNetwork_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for ISensNetwork {
+impl ::core::clone::Clone for ISensNetwork {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for ISensNetwork {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -216,11 +216,11 @@ unsafe impl ::windows::core::Interface for ISensNetwork {
 #[doc(hidden)]
 pub struct ISensNetwork_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ConnectionMade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
-    pub ConnectionMadeNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32) -> ::windows::core::HRESULT,
-    pub ConnectionLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::HRESULT,
-    pub DestinationReachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
-    pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32) -> ::windows::core::HRESULT,
+    pub ConnectionMade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
+    pub ConnectionMadeNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32) -> ::windows::core::HRESULT,
+    pub ConnectionLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::HRESULT,
+    pub DestinationReachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
+    pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -229,23 +229,17 @@ pub struct ISensOnNow(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISensOnNow {
     pub unsafe fn OnACPower(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnACPower)(::windows::core::Vtable::as_raw(self)).ok()
+        (::windows::core::Interface::vtable(self).OnACPower)(::windows::core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn OnBatteryPower(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).OnBatteryPower)(::windows::core::Vtable::as_raw(self), dwbatterylifepercent).ok()
+        (::windows::core::Interface::vtable(self).OnBatteryPower)(::windows::core::Interface::as_raw(self), dwbatterylifepercent).ok()
     }
     pub unsafe fn BatteryLow(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).BatteryLow)(::windows::core::Vtable::as_raw(self), dwbatterylifepercent).ok()
+        (::windows::core::Interface::vtable(self).BatteryLow)(::windows::core::Interface::as_raw(self), dwbatterylifepercent).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows::core::interface_hierarchy!(ISensOnNow, ::windows::core::IUnknown, super::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensOnNow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
+::windows::imp::interface_hierarchy!(ISensOnNow, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensOnNow {
     fn eq(&self, other: &Self) -> bool {
@@ -261,11 +255,17 @@ impl ::core::fmt::Debug for ISensOnNow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Vtable for ISensOnNow {
+unsafe impl ::windows::core::Interface for ISensOnNow {
     type Vtable = ISensOnNow_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for ISensOnNow {
+impl ::core::clone::Clone for ISensOnNow {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::ComInterface for ISensOnNow {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -322,8 +322,8 @@ impl ::core::default::Default for SENS_CONNECTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SENS_CONNECTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENS_CONNECTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SENS_CONNECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -349,8 +349,8 @@ impl ::core::fmt::Debug for QOCINFO {
         f.debug_struct("QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwInSpeed", &self.dwInSpeed).field("dwOutSpeed", &self.dwOutSpeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOCINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOCINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOCINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -382,8 +382,8 @@ impl ::core::fmt::Debug for SENS_QOCINFO {
         f.debug_struct("SENS_QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwOutSpeed", &self.dwOutSpeed).field("dwInSpeed", &self.dwInSpeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SENS_QOCINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENS_QOCINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SENS_QOCINFO {
     fn eq(&self, other: &Self) -> bool {

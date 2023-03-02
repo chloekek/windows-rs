@@ -11,7 +11,14 @@ pub struct Gen<'a> {
 
 impl<'a> Gen<'a> {
     pub fn new(reader: &'a Reader) -> Self {
-        Self { reader, namespace: "", sys: false, cfg: false, doc: false, component: false }
+        Self {
+            reader,
+            namespace: "",
+            sys: false,
+            cfg: false,
+            doc: false,
+            component: false,
+        }
     }
 
     //
@@ -61,7 +68,7 @@ impl<'a> Gen<'a> {
             let kind = self.type_name(ty);
 
             if ty.is_generic() {
-                quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
+                quote! { <#kind as ::windows::core::Type<#kind>>::Default }
             } else if self.reader.type_is_nullable(ty) && !self.sys {
                 quote! { ::core::option::Option<#kind> }
             } else {
@@ -158,8 +165,14 @@ impl<'a> Gen<'a> {
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
         match ty {
-            Type::String | Type::BSTR | Type::IUnknown | Type::IInspectable => {
+            Type::IUnknown | Type::IInspectable => {
                 quote! { *mut ::core::ffi::c_void }
+            }
+            Type::String => {
+                quote! { ::std::mem::MaybeUninit<::windows::core::HSTRING> }
+            }
+            Type::BSTR => {
+                quote! { ::std::mem::MaybeUninit<::windows::core::BSTR> }
             }
             Type::Win32Array((kind, len)) => {
                 let name = self.type_abi_name(kind);
@@ -168,7 +181,7 @@ impl<'a> Gen<'a> {
             }
             Type::GenericParam(generic) => {
                 let name = to_ident(self.reader.generic_param_name(*generic));
-                quote! { <#name as ::windows::core::Abi>::Abi }
+                quote! { ::windows::core::AbiType<#name> }
             }
             Type::TypeDef((def, _)) => match self.reader.type_def_kind(*def) {
                 TypeKind::Enum => self.type_def_name(*def, &[]),
@@ -177,11 +190,15 @@ impl<'a> Gen<'a> {
                     if self.reader.type_def_is_blittable(*def) {
                         tokens
                     } else {
-                        quote! { ::std::mem::ManuallyDrop<#tokens> }
+                        quote! { ::std::mem::MaybeUninit<#tokens> }
                     }
                 }
                 TypeKind::Delegate => {
-                    if self.reader.type_def_flags(*def).contains(TypeAttributes::WINRT) {
+                    if self
+                        .reader
+                        .type_def_flags(*def)
+                        .contains(TypeAttributes::WINRT)
+                    {
                         quote! { *mut ::core::ffi::c_void }
                     } else {
                         self.type_def_name(*def, &[])
@@ -191,12 +208,20 @@ impl<'a> Gen<'a> {
             },
             Type::MutPtr((kind, pointers)) => {
                 let pointers_tokens = gen_mut_ptrs(*pointers);
-                let kind = if *pointers > 1 { self.type_name(kind) } else { self.type_abi_name(kind) };
+                let kind = if *pointers > 1 {
+                    self.type_name(kind)
+                } else {
+                    self.type_abi_name(kind)
+                };
                 quote! { #pointers_tokens #kind }
             }
             Type::ConstPtr((kind, pointers)) => {
                 let pointers_tokens = gen_const_ptrs(*pointers);
-                let kind = if *pointers > 1 { self.type_name(kind) } else { self.type_abi_name(kind) };
+                let kind = if *pointers > 1 {
+                    self.type_name(kind)
+                } else {
+                    self.type_abi_name(kind)
+                };
                 quote! { #pointers_tokens #kind }
             }
             Type::WinrtArray(kind) => self.type_abi_name(kind),
@@ -243,22 +268,20 @@ impl<'a> Gen<'a> {
         tokens
     }
     /// The signature params which are generic (along with their relative index)
-    pub fn generic_params<'b>(&'b self, params: &'b [SignatureParam]) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
-        params.iter().filter(move |param| self.reader.signature_param_is_convertible(param)).enumerate()
+    pub fn generic_params<'b>(
+        &'b self,
+        params: &'b [SignatureParam],
+    ) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
+        params
+            .iter()
+            .filter(move |param| self.reader.signature_param_is_convertible(param))
+            .enumerate()
     }
     /// The generic param names (i.e., `T` in `fn foo<T>()`)
     pub fn constraint_generics(&self, params: &[SignatureParam]) -> TokenStream {
         let mut generics = self
             .generic_params(params)
-            .map(|(position, param)| -> TokenStream {
-                let mut p = format!("P{position}");
-                if param.kind == SignatureParamKind::TryInto {
-                    p.push_str(", E");
-                    p.push_str(&position.to_string());
-                }
-
-                p.into()
-            })
+            .map(|(position, _)| -> TokenStream { format!("P{position}").into() })
             .peekable();
 
         if generics.peek().is_some() {
@@ -287,19 +310,13 @@ impl<'a> Gen<'a> {
             match param.kind {
                 SignatureParamKind::TryInto => {
                     let name: TokenStream = gen_name(position);
-                    let error_name: TokenStream = format!("E{position}").into();
                     let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<#into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
+                    tokens.combine(&quote! { #name: ::windows::core::TryIntoParam<#into>, });
                 }
                 SignatureParamKind::IntoParam => {
                     let name: TokenStream = gen_name(position);
                     let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<#into>>, });
-                }
-                SignatureParamKind::Into => {
-                    let name: TokenStream = gen_name(position);
-                    let into = self.type_name(&param.ty);
-                    tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
+                    tokens.combine(&quote! { #name: ::windows::core::IntoParam<#into>, });
                 }
                 _ => {}
             }
@@ -411,7 +428,8 @@ impl<'a> Gen<'a> {
         if namespace == self.namespace {
             quote! {}
         } else {
-            let is_external = namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
+            let is_external =
+                namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
             let mut relative = self.namespace.split('.').peekable();
             let mut namespace = namespace.split('.').peekable();
 
@@ -510,15 +528,17 @@ impl<'a> Gen<'a> {
         let guid = self.type_name(&Type::GUID);
         format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
     }
-    pub fn interface_core_traits(&self, def: TypeDef, _generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_core_traits(
+        &self,
+        def: TypeDef,
+        _generics: &[Type],
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        _phantoms: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
         let name = trim_tick(self.reader.type_def_name(def));
         quote! {
-            #features
-            impl<#constraints> ::core::clone::Clone for #ident {
-                fn clone(&self) -> Self {
-                    Self(self.0.clone(), #phantoms)
-                }
-            }
             #features
             impl<#constraints> ::core::cmp::PartialEq for #ident {
                 fn eq(&self, other: &Self) -> bool {
@@ -535,7 +555,13 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn agile(&self, def: TypeDef, ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn agile(
+        &self,
+        def: TypeDef,
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
         if self.reader.type_def_is_agile(def) {
             quote! {
                 #features
@@ -547,7 +573,15 @@ impl<'a> Gen<'a> {
             quote! {}
         }
     }
-    pub fn async_get(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn async_get(
+        &self,
+        def: TypeDef,
+        generics: &[Type],
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        _phantoms: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
         let mut kind = self.reader.type_def_async_kind(def);
         let mut async_generics = generics.to_vec();
 
@@ -567,7 +601,9 @@ impl<'a> Gen<'a> {
             quote! {}
         } else {
             let return_type = match kind {
-                AsyncKind::Operation | AsyncKind::OperationWithProgress => self.type_name(&async_generics[0]),
+                AsyncKind::Operation | AsyncKind::OperationWithProgress => {
+                    self.type_name(&async_generics[0])
+                }
                 _ => quote! { () },
             };
 
@@ -575,7 +611,9 @@ impl<'a> Gen<'a> {
                 AsyncKind::Action => quote! { AsyncActionCompletedHandler },
                 AsyncKind::ActionWithProgress => quote! { AsyncActionWithProgressCompletedHandler },
                 AsyncKind::Operation => quote! { AsyncOperationCompletedHandler },
-                AsyncKind::OperationWithProgress => quote! { AsyncOperationWithProgressCompletedHandler },
+                AsyncKind::OperationWithProgress => {
+                    quote! { AsyncOperationWithProgressCompletedHandler }
+                }
                 _ => unimplemented!(),
             };
 
@@ -586,7 +624,7 @@ impl<'a> Gen<'a> {
                 impl<#constraints> #ident {
                     pub fn get(&self) -> ::windows::core::Result<#return_type> {
                         if self.Status()? == #namespace AsyncStatus::Started {
-                            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
+                            let (_waiter, signaler) = ::windows::imp::Waiter::new()?;
                             self.SetCompleted(&#namespace  #handler::new(move |_sender, _args| {
                                 // Safe because the waiter will only be dropped after being signaled.
                                 unsafe { signaler.signal(); }
@@ -618,16 +656,31 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
-        if self.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+    pub fn interface_winrt_trait(
+        &self,
+        def: TypeDef,
+        generics: &[Type],
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        _phantoms: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
+        if self
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT)
+        {
             let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {
-                let type_signature = Literal::byte_string(self.reader.type_def_signature(def, generics).as_bytes());
-                quote! { ::windows::core::ConstBuffer::from_slice(#type_signature) }
+                let type_signature =
+                    Literal::byte_string(self.reader.type_def_signature(def, generics).as_bytes());
+                quote! { ::windows::imp::ConstBuffer::from_slice(#type_signature) }
             } else {
-                let signature = Literal::byte_string(format!("{{{:#?}}}", self.reader.type_def_guid(def).unwrap()).as_bytes());
+                let signature = Literal::byte_string(
+                    format!("{{{:#?}}}", self.reader.type_def_guid(def).unwrap()).as_bytes(),
+                );
 
                 if generics.is_empty() {
-                    quote! { ::windows::core::ConstBuffer::from_slice(#signature) }
+                    quote! { ::windows::imp::ConstBuffer::from_slice(#signature) }
                 } else {
                     let generics = generics.iter().enumerate().map(|(index, g)| {
                         let g = self.type_name(g);
@@ -647,7 +700,7 @@ impl<'a> Gen<'a> {
 
                     quote! {
                         {
-                            ::windows::core::ConstBuffer::new()
+                            ::windows::imp::ConstBuffer::new()
                             .push_slice(b"pinterface(")
                             .push_slice(#signature)
                             .push_slice(b";")
@@ -660,20 +713,27 @@ impl<'a> Gen<'a> {
 
             quote! {
                 #features
-                unsafe impl<#constraints> ::windows::core::RuntimeType for #ident {
-                    const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
-                    type DefaultType = ::core::option::Option<Self>;
-                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-                    }
+                impl<#constraints> ::windows::core::RuntimeType for #ident {
+                    const SIGNATURE: ::windows::imp::ConstBuffer = #type_signature;
                 }
             }
         } else {
             quote! {}
         }
     }
-    pub fn runtime_name_trait(&self, def: TypeDef, _generics: &[Type], name: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
-        if self.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+    pub fn runtime_name_trait(
+        &self,
+        def: TypeDef,
+        _generics: &[Type],
+        name: &TokenStream,
+        constraints: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
+        if self
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT)
+        {
             // TODO: this needs to use a ConstBuffer-like facility to accomodate generics
             let runtime_name = format!("{}", self.reader.type_def_type_name(def));
 
@@ -691,18 +751,32 @@ impl<'a> Gen<'a> {
         }
     }
 
-    pub fn interface_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, features: &TokenStream, has_unknown_base: bool) -> TokenStream {
+    pub fn interface_trait(
+        &self,
+        def: TypeDef,
+        generics: &[Type],
+        ident: &TokenStream,
+        constraints: &TokenStream,
+        features: &TokenStream,
+        has_unknown_base: bool,
+    ) -> TokenStream {
         if let Some(default) = self.reader.type_def_default_interface(def) {
             let default_name = self.type_name(&default);
             let vtbl = self.type_vtbl_name(&default);
             quote! {
                 #features
-                unsafe impl ::windows::core::Vtable for #ident {
-                    type Vtable = #vtbl;
+                impl<#constraints> ::core::clone::Clone for #ident {
+                    fn clone(&self) -> Self {
+                        Self(self.0.clone())
+                    }
                 }
                 #features
                 unsafe impl ::windows::core::Interface for #ident {
-                    const IID: ::windows::core::GUID = <#default_name as ::windows::core::Interface>::IID;
+                    type Vtable = #vtbl;
+                }
+                #features
+                unsafe impl ::windows::core::ComInterface for #ident {
+                    const IID: ::windows::core::GUID = <#default_name as ::windows::core::ComInterface>::IID;
                 }
             }
         } else {
@@ -722,17 +796,25 @@ impl<'a> Gen<'a> {
                 }
             };
 
+            let phantoms = self.generic_phantoms(generics);
+
             let mut tokens = quote! {
                 #features
-                unsafe impl<#constraints> ::windows::core::Vtable for #ident {
+                unsafe impl<#constraints> ::windows::core::Interface for #ident {
                     type Vtable = #vtbl;
+                }
+                #features
+                impl<#constraints> ::core::clone::Clone for #ident {
+                    fn clone(&self) -> Self {
+                        Self(self.0.clone(), #phantoms)
+                    }
                 }
             };
 
             if has_unknown_base {
                 tokens.combine(&quote! {
                     #features
-                    unsafe impl<#constraints> ::windows::core::Interface for #ident {
+                    unsafe impl<#constraints> ::windows::core::ComInterface for #ident {
                         const IID: ::windows::core::GUID = #guid;
                     }
                 });
@@ -741,7 +823,14 @@ impl<'a> Gen<'a> {
             tokens
         }
     }
-    pub fn interface_vtbl(&self, def: TypeDef, generics: &[Type], _ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_vtbl(
+        &self,
+        def: TypeDef,
+        generics: &[Type],
+        _ident: &TokenStream,
+        constraints: &TokenStream,
+        features: &TokenStream,
+    ) -> TokenStream {
         let vtbl = self.type_def_vtbl_name(def, generics);
         let mut methods = quote! {};
         let mut method_names = MethodNames::new();
@@ -749,8 +838,12 @@ impl<'a> Gen<'a> {
         let phantoms = self.generic_named_phantoms(generics);
 
         match self.reader.type_def_vtables(def).last() {
-            Some(Type::IUnknown) => methods.combine(&quote! { pub base__: ::windows::core::IUnknown_Vtbl, }),
-            Some(Type::IInspectable) => methods.combine(&quote! { pub base__: ::windows::core::IInspectable_Vtbl, }),
+            Some(Type::IUnknown) => {
+                methods.combine(&quote! { pub base__: ::windows::core::IUnknown_Vtbl, })
+            }
+            Some(Type::IInspectable) => {
+                methods.combine(&quote! { pub base__: ::windows::core::IInspectable_Vtbl, })
+            }
             Some(Type::TypeDef((def, _))) => {
                 let vtbl = self.type_def_vtbl_name(*def, &[]);
                 methods.combine(&quote! { pub base__: #vtbl, });
@@ -792,18 +885,34 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn vtbl_signature(&self, def: TypeDef, _generics: &[Type], signature: &Signature) -> TokenStream {
-        let is_winrt = self.reader.type_def_flags(def).contains(TypeAttributes::WINRT);
+    pub fn vtbl_signature(
+        &self,
+        def: TypeDef,
+        _generics: &[Type],
+        signature: &Signature,
+    ) -> TokenStream {
+        let is_winrt = self
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT);
         let hresult = self.type_name(&Type::HRESULT);
 
         let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
             if let Some(return_type) = &signature.return_type {
                 if let Type::WinrtArray(kind) = return_type {
                     let tokens = self.type_abi_name(kind);
-                    (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #hresult }, quote! {})
+                    (
+                        quote! { result_size__: *mut u32, result__: *mut *mut #tokens },
+                        quote! { -> #hresult },
+                        quote! {},
+                    )
                 } else {
                     let tokens = self.type_abi_name(return_type);
-                    (quote! { result__: *mut #tokens }, quote! { -> #hresult }, quote! {})
+                    (
+                        quote! { result__: *mut #tokens },
+                        quote! { -> #hresult },
+                        quote! {},
+                    )
                 }
             } else {
                 (quote! {}, quote! { -> #hresult }, quote! {})
@@ -824,9 +933,14 @@ impl<'a> Gen<'a> {
             let name = self.param_name(p.def);
             if is_winrt {
                 let abi = self.type_abi_name(&p.ty);
-                let abi_size_name: TokenStream = format!("{}_array_size", self.reader.param_name(p.def)).into();
+                let abi_size_name: TokenStream =
+                    format!("{}_array_size", self.reader.param_name(p.def)).into();
 
-                if self.reader.param_flags(p.def).contains(ParamAttributes::INPUT) {
+                if self
+                    .reader
+                    .param_flags(p.def)
+                    .contains(ParamAttributes::INPUT)
+                {
                     if p.ty.is_winrt_array() {
                         quote! { #abi_size_name: u32, #name: *const #abi, }
                     } else if p.ty.is_winrt_const_ref() {
@@ -878,22 +992,28 @@ impl<'a> Gen<'a> {
         for (position, param) in params.iter().enumerate() {
             let new = match kind {
                 SignatureKind::Query(query) if query.object == position => {
-                    quote! { result__.as_mut_ptr(), }
+                    quote! { &mut result__, }
                 }
-                SignatureKind::ReturnValue | SignatureKind::ResultValue if params.len() - 1 == position => {
-                    quote! { result__.as_mut_ptr(), }
+                SignatureKind::ReturnValue | SignatureKind::ResultValue
+                    if params.len() - 1 == position =>
+                {
+                    quote! { &mut result__, }
                 }
                 SignatureKind::QueryOptional(query) if query.object == position => {
                     quote! { result__ as *mut _ as *mut _, }
                 }
-                SignatureKind::Query(query) | SignatureKind::QueryOptional(query) if query.guid == position => {
-                    quote! { &<T as ::windows::core::Interface>::IID, }
+                SignatureKind::Query(query) | SignatureKind::QueryOptional(query)
+                    if query.guid == position =>
+                {
+                    quote! { &<T as ::windows::core::ComInterface>::IID, }
                 }
                 _ => {
                     let name = self.param_name(param.def);
                     let flags = self.reader.param_flags(param.def);
                     match param.kind {
-                        SignatureParamKind::ArrayFixed(_) | SignatureParamKind::ArrayRelativeLen(_) | SignatureParamKind::ArrayRelativeByteLen(_) => {
+                        SignatureParamKind::ArrayFixed(_)
+                        | SignatureParamKind::ArrayRelativeLen(_)
+                        | SignatureParamKind::ArrayRelativeByteLen(_) => {
                             let map = if flags.contains(ParamAttributes::OPTIONAL) {
                                 quote! { #name.as_deref().map_or(::core::ptr::null(), |slice|slice.as_ptr()) }
                             } else {
@@ -911,13 +1031,10 @@ impl<'a> Gen<'a> {
                             }
                         }
                         SignatureParamKind::TryInto => {
-                            quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
+                            quote! { #name.try_into_param()?.abi(), }
                         }
                         SignatureParamKind::IntoParam => {
-                            quote! { #name.into().abi(), }
-                        }
-                        SignatureParamKind::Into => {
-                            quote! { #name.into(), }
+                            quote! { #name.into_param().abi(), }
                         }
                         SignatureParamKind::OptionalPointer => {
                             if flags.contains(ParamAttributes::OUTPUT) {
@@ -954,7 +1071,9 @@ impl<'a> Gen<'a> {
                         continue;
                     }
                 }
-                SignatureKind::ReturnValue | SignatureKind::ResultValue if params.len() - 1 == position => {
+                SignatureKind::ReturnValue | SignatureKind::ResultValue
+                    if params.len() - 1 == position =>
+                {
                     continue;
                 }
                 _ => {}
@@ -967,12 +1086,20 @@ impl<'a> Gen<'a> {
                     let ty = param.ty.deref();
                     let ty = self.type_default_name(&ty);
                     let len = Literal::u32_unsuffixed(fixed as _);
-                    let ty = if self.reader.param_flags(param.def).contains(ParamAttributes::OUTPUT) {
+                    let ty = if self
+                        .reader
+                        .param_flags(param.def)
+                        .contains(ParamAttributes::OUTPUT)
+                    {
                         quote! { &mut [#ty; #len] }
                     } else {
                         quote! { &[#ty; #len] }
                     };
-                    if self.reader.param_flags(param.def).contains(ParamAttributes::OPTIONAL) {
+                    if self
+                        .reader
+                        .param_flags(param.def)
+                        .contains(ParamAttributes::OPTIONAL)
+                    {
                         tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -981,31 +1108,47 @@ impl<'a> Gen<'a> {
                 SignatureParamKind::ArrayRelativeLen(_) => {
                     let ty = param.ty.deref();
                     let ty = self.type_default_name(&ty);
-                    let ty = if self.reader.param_flags(param.def).contains(ParamAttributes::OUTPUT) {
+                    let ty = if self
+                        .reader
+                        .param_flags(param.def)
+                        .contains(ParamAttributes::OUTPUT)
+                    {
                         quote! { &mut [#ty] }
                     } else {
                         quote! { &[#ty] }
                     };
-                    if self.reader.param_flags(param.def).contains(ParamAttributes::OPTIONAL) {
+                    if self
+                        .reader
+                        .param_flags(param.def)
+                        .contains(ParamAttributes::OPTIONAL)
+                    {
                         tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
                 }
                 SignatureParamKind::ArrayRelativeByteLen(_) => {
-                    let ty = if self.reader.param_flags(param.def).contains(ParamAttributes::OUTPUT) {
+                    let ty = if self
+                        .reader
+                        .param_flags(param.def)
+                        .contains(ParamAttributes::OUTPUT)
+                    {
                         quote! { &mut [u8] }
                     } else {
                         quote! { &[u8] }
                     };
-                    if self.reader.param_flags(param.def).contains(ParamAttributes::OPTIONAL) {
+                    if self
+                        .reader
+                        .param_flags(param.def)
+                        .contains(ParamAttributes::OPTIONAL)
+                    {
                         tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
                 }
                 SignatureParamKind::ArrayRelativePtr(_) => {}
-                SignatureParamKind::TryInto | SignatureParamKind::IntoParam | SignatureParamKind::Into => {
+                SignatureParamKind::TryInto | SignatureParamKind::IntoParam => {
                     let (position, _) = generic_params.next().unwrap();
                     let kind: TokenStream = format!("P{position}").into();
                     tokens.combine(&quote! { #name: #kind, });
@@ -1029,9 +1172,16 @@ impl<'a> Gen<'a> {
     }
 
     pub fn impl_signature(&self, def: TypeDef, signature: &Signature) -> TokenStream {
-        if self.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+        if self
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT)
+        {
             let is_delegate = self.reader.type_def_kind(def) == TypeKind::Delegate;
-            let params = signature.params.iter().map(|p| self.winrt_produce_type(p, !is_delegate));
+            let params = signature
+                .params
+                .iter()
+                .map(|p| self.winrt_produce_type(p, !is_delegate));
 
             let return_type = if let Some(return_type) = &signature.return_type {
                 let tokens = self.type_name(return_type);
@@ -1068,7 +1218,9 @@ impl<'a> Gen<'a> {
 
             let return_type = match signature_kind {
                 SignatureKind::ReturnVoid => quote! {},
-                SignatureKind::Query(_) | SignatureKind::QueryOptional(_) | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
+                SignatureKind::Query(_)
+                | SignatureKind::QueryOptional(_)
+                | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
                 SignatureKind::ResultValue => {
                     let return_type = signature.params[signature.params.len() - 1].ty.deref();
                     let return_type = self.type_name(&return_type);
@@ -1084,7 +1236,11 @@ impl<'a> Gen<'a> {
     fn winrt_produce_type(&self, param: &SignatureParam, include_param_names: bool) -> TokenStream {
         let default_type = self.type_default_name(&param.ty);
 
-        let sig = if self.reader.param_flags(param.def).contains(ParamAttributes::INPUT) {
+        let sig = if self
+            .reader
+            .param_flags(param.def)
+            .contains(ParamAttributes::INPUT)
+        {
             if param.ty.is_winrt_array() {
                 quote! { &[#default_type] }
             } else if self.reader.type_is_primitive(&param.ty) {
@@ -1115,7 +1271,11 @@ impl<'a> Gen<'a> {
         let name = self.param_name(param.def);
         let kind = self.type_default_name(&param.ty);
 
-        if self.reader.param_flags(param.def).contains(ParamAttributes::INPUT) {
+        if self
+            .reader
+            .param_flags(param.def)
+            .contains(ParamAttributes::INPUT)
+        {
             if self.reader.type_is_primitive(&param.ty) {
                 quote! { #name: #kind, }
             } else if self.reader.type_is_nullable(&param.ty) {
@@ -1133,7 +1293,12 @@ impl<'a> Gen<'a> {
 pub fn to_ident(name: &str) -> TokenStream {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
     match name {
-        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do" | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in" | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv" | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type" | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield" | "try" | "async" | "await" | "dyn" => format!("r#{name}").into(),
+        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
+        | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in"
+        | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
+        | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
+        | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
+        | "try" | "async" | "await" | "dyn" => format!("r#{name}").into(),
         "Self" | "self" => format!("{name}_").into(),
         "_" => "unused".into(),
         _ => trim_tick(name).into(),
@@ -1207,9 +1372,21 @@ mod tests {
 
     #[test]
     fn test_starts_with() {
-        assert!(starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics.Direct3D11on12"));
-        assert!(starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics"));
-        assert!(!starts_with("Windows.Win32.Graphics.Direct3D11on12", "Windows.Win32.Graphics.Direct3D11"));
-        assert!(!starts_with("Windows.Win32.Graphics.Direct3D", "Windows.Win32.Graphics.Direct3D11"));
+        assert!(starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11on12"
+        ));
+        assert!(starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics"
+        ));
+        assert!(!starts_with(
+            "Windows.Win32.Graphics.Direct3D11on12",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
+        assert!(!starts_with(
+            "Windows.Win32.Graphics.Direct3D",
+            "Windows.Win32.Graphics.Direct3D11"
+        ));
     }
 }
