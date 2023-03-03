@@ -120,12 +120,9 @@ Options:
     let input = read_input(input, verbose)?;
     let reader = reader::Reader::new(&input);
 
-    if extension == "winmd" {
-        write_output_winmd(reader, &output_path, include, exclude, verbose)?;
-    } else {
-        write_output_idl(reader, &output_path, include, exclude, verbose)?;
-    }
+    let buffer = if extension == "winmd" { write_output_winmd(reader, &output_path, include, exclude, verbose)? } else { write_output_idl(reader, &output_path, include, exclude, verbose)? };
 
+    std::fs::write(&output_path, buffer).map_err(|_| format!("failed to write `{output}`"))?;
     let output_path = if !verbose && output_path.is_file() { output_path.file_name().unwrap().to_string_lossy().to_string() } else { canonicalize(&output_path)? };
     println!("  Finished writing `{}` in {:.2}s", display_path(&output_path), time.elapsed().as_secs_f32());
     Ok(())
@@ -219,12 +216,12 @@ fn write_temp_winmd(_input: &str) -> ToolResult<reader::File> {
     todo!()
 }
 
-fn write_output_winmd(_reader: reader::Reader, _ouput: &std::path::Path, _include: Vec<String>, _exclude: Vec<String>, _verbose: bool) -> ToolResult<()> {
+fn write_output_winmd(_reader: reader::Reader, _ouput: &std::path::Path, _include: Vec<String>, _exclude: Vec<String>, _verbose: bool) -> ToolResult<Vec<u8>> {
     // TODO: filter and validate metadata before writing final .winmd file.
-    todo!()
+    Ok(vec![])
 }
 
-fn write_output_idl(_reader: reader::Reader, _ouput: &std::path::Path, _include: Vec<String>, _exclude: Vec<String>, _verbose: bool) -> ToolResult<()> {
+fn write_output_idl(_reader: reader::Reader, _ouput: &std::path::Path, _include: Vec<String>, _exclude: Vec<String>, _verbose: bool) -> ToolResult<Vec<u8>> {
     // TODO: filter and write final .idl file
-    todo!()
+    Ok(vec![])
 }
