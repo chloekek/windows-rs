@@ -123,14 +123,36 @@ Options:
         std::fs::create_dir_all(parent).map_err(|_| format!("failed to create directory for `{output}`"))?;
     }
 
-    read_write(input, &output_path, include, exclude, verbose)?;
+    let input = read_input(input, verbose)?;
+
+    if extension == "winmd" {
+        write_output_winmd(input, &output_path, include, exclude, verbose)?;
+    } else {
+        write_output_idl(input, &output_path, include, exclude, verbose)?;
+    }
 
     let output_path = if !verbose && output_path.is_file() { output_path.file_name().unwrap().to_string_lossy().to_string() } else { canonicalize(&output_path)? };
     println!("  Finished writing `{}` in {:.2}s", display_path(&output_path), time.elapsed().as_secs_f32());
     Ok(())
 }
 
-fn read_write(input: Vec<String>, _output: &std::path::Path, _include: Vec<String>, _exclude: Vec<String>, verbose: bool) -> ToolResult<()> {
+fn write_output_winmd(_input: Vec<reader::File>, _ouput: &std::path::Path, _include: Vec<String>, _exclude: Vec<String>, _verbose: bool) -> ToolResult<()> {
+    // TODO: filter and validate metadata before writing final .winmd file.
+    todo!()
+}
+
+fn write_output_idl(_input: Vec<reader::File>, _ouput: &std::path::Path, _include: Vec<String>, _exclude: Vec<String>, _verbose: bool) -> ToolResult<()> {
+    // TODO: filter and write final .idl file
+    todo!()
+}
+
+fn write_temp_winmd(_input: &str) -> ToolResult<reader::File> {
+    // TODO: parse .idl input and write an in-memory .winmd
+    // The .winmd includes attributes pointing back to input file name, line, and column info.
+    todo!()
+}
+
+fn read_input(input: Vec<String>, verbose: bool) -> ToolResult<Vec<reader::File>> {
     let mut files = vec![];
 
     for input in &input {
@@ -144,11 +166,11 @@ fn read_write(input: Vec<String>, _output: &std::path::Path, _include: Vec<Strin
             if verbose {
                 println!("   Convert {}", display_path(input));
             }
-            // TODO: convert idl to reader::File
+            files.push(write_temp_winmd(input)?);
         }
     }
 
-    Ok(())
+    Ok(files)
 }
 
 fn filter_input(input: Vec<String>, filter: &[&str]) -> ToolResult<Vec<String>> {
