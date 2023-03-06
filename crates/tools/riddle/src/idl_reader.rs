@@ -166,7 +166,7 @@ impl Class {
             input.parse::<Token![:]>()?;
             while input.peek(Ident) {
                 extends.push(input.parse::<Path>()?);
-                let _ = input.parse::<Token![,]>();
+                _ = input.parse::<Token![,]>();
             }
         }
 

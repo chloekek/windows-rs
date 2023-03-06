@@ -80,7 +80,7 @@ Options:
     }
 
     if fmt {
-        if !output.is_none() || !include.is_empty() || !exclude.is_empty() {
+        if output.is_some() || !include.is_empty() || !exclude.is_empty() {
             return Err("-fmt cannot be combined with -output, -include, or -exclude".to_string());
         }
 

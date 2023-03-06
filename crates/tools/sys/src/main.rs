@@ -55,7 +55,7 @@ fn main() {
     }
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
     if namespace.is_empty() {
-        let _ = std::fs::remove_dir_all(&output);
+        _ = std::fs::remove_dir_all(&output);
     }
     output.pop();
     let files = metadata::reader::File::with_default(&[]).unwrap();
