@@ -14,8 +14,8 @@ pub struct Definition<'a> {
 pub struct StagedDefinitions<'a>(Definitions<'a>);
 
 impl<'a> Definitions<'a> {
-    pub fn insert(&mut self, item: &'a Item) {
-        if self.map.insert(item_type_name(item), Definition { item, index: 0, value_type: item_value_type(item) }).is_some() {
+    pub fn insert(&mut self, reader: &'a reader::Reader, item: &'a Item) {
+        if self.map.insert(item_type_name(reader, item), Definition { item, index: 0, value_type: item_value_type(item) }).is_some() {
             panic!("Duplicate type found");
         }
     }

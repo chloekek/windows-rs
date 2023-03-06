@@ -2,39 +2,44 @@ mod imp;
 use super::*;
 
 // Generates an in-memory .winmd file.
-pub fn write(name: &str, winrt: bool, items: &[Item], assemblies: &[&str]) -> Vec<u8> {
-    imp::write(name, winrt, items, assemblies)
+pub fn write(reader: &reader::Reader, name: &str, items: &[Item], ) -> Vec<u8> {
+    imp::write(reader, name, items)
 }
 
 pub enum Item {
     Struct(Struct),
     Enum(Enum),
     Interface(Interface),
-    Class(Class)
+    Class(Class),
+    TypeDef(reader::TypeDef),
 }
 
 pub struct Struct {
     pub namespace: String,
     pub name: String,
     pub fields: Vec<Field>,
+    pub winrt: bool,
 }
 
 pub struct Enum {
     pub namespace: String,
     pub name: String,
     pub constants: Vec<Constant>,
+    pub winrt: bool,
 }
 
 pub struct Interface {
     pub namespace: String,
     pub name: String,
     pub methods: Vec<Method>,
+    pub winrt: bool,
 }
 
 pub struct Class {
     pub namespace: String,
     pub name: String,
     pub attributes: Vec<Attribute>,
+    pub winrt: bool,
 }
 
 pub struct Field {

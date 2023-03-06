@@ -21,15 +21,11 @@ pub fn round(size: usize, round: usize) -> usize {
     (size + round) & !round
 }
 
-pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str]) -> Vec<u8> {
-    // Index assemblies used to resolve references to existing winmd files.
-    let assemblies: Vec<reader::File> = assemblies.iter().map(|file| reader::File::new(file).expect("Assemblies could not be loaded")).collect();
-    let assemblies = &reader::Reader::new(&assemblies);
-
+pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item], ) -> Vec<u8> {
     // Build sorted list of definitions.
     let definitions = &{
         let mut index = Definitions::default();
-        definitions.iter().for_each(|item| index.insert(item));
+        definitions.iter().for_each(|item| index.insert(reader, item));
         index.stage()
     };
 
@@ -38,7 +34,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         let mut index = References::default();
         for item in definitions.items() {
             match item {
-                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, definitions, assemblies, &mut index)),
+                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, definitions, reader, &mut index)),
                 Item::Interface(_ty) => {}
                 _ => {}
             }
@@ -95,6 +91,9 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
                 }
+                Item::TypeDef(_ty) => {
+
+                }
             }
         }
 
@@ -115,7 +114,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
             match item {
                 Item::Struct(ty) => {
                     let mut flags = TypeAttributes::PUBLIC | TypeAttributes::SEQUENTIAL_LAYOUT | TypeAttributes::SEALED;
-                    if winrt {
+                    if ty.winrt {
                         flags |= TypeAttributes::WINRT;
                     }
                     tables.TypeDef.push(tables::TypeDef {
@@ -133,7 +132,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 }
                 Item::Enum(ty) => {
                     let mut flags = TypeAttributes::PUBLIC | TypeAttributes::SEALED;
-                    if winrt {
+                    if ty.winrt {
                         flags |= TypeAttributes::WINRT;
                     }
                     tables.TypeDef.push(tables::TypeDef {
@@ -159,7 +158,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 }
                 Item::Interface(ty) => {
                     let mut flags = TypeAttributes::PUBLIC | TypeAttributes::INTERFACE | TypeAttributes::ABSTRACT;
-                    if winrt {
+                    if ty.winrt {
                         flags |= TypeAttributes::WINRT;
                     }
                     tables.TypeDef.push(tables::TypeDef {
@@ -187,7 +186,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 }
                 Item::Class(ty) => {
                     let mut flags = TypeAttributes::PUBLIC | TypeAttributes::SEALED;
-                    if winrt {
+                    if ty.winrt {
                         flags |= TypeAttributes::WINRT;
                     }
                     tables.TypeDef.push(tables::TypeDef {
@@ -198,6 +197,9 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         FieldList: tables.Field.len() as _,
                         MethodList: tables.MethodDef.len() as _,
                     });
+                }
+                Item::TypeDef(_ty) => {
+
                 }
             }
         }
@@ -236,12 +238,13 @@ fn param_flags_to_attributes(flags: ParamFlags) -> ParamAttributes {
     attributes
 }
 
-fn item_type_name(item: &Item) -> (&str, &str) {
+fn item_type_name<'a>(reader: &'a reader::Reader, item: &'a Item) -> (&'a str, &'a str) {
     match item {
         Item::Struct(ty) => (ty.namespace.as_str(), ty.name.as_str()),
         Item::Enum(ty) => (ty.namespace.as_str(), ty.name.as_str()),
         Item::Interface(ty) => (ty.namespace.as_str(), ty.name.as_str()),
         Item::Class(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+        Item::TypeDef(ty) => (reader.type_def_namespace(*ty), reader.type_def_name(*ty)),
     }
 }
 

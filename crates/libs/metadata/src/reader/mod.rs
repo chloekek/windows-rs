@@ -195,7 +195,10 @@ impl<'a> Reader<'a> {
             for row in 0..file.tables[TABLE_TYPEDEF].len {
                 let key = Row::new(row, TABLE_TYPEDEF, file_index);
                 let namespace = file.str(key.row as _, key.table as _, 2);
-                let name = trim_tick(file.str(key.row as _, key.table as _, 1));
+                if namespace.is_empty() {
+                    continue;
+                 }
+                 let name = trim_tick(file.str(key.row as _, key.table as _, 1));
                 types.entry(namespace).or_default().entry(name).or_default().push(TypeDef(key));
             }
             for row in 0..file.tables[TABLE_NESTEDCLASS].len {
@@ -208,14 +211,22 @@ impl<'a> Reader<'a> {
         }
         Self { files, types, nested }
     }
-    pub fn tree(&'a self, root: &'a str, exclude: &[&str]) -> Option<Tree> {
+    pub fn tree(&'a self, root: &'a str, include: &[&str], exclude: &[&str]) -> Tree {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if !exclude.iter().any(|x| ns.starts_with(x)) {
-                tree.insert_namespace(ns, 0);
+            if !include.is_empty() && !include.iter().any(|x| ns.starts_with(x)) {
+                continue
             }
+            if exclude.iter().any(|x| ns.starts_with(x)) {
+                continue;
+            }
+            tree.insert_namespace(ns, 0);
         }
-        tree.seek(root)
+        if root.is_empty() {
+            tree
+        } else {
+            tree.seek(root).expect("Namespace not found")
+        }
     }
 
     //

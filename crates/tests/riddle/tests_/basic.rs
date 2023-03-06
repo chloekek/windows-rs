@@ -7,7 +7,7 @@ fn riddle_basic() {
     let files = File::with_default(&[&output]).expect("Failed to open winmd files");
     let reader = &Reader::new(&files);
 
-    let root = reader.tree("Root", &[]).expect("Root namespace not found");
+    let root = reader.tree("root", &[], &[]);
     assert_eq!(root.namespace, "Root");
     assert_eq!(root.nested.len(), 1);
     let nested = &root.nested["Nested"];

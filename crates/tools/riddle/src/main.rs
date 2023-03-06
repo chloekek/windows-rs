@@ -1,4 +1,5 @@
-// mod syntax;
+// mod idl_reader;
+mod idl_writer;
 use metadata::reader;
 
 enum ArgKind {
@@ -39,14 +40,14 @@ Options:
     }
 
     let mut kind = ArgKind::None;
-    let mut output = String::new();
-    let mut input = Vec::<String>::new();
-    let mut include = Vec::<String>::new();
-    let mut exclude = Vec::<String>::new();
+    let mut output = None;
+    let mut input = Vec::<&str>::new();
+    let mut include = Vec::<&str>::new();
+    let mut exclude = Vec::<&str>::new();
     let mut fmt = false;
     let mut verbose = false;
 
-    for arg in args {
+    for arg in &args {
         if arg.starts_with('-') {
             kind = ArgKind::None;
         }
@@ -62,20 +63,24 @@ Options:
                 _ => return Err(format!("invalid option: `{}`", arg)),
             },
             ArgKind::Output => {
-                if output.is_empty() {
-                    output = arg;
+                if output.is_none() {
+                    output = Some(arg.as_str());
                 } else {
                     return Err("too many outputs".to_string());
                 }
             }
-            ArgKind::Input => input.push(arg),
-            ArgKind::Include => include.push(arg),
-            ArgKind::Exclude => exclude.push(arg),
+            ArgKind::Input => input.push(arg.as_str()),
+            ArgKind::Include => {
+                include.push(arg.as_str());
+            }
+            ArgKind::Exclude => {
+                exclude.push(arg.as_str());
+            }
         }
     }
 
     if fmt {
-        if !output.is_empty() || !include.is_empty() || !exclude.is_empty() {
+        if !output.is_none() || !include.is_empty() || !exclude.is_empty() {
             return Err("-fmt cannot be combined with -output, -include, or -exclude".to_string());
         }
 
@@ -98,11 +103,11 @@ Options:
         return Err("no inputs".to_string());
     }
 
-    if output.is_empty() {
+    let Some(output) = output else {
         return Err("no output".to_string());
-    }
+    };
 
-    let output_path = std::path::Path::new(&output).to_path_buf();
+    let output_path = std::path::Path::new(output).to_path_buf();
 
     let extension = match output_path.extension() {
         Some(extension) => extension.to_string_lossy().to_lowercase(),
@@ -119,8 +124,9 @@ Options:
 
     let input = read_input(input, verbose)?;
     let reader = reader::Reader::new(&input);
+    let tree = reader.tree("", &include, &exclude);
 
-    let buffer = if extension == "winmd" { write_output_winmd(reader, include, exclude)? } else { write_output_idl(reader, include, exclude)? };
+    let buffer = if extension == "winmd" { write_output_winmd(&reader, &tree)? } else { idl_writer::write(&reader, &tree)? };
 
     std::fs::write(&output_path, buffer).map_err(|_| format!("failed to write `{output}`"))?;
     let output_path = if !verbose && output_path.is_file() { output_path.file_name().unwrap().to_string_lossy().to_string() } else { canonicalize(&output_path)? };
@@ -128,7 +134,7 @@ Options:
     Ok(())
 }
 
-fn filter_input(input: Vec<String>, filter: &[&str]) -> ToolResult<Vec<String>> {
+fn filter_input(input: Vec<&str>, filter: &[&str]) -> ToolResult<Vec<String>> {
     fn try_push(path: &std::path::Path, filter: &[&str], results: &mut Vec<String>) -> ToolResult<()> {
         if let Some(extension) = path.extension() {
             let extension = extension.to_string_lossy().to_lowercase();
@@ -199,15 +205,13 @@ fn read_input(input: Vec<String>, verbose: bool) -> ToolResult<Vec<reader::File>
     Ok(files)
 }
 
-fn fmt_idl(input: &str, verbose: bool) -> ToolResult<()> {
+fn fmt_idl(path: &str, verbose: bool) -> ToolResult<()> {
     if verbose {
-        println!("   Format {}", display_path(input));
+        println!("   Format {}", display_path(path));
     }
-    // TODO:
-    // 1. escape riddle keywords
-    // 2. call rustfmt
-    // 3. unescape riddle keywords (if step 2 succeeded)
-    todo!()
+    let idl = std::fs::read_to_string(path).map_err(|_| format!("failed to read `{path}`"))?;
+    let idl = idl_writer::format(&idl).ok_or_else(|| format!("failed to format `{path}`"))?;
+    std::fs::write(path, idl).map_err(|_| format!("failed to write `{path}`"))
 }
 
 fn write_temp_winmd(_input: &str) -> ToolResult<reader::File> {
@@ -216,15 +220,12 @@ fn write_temp_winmd(_input: &str) -> ToolResult<reader::File> {
     todo!()
 }
 
-fn write_output_winmd(_reader: reader::Reader, _include: Vec<String>, _exclude: Vec<String>) -> ToolResult<Vec<u8>> {
+fn write_output_winmd(_reader: &reader::Reader, _tree: &reader::Tree) -> ToolResult<Vec<u8>> {
     // TODO: filter and validate metadata before writing final .winmd file.
     // Validation can use source file attributes if present to provide richer diagnostics.
-    Ok(vec![])
-}
 
-fn write_output_idl(_reader: reader::Reader, _include: Vec<String>, _exclude: Vec<String>) -> ToolResult<Vec<u8>> {
-    // TODO:
-    // 1. filter and write final .idl file
-    // 2. call rustfmt
+    // Start by roundtrippping a winmd to validate winmd writer.
+    // e.g. riddle.exe -input test.winmd -output copy.winmd
+
     Ok(vec![])
 }
