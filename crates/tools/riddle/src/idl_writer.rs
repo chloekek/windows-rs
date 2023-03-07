@@ -14,7 +14,7 @@ pub fn format(idl: &str) -> Option<String> {
         return None;
     };
     if stdin.write_all(idl.as_bytes()).is_err() {
-         return None;
+        return None;
     };
     drop(stdin);
     let Ok(output) = child.wait_with_output() else {
@@ -26,23 +26,79 @@ pub fn format(idl: &str) -> Option<String> {
     String::from_utf8(output.stdout).ok()
 }
 
-pub fn write(_reader: &reader::Reader, tree: &reader::Tree) -> ToolResult<Vec<u8>> {
-    let buffer = tree_to_idl("", tree).to_string();
+pub fn write(reader: &reader::Reader, tree: &reader::Tree) -> ToolResult<Vec<u8>> {
+    let buffer = tree_to_idl(reader, "", tree).to_string();
     Ok(format(buffer.as_str()).expect("format failed").into_bytes())
 }
 
-fn tree_to_idl(name: &str, tree: &reader::Tree) -> proc_macro2::TokenStream {
-    let nested = tree.nested.iter().map(|(name, tree)| tree_to_idl(name, tree));
+fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree) -> proc_macro2::TokenStream {
+    let nested = tree.nested.iter().map(|(name, tree)| tree_to_idl(reader, name, tree));
 
     if name.is_empty() {
         quote::quote! { #(#nested)* }
     } else {
-        let name = quote::format_ident!("{}", name);
+        let name = to_ident(name);
+        let types = reader.namespace_types(tree.namespace).map(|ty| type_to_idl(reader, ty));
+
         quote::quote! {
             mod #name {
                 #(#nested)*
+                #(#types)*
             }
         }
     }
+}
 
+fn type_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::TokenStream {
+    match reader.type_def_kind(ty) {
+        reader::TypeKind::Class => class_to_idl(reader, ty),
+        reader::TypeKind::Interface => interface_to_idl(reader, ty),
+        reader::TypeKind::Enum => enum_to_idl(reader, ty),
+        reader::TypeKind::Struct => struct_to_idl(reader, ty),
+        reader::TypeKind::Delegate => delegate_to_idl(reader, ty),
+    }
+}
+
+fn class_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::TokenStream {
+    let name = to_ident(reader.type_def_name(ty));
+
+    quote::quote! {
+        struct #name {}
+    }
+}
+
+fn interface_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::TokenStream {
+    let name = to_ident(reader.type_def_name(ty));
+
+    quote::quote! {
+        struct #name {}
+    }
+}
+
+fn enum_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::TokenStream {
+    let name = to_ident(reader.type_def_name(ty));
+
+    quote::quote! {
+        struct #name {}
+    }
+}
+
+fn struct_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::TokenStream {
+    let name = to_ident(reader.type_def_name(ty));
+
+    quote::quote! {
+        struct #name {}
+    }
+}
+
+fn delegate_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::TokenStream {
+    let name = to_ident(reader.type_def_name(ty));
+
+    quote::quote! {
+        struct #name {}
+    }
+}
+
+fn to_ident(name: &str) -> proc_macro2::Ident {
+    quote::format_ident!("{}", reader::trim_tick(name))
 }

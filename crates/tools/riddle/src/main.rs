@@ -29,10 +29,10 @@ fn run() -> ToolResult<()> {
 
 Options:
   -input   <path>       Path to files and directories containing .winmd and .idl files
-  -output  <path>       Path to .winmd or idl file to generate
+  -output  <path>       Path to .winmd or .idl file to generate
   -include <namespace>  Namespaces to include in output (defaults to everything) 
   -exclude <namespace>  Namespaces to exclude in output (defaults to nothing)
-  -fmt                  Format .idl files only
+  -format               Format .idl files only
   -verbose              Show detailed information
 "#
         );
@@ -44,7 +44,7 @@ Options:
     let mut input = Vec::<&str>::new();
     let mut include = Vec::<&str>::new();
     let mut exclude = Vec::<&str>::new();
-    let mut fmt = false;
+    let mut format = false;
     let mut verbose = false;
 
     for arg in &args {
@@ -58,7 +58,7 @@ Options:
                 "-output" => kind = ArgKind::Output,
                 "-include" => kind = ArgKind::Include,
                 "-exclude" => kind = ArgKind::Exclude,
-                "-fmt" => fmt = true,
+                "-format" => format = true,
                 "-verbose" => verbose = true,
                 _ => return Err(format!("invalid option: `{}`", arg)),
             },
@@ -79,9 +79,9 @@ Options:
         }
     }
 
-    if fmt {
+    if format {
         if output.is_some() || !include.is_empty() || !exclude.is_empty() {
-            return Err("-fmt cannot be combined with -output, -include, or -exclude".to_string());
+            return Err("-format cannot be combined with -output, -include, or -exclude".to_string());
         }
 
         let input = filter_input(input, &["idl"])?;
@@ -91,7 +91,7 @@ Options:
         }
 
         for input in &input {
-            fmt_idl(input, verbose)?;
+            format_idl(input, verbose)?;
         }
 
         return Ok(());
@@ -205,7 +205,7 @@ fn read_input(input: Vec<String>, verbose: bool) -> ToolResult<Vec<reader::File>
     Ok(files)
 }
 
-fn fmt_idl(path: &str, verbose: bool) -> ToolResult<()> {
+fn format_idl(path: &str, verbose: bool) -> ToolResult<()> {
     if verbose {
         println!("   Format {}", display_path(path));
     }
