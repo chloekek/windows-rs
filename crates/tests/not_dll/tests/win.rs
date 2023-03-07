@@ -1,10 +1,10 @@
-use windows::{Win32::Foundation::*, Win32::Graphics::Printing::*};
+use windows::Win32::Graphics::Printing::*;
 
 // Validates that the target libs resolve this function to "winspool.drv"
 
 #[test]
 fn test() {
     unsafe {
-        _ = GetSpoolFileHandle(HANDLE(0));
+        _ = GetSpoolFileHandle(None);
     }
 }
