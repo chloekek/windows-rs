@@ -1,6 +1,8 @@
 // mod idl_reader;
+mod filter;
 mod idl_writer;
-use metadata::reader;
+use filter::Filter;
+use metadata::{reader, writer};
 
 enum ArgKind {
     None,
@@ -122,14 +124,15 @@ Options:
         std::fs::create_dir_all(parent).map_err(|_| format!("failed to create directory for `{output}`"))?;
     }
 
+    let filter = Filter::new(&include, &exclude);
     let input = read_input(input, verbose)?;
     let reader = reader::Reader::new(&input);
-    let tree = reader.tree("", &include, &exclude);
+    let file_name = output_path.file_name().unwrap().to_string_lossy().to_string();
 
-    let buffer = if extension == "winmd" { write_output_winmd(&reader, &tree)? } else { idl_writer::write(&reader, &tree)? };
+    let buffer = if extension == "winmd" { write_output_winmd(&reader, file_name.as_str(), &filter)? } else { idl_writer::write(&reader, &filter)? };
 
     std::fs::write(&output_path, buffer).map_err(|_| format!("failed to write `{output}`"))?;
-    let output_path = if !verbose && output_path.is_file() { output_path.file_name().unwrap().to_string_lossy().to_string() } else { canonicalize(&output_path)? };
+    let output_path = if !verbose && output_path.is_file() { file_name } else { canonicalize(&output_path)? };
     println!("  Finished writing `{}` in {:.2}s", display_path(&output_path), time.elapsed().as_secs_f32());
     Ok(())
 }
@@ -220,12 +223,18 @@ fn write_temp_winmd(_input: &str) -> ToolResult<reader::File> {
     todo!()
 }
 
-fn write_output_winmd(_reader: &reader::Reader, _tree: &reader::Tree) -> ToolResult<Vec<u8>> {
+fn write_output_winmd(reader: &reader::Reader, filename: &str, _filter: &Filter) -> ToolResult<Vec<u8>> {
     // TODO: filter and validate metadata before writing final .winmd file.
     // Validation can use source file attributes if present to provide richer diagnostics.
 
     // Start by roundtrippping a winmd to validate winmd writer.
     // e.g. riddle.exe -input test.winmd -output copy.winmd
 
-    Ok(vec![])
+    let items = vec![];
+
+    // for ty in reader.namespace_types(tree.namespace) {
+    //     items.push(writer::Item::TypeDef(ty));
+    // }
+
+    Ok(writer::write(reader, filename, &items))
 }

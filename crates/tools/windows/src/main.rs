@@ -27,11 +27,11 @@ fn main() {
     let files = metadata::reader::File::with_default(&[]).unwrap();
     let reader = &metadata::reader::Reader::new(&files);
     if !namespace.is_empty() {
-        let tree = reader.tree(&namespace, &[], &[]);
+        let tree = reader.tree(&namespace, &[]);
         gen_tree(reader, &output, &tree, rustfmt);
         return;
     }
-    let root = reader.tree("Windows", &[], &EXCLUDE_NAMESPACES);
+    let root = reader.tree("Windows", &EXCLUDE_NAMESPACES);
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
     output.pop();

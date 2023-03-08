@@ -21,7 +21,7 @@ pub fn round(size: usize, round: usize) -> usize {
     (size + round) & !round
 }
 
-pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item], ) -> Vec<u8> {
+pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item]) -> Vec<u8> {
     // Build sorted list of definitions.
     let definitions = &{
         let mut index = Definitions::default();
@@ -91,9 +91,7 @@ pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item], ) -> Vec
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
                 }
-                Item::TypeDef(_ty) => {
-
-                }
+                Item::TypeDef(_ty) => {}
             }
         }
 
@@ -198,9 +196,7 @@ pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item], ) -> Vec
                         MethodList: tables.MethodDef.len() as _,
                     });
                 }
-                Item::TypeDef(_ty) => {
-
-                }
+                Item::TypeDef(_ty) => {}
             }
         }
 

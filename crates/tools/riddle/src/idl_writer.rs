@@ -26,19 +26,19 @@ pub fn format(idl: &str) -> Option<String> {
     String::from_utf8(output.stdout).ok()
 }
 
-pub fn write(reader: &reader::Reader, tree: &reader::Tree) -> ToolResult<Vec<u8>> {
-    let buffer = tree_to_idl(reader, "", tree).to_string();
+pub fn write(reader: &reader::Reader, filter: &Filter) -> ToolResult<Vec<u8>> {
+    let buffer = tree_to_idl(reader, "", &reader.tree("", &[]), filter).to_string();
     Ok(format(buffer.as_str()).expect("format failed").into_bytes())
 }
 
-fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree) -> proc_macro2::TokenStream {
-    let nested = tree.nested.iter().map(|(name, tree)| tree_to_idl(reader, name, tree));
-
+fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree, filter: &Filter) -> proc_macro2::TokenStream {
     if name.is_empty() {
+        let nested = tree.nested.iter().map(|(name, tree)| tree_to_idl(reader, name, tree, filter));
         quote::quote! { #(#nested)* }
-    } else {
+    } else if filter.includes_namespace(tree.namespace) {
         let name = to_ident(name);
-        let types = reader.namespace_types(tree.namespace).map(|ty| type_to_idl(reader, ty));
+        let nested = tree.nested.iter().map(|(name, tree)| tree_to_idl(reader, name, tree, filter));
+        let types = reader.namespace_types(tree.namespace).filter(|ty| filter.includes_type(reader, *ty)).map(|ty| type_to_idl(reader, ty));
 
         quote::quote! {
             mod #name {
@@ -46,6 +46,9 @@ fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree) -> proc
                 #(#types)*
             }
         }
+    } else {
+        println!("skipping {}", tree.namespace);
+        quote::quote! {}
     }
 }
 

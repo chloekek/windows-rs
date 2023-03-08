@@ -197,8 +197,8 @@ impl<'a> Reader<'a> {
                 let namespace = file.str(key.row as _, key.table as _, 2);
                 if namespace.is_empty() {
                     continue;
-                 }
-                 let name = trim_tick(file.str(key.row as _, key.table as _, 1));
+                }
+                let name = trim_tick(file.str(key.row as _, key.table as _, 1));
                 types.entry(namespace).or_default().entry(name).or_default().push(TypeDef(key));
             }
             for row in 0..file.tables[TABLE_NESTEDCLASS].len {
@@ -211,12 +211,10 @@ impl<'a> Reader<'a> {
         }
         Self { files, types, nested }
     }
-    pub fn tree(&'a self, root: &'a str, include: &[&str], exclude: &[&str]) -> Tree {
+    // TODO: use filter: &Filter here?
+    pub fn tree(&'a self, root: &'a str, exclude: &[&str]) -> Tree {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if !include.is_empty() && !include.iter().any(|x| ns.starts_with(x)) {
-                continue
-            }
             if exclude.iter().any(|x| ns.starts_with(x)) {
                 continue;
             }
@@ -233,6 +231,7 @@ impl<'a> Reader<'a> {
     // Hash functions for fast type lookup
     //
 
+    // TODO: use filter: &Filter here?
     pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
         self.types.get(namespace).map(|types| types.values().flatten().copied()).into_iter().flatten()
     }

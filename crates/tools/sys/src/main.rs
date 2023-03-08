@@ -1,11 +1,6 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const INCLUDE_NAMESPACES: [&str; 2] = [
-    "Windows.Win32",
-    "Windows.Wdk",
-];
-
 /// Namespaces to exclude from code generation for the `windows-sys` crate.
 const EXCLUDE_NAMESPACES: [&str; 28] = [
     "Windows.Win32.AI.MachineLearning",
@@ -61,11 +56,13 @@ fn main() {
     let files = metadata::reader::File::with_default(&[]).unwrap();
     let reader = &metadata::reader::Reader::new(&files);
     if !namespace.is_empty() {
-        let tree = reader.tree(&namespace, &[], &[]);
+        let tree = reader.tree(&namespace, &[]);
         gen_tree(reader, &output, &tree, rustfmt);
         return;
     }
-    let root = reader.tree("Windows", &INCLUDE_NAMESPACES, &EXCLUDE_NAMESPACES);
+    let win32 = reader.tree("Windows.Win32", &EXCLUDE_NAMESPACES);
+    let wdk = reader.tree("Windows.Wdk", &EXCLUDE_NAMESPACES);
+    let root = metadata::reader::Tree { namespace: "Windows", nested: From::from([("Win32", win32), ("Wdk", wdk)]) };
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
     output.pop();

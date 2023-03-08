@@ -2,7 +2,7 @@ mod imp;
 use super::*;
 
 // Generates an in-memory .winmd file.
-pub fn write(reader: &reader::Reader, name: &str, items: &[Item], ) -> Vec<u8> {
+pub fn write(reader: &reader::Reader, name: &str, items: &[Item]) -> Vec<u8> {
     imp::write(reader, name, items)
 }
 
