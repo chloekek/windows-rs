@@ -34,12 +34,10 @@ const EXCLUDE_NAMESPACES: [&str; 28] = [
 ];
 
 fn main() {
-    let mut rustfmt = true;
     let mut expect_namespace = false;
     let mut namespace = String::new();
     for arg in std::env::args() {
         match arg.as_str() {
-            "-p" => rustfmt = false,
             "-n" => expect_namespace = true,
             _ => {
                 if expect_namespace {
@@ -57,14 +55,14 @@ fn main() {
     let reader = &metadata::reader::Reader::new(&files);
     if !namespace.is_empty() {
         let tree = reader.tree(&namespace, &[]);
-        gen_tree(reader, &output, &tree, rustfmt);
+        gen_tree(reader, &output, &tree);
         return;
     }
     let win32 = reader.tree("Windows.Win32", &EXCLUDE_NAMESPACES);
     let wdk = reader.tree("Windows.Wdk", &EXCLUDE_NAMESPACES);
     let root = metadata::reader::Tree { namespace: "Windows", nested: From::from([("Win32", win32), ("Wdk", wdk)]) };
     let trees = root.flatten();
-    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
+    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
     output.pop();
     output.push("Cargo.toml");
     let mut file = std::fs::File::create(&output).unwrap();
@@ -112,7 +110,7 @@ default = []
     }
 }
 
-fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree, rustfmt: bool) {
+fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
@@ -124,6 +122,6 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.cfg = true;
     gen.doc = true;
     let mut tokens = bindgen::namespace(&gen, tree);
-    lib::format(tree.namespace, &mut tokens, rustfmt);
+    lib::format(tree.namespace, &mut tokens);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
 }
