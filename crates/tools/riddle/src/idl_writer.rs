@@ -47,7 +47,6 @@ fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree, filter:
             }
         }
     } else {
-        println!("skipping {}", tree.namespace);
         quote::quote! {}
     }
 }

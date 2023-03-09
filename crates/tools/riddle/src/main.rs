@@ -191,16 +191,13 @@ fn read_input(input: Vec<String>, verbose: bool) -> ToolResult<Vec<reader::File>
     let mut files = vec![];
 
     for input in &input {
+        if verbose {
+            println!("     Input {}", display_path(input));
+        }
+        
         if input.ends_with("winmd") {
-            if verbose {
-                println!("   Include {}", display_path(input));
-            }
-
             files.push(reader::File::new(input).map_err(|_| format!("failed to read `{}`", display_path(input)))?);
         } else {
-            if verbose {
-                println!("   Convert {}", display_path(input));
-            }
             files.push(write_temp_winmd(input)?);
         }
     }
