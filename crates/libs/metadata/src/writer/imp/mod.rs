@@ -91,7 +91,11 @@ pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item]) -> Vec<u
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
                 }
-                Item::TypeDef(_ty) => {}
+                Item::TypeDef(ty) => {
+                    strings.insert(reader.type_def_namespace(*ty));
+                    strings.insert(reader.type_def_name(*ty));
+                    // TODO: add field names and blobs
+                }
             }
         }
 
@@ -196,7 +200,17 @@ pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item]) -> Vec<u
                         MethodList: tables.MethodDef.len() as _,
                     });
                 }
-                Item::TypeDef(_ty) => {}
+                Item::TypeDef(ty) => {
+                    let flags = reader.type_def_flags(*ty);
+                    tables.TypeDef.push(tables::TypeDef {
+                        Flags: flags.0,
+                        TypeName: strings.index(&reader.type_def_name(*ty)),
+                        TypeNamespace: strings.index(&reader.type_def_namespace(*ty)),
+                        Extends: TypeDefOrRef::TypeRef(value_type).encode(), 
+                        FieldList: tables.Field.len() as _,
+                        MethodList: tables.MethodDef.len() as _,
+                    });
+                }
             }
         }
 
