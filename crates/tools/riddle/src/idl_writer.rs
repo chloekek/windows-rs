@@ -26,12 +26,12 @@ pub fn format(idl: &str) -> Option<String> {
     String::from_utf8(output.stdout).ok()
 }
 
-pub fn write(reader: &reader::Reader, filter: &Filter) -> ToolResult<Vec<u8>> {
-    let buffer = tree_to_idl(reader, "", &reader.tree("", &[]), filter).to_string();
+pub fn write(reader: &reader::Reader, filter: &reader::Filter) -> ToolResult<Vec<u8>> {
+    let buffer = tree_to_idl(reader, "", &reader.tree("", filter), filter).to_string();
     Ok(format(buffer.as_str()).expect("format failed").into_bytes())
 }
 
-fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree, filter: &Filter) -> proc_macro2::TokenStream {
+fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree, filter: &reader::Filter) -> proc_macro2::TokenStream {
     if name.is_empty() {
         let nested = tree.nested.iter().map(|(name, tree)| tree_to_idl(reader, name, tree, filter));
         quote::quote! { #(#nested)* }

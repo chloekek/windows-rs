@@ -1,6 +1,7 @@
 mod blob;
 mod codes;
 mod file;
+mod filter;
 mod guid;
 mod row;
 mod tree;
@@ -11,6 +12,7 @@ pub use super::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;
+pub use filter::*;
 pub use guid::*;
 pub use r#type::*;
 pub use row::*;
@@ -211,14 +213,12 @@ impl<'a> Reader<'a> {
         }
         Self { files, types, nested }
     }
-    // TODO: use filter: &Filter here?
-    pub fn tree(&'a self, root: &'a str, exclude: &[&str]) -> Tree {
+    pub fn tree(&'a self, root: &'a str, filter: &Filter) -> Tree {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if exclude.iter().any(|x| ns.starts_with(x)) {
-                continue;
+            if filter.includes_namespace(ns) {
+                tree.insert_namespace(ns, 0);
             }
-            tree.insert_namespace(ns, 0);
         }
         if root.is_empty() {
             tree

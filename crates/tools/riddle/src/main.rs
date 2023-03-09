@@ -1,7 +1,5 @@
 // mod idl_reader;
-mod filter;
 mod idl_writer;
-use filter::Filter;
 use metadata::{reader, writer};
 
 enum ArgKind {
@@ -124,7 +122,7 @@ Options:
         std::fs::create_dir_all(parent).map_err(|_| format!("failed to create directory for `{output}`"))?;
     }
 
-    let filter = Filter::new(&include, &exclude);
+    let filter = reader::Filter::new(&include, &exclude);
     let input = read_input(input, verbose)?;
     let reader = reader::Reader::new(&input);
     let file_name = output_path.file_name().unwrap().to_string_lossy().to_string();
@@ -194,7 +192,7 @@ fn read_input(input: Vec<String>, verbose: bool) -> ToolResult<Vec<reader::File>
         if verbose {
             println!("     Input {}", display_path(input));
         }
-        
+
         if input.ends_with("winmd") {
             files.push(reader::File::new(input).map_err(|_| format!("failed to read `{}`", display_path(input)))?);
         } else {
@@ -220,7 +218,7 @@ fn write_temp_winmd(_input: &str) -> ToolResult<reader::File> {
     todo!()
 }
 
-fn write_output_winmd(reader: &reader::Reader, filename: &str, _filter: &Filter) -> ToolResult<Vec<u8>> {
+fn write_output_winmd(reader: &reader::Reader, filename: &str, _filter: &reader::Filter) -> ToolResult<Vec<u8>> {
     // TODO: filter and validate metadata before writing final .winmd file.
     // Validation can use source file attributes if present to provide richer diagnostics.
 

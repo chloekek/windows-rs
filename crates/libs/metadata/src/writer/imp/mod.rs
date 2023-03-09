@@ -204,9 +204,9 @@ pub fn write(reader: &reader::Reader, name: &str, definitions: &[Item]) -> Vec<u
                     let flags = reader.type_def_flags(*ty);
                     tables.TypeDef.push(tables::TypeDef {
                         Flags: flags.0,
-                        TypeName: strings.index(&reader.type_def_name(*ty)),
-                        TypeNamespace: strings.index(&reader.type_def_namespace(*ty)),
-                        Extends: TypeDefOrRef::TypeRef(value_type).encode(), 
+                        TypeName: strings.index(reader.type_def_name(*ty)),
+                        TypeNamespace: strings.index(reader.type_def_namespace(*ty)),
+                        Extends: TypeDefOrRef::TypeRef(value_type).encode(),
                         FieldList: tables.Field.len() as _,
                         MethodList: tables.MethodDef.len() as _,
                     });
