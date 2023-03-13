@@ -1376,12 +1376,9 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsCharSpaceA<P0>(wch: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::windows::core::IntoParam<super::super::Foundation::CHAR>,
-{
-    ::windows::imp::link ! ( "shlwapi.dll""system" fn IsCharSpaceA ( wch : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
-    IsCharSpaceA(wch.into_param().abi())
+pub unsafe fn IsCharSpaceA(wch: u8) -> super::super::Foundation::BOOL {
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn IsCharSpaceA ( wch : u8 ) -> super::super::Foundation:: BOOL );
+    IsCharSpaceA(wch)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3817,8 +3814,8 @@ where
     let mut result__ = ::windows::core::zeroed::<u32>();
     SHGetDriveMedia(pszdrive.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SHGetFileInfoA<P0>(pszpath: P0, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: ::core::option::Option<*mut SHFILEINFOA>, cbfileinfo: u32, uflags: SHGFI_FLAGS) -> usize
 where
@@ -5176,11 +5173,10 @@ where
     let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
     SHStrDupW(psz.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn SHStripMneumonicA(pszmenu: ::windows::core::PSTR) -> super::super::Foundation::CHAR {
-    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHStripMneumonicA ( pszmenu : :: windows::core::PSTR ) -> super::super::Foundation:: CHAR );
+pub unsafe fn SHStripMneumonicA(pszmenu: ::windows::core::PSTR) -> u8 {
+    ::windows::imp::link ! ( "shlwapi.dll""system" fn SHStripMneumonicA ( pszmenu : :: windows::core::PSTR ) -> u8 );
     SHStripMneumonicA(::core::mem::transmute(pszmenu))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -47515,6 +47511,39 @@ impl ::core::fmt::Debug for ACTIVATEOPTIONS {
         f.debug_tuple("ACTIVATEOPTIONS").field(&self.0).finish()
     }
 }
+impl ACTIVATEOPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for ACTIVATEOPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ACTIVATEOPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ACTIVATEOPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ACTIVATEOPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ACTIVATEOPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -47542,6 +47571,39 @@ impl ::windows::core::TypeKind for ADJACENT_DISPLAY_EDGES {
 impl ::core::fmt::Debug for ADJACENT_DISPLAY_EDGES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ADJACENT_DISPLAY_EDGES").field(&self.0).finish()
+    }
+}
+impl ADJACENT_DISPLAY_EDGES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for ADJACENT_DISPLAY_EDGES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ADJACENT_DISPLAY_EDGES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ADJACENT_DISPLAY_EDGES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ADJACENT_DISPLAY_EDGES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ADJACENT_DISPLAY_EDGES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -47608,6 +47670,39 @@ impl ::windows::core::TypeKind for AHTYPE {
 impl ::core::fmt::Debug for AHTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AHTYPE").field(&self.0).finish()
+    }
+}
+impl AHTYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for AHTYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AHTYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AHTYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AHTYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AHTYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -48255,6 +48350,39 @@ impl ::core::fmt::Debug for ASSOC_FILTER {
         f.debug_tuple("ASSOC_FILTER").field(&self.0).finish()
     }
 }
+impl ASSOC_FILTER {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for ASSOC_FILTER {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ASSOC_FILTER {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ASSOC_FILTER {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ASSOC_FILTER {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ASSOC_FILTER {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -48618,6 +48746,39 @@ impl ::core::fmt::Debug for CATEGORYINFO_FLAGS {
         f.debug_tuple("CATEGORYINFO_FLAGS").field(&self.0).finish()
     }
 }
+impl CATEGORYINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CATEGORYINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CATEGORYINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CATEGORYINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CATEGORYINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CATEGORYINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -48643,6 +48804,39 @@ impl ::windows::core::TypeKind for CATSORT_FLAGS {
 impl ::core::fmt::Debug for CATSORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CATSORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl CATSORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CATSORT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CATSORT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CATSORT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CATSORT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CATSORT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -48705,6 +48899,39 @@ impl ::core::fmt::Debug for CDCONTROLSTATEF {
         f.debug_tuple("CDCONTROLSTATEF").field(&self.0).finish()
     }
 }
+impl CDCONTROLSTATEF {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CDCONTROLSTATEF {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CDCONTROLSTATEF {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CDCONTROLSTATEF {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CDCONTROLSTATEF {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CDCONTROLSTATEF {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -48730,6 +48957,39 @@ impl ::windows::core::TypeKind for CM_ENUM_FLAGS {
 impl ::core::fmt::Debug for CM_ENUM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CM_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
+impl CM_ENUM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_ENUM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_ENUM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_ENUM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_ENUM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_ENUM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -48763,6 +49023,39 @@ impl ::windows::core::TypeKind for CM_MASK {
 impl ::core::fmt::Debug for CM_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CM_MASK").field(&self.0).finish()
+    }
+}
+impl CM_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -48825,6 +49118,39 @@ impl ::core::fmt::Debug for CM_STATE {
         f.debug_tuple("CM_STATE").field(&self.0).finish()
     }
 }
+impl CM_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -48885,6 +49211,39 @@ impl ::core::fmt::Debug for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
         f.debug_tuple("CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS").field(&self.0).finish()
     }
 }
+impl CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -48918,6 +49277,39 @@ impl ::windows::core::TypeKind for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS 
 impl ::core::fmt::Debug for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS").field(&self.0).finish()
+    }
+}
+impl CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -49184,6 +49576,39 @@ impl ::core::fmt::Debug for DATAOBJ_GET_ITEM_FLAGS {
         f.debug_tuple("DATAOBJ_GET_ITEM_FLAGS").field(&self.0).finish()
     }
 }
+impl DATAOBJ_GET_ITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DATAOBJ_GET_ITEM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DATAOBJ_GET_ITEM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DATAOBJ_GET_ITEM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DATAOBJ_GET_ITEM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DATAOBJ_GET_ITEM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -49256,6 +49681,39 @@ impl ::windows::core::TypeKind for DEFAULT_FOLDER_MENU_RESTRICTIONS {
 impl ::core::fmt::Debug for DEFAULT_FOLDER_MENU_RESTRICTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DEFAULT_FOLDER_MENU_RESTRICTIONS").field(&self.0).finish()
+    }
+}
+impl DEFAULT_FOLDER_MENU_RESTRICTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DEFAULT_FOLDER_MENU_RESTRICTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DEFAULT_FOLDER_MENU_RESTRICTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DEFAULT_FOLDER_MENU_RESTRICTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DEFAULT_FOLDER_MENU_RESTRICTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DEFAULT_FOLDER_MENU_RESTRICTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -49376,6 +49834,39 @@ impl ::core::fmt::Debug for DESKTOP_SLIDESHOW_OPTIONS {
         f.debug_tuple("DESKTOP_SLIDESHOW_OPTIONS").field(&self.0).finish()
     }
 }
+impl DESKTOP_SLIDESHOW_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DESKTOP_SLIDESHOW_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DESKTOP_SLIDESHOW_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DESKTOP_SLIDESHOW_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DESKTOP_SLIDESHOW_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DESKTOP_SLIDESHOW_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -49403,6 +49894,39 @@ impl ::windows::core::TypeKind for DESKTOP_SLIDESHOW_STATE {
 impl ::core::fmt::Debug for DESKTOP_SLIDESHOW_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DESKTOP_SLIDESHOW_STATE").field(&self.0).finish()
+    }
+}
+impl DESKTOP_SLIDESHOW_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DESKTOP_SLIDESHOW_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DESKTOP_SLIDESHOW_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DESKTOP_SLIDESHOW_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DESKTOP_SLIDESHOW_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DESKTOP_SLIDESHOW_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -49635,6 +50159,39 @@ impl ::core::fmt::Debug for DSH_FLAGS {
         f.debug_tuple("DSH_FLAGS").field(&self.0).finish()
     }
 }
+impl DSH_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DSH_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DSH_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DSH_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DSH_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DSH_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -49722,6 +50279,39 @@ impl ::core::fmt::Debug for EXPLORER_BROWSER_FILL_FLAGS {
         f.debug_tuple("EXPLORER_BROWSER_FILL_FLAGS").field(&self.0).finish()
     }
 }
+impl EXPLORER_BROWSER_FILL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for EXPLORER_BROWSER_FILL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EXPLORER_BROWSER_FILL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EXPLORER_BROWSER_FILL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EXPLORER_BROWSER_FILL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EXPLORER_BROWSER_FILL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -49761,6 +50351,39 @@ impl ::windows::core::TypeKind for EXPLORER_BROWSER_OPTIONS {
 impl ::core::fmt::Debug for EXPLORER_BROWSER_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EXPLORER_BROWSER_OPTIONS").field(&self.0).finish()
+    }
+}
+impl EXPLORER_BROWSER_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for EXPLORER_BROWSER_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EXPLORER_BROWSER_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EXPLORER_BROWSER_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EXPLORER_BROWSER_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EXPLORER_BROWSER_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -50085,6 +50708,39 @@ impl ::core::fmt::Debug for FILETYPEATTRIBUTEFLAGS {
         f.debug_tuple("FILETYPEATTRIBUTEFLAGS").field(&self.0).finish()
     }
 }
+impl FILETYPEATTRIBUTEFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for FILETYPEATTRIBUTEFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FILETYPEATTRIBUTEFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FILETYPEATTRIBUTEFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FILETYPEATTRIBUTEFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FILETYPEATTRIBUTEFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -50110,6 +50766,39 @@ impl ::windows::core::TypeKind for FILE_OPERATION_FLAGS2 {
 impl ::core::fmt::Debug for FILE_OPERATION_FLAGS2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILE_OPERATION_FLAGS2").field(&self.0).finish()
+    }
+}
+impl FILE_OPERATION_FLAGS2 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for FILE_OPERATION_FLAGS2 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FILE_OPERATION_FLAGS2 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FILE_OPERATION_FLAGS2 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FILE_OPERATION_FLAGS2 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FILE_OPERATION_FLAGS2 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -50263,6 +50952,39 @@ impl ::core::fmt::Debug for FOLDERFLAGS {
         f.debug_tuple("FOLDERFLAGS").field(&self.0).finish()
     }
 }
+impl FOLDERFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for FOLDERFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FOLDERFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FOLDERFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FOLDERFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FOLDERFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -50384,6 +51106,39 @@ impl ::core::fmt::Debug for FOLDERVIEWOPTIONS {
         f.debug_tuple("FOLDERVIEWOPTIONS").field(&self.0).finish()
     }
 }
+impl FOLDERVIEWOPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for FOLDERVIEWOPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FOLDERVIEWOPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FOLDERVIEWOPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FOLDERVIEWOPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FOLDERVIEWOPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -50495,19 +51250,19 @@ impl ::core::fmt::Debug for HELP_INFO_TYPE {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HLBWIF_FLAGS(pub u32);
+pub struct HLBWIF_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLBWIF_HASFRAMEWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(1u32);
+pub const HLBWIF_HASFRAMEWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLBWIF_HASDOCWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(2u32);
+pub const HLBWIF_HASDOCWNDINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLBWIF_FRAMEWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(4u32);
+pub const HLBWIF_FRAMEWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLBWIF_DOCWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(8u32);
+pub const HLBWIF_DOCWNDMAXIMIZED: HLBWIF_FLAGS = HLBWIF_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLBWIF_HASWEBTOOLBARINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(16u32);
+pub const HLBWIF_HASWEBTOOLBARINFO: HLBWIF_FLAGS = HLBWIF_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLBWIF_WEBTOOLBARHIDDEN: HLBWIF_FLAGS = HLBWIF_FLAGS(32u32);
+pub const HLBWIF_WEBTOOLBARHIDDEN: HLBWIF_FLAGS = HLBWIF_FLAGS(32i32);
 impl ::core::marker::Copy for HLBWIF_FLAGS {}
 impl ::core::clone::Clone for HLBWIF_FLAGS {
     fn clone(&self) -> Self {
@@ -50563,17 +51318,17 @@ impl ::core::ops::Not for HLBWIF_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HLFNAMEF(pub u32);
+pub struct HLFNAMEF(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLFNAMEF_DEFAULT: HLFNAMEF = HLFNAMEF(0u32);
+pub const HLFNAMEF_DEFAULT: HLFNAMEF = HLFNAMEF(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLFNAMEF_TRYCACHE: HLFNAMEF = HLFNAMEF(1u32);
+pub const HLFNAMEF_TRYCACHE: HLFNAMEF = HLFNAMEF(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLFNAMEF_TRYPRETTYTARGET: HLFNAMEF = HLFNAMEF(2u32);
+pub const HLFNAMEF_TRYPRETTYTARGET: HLFNAMEF = HLFNAMEF(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLFNAMEF_TRYFULLTARGET: HLFNAMEF = HLFNAMEF(4u32);
+pub const HLFNAMEF_TRYFULLTARGET: HLFNAMEF = HLFNAMEF(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const HLFNAMEF_TRYWIN95SHORTCUT: HLFNAMEF = HLFNAMEF(8u32);
+pub const HLFNAMEF_TRYWIN95SHORTCUT: HLFNAMEF = HLFNAMEF(8i32);
 impl ::core::marker::Copy for HLFNAMEF {}
 impl ::core::clone::Clone for HLFNAMEF {
     fn clone(&self) -> Self {
@@ -51021,6 +51776,39 @@ impl ::core::fmt::Debug for HOMEGROUPSHARINGCHOICES {
         f.debug_tuple("HOMEGROUPSHARINGCHOICES").field(&self.0).finish()
     }
 }
+impl HOMEGROUPSHARINGCHOICES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for HOMEGROUPSHARINGCHOICES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HOMEGROUPSHARINGCHOICES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HOMEGROUPSHARINGCHOICES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HOMEGROUPSHARINGCHOICES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HOMEGROUPSHARINGCHOICES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -51250,6 +52038,39 @@ impl ::core::fmt::Debug for KNOWN_FOLDER_FLAG {
         f.debug_tuple("KNOWN_FOLDER_FLAG").field(&self.0).finish()
     }
 }
+impl KNOWN_FOLDER_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for KNOWN_FOLDER_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KNOWN_FOLDER_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KNOWN_FOLDER_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KNOWN_FOLDER_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KNOWN_FOLDER_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -51306,6 +52127,39 @@ impl ::core::fmt::Debug for LIBRARYMANAGEDIALOGOPTIONS {
         f.debug_tuple("LIBRARYMANAGEDIALOGOPTIONS").field(&self.0).finish()
     }
 }
+impl LIBRARYMANAGEDIALOGOPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for LIBRARYMANAGEDIALOGOPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIBRARYMANAGEDIALOGOPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIBRARYMANAGEDIALOGOPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIBRARYMANAGEDIALOGOPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIBRARYMANAGEDIALOGOPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -51335,6 +52189,39 @@ impl ::core::fmt::Debug for LIBRARYOPTIONFLAGS {
         f.debug_tuple("LIBRARYOPTIONFLAGS").field(&self.0).finish()
     }
 }
+impl LIBRARYOPTIONFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for LIBRARYOPTIONFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIBRARYOPTIONFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIBRARYOPTIONFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIBRARYOPTIONFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIBRARYOPTIONFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -51362,6 +52249,39 @@ impl ::windows::core::TypeKind for LIBRARYSAVEFLAGS {
 impl ::core::fmt::Debug for LIBRARYSAVEFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LIBRARYSAVEFLAGS").field(&self.0).finish()
+    }
+}
+impl LIBRARYSAVEFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for LIBRARYSAVEFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LIBRARYSAVEFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LIBRARYSAVEFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LIBRARYSAVEFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LIBRARYSAVEFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -51677,6 +52597,39 @@ impl ::core::fmt::Debug for NAMESPACEWALKFLAG {
         f.debug_tuple("NAMESPACEWALKFLAG").field(&self.0).finish()
     }
 }
+impl NAMESPACEWALKFLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for NAMESPACEWALKFLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NAMESPACEWALKFLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NAMESPACEWALKFLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NAMESPACEWALKFLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NAMESPACEWALKFLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -51906,6 +52859,39 @@ impl ::core::fmt::Debug for NSTCFOLDERCAPABILITIES {
         f.debug_tuple("NSTCFOLDERCAPABILITIES").field(&self.0).finish()
     }
 }
+impl NSTCFOLDERCAPABILITIES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for NSTCFOLDERCAPABILITIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NSTCFOLDERCAPABILITIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NSTCFOLDERCAPABILITIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NSTCFOLDERCAPABILITIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NSTCFOLDERCAPABILITIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -51982,6 +52968,39 @@ impl ::core::fmt::Debug for NSTCSTYLE2 {
         f.debug_tuple("NSTCSTYLE2").field(&self.0).finish()
     }
 }
+impl NSTCSTYLE2 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for NSTCSTYLE2 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NSTCSTYLE2 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NSTCSTYLE2 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NSTCSTYLE2 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NSTCSTYLE2 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -52033,6 +53052,39 @@ impl ::core::fmt::Debug for NWMF {
         f.debug_tuple("NWMF").field(&self.0).finish()
     }
 }
+impl NWMF {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for NWMF {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NWMF {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NWMF {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NWMF {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NWMF {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -52061,21 +53113,21 @@ impl ::core::fmt::Debug for NewProcessCauseConstants {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OPEN_AS_INFO_FLAGS(pub u32);
+pub struct OPEN_AS_INFO_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const OAIF_ALLOW_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(1u32);
+pub const OAIF_ALLOW_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const OAIF_REGISTER_EXT: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(2u32);
+pub const OAIF_REGISTER_EXT: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const OAIF_EXEC: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(4u32);
+pub const OAIF_EXEC: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const OAIF_FORCE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(8u32);
+pub const OAIF_FORCE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const OAIF_HIDE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(32u32);
+pub const OAIF_HIDE_REGISTRATION: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(32i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const OAIF_URL_PROTOCOL: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(64u32);
+pub const OAIF_URL_PROTOCOL: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(64i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const OAIF_FILE_IS_URI: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(128u32);
+pub const OAIF_FILE_IS_URI: OPEN_AS_INFO_FLAGS = OPEN_AS_INFO_FLAGS(128i32);
 impl ::core::marker::Copy for OPEN_AS_INFO_FLAGS {}
 impl ::core::clone::Clone for OPEN_AS_INFO_FLAGS {
     fn clone(&self) -> Self {
@@ -53252,13 +54304,13 @@ impl ::core::fmt::Debug for RefreshConstants {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SCALE_CHANGE_FLAGS(pub u32);
+pub struct SCALE_CHANGE_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SCF_VALUE_NONE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(0u32);
+pub const SCF_VALUE_NONE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SCF_SCALE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(1u32);
+pub const SCF_SCALE: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SCF_PHYSICAL: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(2u32);
+pub const SCF_PHYSICAL: SCALE_CHANGE_FLAGS = SCALE_CHANGE_FLAGS(2i32);
 impl ::core::marker::Copy for SCALE_CHANGE_FLAGS {}
 impl ::core::clone::Clone for SCALE_CHANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -54117,6 +55169,39 @@ impl ::windows::core::TypeKind for SHELL_LINK_DATA_FLAGS {
 impl ::core::fmt::Debug for SHELL_LINK_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHELL_LINK_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl SHELL_LINK_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SHELL_LINK_DATA_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SHELL_LINK_DATA_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SHELL_LINK_DATA_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SHELL_LINK_DATA_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SHELL_LINK_DATA_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -55028,6 +56113,39 @@ impl ::core::fmt::Debug for SIATTRIBFLAGS {
         f.debug_tuple("SIATTRIBFLAGS").field(&self.0).finish()
     }
 }
+impl SIATTRIBFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SIATTRIBFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SIATTRIBFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SIATTRIBFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SIATTRIBFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SIATTRIBFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -55178,6 +56296,39 @@ impl ::core::fmt::Debug for SLGP_FLAGS {
         f.debug_tuple("SLGP_FLAGS").field(&self.0).finish()
     }
 }
+impl SLGP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SLGP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SLGP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SLGP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SLGP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SLGP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -55229,6 +56380,39 @@ impl ::windows::core::TypeKind for SLR_FLAGS {
 impl ::core::fmt::Debug for SLR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SLR_FLAGS").field(&self.0).finish()
+    }
+}
+impl SLR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SLR_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SLR_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SLR_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SLR_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SLR_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -55644,6 +56828,39 @@ impl ::core::fmt::Debug for STORAGE_PROVIDER_FILE_FLAGS {
         f.debug_tuple("STORAGE_PROVIDER_FILE_FLAGS").field(&self.0).finish()
     }
 }
+impl STORAGE_PROVIDER_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for STORAGE_PROVIDER_FILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STORAGE_PROVIDER_FILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STORAGE_PROVIDER_FILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STORAGE_PROVIDER_FILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STORAGE_PROVIDER_FILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -55675,6 +56892,39 @@ impl ::windows::core::TypeKind for STPFLAG {
 impl ::core::fmt::Debug for STPFLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("STPFLAG").field(&self.0).finish()
+    }
+}
+impl STPFLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for STPFLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STPFLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STPFLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STPFLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STPFLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -56872,6 +58122,39 @@ impl ::core::fmt::Debug for TBPFLAG {
         f.debug_tuple("TBPFLAG").field(&self.0).finish()
     }
 }
+impl TBPFLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for TBPFLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TBPFLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TBPFLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TBPFLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TBPFLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -56907,6 +58190,39 @@ impl ::core::fmt::Debug for THUMBBUTTONFLAGS {
         f.debug_tuple("THUMBBUTTONFLAGS").field(&self.0).finish()
     }
 }
+impl THUMBBUTTONFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for THUMBBUTTONFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for THUMBBUTTONFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for THUMBBUTTONFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for THUMBBUTTONFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for THUMBBUTTONFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -56936,6 +58252,39 @@ impl ::windows::core::TypeKind for THUMBBUTTONMASK {
 impl ::core::fmt::Debug for THUMBBUTTONMASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("THUMBBUTTONMASK").field(&self.0).finish()
+    }
+}
+impl THUMBBUTTONMASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for THUMBBUTTONMASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for THUMBBUTTONMASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for THUMBBUTTONMASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for THUMBBUTTONMASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for THUMBBUTTONMASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -57058,6 +58407,39 @@ impl ::windows::core::TypeKind for ThumbnailStreamCacheOptions {
 impl ::core::fmt::Debug for ThumbnailStreamCacheOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ThumbnailStreamCacheOptions").field(&self.0).finish()
+    }
+}
+impl ThumbnailStreamCacheOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for ThumbnailStreamCacheOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ThumbnailStreamCacheOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ThumbnailStreamCacheOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ThumbnailStreamCacheOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ThumbnailStreamCacheOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -57395,6 +58777,39 @@ impl ::core::fmt::Debug for VPWATERMARKFLAGS {
         f.debug_tuple("VPWATERMARKFLAGS").field(&self.0).finish()
     }
 }
+impl VPWATERMARKFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for VPWATERMARKFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for VPWATERMARKFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for VPWATERMARKFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for VPWATERMARKFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for VPWATERMARKFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -57453,6 +58868,39 @@ impl ::core::fmt::Debug for WTS_CACHEFLAGS {
         f.debug_tuple("WTS_CACHEFLAGS").field(&self.0).finish()
     }
 }
+impl WTS_CACHEFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WTS_CACHEFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WTS_CACHEFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WTS_CACHEFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WTS_CACHEFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WTS_CACHEFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -57484,6 +58932,39 @@ impl ::windows::core::TypeKind for WTS_CONTEXTFLAGS {
 impl ::core::fmt::Debug for WTS_CONTEXTFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WTS_CONTEXTFLAGS").field(&self.0).finish()
+    }
+}
+impl WTS_CONTEXTFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WTS_CONTEXTFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WTS_CONTEXTFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WTS_CONTEXTFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WTS_CONTEXTFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WTS_CONTEXTFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -57541,6 +59022,39 @@ impl ::windows::core::TypeKind for WTS_FLAGS {
 impl ::core::fmt::Debug for WTS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WTS_FLAGS").field(&self.0).finish()
+    }
+}
+impl WTS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WTS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WTS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WTS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WTS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WTS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -58445,6 +59959,39 @@ impl ::windows::core::TypeKind for _SVGIO {
 impl ::core::fmt::Debug for _SVGIO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_SVGIO").field(&self.0).finish()
+    }
+}
+impl _SVGIO {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for _SVGIO {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for _SVGIO {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for _SVGIO {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for _SVGIO {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for _SVGIO {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -60294,26 +61841,21 @@ impl ::core::default::Default for DROPFILES {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
-    pub szDarwinID: [super::super::Foundation::CHAR; 260],
+    pub szDarwinID: [u8; 260],
     pub szwDarwinID: [u16; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXP_DARWIN_LINK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXP_DARWIN_LINK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for EXP_DARWIN_LINK {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EXP_DARWIN_LINK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -60363,27 +61905,22 @@ impl ::core::default::Default for EXP_SPECIAL_FOLDER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct EXP_SZ_LINK {
     pub cbSize: u32,
     pub dwSignature: u32,
-    pub szTarget: [super::super::Foundation::CHAR; 260],
+    pub szTarget: [u8; 260],
     pub swzTarget: [u16; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXP_SZ_LINK {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXP_SZ_LINK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for EXP_SZ_LINK {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EXP_SZ_LINK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -60435,7 +61972,7 @@ pub struct FILEDESCRIPTORA {
     pub ftLastWriteTime: super::super::Foundation::FILETIME,
     pub nFileSizeHigh: u32,
     pub nFileSizeLow: u32,
-    pub cFileName: [super::super::Foundation::CHAR; 260],
+    pub cFileName: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILEDESCRIPTORA {}
@@ -60695,8 +62232,7 @@ impl ::core::default::Default for HELPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct HELPWININFOA {
     pub wStructSize: i32,
     pub x: i32,
@@ -60704,35 +62240,28 @@ pub struct HELPWININFOA {
     pub dx: i32,
     pub dy: i32,
     pub wMax: i32,
-    pub rgchMember: [super::super::Foundation::CHAR; 2],
+    pub rgchMember: [u8; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HELPWININFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HELPWININFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HELPWININFOA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("HELPWININFOA").field("wStructSize", &self.wStructSize).field("x", &self.x).field("y", &self.y).field("dx", &self.dx).field("dy", &self.dy).field("wMax", &self.wMax).field("rgchMember", &self.rgchMember).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for HELPWININFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HELPWININFOA {
     fn eq(&self, other: &Self) -> bool {
         self.wStructSize == other.wStructSize && self.x == other.x && self.y == other.y && self.dx == other.dx && self.dy == other.dy && self.wMax == other.wMax && self.rgchMember == other.rgchMember
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HELPWININFOA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HELPWININFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -61003,40 +62532,32 @@ impl ::core::default::Default for KNOWNFOLDER_DEFINITION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub struct MULTIKEYHELPA {
     pub mkSize: u32,
-    pub mkKeylist: super::super::Foundation::CHAR,
-    pub szKeyphrase: [super::super::Foundation::CHAR; 1],
+    pub mkKeylist: u8,
+    pub szKeyphrase: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MULTIKEYHELPA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MULTIKEYHELPA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MULTIKEYHELPA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("MULTIKEYHELPA").field("mkSize", &self.mkSize).field("mkKeylist", &self.mkKeylist).field("szKeyphrase", &self.szKeyphrase).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for MULTIKEYHELPA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MULTIKEYHELPA {
     fn eq(&self, other: &Self) -> bool {
         self.mkSize == other.mkSize && self.mkKeylist == other.mkKeylist && self.szKeyphrase == other.szKeyphrase
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MULTIKEYHELPA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MULTIKEYHELPA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -61109,31 +62630,31 @@ impl ::core::default::Default for NC_ADDRESS {
 #[repr(C)]
 pub struct NC_ADDRESS_0(pub u8);
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct NEWCPLINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwHelpContext: u32,
     pub lData: isize,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szName: [super::super::Foundation::CHAR; 32],
-    pub szInfo: [super::super::Foundation::CHAR; 64],
-    pub szHelpFile: [super::super::Foundation::CHAR; 128],
+    pub szName: [u8; 32],
+    pub szInfo: [u8; 64],
+    pub szHelpFile: [u8; 128],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for NEWCPLINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for NEWCPLINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows::core::TypeKind for NEWCPLINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for NEWCPLINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -61181,12 +62702,12 @@ pub struct NOTIFYICONDATAA {
     pub uFlags: NOTIFY_ICON_DATA_FLAGS,
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [super::super::Foundation::CHAR; 128],
+    pub szTip: [u8; 128],
     pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
-    pub szInfo: [super::super::Foundation::CHAR; 256],
+    pub szInfo: [u8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [super::super::Foundation::CHAR; 64],
+    pub szInfoTitle: [u8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
@@ -61254,12 +62775,12 @@ pub struct NOTIFYICONDATAA {
     pub uFlags: NOTIFY_ICON_DATA_FLAGS,
     pub uCallbackMessage: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
-    pub szTip: [super::super::Foundation::CHAR; 128],
+    pub szTip: [u8; 128],
     pub dwState: NOTIFY_ICON_STATE,
     pub dwStateMask: u32,
-    pub szInfo: [super::super::Foundation::CHAR; 256],
+    pub szInfo: [u8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
-    pub szInfoTitle: [super::super::Foundation::CHAR; 64],
+    pub szInfoTitle: [u8; 64],
     pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
     pub guidItem: ::windows::core::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
@@ -63188,66 +64709,66 @@ impl ::core::default::Default for SHELL_ITEM_RESOURCE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
     pub dwAttributes: u32,
-    pub szDisplayName: [super::super::Foundation::CHAR; 260],
-    pub szTypeName: [super::super::Foundation::CHAR; 80],
+    pub szDisplayName: [u8; 260],
+    pub szTypeName: [u8; 80],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for SHFILEINFOA {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for SHFILEINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows::core::TypeKind for SHFILEINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for SHFILEINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
     pub dwAttributes: u32,
-    pub szDisplayName: [super::super::Foundation::CHAR; 260],
-    pub szTypeName: [super::super::Foundation::CHAR; 80],
+    pub szDisplayName: [u8; 260],
+    pub szTypeName: [u8; 80],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for SHFILEINFOA {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for SHFILEINFOA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::windows::core::TypeKind for SHFILEINFOA {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for SHFILEINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -36458,57 +36458,57 @@ impl ::core::fmt::Debug for DBGKD_MAJOR_TYPES {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DBGPROP_ATTRIB_FLAGS(pub u32);
+pub struct DBGPROP_ATTRIB_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_NO_ATTRIB: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(0u32);
+pub const DBGPROP_ATTRIB_NO_ATTRIB: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_IS_INVALID: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8u32);
+pub const DBGPROP_ATTRIB_VALUE_IS_INVALID: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16u32);
+pub const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_IS_FAKE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(32u32);
+pub const DBGPROP_ATTRIB_VALUE_IS_FAKE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(32i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_IS_METHOD: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(256u32);
+pub const DBGPROP_ATTRIB_VALUE_IS_METHOD: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_IS_EVENT: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(512u32);
+pub const DBGPROP_ATTRIB_VALUE_IS_EVENT: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(512i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(1024u32);
+pub const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(1024i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_READONLY: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(2048u32);
+pub const DBGPROP_ATTRIB_VALUE_READONLY: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(2048i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_ACCESS_PUBLIC: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(4096u32);
+pub const DBGPROP_ATTRIB_ACCESS_PUBLIC: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(4096i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8192u32);
+pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8192i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_ACCESS_PROTECTED: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16384u32);
+pub const DBGPROP_ATTRIB_ACCESS_PROTECTED: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16384i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_ACCESS_FINAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(32768u32);
+pub const DBGPROP_ATTRIB_ACCESS_FINAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(32768i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_STORAGE_GLOBAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(65536u32);
+pub const DBGPROP_ATTRIB_STORAGE_GLOBAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(65536i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_STORAGE_STATIC: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(131072u32);
+pub const DBGPROP_ATTRIB_STORAGE_STATIC: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(131072i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_STORAGE_FIELD: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(262144u32);
+pub const DBGPROP_ATTRIB_STORAGE_FIELD: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(262144i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_STORAGE_VIRTUAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(524288u32);
+pub const DBGPROP_ATTRIB_STORAGE_VIRTUAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(524288i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(1048576u32);
+pub const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(1048576i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(2097152u32);
+pub const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(2097152i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(4194304u32);
+pub const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(4194304i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8388608u32);
+pub const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8388608i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16777216u32);
+pub const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16777216i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(33554432u32);
+pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(33554432i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(67108864u32);
+pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(67108864i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(134217728u32);
+pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(134217728i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(268435456u32);
+pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(268435456i32);
 impl ::core::marker::Copy for DBGPROP_ATTRIB_FLAGS {}
 impl ::core::clone::Clone for DBGPROP_ATTRIB_FLAGS {
     fn clone(&self) -> Self {
@@ -36564,25 +36564,25 @@ impl ::core::ops::Not for DBGPROP_ATTRIB_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DBGPROP_INFO(pub u32);
+pub struct DBGPROP_INFO(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_NAME: DBGPROP_INFO = DBGPROP_INFO(1u32);
+pub const DBGPROP_INFO_NAME: DBGPROP_INFO = DBGPROP_INFO(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_TYPE: DBGPROP_INFO = DBGPROP_INFO(2u32);
+pub const DBGPROP_INFO_TYPE: DBGPROP_INFO = DBGPROP_INFO(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_VALUE: DBGPROP_INFO = DBGPROP_INFO(4u32);
+pub const DBGPROP_INFO_VALUE: DBGPROP_INFO = DBGPROP_INFO(4i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_FULLNAME: DBGPROP_INFO = DBGPROP_INFO(32u32);
+pub const DBGPROP_INFO_FULLNAME: DBGPROP_INFO = DBGPROP_INFO(32i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_ATTRIBUTES: DBGPROP_INFO = DBGPROP_INFO(8u32);
+pub const DBGPROP_INFO_ATTRIBUTES: DBGPROP_INFO = DBGPROP_INFO(8i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_DEBUGPROP: DBGPROP_INFO = DBGPROP_INFO(16u32);
+pub const DBGPROP_INFO_DEBUGPROP: DBGPROP_INFO = DBGPROP_INFO(16i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_BEAUTIFY: DBGPROP_INFO = DBGPROP_INFO(33554432u32);
+pub const DBGPROP_INFO_BEAUTIFY: DBGPROP_INFO = DBGPROP_INFO(33554432i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_CALLTOSTRING: DBGPROP_INFO = DBGPROP_INFO(67108864u32);
+pub const DBGPROP_INFO_CALLTOSTRING: DBGPROP_INFO = DBGPROP_INFO(67108864i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const DBGPROP_INFO_AUTOEXPAND: DBGPROP_INFO = DBGPROP_INFO(134217728u32);
+pub const DBGPROP_INFO_AUTOEXPAND: DBGPROP_INFO = DBGPROP_INFO(134217728i32);
 impl ::core::marker::Copy for DBGPROP_INFO {}
 impl ::core::clone::Clone for DBGPROP_INFO {
     fn clone(&self) -> Self {
@@ -38829,61 +38829,61 @@ impl ::core::fmt::Debug for MINIDUMP_THREAD_INFO_DUMP_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MINIDUMP_TYPE(pub u32);
+pub struct MINIDUMP_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpNormal: MINIDUMP_TYPE = MINIDUMP_TYPE(0u32);
+pub const MiniDumpNormal: MINIDUMP_TYPE = MINIDUMP_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithDataSegs: MINIDUMP_TYPE = MINIDUMP_TYPE(1u32);
+pub const MiniDumpWithDataSegs: MINIDUMP_TYPE = MINIDUMP_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithFullMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(2u32);
+pub const MiniDumpWithFullMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithHandleData: MINIDUMP_TYPE = MINIDUMP_TYPE(4u32);
+pub const MiniDumpWithHandleData: MINIDUMP_TYPE = MINIDUMP_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpFilterMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(8u32);
+pub const MiniDumpFilterMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(8i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpScanMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(16u32);
+pub const MiniDumpScanMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(16i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithUnloadedModules: MINIDUMP_TYPE = MINIDUMP_TYPE(32u32);
+pub const MiniDumpWithUnloadedModules: MINIDUMP_TYPE = MINIDUMP_TYPE(32i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithIndirectlyReferencedMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(64u32);
+pub const MiniDumpWithIndirectlyReferencedMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(64i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpFilterModulePaths: MINIDUMP_TYPE = MINIDUMP_TYPE(128u32);
+pub const MiniDumpFilterModulePaths: MINIDUMP_TYPE = MINIDUMP_TYPE(128i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithProcessThreadData: MINIDUMP_TYPE = MINIDUMP_TYPE(256u32);
+pub const MiniDumpWithProcessThreadData: MINIDUMP_TYPE = MINIDUMP_TYPE(256i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithPrivateReadWriteMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(512u32);
+pub const MiniDumpWithPrivateReadWriteMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(512i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithoutOptionalData: MINIDUMP_TYPE = MINIDUMP_TYPE(1024u32);
+pub const MiniDumpWithoutOptionalData: MINIDUMP_TYPE = MINIDUMP_TYPE(1024i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithFullMemoryInfo: MINIDUMP_TYPE = MINIDUMP_TYPE(2048u32);
+pub const MiniDumpWithFullMemoryInfo: MINIDUMP_TYPE = MINIDUMP_TYPE(2048i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithThreadInfo: MINIDUMP_TYPE = MINIDUMP_TYPE(4096u32);
+pub const MiniDumpWithThreadInfo: MINIDUMP_TYPE = MINIDUMP_TYPE(4096i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithCodeSegs: MINIDUMP_TYPE = MINIDUMP_TYPE(8192u32);
+pub const MiniDumpWithCodeSegs: MINIDUMP_TYPE = MINIDUMP_TYPE(8192i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithoutAuxiliaryState: MINIDUMP_TYPE = MINIDUMP_TYPE(16384u32);
+pub const MiniDumpWithoutAuxiliaryState: MINIDUMP_TYPE = MINIDUMP_TYPE(16384i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithFullAuxiliaryState: MINIDUMP_TYPE = MINIDUMP_TYPE(32768u32);
+pub const MiniDumpWithFullAuxiliaryState: MINIDUMP_TYPE = MINIDUMP_TYPE(32768i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithPrivateWriteCopyMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(65536u32);
+pub const MiniDumpWithPrivateWriteCopyMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(65536i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpIgnoreInaccessibleMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(131072u32);
+pub const MiniDumpIgnoreInaccessibleMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(131072i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithTokenInformation: MINIDUMP_TYPE = MINIDUMP_TYPE(262144u32);
+pub const MiniDumpWithTokenInformation: MINIDUMP_TYPE = MINIDUMP_TYPE(262144i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithModuleHeaders: MINIDUMP_TYPE = MINIDUMP_TYPE(524288u32);
+pub const MiniDumpWithModuleHeaders: MINIDUMP_TYPE = MINIDUMP_TYPE(524288i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpFilterTriage: MINIDUMP_TYPE = MINIDUMP_TYPE(1048576u32);
+pub const MiniDumpFilterTriage: MINIDUMP_TYPE = MINIDUMP_TYPE(1048576i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithAvxXStateContext: MINIDUMP_TYPE = MINIDUMP_TYPE(2097152u32);
+pub const MiniDumpWithAvxXStateContext: MINIDUMP_TYPE = MINIDUMP_TYPE(2097152i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpWithIptTrace: MINIDUMP_TYPE = MINIDUMP_TYPE(4194304u32);
+pub const MiniDumpWithIptTrace: MINIDUMP_TYPE = MINIDUMP_TYPE(4194304i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpScanInaccessiblePartialPages: MINIDUMP_TYPE = MINIDUMP_TYPE(8388608u32);
+pub const MiniDumpScanInaccessiblePartialPages: MINIDUMP_TYPE = MINIDUMP_TYPE(8388608i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpFilterWriteCombinedMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(16777216u32);
+pub const MiniDumpFilterWriteCombinedMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(16777216i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const MiniDumpValidTypeFlags: MINIDUMP_TYPE = MINIDUMP_TYPE(33554431u32);
+pub const MiniDumpValidTypeFlags: MINIDUMP_TYPE = MINIDUMP_TYPE(33554431i32);
 impl ::core::marker::Copy for MINIDUMP_TYPE {}
 impl ::core::clone::Clone for MINIDUMP_TYPE {
     fn clone(&self) -> Self {
@@ -39197,17 +39197,17 @@ impl ::core::fmt::Debug for PROCESSOR_ARCHITECTURE {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROFILER_EVENT_MASK(pub u32);
+pub struct PROFILER_EVENT_MASK(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(1u32);
+pub const PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(2u32);
+pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(4u32);
+pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(4i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(3u32);
+pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(3i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(7u32);
+pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(7i32);
 impl ::core::marker::Copy for PROFILER_EVENT_MASK {}
 impl ::core::clone::Clone for PROFILER_EVENT_MASK {
     fn clone(&self) -> Self {
@@ -39263,15 +39263,15 @@ impl ::core::ops::Not for PROFILER_EVENT_MASK {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROFILER_HEAP_ENUM_FLAGS(pub u32);
+pub struct PROFILER_HEAP_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(0u32);
+pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(1u32);
+pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(2u32);
+pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(3u32);
+pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(3i32);
 impl ::core::marker::Copy for PROFILER_HEAP_ENUM_FLAGS {}
 impl ::core::clone::Clone for PROFILER_HEAP_ENUM_FLAGS {
     fn clone(&self) -> Self {
@@ -39327,33 +39327,33 @@ impl ::core::ops::Not for PROFILER_HEAP_ENUM_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROFILER_HEAP_OBJECT_FLAGS(pub u32);
+pub struct PROFILER_HEAP_OBJECT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(8u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(16u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(32u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(32i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(64u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(64i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(128u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(128i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(256u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(512u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(512i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1024u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1024i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2048u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2048i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4096u32);
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4096i32);
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_FLAGS {}
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_FLAGS {
     fn clone(&self) -> Self {
@@ -39460,17 +39460,17 @@ impl ::core::fmt::Debug for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(pub u32);
+pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(0u32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(65536u32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(65536i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(131072u32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(131072i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(262144u32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(262144i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(524288u32);
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(524288i32);
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {}
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
     fn clone(&self) -> Self {
@@ -40072,6 +40072,39 @@ impl ::windows::core::TypeKind for SCRIPT_DEBUGGER_OPTIONS {
 impl ::core::fmt::Debug for SCRIPT_DEBUGGER_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SCRIPT_DEBUGGER_OPTIONS").field(&self.0).finish()
+    }
+}
+impl SCRIPT_DEBUGGER_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SCRIPT_DEBUGGER_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCRIPT_DEBUGGER_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCRIPT_DEBUGGER_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCRIPT_DEBUGGER_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCRIPT_DEBUGGER_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -43107,8 +43140,7 @@ impl ::core::default::Default for DEBUG_OFFSET_REGION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
     pub Amd64: DEBUG_PROCESSOR_IDENTIFICATION_AMD64,
@@ -43117,19 +43149,15 @@ pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Arm: DEBUG_PROCESSOR_IDENTIFICATION_ARM,
     pub Arm64: DEBUG_PROCESSOR_IDENTIFICATION_ARM64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ALL {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -43167,204 +43195,164 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEBUG_PROCESSOR_IDENTIFICATION_AMD64").field("Family", &self.Family).field("Model", &self.Model).field("Stepping", &self.Stepping).field("VendorString", &self.VendorString).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     fn eq(&self, other: &Self) -> bool {
         self.Family == other.Family && self.Model == other.Model && self.Stepping == other.Stepping && self.VendorString == other.VendorString
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
     pub Revision: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEBUG_PROCESSOR_IDENTIFICATION_ARM").field("Model", &self.Model).field("Revision", &self.Revision).field("VendorString", &self.VendorString).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     fn eq(&self, other: &Self) -> bool {
         self.Model == other.Model && self.Revision == other.Revision && self.VendorString == other.VendorString
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUG_PROCESSOR_IDENTIFICATION_ARM {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
     pub Revision: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEBUG_PROCESSOR_IDENTIFICATION_ARM64").field("Model", &self.Model).field("Revision", &self.Revision).field("VendorString", &self.VendorString).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn eq(&self, other: &Self) -> bool {
         self.Model == other.Model && self.Revision == other.Revision && self.VendorString == other.VendorString
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Model: u32,
     pub Revision: u32,
     pub Family: u32,
     pub ArchRev: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEBUG_PROCESSOR_IDENTIFICATION_IA64").field("Model", &self.Model).field("Revision", &self.Revision).field("Family", &self.Family).field("ArchRev", &self.ArchRev).field("VendorString", &self.VendorString).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     fn eq(&self, other: &Self) -> bool {
         self.Model == other.Model && self.Revision == other.Revision && self.Family == other.Family && self.ArchRev == other.ArchRev && self.VendorString == other.VendorString
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
     pub Model: u32,
     pub Stepping: u32,
-    pub VendorString: [super::super::super::Foundation::CHAR; 16],
+    pub VendorString: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_PROCESSOR_IDENTIFICATION_X86 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DEBUG_PROCESSOR_IDENTIFICATION_X86").field("Family", &self.Family).field("Model", &self.Model).field("Stepping", &self.Stepping).field("VendorString", &self.VendorString).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn eq(&self, other: &Self) -> bool {
         self.Family == other.Family && self.Model == other.Model && self.Stepping == other.Stepping && self.VendorString == other.VendorString
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUG_PROCESSOR_IDENTIFICATION_X86 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -44135,7 +44123,7 @@ pub struct DUMP_HEADER32 {
     pub BugCheckParameter2: u32,
     pub BugCheckParameter3: u32,
     pub BugCheckParameter4: u32,
-    pub VersionUser: [super::super::super::Foundation::CHAR; 32],
+    pub VersionUser: [u8; 32],
     pub PaeEnabled: u8,
     pub KdSecondaryVersion: u8,
     pub Spare3: [u8; 2],
@@ -44143,7 +44131,7 @@ pub struct DUMP_HEADER32 {
     pub Anonymous: DUMP_HEADER32_0,
     pub ContextRecord: [u8; 1200],
     pub Exception: EXCEPTION_RECORD32,
-    pub Comment: [super::super::super::Foundation::CHAR; 128],
+    pub Comment: [u8; 128],
     pub Attributes: DUMP_FILE_ATTRIBUTES,
     pub BootId: u32,
     pub _reserved0: [u8; 1760],
@@ -44221,7 +44209,7 @@ pub struct DUMP_HEADER64 {
     pub BugCheckParameter2: u64,
     pub BugCheckParameter3: u64,
     pub BugCheckParameter4: u64,
-    pub VersionUser: [super::super::super::Foundation::CHAR; 32],
+    pub VersionUser: [u8; 32],
     pub KdDebuggerDataBlock: u64,
     pub Anonymous: DUMP_HEADER64_0,
     pub ContextRecord: [u8; 3000],
@@ -44229,7 +44217,7 @@ pub struct DUMP_HEADER64 {
     pub DumpType: u32,
     pub RequiredDumpSpace: i64,
     pub SystemTime: i64,
-    pub Comment: [super::super::super::Foundation::CHAR; 128],
+    pub Comment: [u8; 128],
     pub SystemUpTime: i64,
     pub MiniDumpFields: u32,
     pub SecondaryDataState: u32,
@@ -45467,7 +45455,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub BaseOfImage: u32,
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
-    pub FileName: [super::super::super::Foundation::CHAR; 260],
+    pub FileName: [u8; 260],
     pub Reparse: super::super::super::Foundation::BOOLEAN,
     pub hFile: super::super::super::Foundation::HANDLE,
 }
@@ -45518,7 +45506,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub BaseOfImage: u64,
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
-    pub FileName: [super::super::super::Foundation::CHAR; 260],
+    pub FileName: [u8; 260],
     pub Reparse: super::super::super::Foundation::BOOLEAN,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
@@ -45601,9 +45589,8 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
@@ -45611,80 +45598,65 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SelectedSymbol: u32,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_DUPLICATE_SYMBOL {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_DUPLICATE_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_DUPLICATE_SYMBOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_DUPLICATE_SYMBOL").field("SizeOfStruct", &self.SizeOfStruct).field("NumberOfDups", &self.NumberOfDups).field("Symbol", &self.Symbol).field("SelectedSymbol", &self.SelectedSymbol).finish()
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_DUPLICATE_SYMBOL {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.NumberOfDups == other.NumberOfDups && self.Symbol == other.Symbol && self.SelectedSymbol == other.SelectedSymbol
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_DUPLICATE_SYMBOL {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_DUPLICATE_SYMBOL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
     pub Symbol: *mut IMAGEHLP_SYMBOL64,
     pub SelectedSymbol: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_DUPLICATE_SYMBOL64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_DUPLICATE_SYMBOL64").field("SizeOfStruct", &self.SizeOfStruct).field("NumberOfDups", &self.NumberOfDups).field("Symbol", &self.Symbol).field("SelectedSymbol", &self.SelectedSymbol).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL64 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.NumberOfDups == other.NumberOfDups && self.Symbol == other.Symbol && self.SelectedSymbol == other.SelectedSymbol
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_DUPLICATE_SYMBOL64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -45941,9 +45913,8 @@ impl ::core::default::Default for IMAGEHLP_LINEW64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -45952,44 +45923,37 @@ pub struct IMAGEHLP_MODULE {
     pub CheckSum: u32,
     pub NumSyms: u32,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [super::super::super::Foundation::CHAR; 32],
-    pub ImageName: [super::super::super::Foundation::CHAR; 256],
-    pub LoadedImageName: [super::super::super::Foundation::CHAR; 256],
+    pub ModuleName: [u8; 32],
+    pub ImageName: [u8; 256],
+    pub LoadedImageName: [u8; 256],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_MODULE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_MODULE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_MODULE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_MODULE").field("SizeOfStruct", &self.SizeOfStruct).field("BaseOfImage", &self.BaseOfImage).field("ImageSize", &self.ImageSize).field("TimeDateStamp", &self.TimeDateStamp).field("CheckSum", &self.CheckSum).field("NumSyms", &self.NumSyms).field("SymType", &self.SymType).field("ModuleName", &self.ModuleName).field("ImageName", &self.ImageName).field("LoadedImageName", &self.LoadedImageName).finish()
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_MODULE {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_MODULE {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.BaseOfImage == other.BaseOfImage && self.ImageSize == other.ImageSize && self.TimeDateStamp == other.TimeDateStamp && self.CheckSum == other.CheckSum && self.NumSyms == other.NumSyms && self.SymType == other.SymType && self.ModuleName == other.ModuleName && self.ImageName == other.ImageName && self.LoadedImageName == other.LoadedImageName
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_MODULE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_MODULE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -46006,12 +45970,12 @@ pub struct IMAGEHLP_MODULE64 {
     pub CheckSum: u32,
     pub NumSyms: u32,
     pub SymType: SYM_TYPE,
-    pub ModuleName: [super::super::super::Foundation::CHAR; 32],
-    pub ImageName: [super::super::super::Foundation::CHAR; 256],
-    pub LoadedImageName: [super::super::super::Foundation::CHAR; 256],
-    pub LoadedPdbName: [super::super::super::Foundation::CHAR; 256],
+    pub ModuleName: [u8; 32],
+    pub ImageName: [u8; 256],
+    pub LoadedImageName: [u8; 256],
+    pub LoadedPdbName: [u8; 256],
     pub CVSig: u32,
-    pub CVData: [super::super::super::Foundation::CHAR; 780],
+    pub CVData: [u8; 780],
     pub PdbSig: u32,
     pub PdbSig70: ::windows::core::GUID,
     pub PdbAge: u32,
@@ -46392,133 +46356,109 @@ impl ::core::default::Default for IMAGEHLP_STACK_FRAME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL {
     pub SizeOfStruct: u32,
     pub Address: u32,
     pub Size: u32,
     pub Flags: u32,
     pub MaxNameLength: u32,
-    pub Name: [super::super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_SYMBOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_SYMBOL").field("SizeOfStruct", &self.SizeOfStruct).field("Address", &self.Address).field("Size", &self.Size).field("Flags", &self.Flags).field("MaxNameLength", &self.MaxNameLength).field("Name", &self.Name).finish()
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_SYMBOL {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOL {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.Address == other.Address && self.Size == other.Size && self.Flags == other.Flags && self.MaxNameLength == other.MaxNameLength && self.Name == other.Name
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOL {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_SYMBOL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
     pub Size: u32,
     pub Flags: u32,
     pub MaxNameLength: u32,
-    pub Name: [super::super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_SYMBOL64 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_SYMBOL64").field("SizeOfStruct", &self.SizeOfStruct).field("Address", &self.Address).field("Size", &self.Size).field("Flags", &self.Flags).field("MaxNameLength", &self.MaxNameLength).field("Name", &self.Name).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_SYMBOL64 {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOL64 {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.Address == other.Address && self.Size == other.Size && self.Flags == other.Flags && self.MaxNameLength == other.MaxNameLength && self.Name == other.Name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOL64 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_SYMBOL64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
-    pub name: [super::super::super::Foundation::CHAR; 2001],
+    pub name: [u8; 2001],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL64_PACKAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL64_PACKAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_SYMBOL64_PACKAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_SYMBOL64_PACKAGE").field("sym", &self.sym).field("name", &self.name).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_SYMBOL64_PACKAGE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOL64_PACKAGE {
     fn eq(&self, other: &Self) -> bool {
         self.sym == other.sym && self.name == other.name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOL64_PACKAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_SYMBOL64_PACKAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -46673,87 +46613,71 @@ impl ::core::default::Default for IMAGEHLP_SYMBOLW_PACKAGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
-    pub name: [super::super::super::Foundation::CHAR; 2001],
+    pub name: [u8; 2001],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL_PACKAGE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL_PACKAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_SYMBOL_PACKAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_SYMBOL_PACKAGE").field("sym", &self.sym).field("name", &self.name).finish()
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_SYMBOL_PACKAGE {
     type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOL_PACKAGE {
     fn eq(&self, other: &Self) -> bool {
         self.sym == other.sym && self.name == other.name
     }
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOL_PACKAGE {}
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_SYMBOL_PACKAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
     pub r#type: u32,
-    pub file: [super::super::super::Foundation::CHAR; 260],
+    pub file: [u8; 260],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL_SRC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL_SRC {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for IMAGEHLP_SYMBOL_SRC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGEHLP_SYMBOL_SRC").field("sizeofstruct", &self.sizeofstruct).field("type", &self.r#type).field("file", &self.file).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for IMAGEHLP_SYMBOL_SRC {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOL_SRC {
     fn eq(&self, other: &Self) -> bool {
         self.sizeofstruct == other.sizeofstruct && self.r#type == other.r#type && self.file == other.file
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOL_SRC {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_SYMBOL_SRC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52957,44 +52881,36 @@ impl ::core::default::Default for SOURCEFILEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct SRCCODEINFO {
     pub SizeOfStruct: u32,
     pub Key: *mut ::core::ffi::c_void,
     pub ModBase: u64,
-    pub Obj: [super::super::super::Foundation::CHAR; 261],
-    pub FileName: [super::super::super::Foundation::CHAR; 261],
+    pub Obj: [u8; 261],
+    pub FileName: [u8; 261],
     pub LineNumber: u32,
     pub Address: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SRCCODEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SRCCODEINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SRCCODEINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SRCCODEINFO").field("SizeOfStruct", &self.SizeOfStruct).field("Key", &self.Key).field("ModBase", &self.ModBase).field("Obj", &self.Obj).field("FileName", &self.FileName).field("LineNumber", &self.LineNumber).field("Address", &self.Address).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SRCCODEINFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SRCCODEINFO {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.Key == other.Key && self.ModBase == other.ModBase && self.Obj == other.Obj && self.FileName == other.FileName && self.LineNumber == other.LineNumber && self.Address == other.Address
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SRCCODEINFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SRCCODEINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53279,8 +53195,7 @@ impl ::core::default::Default for STACK_SYM_FRAME_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct SYMBOL_INFO {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -53296,17 +53211,14 @@ pub struct SYMBOL_INFO {
     pub Tag: u32,
     pub NameLen: u32,
     pub MaxNameLen: u32,
-    pub Name: [super::super::super::Foundation::CHAR; 1],
+    pub Name: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYMBOL_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYMBOL_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SYMBOL_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SYMBOL_INFO")
@@ -53328,19 +53240,15 @@ impl ::core::fmt::Debug for SYMBOL_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SYMBOL_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYMBOL_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.SizeOfStruct == other.SizeOfStruct && self.TypeIndex == other.TypeIndex && self.Reserved == other.Reserved && self.Index == other.Index && self.Size == other.Size && self.ModBase == other.ModBase && self.Flags == other.Flags && self.Value == other.Value && self.Address == other.Address && self.Register == other.Register && self.Scope == other.Scope && self.Tag == other.Tag && self.NameLen == other.NameLen && self.MaxNameLen == other.MaxNameLen && self.Name == other.Name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SYMBOL_INFO {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SYMBOL_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53442,39 +53350,31 @@ impl ::core::default::Default for SYMBOL_INFO_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
-    pub name: [super::super::super::Foundation::CHAR; 2001],
+    pub name: [u8; 2001],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SYMBOL_INFO_PACKAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SYMBOL_INFO_PACKAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SYMBOL_INFO_PACKAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SYMBOL_INFO_PACKAGE").field("si", &self.si).field("name", &self.name).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for SYMBOL_INFO_PACKAGE {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYMBOL_INFO_PACKAGE {
     fn eq(&self, other: &Self) -> bool {
         self.si == other.si && self.name == other.name
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SYMBOL_INFO_PACKAGE {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SYMBOL_INFO_PACKAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53548,12 +53448,12 @@ impl ::core::default::Default for SYMSRV_EXTENDED_OUTPUT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: u32,
-    pub file: [super::super::super::Foundation::CHAR; 261],
+    pub file: [u8; 261],
     pub stripped: super::super::super::Foundation::BOOL,
     pub timestamp: u32,
     pub size: u32,
-    pub dbgfile: [super::super::super::Foundation::CHAR; 261],
-    pub pdbfile: [super::super::super::Foundation::CHAR; 261],
+    pub dbgfile: [u8; 261],
+    pub pdbfile: [u8; 261],
     pub guid: ::windows::core::GUID,
     pub sig: u32,
     pub age: u32,

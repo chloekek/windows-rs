@@ -36,7 +36,7 @@
 ::windows_sys::core::link ! ( "winhttp.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"] fn WinHttpGetProxyResultEx ( hresolver : *const ::core::ffi::c_void , pproxyresultex : *mut WINHTTP_PROXY_RESULT_EX ) -> u32 );
 ::windows_sys::core::link ! ( "winhttp.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"] fn WinHttpGetProxySettingsVersion ( hsession : *const ::core::ffi::c_void , pdwproxysettingsversion : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "winhttp.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"] fn WinHttpOpen ( pszagentw : :: windows_sys::core::PCWSTR , dwaccesstype : WINHTTP_ACCESS_TYPE , pszproxyw : :: windows_sys::core::PCWSTR , pszproxybypassw : :: windows_sys::core::PCWSTR , dwflags : u32 ) -> *mut ::core::ffi::c_void );
-::windows_sys::core::link ! ( "winhttp.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"] fn WinHttpOpenRequest ( hconnect : *mut ::core::ffi::c_void , pwszverb : :: windows_sys::core::PCWSTR , pwszobjectname : :: windows_sys::core::PCWSTR , pwszversion : :: windows_sys::core::PCWSTR , pwszreferrer : :: windows_sys::core::PCWSTR , ppwszaccepttypes : *mut :: windows_sys::core::PWSTR , dwflags : WINHTTP_OPEN_REQUEST_FLAGS ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "winhttp.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"] fn WinHttpOpenRequest ( hconnect : *mut ::core::ffi::c_void , pwszverb : :: windows_sys::core::PCWSTR , pwszobjectname : :: windows_sys::core::PCWSTR , pwszversion : :: windows_sys::core::PCWSTR , pwszreferrer : :: windows_sys::core::PCWSTR , ppwszaccepttypes : *const :: windows_sys::core::PCWSTR , dwflags : WINHTTP_OPEN_REQUEST_FLAGS ) -> *mut ::core::ffi::c_void );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "winhttp.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`*"] fn WinHttpQueryAuthSchemes ( hrequest : *mut ::core::ffi::c_void , lpdwsupportedschemes : *mut u32 , lpdwfirstscheme : *mut u32 , pdwauthtarget : *mut u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "winhttp.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"] fn WinHttpQueryConnectionGroup ( hinternet : *const ::core::ffi::c_void , pguidconnection : *const :: windows_sys::core::GUID , ullflags : u64 , ppresult : *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT ) -> u32 );
@@ -1354,38 +1354,38 @@ impl ::core::clone::Clone for WINHTTP_CONNECTION_GROUP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self

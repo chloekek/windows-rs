@@ -1236,16 +1236,16 @@ pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_ActivityId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4u32 };
+pub const DEVPKEY_Device_ActivityId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_AdapterLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3u32 };
+pub const DEVPKEY_Device_AdapterLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2u32 };
+pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1u32 };
+pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2631,6 +2631,39 @@ impl ::core::fmt::Debug for AR_STATE {
         f.debug_tuple("AR_STATE").field(&self.0).finish()
     }
 }
+impl AR_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for AR_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AR_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AR_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AR_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AR_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3501,6 +3534,39 @@ impl ::core::fmt::Debug for ORIENTATION_PREFERENCE {
         f.debug_tuple("ORIENTATION_PREFERENCE").field(&self.0).finish()
     }
 }
+impl ORIENTATION_PREFERENCE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for ORIENTATION_PREFERENCE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ORIENTATION_PREFERENCE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ORIENTATION_PREFERENCE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ORIENTATION_PREFERENCE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ORIENTATION_PREFERENCE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4185,25 +4251,25 @@ impl ::core::default::Default for CDDDXGK_REDIRBITMAPPRESENTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_System_Console\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Console\"`*"]
+#[cfg(feature = "Win32_System_Console")]
 pub struct CHAR_IMAGE_INFO {
     pub CharInfo: super::super::System::Console::CHAR_INFO,
     pub FontImageInfo: FONT_IMAGE_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::marker::Copy for CHAR_IMAGE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::clone::Clone for CHAR_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::windows::core::TypeKind for CHAR_IMAGE_INFO {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::default::Default for CHAR_IMAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7619,39 +7685,39 @@ impl ::core::default::Default for FSVIDEO_SCREEN_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_System_Console\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Console\"`*"]
+#[cfg(feature = "Win32_System_Console")]
 pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER {
     pub SrcBuffer: *mut CHAR_IMAGE_INFO,
     pub DestScreen: FSCNTL_SCREEN_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::marker::Copy for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::clone::Clone for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::fmt::Debug for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FSVIDEO_WRITE_TO_FRAME_BUFFER").field("SrcBuffer", &self.SrcBuffer).field("DestScreen", &self.DestScreen).finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::windows::core::TypeKind for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::PartialEq for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         self.SrcBuffer == other.SrcBuffer && self.DestScreen == other.DestScreen
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::cmp::Eq for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::default::Default for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10263,39 +10329,31 @@ impl ::core::default::Default for TYPE1_FONT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub struct VGA_CHAR {
-    pub Char: super::super::Foundation::CHAR,
-    pub Attributes: super::super::Foundation::CHAR,
+    pub Char: u8,
+    pub Attributes: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VGA_CHAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VGA_CHAR {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VGA_CHAR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("VGA_CHAR").field("Char", &self.Char).field("Attributes", &self.Attributes).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for VGA_CHAR {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VGA_CHAR {
     fn eq(&self, other: &Self) -> bool {
         self.Char == other.Char && self.Attributes == other.Attributes
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for VGA_CHAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VGA_CHAR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

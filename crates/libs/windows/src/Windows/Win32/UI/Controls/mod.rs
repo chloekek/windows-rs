@@ -16600,19 +16600,19 @@ impl ::core::fmt::Debug for TA_PROPERTY {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TA_PROPERTY_FLAG(pub u32);
+pub struct TA_PROPERTY_FLAG(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0u32);
+pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(1u32);
+pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(2u32);
+pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(2i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4u32);
+pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8u32);
+pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16u32);
+pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16i32);
 impl ::core::marker::Copy for TA_PROPERTY_FLAG {}
 impl ::core::clone::Clone for TA_PROPERTY_FLAG {
     fn clone(&self) -> Self {
@@ -16721,6 +16721,39 @@ impl ::windows::core::TypeKind for TA_TRANSFORM_FLAG {
 impl ::core::fmt::Debug for TA_TRANSFORM_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TA_TRANSFORM_FLAG").field(&self.0).finish()
+    }
+}
+impl TA_TRANSFORM_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TA_TRANSFORM_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TA_TRANSFORM_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TA_TRANSFORM_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -19526,15 +19559,15 @@ impl ::core::default::Default for BUTTON_SPLITINFO {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CCINFOA {
-    pub szClass: [super::super::Foundation::CHAR; 32],
+    pub szClass: [u8; 32],
     pub flOptions: u32,
-    pub szDesc: [super::super::Foundation::CHAR; 32],
+    pub szDesc: [u8; 32],
     pub cxDefault: u32,
     pub cyDefault: u32,
     pub flStyleDefault: u32,
     pub flExtStyleDefault: u32,
     pub flCtrlTypeMask: u32,
-    pub szTextDefault: [super::super::Foundation::CHAR; 256],
+    pub szTextDefault: [u8; 256],
     pub cStyleFlags: i32,
     pub aStyleFlags: *mut CCSTYLEFLAGA,
     pub lpfnStyle: LPFNCCSTYLEA,
@@ -19639,42 +19672,34 @@ impl ::core::default::Default for CCINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct CCSTYLEA {
     pub flStyle: u32,
     pub flExtStyle: u32,
-    pub szText: [super::super::Foundation::CHAR; 256],
+    pub szText: [u8; 256],
     pub lgid: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CCSTYLEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CCSTYLEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CCSTYLEA {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CCSTYLEA").field("flStyle", &self.flStyle).field("flExtStyle", &self.flExtStyle).field("szText", &self.szText).field("lgid", &self.lgid).field("wReserved1", &self.wReserved1).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::TypeKind for CCSTYLEA {
     type TypeKind = ::windows::core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CCSTYLEA {
     fn eq(&self, other: &Self) -> bool {
         self.flStyle == other.flStyle && self.flExtStyle == other.flExtStyle && self.szText == other.szText && self.lgid == other.lgid && self.wReserved1 == other.wReserved1
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CCSTYLEA {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CCSTYLEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -22173,7 +22198,7 @@ impl ::core::default::Default for NMBCHOTITEM {
 pub struct NMCBEDRAGBEGINA {
     pub hdr: NMHDR,
     pub iItemid: i32,
-    pub szText: [super::super::Foundation::CHAR; 260],
+    pub szText: [u8; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NMCBEDRAGBEGINA {}
@@ -22254,7 +22279,7 @@ pub struct NMCBEENDEDITA {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
     pub iNewSelection: i32,
-    pub szText: [super::super::Foundation::CHAR; 260],
+    pub szText: [u8; 260],
     pub iWhy: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22627,7 +22652,7 @@ pub struct NMDATETIMEFORMATA {
     pub pszFormat: ::windows::core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub pszDisplay: ::windows::core::PCSTR,
-    pub szDisplay: [super::super::Foundation::CHAR; 64],
+    pub szDisplay: [u8; 64],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NMDATETIMEFORMATA {}
@@ -25190,7 +25215,7 @@ impl ::core::default::Default for NMTTCUSTOMDRAW {
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
     pub lpszText: ::windows::core::PSTR,
-    pub szText: [super::super::Foundation::CHAR; 80],
+    pub szText: [u8; 80],
     pub hinst: super::super::Foundation::HINSTANCE,
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,

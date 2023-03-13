@@ -345,16 +345,16 @@ pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_ActivityId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4u32 };
+pub const DEVPKEY_Device_ActivityId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 4 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_AdapterLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3u32 };
+pub const DEVPKEY_Device_AdapterLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 3 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2u32 };
+pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 2 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1u32 };
+pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2314,15 +2314,15 @@ impl ::core::clone::Clone for CDDDXGK_REDIRBITMAPPRESENTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_System_Console\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Console\"`*"]
+#[cfg(feature = "Win32_System_Console")]
 pub struct CHAR_IMAGE_INFO {
     pub CharInfo: super::super::System::Console::CHAR_INFO,
     pub FontImageInfo: FONT_IMAGE_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::marker::Copy for CHAR_IMAGE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::clone::Clone for CHAR_IMAGE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -3891,15 +3891,15 @@ impl ::core::clone::Clone for FSVIDEO_SCREEN_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_System_Console\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Console\"`*"]
+#[cfg(feature = "Win32_System_Console")]
 pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER {
     pub SrcBuffer: *mut CHAR_IMAGE_INFO,
     pub DestScreen: FSCNTL_SCREEN_INFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::marker::Copy for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+#[cfg(feature = "Win32_System_Console")]
 impl ::core::clone::Clone for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -4970,15 +4970,12 @@ impl ::core::clone::Clone for TYPE1_FONT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub struct VGA_CHAR {
-    pub Char: super::super::Foundation::CHAR,
-    pub Attributes: super::super::Foundation::CHAR,
+    pub Char: u8,
+    pub Attributes: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VGA_CHAR {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VGA_CHAR {
     fn clone(&self) -> Self {
         *self

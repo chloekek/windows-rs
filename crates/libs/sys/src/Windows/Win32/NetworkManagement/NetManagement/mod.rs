@@ -5272,16 +5272,13 @@ impl ::core::clone::Clone for ERROR_LOG {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct FLAT_STRING {
     pub MaximumLength: i16,
     pub Length: i16,
-    pub Buffer: [super::super::Foundation::CHAR; 1],
+    pub Buffer: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FLAT_STRING {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FLAT_STRING {
     fn clone(&self) -> Self {
         *self
@@ -5625,11 +5622,11 @@ pub struct NETSETUP_PROVISIONING_PARAMS {
     pub lpMachineAccountOU: ::windows_sys::core::PCWSTR,
     pub lpDcName: ::windows_sys::core::PCWSTR,
     pub dwProvisionOptions: NETSETUP_PROVISION,
-    pub aCertTemplateNames: *mut ::windows_sys::core::PWSTR,
+    pub aCertTemplateNames: *const ::windows_sys::core::PCWSTR,
     pub cCertTemplateNames: u32,
-    pub aMachinePolicyNames: *mut ::windows_sys::core::PWSTR,
+    pub aMachinePolicyNames: *const ::windows_sys::core::PCWSTR,
     pub cMachinePolicyNames: u32,
-    pub aMachinePolicyPaths: *mut ::windows_sys::core::PWSTR,
+    pub aMachinePolicyPaths: *const ::windows_sys::core::PCWSTR,
     pub cMachinePolicyPaths: u32,
     pub lpNetbiosName: ::windows_sys::core::PWSTR,
     pub lpSiteName: ::windows_sys::core::PWSTR,
@@ -5642,14 +5639,11 @@ impl ::core::clone::Clone for NETSETUP_PROVISIONING_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct NETWORK_NAME {
     pub Name: FLAT_STRING,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NETWORK_NAME {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NETWORK_NAME {
     fn clone(&self) -> Self {
         *self

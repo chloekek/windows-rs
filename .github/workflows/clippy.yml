@@ -54,6 +54,8 @@ jobs:
           cargo clippy -p sample_message_box_sys &&
           cargo clippy -p sample_ocr &&
           cargo clippy -p sample_overlapped &&
+          cargo clippy -p sample_privileges &&
+          cargo clippy -p sample_privileges_sys &&
           cargo clippy -p sample_rss &&
           cargo clippy -p sample_simple &&
           cargo clippy -p sample_spellchecker &&
@@ -106,7 +108,6 @@ jobs:
           cargo clippy -p test_reserved &&
           cargo clippy -p test_resources &&
           cargo clippy -p test_return_struct &&
-          cargo clippy -p test_riddle &&
           cargo clippy -p test_simple_component &&
           cargo clippy -p test_string_param &&
           cargo clippy -p test_structs &&

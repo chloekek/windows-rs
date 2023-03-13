@@ -9599,7 +9599,7 @@ impl ::core::clone::Clone for CERT_X942_DH_VALIDATION_PARAMS {
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct CLAIMLIST {
     pub count: u32,
-    pub claims: *mut ::windows_sys::core::PWSTR,
+    pub claims: *const ::windows_sys::core::PCWSTR,
 }
 impl ::core::marker::Copy for CLAIMLIST {}
 impl ::core::clone::Clone for CLAIMLIST {
@@ -11959,7 +11959,7 @@ impl ::core::clone::Clone for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
-    pub rgpwszCNGHashAlgid: *mut ::windows_sys::core::PWSTR,
+    pub rgpwszCNGHashAlgid: *const ::windows_sys::core::PCWSTR,
     pub dwWeakIndex: u32,
 }
 impl ::core::marker::Copy for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {}
@@ -13384,25 +13384,21 @@ impl ::core::clone::Clone for PRIVKEYVER3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct PROV_ENUMALGS {
     pub aiAlgid: u32,
     pub dwBitLen: u32,
     pub dwNameLen: u32,
-    pub szName: [super::super::Foundation::CHAR; 20],
+    pub szName: [u8; 20],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROV_ENUMALGS {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROV_ENUMALGS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub struct PROV_ENUMALGS_EX {
     pub aiAlgid: u32,
     pub dwDefaultLen: u32,
@@ -13410,13 +13406,11 @@ pub struct PROV_ENUMALGS_EX {
     pub dwMaxLen: u32,
     pub dwProtocols: u32,
     pub dwNameLen: u32,
-    pub szName: [super::super::Foundation::CHAR; 20],
+    pub szName: [u8; 20],
     pub dwLongNameLen: u32,
-    pub szLongName: [super::super::Foundation::CHAR; 40],
+    pub szLongName: [u8; 40],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROV_ENUMALGS_EX {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROV_ENUMALGS_EX {
     fn clone(&self) -> Self {
         *self

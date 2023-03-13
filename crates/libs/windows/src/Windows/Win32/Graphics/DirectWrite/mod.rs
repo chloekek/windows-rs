@@ -7288,8 +7288,8 @@ impl IDWriteGdiInterop1 {
     {
         (::windows::core::Interface::vtable(self).GetFontSignature2)(::windows::core::Interface::as_raw(self), font.into_param().abi(), fontsignature).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetMatchingFontsByLOGFONT<P0>(&self, logfont: *const super::Gdi::LOGFONTA, fontset: P0) -> ::windows::core::Result<IDWriteFontSet>
     where
         P0: ::windows::core::IntoParam<IDWriteFontSet>,
@@ -7339,9 +7339,9 @@ pub struct IDWriteGdiInterop1_Vtbl {
     pub GetFontSignature2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, font: *mut ::core::ffi::c_void, fontsignature: *mut super::super::Globalization::FONTSIGNATURE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Globalization"))]
     GetFontSignature2: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
     pub GetMatchingFontsByLOGFONT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfont: *const super::Gdi::LOGFONTA, fontset: *mut ::core::ffi::c_void, filteredset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetMatchingFontsByLOGFONT: usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
@@ -11691,11 +11691,11 @@ pub const FACILITY_DWRITE: u32 = 2200u32;
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DWRITE_AUTOMATIC_FONT_AXES(pub u32);
+pub struct DWRITE_AUTOMATIC_FONT_AXES(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_AUTOMATIC_FONT_AXES_NONE: DWRITE_AUTOMATIC_FONT_AXES = DWRITE_AUTOMATIC_FONT_AXES(0u32);
+pub const DWRITE_AUTOMATIC_FONT_AXES_NONE: DWRITE_AUTOMATIC_FONT_AXES = DWRITE_AUTOMATIC_FONT_AXES(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_AUTOMATIC_FONT_AXES_OPTICAL_SIZE: DWRITE_AUTOMATIC_FONT_AXES = DWRITE_AUTOMATIC_FONT_AXES(1u32);
+pub const DWRITE_AUTOMATIC_FONT_AXES_OPTICAL_SIZE: DWRITE_AUTOMATIC_FONT_AXES = DWRITE_AUTOMATIC_FONT_AXES(1i32);
 impl ::core::marker::Copy for DWRITE_AUTOMATIC_FONT_AXES {}
 impl ::core::clone::Clone for DWRITE_AUTOMATIC_FONT_AXES {
     fn clone(&self) -> Self {
@@ -11910,13 +11910,13 @@ impl ::core::fmt::Debug for DWRITE_FLOW_DIRECTION {
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DWRITE_FONT_AXIS_ATTRIBUTES(pub u32);
+pub struct DWRITE_FONT_AXIS_ATTRIBUTES(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_FONT_AXIS_ATTRIBUTES_NONE: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(0u32);
+pub const DWRITE_FONT_AXIS_ATTRIBUTES_NONE: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_FONT_AXIS_ATTRIBUTES_VARIABLE: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(1u32);
+pub const DWRITE_FONT_AXIS_ATTRIBUTES_VARIABLE: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_FONT_AXIS_ATTRIBUTES_HIDDEN: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(2u32);
+pub const DWRITE_FONT_AXIS_ATTRIBUTES_HIDDEN: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(2i32);
 impl ::core::marker::Copy for DWRITE_FONT_AXIS_ATTRIBUTES {}
 impl ::core::clone::Clone for DWRITE_FONT_AXIS_ATTRIBUTES {
     fn clone(&self) -> Self {
@@ -12389,13 +12389,13 @@ impl ::core::fmt::Debug for DWRITE_FONT_PROPERTY_ID {
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DWRITE_FONT_SIMULATIONS(pub u32);
+pub struct DWRITE_FONT_SIMULATIONS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_FONT_SIMULATIONS_NONE: DWRITE_FONT_SIMULATIONS = DWRITE_FONT_SIMULATIONS(0u32);
+pub const DWRITE_FONT_SIMULATIONS_NONE: DWRITE_FONT_SIMULATIONS = DWRITE_FONT_SIMULATIONS(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_FONT_SIMULATIONS_BOLD: DWRITE_FONT_SIMULATIONS = DWRITE_FONT_SIMULATIONS(1u32);
+pub const DWRITE_FONT_SIMULATIONS_BOLD: DWRITE_FONT_SIMULATIONS = DWRITE_FONT_SIMULATIONS(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_FONT_SIMULATIONS_OBLIQUE: DWRITE_FONT_SIMULATIONS = DWRITE_FONT_SIMULATIONS(2u32);
+pub const DWRITE_FONT_SIMULATIONS_OBLIQUE: DWRITE_FONT_SIMULATIONS = DWRITE_FONT_SIMULATIONS(2i32);
 impl ::core::marker::Copy for DWRITE_FONT_SIMULATIONS {}
 impl ::core::clone::Clone for DWRITE_FONT_SIMULATIONS {
     fn clone(&self) -> Self {
@@ -12615,25 +12615,25 @@ impl ::core::fmt::Debug for DWRITE_FONT_WEIGHT {
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DWRITE_GLYPH_IMAGE_FORMATS(pub u32);
+pub struct DWRITE_GLYPH_IMAGE_FORMATS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_NONE: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(0u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_NONE: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_TRUETYPE: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(1u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_TRUETYPE: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_CFF: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(2u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_CFF: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_COLR: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(4u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_COLR: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_SVG: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(8u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_SVG: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_PNG: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(16u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_PNG: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(16i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_JPEG: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(32u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_JPEG: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(32i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_TIFF: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(64u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_TIFF: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(64i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_GLYPH_IMAGE_FORMATS_PREMULTIPLIED_B8G8R8A8: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(128u32);
+pub const DWRITE_GLYPH_IMAGE_FORMATS_PREMULTIPLIED_B8G8R8A8: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(128i32);
 impl ::core::marker::Copy for DWRITE_GLYPH_IMAGE_FORMATS {}
 impl ::core::clone::Clone for DWRITE_GLYPH_IMAGE_FORMATS {
     fn clone(&self) -> Self {
@@ -14314,11 +14314,11 @@ impl ::core::fmt::Debug for DWRITE_RENDERING_MODE1 {
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DWRITE_SCRIPT_SHAPES(pub u32);
+pub struct DWRITE_SCRIPT_SHAPES(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_SCRIPT_SHAPES_DEFAULT: DWRITE_SCRIPT_SHAPES = DWRITE_SCRIPT_SHAPES(0u32);
+pub const DWRITE_SCRIPT_SHAPES_DEFAULT: DWRITE_SCRIPT_SHAPES = DWRITE_SCRIPT_SHAPES(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-pub const DWRITE_SCRIPT_SHAPES_NO_VISUAL: DWRITE_SCRIPT_SHAPES = DWRITE_SCRIPT_SHAPES(1u32);
+pub const DWRITE_SCRIPT_SHAPES_NO_VISUAL: DWRITE_SCRIPT_SHAPES = DWRITE_SCRIPT_SHAPES(1i32);
 impl ::core::marker::Copy for DWRITE_SCRIPT_SHAPES {}
 impl ::core::clone::Clone for DWRITE_SCRIPT_SHAPES {
     fn clone(&self) -> Self {
