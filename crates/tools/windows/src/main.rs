@@ -5,6 +5,7 @@ use std::io::prelude::*;
 const EXCLUDE_NAMESPACES: [&str; 14] = ["Windows.AI.MachineLearning.Preview", "Windows.ApplicationModel.SocialInfo", "Windows.Devices.AllJoyn", "Windows.Devices.Perception", "Windows.Security.Authentication.Identity.Provider", "Windows.Services.Cortana", "Windows.System.Power.Diagnostics", "Windows.System.Preview", "Windows.UI.Xaml", "Windows.Win32.Interop", "Windows.Win32.System.Diagnostics.Debug.WebApp", "Windows.Win32.System.WinRT.Xaml", "Windows.Win32.Web.MsHtml", "Windows.Win32.UI.Xaml"];
 
 fn main() {
+    let time = std::time::Instant::now();
     let mut expect_namespace = false;
     let mut namespace = String::new();
     for arg in std::env::args() {
@@ -84,10 +85,11 @@ implement = ["windows-implement", "windows-interface"]
             file.write_all(format!("{feature} = []\n").as_bytes()).unwrap();
         }
     }
+
+    println!("  Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
 fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
-    println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
