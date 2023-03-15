@@ -38,7 +38,7 @@ fn tree_to_idl(reader: &reader::Reader, name: &str, tree: &reader::Tree, filter:
     } else if filter.includes_namespace(tree.namespace) {
         let name = to_ident(name);
         let nested = tree.nested.iter().map(|(name, tree)| tree_to_idl(reader, name, tree, filter));
-        let types = reader.namespace_types(tree.namespace).filter(|ty| filter.includes_type(reader, *ty)).map(|ty| type_to_idl(reader, ty));
+        let types = reader.namespace_types(tree.namespace, filter).map(|ty| type_to_idl(reader, ty));
 
         quote::quote! {
             mod #name {

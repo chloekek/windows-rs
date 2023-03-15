@@ -231,9 +231,8 @@ impl<'a> Reader<'a> {
     // Hash functions for fast type lookup
     //
 
-    // TODO: use filter: &Filter here?
-    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types.get(namespace).map(|types| types.values().flatten().copied()).into_iter().flatten()
+    pub fn namespace_types(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = TypeDef> + '_ {
+        self.types.get(namespace).map(move |types| types.values().flatten().copied().filter(move |ty| filter.includes_type(self, *ty))).into_iter().flatten()
     }
     pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
         self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()

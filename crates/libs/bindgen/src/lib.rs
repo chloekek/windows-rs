@@ -41,7 +41,10 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     let mut functions = BTreeMap::<&str, TokenStream>::new();
     let mut types = BTreeMap::<TypeKind, BTreeMap<&str, TokenStream>>::new();
 
-    for def in gen.reader.namespace_types(tree.namespace) {
+    for def in gen
+        .reader
+        .namespace_types(tree.namespace, &Default::default())
+    {
         let type_name = gen.reader.type_def_type_name(def);
         if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
             continue;
@@ -145,7 +148,10 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
-    for def in gen.reader.namespace_types(tree.namespace) {
+    for def in gen
+        .reader
+        .namespace_types(tree.namespace, &Default::default())
+    {
         let type_name = gen.reader.type_def_type_name(def);
         if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
             continue;

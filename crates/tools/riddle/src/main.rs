@@ -227,7 +227,7 @@ fn write_output_winmd(reader: &reader::Reader, filename: &str, _filter: &reader:
 
     let items = vec![];
 
-    // for ty in reader.namespace_types(tree.namespace) {
+    // for ty in reader.namespace_types(tree.namespace, filter) {
     //     items.push(writer::Item::TypeDef(ty));
     // }
 
