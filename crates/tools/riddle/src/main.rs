@@ -218,18 +218,20 @@ fn write_temp_winmd(_input: &str) -> ToolResult<reader::File> {
     todo!()
 }
 
-fn write_output_winmd(reader: &reader::Reader, filename: &str, _filter: &reader::Filter) -> ToolResult<Vec<u8>> {
+fn write_output_winmd(reader: &reader::Reader, filename: &str, filter: &reader::Filter) -> ToolResult<Vec<u8>> {
     // TODO: filter and validate metadata before writing final .winmd file.
     // Validation can use source file attributes if present to provide richer diagnostics.
 
     // Start by roundtrippping a winmd to validate winmd writer.
     // e.g. riddle.exe -input test.winmd -output copy.winmd
 
-    let items = vec![];
+    let mut items = vec![];
 
-    // for ty in reader.namespace_types(tree.namespace, filter) {
-    //     items.push(writer::Item::TypeDef(ty));
-    // }
+    for ns in reader.namespaces(filter) {
+        for ty in reader.namespace_types(ns, filter) {
+            items.push(writer::Item::TypeDef(ty));
+        }
+    }
 
     Ok(writer::write(reader, filename, &items))
 }
