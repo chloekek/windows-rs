@@ -232,7 +232,7 @@ impl<'a> Reader<'a> {
     //
 
     pub fn namespaces(&self, filter: &'a Filter) -> impl Iterator<Item = &str> + '_ {
-        self.types.keys().filter_map(move |ns|filter.includes_namespace(ns).then(|| *ns ))
+        self.types.keys().filter_map(move |ns| filter.includes_namespace(ns).then(|| *ns))
     }
     pub fn namespace_types(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = TypeDef> + '_ {
         self.types.get(namespace).map(move |types| types.values().flatten().copied().filter(move |ty| filter.includes_type(self, *ty))).into_iter().flatten()

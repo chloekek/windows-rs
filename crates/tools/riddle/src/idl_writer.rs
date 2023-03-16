@@ -88,8 +88,15 @@ fn enum_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::Tok
 fn struct_to_idl(reader: &reader::Reader, ty: reader::TypeDef) -> proc_macro2::TokenStream {
     let name = to_ident(reader.type_def_name(ty));
 
+    let fields = reader.type_def_fields(ty).map(|field| {
+        let name = to_ident(reader.field_name(field));
+        quote::quote! { #name: i32 }
+    });
+
     quote::quote! {
-        struct #name {}
+        struct #name {
+            #(#fields),*
+        }
     }
 }
 

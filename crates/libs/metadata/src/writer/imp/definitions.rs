@@ -16,7 +16,8 @@ pub struct StagedDefinitions<'a>(Definitions<'a>);
 impl<'a> Definitions<'a> {
     pub fn insert(&mut self, reader: &'a reader::Reader, item: &'a Item) {
         if self.map.insert(item_type_name(reader, item), Definition { item, index: 0, value_type: item_value_type(item) }).is_some() {
-            panic!("Duplicate type found");
+            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1501
+            // panic!("Duplicate type found");
         }
     }
 
