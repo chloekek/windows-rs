@@ -1,4 +1,4 @@
-#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash)]
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
 pub struct Row {
     pub row: u32,
     pub table: u16,

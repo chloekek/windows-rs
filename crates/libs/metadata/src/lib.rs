@@ -6,8 +6,10 @@ mod bindings;
 mod imp;
 pub mod reader;
 pub mod writer;
+mod r#type;
 
 pub use attributes::*;
+pub use r#type::Type;
 use bindings::*;
 use imp::*;
 use std::io::*;

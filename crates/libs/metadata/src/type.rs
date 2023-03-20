@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub enum Type {
     Void,
     Bool,
@@ -28,14 +28,15 @@ pub enum Type {
     PCWSTR,
     BSTR,
     TypeName,
-    GenericParam(GenericParam),
-    TypeDef((TypeDef, Vec<Self>)),
+    GenericParam(reader::GenericParam),
+    TypeDef((reader::TypeDef, Vec<Self>)),
     MutPtr((Box<Self>, usize)),
     ConstPtr((Box<Self>, usize)),
     Win32Array((Box<Self>, usize)),
     WinrtArray(Box<Self>),
     WinrtArrayRef(Box<Self>),
     WinrtConstRef(Box<Self>),
+    Named((String, String)),
 }
 
 impl Type {

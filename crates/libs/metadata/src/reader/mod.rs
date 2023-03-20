@@ -5,7 +5,6 @@ mod filter;
 mod guid;
 mod row;
 mod tree;
-mod r#type;
 mod type_name;
 
 pub use super::*;
@@ -14,14 +13,13 @@ pub use codes::*;
 pub use file::*;
 pub use filter::*;
 pub use guid::*;
-pub use r#type::*;
 pub use row::*;
 pub use tree::*;
 pub use type_name::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
-        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash)]
+        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
         pub struct $name(pub Row);
     )*)
 }
