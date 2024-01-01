@@ -35,6 +35,14 @@ pub fn wide_trim_end(mut wide: &[u16]) -> &[u16] {
 macro_rules! interface_hierarchy {
     ($child:ty, $parent:ty) => {
         impl ::windows_core::CanInto<$parent> for $child {}
+        impl From<$child> for $parent {
+            #[inline]
+            fn from(other: $child) -> Self {
+                unsafe {
+                    ::std::mem::transmute(other)
+                }
+            }
+        }
     };
     ($child:ty, $first:ty, $($rest:ty),+) => {
         $crate::imp::interface_hierarchy!($child, $first);
